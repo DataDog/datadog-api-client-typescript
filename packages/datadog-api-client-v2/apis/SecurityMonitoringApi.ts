@@ -17,6 +17,8 @@ import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
+import { AnalysisRequest } from "../models/AnalysisRequest";
+import { AnalysisResponse } from "../models/AnalysisResponse";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { AssetType } from "../models/AssetType";
 import { AttachCaseRequest } from "../models/AttachCaseRequest";
@@ -30,6 +32,7 @@ import { CreateCustomFrameworkRequest } from "../models/CreateCustomFrameworkReq
 import { CreateCustomFrameworkResponse } from "../models/CreateCustomFrameworkResponse";
 import { CreateJiraIssueRequestArray } from "../models/CreateJiraIssueRequestArray";
 import { CreateNotificationRuleParameters } from "../models/CreateNotificationRuleParameters";
+import { DefaultRulesetsPerLanguageResponse } from "../models/DefaultRulesetsPerLanguageResponse";
 import { DeleteCustomFrameworkResponse } from "../models/DeleteCustomFrameworkResponse";
 import { DetachCaseRequest } from "../models/DetachCaseRequest";
 import { EntityContextResponse } from "../models/EntityContextResponse";
@@ -39,6 +42,8 @@ import { FindingCaseResponseArray } from "../models/FindingCaseResponseArray";
 import { FindingEvaluation } from "../models/FindingEvaluation";
 import { FindingStatus } from "../models/FindingStatus";
 import { FindingVulnerabilityType } from "../models/FindingVulnerabilityType";
+import { GetAstRequest } from "../models/GetAstRequest";
+import { GetAstResponse } from "../models/GetAstResponse";
 import { GetCustomFrameworkResponse } from "../models/GetCustomFrameworkResponse";
 import { GetFindingResponse } from "../models/GetFindingResponse";
 import { GetIoCIndicatorResponse } from "../models/GetIoCIndicatorResponse";
@@ -60,6 +65,7 @@ import { ListVulnerabilitiesResponse } from "../models/ListVulnerabilitiesRespon
 import { ListVulnerableAssetsResponse } from "../models/ListVulnerableAssetsResponse";
 import { MuteFindingsRequest } from "../models/MuteFindingsRequest";
 import { MuteFindingsResponse } from "../models/MuteFindingsResponse";
+import { NodeTypesResponse } from "../models/NodeTypesResponse";
 import { NotificationRuleResponse } from "../models/NotificationRuleResponse";
 import { NotificationRulesList } from "../models/NotificationRulesList";
 import { PatchNotificationRuleParameters } from "../models/PatchNotificationRuleParameters";
@@ -70,6 +76,8 @@ import { SampleLogGenerationSubscriptionCreateRequest } from "../models/SampleLo
 import { SampleLogGenerationSubscriptionResponse } from "../models/SampleLogGenerationSubscriptionResponse";
 import { SampleLogGenerationSubscriptionsResponse } from "../models/SampleLogGenerationSubscriptionsResponse";
 import { SampleLogGenerationSubscriptionsStatusFilter } from "../models/SampleLogGenerationSubscriptionsStatusFilter";
+import { SastRulesetResponse } from "../models/SastRulesetResponse";
+import { SastRulesetsResponse } from "../models/SastRulesetsResponse";
 import { SBOMComponentLicenseType } from "../models/SBOMComponentLicenseType";
 import { SBOMFormat } from "../models/SBOMFormat";
 import { ScannedAssetsMetadata } from "../models/ScannedAssetsMetadata";
@@ -1392,6 +1400,108 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createStaticAnalysisAst(
+    body: GetAstRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'createStaticAnalysisAst'");
+    if (!_config.unstableOperations["v2.createStaticAnalysisAst"]) {
+      throw new Error(
+        "Unstable operation 'createStaticAnalysisAst' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createStaticAnalysisAst");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/static-analysis/static-analysis-server/get-ast";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.createStaticAnalysisAst")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "GetAstRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createStaticAnalysisServerAnalysis(
+    body: AnalysisRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'createStaticAnalysisServerAnalysis'"
+    );
+    if (!_config.unstableOperations["v2.createStaticAnalysisServerAnalysis"]) {
+      throw new Error(
+        "Unstable operation 'createStaticAnalysisServerAnalysis' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createStaticAnalysisServerAnalysis");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/static-analysis/static-analysis-server/analyze";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.createStaticAnalysisServerAnalysis")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "AnalysisRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -3263,6 +3373,195 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getStaticAnalysisDefaultRulesets(
+    language: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getStaticAnalysisDefaultRulesets'");
+    if (!_config.unstableOperations["v2.getStaticAnalysisDefaultRulesets"]) {
+      throw new Error(
+        "Unstable operation 'getStaticAnalysisDefaultRulesets' is disabled"
+      );
+    }
+
+    // verify required parameter 'language' is not null or undefined
+    if (language === null || language === undefined) {
+      throw new RequiredError("language", "getStaticAnalysisDefaultRulesets");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/static-analysis/default-rulesets/{language}".replace(
+        "{language}",
+        encodeURIComponent(String(language))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getStaticAnalysisDefaultRulesets")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getStaticAnalysisNodeTypes(
+    language: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getStaticAnalysisNodeTypes'");
+    if (!_config.unstableOperations["v2.getStaticAnalysisNodeTypes"]) {
+      throw new Error(
+        "Unstable operation 'getStaticAnalysisNodeTypes' is disabled"
+      );
+    }
+
+    // verify required parameter 'language' is not null or undefined
+    if (language === null || language === undefined) {
+      throw new RequiredError("language", "getStaticAnalysisNodeTypes");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/static-analysis/static-analysis-server/node-types/{language}".replace(
+        "{language}",
+        encodeURIComponent(String(language))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getStaticAnalysisNodeTypes")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getStaticAnalysisRuleset(
+    rulesetName: string,
+    includeTests?: boolean,
+    includeTestingRules?: boolean,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getStaticAnalysisRuleset'");
+    if (!_config.unstableOperations["v2.getStaticAnalysisRuleset"]) {
+      throw new Error(
+        "Unstable operation 'getStaticAnalysisRuleset' is disabled"
+      );
+    }
+
+    // verify required parameter 'rulesetName' is not null or undefined
+    if (rulesetName === null || rulesetName === undefined) {
+      throw new RequiredError("rulesetName", "getStaticAnalysisRuleset");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/static-analysis/rulesets/{ruleset_name}".replace(
+        "{ruleset_name}",
+        encodeURIComponent(String(rulesetName))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getStaticAnalysisRuleset")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (includeTests !== undefined) {
+      requestContext.setQueryParam(
+        "include_tests",
+        ObjectSerializer.serialize(includeTests, "boolean", ""),
+        ""
+      );
+    }
+    if (includeTestingRules !== undefined) {
+      requestContext.setQueryParam(
+        "include_testing_rules",
+        ObjectSerializer.serialize(includeTestingRules, "boolean", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getStaticAnalysisTreeSitterWasm(
+    file: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getStaticAnalysisTreeSitterWasm'");
+    if (!_config.unstableOperations["v2.getStaticAnalysisTreeSitterWasm"]) {
+      throw new Error(
+        "Unstable operation 'getStaticAnalysisTreeSitterWasm' is disabled"
+      );
+    }
+
+    // verify required parameter 'file' is not null or undefined
+    if (file === null || file === undefined) {
+      throw new RequiredError("file", "getStaticAnalysisTreeSitterWasm");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/static-analysis/static-analysis-server/tree-sitter-wasm/{file}".replace(
+        "{file}",
+        encodeURIComponent(String(file))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getStaticAnalysisTreeSitterWasm")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/octet-stream, application/json"
+    );
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getSuggestedActionsMatchingSignal(
     signalId: string,
     _options?: Configuration
@@ -4537,6 +4836,38 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         ""
       );
     }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listStaticAnalysisCodegenRulesets(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listStaticAnalysisCodegenRulesets'");
+    if (!_config.unstableOperations["v2.listStaticAnalysisCodegenRulesets"]) {
+      throw new Error(
+        "Unstable operation 'listStaticAnalysisCodegenRulesets' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/static-analysis/codegen/rulesets";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.listStaticAnalysisCodegenRulesets")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -7869,6 +8200,168 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createStaticAnalysisAst
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createStaticAnalysisAst(
+    response: ResponseContext
+  ): Promise<GetAstResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: GetAstResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GetAstResponse"
+      ) as GetAstResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 401) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: GetAstResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GetAstResponse",
+        ""
+      ) as GetAstResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createStaticAnalysisServerAnalysis
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createStaticAnalysisServerAnalysis(
+    response: ResponseContext
+  ): Promise<AnalysisResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: AnalysisResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "AnalysisResponse"
+      ) as AnalysisResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 401) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AnalysisResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "AnalysisResponse",
+        ""
+      ) as AnalysisResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createVulnerabilityNotificationRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -10432,6 +10925,326 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getStaticAnalysisDefaultRulesets
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getStaticAnalysisDefaultRulesets(
+    response: ResponseContext
+  ): Promise<DefaultRulesetsPerLanguageResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: DefaultRulesetsPerLanguageResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "DefaultRulesetsPerLanguageResponse"
+        ) as DefaultRulesetsPerLanguageResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: DefaultRulesetsPerLanguageResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "DefaultRulesetsPerLanguageResponse",
+          ""
+        ) as DefaultRulesetsPerLanguageResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getStaticAnalysisNodeTypes
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getStaticAnalysisNodeTypes(
+    response: ResponseContext
+  ): Promise<NodeTypesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: NodeTypesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "NodeTypesResponse"
+      ) as NodeTypesResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 401) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: NodeTypesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "NodeTypesResponse",
+        ""
+      ) as NodeTypesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getStaticAnalysisRuleset
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getStaticAnalysisRuleset(
+    response: ResponseContext
+  ): Promise<SastRulesetResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SastRulesetResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SastRulesetResponse"
+      ) as SastRulesetResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SastRulesetResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SastRulesetResponse",
+        ""
+      ) as SastRulesetResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getStaticAnalysisTreeSitterWasm
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getStaticAnalysisTreeSitterWasm(
+    response: ResponseContext
+  ): Promise<HttpFile> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: HttpFile = (await response.getBodyAsFile()) as HttpFile;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 401) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: HttpFile =
+        (await response.getBodyAsFile()) as any as HttpFile;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getSuggestedActionsMatchingSignal
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -11824,6 +12637,87 @@ export class SecurityMonitoringApiResponseProcessor {
           "SecurityMonitoringPaginatedSuppressionsResponse",
           ""
         ) as SecurityMonitoringPaginatedSuppressionsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listStaticAnalysisCodegenRulesets
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listStaticAnalysisCodegenRulesets(
+    response: ResponseContext
+  ): Promise<SastRulesetsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SastRulesetsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SastRulesetsResponse"
+      ) as SastRulesetsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 401) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SastRulesetsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SastRulesetsResponse",
+        ""
+      ) as SastRulesetsResponse;
       return body;
     }
 
@@ -13587,6 +14481,20 @@ export interface SecurityMonitoringApiCreateSignalNotificationRuleRequest {
   body: CreateNotificationRuleParameters;
 }
 
+export interface SecurityMonitoringApiCreateStaticAnalysisAstRequest {
+  /**
+   * @type GetAstRequest
+   */
+  body: GetAstRequest;
+}
+
+export interface SecurityMonitoringApiCreateStaticAnalysisServerAnalysisRequest {
+  /**
+   * @type AnalysisRequest
+   */
+  body: AnalysisRequest;
+}
+
 export interface SecurityMonitoringApiCreateVulnerabilityNotificationRuleRequest {
   /**
    * The body of the create notification rule request is composed of the rule type and the rule attributes:
@@ -14028,6 +14936,48 @@ export interface SecurityMonitoringApiGetSignalNotificationRuleRequest {
    * @type string
    */
   id: string;
+}
+
+export interface SecurityMonitoringApiGetStaticAnalysisDefaultRulesetsRequest {
+  /**
+   * The programming language for which to retrieve the default rulesets.
+   * @type string
+   */
+  language: string;
+}
+
+export interface SecurityMonitoringApiGetStaticAnalysisNodeTypesRequest {
+  /**
+   * The programming language for which to retrieve node type definitions.
+   * @type string
+   */
+  language: string;
+}
+
+export interface SecurityMonitoringApiGetStaticAnalysisRulesetRequest {
+  /**
+   * The name of the ruleset to retrieve.
+   * @type string
+   */
+  rulesetName: string;
+  /**
+   * When true, test cases for each rule are included in the response.
+   * @type boolean
+   */
+  includeTests?: boolean;
+  /**
+   * When true, rules that are in testing mode are included in the response.
+   * @type boolean
+   */
+  includeTestingRules?: boolean;
+}
+
+export interface SecurityMonitoringApiGetStaticAnalysisTreeSitterWasmRequest {
+  /**
+   * The name of the WASM file to download.
+   * @type string
+   */
+  file: string;
 }
 
 export interface SecurityMonitoringApiGetSuggestedActionsMatchingSignalRequest {
@@ -15611,6 +16561,53 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Parse source code into an abstract syntax tree (AST) for the specified language.
+   * @param param The request object
+   */
+  public createStaticAnalysisAst(
+    param: SecurityMonitoringApiCreateStaticAnalysisAstRequest,
+    options?: Configuration
+  ): Promise<GetAstResponse> {
+    const requestContextPromise = this.requestFactory.createStaticAnalysisAst(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createStaticAnalysisAst(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Run static analysis rules against a source code file and return violations found.
+   * @param param The request object
+   */
+  public createStaticAnalysisServerAnalysis(
+    param: SecurityMonitoringApiCreateStaticAnalysisServerAnalysisRequest,
+    options?: Configuration
+  ): Promise<AnalysisResponse> {
+    const requestContextPromise =
+      this.requestFactory.createStaticAnalysisServerAnalysis(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createStaticAnalysisServerAnalysis(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Create a new notification rule for security vulnerabilities and return the created rule.
    * @param param The request object
    */
@@ -16566,6 +17563,97 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Get the default SAST ruleset names for a given programming language.
+   * @param param The request object
+   */
+  public getStaticAnalysisDefaultRulesets(
+    param: SecurityMonitoringApiGetStaticAnalysisDefaultRulesetsRequest,
+    options?: Configuration
+  ): Promise<DefaultRulesetsPerLanguageResponse> {
+    const requestContextPromise =
+      this.requestFactory.getStaticAnalysisDefaultRulesets(
+        param.language,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getStaticAnalysisDefaultRulesets(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Retrieve tree-sitter node type definitions for a given programming language.
+   * @param param The request object
+   */
+  public getStaticAnalysisNodeTypes(
+    param: SecurityMonitoringApiGetStaticAnalysisNodeTypesRequest,
+    options?: Configuration
+  ): Promise<NodeTypesResponse> {
+    const requestContextPromise =
+      this.requestFactory.getStaticAnalysisNodeTypes(param.language, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getStaticAnalysisNodeTypes(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get a SAST ruleset by name, including all its rules.
+   * @param param The request object
+   */
+  public getStaticAnalysisRuleset(
+    param: SecurityMonitoringApiGetStaticAnalysisRulesetRequest,
+    options?: Configuration
+  ): Promise<SastRulesetResponse> {
+    const requestContextPromise = this.requestFactory.getStaticAnalysisRuleset(
+      param.rulesetName,
+      param.includeTests,
+      param.includeTestingRules,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getStaticAnalysisRuleset(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Download the WebAssembly binary for a tree-sitter grammar by file name.
+   * @param param The request object
+   */
+  public getStaticAnalysisTreeSitterWasm(
+    param: SecurityMonitoringApiGetStaticAnalysisTreeSitterWasmRequest,
+    options?: Configuration
+  ): Promise<HttpFile> {
+    const requestContextPromise =
+      this.requestFactory.getStaticAnalysisTreeSitterWasm(param.file, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getStaticAnalysisTreeSitterWasm(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Get the list of suggested actions for a given security signal.
    * @param param The request object
    */
@@ -17399,6 +18487,26 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listSecurityMonitoringSuppressions(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get the rulesets relevant for code generation for the authenticated user.
+   * @param param The request object
+   */
+  public listStaticAnalysisCodegenRulesets(
+    options?: Configuration
+  ): Promise<SastRulesetsResponse> {
+    const requestContextPromise =
+      this.requestFactory.listStaticAnalysisCodegenRulesets(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listStaticAnalysisCodegenRulesets(
             responseContext
           );
         });

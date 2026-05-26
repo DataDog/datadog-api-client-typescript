@@ -1149,6 +1149,8 @@ export {
   SecurityMonitoringApiCreateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiCreateSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiCreateSignalNotificationRuleRequest,
+  SecurityMonitoringApiCreateStaticAnalysisAstRequest,
+  SecurityMonitoringApiCreateStaticAnalysisServerAnalysisRequest,
   SecurityMonitoringApiCreateVulnerabilityNotificationRuleRequest,
   SecurityMonitoringApiDeactivateContentPackRequest,
   SecurityMonitoringApiDeleteCustomFrameworkRequest,
@@ -1187,6 +1189,10 @@ export {
   SecurityMonitoringApiGetSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiGetSignalEntitiesRequest,
   SecurityMonitoringApiGetSignalNotificationRuleRequest,
+  SecurityMonitoringApiGetStaticAnalysisDefaultRulesetsRequest,
+  SecurityMonitoringApiGetStaticAnalysisNodeTypesRequest,
+  SecurityMonitoringApiGetStaticAnalysisRulesetRequest,
+  SecurityMonitoringApiGetStaticAnalysisTreeSitterWasmRequest,
   SecurityMonitoringApiGetSuggestedActionsMatchingSignalRequest,
   SecurityMonitoringApiGetSuppressionVersionHistoryRequest,
   SecurityMonitoringApiGetSuppressionsAffectingFutureRuleRequest,
@@ -1317,17 +1323,31 @@ export {
 } from "./apis/SpansMetricsApi";
 
 export {
+  StaticAnalysisApiCreateAiCustomRuleRequest,
+  StaticAnalysisApiCreateAiCustomRuleRevisionRequest,
+  StaticAnalysisApiCreateAiCustomRulesetRequest,
+  StaticAnalysisApiCreateAiMemoryViolationResultRequest,
   StaticAnalysisApiCreateCustomRuleRequest,
   StaticAnalysisApiCreateCustomRuleRevisionRequest,
+  StaticAnalysisApiCreateCustomRulesetRequest,
   StaticAnalysisApiCreateSCAResolveVulnerableSymbolsRequest,
   StaticAnalysisApiCreateSCAResultRequest,
+  StaticAnalysisApiDeleteAiCustomRuleRequest,
+  StaticAnalysisApiDeleteAiCustomRulesetRequest,
+  StaticAnalysisApiDeleteAiMemoryViolationResultRequest,
   StaticAnalysisApiDeleteCustomRuleRequest,
   StaticAnalysisApiDeleteCustomRulesetRequest,
+  StaticAnalysisApiGetAiCustomRuleRequest,
+  StaticAnalysisApiGetAiCustomRuleRevisionRequest,
+  StaticAnalysisApiGetAiCustomRulesetRequest,
   StaticAnalysisApiGetCustomRuleRequest,
   StaticAnalysisApiGetCustomRuleRevisionRequest,
   StaticAnalysisApiGetCustomRulesetRequest,
+  StaticAnalysisApiListAiCustomRuleRevisionsRequest,
+  StaticAnalysisApiListAiCustomRulesetsRequest,
   StaticAnalysisApiListCustomRuleRevisionsRequest,
   StaticAnalysisApiRevertCustomRuleRevisionRequest,
+  StaticAnalysisApiUpdateAiCustomRulesetRequest,
   StaticAnalysisApiUpdateCustomRulesetRequest,
   StaticAnalysisApi,
 } from "./apis/StaticAnalysisApi";
@@ -1541,6 +1561,45 @@ export { ActiveBillingDimensionsResponse } from "./models/ActiveBillingDimension
 export { ActiveBillingDimensionsType } from "./models/ActiveBillingDimensionsType";
 export { AddMemberTeamRequest } from "./models/AddMemberTeamRequest";
 export { Advisory } from "./models/Advisory";
+export { AiCustomRuleDataType } from "./models/AiCustomRuleDataType";
+export { AiCustomRuleItem } from "./models/AiCustomRuleItem";
+export { AiCustomRuleRequest } from "./models/AiCustomRuleRequest";
+export { AiCustomRuleRequestAttributes } from "./models/AiCustomRuleRequestAttributes";
+export { AiCustomRuleRequestData } from "./models/AiCustomRuleRequestData";
+export { AiCustomRuleResponse } from "./models/AiCustomRuleResponse";
+export { AiCustomRuleResponseData } from "./models/AiCustomRuleResponseData";
+export { AiCustomRuleRevisionDataType } from "./models/AiCustomRuleRevisionDataType";
+export { AiCustomRuleRevisionExecutionMode } from "./models/AiCustomRuleRevisionExecutionMode";
+export { AiCustomRuleRevisionRequest } from "./models/AiCustomRuleRevisionRequest";
+export { AiCustomRuleRevisionRequestAttributes } from "./models/AiCustomRuleRevisionRequestAttributes";
+export { AiCustomRuleRevisionRequestData } from "./models/AiCustomRuleRevisionRequestData";
+export { AiCustomRuleRevisionResponse } from "./models/AiCustomRuleRevisionResponse";
+export { AiCustomRuleRevisionResponseAttributes } from "./models/AiCustomRuleRevisionResponseAttributes";
+export { AiCustomRuleRevisionResponseData } from "./models/AiCustomRuleRevisionResponseData";
+export { AiCustomRuleRevisionsResponse } from "./models/AiCustomRuleRevisionsResponse";
+export { AiCustomRulesetDataType } from "./models/AiCustomRulesetDataType";
+export { AiCustomRulesetRequest } from "./models/AiCustomRulesetRequest";
+export { AiCustomRulesetRequestAttributes } from "./models/AiCustomRulesetRequestAttributes";
+export { AiCustomRulesetRequestData } from "./models/AiCustomRulesetRequestData";
+export { AiCustomRulesetResponse } from "./models/AiCustomRulesetResponse";
+export { AiCustomRulesetResponseAttributes } from "./models/AiCustomRulesetResponseAttributes";
+export { AiCustomRulesetResponseData } from "./models/AiCustomRulesetResponseData";
+export { AiCustomRulesetsResponse } from "./models/AiCustomRulesetsResponse";
+export { AiCustomRulesetUpdateAttributes } from "./models/AiCustomRulesetUpdateAttributes";
+export { AiCustomRulesetUpdateData } from "./models/AiCustomRulesetUpdateData";
+export { AiCustomRulesetUpdateRequest } from "./models/AiCustomRulesetUpdateRequest";
+export { AiMemoryViolationResultDataType } from "./models/AiMemoryViolationResultDataType";
+export { AiMemoryViolationResultRequest } from "./models/AiMemoryViolationResultRequest";
+export { AiMemoryViolationResultRequestAttributes } from "./models/AiMemoryViolationResultRequestAttributes";
+export { AiMemoryViolationResultRequestData } from "./models/AiMemoryViolationResultRequestData";
+export { AiMemoryViolationResultResponseAttributes } from "./models/AiMemoryViolationResultResponseAttributes";
+export { AiMemoryViolationResultResponseData } from "./models/AiMemoryViolationResultResponseData";
+export { AiMemoryViolationResultsResponse } from "./models/AiMemoryViolationResultsResponse";
+export { AiMemoryViolationType } from "./models/AiMemoryViolationType";
+export { AiPromptDataType } from "./models/AiPromptDataType";
+export { AiPromptResponseAttributes } from "./models/AiPromptResponseAttributes";
+export { AiPromptResponseData } from "./models/AiPromptResponseData";
+export { AiPromptsResponse } from "./models/AiPromptsResponse";
 export { AlertEventAttributes } from "./models/AlertEventAttributes";
 export { AlertEventAttributesLinksItem } from "./models/AlertEventAttributesLinksItem";
 export { AlertEventAttributesLinksItemCategory } from "./models/AlertEventAttributesLinksItemCategory";
@@ -1563,6 +1622,21 @@ export { AllocationExposureScheduleDataType } from "./models/AllocationExposureS
 export { AllocationExposureScheduleResponse } from "./models/AllocationExposureScheduleResponse";
 export { AllocationResponse } from "./models/AllocationResponse";
 export { AllocationType } from "./models/AllocationType";
+export { AnalysisEdit } from "./models/AnalysisEdit";
+export { AnalysisEditType } from "./models/AnalysisEditType";
+export { AnalysisFix } from "./models/AnalysisFix";
+export { AnalysisPosition } from "./models/AnalysisPosition";
+export { AnalysisRequest } from "./models/AnalysisRequest";
+export { AnalysisRequestData } from "./models/AnalysisRequestData";
+export { AnalysisRequestDataAttributes } from "./models/AnalysisRequestDataAttributes";
+export { AnalysisRequestDataType } from "./models/AnalysisRequestDataType";
+export { AnalysisRequestRule } from "./models/AnalysisRequestRule";
+export { AnalysisResponse } from "./models/AnalysisResponse";
+export { AnalysisResponseData } from "./models/AnalysisResponseData";
+export { AnalysisResponseDataAttributes } from "./models/AnalysisResponseDataAttributes";
+export { AnalysisResponseDataType } from "./models/AnalysisResponseDataType";
+export { AnalysisRuleResponse } from "./models/AnalysisRuleResponse";
+export { AnalysisViolation } from "./models/AnalysisViolation";
 export { Annotation } from "./models/Annotation";
 export { AnnotationDisplay } from "./models/AnnotationDisplay";
 export { AnnotationDisplayBounds } from "./models/AnnotationDisplayBounds";
@@ -2843,6 +2917,7 @@ export { CustomRuleRevisionTest } from "./models/CustomRuleRevisionTest";
 export { CustomRuleset } from "./models/CustomRuleset";
 export { CustomRulesetAttributes } from "./models/CustomRulesetAttributes";
 export { CustomRulesetDataType } from "./models/CustomRulesetDataType";
+export { CustomRulesetListResponse } from "./models/CustomRulesetListResponse";
 export { CustomRulesetRequest } from "./models/CustomRulesetRequest";
 export { CustomRulesetRequestData } from "./models/CustomRulesetRequestData";
 export { CustomRulesetRequestDataAttributes } from "./models/CustomRulesetRequestDataAttributes";
@@ -2906,6 +2981,10 @@ export { DatastoreTriggerWrapper } from "./models/DatastoreTriggerWrapper";
 export { DataTransform } from "./models/DataTransform";
 export { DataTransformProperties } from "./models/DataTransformProperties";
 export { DataTransformType } from "./models/DataTransformType";
+export { DefaultRulesetsPerLanguageData } from "./models/DefaultRulesetsPerLanguageData";
+export { DefaultRulesetsPerLanguageDataAttributes } from "./models/DefaultRulesetsPerLanguageDataAttributes";
+export { DefaultRulesetsPerLanguageDataType } from "./models/DefaultRulesetsPerLanguageDataType";
+export { DefaultRulesetsPerLanguageResponse } from "./models/DefaultRulesetsPerLanguageResponse";
 export { Degradation } from "./models/Degradation";
 export { DegradationArray } from "./models/DegradationArray";
 export { DegradationData } from "./models/DegradationData";
@@ -3513,6 +3592,14 @@ export { GetAppKeyRegistrationResponse } from "./models/GetAppKeyRegistrationRes
 export { GetAppResponse } from "./models/GetAppResponse";
 export { GetAppResponseData } from "./models/GetAppResponseData";
 export { GetAppResponseDataAttributes } from "./models/GetAppResponseDataAttributes";
+export { GetAstRequest } from "./models/GetAstRequest";
+export { GetAstRequestData } from "./models/GetAstRequestData";
+export { GetAstRequestDataAttributes } from "./models/GetAstRequestDataAttributes";
+export { GetAstRequestDataType } from "./models/GetAstRequestDataType";
+export { GetAstResponse } from "./models/GetAstResponse";
+export { GetAstResponseData } from "./models/GetAstResponseData";
+export { GetAstResponseDataAttributes } from "./models/GetAstResponseDataAttributes";
+export { GetAstResponseDataType } from "./models/GetAstResponseDataType";
 export { GetBlueprintResponse } from "./models/GetBlueprintResponse";
 export { GetBlueprintsResponse } from "./models/GetBlueprintsResponse";
 export { GetCustomFrameworkResponse } from "./models/GetCustomFrameworkResponse";
@@ -4710,6 +4797,10 @@ export { MuteFindingsRequestDataAttributes } from "./models/MuteFindingsRequestD
 export { MuteFindingsRequestDataRelationships } from "./models/MuteFindingsRequestDataRelationships";
 export { MuteFindingsResponse } from "./models/MuteFindingsResponse";
 export { MuteFindingsResponseData } from "./models/MuteFindingsResponseData";
+export { NodeTypesResponse } from "./models/NodeTypesResponse";
+export { NodeTypesResponseData } from "./models/NodeTypesResponseData";
+export { NodeTypesResponseDataAttributes } from "./models/NodeTypesResponseDataAttributes";
+export { NodeTypesResponseDataType } from "./models/NodeTypesResponseDataType";
 export { NotebookCreateData } from "./models/NotebookCreateData";
 export { NotebookCreateRequest } from "./models/NotebookCreateRequest";
 export { NotebookResourceType } from "./models/NotebookResourceType";
@@ -5807,6 +5898,10 @@ export { SampleLogGenerationSubscriptionsResponse } from "./models/SampleLogGene
 export { SampleLogGenerationSubscriptionsResponseMeta } from "./models/SampleLogGenerationSubscriptionsResponseMeta";
 export { SampleLogGenerationSubscriptionsStatusFilter } from "./models/SampleLogGenerationSubscriptionsStatusFilter";
 export { SampleLogGenerationSubscriptionStatus } from "./models/SampleLogGenerationSubscriptionStatus";
+export { SastRulesetData } from "./models/SastRulesetData";
+export { SastRulesetDataAttributes } from "./models/SastRulesetDataAttributes";
+export { SastRulesetResponse } from "./models/SastRulesetResponse";
+export { SastRulesetsResponse } from "./models/SastRulesetsResponse";
 export { SBOM } from "./models/SBOM";
 export { SBOMAttributes } from "./models/SBOMAttributes";
 export { SBOMComponent } from "./models/SBOMComponent";
