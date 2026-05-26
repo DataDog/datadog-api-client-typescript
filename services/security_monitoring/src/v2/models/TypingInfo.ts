@@ -2,6 +2,18 @@ import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
 import { Advisory } from "./Advisory";
+import { AnalysisEdit } from "./AnalysisEdit";
+import { AnalysisFix } from "./AnalysisFix";
+import { AnalysisPosition } from "./AnalysisPosition";
+import { AnalysisRequest } from "./AnalysisRequest";
+import { AnalysisRequestData } from "./AnalysisRequestData";
+import { AnalysisRequestDataAttributes } from "./AnalysisRequestDataAttributes";
+import { AnalysisRequestRule } from "./AnalysisRequestRule";
+import { AnalysisResponse } from "./AnalysisResponse";
+import { AnalysisResponseData } from "./AnalysisResponseData";
+import { AnalysisResponseDataAttributes } from "./AnalysisResponseDataAttributes";
+import { AnalysisRuleResponse } from "./AnalysisRuleResponse";
+import { AnalysisViolation } from "./AnalysisViolation";
 import { Asset } from "./Asset";
 import { AssetAttributes } from "./AssetAttributes";
 import { AssetOperatingSystem } from "./AssetOperatingSystem";
@@ -58,6 +70,9 @@ import { CustomFrameworkDataHandleAndVersion } from "./CustomFrameworkDataHandle
 import { CustomFrameworkMetadata } from "./CustomFrameworkMetadata";
 import { CustomFrameworkRequirement } from "./CustomFrameworkRequirement";
 import { CustomFrameworkWithoutRequirements } from "./CustomFrameworkWithoutRequirements";
+import { DefaultRulesetsPerLanguageData } from "./DefaultRulesetsPerLanguageData";
+import { DefaultRulesetsPerLanguageDataAttributes } from "./DefaultRulesetsPerLanguageDataAttributes";
+import { DefaultRulesetsPerLanguageResponse } from "./DefaultRulesetsPerLanguageResponse";
 import { DeleteCustomFrameworkResponse } from "./DeleteCustomFrameworkResponse";
 import { DependencyLocation } from "./DependencyLocation";
 import { DetachCaseRequest } from "./DetachCaseRequest";
@@ -88,6 +103,12 @@ import { Findings } from "./Findings";
 import { FrameworkHandleAndVersionResponseData } from "./FrameworkHandleAndVersionResponseData";
 import { FullCustomFrameworkData } from "./FullCustomFrameworkData";
 import { FullCustomFrameworkDataAttributes } from "./FullCustomFrameworkDataAttributes";
+import { GetAstRequest } from "./GetAstRequest";
+import { GetAstRequestData } from "./GetAstRequestData";
+import { GetAstRequestDataAttributes } from "./GetAstRequestDataAttributes";
+import { GetAstResponse } from "./GetAstResponse";
+import { GetAstResponseData } from "./GetAstResponseData";
+import { GetAstResponseDataAttributes } from "./GetAstResponseDataAttributes";
 import { GetCustomFrameworkResponse } from "./GetCustomFrameworkResponse";
 import { GetFindingResponse } from "./GetFindingResponse";
 import { GetIoCIndicatorResponse } from "./GetIoCIndicatorResponse";
@@ -153,6 +174,9 @@ import { MuteFindingsRequestDataAttributes } from "./MuteFindingsRequestDataAttr
 import { MuteFindingsRequestDataRelationships } from "./MuteFindingsRequestDataRelationships";
 import { MuteFindingsResponse } from "./MuteFindingsResponse";
 import { MuteFindingsResponseData } from "./MuteFindingsResponseData";
+import { NodeTypesResponse } from "./NodeTypesResponse";
+import { NodeTypesResponseData } from "./NodeTypesResponseData";
+import { NodeTypesResponseDataAttributes } from "./NodeTypesResponseDataAttributes";
 import { NotificationRule } from "./NotificationRule";
 import { NotificationRuleAttributes } from "./NotificationRuleAttributes";
 import { NotificationRuleResponse } from "./NotificationRuleResponse";
@@ -197,6 +221,10 @@ import { SampleLogGenerationSubscriptionData } from "./SampleLogGenerationSubscr
 import { SampleLogGenerationSubscriptionResponse } from "./SampleLogGenerationSubscriptionResponse";
 import { SampleLogGenerationSubscriptionsResponse } from "./SampleLogGenerationSubscriptionsResponse";
 import { SampleLogGenerationSubscriptionsResponseMeta } from "./SampleLogGenerationSubscriptionsResponseMeta";
+import { SastRulesetData } from "./SastRulesetData";
+import { SastRulesetDataAttributes } from "./SastRulesetDataAttributes";
+import { SastRulesetResponse } from "./SastRulesetResponse";
+import { SastRulesetsResponse } from "./SastRulesetsResponse";
 import { ScannedAssetMetadata } from "./ScannedAssetMetadata";
 import { ScannedAssetMetadataAsset } from "./ScannedAssetMetadataAsset";
 import { ScannedAssetMetadataAttributes } from "./ScannedAssetMetadataAttributes";
@@ -391,6 +419,9 @@ import { VulnerabilityRisks } from "./VulnerabilityRisks";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
+    AnalysisEditType: ["ADD", "UPDATE", "REMOVE"],
+    AnalysisRequestDataType: ["analysis_request"],
+    AnalysisResponseDataType: ["server_request"],
     AssetEntityType: ["assets"],
     AssetType: ["Repository", "Service", "Host", "HostImage", "Image"],
     CaseDataType: ["cases"],
@@ -402,6 +433,7 @@ export const TypingInfo: ModelTypingInfo = {
       "historicalDetectionsJobResultSignalConversion",
     ],
     CustomFrameworkType: ["custom_framework"],
+    DefaultRulesetsPerLanguageDataType: ["defaultRulesetsPerLanguage"],
     DetailedFindingType: ["detailed_finding"],
     FindingDataType: ["findings"],
     FindingEvaluation: ["pass", "fail"],
@@ -422,6 +454,8 @@ export const TypingInfo: ModelTypingInfo = {
       "identity_risk",
       "api_security",
     ],
+    GetAstRequestDataType: ["get_ast_request"],
+    GetAstResponseDataType: ["get_ast_response"],
     GetMultipleRulesetsRequestDataType: ["get_multiple_rulesets_request"],
     GetMultipleRulesetsResponseDataAttributesRulesetsItemsDataType: [
       "rulesets",
@@ -447,6 +481,7 @@ export const TypingInfo: ModelTypingInfo = {
       "HUMAN_ERROR",
       "NO_LONGER_ACCEPTED_RISK",
     ],
+    NodeTypesResponseDataType: ["get_node_types_response"],
     NotificationRulesType: ["notification_rules"],
     ResourceFilterRequestType: ["csm_resource_filter"],
     RuleSeverity: ["critical", "high", "medium", "low", "unknown", "info"],
@@ -831,6 +866,18 @@ export const TypingInfo: ModelTypingInfo = {
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     Advisory: Advisory,
+    AnalysisEdit: AnalysisEdit,
+    AnalysisFix: AnalysisFix,
+    AnalysisPosition: AnalysisPosition,
+    AnalysisRequest: AnalysisRequest,
+    AnalysisRequestData: AnalysisRequestData,
+    AnalysisRequestDataAttributes: AnalysisRequestDataAttributes,
+    AnalysisRequestRule: AnalysisRequestRule,
+    AnalysisResponse: AnalysisResponse,
+    AnalysisResponseData: AnalysisResponseData,
+    AnalysisResponseDataAttributes: AnalysisResponseDataAttributes,
+    AnalysisRuleResponse: AnalysisRuleResponse,
+    AnalysisViolation: AnalysisViolation,
     Asset: Asset,
     AssetAttributes: AssetAttributes,
     AssetOperatingSystem: AssetOperatingSystem,
@@ -892,6 +939,10 @@ export const TypingInfo: ModelTypingInfo = {
     CustomFrameworkMetadata: CustomFrameworkMetadata,
     CustomFrameworkRequirement: CustomFrameworkRequirement,
     CustomFrameworkWithoutRequirements: CustomFrameworkWithoutRequirements,
+    DefaultRulesetsPerLanguageData: DefaultRulesetsPerLanguageData,
+    DefaultRulesetsPerLanguageDataAttributes:
+      DefaultRulesetsPerLanguageDataAttributes,
+    DefaultRulesetsPerLanguageResponse: DefaultRulesetsPerLanguageResponse,
     DeleteCustomFrameworkResponse: DeleteCustomFrameworkResponse,
     DependencyLocation: DependencyLocation,
     DetachCaseRequest: DetachCaseRequest,
@@ -923,6 +974,12 @@ export const TypingInfo: ModelTypingInfo = {
       FrameworkHandleAndVersionResponseData,
     FullCustomFrameworkData: FullCustomFrameworkData,
     FullCustomFrameworkDataAttributes: FullCustomFrameworkDataAttributes,
+    GetAstRequest: GetAstRequest,
+    GetAstRequestData: GetAstRequestData,
+    GetAstRequestDataAttributes: GetAstRequestDataAttributes,
+    GetAstResponse: GetAstResponse,
+    GetAstResponseData: GetAstResponseData,
+    GetAstResponseDataAttributes: GetAstResponseDataAttributes,
     GetCustomFrameworkResponse: GetCustomFrameworkResponse,
     GetFindingResponse: GetFindingResponse,
     GetIoCIndicatorResponse: GetIoCIndicatorResponse,
@@ -997,6 +1054,9 @@ export const TypingInfo: ModelTypingInfo = {
     MuteFindingsRequestDataRelationships: MuteFindingsRequestDataRelationships,
     MuteFindingsResponse: MuteFindingsResponse,
     MuteFindingsResponseData: MuteFindingsResponseData,
+    NodeTypesResponse: NodeTypesResponse,
+    NodeTypesResponseData: NodeTypesResponseData,
+    NodeTypesResponseDataAttributes: NodeTypesResponseDataAttributes,
     NotificationRule: NotificationRule,
     NotificationRuleAttributes: NotificationRuleAttributes,
     NotificationRuleResponse: NotificationRuleResponse,
@@ -1055,6 +1115,10 @@ export const TypingInfo: ModelTypingInfo = {
       SampleLogGenerationSubscriptionsResponse,
     SampleLogGenerationSubscriptionsResponseMeta:
       SampleLogGenerationSubscriptionsResponseMeta,
+    SastRulesetData: SastRulesetData,
+    SastRulesetDataAttributes: SastRulesetDataAttributes,
+    SastRulesetResponse: SastRulesetResponse,
+    SastRulesetsResponse: SastRulesetsResponse,
     ScannedAssetMetadata: ScannedAssetMetadata,
     ScannedAssetMetadataAsset: ScannedAssetMetadataAsset,
     ScannedAssetMetadataAttributes: ScannedAssetMetadataAttributes,

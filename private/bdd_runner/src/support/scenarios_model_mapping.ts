@@ -6692,6 +6692,16 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "SecurityMonitoringSignalsListResponse",
   },
+  "SecurityMonitoringApi.V2.ListStaticAnalysisCodegenRulesets": {
+    operationResponseType: "SastRulesetsResponse",
+  },
+  "SecurityMonitoringApi.V2.GetStaticAnalysisDefaultRulesets": {
+    language: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "DefaultRulesetsPerLanguageResponse",
+  },
   "SecurityMonitoringApi.V2.ListMultipleRulesets": {
     body: {
       type: "GetMultipleRulesetsRequest",
@@ -6699,8 +6709,51 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "GetMultipleRulesetsResponse",
   },
+  "SecurityMonitoringApi.V2.GetStaticAnalysisRuleset": {
+    rulesetName: {
+      type: "string",
+      format: "",
+    },
+    includeTests: {
+      type: "boolean",
+      format: "",
+    },
+    includeTestingRules: {
+      type: "boolean",
+      format: "",
+    },
+    operationResponseType: "SastRulesetResponse",
+  },
   "SecurityMonitoringApi.V2.GetSecretsRules": {
     operationResponseType: "SecretRuleArray",
+  },
+  "SecurityMonitoringApi.V2.CreateStaticAnalysisServerAnalysis": {
+    body: {
+      type: "AnalysisRequest",
+      format: "",
+    },
+    operationResponseType: "AnalysisResponse",
+  },
+  "SecurityMonitoringApi.V2.CreateStaticAnalysisAst": {
+    body: {
+      type: "GetAstRequest",
+      format: "",
+    },
+    operationResponseType: "GetAstResponse",
+  },
+  "SecurityMonitoringApi.V2.GetStaticAnalysisNodeTypes": {
+    language: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "NodeTypesResponse",
+  },
+  "SecurityMonitoringApi.V2.GetStaticAnalysisTreeSitterWasm": {
+    file: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "HttpFile",
   },
   "StorageManagementApi.V2.UpsertSyncConfig": {
     body: {
@@ -13282,6 +13335,161 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "ResolveVulnerableSymbolsResponse",
+  },
+  "StaticAnalysisApi.V2.ListAiMemoryViolationResults": {
+    operationResponseType: "AiMemoryViolationResultsResponse",
+  },
+  "StaticAnalysisApi.V2.CreateAiMemoryViolationResult": {
+    body: {
+      type: "AiMemoryViolationResultRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "StaticAnalysisApi.V2.DeleteAiMemoryViolationResult": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "StaticAnalysisApi.V2.ListAiPrompts": {
+    operationResponseType: "AiPromptsResponse",
+  },
+  "StaticAnalysisApi.V2.ListAiCustomRulesets": {
+    pageOffset: {
+      type: "number",
+      format: "int64",
+    },
+    pageLimit: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "AiCustomRulesetsResponse",
+  },
+  "StaticAnalysisApi.V2.CreateAiCustomRuleset": {
+    body: {
+      type: "AiCustomRulesetRequest",
+      format: "",
+    },
+    operationResponseType: "AiCustomRulesetResponse",
+  },
+  "StaticAnalysisApi.V2.GetAiCustomRuleset": {
+    rulesetName: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "AiCustomRulesetResponse",
+  },
+  "StaticAnalysisApi.V2.DeleteAiCustomRuleset": {
+    rulesetName: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "StaticAnalysisApi.V2.UpdateAiCustomRuleset": {
+    rulesetName: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "AiCustomRulesetUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "StaticAnalysisApi.V2.CreateAiCustomRule": {
+    rulesetName: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "AiCustomRuleRequest",
+      format: "",
+    },
+    operationResponseType: "AiCustomRuleResponse",
+  },
+  "StaticAnalysisApi.V2.GetAiCustomRule": {
+    rulesetName: {
+      type: "string",
+      format: "",
+    },
+    ruleName: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "AiCustomRuleResponse",
+  },
+  "StaticAnalysisApi.V2.DeleteAiCustomRule": {
+    rulesetName: {
+      type: "string",
+      format: "",
+    },
+    ruleName: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "StaticAnalysisApi.V2.ListAiCustomRuleRevisions": {
+    rulesetName: {
+      type: "string",
+      format: "",
+    },
+    ruleName: {
+      type: "string",
+      format: "",
+    },
+    pageOffset: {
+      type: "number",
+      format: "int64",
+    },
+    pageLimit: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "AiCustomRuleRevisionsResponse",
+  },
+  "StaticAnalysisApi.V2.CreateAiCustomRuleRevision": {
+    rulesetName: {
+      type: "string",
+      format: "",
+    },
+    ruleName: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "AiCustomRuleRevisionRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "StaticAnalysisApi.V2.GetAiCustomRuleRevision": {
+    rulesetName: {
+      type: "string",
+      format: "",
+    },
+    ruleName: {
+      type: "string",
+      format: "",
+    },
+    id: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "AiCustomRuleRevisionResponse",
+  },
+  "StaticAnalysisApi.V2.ListCustomRulesets": {
+    operationResponseType: "CustomRulesetListResponse",
+  },
+  "StaticAnalysisApi.V2.CreateCustomRuleset": {
+    body: {
+      type: "CustomRulesetRequest",
+      format: "",
+    },
+    operationResponseType: "CustomRulesetResponse",
   },
   "StaticAnalysisApi.V2.GetCustomRuleset": {
     rulesetName: {

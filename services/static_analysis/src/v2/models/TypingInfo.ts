@@ -1,6 +1,38 @@
 import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
+import { AiCustomRuleItem } from "./AiCustomRuleItem";
+import { AiCustomRuleRequest } from "./AiCustomRuleRequest";
+import { AiCustomRuleRequestAttributes } from "./AiCustomRuleRequestAttributes";
+import { AiCustomRuleRequestData } from "./AiCustomRuleRequestData";
+import { AiCustomRuleResponse } from "./AiCustomRuleResponse";
+import { AiCustomRuleResponseData } from "./AiCustomRuleResponseData";
+import { AiCustomRuleRevisionRequest } from "./AiCustomRuleRevisionRequest";
+import { AiCustomRuleRevisionRequestAttributes } from "./AiCustomRuleRevisionRequestAttributes";
+import { AiCustomRuleRevisionRequestData } from "./AiCustomRuleRevisionRequestData";
+import { AiCustomRuleRevisionResponse } from "./AiCustomRuleRevisionResponse";
+import { AiCustomRuleRevisionResponseAttributes } from "./AiCustomRuleRevisionResponseAttributes";
+import { AiCustomRuleRevisionResponseData } from "./AiCustomRuleRevisionResponseData";
+import { AiCustomRuleRevisionsResponse } from "./AiCustomRuleRevisionsResponse";
+import { AiCustomRulesetRequest } from "./AiCustomRulesetRequest";
+import { AiCustomRulesetRequestAttributes } from "./AiCustomRulesetRequestAttributes";
+import { AiCustomRulesetRequestData } from "./AiCustomRulesetRequestData";
+import { AiCustomRulesetResponse } from "./AiCustomRulesetResponse";
+import { AiCustomRulesetResponseAttributes } from "./AiCustomRulesetResponseAttributes";
+import { AiCustomRulesetResponseData } from "./AiCustomRulesetResponseData";
+import { AiCustomRulesetUpdateAttributes } from "./AiCustomRulesetUpdateAttributes";
+import { AiCustomRulesetUpdateData } from "./AiCustomRulesetUpdateData";
+import { AiCustomRulesetUpdateRequest } from "./AiCustomRulesetUpdateRequest";
+import { AiCustomRulesetsResponse } from "./AiCustomRulesetsResponse";
+import { AiMemoryViolationResultRequest } from "./AiMemoryViolationResultRequest";
+import { AiMemoryViolationResultRequestAttributes } from "./AiMemoryViolationResultRequestAttributes";
+import { AiMemoryViolationResultRequestData } from "./AiMemoryViolationResultRequestData";
+import { AiMemoryViolationResultResponseAttributes } from "./AiMemoryViolationResultResponseAttributes";
+import { AiMemoryViolationResultResponseData } from "./AiMemoryViolationResultResponseData";
+import { AiMemoryViolationResultsResponse } from "./AiMemoryViolationResultsResponse";
+import { AiPromptResponseAttributes } from "./AiPromptResponseAttributes";
+import { AiPromptResponseData } from "./AiPromptResponseData";
+import { AiPromptsResponse } from "./AiPromptsResponse";
 import { Argument } from "./Argument";
 import { CustomRule } from "./CustomRule";
 import { CustomRuleRequest } from "./CustomRuleRequest";
@@ -18,6 +50,7 @@ import { CustomRuleRevisionTest } from "./CustomRuleRevisionTest";
 import { CustomRuleRevisionsResponse } from "./CustomRuleRevisionsResponse";
 import { CustomRuleset } from "./CustomRuleset";
 import { CustomRulesetAttributes } from "./CustomRulesetAttributes";
+import { CustomRulesetListResponse } from "./CustomRulesetListResponse";
 import { CustomRulesetRequest } from "./CustomRulesetRequest";
 import { CustomRulesetRequestData } from "./CustomRulesetRequestData";
 import { CustomRulesetRequestDataAttributes } from "./CustomRulesetRequestDataAttributes";
@@ -54,6 +87,13 @@ import { ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems } from "./ScaR
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
+    AiCustomRuleDataType: ["ai_rule"],
+    AiCustomRuleRevisionDataType: ["ai_rule_revision"],
+    AiCustomRuleRevisionExecutionMode: ["auto", "manual", "always"],
+    AiCustomRulesetDataType: ["ai_ruleset"],
+    AiMemoryViolationResultDataType: ["ai_memory_violation_result"],
+    AiMemoryViolationType: ["TP", "FP"],
+    AiPromptDataType: ["ai_prompt"],
     CustomRuleDataType: ["custom_rule"],
     CustomRuleRevisionAttributesCategory: [
       "SECURITY",
@@ -90,6 +130,42 @@ export const TypingInfo: ModelTypingInfo = {
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,
+    AiCustomRuleItem: AiCustomRuleItem,
+    AiCustomRuleRequest: AiCustomRuleRequest,
+    AiCustomRuleRequestAttributes: AiCustomRuleRequestAttributes,
+    AiCustomRuleRequestData: AiCustomRuleRequestData,
+    AiCustomRuleResponse: AiCustomRuleResponse,
+    AiCustomRuleResponseData: AiCustomRuleResponseData,
+    AiCustomRuleRevisionRequest: AiCustomRuleRevisionRequest,
+    AiCustomRuleRevisionRequestAttributes:
+      AiCustomRuleRevisionRequestAttributes,
+    AiCustomRuleRevisionRequestData: AiCustomRuleRevisionRequestData,
+    AiCustomRuleRevisionResponse: AiCustomRuleRevisionResponse,
+    AiCustomRuleRevisionResponseAttributes:
+      AiCustomRuleRevisionResponseAttributes,
+    AiCustomRuleRevisionResponseData: AiCustomRuleRevisionResponseData,
+    AiCustomRuleRevisionsResponse: AiCustomRuleRevisionsResponse,
+    AiCustomRulesetRequest: AiCustomRulesetRequest,
+    AiCustomRulesetRequestAttributes: AiCustomRulesetRequestAttributes,
+    AiCustomRulesetRequestData: AiCustomRulesetRequestData,
+    AiCustomRulesetResponse: AiCustomRulesetResponse,
+    AiCustomRulesetResponseAttributes: AiCustomRulesetResponseAttributes,
+    AiCustomRulesetResponseData: AiCustomRulesetResponseData,
+    AiCustomRulesetUpdateAttributes: AiCustomRulesetUpdateAttributes,
+    AiCustomRulesetUpdateData: AiCustomRulesetUpdateData,
+    AiCustomRulesetUpdateRequest: AiCustomRulesetUpdateRequest,
+    AiCustomRulesetsResponse: AiCustomRulesetsResponse,
+    AiMemoryViolationResultRequest: AiMemoryViolationResultRequest,
+    AiMemoryViolationResultRequestAttributes:
+      AiMemoryViolationResultRequestAttributes,
+    AiMemoryViolationResultRequestData: AiMemoryViolationResultRequestData,
+    AiMemoryViolationResultResponseAttributes:
+      AiMemoryViolationResultResponseAttributes,
+    AiMemoryViolationResultResponseData: AiMemoryViolationResultResponseData,
+    AiMemoryViolationResultsResponse: AiMemoryViolationResultsResponse,
+    AiPromptResponseAttributes: AiPromptResponseAttributes,
+    AiPromptResponseData: AiPromptResponseData,
+    AiPromptsResponse: AiPromptsResponse,
     Argument: Argument,
     CustomRule: CustomRule,
     CustomRuleRequest: CustomRuleRequest,
@@ -107,6 +183,7 @@ export const TypingInfo: ModelTypingInfo = {
     CustomRuleRevisionsResponse: CustomRuleRevisionsResponse,
     CustomRuleset: CustomRuleset,
     CustomRulesetAttributes: CustomRulesetAttributes,
+    CustomRulesetListResponse: CustomRulesetListResponse,
     CustomRulesetRequest: CustomRulesetRequest,
     CustomRulesetRequestData: CustomRulesetRequestData,
     CustomRulesetRequestDataAttributes: CustomRulesetRequestDataAttributes,

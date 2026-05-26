@@ -1,0 +1,60 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+/**
+ * Attributes for updating an AI custom ruleset.
+ */
+export class AiCustomRulesetUpdateAttributes {
+  /**
+   * Base64-encoded full description of the ruleset.
+   */
+  "description"?: string;
+  /**
+   * The ruleset name.
+   */
+  "name"?: string;
+  /**
+   * Base64-encoded short description of the ruleset.
+   */
+  "shortDescription"?: string;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    description: {
+      baseName: "description",
+      type: "string",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+    },
+    shortDescription: {
+      baseName: "short_description",
+      type: "string",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return AiCustomRulesetUpdateAttributes.attributeTypeMap;
+  }
+
+  public constructor() {}
+}
