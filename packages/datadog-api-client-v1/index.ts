@@ -402,6 +402,9 @@ export { CheckStatusWidgetDefinition } from "./models/CheckStatusWidgetDefinitio
 export { CheckStatusWidgetDefinitionType } from "./models/CheckStatusWidgetDefinitionType";
 export { CohortWidgetDefinition } from "./models/CohortWidgetDefinition";
 export { CohortWidgetDefinitionType } from "./models/CohortWidgetDefinitionType";
+export { ComparisonCustomTimeframe } from "./models/ComparisonCustomTimeframe";
+export { ComparisonDuration } from "./models/ComparisonDuration";
+export { ComparisonDurationType } from "./models/ComparisonDurationType";
 export { ContentEncoding } from "./models/ContentEncoding";
 export { Creator } from "./models/Creator";
 export { Dashboard } from "./models/Dashboard";
@@ -852,6 +855,9 @@ export { ProductAnalyticsFunnelRequest } from "./models/ProductAnalyticsFunnelRe
 export { ProductAnalyticsFunnelRequestType } from "./models/ProductAnalyticsFunnelRequestType";
 export { ProductAnalyticsFunnelWidgetDefinition } from "./models/ProductAnalyticsFunnelWidgetDefinition";
 export { QuerySortOrder } from "./models/QuerySortOrder";
+export { QueryValueWidgetComparison } from "./models/QueryValueWidgetComparison";
+export { QueryValueWidgetComparisonDirectionality } from "./models/QueryValueWidgetComparisonDirectionality";
+export { QueryValueWidgetComparisonType } from "./models/QueryValueWidgetComparisonType";
 export { QueryValueWidgetDefinition } from "./models/QueryValueWidgetDefinition";
 export { QueryValueWidgetDefinitionType } from "./models/QueryValueWidgetDefinitionType";
 export { QueryValueWidgetRequest } from "./models/QueryValueWidgetRequest";

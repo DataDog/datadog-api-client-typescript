@@ -50,6 +50,8 @@ import { CheckCanDeleteSLOResponse } from "./CheckCanDeleteSLOResponse";
 import { CheckCanDeleteSLOResponseData } from "./CheckCanDeleteSLOResponseData";
 import { CheckStatusWidgetDefinition } from "./CheckStatusWidgetDefinition";
 import { CohortWidgetDefinition } from "./CohortWidgetDefinition";
+import { ComparisonCustomTimeframe } from "./ComparisonCustomTimeframe";
+import { ComparisonDuration } from "./ComparisonDuration";
 import { Creator } from "./Creator";
 import { Dashboard } from "./Dashboard";
 import { DashboardBulkActionData } from "./DashboardBulkActionData";
@@ -348,6 +350,7 @@ import { ProductAnalyticsFunnelGroupBySort } from "./ProductAnalyticsFunnelGroup
 import { ProductAnalyticsFunnelQuery } from "./ProductAnalyticsFunnelQuery";
 import { ProductAnalyticsFunnelRequest } from "./ProductAnalyticsFunnelRequest";
 import { ProductAnalyticsFunnelWidgetDefinition } from "./ProductAnalyticsFunnelWidgetDefinition";
+import { QueryValueWidgetComparison } from "./QueryValueWidgetComparison";
 import { QueryValueWidgetDefinition } from "./QueryValueWidgetDefinition";
 import { QueryValueWidgetRequest } from "./QueryValueWidgetRequest";
 import { ReferenceTableLogsLookupProcessor } from "./ReferenceTableLogsLookupProcessor";
@@ -798,6 +801,13 @@ const enumsMap: { [key: string]: any[] } = {
   ChangeWidgetDefinitionType: ["change"],
   CheckStatusWidgetDefinitionType: ["check_status"],
   CohortWidgetDefinitionType: ["cohort"],
+  ComparisonDurationType: [
+    "previous_timeframe",
+    "custom_timeframe",
+    "previous_day",
+    "previous_week",
+    "previous_month",
+  ],
   ContentEncoding: ["gzip", "deflate"],
   DashboardGlobalTimeLiveSpan: [
     "15m",
@@ -1478,6 +1488,12 @@ const enumsMap: { [key: string]: any[] } = {
   ProductAnalyticsFunnelDataSource: ["product_analytics_journey"],
   ProductAnalyticsFunnelRequestType: ["user_journey_funnel"],
   QuerySortOrder: ["asc", "desc"],
+  QueryValueWidgetComparisonDirectionality: [
+    "increase_better",
+    "decrease_better",
+    "neutral",
+  ],
+  QueryValueWidgetComparisonType: ["absolute", "relative", "both"],
   QueryValueWidgetDefinitionType: ["query_value"],
   RetentionCohortCriteriaTimeIntervalType: ["calendar"],
   RetentionComputeMetric: ["__dd.retention", "__dd.retention_rate"],
@@ -2064,6 +2080,8 @@ const typeMap: { [index: string]: any } = {
   CheckCanDeleteSLOResponseData: CheckCanDeleteSLOResponseData,
   CheckStatusWidgetDefinition: CheckStatusWidgetDefinition,
   CohortWidgetDefinition: CohortWidgetDefinition,
+  ComparisonCustomTimeframe: ComparisonCustomTimeframe,
+  ComparisonDuration: ComparisonDuration,
   Creator: Creator,
   Dashboard: Dashboard,
   DashboardBulkActionData: DashboardBulkActionData,
@@ -2400,6 +2418,7 @@ const typeMap: { [index: string]: any } = {
   ProductAnalyticsFunnelRequest: ProductAnalyticsFunnelRequest,
   ProductAnalyticsFunnelWidgetDefinition:
     ProductAnalyticsFunnelWidgetDefinition,
+  QueryValueWidgetComparison: QueryValueWidgetComparison,
   QueryValueWidgetDefinition: QueryValueWidgetDefinition,
   QueryValueWidgetRequest: QueryValueWidgetRequest,
   ReferenceTableLogsLookupProcessor: ReferenceTableLogsLookupProcessor,
