@@ -104,6 +104,14 @@ import { SecurityMonitoringCriticalAssetCreateRequest } from "./models/SecurityM
 import { SecurityMonitoringCriticalAssetResponse } from "./models/SecurityMonitoringCriticalAssetResponse";
 import { SecurityMonitoringCriticalAssetsResponse } from "./models/SecurityMonitoringCriticalAssetsResponse";
 import { SecurityMonitoringCriticalAssetUpdateRequest } from "./models/SecurityMonitoringCriticalAssetUpdateRequest";
+import { SecurityMonitoringDatasetCreateRequest } from "./models/SecurityMonitoringDatasetCreateRequest";
+import { SecurityMonitoringDatasetCreateResponse } from "./models/SecurityMonitoringDatasetCreateResponse";
+import { SecurityMonitoringDatasetDependenciesRequest } from "./models/SecurityMonitoringDatasetDependenciesRequest";
+import { SecurityMonitoringDatasetDependenciesResponse } from "./models/SecurityMonitoringDatasetDependenciesResponse";
+import { SecurityMonitoringDatasetResponse } from "./models/SecurityMonitoringDatasetResponse";
+import { SecurityMonitoringDatasetsListResponse } from "./models/SecurityMonitoringDatasetsListResponse";
+import { SecurityMonitoringDatasetUpdateRequest } from "./models/SecurityMonitoringDatasetUpdateRequest";
+import { SecurityMonitoringDatasetVersionHistoryResponse } from "./models/SecurityMonitoringDatasetVersionHistoryResponse";
 import { SecurityMonitoringIntegrationConfigCreateRequest } from "./models/SecurityMonitoringIntegrationConfigCreateRequest";
 import { SecurityMonitoringIntegrationConfigResponse } from "./models/SecurityMonitoringIntegrationConfigResponse";
 import { SecurityMonitoringIntegrationConfigsResponse } from "./models/SecurityMonitoringIntegrationConfigsResponse";
@@ -323,6 +331,75 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AttachJiraIssueRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async batchGetSecurityMonitoringDatasetDependencies(
+    body: SecurityMonitoringDatasetDependenciesRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.batchGetSecurityMonitoringDatasetDependencies"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'batchGetSecurityMonitoringDatasetDependencies' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.batchGetSecurityMonitoringDatasetDependencies'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "batchGetSecurityMonitoringDatasetDependencies",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security_monitoring/datasets/dependencies";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.batchGetSecurityMonitoringDatasetDependencies",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(
+        body,
+        TypingInfo,
+        "SecurityMonitoringDatasetDependenciesRequest",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -1407,6 +1484,67 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async createSecurityMonitoringDataset(
+    body: SecurityMonitoringDatasetCreateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.createSecurityMonitoringDataset"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createSecurityMonitoringDataset' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.createSecurityMonitoringDataset'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createSecurityMonitoringDataset");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security_monitoring/datasets";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.createSecurityMonitoringDataset",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "SecurityMonitoringDatasetCreateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async createSecurityMonitoringIntegrationConfig(
     body: SecurityMonitoringIntegrationConfigCreateRequest,
     _options?: Configuration,
@@ -2101,6 +2239,62 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.deleteSecurityMonitoringCriticalAsset",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteSecurityMonitoringDataset(
+    datasetId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.deleteSecurityMonitoringDataset"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteSecurityMonitoringDataset' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.deleteSecurityMonitoringDataset'] = true`",
+      );
+    }
+
+    // verify required parameter 'datasetId' is not null or undefined
+    if (datasetId === null || datasetId === undefined) {
+      throw new RequiredError("datasetId", "deleteSecurityMonitoringDataset");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/datasets/{dataset_id}".replace(
+        "{dataset_id}",
+        encodeURIComponent(String(datasetId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.deleteSecurityMonitoringDataset",
       SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -3552,6 +3746,206 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getSecurityMonitoringDataset(
+    datasetId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.getSecurityMonitoringDataset"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getSecurityMonitoringDataset' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.getSecurityMonitoringDataset'] = true`",
+      );
+    }
+
+    // verify required parameter 'datasetId' is not null or undefined
+    if (datasetId === null || datasetId === undefined) {
+      throw new RequiredError("datasetId", "getSecurityMonitoringDataset");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/datasets/{dataset_id}".replace(
+        "{dataset_id}",
+        encodeURIComponent(String(datasetId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.getSecurityMonitoringDataset",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getSecurityMonitoringDatasetByVersion(
+    datasetId: string,
+    version: number,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.getSecurityMonitoringDatasetByVersion"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getSecurityMonitoringDatasetByVersion' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.getSecurityMonitoringDatasetByVersion'] = true`",
+      );
+    }
+
+    // verify required parameter 'datasetId' is not null or undefined
+    if (datasetId === null || datasetId === undefined) {
+      throw new RequiredError(
+        "datasetId",
+        "getSecurityMonitoringDatasetByVersion",
+      );
+    }
+
+    // verify required parameter 'version' is not null or undefined
+    if (version === null || version === undefined) {
+      throw new RequiredError(
+        "version",
+        "getSecurityMonitoringDatasetByVersion",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/datasets/{dataset_id}/version/{version}"
+        .replace("{dataset_id}", encodeURIComponent(String(datasetId)))
+        .replace("{version}", encodeURIComponent(String(version)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.getSecurityMonitoringDatasetByVersion",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getSecurityMonitoringDatasetVersionHistory(
+    datasetId: string,
+    pageSize?: number,
+    pageNumber?: number,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.getSecurityMonitoringDatasetVersionHistory"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getSecurityMonitoringDatasetVersionHistory' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.getSecurityMonitoringDatasetVersionHistory'] = true`",
+      );
+    }
+
+    // verify required parameter 'datasetId' is not null or undefined
+    if (datasetId === null || datasetId === undefined) {
+      throw new RequiredError(
+        "datasetId",
+        "getSecurityMonitoringDatasetVersionHistory",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/datasets/{dataset_id}/version_history".replace(
+        "{dataset_id}",
+        encodeURIComponent(String(datasetId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.getSecurityMonitoringDatasetVersionHistory",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        serialize(pageSize, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        serialize(pageNumber, TypingInfo, "number", "int64"),
+        "",
+      );
     }
 
     // Apply auth methods
@@ -5464,6 +5858,86 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listSecurityMonitoringDatasets(
+    pageSize?: number,
+    pageNumber?: number,
+    sort?: string,
+    filterQuery?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.listSecurityMonitoringDatasets"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listSecurityMonitoringDatasets' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.listSecurityMonitoringDatasets'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security_monitoring/datasets";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.listSecurityMonitoringDatasets",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        serialize(pageSize, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        serialize(pageNumber, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        serialize(sort, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterQuery !== undefined) {
+      requestContext.setQueryParam(
+        "filter[query]",
+        serialize(filterQuery, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async listSecurityMonitoringHistsignals(
     filterQuery?: string,
     filterFrom?: Date,
@@ -7319,6 +7793,77 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async updateSecurityMonitoringDataset(
+    datasetId: string,
+    body: SecurityMonitoringDatasetUpdateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.updateSecurityMonitoringDataset"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateSecurityMonitoringDataset' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.updateSecurityMonitoringDataset'] = true`",
+      );
+    }
+
+    // verify required parameter 'datasetId' is not null or undefined
+    if (datasetId === null || datasetId === undefined) {
+      throw new RequiredError("datasetId", "updateSecurityMonitoringDataset");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateSecurityMonitoringDataset");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/datasets/{dataset_id}".replace(
+        "{dataset_id}",
+        encodeURIComponent(String(datasetId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.updateSecurityMonitoringDataset",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "SecurityMonitoringDatasetUpdateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async updateSecurityMonitoringIntegrationConfig(
     integrationConfigId: string,
     body: SecurityMonitoringIntegrationConfigUpdateRequest,
@@ -7943,6 +8488,83 @@ export class SecurityMonitoringApiResponseProcessor {
         "FindingCaseResponse",
         "",
       ) as FindingCaseResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to batchGetSecurityMonitoringDatasetDependencies
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async batchGetSecurityMonitoringDatasetDependencies(
+    response: ResponseContext,
+  ): Promise<SecurityMonitoringDatasetDependenciesResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringDatasetDependenciesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringDatasetDependenciesResponse",
+      ) as SecurityMonitoringDatasetDependenciesResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringDatasetDependenciesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringDatasetDependenciesResponse",
+        "",
+      ) as SecurityMonitoringDatasetDependenciesResponse;
       return body;
     }
 
@@ -9068,6 +9690,87 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createSecurityMonitoringDataset
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createSecurityMonitoringDataset(
+    response: ResponseContext,
+  ): Promise<SecurityMonitoringDatasetCreateResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: SecurityMonitoringDatasetCreateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringDatasetCreateResponse",
+      ) as SecurityMonitoringDatasetCreateResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringDatasetCreateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringDatasetCreateResponse",
+        "",
+      ) as SecurityMonitoringDatasetCreateResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createSecurityMonitoringIntegrationConfig
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -9819,6 +10522,76 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteSecurityMonitoringDataset
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteSecurityMonitoringDataset(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
       const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
@@ -11336,6 +12109,249 @@ export class SecurityMonitoringApiResponseProcessor {
         "SecurityMonitoringCriticalAssetResponse",
         "",
       ) as SecurityMonitoringCriticalAssetResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getSecurityMonitoringDataset
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSecurityMonitoringDataset(
+    response: ResponseContext,
+  ): Promise<SecurityMonitoringDatasetResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringDatasetResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringDatasetResponse",
+      ) as SecurityMonitoringDatasetResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringDatasetResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringDatasetResponse",
+        "",
+      ) as SecurityMonitoringDatasetResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getSecurityMonitoringDatasetByVersion
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSecurityMonitoringDatasetByVersion(
+    response: ResponseContext,
+  ): Promise<SecurityMonitoringDatasetResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringDatasetResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringDatasetResponse",
+      ) as SecurityMonitoringDatasetResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringDatasetResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringDatasetResponse",
+        "",
+      ) as SecurityMonitoringDatasetResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getSecurityMonitoringDatasetVersionHistory
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSecurityMonitoringDatasetVersionHistory(
+    response: ResponseContext,
+  ): Promise<SecurityMonitoringDatasetVersionHistoryResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringDatasetVersionHistoryResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringDatasetVersionHistoryResponse",
+      ) as SecurityMonitoringDatasetVersionHistoryResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringDatasetVersionHistoryResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringDatasetVersionHistoryResponse",
+        "",
+      ) as SecurityMonitoringDatasetVersionHistoryResponse;
       return body;
     }
 
@@ -13235,6 +14251,83 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listSecurityMonitoringDatasets
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listSecurityMonitoringDatasets(
+    response: ResponseContext,
+  ): Promise<SecurityMonitoringDatasetsListResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringDatasetsListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringDatasetsListResponse",
+      ) as SecurityMonitoringDatasetsListResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringDatasetsListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringDatasetsListResponse",
+        "",
+      ) as SecurityMonitoringDatasetsListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listSecurityMonitoringHistsignals
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -14685,6 +15778,77 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateSecurityMonitoringDataset
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateSecurityMonitoringDataset(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateSecurityMonitoringIntegrationConfig
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -15091,6 +16255,13 @@ export interface SecurityMonitoringApiAttachJiraIssueRequest {
   body: AttachJiraIssueRequest;
 }
 
+export interface SecurityMonitoringApiBatchGetSecurityMonitoringDatasetDependenciesRequest {
+  /**
+   * @type SecurityMonitoringDatasetDependenciesRequest
+   */
+  body: SecurityMonitoringDatasetDependenciesRequest;
+}
+
 export interface SecurityMonitoringApiBulkCreateSampleLogGenerationSubscriptionsRequest {
   /**
    * The content packs to subscribe to and the desired duration of the subscriptions.
@@ -15238,6 +16409,13 @@ export interface SecurityMonitoringApiCreateSecurityMonitoringCriticalAssetReque
   body: SecurityMonitoringCriticalAssetCreateRequest;
 }
 
+export interface SecurityMonitoringApiCreateSecurityMonitoringDatasetRequest {
+  /**
+   * @type SecurityMonitoringDatasetCreateRequest
+   */
+  body: SecurityMonitoringDatasetCreateRequest;
+}
+
 export interface SecurityMonitoringApiCreateSecurityMonitoringIntegrationConfigRequest {
   /**
    * The definition of the new integration configuration.
@@ -15344,6 +16522,14 @@ export interface SecurityMonitoringApiDeleteSecurityMonitoringCriticalAssetReque
    * @type string
    */
   criticalAssetId: string;
+}
+
+export interface SecurityMonitoringApiDeleteSecurityMonitoringDatasetRequest {
+  /**
+   * The UUID of the dataset.
+   * @type string
+   */
+  datasetId: string;
 }
 
 export interface SecurityMonitoringApiDeleteSecurityMonitoringIntegrationConfigRequest {
@@ -15626,6 +16812,45 @@ export interface SecurityMonitoringApiGetSecurityMonitoringCriticalAssetRequest 
    * @type string
    */
   criticalAssetId: string;
+}
+
+export interface SecurityMonitoringApiGetSecurityMonitoringDatasetRequest {
+  /**
+   * The UUID of the dataset.
+   * @type string
+   */
+  datasetId: string;
+}
+
+export interface SecurityMonitoringApiGetSecurityMonitoringDatasetByVersionRequest {
+  /**
+   * The UUID of the dataset.
+   * @type string
+   */
+  datasetId: string;
+  /**
+   * The version number of the dataset to retrieve.
+   * @type number
+   */
+  version: number;
+}
+
+export interface SecurityMonitoringApiGetSecurityMonitoringDatasetVersionHistoryRequest {
+  /**
+   * The UUID of the dataset.
+   * @type string
+   */
+  datasetId: string;
+  /**
+   * Size for a given page. The maximum allowed value is 100.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific page number to return.
+   * @type number
+   */
+  pageNumber?: number;
 }
 
 export interface SecurityMonitoringApiGetSecurityMonitoringHistsignalRequest {
@@ -16074,6 +17299,29 @@ export interface SecurityMonitoringApiListSecurityFindingsRequest {
    * @type SecurityFindingsSort
    */
   sort?: SecurityFindingsSort;
+}
+
+export interface SecurityMonitoringApiListSecurityMonitoringDatasetsRequest {
+  /**
+   * Size for a given page. The maximum allowed value is 100.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * Attribute used to sort datasets. Prefix with `-` to sort in descending order.
+   * @type string
+   */
+  sort?: string;
+  /**
+   * A search query to filter datasets by name or description.
+   * @type string
+   */
+  filterQuery?: string;
 }
 
 export interface SecurityMonitoringApiListSecurityMonitoringHistsignalsRequest {
@@ -16647,6 +17895,18 @@ export interface SecurityMonitoringApiUpdateSecurityMonitoringCriticalAssetReque
   body: SecurityMonitoringCriticalAssetUpdateRequest;
 }
 
+export interface SecurityMonitoringApiUpdateSecurityMonitoringDatasetRequest {
+  /**
+   * The UUID of the dataset.
+   * @type string
+   */
+  datasetId: string;
+  /**
+   * @type SecurityMonitoringDatasetUpdateRequest
+   */
+  body: SecurityMonitoringDatasetUpdateRequest;
+}
+
 export interface SecurityMonitoringApiUpdateSecurityMonitoringIntegrationConfigRequest {
   /**
    * The ID of the entity context sync configuration.
@@ -16799,6 +18059,31 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.attachJiraIssue(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Return, for each of the requested datasets, the list of detection rules that depend
+   * on it. Useful for understanding the impact of updating or deleting a dataset.
+   * @param param The request object
+   */
+  public batchGetSecurityMonitoringDatasetDependencies(
+    param: SecurityMonitoringApiBatchGetSecurityMonitoringDatasetDependenciesRequest,
+    options?: Configuration,
+  ): Promise<SecurityMonitoringDatasetDependenciesResponse> {
+    const requestContextPromise =
+      this.requestFactory.batchGetSecurityMonitoringDatasetDependencies(
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.batchGetSecurityMonitoringDatasetDependencies(
+            responseContext,
+          );
         });
     });
   }
@@ -17261,6 +18546,28 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Create a new Cloud SIEM dataset. A dataset bundles a data source, a set of
+   * indexes, and a search query that can be referenced from detection rules.
+   * @param param The request object
+   */
+  public createSecurityMonitoringDataset(
+    param: SecurityMonitoringApiCreateSecurityMonitoringDatasetRequest,
+    options?: Configuration,
+  ): Promise<SecurityMonitoringDatasetCreateResponse> {
+    const requestContextPromise =
+      this.requestFactory.createSecurityMonitoringDataset(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createSecurityMonitoringDataset(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Create a new entity context sync configuration so Cloud SIEM can ingest entities from an external
    * source. The credentials provided in `secrets` are validated against the source before the configuration
    * is stored and never returned in subsequent responses.
@@ -17556,6 +18863,31 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteSecurityMonitoringCriticalAsset(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete a Cloud SIEM dataset. Out-of-the-box datasets cannot be deleted and
+   * deleting a dataset that is referenced by a detection rule is rejected.
+   * @param param The request object
+   */
+  public deleteSecurityMonitoringDataset(
+    param: SecurityMonitoringApiDeleteSecurityMonitoringDatasetRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteSecurityMonitoringDataset(
+        param.datasetId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteSecurityMonitoringDataset(
             responseContext,
           );
         });
@@ -18137,6 +19469,81 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getSecurityMonitoringCriticalAsset(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Get the current version of a Cloud SIEM dataset by ID.
+   * @param param The request object
+   */
+  public getSecurityMonitoringDataset(
+    param: SecurityMonitoringApiGetSecurityMonitoringDatasetRequest,
+    options?: Configuration,
+  ): Promise<SecurityMonitoringDatasetResponse> {
+    const requestContextPromise =
+      this.requestFactory.getSecurityMonitoringDataset(
+        param.datasetId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSecurityMonitoringDataset(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Retrieve a specific historical version of a Cloud SIEM dataset.
+   * @param param The request object
+   */
+  public getSecurityMonitoringDatasetByVersion(
+    param: SecurityMonitoringApiGetSecurityMonitoringDatasetByVersionRequest,
+    options?: Configuration,
+  ): Promise<SecurityMonitoringDatasetResponse> {
+    const requestContextPromise =
+      this.requestFactory.getSecurityMonitoringDatasetByVersion(
+        param.datasetId,
+        param.version,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSecurityMonitoringDatasetByVersion(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Retrieve the version history of a Cloud SIEM dataset, including the changes made at each version.
+   * @param param The request object
+   */
+  public getSecurityMonitoringDatasetVersionHistory(
+    param: SecurityMonitoringApiGetSecurityMonitoringDatasetVersionHistoryRequest,
+    options?: Configuration,
+  ): Promise<SecurityMonitoringDatasetVersionHistoryResponse> {
+    const requestContextPromise =
+      this.requestFactory.getSecurityMonitoringDatasetVersionHistory(
+        param.datasetId,
+        param.pageSize,
+        param.pageNumber,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSecurityMonitoringDatasetVersionHistory(
             responseContext,
           );
         });
@@ -19083,6 +20490,34 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * List all Cloud SIEM datasets available to the organization, including both
+   * customer-defined datasets and Datadog out-of-the-box datasets.
+   * @param param The request object
+   */
+  public listSecurityMonitoringDatasets(
+    param: SecurityMonitoringApiListSecurityMonitoringDatasetsRequest = {},
+    options?: Configuration,
+  ): Promise<SecurityMonitoringDatasetsListResponse> {
+    const requestContextPromise =
+      this.requestFactory.listSecurityMonitoringDatasets(
+        param.pageSize,
+        param.pageNumber,
+        param.sort,
+        param.filterQuery,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listSecurityMonitoringDatasets(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * List hist signals.
    * @param param The request object
    */
@@ -19942,6 +21377,32 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateSecurityMonitoringCriticalAsset(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Update an existing Cloud SIEM dataset. The current version of the dataset can be
+   * provided to detect concurrent modifications.
+   * @param param The request object
+   */
+  public updateSecurityMonitoringDataset(
+    param: SecurityMonitoringApiUpdateSecurityMonitoringDatasetRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.updateSecurityMonitoringDataset(
+        param.datasetId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateSecurityMonitoringDataset(
             responseContext,
           );
         });

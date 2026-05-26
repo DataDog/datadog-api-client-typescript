@@ -6220,6 +6220,90 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "SecurityMonitoringApi.V2.ListSecurityMonitoringDatasets": {
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    sort: {
+      type: "string",
+      format: "",
+    },
+    filterQuery: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "SecurityMonitoringDatasetsListResponse",
+  },
+  "SecurityMonitoringApi.V2.CreateSecurityMonitoringDataset": {
+    body: {
+      type: "SecurityMonitoringDatasetCreateRequest",
+      format: "",
+    },
+    operationResponseType: "SecurityMonitoringDatasetCreateResponse",
+  },
+  "SecurityMonitoringApi.V2.BatchGetSecurityMonitoringDatasetDependencies": {
+    body: {
+      type: "SecurityMonitoringDatasetDependenciesRequest",
+      format: "",
+    },
+    operationResponseType: "SecurityMonitoringDatasetDependenciesResponse",
+  },
+  "SecurityMonitoringApi.V2.GetSecurityMonitoringDataset": {
+    datasetId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "SecurityMonitoringDatasetResponse",
+  },
+  "SecurityMonitoringApi.V2.DeleteSecurityMonitoringDataset": {
+    datasetId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "SecurityMonitoringApi.V2.UpdateSecurityMonitoringDataset": {
+    datasetId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "SecurityMonitoringDatasetUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "SecurityMonitoringApi.V2.GetSecurityMonitoringDatasetByVersion": {
+    datasetId: {
+      type: "string",
+      format: "",
+    },
+    version: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "SecurityMonitoringDatasetResponse",
+  },
+  "SecurityMonitoringApi.V2.GetSecurityMonitoringDatasetVersionHistory": {
+    datasetId: {
+      type: "string",
+      format: "",
+    },
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "SecurityMonitoringDatasetVersionHistoryResponse",
+  },
   "SecurityMonitoringApi.V2.GetEntityContext": {
     query: {
       type: "string",
