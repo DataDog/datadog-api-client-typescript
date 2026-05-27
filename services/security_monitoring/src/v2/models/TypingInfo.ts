@@ -276,33 +276,6 @@ import { SecurityMonitoringCriticalAssetUpdateAttributes } from "./SecurityMonit
 import { SecurityMonitoringCriticalAssetUpdateData } from "./SecurityMonitoringCriticalAssetUpdateData";
 import { SecurityMonitoringCriticalAssetUpdateRequest } from "./SecurityMonitoringCriticalAssetUpdateRequest";
 import { SecurityMonitoringCriticalAssetsResponse } from "./SecurityMonitoringCriticalAssetsResponse";
-import { SecurityMonitoringDatasetAttributesRequest } from "./SecurityMonitoringDatasetAttributesRequest";
-import { SecurityMonitoringDatasetAttributesResponse } from "./SecurityMonitoringDatasetAttributesResponse";
-import { SecurityMonitoringDatasetColumn } from "./SecurityMonitoringDatasetColumn";
-import { SecurityMonitoringDatasetCreateData } from "./SecurityMonitoringDatasetCreateData";
-import { SecurityMonitoringDatasetCreateRequest } from "./SecurityMonitoringDatasetCreateRequest";
-import { SecurityMonitoringDatasetCreateResponse } from "./SecurityMonitoringDatasetCreateResponse";
-import { SecurityMonitoringDatasetCreateResponseData } from "./SecurityMonitoringDatasetCreateResponseData";
-import { SecurityMonitoringDatasetData } from "./SecurityMonitoringDatasetData";
-import { SecurityMonitoringDatasetDefinition } from "./SecurityMonitoringDatasetDefinition";
-import { SecurityMonitoringDatasetDependenciesRequest } from "./SecurityMonitoringDatasetDependenciesRequest";
-import { SecurityMonitoringDatasetDependenciesRequestAttributes } from "./SecurityMonitoringDatasetDependenciesRequestAttributes";
-import { SecurityMonitoringDatasetDependenciesRequestData } from "./SecurityMonitoringDatasetDependenciesRequestData";
-import { SecurityMonitoringDatasetDependenciesResponse } from "./SecurityMonitoringDatasetDependenciesResponse";
-import { SecurityMonitoringDatasetDependentsAttributes } from "./SecurityMonitoringDatasetDependentsAttributes";
-import { SecurityMonitoringDatasetDependentsData } from "./SecurityMonitoringDatasetDependentsData";
-import { SecurityMonitoringDatasetResponse } from "./SecurityMonitoringDatasetResponse";
-import { SecurityMonitoringDatasetSearch } from "./SecurityMonitoringDatasetSearch";
-import { SecurityMonitoringDatasetTimeWindow } from "./SecurityMonitoringDatasetTimeWindow";
-import { SecurityMonitoringDatasetUpdateData } from "./SecurityMonitoringDatasetUpdateData";
-import { SecurityMonitoringDatasetUpdateRequest } from "./SecurityMonitoringDatasetUpdateRequest";
-import { SecurityMonitoringDatasetVersionEntry } from "./SecurityMonitoringDatasetVersionEntry";
-import { SecurityMonitoringDatasetVersionFieldChange } from "./SecurityMonitoringDatasetVersionFieldChange";
-import { SecurityMonitoringDatasetVersionHistoryAttributes } from "./SecurityMonitoringDatasetVersionHistoryAttributes";
-import { SecurityMonitoringDatasetVersionHistoryData } from "./SecurityMonitoringDatasetVersionHistoryData";
-import { SecurityMonitoringDatasetVersionHistoryResponse } from "./SecurityMonitoringDatasetVersionHistoryResponse";
-import { SecurityMonitoringDatasetsListMeta } from "./SecurityMonitoringDatasetsListMeta";
-import { SecurityMonitoringDatasetsListResponse } from "./SecurityMonitoringDatasetsListResponse";
 import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
 import { SecurityMonitoringIntegrationConfigAttributes } from "./SecurityMonitoringIntegrationConfigAttributes";
 import { SecurityMonitoringIntegrationConfigCreateAttributes } from "./SecurityMonitoringIntegrationConfigCreateAttributes";
@@ -620,11 +593,6 @@ export const TypingInfo: ModelTypingInfo = {
       "no-op",
     ],
     SecurityMonitoringCriticalAssetType: ["critical_assets"],
-    SecurityMonitoringDatasetCreateType: ["datasetCreate"],
-    SecurityMonitoringDatasetDependentsType: ["datasetDependents"],
-    SecurityMonitoringDatasetType: ["dataset"],
-    SecurityMonitoringDatasetUpdateType: ["datasetUpdate"],
-    SecurityMonitoringDatasetVersionHistoryType: ["dataset_version_history"],
     SecurityMonitoringFilterAction: ["require", "suppress"],
     SecurityMonitoringIntegrationConfigResourceType: ["integration_config"],
     SecurityMonitoringIntegrationConfigState: [
@@ -1220,51 +1188,6 @@ export const TypingInfo: ModelTypingInfo = {
       SecurityMonitoringCriticalAssetUpdateRequest,
     SecurityMonitoringCriticalAssetsResponse:
       SecurityMonitoringCriticalAssetsResponse,
-    SecurityMonitoringDatasetAttributesRequest:
-      SecurityMonitoringDatasetAttributesRequest,
-    SecurityMonitoringDatasetAttributesResponse:
-      SecurityMonitoringDatasetAttributesResponse,
-    SecurityMonitoringDatasetColumn: SecurityMonitoringDatasetColumn,
-    SecurityMonitoringDatasetCreateData: SecurityMonitoringDatasetCreateData,
-    SecurityMonitoringDatasetCreateRequest:
-      SecurityMonitoringDatasetCreateRequest,
-    SecurityMonitoringDatasetCreateResponse:
-      SecurityMonitoringDatasetCreateResponse,
-    SecurityMonitoringDatasetCreateResponseData:
-      SecurityMonitoringDatasetCreateResponseData,
-    SecurityMonitoringDatasetData: SecurityMonitoringDatasetData,
-    SecurityMonitoringDatasetDefinition: SecurityMonitoringDatasetDefinition,
-    SecurityMonitoringDatasetDependenciesRequest:
-      SecurityMonitoringDatasetDependenciesRequest,
-    SecurityMonitoringDatasetDependenciesRequestAttributes:
-      SecurityMonitoringDatasetDependenciesRequestAttributes,
-    SecurityMonitoringDatasetDependenciesRequestData:
-      SecurityMonitoringDatasetDependenciesRequestData,
-    SecurityMonitoringDatasetDependenciesResponse:
-      SecurityMonitoringDatasetDependenciesResponse,
-    SecurityMonitoringDatasetDependentsAttributes:
-      SecurityMonitoringDatasetDependentsAttributes,
-    SecurityMonitoringDatasetDependentsData:
-      SecurityMonitoringDatasetDependentsData,
-    SecurityMonitoringDatasetResponse: SecurityMonitoringDatasetResponse,
-    SecurityMonitoringDatasetSearch: SecurityMonitoringDatasetSearch,
-    SecurityMonitoringDatasetTimeWindow: SecurityMonitoringDatasetTimeWindow,
-    SecurityMonitoringDatasetUpdateData: SecurityMonitoringDatasetUpdateData,
-    SecurityMonitoringDatasetUpdateRequest:
-      SecurityMonitoringDatasetUpdateRequest,
-    SecurityMonitoringDatasetVersionEntry:
-      SecurityMonitoringDatasetVersionEntry,
-    SecurityMonitoringDatasetVersionFieldChange:
-      SecurityMonitoringDatasetVersionFieldChange,
-    SecurityMonitoringDatasetVersionHistoryAttributes:
-      SecurityMonitoringDatasetVersionHistoryAttributes,
-    SecurityMonitoringDatasetVersionHistoryData:
-      SecurityMonitoringDatasetVersionHistoryData,
-    SecurityMonitoringDatasetVersionHistoryResponse:
-      SecurityMonitoringDatasetVersionHistoryResponse,
-    SecurityMonitoringDatasetsListMeta: SecurityMonitoringDatasetsListMeta,
-    SecurityMonitoringDatasetsListResponse:
-      SecurityMonitoringDatasetsListResponse,
     SecurityMonitoringFilter: SecurityMonitoringFilter,
     SecurityMonitoringIntegrationConfigAttributes:
       SecurityMonitoringIntegrationConfigAttributes,
