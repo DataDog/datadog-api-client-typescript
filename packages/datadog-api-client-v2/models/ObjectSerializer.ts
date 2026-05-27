@@ -840,6 +840,8 @@ import { CostTagKeySource } from "./CostTagKeySource";
 import { CostTagKeySourceAttributes } from "./CostTagKeySourceAttributes";
 import { CostTagKeySourcesResponse } from "./CostTagKeySourcesResponse";
 import { CostTagKeysResponse } from "./CostTagKeysResponse";
+import { CostTagMetadataMonth } from "./CostTagMetadataMonth";
+import { CostTagMetadataMonthsResponse } from "./CostTagMetadataMonthsResponse";
 import { CostTagsResponse } from "./CostTagsResponse";
 import { CoverageSummaryAttributes } from "./CoverageSummaryAttributes";
 import { CoverageSummaryCodeownerStats } from "./CoverageSummaryCodeownerStats";
@@ -5048,6 +5050,7 @@ const enumsMap: { [key: string]: any[] } = {
   CostTagKeySourceType: ["cost_tag_key_source"],
   CostTagKeyType: ["cost_tag_key"],
   CostTagMetadataDailyFilter: ["true", "false"],
+  CostTagMetadataMonthType: ["cost_tag_metadata_month"],
   CostTagType: ["cost_tag"],
   CoverageSummaryType: ["ci_app_coverage_summary"],
   CreateAppsDatastoreRequestDataAttributesOrgAccess: [
@@ -8101,6 +8104,8 @@ const typeMap: { [index: string]: any } = {
   CostTagKeySourceAttributes: CostTagKeySourceAttributes,
   CostTagKeySourcesResponse: CostTagKeySourcesResponse,
   CostTagKeysResponse: CostTagKeysResponse,
+  CostTagMetadataMonth: CostTagMetadataMonth,
+  CostTagMetadataMonthsResponse: CostTagMetadataMonthsResponse,
   CostTagsResponse: CostTagsResponse,
   CoverageSummaryAttributes: CoverageSummaryAttributes,
   CoverageSummaryCodeownerStats: CoverageSummaryCodeownerStats,

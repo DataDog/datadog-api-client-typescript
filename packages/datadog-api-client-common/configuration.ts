@@ -420,6 +420,7 @@ export function createConfiguration(
       "v2.listCostTagKeySources": false,
       "v2.listCostTagMetadata": false,
       "v2.listCostTagMetadataMetrics": false,
+      "v2.listCostTagMetadataMonths": false,
       "v2.listCostTagMetadataOrchestrators": false,
       "v2.searchCostRecommendations": false,
       "v2.createDashboardSecureEmbed": false,
