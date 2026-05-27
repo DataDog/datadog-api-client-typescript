@@ -840,8 +840,6 @@ import { CostTagKeySource } from "./CostTagKeySource";
 import { CostTagKeySourceAttributes } from "./CostTagKeySourceAttributes";
 import { CostTagKeySourcesResponse } from "./CostTagKeySourcesResponse";
 import { CostTagKeysResponse } from "./CostTagKeysResponse";
-import { CostTagMetadataMonth } from "./CostTagMetadataMonth";
-import { CostTagMetadataMonthsResponse } from "./CostTagMetadataMonthsResponse";
 import { CostTagsResponse } from "./CostTagsResponse";
 import { CoverageSummaryAttributes } from "./CoverageSummaryAttributes";
 import { CoverageSummaryCodeownerStats } from "./CoverageSummaryCodeownerStats";
@@ -2608,6 +2606,13 @@ import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
 import { NullableUserRelationship } from "./NullableUserRelationship";
 import { NullableUserRelationshipData } from "./NullableUserRelationshipData";
+import { OAuthClientRegistrationError } from "./OAuthClientRegistrationError";
+import { OAuthClientRegistrationRequest } from "./OAuthClientRegistrationRequest";
+import { OAuthClientRegistrationResponse } from "./OAuthClientRegistrationResponse";
+import { OAuthScopesRestriction } from "./OAuthScopesRestriction";
+import { OAuthScopesRestrictionResponse } from "./OAuthScopesRestrictionResponse";
+import { OAuthScopesRestrictionResponseAttributes } from "./OAuthScopesRestrictionResponseAttributes";
+import { OAuthScopesRestrictionResponseData } from "./OAuthScopesRestrictionResponseData";
 import { OCIConfig } from "./OCIConfig";
 import { OCIConfigAttributes } from "./OCIConfigAttributes";
 import { OCIConfigsResponse } from "./OCIConfigsResponse";
@@ -4394,6 +4399,9 @@ import { UpsertCatalogKindResponse } from "./UpsertCatalogKindResponse";
 import { UpsertCloudInventorySyncConfigRequest } from "./UpsertCloudInventorySyncConfigRequest";
 import { UpsertCloudInventorySyncConfigRequestAttributes } from "./UpsertCloudInventorySyncConfigRequestAttributes";
 import { UpsertCloudInventorySyncConfigRequestData } from "./UpsertCloudInventorySyncConfigRequestData";
+import { UpsertOAuthScopesRestrictionData } from "./UpsertOAuthScopesRestrictionData";
+import { UpsertOAuthScopesRestrictionDataAttributes } from "./UpsertOAuthScopesRestrictionDataAttributes";
+import { UpsertOAuthScopesRestrictionRequest } from "./UpsertOAuthScopesRestrictionRequest";
 import { UrlParam } from "./UrlParam";
 import { UrlParamUpdate } from "./UrlParamUpdate";
 import { UsageApplicationSecurityMonitoringResponse } from "./UsageApplicationSecurityMonitoringResponse";
@@ -5050,7 +5058,6 @@ const enumsMap: { [key: string]: any[] } = {
   CostTagKeySourceType: ["cost_tag_key_source"],
   CostTagKeyType: ["cost_tag_key"],
   CostTagMetadataDailyFilter: ["true", "false"],
-  CostTagMetadataMonthType: ["cost_tag_metadata_month"],
   CostTagType: ["cost_tag"],
   CoverageSummaryType: ["ci_app_coverage_summary"],
   CreateAppsDatastoreRequestDataAttributesOrgAccess: [
@@ -5756,6 +5763,10 @@ const enumsMap: { [key: string]: any[] } = {
   NotificationRulesType: ["notification_rules"],
   NotionAPIKeyType: ["NotionAPIKey"],
   NotionIntegrationType: ["Notion"],
+  OAuthClientRegistrationGrantType: ["authorization_code", "refresh_token"],
+  OAuthClientRegistrationResponseType: ["code"],
+  OAuthOidcScope: ["openid", "profile", "email", "offline_access"],
+  OAuthScopesRestrictionType: ["scopes_restriction"],
   OCIConfigType: ["oci_config"],
   ObservabilityPipelineAddEnvVarsProcessorType: ["add_env_vars"],
   ObservabilityPipelineAddFieldsProcessorType: ["add_fields"],
@@ -6977,6 +6988,7 @@ const enumsMap: { [key: string]: any[] } = {
   UpdateOutcomesAsyncType: ["batched-outcome"],
   UpdateRulesetRequestDataType: ["update_ruleset"],
   UpdateTenancyConfigDataType: ["oci_tenancy"],
+  UpsertOAuthScopesRestrictionType: ["upsert_scopes_restriction"],
   Urgency: ["low", "high", "dynamic"],
   UsageAttributionTypesType: ["usage_attribution_types"],
   UsageTimeSeriesType: ["usage_timeseries"],
@@ -8104,8 +8116,6 @@ const typeMap: { [index: string]: any } = {
   CostTagKeySourceAttributes: CostTagKeySourceAttributes,
   CostTagKeySourcesResponse: CostTagKeySourcesResponse,
   CostTagKeysResponse: CostTagKeysResponse,
-  CostTagMetadataMonth: CostTagMetadataMonth,
-  CostTagMetadataMonthsResponse: CostTagMetadataMonthsResponse,
   CostTagsResponse: CostTagsResponse,
   CoverageSummaryAttributes: CoverageSummaryAttributes,
   CoverageSummaryCodeownerStats: CoverageSummaryCodeownerStats,
@@ -10174,6 +10184,14 @@ const typeMap: { [index: string]: any } = {
   NullableRelationshipToUserData: NullableRelationshipToUserData,
   NullableUserRelationship: NullableUserRelationship,
   NullableUserRelationshipData: NullableUserRelationshipData,
+  OAuthClientRegistrationError: OAuthClientRegistrationError,
+  OAuthClientRegistrationRequest: OAuthClientRegistrationRequest,
+  OAuthClientRegistrationResponse: OAuthClientRegistrationResponse,
+  OAuthScopesRestriction: OAuthScopesRestriction,
+  OAuthScopesRestrictionResponse: OAuthScopesRestrictionResponse,
+  OAuthScopesRestrictionResponseAttributes:
+    OAuthScopesRestrictionResponseAttributes,
+  OAuthScopesRestrictionResponseData: OAuthScopesRestrictionResponseData,
   OCIConfig: OCIConfig,
   OCIConfigAttributes: OCIConfigAttributes,
   OCIConfigsResponse: OCIConfigsResponse,
@@ -12452,6 +12470,10 @@ const typeMap: { [index: string]: any } = {
     UpsertCloudInventorySyncConfigRequestAttributes,
   UpsertCloudInventorySyncConfigRequestData:
     UpsertCloudInventorySyncConfigRequestData,
+  UpsertOAuthScopesRestrictionData: UpsertOAuthScopesRestrictionData,
+  UpsertOAuthScopesRestrictionDataAttributes:
+    UpsertOAuthScopesRestrictionDataAttributes,
+  UpsertOAuthScopesRestrictionRequest: UpsertOAuthScopesRestrictionRequest,
   UrlParam: UrlParam,
   UrlParamUpdate: UrlParamUpdate,
   UsageApplicationSecurityMonitoringResponse:
