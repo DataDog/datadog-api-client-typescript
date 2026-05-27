@@ -7503,6 +7503,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CostMetricsResponse",
     },
+    "v2.ListCostTagMetadataMonths": {
+        "filterProvider": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CostTagMetadataMonthsResponse",
+    },
     "v2.ListCostTagMetadataOrchestrators": {
         "filterMonth": {
             "type": "string",
