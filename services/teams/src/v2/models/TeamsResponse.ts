@@ -26,6 +26,10 @@ export class TeamsResponse {
    */
   "meta"?: TeamsResponseMeta;
   /**
+   * Indicates whether the response is from a test environment.
+   */
+  "test"?: boolean;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -55,6 +59,10 @@ export class TeamsResponse {
     meta: {
       baseName: "meta",
       type: "TeamsResponseMeta",
+    },
+    test: {
+      baseName: "test",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
