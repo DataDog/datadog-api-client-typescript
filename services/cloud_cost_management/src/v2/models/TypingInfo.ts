@@ -119,6 +119,8 @@ import { CostTagKeySource } from "./CostTagKeySource";
 import { CostTagKeySourceAttributes } from "./CostTagKeySourceAttributes";
 import { CostTagKeySourcesResponse } from "./CostTagKeySourcesResponse";
 import { CostTagKeysResponse } from "./CostTagKeysResponse";
+import { CostTagMetadataMonth } from "./CostTagMetadataMonth";
+import { CostTagMetadataMonthsResponse } from "./CostTagMetadataMonthsResponse";
 import { CostTagsResponse } from "./CostTagsResponse";
 import { CreateRulesetRequest } from "./CreateRulesetRequest";
 import { CreateRulesetRequestData } from "./CreateRulesetRequestData";
@@ -234,6 +236,7 @@ export const TypingInfo: ModelTypingInfo = {
     CostTagKeySourceType: ["cost_tag_key_source"],
     CostTagKeyType: ["cost_tag_key"],
     CostTagMetadataDailyFilter: ["true", "false"],
+    CostTagMetadataMonthType: ["cost_tag_metadata_month"],
     CostTagType: ["cost_tag"],
     CreateRulesetRequestDataType: ["create_ruleset"],
     DataAttributesRulesItemsIfTagExists: ["append", "do_not_apply", "replace"],
@@ -408,6 +411,8 @@ export const TypingInfo: ModelTypingInfo = {
     CostTagKeySourceAttributes: CostTagKeySourceAttributes,
     CostTagKeySourcesResponse: CostTagKeySourcesResponse,
     CostTagKeysResponse: CostTagKeysResponse,
+    CostTagMetadataMonth: CostTagMetadataMonth,
+    CostTagMetadataMonthsResponse: CostTagMetadataMonthsResponse,
     CostTagsResponse: CostTagsResponse,
     CreateRulesetRequest: CreateRulesetRequest,
     CreateRulesetRequestData: CreateRulesetRequestData,
