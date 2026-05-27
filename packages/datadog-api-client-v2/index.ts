@@ -316,7 +316,6 @@ export {
   CloudCostManagementApiListCostTagKeysRequest,
   CloudCostManagementApiListCostTagMetadataRequest,
   CloudCostManagementApiListCostTagMetadataMetricsRequest,
-  CloudCostManagementApiListCostTagMetadataMonthsRequest,
   CloudCostManagementApiListCostTagMetadataOrchestratorsRequest,
   CloudCostManagementApiListCostTagsRequest,
   CloudCostManagementApiListCustomCostsFilesRequest,
@@ -860,6 +859,14 @@ export {
   NetworkDeviceMonitoringApiUpdateInterfaceUserTagsRequest,
   NetworkDeviceMonitoringApi,
 } from "./apis/NetworkDeviceMonitoringApi";
+
+export {
+  OAuth2ClientPublicApiDeleteScopesRestrictionRequest,
+  OAuth2ClientPublicApiGetScopesRestrictionRequest,
+  OAuth2ClientPublicApiRegisterOAuthClientRequest,
+  OAuth2ClientPublicApiUpsertScopesRestrictionRequest,
+  OAuth2ClientPublicApi,
+} from "./apis/OAuth2ClientPublicApi";
 
 export {
   OCIIntegrationApiCreateTenancyConfigRequest,
@@ -2656,9 +2663,6 @@ export { CostTagKeySourceType } from "./models/CostTagKeySourceType";
 export { CostTagKeysResponse } from "./models/CostTagKeysResponse";
 export { CostTagKeyType } from "./models/CostTagKeyType";
 export { CostTagMetadataDailyFilter } from "./models/CostTagMetadataDailyFilter";
-export { CostTagMetadataMonth } from "./models/CostTagMetadataMonth";
-export { CostTagMetadataMonthsResponse } from "./models/CostTagMetadataMonthsResponse";
-export { CostTagMetadataMonthType } from "./models/CostTagMetadataMonthType";
 export { CostTagsResponse } from "./models/CostTagsResponse";
 export { CostTagType } from "./models/CostTagType";
 export { CoverageSummaryAttributes } from "./models/CoverageSummaryAttributes";
@@ -4865,6 +4869,17 @@ export { NullableRelationshipToUser } from "./models/NullableRelationshipToUser"
 export { NullableRelationshipToUserData } from "./models/NullableRelationshipToUserData";
 export { NullableUserRelationship } from "./models/NullableUserRelationship";
 export { NullableUserRelationshipData } from "./models/NullableUserRelationshipData";
+export { OAuthClientRegistrationError } from "./models/OAuthClientRegistrationError";
+export { OAuthClientRegistrationGrantType } from "./models/OAuthClientRegistrationGrantType";
+export { OAuthClientRegistrationRequest } from "./models/OAuthClientRegistrationRequest";
+export { OAuthClientRegistrationResponse } from "./models/OAuthClientRegistrationResponse";
+export { OAuthClientRegistrationResponseType } from "./models/OAuthClientRegistrationResponseType";
+export { OAuthOidcScope } from "./models/OAuthOidcScope";
+export { OAuthScopesRestriction } from "./models/OAuthScopesRestriction";
+export { OAuthScopesRestrictionResponse } from "./models/OAuthScopesRestrictionResponse";
+export { OAuthScopesRestrictionResponseAttributes } from "./models/OAuthScopesRestrictionResponseAttributes";
+export { OAuthScopesRestrictionResponseData } from "./models/OAuthScopesRestrictionResponseData";
+export { OAuthScopesRestrictionType } from "./models/OAuthScopesRestrictionType";
 export { ObservabilityPipeline } from "./models/ObservabilityPipeline";
 export { ObservabilityPipelineAddEnvVarsProcessor } from "./models/ObservabilityPipelineAddEnvVarsProcessor";
 export { ObservabilityPipelineAddEnvVarsProcessorType } from "./models/ObservabilityPipelineAddEnvVarsProcessorType";
@@ -7251,6 +7266,10 @@ export { UpsertCatalogKindResponse } from "./models/UpsertCatalogKindResponse";
 export { UpsertCloudInventorySyncConfigRequest } from "./models/UpsertCloudInventorySyncConfigRequest";
 export { UpsertCloudInventorySyncConfigRequestAttributes } from "./models/UpsertCloudInventorySyncConfigRequestAttributes";
 export { UpsertCloudInventorySyncConfigRequestData } from "./models/UpsertCloudInventorySyncConfigRequestData";
+export { UpsertOAuthScopesRestrictionData } from "./models/UpsertOAuthScopesRestrictionData";
+export { UpsertOAuthScopesRestrictionDataAttributes } from "./models/UpsertOAuthScopesRestrictionDataAttributes";
+export { UpsertOAuthScopesRestrictionRequest } from "./models/UpsertOAuthScopesRestrictionRequest";
+export { UpsertOAuthScopesRestrictionType } from "./models/UpsertOAuthScopesRestrictionType";
 export { Urgency } from "./models/Urgency";
 export { UrlParam } from "./models/UrlParam";
 export { UrlParamUpdate } from "./models/UrlParamUpdate";
