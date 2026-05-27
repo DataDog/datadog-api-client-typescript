@@ -7515,6 +7515,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "CostMetricsResponse",
   },
+  "CloudCostManagementApi.V2.ListCostTagMetadataMonths": {
+    filterProvider: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "CostTagMetadataMonthsResponse",
+  },
   "CloudCostManagementApi.V2.ListCostTagMetadataOrchestrators": {
     filterMonth: {
       type: "string",
@@ -10975,38 +10982,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "int32",
     },
     operationResponseType: "SingleAggregatedDnsResponseArray",
-  },
-  "OAuth2ClientPublicApi.V2.GetScopesRestriction": {
-    clientUuid: {
-      type: "string",
-      format: "uuid",
-    },
-    operationResponseType: "OAuthScopesRestrictionResponse",
-  },
-  "OAuth2ClientPublicApi.V2.UpsertScopesRestriction": {
-    clientUuid: {
-      type: "string",
-      format: "uuid",
-    },
-    body: {
-      type: "UpsertOAuthScopesRestrictionRequest",
-      format: "",
-    },
-    operationResponseType: "OAuthScopesRestrictionResponse",
-  },
-  "OAuth2ClientPublicApi.V2.DeleteScopesRestriction": {
-    clientUuid: {
-      type: "string",
-      format: "uuid",
-    },
-    operationResponseType: "{}",
-  },
-  "OAuth2ClientPublicApi.V2.RegisterOAuthClient": {
-    body: {
-      type: "OAuthClientRegistrationRequest",
-      format: "",
-    },
-    operationResponseType: "OAuthClientRegistrationResponse",
   },
   "ObservabilityPipelinesApi.V2.ListPipelines": {
     pageSize: {
