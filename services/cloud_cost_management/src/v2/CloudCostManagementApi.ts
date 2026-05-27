@@ -61,7 +61,6 @@ import { CostTagKeyResponse } from "./models/CostTagKeyResponse";
 import { CostTagKeySourcesResponse } from "./models/CostTagKeySourcesResponse";
 import { CostTagKeysResponse } from "./models/CostTagKeysResponse";
 import { CostTagMetadataDailyFilter } from "./models/CostTagMetadataDailyFilter";
-import { CostTagMetadataMonthsResponse } from "./models/CostTagMetadataMonthsResponse";
 import { CostTagsResponse } from "./models/CostTagsResponse";
 import { CreateRulesetRequest } from "./models/CreateRulesetRequest";
 import { CustomCostsFileGetResponse } from "./models/CustomCostsFileGetResponse";
@@ -2692,67 +2691,6 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
         "",
       );
     }
-    if (filterProvider !== undefined) {
-      requestContext.setQueryParam(
-        "filter[provider]",
-        serialize(filterProvider, TypingInfo, "string", ""),
-        "",
-      );
-    }
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-      "AuthZ",
-    ]);
-
-    return requestContext;
-  }
-
-  public async listCostTagMetadataMonths(
-    filterProvider: string,
-    _options?: Configuration,
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations[
-        "CloudCostManagementApi.v2.listCostTagMetadataMonths"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listCostTagMetadataMonths' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.listCostTagMetadataMonths'] = true`",
-      );
-    }
-
-    // verify required parameter 'filterProvider' is not null or undefined
-    if (filterProvider === null || filterProvider === undefined) {
-      throw new RequiredError("filterProvider", "listCostTagMetadataMonths");
-    }
-
-    // Path Params
-    const localVarPath = "/api/v2/cost/tag_metadata/months";
-
-    // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.listCostTagMetadataMonths",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
-    requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Set User-Agent
-    if (this.userAgent) {
-      requestContext.setHeaderParam("User-Agent", this.userAgent);
-    }
-
-    // Query Params
     if (filterProvider !== undefined) {
       requestContext.setQueryParam(
         "filter[provider]",
@@ -6319,66 +6257,6 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to listCostTagMetadataMonths
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async listCostTagMetadataMonths(
-    response: ResponseContext,
-  ): Promise<CostTagMetadataMonthsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 200) {
-      const body: CostTagMetadataMonthsResponse = deserialize(
-        parse(await response.body.text(), contentType),
-        TypingInfo,
-        "CostTagMetadataMonthsResponse",
-      ) as CostTagMetadataMonthsResponse;
-      return body;
-    }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = parse(await response.body.text(), contentType);
-      let body: APIErrorResponse;
-      try {
-        body = deserialize(
-          bodyText,
-          TypingInfo,
-          "APIErrorResponse",
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText,
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CostTagMetadataMonthsResponse = deserialize(
-        parse(await response.body.text(), contentType),
-        TypingInfo,
-        "CostTagMetadataMonthsResponse",
-        "",
-      ) as CostTagMetadataMonthsResponse;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"',
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
    * @params response Response returned by the server for a request to listCostTagMetadataOrchestrators
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -8066,17 +7944,6 @@ export interface CloudCostManagementApiListCostTagMetadataMetricsRequest {
   filterProvider?: string;
 }
 
-export interface CloudCostManagementApiListCostTagMetadataMonthsRequest {
-  /**
-   * Provider to scope the query to. Use the value of the `providername` tag in CCM
-   * (for example, `aws`, `azure`, `gcp`, `Oracle`, `Confluent Cloud`, `Snowflake`).
-   * For costs uploaded through the Custom Costs API, use `custom`.
-   * Values are case-sensitive.
-   * @type string
-   */
-  filterProvider: string;
-}
-
 export interface CloudCostManagementApiListCostTagMetadataOrchestratorsRequest {
   /**
    * The month to scope the query to, in `YYYY-MM` format.
@@ -9243,30 +9110,6 @@ export class CloudCostManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listCostTagMetadataMetrics(
-            responseContext,
-          );
-        });
-    });
-  }
-
-  /**
-   * List months that have Cloud Cost Management tag metadata for a given provider,
-   * ordered most-recent first. The response is capped at 36 months.
-   * @param param The request object
-   */
-  public listCostTagMetadataMonths(
-    param: CloudCostManagementApiListCostTagMetadataMonthsRequest,
-    options?: Configuration,
-  ): Promise<CostTagMetadataMonthsResponse> {
-    const requestContextPromise = this.requestFactory.listCostTagMetadataMonths(
-      param.filterProvider,
-      options,
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.listCostTagMetadataMonths(
             responseContext,
           );
         });
