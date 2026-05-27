@@ -77,7 +77,7 @@ jobs:
           spec_pr=$(echo "${{ github.event.pull_request.head.ref }}" | sed 's/.*generated\/\([0-9]*\).*/\1/')
           echo "spec_pr=${spec_pr}" >> $GITHUB_OUTPUT
       - name: Post status check
-        uses: DataDog/github-actions/post-status-check@v2
+        uses: DataDog/github-actions/post-status-check@65b4875f33ad773d7ba4b005a2cb5f35020295f3 # v2.3.0
         with:
           github-token: ${{ steps.get_token.outputs.token }}
           repo: datadog-api-spec
