@@ -7515,6 +7515,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "CostMetricsResponse",
   },
+  "CloudCostManagementApi.V2.ListCostTagMetadataMonths": {
+    filterProvider: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "CostTagMetadataMonthsResponse",
+  },
   "CloudCostManagementApi.V2.ListCostTagMetadataOrchestrators": {
     filterMonth: {
       type: "string",
