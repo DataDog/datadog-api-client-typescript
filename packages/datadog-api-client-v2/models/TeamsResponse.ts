@@ -30,6 +30,10 @@ export class TeamsResponse {
    * Teams response metadata.
    */
   "meta"?: TeamsResponseMeta;
+  /**
+   * Indicates whether the response is from a test environment.
+   */
+  "test"?: boolean;
 
   /**
    * A container for additional, undeclared properties.
@@ -62,6 +66,10 @@ export class TeamsResponse {
     meta: {
       baseName: "meta",
       type: "TeamsResponseMeta",
+    },
+    test: {
+      baseName: "test",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
