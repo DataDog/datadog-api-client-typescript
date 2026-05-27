@@ -35,7 +35,6 @@ export {
   CloudCostManagementApiListCostTagKeysRequest,
   CloudCostManagementApiListCostTagMetadataRequest,
   CloudCostManagementApiListCostTagMetadataMetricsRequest,
-  CloudCostManagementApiListCostTagMetadataMonthsRequest,
   CloudCostManagementApiListCostTagMetadataOrchestratorsRequest,
   CloudCostManagementApiListCostTagsRequest,
   CloudCostManagementApiListCustomCostsFilesRequest,
@@ -201,9 +200,6 @@ export { CostTagKeySourceType } from "./models/CostTagKeySourceType";
 export { CostTagKeysResponse } from "./models/CostTagKeysResponse";
 export { CostTagKeyType } from "./models/CostTagKeyType";
 export { CostTagMetadataDailyFilter } from "./models/CostTagMetadataDailyFilter";
-export { CostTagMetadataMonth } from "./models/CostTagMetadataMonth";
-export { CostTagMetadataMonthsResponse } from "./models/CostTagMetadataMonthsResponse";
-export { CostTagMetadataMonthType } from "./models/CostTagMetadataMonthType";
 export { CostTagsResponse } from "./models/CostTagsResponse";
 export { CostTagType } from "./models/CostTagType";
 export { CreateRulesetRequest } from "./models/CreateRulesetRequest";

@@ -420,6 +420,7 @@ apiInstance
 | Monitors | @datadog/datadog-api-client-monitors | [README.md](../../services/monitors/README.md) |
 | Network Device Monitoring | @datadog/datadog-api-client-network-device-monitoring | [README.md](../../services/network-device-monitoring/README.md) |
 | Notebooks | @datadog/datadog-api-client-notebooks | [README.md](../../services/notebooks/README.md) |
+| OAuth2 Client Public | @datadog/datadog-api-client-o-auth2-client-public | [README.md](../../services/o-auth2-client-public/README.md) |
 | Observability Pipelines | @datadog/datadog-api-client-observability-pipelines | [README.md](../../services/observability-pipelines/README.md) |
 | OCI Integration | @datadog/datadog-api-client-oci-integration | [README.md](../../services/oci-integration/README.md) |
 | Okta Integration | @datadog/datadog-api-client-okta-integration | [README.md](../../services/okta-integration/README.md) |
