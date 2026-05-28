@@ -12052,6 +12052,52 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ListConnectionsResponse",
   },
+  "APMTraceApi.V2.GetPrunedTraceByID": {
+    traceId: {
+      type: "string",
+      format: "",
+    },
+    expandSpanId: {
+      type: "number",
+      format: "int64",
+    },
+    timeHint: {
+      type: "number",
+      format: "int32",
+    },
+    forceSource: {
+      type: "string",
+      format: "",
+    },
+    includePath: {
+      type: "Array<string>",
+      format: "",
+    },
+    tagInclude: {
+      type: "Array<string>",
+      format: "",
+    },
+    tagExclude: {
+      type: "Array<string>",
+      format: "",
+    },
+    onlyServiceEntrySpans: {
+      type: "boolean",
+      format: "",
+    },
+    operationResponseType: "PrunedTraceResponse",
+  },
+  "APMTraceApi.V2.GetTraceByID": {
+    traceId: {
+      type: "string",
+      format: "",
+    },
+    includeFields: {
+      type: "Array<string>",
+      format: "",
+    },
+    operationResponseType: "TraceResponse",
+  },
   "ReferenceTablesApi.V2.BatchRowsQuery": {
     body: {
       type: "BatchRowsQueryRequest",

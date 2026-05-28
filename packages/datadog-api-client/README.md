@@ -353,6 +353,7 @@ apiInstance
 | API Management | @datadog/datadog-api-client-api-management | [README.md](../../services/api-management/README.md) |
 | APM | @datadog/datadog-api-client-apm | [README.md](../../services/apm/README.md) |
 | APM Retention Filters | @datadog/datadog-api-client-apm-retention-filters | [README.md](../../services/apm-retention-filters/README.md) |
+| APM Trace | @datadog/datadog-api-client-apm-trace | [README.md](../../services/apm-trace/README.md) |
 | App Builder | @datadog/datadog-api-client-app-builder | [README.md](../../services/app-builder/README.md) |
 | Application Security | @datadog/datadog-api-client-application-security | [README.md](../../services/application-security/README.md) |
 | Audit | @datadog/datadog-api-client-audit | [README.md](../../services/audit/README.md) |
