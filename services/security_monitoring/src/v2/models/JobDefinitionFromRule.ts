@@ -5,6 +5,10 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  */
 export class JobDefinitionFromRule {
   /**
+   * Zero-based index of the rule case to use as the job's signal condition. When omitted, all cases are evaluated. Up to 10 cases are supported, so valid values are 0 to 9.
+   */
+  "caseIndex"?: number;
+  /**
    * Starting time of data analyzed by the job.
    */
   "from": number;
@@ -39,6 +43,11 @@ export class JobDefinitionFromRule {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    caseIndex: {
+      baseName: "caseIndex",
+      type: "number",
+      format: "int32",
+    },
     from: {
       baseName: "from",
       type: "number",

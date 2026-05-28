@@ -7,10 +7,6 @@ import { SecurityMonitoringRuleSeverity } from "./SecurityMonitoringRuleSeverity
  */
 export class ConvertJobResultsToSignalsAttributes {
   /**
-   * Request ID.
-   */
-  "id"?: string;
-  /**
    * Job result IDs.
    */
   "jobResultIds": Array<string>;
@@ -41,10 +37,6 @@ export class ConvertJobResultsToSignalsAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-    },
     jobResultIds: {
       baseName: "jobResultIds",
       type: "Array<string>",

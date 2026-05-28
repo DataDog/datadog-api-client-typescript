@@ -12,13 +12,13 @@ export class RunHistoricalJobRequestAttributes {
    */
   "fromRule"?: JobDefinitionFromRule;
   /**
-   * Request ID.
-   */
-  "id"?: string;
-  /**
    * Definition of a historical job.
    */
   "jobDefinition"?: JobDefinition;
+  /**
+   * Whether the job outputs signals when results are converted.
+   */
+  "signalOutput"?: boolean;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -38,13 +38,13 @@ export class RunHistoricalJobRequestAttributes {
       baseName: "fromRule",
       type: "JobDefinitionFromRule",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-    },
     jobDefinition: {
       baseName: "jobDefinition",
       type: "JobDefinition",
+    },
+    signalOutput: {
+      baseName: "signalOutput",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
