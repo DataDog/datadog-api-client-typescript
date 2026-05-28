@@ -1,35 +1,35 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Attributes of a personal access token.
+ * Attributes of an access token.
  */
 export class PersonalAccessTokenAttributes {
   /**
-   * Creation date of the personal access token.
+   * Creation date of the access token.
    */
   "createdAt"?: Date;
   /**
-   * Expiration date of the personal access token.
+   * Expiration date of the access token.
    */
   "expiresAt"?: Date;
   /**
-   * Date the personal access token was last used.
+   * Date the access token was last used.
    */
   "lastUsedAt"?: Date;
   /**
-   * Date of last modification of the personal access token.
+   * Date of last modification of the access token.
    */
   "modifiedAt"?: Date;
   /**
-   * Name of the personal access token.
+   * Name of the access token.
    */
   "name"?: string;
   /**
-   * The public portion of the personal access token.
+   * The public portion of the access token.
    */
   "publicPortion"?: string;
   /**
-   * Array of scopes granted to the personal access token.
+   * Array of scopes granted to the access token.
    */
   "scopes"?: Array<string>;
   /**

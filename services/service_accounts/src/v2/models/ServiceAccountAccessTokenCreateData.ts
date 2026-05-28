@@ -1,6 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { PersonalAccessTokensType } from "./PersonalAccessTokensType";
+import { ServiceAccessTokensType } from "./ServiceAccessTokensType";
 import { ServiceAccountAccessTokenCreateAttributes } from "./ServiceAccountAccessTokenCreateAttributes";
 
 /**
@@ -12,9 +12,9 @@ export class ServiceAccountAccessTokenCreateData {
    */
   "attributes": ServiceAccountAccessTokenCreateAttributes;
   /**
-   * Personal access tokens resource type.
+   * Service access tokens resource type.
    */
-  "type": PersonalAccessTokensType;
+  "type": ServiceAccessTokensType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -37,7 +37,7 @@ export class ServiceAccountAccessTokenCreateData {
     },
     type: {
       baseName: "type",
-      type: "PersonalAccessTokensType",
+      type: "ServiceAccessTokensType",
       required: true,
     },
     additionalProperties: {

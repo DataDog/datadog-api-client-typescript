@@ -1,15 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Attributes used to update a personal access token.
+ * Attributes used to update an access token.
  */
 export class PersonalAccessTokenUpdateAttributes {
   /**
-   * Name of the personal access token.
+   * Name of the access token.
    */
   "name"?: string;
   /**
-   * Array of scopes to grant the personal access token.
+   * Array of scopes to grant the access token.
    */
   "scopes"?: Array<string>;
   /**

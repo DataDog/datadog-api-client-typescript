@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { RelationshipToUser } from "./RelationshipToUser";
 
 /**
- * Resources related to the personal access token.
+ * Resources related to the access token.
  */
 export class PersonalAccessTokenRelationships {
   /**

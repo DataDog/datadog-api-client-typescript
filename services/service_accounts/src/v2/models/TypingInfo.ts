@@ -13,12 +13,12 @@ import { ApplicationKeyUpdateData } from "./ApplicationKeyUpdateData";
 import { ApplicationKeyUpdateRequest } from "./ApplicationKeyUpdateRequest";
 import { FullApplicationKey } from "./FullApplicationKey";
 import { FullApplicationKeyAttributes } from "./FullApplicationKeyAttributes";
-import { FullPersonalAccessToken } from "./FullPersonalAccessToken";
-import { FullPersonalAccessTokenAttributes } from "./FullPersonalAccessTokenAttributes";
+import { FullServiceAccessToken } from "./FullServiceAccessToken";
+import { FullServiceAccessTokenAttributes } from "./FullServiceAccessTokenAttributes";
 import { LeakedKey } from "./LeakedKey";
 import { LeakedKeyAttributes } from "./LeakedKeyAttributes";
 import { ListApplicationKeysResponse } from "./ListApplicationKeysResponse";
-import { ListPersonalAccessTokensResponse } from "./ListPersonalAccessTokensResponse";
+import { ListServiceAccessTokensResponse } from "./ListServiceAccessTokensResponse";
 import { Organization } from "./Organization";
 import { OrganizationAttributes } from "./OrganizationAttributes";
 import { PartialApplicationKey } from "./PartialApplicationKey";
@@ -26,16 +26,6 @@ import { PartialApplicationKeyAttributes } from "./PartialApplicationKeyAttribut
 import { PartialApplicationKeyResponse } from "./PartialApplicationKeyResponse";
 import { Permission } from "./Permission";
 import { PermissionAttributes } from "./PermissionAttributes";
-import { PersonalAccessToken } from "./PersonalAccessToken";
-import { PersonalAccessTokenAttributes } from "./PersonalAccessTokenAttributes";
-import { PersonalAccessTokenCreateResponse } from "./PersonalAccessTokenCreateResponse";
-import { PersonalAccessTokenRelationships } from "./PersonalAccessTokenRelationships";
-import { PersonalAccessTokenResponse } from "./PersonalAccessTokenResponse";
-import { PersonalAccessTokenResponseMeta } from "./PersonalAccessTokenResponseMeta";
-import { PersonalAccessTokenResponseMetaPage } from "./PersonalAccessTokenResponseMetaPage";
-import { PersonalAccessTokenUpdateAttributes } from "./PersonalAccessTokenUpdateAttributes";
-import { PersonalAccessTokenUpdateData } from "./PersonalAccessTokenUpdateData";
-import { PersonalAccessTokenUpdateRequest } from "./PersonalAccessTokenUpdateRequest";
 import { RelationshipToOrganization } from "./RelationshipToOrganization";
 import { RelationshipToOrganizationData } from "./RelationshipToOrganizationData";
 import { RelationshipToOrganizations } from "./RelationshipToOrganizations";
@@ -43,15 +33,27 @@ import { RelationshipToPermissionData } from "./RelationshipToPermissionData";
 import { RelationshipToPermissions } from "./RelationshipToPermissions";
 import { RelationshipToRoleData } from "./RelationshipToRoleData";
 import { RelationshipToRoles } from "./RelationshipToRoles";
+import { RelationshipToServiceAccount } from "./RelationshipToServiceAccount";
+import { RelationshipToServiceAccountData } from "./RelationshipToServiceAccountData";
 import { RelationshipToUser } from "./RelationshipToUser";
 import { RelationshipToUserData } from "./RelationshipToUserData";
 import { RelationshipToUsers } from "./RelationshipToUsers";
 import { Role } from "./Role";
 import { RoleAttributes } from "./RoleAttributes";
 import { RoleResponseRelationships } from "./RoleResponseRelationships";
+import { ServiceAccessToken } from "./ServiceAccessToken";
+import { ServiceAccessTokenAttributes } from "./ServiceAccessTokenAttributes";
+import { ServiceAccessTokenCreateResponse } from "./ServiceAccessTokenCreateResponse";
+import { ServiceAccessTokenRelationships } from "./ServiceAccessTokenRelationships";
+import { ServiceAccessTokenResponse } from "./ServiceAccessTokenResponse";
+import { ServiceAccessTokenResponseMeta } from "./ServiceAccessTokenResponseMeta";
+import { ServiceAccessTokenResponseMetaPage } from "./ServiceAccessTokenResponseMetaPage";
 import { ServiceAccountAccessTokenCreateAttributes } from "./ServiceAccountAccessTokenCreateAttributes";
 import { ServiceAccountAccessTokenCreateData } from "./ServiceAccountAccessTokenCreateData";
 import { ServiceAccountAccessTokenCreateRequest } from "./ServiceAccountAccessTokenCreateRequest";
+import { ServiceAccountAccessTokenUpdateAttributes } from "./ServiceAccountAccessTokenUpdateAttributes";
+import { ServiceAccountAccessTokenUpdateData } from "./ServiceAccountAccessTokenUpdateData";
+import { ServiceAccountAccessTokenUpdateRequest } from "./ServiceAccountAccessTokenUpdateRequest";
 import { ServiceAccountCreateAttributes } from "./ServiceAccountCreateAttributes";
 import { ServiceAccountCreateData } from "./ServiceAccountCreateData";
 import { ServiceAccountCreateRequest } from "./ServiceAccountCreateRequest";
@@ -82,9 +84,12 @@ export const TypingInfo: ModelTypingInfo = {
       "-created_at",
       "expires_at",
       "-expires_at",
+      "last_used_at",
+      "-last_used_at",
     ],
-    PersonalAccessTokensType: ["personal_access_tokens"],
     RolesType: ["roles"],
+    ServiceAccessTokensType: ["service_access_tokens"],
+    ServiceAccountType: ["service_account"],
     UsersType: ["users"],
   },
   oneOfMap: {
@@ -105,12 +110,12 @@ export const TypingInfo: ModelTypingInfo = {
     ApplicationKeyUpdateRequest: ApplicationKeyUpdateRequest,
     FullApplicationKey: FullApplicationKey,
     FullApplicationKeyAttributes: FullApplicationKeyAttributes,
-    FullPersonalAccessToken: FullPersonalAccessToken,
-    FullPersonalAccessTokenAttributes: FullPersonalAccessTokenAttributes,
+    FullServiceAccessToken: FullServiceAccessToken,
+    FullServiceAccessTokenAttributes: FullServiceAccessTokenAttributes,
     LeakedKey: LeakedKey,
     LeakedKeyAttributes: LeakedKeyAttributes,
     ListApplicationKeysResponse: ListApplicationKeysResponse,
-    ListPersonalAccessTokensResponse: ListPersonalAccessTokensResponse,
+    ListServiceAccessTokensResponse: ListServiceAccessTokensResponse,
     Organization: Organization,
     OrganizationAttributes: OrganizationAttributes,
     PartialApplicationKey: PartialApplicationKey,
@@ -118,16 +123,6 @@ export const TypingInfo: ModelTypingInfo = {
     PartialApplicationKeyResponse: PartialApplicationKeyResponse,
     Permission: Permission,
     PermissionAttributes: PermissionAttributes,
-    PersonalAccessToken: PersonalAccessToken,
-    PersonalAccessTokenAttributes: PersonalAccessTokenAttributes,
-    PersonalAccessTokenCreateResponse: PersonalAccessTokenCreateResponse,
-    PersonalAccessTokenRelationships: PersonalAccessTokenRelationships,
-    PersonalAccessTokenResponse: PersonalAccessTokenResponse,
-    PersonalAccessTokenResponseMeta: PersonalAccessTokenResponseMeta,
-    PersonalAccessTokenResponseMetaPage: PersonalAccessTokenResponseMetaPage,
-    PersonalAccessTokenUpdateAttributes: PersonalAccessTokenUpdateAttributes,
-    PersonalAccessTokenUpdateData: PersonalAccessTokenUpdateData,
-    PersonalAccessTokenUpdateRequest: PersonalAccessTokenUpdateRequest,
     RelationshipToOrganization: RelationshipToOrganization,
     RelationshipToOrganizationData: RelationshipToOrganizationData,
     RelationshipToOrganizations: RelationshipToOrganizations,
@@ -135,17 +130,31 @@ export const TypingInfo: ModelTypingInfo = {
     RelationshipToPermissions: RelationshipToPermissions,
     RelationshipToRoleData: RelationshipToRoleData,
     RelationshipToRoles: RelationshipToRoles,
+    RelationshipToServiceAccount: RelationshipToServiceAccount,
+    RelationshipToServiceAccountData: RelationshipToServiceAccountData,
     RelationshipToUser: RelationshipToUser,
     RelationshipToUserData: RelationshipToUserData,
     RelationshipToUsers: RelationshipToUsers,
     Role: Role,
     RoleAttributes: RoleAttributes,
     RoleResponseRelationships: RoleResponseRelationships,
+    ServiceAccessToken: ServiceAccessToken,
+    ServiceAccessTokenAttributes: ServiceAccessTokenAttributes,
+    ServiceAccessTokenCreateResponse: ServiceAccessTokenCreateResponse,
+    ServiceAccessTokenRelationships: ServiceAccessTokenRelationships,
+    ServiceAccessTokenResponse: ServiceAccessTokenResponse,
+    ServiceAccessTokenResponseMeta: ServiceAccessTokenResponseMeta,
+    ServiceAccessTokenResponseMetaPage: ServiceAccessTokenResponseMetaPage,
     ServiceAccountAccessTokenCreateAttributes:
       ServiceAccountAccessTokenCreateAttributes,
     ServiceAccountAccessTokenCreateData: ServiceAccountAccessTokenCreateData,
     ServiceAccountAccessTokenCreateRequest:
       ServiceAccountAccessTokenCreateRequest,
+    ServiceAccountAccessTokenUpdateAttributes:
+      ServiceAccountAccessTokenUpdateAttributes,
+    ServiceAccountAccessTokenUpdateData: ServiceAccountAccessTokenUpdateData,
+    ServiceAccountAccessTokenUpdateRequest:
+      ServiceAccountAccessTokenUpdateRequest,
     ServiceAccountCreateAttributes: ServiceAccountCreateAttributes,
     ServiceAccountCreateData: ServiceAccountCreateData,
     ServiceAccountCreateRequest: ServiceAccountCreateRequest,

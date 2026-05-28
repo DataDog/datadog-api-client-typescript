@@ -5,19 +5,19 @@ import { PersonalAccessTokenRelationships } from "./PersonalAccessTokenRelations
 import { PersonalAccessTokensType } from "./PersonalAccessTokensType";
 
 /**
- * Datadog personal access token.
+ * Datadog access token.
  */
 export class PersonalAccessToken {
   /**
-   * Attributes of a personal access token.
+   * Attributes of an access token.
    */
   "attributes"?: PersonalAccessTokenAttributes;
   /**
-   * ID of the personal access token.
+   * ID of the access token.
    */
   "id"?: string;
   /**
-   * Resources related to the personal access token.
+   * Resources related to the access token.
    */
   "relationships"?: PersonalAccessTokenRelationships;
   /**

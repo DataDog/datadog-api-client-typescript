@@ -28,13 +28,13 @@ import { ApplicationKeyResponse } from "./models/ApplicationKeyResponse";
 import { ApplicationKeysSort } from "./models/ApplicationKeysSort";
 import { ApplicationKeyUpdateRequest } from "./models/ApplicationKeyUpdateRequest";
 import { ListApplicationKeysResponse } from "./models/ListApplicationKeysResponse";
-import { ListPersonalAccessTokensResponse } from "./models/ListPersonalAccessTokensResponse";
+import { ListServiceAccessTokensResponse } from "./models/ListServiceAccessTokensResponse";
 import { PartialApplicationKeyResponse } from "./models/PartialApplicationKeyResponse";
-import { PersonalAccessTokenCreateResponse } from "./models/PersonalAccessTokenCreateResponse";
-import { PersonalAccessTokenResponse } from "./models/PersonalAccessTokenResponse";
 import { PersonalAccessTokensSort } from "./models/PersonalAccessTokensSort";
-import { PersonalAccessTokenUpdateRequest } from "./models/PersonalAccessTokenUpdateRequest";
+import { ServiceAccessTokenCreateResponse } from "./models/ServiceAccessTokenCreateResponse";
+import { ServiceAccessTokenResponse } from "./models/ServiceAccessTokenResponse";
 import { ServiceAccountAccessTokenCreateRequest } from "./models/ServiceAccountAccessTokenCreateRequest";
+import { ServiceAccountAccessTokenUpdateRequest } from "./models/ServiceAccountAccessTokenUpdateRequest";
 import { ServiceAccountCreateRequest } from "./models/ServiceAccountCreateRequest";
 import { UserResponse } from "./models/UserResponse";
 import { version } from "../version";
@@ -282,7 +282,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
 
   public async getServiceAccountAccessToken(
     serviceAccountId: string,
-    patId: string,
+    tokenId: string,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -295,19 +295,19 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // verify required parameter 'patId' is not null or undefined
-    if (patId === null || patId === undefined) {
-      throw new RequiredError("patId", "getServiceAccountAccessToken");
+    // verify required parameter 'tokenId' is not null or undefined
+    if (tokenId === null || tokenId === undefined) {
+      throw new RequiredError("tokenId", "getServiceAccountAccessToken");
     }
 
     // Path Params
     const localVarPath =
-      "/api/v2/service_accounts/{service_account_id}/access_tokens/{pat_id}"
+      "/api/v2/service_accounts/{service_account_id}/access_tokens/{token_id}"
         .replace(
           "{service_account_id}",
           encodeURIComponent(String(serviceAccountId)),
         )
-        .replace("{pat_id}", encodeURIComponent(String(patId)));
+        .replace("{token_id}", encodeURIComponent(String(tokenId)));
 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
@@ -574,7 +574,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
 
   public async revokeServiceAccountAccessToken(
     serviceAccountId: string,
-    patId: string,
+    tokenId: string,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -587,19 +587,19 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // verify required parameter 'patId' is not null or undefined
-    if (patId === null || patId === undefined) {
-      throw new RequiredError("patId", "revokeServiceAccountAccessToken");
+    // verify required parameter 'tokenId' is not null or undefined
+    if (tokenId === null || tokenId === undefined) {
+      throw new RequiredError("tokenId", "revokeServiceAccountAccessToken");
     }
 
     // Path Params
     const localVarPath =
-      "/api/v2/service_accounts/{service_account_id}/access_tokens/{pat_id}"
+      "/api/v2/service_accounts/{service_account_id}/access_tokens/{token_id}"
         .replace(
           "{service_account_id}",
           encodeURIComponent(String(serviceAccountId)),
         )
-        .replace("{pat_id}", encodeURIComponent(String(patId)));
+        .replace("{token_id}", encodeURIComponent(String(tokenId)));
 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
@@ -630,8 +630,8 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
 
   public async updateServiceAccountAccessToken(
     serviceAccountId: string,
-    patId: string,
-    body: PersonalAccessTokenUpdateRequest,
+    tokenId: string,
+    body: ServiceAccountAccessTokenUpdateRequest,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -644,9 +644,9 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
       );
     }
 
-    // verify required parameter 'patId' is not null or undefined
-    if (patId === null || patId === undefined) {
-      throw new RequiredError("patId", "updateServiceAccountAccessToken");
+    // verify required parameter 'tokenId' is not null or undefined
+    if (tokenId === null || tokenId === undefined) {
+      throw new RequiredError("tokenId", "updateServiceAccountAccessToken");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -656,12 +656,12 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Path Params
     const localVarPath =
-      "/api/v2/service_accounts/{service_account_id}/access_tokens/{pat_id}"
+      "/api/v2/service_accounts/{service_account_id}/access_tokens/{token_id}"
         .replace(
           "{service_account_id}",
           encodeURIComponent(String(serviceAccountId)),
         )
-        .replace("{pat_id}", encodeURIComponent(String(patId)));
+        .replace("{token_id}", encodeURIComponent(String(tokenId)));
 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
@@ -685,7 +685,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(body, TypingInfo, "PersonalAccessTokenUpdateRequest", ""),
+      serialize(body, TypingInfo, "ServiceAccountAccessTokenUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -841,14 +841,14 @@ export class ServiceAccountsApiResponseProcessor {
    */
   public async createServiceAccountAccessToken(
     response: ResponseContext,
-  ): Promise<PersonalAccessTokenCreateResponse> {
+  ): Promise<ServiceAccessTokenCreateResponse> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
-      const body: PersonalAccessTokenCreateResponse = deserialize(
+      const body: ServiceAccessTokenCreateResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "PersonalAccessTokenCreateResponse",
-      ) as PersonalAccessTokenCreateResponse;
+        "ServiceAccessTokenCreateResponse",
+      ) as ServiceAccessTokenCreateResponse;
       return body;
     }
     if (
@@ -877,12 +877,12 @@ export class ServiceAccountsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: PersonalAccessTokenCreateResponse = deserialize(
+      const body: ServiceAccessTokenCreateResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "PersonalAccessTokenCreateResponse",
+        "ServiceAccessTokenCreateResponse",
         "",
-      ) as PersonalAccessTokenCreateResponse;
+      ) as ServiceAccessTokenCreateResponse;
       return body;
     }
 
@@ -1011,14 +1011,14 @@ export class ServiceAccountsApiResponseProcessor {
    */
   public async getServiceAccountAccessToken(
     response: ResponseContext,
-  ): Promise<PersonalAccessTokenResponse> {
+  ): Promise<ServiceAccessTokenResponse> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: PersonalAccessTokenResponse = deserialize(
+      const body: ServiceAccessTokenResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "PersonalAccessTokenResponse",
-      ) as PersonalAccessTokenResponse;
+        "ServiceAccessTokenResponse",
+      ) as ServiceAccessTokenResponse;
       return body;
     }
     if (
@@ -1046,12 +1046,12 @@ export class ServiceAccountsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: PersonalAccessTokenResponse = deserialize(
+      const body: ServiceAccessTokenResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "PersonalAccessTokenResponse",
+        "ServiceAccessTokenResponse",
         "",
-      ) as PersonalAccessTokenResponse;
+      ) as ServiceAccessTokenResponse;
       return body;
     }
 
@@ -1131,14 +1131,14 @@ export class ServiceAccountsApiResponseProcessor {
    */
   public async listServiceAccountAccessTokens(
     response: ResponseContext,
-  ): Promise<ListPersonalAccessTokensResponse> {
+  ): Promise<ListServiceAccessTokensResponse> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ListPersonalAccessTokensResponse = deserialize(
+      const body: ListServiceAccessTokensResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "ListPersonalAccessTokensResponse",
-      ) as ListPersonalAccessTokensResponse;
+        "ListServiceAccessTokensResponse",
+      ) as ListServiceAccessTokensResponse;
       return body;
     }
     if (
@@ -1167,12 +1167,12 @@ export class ServiceAccountsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ListPersonalAccessTokensResponse = deserialize(
+      const body: ListServiceAccessTokensResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "ListPersonalAccessTokensResponse",
+        "ListServiceAccessTokensResponse",
         "",
-      ) as ListPersonalAccessTokensResponse;
+      ) as ListServiceAccessTokensResponse;
       return body;
     }
 
@@ -1302,14 +1302,14 @@ export class ServiceAccountsApiResponseProcessor {
    */
   public async updateServiceAccountAccessToken(
     response: ResponseContext,
-  ): Promise<PersonalAccessTokenResponse> {
+  ): Promise<ServiceAccessTokenResponse> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: PersonalAccessTokenResponse = deserialize(
+      const body: ServiceAccessTokenResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "PersonalAccessTokenResponse",
-      ) as PersonalAccessTokenResponse;
+        "ServiceAccessTokenResponse",
+      ) as ServiceAccessTokenResponse;
       return body;
     }
     if (
@@ -1338,12 +1338,12 @@ export class ServiceAccountsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: PersonalAccessTokenResponse = deserialize(
+      const body: ServiceAccessTokenResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "PersonalAccessTokenResponse",
+        "ServiceAccessTokenResponse",
         "",
-      ) as PersonalAccessTokenResponse;
+      ) as ServiceAccessTokenResponse;
       return body;
     }
 
@@ -1467,10 +1467,10 @@ export interface ServiceAccountsApiGetServiceAccountAccessTokenRequest {
    */
   serviceAccountId: string;
   /**
-   * The ID of the personal access token.
+   * The ID of the access token.
    * @type string
    */
-  patId: string;
+  tokenId: string;
 }
 
 export interface ServiceAccountsApiGetServiceAccountApplicationKeyRequest {
@@ -1503,14 +1503,14 @@ export interface ServiceAccountsApiListServiceAccountAccessTokensRequest {
    */
   pageNumber?: number;
   /**
-   * Personal access token attribute used to sort results. Sort order is ascending
+   * Access token attribute used to sort results. Sort order is ascending
    * by default. In order to specify a descending sort, prefix the
    * attribute with a minus sign.
    * @type PersonalAccessTokensSort
    */
   sort?: PersonalAccessTokensSort;
   /**
-   * Filter personal access tokens by the specified string.
+   * Filter access tokens by the specified string.
    * @type string
    */
   filter?: string;
@@ -1563,10 +1563,10 @@ export interface ServiceAccountsApiRevokeServiceAccountAccessTokenRequest {
    */
   serviceAccountId: string;
   /**
-   * The ID of the personal access token.
+   * The ID of the access token.
    * @type string
    */
-  patId: string;
+  tokenId: string;
 }
 
 export interface ServiceAccountsApiUpdateServiceAccountAccessTokenRequest {
@@ -1576,14 +1576,14 @@ export interface ServiceAccountsApiUpdateServiceAccountAccessTokenRequest {
    */
   serviceAccountId: string;
   /**
-   * The ID of the personal access token.
+   * The ID of the access token.
    * @type string
    */
-  patId: string;
+  tokenId: string;
   /**
-   * @type PersonalAccessTokenUpdateRequest
+   * @type ServiceAccountAccessTokenUpdateRequest
    */
-  body: PersonalAccessTokenUpdateRequest;
+  body: ServiceAccountAccessTokenUpdateRequest;
 }
 
 export interface ServiceAccountsApiUpdateServiceAccountApplicationKeyRequest {
@@ -1651,7 +1651,7 @@ export class ServiceAccountsApi {
   public createServiceAccountAccessToken(
     param: ServiceAccountsApiCreateServiceAccountAccessTokenRequest,
     options?: Configuration,
-  ): Promise<PersonalAccessTokenCreateResponse> {
+  ): Promise<ServiceAccessTokenCreateResponse> {
     const requestContextPromise =
       this.requestFactory.createServiceAccountAccessToken(
         param.serviceAccountId,
@@ -1720,17 +1720,17 @@ export class ServiceAccountsApi {
   }
 
   /**
-   * Get a specific access token for a service account by its UUID.
+   * Get a specific access token for a service account by its ID.
    * @param param The request object
    */
   public getServiceAccountAccessToken(
     param: ServiceAccountsApiGetServiceAccountAccessTokenRequest,
     options?: Configuration,
-  ): Promise<PersonalAccessTokenResponse> {
+  ): Promise<ServiceAccessTokenResponse> {
     const requestContextPromise =
       this.requestFactory.getServiceAccountAccessToken(
         param.serviceAccountId,
-        param.patId,
+        param.tokenId,
         options,
       );
     return requestContextPromise.then((requestContext) => {
@@ -1776,7 +1776,7 @@ export class ServiceAccountsApi {
   public listServiceAccountAccessTokens(
     param: ServiceAccountsApiListServiceAccountAccessTokensRequest,
     options?: Configuration,
-  ): Promise<ListPersonalAccessTokensResponse> {
+  ): Promise<ListServiceAccessTokensResponse> {
     const requestContextPromise =
       this.requestFactory.listServiceAccountAccessTokens(
         param.serviceAccountId,
@@ -1838,7 +1838,7 @@ export class ServiceAccountsApi {
     const requestContextPromise =
       this.requestFactory.revokeServiceAccountAccessToken(
         param.serviceAccountId,
-        param.patId,
+        param.tokenId,
         options,
       );
     return requestContextPromise.then((requestContext) => {
@@ -1859,11 +1859,11 @@ export class ServiceAccountsApi {
   public updateServiceAccountAccessToken(
     param: ServiceAccountsApiUpdateServiceAccountAccessTokenRequest,
     options?: Configuration,
-  ): Promise<PersonalAccessTokenResponse> {
+  ): Promise<ServiceAccessTokenResponse> {
     const requestContextPromise =
       this.requestFactory.updateServiceAccountAccessToken(
         param.serviceAccountId,
-        param.patId,
+        param.tokenId,
         param.body,
         options,
       );
