@@ -32,6 +32,8 @@ jobs:
         with:
           repository: DataDog/datadog-api-client-typescript
           ref: ${{ inputs.target-branch || github.ref }}
+      - name: Enable Corepack
+        run: corepack enable
       - name: Set up Node ${{ inputs.node-version }}
         uses: actions/setup-node@3235b876344d2a9aa001b8d1453c930bba69e610 # v4.4.0
         with:
