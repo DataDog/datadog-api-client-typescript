@@ -2955,6 +2955,36 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "LLMObsDatasetResponse",
     },
+    "v2.BatchUpdateLLMObsDataset": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "datasetId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "LLMObsDatasetBatchUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsDatasetRecordsMutationResponse",
+    },
+    "v2.CloneLLMObsDataset": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "datasetId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "LLMObsDatasetCloneRequest",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsDatasetResponse",
+    },
     "v2.GetLLMObsDatasetDraftState": {
         "projectId": {
             "type": "string",
@@ -2987,6 +3017,25 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "{}",
+    },
+    "v2.ExportLLMObsDataset": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "datasetId": {
+            "type": "string",
+            "format": "",
+            },
+        "format": {
+            "type": "LLMObsDatasetExportFormat",
+            "format": "",
+            },
+        "version": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "string",
     },
     "v2.ListLLMObsDatasetRecords": {
         "projectId": {
@@ -3056,6 +3105,21 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.RestoreLLMObsDatasetVersion": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "datasetId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "LLMObsDatasetRestoreVersionRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListLLMObsDatasetVersions": {
         "projectId": {
             "type": "string",
@@ -3066,6 +3130,37 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "LLMObsDatasetVersionsResponse",
+    },
+    "v2.UploadLLMObsDatasetRecordsFile": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "datasetId": {
+            "type": "string",
+            "format": "",
+            },
+        "deduplicate": {
+            "type": "boolean",
+            "format": "",
+            },
+        "overwrite": {
+            "type": "boolean",
+            "format": "",
+            },
+        "tags": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "includeUserData": {
+            "type": "boolean",
+            "format": "",
+            },
+        "file": {
+            "type": "HttpFile",
+            "format": "binary",
+            },
+        "operationResponseType": "{}",
     },
     "v2.ListLLMObsExperimentEvents": {
         "experimentId": {
