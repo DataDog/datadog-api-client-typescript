@@ -12,6 +12,7 @@ import { APIKeysResponseMeta } from "./APIKeysResponseMeta";
 import { APIKeysResponseMetaPage } from "./APIKeysResponseMetaPage";
 import { APITrigger } from "./APITrigger";
 import { APITriggerWrapper } from "./APITriggerWrapper";
+import { APMTraceSpan } from "./APMTraceSpan";
 import { AWSAccountCreateRequest } from "./AWSAccountCreateRequest";
 import { AWSAccountCreateRequestAttributes } from "./AWSAccountCreateRequestAttributes";
 import { AWSAccountCreateRequestData } from "./AWSAccountCreateRequestData";
@@ -3091,6 +3092,9 @@ import { ProjectedCost } from "./ProjectedCost";
 import { ProjectedCostAttributes } from "./ProjectedCostAttributes";
 import { ProjectedCostResponse } from "./ProjectedCostResponse";
 import { ProjectsResponse } from "./ProjectsResponse";
+import { PrunedTraceAttributes } from "./PrunedTraceAttributes";
+import { PrunedTraceData } from "./PrunedTraceData";
+import { PrunedTraceResponse } from "./PrunedTraceResponse";
 import { PublishAppResponse } from "./PublishAppResponse";
 import { PutAppsDatastoreItemResponseArray } from "./PutAppsDatastoreItemResponseArray";
 import { PutAppsDatastoreItemResponseData } from "./PutAppsDatastoreItemResponseData";
@@ -3970,6 +3974,8 @@ import { SuiteCreateEditRequest } from "./SuiteCreateEditRequest";
 import { SuiteJsonPatchRequest } from "./SuiteJsonPatchRequest";
 import { SuiteJsonPatchRequestData } from "./SuiteJsonPatchRequestData";
 import { SuiteJsonPatchRequestDataAttributes } from "./SuiteJsonPatchRequestDataAttributes";
+import { SummarizedSpan } from "./SummarizedSpan";
+import { SummarizedTrace } from "./SummarizedTrace";
 import { SuppressionVersionHistory } from "./SuppressionVersionHistory";
 import { SuppressionVersions } from "./SuppressionVersions";
 import { SyncProperty } from "./SyncProperty";
@@ -4291,6 +4297,9 @@ import { TimeseriesFormulaRequestAttributes } from "./TimeseriesFormulaRequestAt
 import { TimeseriesResponse } from "./TimeseriesResponse";
 import { TimeseriesResponseAttributes } from "./TimeseriesResponseAttributes";
 import { TimeseriesResponseSeries } from "./TimeseriesResponseSeries";
+import { TraceAttributes } from "./TraceAttributes";
+import { TraceData } from "./TraceData";
+import { TraceResponse } from "./TraceResponse";
 import { TriggerAttributes } from "./TriggerAttributes";
 import { TriggerInvestigationRequest } from "./TriggerInvestigationRequest";
 import { TriggerInvestigationRequestData } from "./TriggerInvestigationRequestData";
@@ -4577,6 +4586,7 @@ const enumsMap: { [key: string]: any[] } = {
     "-name",
   ],
   APIKeysType: ["api_keys"],
+  APMSpanErrorFlag: [0, 1],
   AWSAccountPartition: ["aws", "aws-cn", "aws-us-gov"],
   AWSAccountType: ["account"],
   AWSAssumeRoleType: ["AWSAssumeRole"],
@@ -6198,6 +6208,7 @@ const enumsMap: { [key: string]: any[] } = {
   ProjectFavoriteResourceType: ["project_favorite"],
   ProjectResourceType: ["project"],
   ProjectedCostType: ["projected_cost"],
+  PrunedTraceType: ["pruned_trace"],
   PublishRequestType: ["publishRequest"],
   QueryAccountRequestDataType: ["query_account_request"],
   QueryEventFilteredUsersRequestDataType: [
@@ -6981,6 +6992,7 @@ const enumsMap: { [key: string]: any[] } = {
   TimeseriesFormulaRequestType: ["timeseries_request"],
   TimeseriesFormulaResponseType: ["timeseries_response"],
   TokenType: ["SECRET"],
+  TraceType: ["trace"],
   TriggerInvestigationRequestType: ["trigger_investigation_request"],
   TriggerInvestigationResponseType: ["trigger_investigation_response"],
   TriggerSource: ["security_findings", "security_signals"],
@@ -7173,6 +7185,7 @@ const typeMap: { [index: string]: any } = {
   APIKeysResponseMetaPage: APIKeysResponseMetaPage,
   APITrigger: APITrigger,
   APITriggerWrapper: APITriggerWrapper,
+  APMTraceSpan: APMTraceSpan,
   AWSAccountCreateRequest: AWSAccountCreateRequest,
   AWSAccountCreateRequestAttributes: AWSAccountCreateRequestAttributes,
   AWSAccountCreateRequestData: AWSAccountCreateRequestData,
@@ -10844,6 +10857,9 @@ const typeMap: { [index: string]: any } = {
   ProjectedCostAttributes: ProjectedCostAttributes,
   ProjectedCostResponse: ProjectedCostResponse,
   ProjectsResponse: ProjectsResponse,
+  PrunedTraceAttributes: PrunedTraceAttributes,
+  PrunedTraceData: PrunedTraceData,
+  PrunedTraceResponse: PrunedTraceResponse,
   PublishAppResponse: PublishAppResponse,
   PutAppsDatastoreItemResponseArray: PutAppsDatastoreItemResponseArray,
   PutAppsDatastoreItemResponseData: PutAppsDatastoreItemResponseData,
@@ -11954,6 +11970,8 @@ const typeMap: { [index: string]: any } = {
   SuiteJsonPatchRequest: SuiteJsonPatchRequest,
   SuiteJsonPatchRequestData: SuiteJsonPatchRequestData,
   SuiteJsonPatchRequestDataAttributes: SuiteJsonPatchRequestDataAttributes,
+  SummarizedSpan: SummarizedSpan,
+  SummarizedTrace: SummarizedTrace,
   SuppressionVersionHistory: SuppressionVersionHistory,
   SuppressionVersions: SuppressionVersions,
   SyncProperty: SyncProperty,
@@ -12347,6 +12365,9 @@ const typeMap: { [index: string]: any } = {
   TimeseriesResponse: TimeseriesResponse,
   TimeseriesResponseAttributes: TimeseriesResponseAttributes,
   TimeseriesResponseSeries: TimeseriesResponseSeries,
+  TraceAttributes: TraceAttributes,
+  TraceData: TraceData,
+  TraceResponse: TraceResponse,
   TriggerAttributes: TriggerAttributes,
   TriggerInvestigationRequest: TriggerInvestigationRequest,
   TriggerInvestigationRequestData: TriggerInvestigationRequestData,
