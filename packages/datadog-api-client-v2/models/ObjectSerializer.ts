@@ -828,6 +828,10 @@ import { CostTag } from "./CostTag";
 import { CostTagAttributes } from "./CostTagAttributes";
 import { CostTagDescription } from "./CostTagDescription";
 import { CostTagDescriptionAttributes } from "./CostTagDescriptionAttributes";
+import { CostTagDescriptionResponse } from "./CostTagDescriptionResponse";
+import { CostTagDescriptionUpsertRequest } from "./CostTagDescriptionUpsertRequest";
+import { CostTagDescriptionUpsertRequestData } from "./CostTagDescriptionUpsertRequestData";
+import { CostTagDescriptionUpsertRequestDataAttributes } from "./CostTagDescriptionUpsertRequestDataAttributes";
 import { CostTagDescriptionsResponse } from "./CostTagDescriptionsResponse";
 import { CostTagKey } from "./CostTagKey";
 import { CostTagKeyAttributes } from "./CostTagKeyAttributes";
@@ -1611,6 +1615,9 @@ import { GeminiAPIKey } from "./GeminiAPIKey";
 import { GeminiAPIKeyUpdate } from "./GeminiAPIKeyUpdate";
 import { GeminiIntegration } from "./GeminiIntegration";
 import { GeminiIntegrationUpdate } from "./GeminiIntegrationUpdate";
+import { GenerateCostTagDescriptionResponse } from "./GenerateCostTagDescriptionResponse";
+import { GeneratedCostTagDescription } from "./GeneratedCostTagDescription";
+import { GeneratedCostTagDescriptionAttributes } from "./GeneratedCostTagDescriptionAttributes";
 import { GetActionConnectionResponse } from "./GetActionConnectionResponse";
 import { GetAppKeyRegistrationResponse } from "./GetAppKeyRegistrationResponse";
 import { GetAppResponse } from "./GetAppResponse";
@@ -2608,6 +2615,13 @@ import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
 import { NullableUserRelationship } from "./NullableUserRelationship";
 import { NullableUserRelationshipData } from "./NullableUserRelationshipData";
+import { OAuthClientRegistrationError } from "./OAuthClientRegistrationError";
+import { OAuthClientRegistrationRequest } from "./OAuthClientRegistrationRequest";
+import { OAuthClientRegistrationResponse } from "./OAuthClientRegistrationResponse";
+import { OAuthScopesRestriction } from "./OAuthScopesRestriction";
+import { OAuthScopesRestrictionResponse } from "./OAuthScopesRestrictionResponse";
+import { OAuthScopesRestrictionResponseAttributes } from "./OAuthScopesRestrictionResponseAttributes";
+import { OAuthScopesRestrictionResponseData } from "./OAuthScopesRestrictionResponseData";
 import { OCIConfig } from "./OCIConfig";
 import { OCIConfigAttributes } from "./OCIConfigAttributes";
 import { OCIConfigsResponse } from "./OCIConfigsResponse";
@@ -4395,6 +4409,9 @@ import { UpsertCatalogKindResponse } from "./UpsertCatalogKindResponse";
 import { UpsertCloudInventorySyncConfigRequest } from "./UpsertCloudInventorySyncConfigRequest";
 import { UpsertCloudInventorySyncConfigRequestAttributes } from "./UpsertCloudInventorySyncConfigRequestAttributes";
 import { UpsertCloudInventorySyncConfigRequestData } from "./UpsertCloudInventorySyncConfigRequestData";
+import { UpsertOAuthScopesRestrictionData } from "./UpsertOAuthScopesRestrictionData";
+import { UpsertOAuthScopesRestrictionDataAttributes } from "./UpsertOAuthScopesRestrictionDataAttributes";
+import { UpsertOAuthScopesRestrictionRequest } from "./UpsertOAuthScopesRestrictionRequest";
 import { UrlParam } from "./UrlParam";
 import { UrlParamUpdate } from "./UrlParamUpdate";
 import { UsageApplicationSecurityMonitoringResponse } from "./UsageApplicationSecurityMonitoringResponse";
@@ -5351,6 +5368,7 @@ const enumsMap: { [key: string]: any[] } = {
   GcpUcConfigResponseDataType: ["gcp_uc_config"],
   GeminiAPIKeyType: ["GeminiAPIKey"],
   GeminiIntegrationType: ["Gemini"],
+  GeneratedCostTagDescriptionType: ["cost_generated_tag_description"],
   GetAstRequestDataType: ["get_ast_request"],
   GetAstResponseDataType: ["get_ast_response"],
   GetIssueIncludeQueryParameterItem: ["assignee", "case", "team_owners"],
@@ -5757,6 +5775,10 @@ const enumsMap: { [key: string]: any[] } = {
   NotificationRulesType: ["notification_rules"],
   NotionAPIKeyType: ["NotionAPIKey"],
   NotionIntegrationType: ["Notion"],
+  OAuthClientRegistrationGrantType: ["authorization_code", "refresh_token"],
+  OAuthClientRegistrationResponseType: ["code"],
+  OAuthOidcScope: ["openid", "profile", "email", "offline_access"],
+  OAuthScopesRestrictionType: ["scopes_restriction"],
   OCIConfigType: ["oci_config"],
   ObservabilityPipelineAddEnvVarsProcessorType: ["add_env_vars"],
   ObservabilityPipelineAddFieldsProcessorType: ["add_fields"],
@@ -6980,6 +7002,7 @@ const enumsMap: { [key: string]: any[] } = {
   UpdateOutcomesAsyncType: ["batched-outcome"],
   UpdateRulesetRequestDataType: ["update_ruleset"],
   UpdateTenancyConfigDataType: ["oci_tenancy"],
+  UpsertOAuthScopesRestrictionType: ["upsert_scopes_restriction"],
   Urgency: ["low", "high", "dynamic"],
   UsageAttributionTypesType: ["usage_attribution_types"],
   UsageTimeSeriesType: ["usage_timeseries"],
@@ -8095,6 +8118,11 @@ const typeMap: { [index: string]: any } = {
   CostTagAttributes: CostTagAttributes,
   CostTagDescription: CostTagDescription,
   CostTagDescriptionAttributes: CostTagDescriptionAttributes,
+  CostTagDescriptionResponse: CostTagDescriptionResponse,
+  CostTagDescriptionUpsertRequest: CostTagDescriptionUpsertRequest,
+  CostTagDescriptionUpsertRequestData: CostTagDescriptionUpsertRequestData,
+  CostTagDescriptionUpsertRequestDataAttributes:
+    CostTagDescriptionUpsertRequestDataAttributes,
   CostTagDescriptionsResponse: CostTagDescriptionsResponse,
   CostTagKey: CostTagKey,
   CostTagKeyAttributes: CostTagKeyAttributes,
@@ -9011,6 +9039,9 @@ const typeMap: { [index: string]: any } = {
   GeminiAPIKeyUpdate: GeminiAPIKeyUpdate,
   GeminiIntegration: GeminiIntegration,
   GeminiIntegrationUpdate: GeminiIntegrationUpdate,
+  GenerateCostTagDescriptionResponse: GenerateCostTagDescriptionResponse,
+  GeneratedCostTagDescription: GeneratedCostTagDescription,
+  GeneratedCostTagDescriptionAttributes: GeneratedCostTagDescriptionAttributes,
   GetActionConnectionResponse: GetActionConnectionResponse,
   GetAppKeyRegistrationResponse: GetAppKeyRegistrationResponse,
   GetAppResponse: GetAppResponse,
@@ -10177,6 +10208,14 @@ const typeMap: { [index: string]: any } = {
   NullableRelationshipToUserData: NullableRelationshipToUserData,
   NullableUserRelationship: NullableUserRelationship,
   NullableUserRelationshipData: NullableUserRelationshipData,
+  OAuthClientRegistrationError: OAuthClientRegistrationError,
+  OAuthClientRegistrationRequest: OAuthClientRegistrationRequest,
+  OAuthClientRegistrationResponse: OAuthClientRegistrationResponse,
+  OAuthScopesRestriction: OAuthScopesRestriction,
+  OAuthScopesRestrictionResponse: OAuthScopesRestrictionResponse,
+  OAuthScopesRestrictionResponseAttributes:
+    OAuthScopesRestrictionResponseAttributes,
+  OAuthScopesRestrictionResponseData: OAuthScopesRestrictionResponseData,
   OCIConfig: OCIConfig,
   OCIConfigAttributes: OCIConfigAttributes,
   OCIConfigsResponse: OCIConfigsResponse,
@@ -12457,6 +12496,10 @@ const typeMap: { [index: string]: any } = {
     UpsertCloudInventorySyncConfigRequestAttributes,
   UpsertCloudInventorySyncConfigRequestData:
     UpsertCloudInventorySyncConfigRequestData,
+  UpsertOAuthScopesRestrictionData: UpsertOAuthScopesRestrictionData,
+  UpsertOAuthScopesRestrictionDataAttributes:
+    UpsertOAuthScopesRestrictionDataAttributes,
+  UpsertOAuthScopesRestrictionRequest: UpsertOAuthScopesRestrictionRequest,
   UrlParam: UrlParam,
   UrlParamUpdate: UrlParamUpdate,
   UsageApplicationSecurityMonitoringResponse:

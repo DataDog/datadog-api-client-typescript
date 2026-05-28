@@ -49,7 +49,9 @@ import { CostCurrencyResponse } from "../models/CostCurrencyResponse";
 import { CostMetricsResponse } from "../models/CostMetricsResponse";
 import { CostOrchestratorsResponse } from "../models/CostOrchestratorsResponse";
 import { CostRecommendationArray } from "../models/CostRecommendationArray";
+import { CostTagDescriptionResponse } from "../models/CostTagDescriptionResponse";
 import { CostTagDescriptionsResponse } from "../models/CostTagDescriptionsResponse";
+import { CostTagDescriptionUpsertRequest } from "../models/CostTagDescriptionUpsertRequest";
 import { CostTagKeyMetadataResponse } from "../models/CostTagKeyMetadataResponse";
 import { CostTagKeyResponse } from "../models/CostTagKeyResponse";
 import { CostTagKeySourcesResponse } from "../models/CostTagKeySourcesResponse";
@@ -67,6 +69,7 @@ import { GCPUsageCostConfigPatchRequest } from "../models/GCPUsageCostConfigPatc
 import { GCPUsageCostConfigPostRequest } from "../models/GCPUsageCostConfigPostRequest";
 import { GCPUsageCostConfigResponse } from "../models/GCPUsageCostConfigResponse";
 import { GCPUsageCostConfigsResponse } from "../models/GCPUsageCostConfigsResponse";
+import { GenerateCostTagDescriptionResponse } from "../models/GenerateCostTagDescriptionResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { OCIConfigsResponse } from "../models/OCIConfigsResponse";
 import { RecommendationsFilterRequest } from "../models/RecommendationsFilterRequest";
@@ -430,6 +433,50 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
+  public async deleteCostTagDescriptionByKey(
+    tagKey: string,
+    cloud?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'tagKey' is not null or undefined
+    if (tagKey === null || tagKey === undefined) {
+      throw new RequiredError("tagKey", "deleteCostTagDescriptionByKey");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/tag_descriptions/{tag_key}".replace(
+      "{tag_key}",
+      encodeURIComponent(String(tagKey))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CloudCostManagementApi.deleteCostTagDescriptionByKey")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (cloud !== undefined) {
+      requestContext.setQueryParam(
+        "cloud",
+        ObjectSerializer.serialize(cloud, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteCustomAllocationRule(
     ruleId: number,
     _options?: Configuration
@@ -520,6 +567,41 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
       .getServer("v2.CloudCostManagementApi.deleteTagPipelinesRuleset")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async generateCostTagDescriptionByKey(
+    tagKey: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'tagKey' is not null or undefined
+    if (tagKey === null || tagKey === undefined) {
+      throw new RequiredError("tagKey", "generateCostTagDescriptionByKey");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/cost/tag_descriptions/{tag_key}/generate".replace(
+        "{tag_key}",
+        encodeURIComponent(String(tagKey))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CloudCostManagementApi.generateCostTagDescriptionByKey")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
@@ -1505,6 +1587,50 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getCostTagDescriptionByKey(
+    tagKey: string,
+    filterCloud?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'tagKey' is not null or undefined
+    if (tagKey === null || tagKey === undefined) {
+      throw new RequiredError("tagKey", "getCostTagDescriptionByKey");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/tag_descriptions/{tag_key}".replace(
+      "{tag_key}",
+      encodeURIComponent(String(tagKey))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CloudCostManagementApi.getCostTagDescriptionByKey")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (filterCloud !== undefined) {
+      requestContext.setQueryParam(
+        "filter[cloud]",
+        ObjectSerializer.serialize(filterCloud, "string", ""),
+        ""
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -3073,6 +3199,57 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
+  public async upsertCostTagDescriptionByKey(
+    tagKey: string,
+    body: CostTagDescriptionUpsertRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'tagKey' is not null or undefined
+    if (tagKey === null || tagKey === undefined) {
+      throw new RequiredError("tagKey", "upsertCostTagDescriptionByKey");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "upsertCostTagDescriptionByKey");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/tag_descriptions/{tag_key}".replace(
+      "{tag_key}",
+      encodeURIComponent(String(tagKey))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CloudCostManagementApi.upsertCostTagDescriptionByKey")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "CostTagDescriptionUpsertRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async validateBudget(
     body: BudgetValidationRequest,
     _options?: Configuration
@@ -3688,6 +3865,59 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deleteCostTagDescriptionByKey
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteCostTagDescriptionByKey(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteCustomAllocationRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3824,6 +4054,70 @@ export class CloudCostManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to generateCostTagDescriptionByKey
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async generateCostTagDescriptionByKey(
+    response: ResponseContext
+  ): Promise<GenerateCostTagDescriptionResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: GenerateCostTagDescriptionResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "GenerateCostTagDescriptionResponse"
+        ) as GenerateCostTagDescriptionResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: GenerateCostTagDescriptionResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "GenerateCostTagDescriptionResponse",
+          ""
+        ) as GenerateCostTagDescriptionResponse;
+      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -4780,6 +5074,69 @@ export class CloudCostManagementApiResponseProcessor {
         "GcpUcConfigResponse",
         ""
       ) as GcpUcConfigResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getCostTagDescriptionByKey
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getCostTagDescriptionByKey(
+    response: ResponseContext
+  ): Promise<CostTagDescriptionResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: CostTagDescriptionResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CostTagDescriptionResponse"
+      ) as CostTagDescriptionResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CostTagDescriptionResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CostTagDescriptionResponse",
+        ""
+      ) as CostTagDescriptionResponse;
       return body;
     }
 
@@ -6819,6 +7176,59 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to upsertCostTagDescriptionByKey
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async upsertCostTagDescriptionByKey(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to validateBudget
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -7057,6 +7467,19 @@ export interface CloudCostManagementApiDeleteCostGCPUsageCostConfigRequest {
   cloudAccountId: number;
 }
 
+export interface CloudCostManagementApiDeleteCostTagDescriptionByKeyRequest {
+  /**
+   * The tag key whose description is being deleted.
+   * @type string
+   */
+  tagKey: string;
+  /**
+   * Cloud provider to scope the deletion to (for example, `aws`). Omit to delete every description for the tag key.
+   * @type string
+   */
+  cloud?: string;
+}
+
 export interface CloudCostManagementApiDeleteCustomAllocationRuleRequest {
   /**
    * The unique identifier of the custom allocation rule
@@ -7079,6 +7502,14 @@ export interface CloudCostManagementApiDeleteTagPipelinesRulesetRequest {
    * @type string
    */
   rulesetId: string;
+}
+
+export interface CloudCostManagementApiGenerateCostTagDescriptionByKeyRequest {
+  /**
+   * The tag key to generate an AI description for.
+   * @type string
+   */
+  tagKey: string;
 }
 
 export interface CloudCostManagementApiGetBudgetRequest {
@@ -7358,6 +7789,19 @@ export interface CloudCostManagementApiGetCostGCPUsageCostConfigRequest {
    * @type number
    */
   cloudAccountId: number;
+}
+
+export interface CloudCostManagementApiGetCostTagDescriptionByKeyRequest {
+  /**
+   * The tag key whose description is being fetched.
+   * @type string
+   */
+  tagKey: string;
+  /**
+   * Cloud provider to scope the lookup to (for example, `aws`). Omit to use the resolved fallback.
+   * @type string
+   */
+  filterCloud?: string;
 }
 
 export interface CloudCostManagementApiGetCostTagKeyRequest {
@@ -7738,6 +8182,18 @@ export interface CloudCostManagementApiUpsertBudgetRequest {
   body: BudgetWithEntries;
 }
 
+export interface CloudCostManagementApiUpsertCostTagDescriptionByKeyRequest {
+  /**
+   * The tag key whose description is being upserted.
+   * @type string
+   */
+  tagKey: string;
+  /**
+   * @type CostTagDescriptionUpsertRequest
+   */
+  body: CostTagDescriptionUpsertRequest;
+}
+
 export interface CloudCostManagementApiValidateBudgetRequest {
   /**
    * @type BudgetValidationRequest
@@ -7980,6 +8436,31 @@ export class CloudCostManagementApi {
   }
 
   /**
+   * Delete a Cloud Cost Management tag key description. When `cloud` is omitted, deletes every description for the tag key, falling back to Datadog's global default when available. When `cloud` is provided, deletes only the description scoped to that cloud provider.
+   * @param param The request object
+   */
+  public deleteCostTagDescriptionByKey(
+    param: CloudCostManagementApiDeleteCostTagDescriptionByKeyRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteCostTagDescriptionByKey(
+        param.tagKey,
+        param.cloud,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteCostTagDescriptionByKey(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Delete a custom allocation rule - Delete an existing custom allocation rule by its ID
    * @param param The request object
    */
@@ -8038,6 +8519,30 @@ export class CloudCostManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteTagPipelinesRuleset(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Use AI to draft a Cloud Cost Management tag key description based on associated cost data. The generated description is returned in the response and is not persisted by this endpoint; follow up with `UpsertCostTagDescriptionByKey` to save it.
+   * @param param The request object
+   */
+  public generateCostTagDescriptionByKey(
+    param: CloudCostManagementApiGenerateCostTagDescriptionByKeyRequest,
+    options?: Configuration
+  ): Promise<GenerateCostTagDescriptionResponse> {
+    const requestContextPromise =
+      this.requestFactory.generateCostTagDescriptionByKey(
+        param.tagKey,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.generateCostTagDescriptionByKey(
             responseContext
           );
         });
@@ -8372,6 +8877,31 @@ export class CloudCostManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getCostGCPUsageCostConfig(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get the Cloud Cost Management description for a single tag key. Use `filter[cloud]` to scope the lookup to a specific cloud provider; when omitted, the response resolves the description in fallback order (cloud-specific organization override, then cloudless organization default, then Datadog's global default).
+   * @param param The request object
+   */
+  public getCostTagDescriptionByKey(
+    param: CloudCostManagementApiGetCostTagDescriptionByKeyRequest,
+    options?: Configuration
+  ): Promise<CostTagDescriptionResponse> {
+    const requestContextPromise =
+      this.requestFactory.getCostTagDescriptionByKey(
+        param.tagKey,
+        param.filterCloud,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getCostTagDescriptionByKey(
             responseContext
           );
         });
@@ -9152,6 +9682,31 @@ export class CloudCostManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.upsertBudget(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Create or update a Cloud Cost Management tag key description. The new description and optional cloud scoping are supplied in the request body. Omit `cloud` to set a cross-cloud default for the tag key.
+   * @param param The request object
+   */
+  public upsertCostTagDescriptionByKey(
+    param: CloudCostManagementApiUpsertCostTagDescriptionByKeyRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.upsertCostTagDescriptionByKey(
+        param.tagKey,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.upsertCostTagDescriptionByKey(
+            responseContext
+          );
         });
     });
   }
