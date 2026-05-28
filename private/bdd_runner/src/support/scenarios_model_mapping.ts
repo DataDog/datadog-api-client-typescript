@@ -9827,6 +9827,54 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ServiceNowUsersResponse",
   },
+  "StatuspageIntegrationApi.V2.GetStatuspageAccount": {
+    operationResponseType: "StatuspageAccountResponse",
+  },
+  "StatuspageIntegrationApi.V2.CreateStatuspageAccount": {
+    body: {
+      type: "StatuspageAccountCreateRequest",
+      format: "",
+    },
+    operationResponseType: "StatuspageAccountResponse",
+  },
+  "StatuspageIntegrationApi.V2.DeleteStatuspageAccount": {
+    operationResponseType: "{}",
+  },
+  "StatuspageIntegrationApi.V2.UpdateStatuspageAccount": {
+    body: {
+      type: "StatuspageAccountUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "StatuspageAccountResponse",
+  },
+  "StatuspageIntegrationApi.V2.ListStatuspageUrlSettings": {
+    operationResponseType: "StatuspageUrlSettingsResponse",
+  },
+  "StatuspageIntegrationApi.V2.CreateStatuspageUrlSetting": {
+    body: {
+      type: "StatuspageUrlSettingCreateRequest",
+      format: "",
+    },
+    operationResponseType: "StatuspageUrlSettingResponse",
+  },
+  "StatuspageIntegrationApi.V2.DeleteStatuspageUrlSetting": {
+    statuspageUrlSettingId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "StatuspageIntegrationApi.V2.UpdateStatuspageUrlSetting": {
+    statuspageUrlSettingId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "StatuspageUrlSettingUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "StatuspageUrlSettingResponse",
+  },
   "IntegrationsApi.V2.ListIntegrations": {
     operationResponseType: "ListIntegrationsResponse",
   },
