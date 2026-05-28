@@ -19,7 +19,10 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  HttpFile,
 } from "@datadog/datadog-api-client";
+
+import FormData from "form-data";
 
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
@@ -38,13 +41,17 @@ import { LLMObsCustomEvalConfigResponse } from "./models/LLMObsCustomEvalConfigR
 import { LLMObsCustomEvalConfigUpdateRequest } from "./models/LLMObsCustomEvalConfigUpdateRequest";
 import { LLMObsDataDeletionRequest } from "./models/LLMObsDataDeletionRequest";
 import { LLMObsDataDeletionResponse } from "./models/LLMObsDataDeletionResponse";
+import { LLMObsDatasetBatchUpdateRequest } from "./models/LLMObsDatasetBatchUpdateRequest";
+import { LLMObsDatasetCloneRequest } from "./models/LLMObsDatasetCloneRequest";
 import { LLMObsDatasetDraftStateResponse } from "./models/LLMObsDatasetDraftStateResponse";
+import { LLMObsDatasetExportFormat } from "./models/LLMObsDatasetExportFormat";
 import { LLMObsDatasetRecordsListResponse } from "./models/LLMObsDatasetRecordsListResponse";
 import { LLMObsDatasetRecordsMutationResponse } from "./models/LLMObsDatasetRecordsMutationResponse";
 import { LLMObsDatasetRecordsRequest } from "./models/LLMObsDatasetRecordsRequest";
 import { LLMObsDatasetRecordsUpdateRequest } from "./models/LLMObsDatasetRecordsUpdateRequest";
 import { LLMObsDatasetRequest } from "./models/LLMObsDatasetRequest";
 import { LLMObsDatasetResponse } from "./models/LLMObsDatasetResponse";
+import { LLMObsDatasetRestoreVersionRequest } from "./models/LLMObsDatasetRestoreVersionRequest";
 import { LLMObsDatasetsResponse } from "./models/LLMObsDatasetsResponse";
 import { LLMObsDatasetUpdateRequest } from "./models/LLMObsDatasetUpdateRequest";
 import { LLMObsDatasetVersionsResponse } from "./models/LLMObsDatasetVersionsResponse";
@@ -134,6 +141,154 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsExperimentationAnalyticsRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async batchUpdateLLMObsDataset(
+    projectId: string,
+    datasetId: string,
+    body: LLMObsDatasetBatchUpdateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.batchUpdateLLMObsDataset"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'batchUpdateLLMObsDataset' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.batchUpdateLLMObsDataset'] = true`",
+      );
+    }
+
+    // verify required parameter 'projectId' is not null or undefined
+    if (projectId === null || projectId === undefined) {
+      throw new RequiredError("projectId", "batchUpdateLLMObsDataset");
+    }
+
+    // verify required parameter 'datasetId' is not null or undefined
+    if (datasetId === null || datasetId === undefined) {
+      throw new RequiredError("datasetId", "batchUpdateLLMObsDataset");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "batchUpdateLLMObsDataset");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/batch_update"
+        .replace("{project_id}", encodeURIComponent(String(projectId)))
+        .replace("{dataset_id}", encodeURIComponent(String(datasetId)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.batchUpdateLLMObsDataset",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "LLMObsDatasetBatchUpdateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async cloneLLMObsDataset(
+    projectId: string,
+    datasetId: string,
+    body: LLMObsDatasetCloneRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["LLMObservabilityApi.v2.cloneLLMObsDataset"]
+    ) {
+      throw new Error(
+        "Unstable operation 'cloneLLMObsDataset' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.cloneLLMObsDataset'] = true`",
+      );
+    }
+
+    // verify required parameter 'projectId' is not null or undefined
+    if (projectId === null || projectId === undefined) {
+      throw new RequiredError("projectId", "cloneLLMObsDataset");
+    }
+
+    // verify required parameter 'datasetId' is not null or undefined
+    if (datasetId === null || datasetId === undefined) {
+      throw new RequiredError("datasetId", "cloneLLMObsDataset");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "cloneLLMObsDataset");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/clone"
+        .replace("{project_id}", encodeURIComponent(String(projectId)))
+        .replace("{dataset_id}", encodeURIComponent(String(datasetId)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.cloneLLMObsDataset",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "LLMObsDatasetCloneRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -1196,6 +1351,82 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
       contentType,
     );
     requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async exportLLMObsDataset(
+    projectId: string,
+    datasetId: string,
+    format?: LLMObsDatasetExportFormat,
+    version?: number,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["LLMObservabilityApi.v2.exportLLMObsDataset"]
+    ) {
+      throw new Error(
+        "Unstable operation 'exportLLMObsDataset' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.exportLLMObsDataset'] = true`",
+      );
+    }
+
+    // verify required parameter 'projectId' is not null or undefined
+    if (projectId === null || projectId === undefined) {
+      throw new RequiredError("projectId", "exportLLMObsDataset");
+    }
+
+    // verify required parameter 'datasetId' is not null or undefined
+    if (datasetId === null || datasetId === undefined) {
+      throw new RequiredError("datasetId", "exportLLMObsDataset");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/export"
+        .replace("{project_id}", encodeURIComponent(String(projectId)))
+        .replace("{dataset_id}", encodeURIComponent(String(datasetId)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.exportLLMObsDataset",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "text/csv, application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (format !== undefined) {
+      requestContext.setQueryParam(
+        "format",
+        serialize(format, TypingInfo, "LLMObsDatasetExportFormat", ""),
+        "",
+      );
+    }
+    if (version !== undefined) {
+      requestContext.setQueryParam(
+        "version",
+        serialize(version, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -2356,6 +2587,81 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async restoreLLMObsDatasetVersion(
+    projectId: string,
+    datasetId: string,
+    body: LLMObsDatasetRestoreVersionRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.restoreLLMObsDatasetVersion"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'restoreLLMObsDatasetVersion' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.restoreLLMObsDatasetVersion'] = true`",
+      );
+    }
+
+    // verify required parameter 'projectId' is not null or undefined
+    if (projectId === null || projectId === undefined) {
+      throw new RequiredError("projectId", "restoreLLMObsDatasetVersion");
+    }
+
+    // verify required parameter 'datasetId' is not null or undefined
+    if (datasetId === null || datasetId === undefined) {
+      throw new RequiredError("datasetId", "restoreLLMObsDatasetVersion");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "restoreLLMObsDatasetVersion");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/restore"
+        .replace("{project_id}", encodeURIComponent(String(projectId)))
+        .replace("{dataset_id}", encodeURIComponent(String(datasetId)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.restoreLLMObsDatasetVersion",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "LLMObsDatasetRestoreVersionRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async searchLLMObsExperimentation(
     body: LLMObsExperimentationSearchRequest,
     _options?: Configuration,
@@ -3100,6 +3406,109 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
 
     return requestContext;
   }
+
+  public async uploadLLMObsDatasetRecordsFile(
+    projectId: string,
+    datasetId: string,
+    deduplicate?: boolean,
+    overwrite?: boolean,
+    tags?: Array<string>,
+    includeUserData?: boolean,
+    file?: HttpFile,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.uploadLLMObsDatasetRecordsFile"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'uploadLLMObsDatasetRecordsFile' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.uploadLLMObsDatasetRecordsFile'] = true`",
+      );
+    }
+
+    // verify required parameter 'projectId' is not null or undefined
+    if (projectId === null || projectId === undefined) {
+      throw new RequiredError("projectId", "uploadLLMObsDatasetRecordsFile");
+    }
+
+    // verify required parameter 'datasetId' is not null or undefined
+    if (datasetId === null || datasetId === undefined) {
+      throw new RequiredError("datasetId", "uploadLLMObsDatasetRecordsFile");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/llm-obs/v2/{project_id}/datasets/{dataset_id}/records/upload"
+        .replace("{project_id}", encodeURIComponent(String(projectId)))
+        .replace("{dataset_id}", encodeURIComponent(String(datasetId)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.uploadLLMObsDatasetRecordsFile",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (deduplicate !== undefined) {
+      requestContext.setQueryParam(
+        "deduplicate",
+        serialize(deduplicate, TypingInfo, "boolean", ""),
+        "",
+      );
+    }
+    if (overwrite !== undefined) {
+      requestContext.setQueryParam(
+        "overwrite",
+        serialize(overwrite, TypingInfo, "boolean", ""),
+        "",
+      );
+    }
+    if (tags !== undefined) {
+      requestContext.setQueryParam(
+        "tags",
+        serialize(tags, TypingInfo, "Array<string>", ""),
+        "multi",
+      );
+    }
+    if (includeUserData !== undefined) {
+      requestContext.setQueryParam(
+        "include[user_data]",
+        serialize(includeUserData, TypingInfo, "boolean", ""),
+        "",
+      );
+    }
+
+    // Form Params
+    const localVarFormParams = new FormData();
+    if (file !== undefined) {
+      // TODO: replace .append with .set
+      localVarFormParams.append("file", file as any);
+    }
+    requestContext.setBody(localVarFormParams);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
 }
 
 export class LLMObservabilityApiResponseProcessor {
@@ -3175,6 +3584,173 @@ export class LLMObservabilityApiResponseProcessor {
         "LLMObsExperimentationAnalyticsResponse",
         "",
       ) as LLMObsExperimentationAnalyticsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to batchUpdateLLMObsDataset
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async batchUpdateLLMObsDataset(
+    response: ResponseContext,
+  ): Promise<LLMObsDatasetRecordsMutationResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsDatasetRecordsMutationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsDatasetRecordsMutationResponse",
+      ) as LLMObsDatasetRecordsMutationResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 413 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsDatasetRecordsMutationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsDatasetRecordsMutationResponse",
+        "",
+      ) as LLMObsDatasetRecordsMutationResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to cloneLLMObsDataset
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async cloneLLMObsDataset(
+    response: ResponseContext,
+  ): Promise<LLMObsDatasetResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsDatasetResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsDatasetResponse",
+      ) as LLMObsDatasetResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsDatasetResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsDatasetResponse",
+        "",
+      ) as LLMObsDatasetResponse;
       return body;
     }
 
@@ -4389,6 +4965,87 @@ export class LLMObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to exportLLMObsDataset
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async exportLLMObsDataset(response: ResponseContext): Promise<string> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: string = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "string",
+      ) as string;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: string = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "string",
+        "",
+      ) as string;
+      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -5712,6 +6369,78 @@ export class LLMObservabilityApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to restoreLLMObsDatasetVersion
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async restoreLLMObsDatasetVersion(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to searchLLMObsExperimentation
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -6589,6 +7318,78 @@ export class LLMObservabilityApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"',
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to uploadLLMObsDatasetRecordsFile
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async uploadLLMObsDatasetRecordsFile(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
 }
 
 export interface LLMObservabilityApiAggregateLLMObsExperimentationRequest {
@@ -6597,6 +7398,42 @@ export interface LLMObservabilityApiAggregateLLMObsExperimentationRequest {
    * @type LLMObsExperimentationAnalyticsRequest
    */
   body: LLMObsExperimentationAnalyticsRequest;
+}
+
+export interface LLMObservabilityApiBatchUpdateLLMObsDatasetRequest {
+  /**
+   * The ID of the LLM Observability project.
+   * @type string
+   */
+  projectId: string;
+  /**
+   * The ID of the LLM Observability dataset.
+   * @type string
+   */
+  datasetId: string;
+  /**
+   * Batch update payload.
+   * @type LLMObsDatasetBatchUpdateRequest
+   */
+  body: LLMObsDatasetBatchUpdateRequest;
+}
+
+export interface LLMObservabilityApiCloneLLMObsDatasetRequest {
+  /**
+   * The ID of the LLM Observability project.
+   * @type string
+   */
+  projectId: string;
+  /**
+   * The ID of the source LLM Observability dataset to clone.
+   * @type string
+   */
+  datasetId: string;
+  /**
+   * Clone dataset payload.
+   * @type LLMObsDatasetCloneRequest
+   */
+  body: LLMObsDatasetCloneRequest;
 }
 
 export interface LLMObservabilityApiCreateLLMObsAnnotationQueueRequest {
@@ -6780,6 +7617,29 @@ export interface LLMObservabilityApiDeleteLLMObsProjectsRequest {
    * @type LLMObsDeleteProjectsRequest
    */
   body: LLMObsDeleteProjectsRequest;
+}
+
+export interface LLMObservabilityApiExportLLMObsDatasetRequest {
+  /**
+   * The ID of the LLM Observability project.
+   * @type string
+   */
+  projectId: string;
+  /**
+   * The ID of the LLM Observability dataset.
+   * @type string
+   */
+  datasetId: string;
+  /**
+   * Export format for the dataset contents. Only `csv` is currently supported.
+   * @type LLMObsDatasetExportFormat
+   */
+  format?: LLMObsDatasetExportFormat;
+  /**
+   * Version of the dataset to export. If omitted, the current version is used. Must be between 0 and the current version of the dataset, inclusive.
+   * @type number
+   */
+  version?: number;
 }
 
 export interface LLMObservabilityApiGetLLMObsAnnotatedInteractionsRequest {
@@ -7085,6 +7945,24 @@ export interface LLMObservabilityApiLockLLMObsDatasetDraftStateRequest {
   datasetId: string;
 }
 
+export interface LLMObservabilityApiRestoreLLMObsDatasetVersionRequest {
+  /**
+   * The ID of the LLM Observability project.
+   * @type string
+   */
+  projectId: string;
+  /**
+   * The ID of the LLM Observability dataset.
+   * @type string
+   */
+  datasetId: string;
+  /**
+   * Restore dataset version payload.
+   * @type LLMObsDatasetRestoreVersionRequest
+   */
+  body: LLMObsDatasetRestoreVersionRequest;
+}
+
 export interface LLMObservabilityApiSearchLLMObsExperimentationRequest {
   /**
    * Experimentation search payload.
@@ -7223,6 +8101,44 @@ export interface LLMObservabilityApiUpdateLLMObsProjectRequest {
   body: LLMObsProjectUpdateRequest;
 }
 
+export interface LLMObservabilityApiUploadLLMObsDatasetRecordsFileRequest {
+  /**
+   * The ID of the LLM Observability project.
+   * @type string
+   */
+  projectId: string;
+  /**
+   * The ID of the LLM Observability dataset.
+   * @type string
+   */
+  datasetId: string;
+  /**
+   * Whether to skip records whose `input` already exists in the dataset. Defaults to `false`.
+   * @type boolean
+   */
+  deduplicate?: boolean;
+  /**
+   * Whether to overwrite existing records that share the same user-provided `id`. Defaults to `true`.
+   * @type boolean
+   */
+  overwrite?: boolean;
+  /**
+   * Tags to apply to every uploaded record, in addition to any tags defined on individual rows. Can be repeated, e.g. `tags=env:prod&tags=team:ai`.
+   * @type Array<string>
+   */
+  tags?: Array<string>;
+  /**
+   * Whether to enrich the response with user metadata.
+   * @type boolean
+   */
+  includeUserData?: boolean;
+  /**
+   * Multipart upload payload containing the records file.
+   * @type HttpFile
+   */
+  file?: HttpFile;
+}
+
 export class LLMObservabilityApi {
   private requestFactory: LLMObservabilityApiRequestFactory;
   private responseProcessor: LLMObservabilityApiResponseProcessor;
@@ -7263,6 +8179,54 @@ export class LLMObservabilityApi {
           return this.responseProcessor.aggregateLLMObsExperimentation(
             responseContext,
           );
+        });
+    });
+  }
+
+  /**
+   * Insert, update, and delete records in a single dataset operation. By default, a new dataset version is created when the batch is applied.
+   * @param param The request object
+   */
+  public batchUpdateLLMObsDataset(
+    param: LLMObservabilityApiBatchUpdateLLMObsDatasetRequest,
+    options?: Configuration,
+  ): Promise<LLMObsDatasetRecordsMutationResponse> {
+    const requestContextPromise = this.requestFactory.batchUpdateLLMObsDataset(
+      param.projectId,
+      param.datasetId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.batchUpdateLLMObsDataset(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Clone a dataset, copying its current records into a new dataset within the same project.
+   * @param param The request object
+   */
+  public cloneLLMObsDataset(
+    param: LLMObservabilityApiCloneLLMObsDatasetRequest,
+    options?: Configuration,
+  ): Promise<LLMObsDatasetResponse> {
+    const requestContextPromise = this.requestFactory.cloneLLMObsDataset(
+      param.projectId,
+      param.datasetId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.cloneLLMObsDataset(responseContext);
         });
     });
   }
@@ -7642,6 +8606,30 @@ export class LLMObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteLLMObsProjects(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Download the contents of a dataset as a CSV file. The download is streamed and includes one row per dataset record.
+   * @param param The request object
+   */
+  public exportLLMObsDataset(
+    param: LLMObservabilityApiExportLLMObsDatasetRequest,
+    options?: Configuration,
+  ): Promise<string> {
+    const requestContextPromise = this.requestFactory.exportLLMObsDataset(
+      param.projectId,
+      param.datasetId,
+      param.format,
+      param.version,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.exportLLMObsDataset(responseContext);
         });
     });
   }
@@ -8052,6 +9040,32 @@ export class LLMObservabilityApi {
   }
 
   /**
+   * Restore a dataset to a previous version. The dataset's current version is bumped, and its records are replaced with the records from the specified prior version.
+   * @param param The request object
+   */
+  public restoreLLMObsDatasetVersion(
+    param: LLMObservabilityApiRestoreLLMObsDatasetVersionRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.restoreLLMObsDatasetVersion(
+        param.projectId,
+        param.datasetId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.restoreLLMObsDatasetVersion(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Search across LLM Observability experimentation entities — projects, datasets, dataset records, experiments, and experiment runs — using cursor-based pagination.
    *
    * The `filter.scope` field controls which entity types are returned. At least one valid scope must be provided.
@@ -8316,6 +9330,42 @@ export class LLMObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateLLMObsProject(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Upload records to a dataset from a file. The request is a `multipart/form-data` upload containing a single `file` part.
+   * Currently only CSV is supported. The CSV must include an `input` column. Optional columns are `id`, `expected_output`, `metadata`, and `tags`.
+   *
+   * The response is a Server-Sent Events stream (`text/event-stream`) emitting progress updates while records are processed. The stream emits the following named events:
+   *   - `progress`: incremental record counts written so far.
+   *   - `completed`: terminal event with a JSON body containing `records_created`.
+   *   - `error`: terminal event with a JSON body containing an error `message`.
+   * @param param The request object
+   */
+  public uploadLLMObsDatasetRecordsFile(
+    param: LLMObservabilityApiUploadLLMObsDatasetRecordsFileRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.uploadLLMObsDatasetRecordsFile(
+        param.projectId,
+        param.datasetId,
+        param.deduplicate,
+        param.overwrite,
+        param.tags,
+        param.includeUserData,
+        param.file,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.uploadLLMObsDatasetRecordsFile(
+            responseContext,
+          );
         });
     });
   }

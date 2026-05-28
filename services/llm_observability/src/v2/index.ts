@@ -1,5 +1,7 @@
 export {
   LLMObservabilityApiAggregateLLMObsExperimentationRequest,
+  LLMObservabilityApiBatchUpdateLLMObsDatasetRequest,
+  LLMObservabilityApiCloneLLMObsDatasetRequest,
   LLMObservabilityApiCreateLLMObsAnnotationQueueRequest,
   LLMObservabilityApiCreateLLMObsAnnotationQueueInteractionsRequest,
   LLMObservabilityApiCreateLLMObsDatasetRequest,
@@ -16,6 +18,7 @@ export {
   LLMObservabilityApiDeleteLLMObsDatasetsRequest,
   LLMObservabilityApiDeleteLLMObsExperimentsRequest,
   LLMObservabilityApiDeleteLLMObsProjectsRequest,
+  LLMObservabilityApiExportLLMObsDatasetRequest,
   LLMObservabilityApiGetLLMObsAnnotatedInteractionsRequest,
   LLMObservabilityApiGetLLMObsAnnotatedInteractionsByTraceIDsRequest,
   LLMObservabilityApiGetLLMObsAnnotationQueueLabelSchemaRequest,
@@ -32,6 +35,7 @@ export {
   LLMObservabilityApiListLLMObsProjectsRequest,
   LLMObservabilityApiListLLMObsSpansRequest,
   LLMObservabilityApiLockLLMObsDatasetDraftStateRequest,
+  LLMObservabilityApiRestoreLLMObsDatasetVersionRequest,
   LLMObservabilityApiSearchLLMObsExperimentationRequest,
   LLMObservabilityApiSearchLLMObsSpansRequest,
   LLMObservabilityApiSimpleSearchLLMObsExperimentationRequest,
@@ -43,6 +47,7 @@ export {
   LLMObservabilityApiUpdateLLMObsDatasetRecordsRequest,
   LLMObservabilityApiUpdateLLMObsExperimentRequest,
   LLMObservabilityApiUpdateLLMObsProjectRequest,
+  LLMObservabilityApiUploadLLMObsDatasetRecordsFileRequest,
   LLMObservabilityApi,
 } from "./LLMObservabilityApi";
 
@@ -134,6 +139,14 @@ export { LLMObsDataDeletionResponse } from "./models/LLMObsDataDeletionResponse"
 export { LLMObsDataDeletionResponseAttributes } from "./models/LLMObsDataDeletionResponseAttributes";
 export { LLMObsDataDeletionResponseData } from "./models/LLMObsDataDeletionResponseData";
 export { LLMObsDataDeletionResponseType } from "./models/LLMObsDataDeletionResponseType";
+export { LLMObsDatasetBatchUpdateDataAttributesRequest } from "./models/LLMObsDatasetBatchUpdateDataAttributesRequest";
+export { LLMObsDatasetBatchUpdateDataRequest } from "./models/LLMObsDatasetBatchUpdateDataRequest";
+export { LLMObsDatasetBatchUpdateInsertRecord } from "./models/LLMObsDatasetBatchUpdateInsertRecord";
+export { LLMObsDatasetBatchUpdateRequest } from "./models/LLMObsDatasetBatchUpdateRequest";
+export { LLMObsDatasetBatchUpdateUpdateRecord } from "./models/LLMObsDatasetBatchUpdateUpdateRecord";
+export { LLMObsDatasetCloneDataAttributesRequest } from "./models/LLMObsDatasetCloneDataAttributesRequest";
+export { LLMObsDatasetCloneDataRequest } from "./models/LLMObsDatasetCloneDataRequest";
+export { LLMObsDatasetCloneRequest } from "./models/LLMObsDatasetCloneRequest";
 export { LLMObsDatasetDataAttributesRequest } from "./models/LLMObsDatasetDataAttributesRequest";
 export { LLMObsDatasetDataAttributesResponse } from "./models/LLMObsDatasetDataAttributesResponse";
 export { LLMObsDatasetDataRequest } from "./models/LLMObsDatasetDataRequest";
@@ -143,6 +156,7 @@ export { LLMObsDatasetDraftStateDataAttributes } from "./models/LLMObsDatasetDra
 export { LLMObsDatasetDraftStateResponse } from "./models/LLMObsDatasetDraftStateResponse";
 export { LLMObsDatasetDraftStateType } from "./models/LLMObsDatasetDraftStateType";
 export { LLMObsDatasetDraftStateUser } from "./models/LLMObsDatasetDraftStateUser";
+export { LLMObsDatasetExportFormat } from "./models/LLMObsDatasetExportFormat";
 export { LLMObsDatasetRecordDataResponse } from "./models/LLMObsDatasetRecordDataResponse";
 export { LLMObsDatasetRecordItem } from "./models/LLMObsDatasetRecordItem";
 export { LLMObsDatasetRecordsDataAttributesRequest } from "./models/LLMObsDatasetRecordsDataAttributesRequest";
@@ -154,9 +168,13 @@ export { LLMObsDatasetRecordsRequest } from "./models/LLMObsDatasetRecordsReques
 export { LLMObsDatasetRecordsUpdateDataAttributesRequest } from "./models/LLMObsDatasetRecordsUpdateDataAttributesRequest";
 export { LLMObsDatasetRecordsUpdateDataRequest } from "./models/LLMObsDatasetRecordsUpdateDataRequest";
 export { LLMObsDatasetRecordsUpdateRequest } from "./models/LLMObsDatasetRecordsUpdateRequest";
+export { LLMObsDatasetRecordTagOperations } from "./models/LLMObsDatasetRecordTagOperations";
 export { LLMObsDatasetRecordUpdateItem } from "./models/LLMObsDatasetRecordUpdateItem";
 export { LLMObsDatasetRequest } from "./models/LLMObsDatasetRequest";
 export { LLMObsDatasetResponse } from "./models/LLMObsDatasetResponse";
+export { LLMObsDatasetRestoreVersionDataAttributesRequest } from "./models/LLMObsDatasetRestoreVersionDataAttributesRequest";
+export { LLMObsDatasetRestoreVersionDataRequest } from "./models/LLMObsDatasetRestoreVersionDataRequest";
+export { LLMObsDatasetRestoreVersionRequest } from "./models/LLMObsDatasetRestoreVersionRequest";
 export { LLMObsDatasetsResponse } from "./models/LLMObsDatasetsResponse";
 export { LLMObsDatasetType } from "./models/LLMObsDatasetType";
 export { LLMObsDatasetUpdateDataAttributesRequest } from "./models/LLMObsDatasetUpdateDataAttributesRequest";
