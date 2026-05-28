@@ -19,6 +19,12 @@ export {
 } from "./apis/APMRetentionFiltersApi";
 
 export {
+  APMTraceApiGetPrunedTraceByIDRequest,
+  APMTraceApiGetTraceByIDRequest,
+  APMTraceApi,
+} from "./apis/APMTraceApi";
+
+export {
   AWSIntegrationApiCreateAWSAccountRequest,
   AWSIntegrationApiCreateAWSAccountCCMConfigRequest,
   AWSIntegrationApiCreateAWSEventBridgeSourceRequest,
@@ -1735,6 +1741,8 @@ export { ApmResourceStatName } from "./models/ApmResourceStatName";
 export { ApmResourceStatsDataSource } from "./models/ApmResourceStatsDataSource";
 export { ApmResourceStatsQuery } from "./models/ApmResourceStatsQuery";
 export { ApmRetentionFilterType } from "./models/ApmRetentionFilterType";
+export { APMSpanErrorFlag } from "./models/APMSpanErrorFlag";
+export { APMTraceSpan } from "./models/APMTraceSpan";
 export { AppBuilderEvent } from "./models/AppBuilderEvent";
 export { AppBuilderEventName } from "./models/AppBuilderEventName";
 export { AppBuilderEventType } from "./models/AppBuilderEventType";
@@ -5620,6 +5628,10 @@ export { ProjectsResponse } from "./models/ProjectsResponse";
 export { ProjectUpdate } from "./models/ProjectUpdate";
 export { ProjectUpdateAttributes } from "./models/ProjectUpdateAttributes";
 export { ProjectUpdateRequest } from "./models/ProjectUpdateRequest";
+export { PrunedTraceAttributes } from "./models/PrunedTraceAttributes";
+export { PrunedTraceData } from "./models/PrunedTraceData";
+export { PrunedTraceResponse } from "./models/PrunedTraceResponse";
+export { PrunedTraceType } from "./models/PrunedTraceType";
 export { PublishAppResponse } from "./models/PublishAppResponse";
 export { PublishRequestType } from "./models/PublishRequestType";
 export { PutAppsDatastoreItemResponseArray } from "./models/PutAppsDatastoreItemResponseArray";
@@ -6765,6 +6777,8 @@ export { SuiteJsonPatchRequestData } from "./models/SuiteJsonPatchRequestData";
 export { SuiteJsonPatchRequestDataAttributes } from "./models/SuiteJsonPatchRequestDataAttributes";
 export { SuiteJsonPatchType } from "./models/SuiteJsonPatchType";
 export { SuiteSearchResponseType } from "./models/SuiteSearchResponseType";
+export { SummarizedSpan } from "./models/SummarizedSpan";
+export { SummarizedTrace } from "./models/SummarizedTrace";
 export { SuppressionVersionHistory } from "./models/SuppressionVersionHistory";
 export { SuppressionVersions } from "./models/SuppressionVersions";
 export { SyncProperty } from "./models/SyncProperty";
@@ -7173,6 +7187,10 @@ export { TimeseriesResponse } from "./models/TimeseriesResponse";
 export { TimeseriesResponseAttributes } from "./models/TimeseriesResponseAttributes";
 export { TimeseriesResponseSeries } from "./models/TimeseriesResponseSeries";
 export { TokenType } from "./models/TokenType";
+export { TraceAttributes } from "./models/TraceAttributes";
+export { TraceData } from "./models/TraceData";
+export { TraceResponse } from "./models/TraceResponse";
+export { TraceType } from "./models/TraceType";
 export { Trigger } from "./models/Trigger";
 export { TriggerAttributes } from "./models/TriggerAttributes";
 export { TriggerInvestigationRequest } from "./models/TriggerInvestigationRequest";

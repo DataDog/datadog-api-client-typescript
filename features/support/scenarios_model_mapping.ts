@@ -12040,6 +12040,52 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ListConnectionsResponse",
     },
+    "v2.GetPrunedTraceByID": {
+        "traceId": {
+            "type": "string",
+            "format": "",
+            },
+        "expandSpanId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "timeHint": {
+            "type": "number",
+            "format": "int32",
+            },
+        "forceSource": {
+            "type": "string",
+            "format": "",
+            },
+        "includePath": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "tagInclude": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "tagExclude": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "onlyServiceEntrySpans": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "PrunedTraceResponse",
+    },
+    "v2.GetTraceByID": {
+        "traceId": {
+            "type": "string",
+            "format": "",
+            },
+        "includeFields": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "operationResponseType": "TraceResponse",
+    },
     "v2.BatchRowsQuery": {
         "body": {
             "type": "BatchRowsQueryRequest",
