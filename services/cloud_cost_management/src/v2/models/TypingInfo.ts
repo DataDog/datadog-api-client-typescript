@@ -107,6 +107,10 @@ import { CostTag } from "./CostTag";
 import { CostTagAttributes } from "./CostTagAttributes";
 import { CostTagDescription } from "./CostTagDescription";
 import { CostTagDescriptionAttributes } from "./CostTagDescriptionAttributes";
+import { CostTagDescriptionResponse } from "./CostTagDescriptionResponse";
+import { CostTagDescriptionUpsertRequest } from "./CostTagDescriptionUpsertRequest";
+import { CostTagDescriptionUpsertRequestData } from "./CostTagDescriptionUpsertRequestData";
+import { CostTagDescriptionUpsertRequestDataAttributes } from "./CostTagDescriptionUpsertRequestDataAttributes";
 import { CostTagDescriptionsResponse } from "./CostTagDescriptionsResponse";
 import { CostTagKey } from "./CostTagKey";
 import { CostTagKeyAttributes } from "./CostTagKeyAttributes";
@@ -157,6 +161,9 @@ import { GCPUsageCostConfigsResponse } from "./GCPUsageCostConfigsResponse";
 import { GcpUcConfigResponse } from "./GcpUcConfigResponse";
 import { GcpUcConfigResponseData } from "./GcpUcConfigResponseData";
 import { GcpUcConfigResponseDataAttributes } from "./GcpUcConfigResponseDataAttributes";
+import { GenerateCostTagDescriptionResponse } from "./GenerateCostTagDescriptionResponse";
+import { GeneratedCostTagDescription } from "./GeneratedCostTagDescription";
+import { GeneratedCostTagDescriptionAttributes } from "./GeneratedCostTagDescriptionAttributes";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
@@ -244,6 +251,7 @@ export const TypingInfo: ModelTypingInfo = {
     GCPUsageCostConfigPostRequestType: ["gcp_uc_config_post_request"],
     GCPUsageCostConfigType: ["gcp_uc_config"],
     GcpUcConfigResponseDataType: ["gcp_uc_config"],
+    GeneratedCostTagDescriptionType: ["cost_generated_tag_description"],
     OCIConfigType: ["oci_config"],
     ReorderRuleResourceDataType: ["arbitrary_rule"],
     ReorderRulesetResourceDataType: ["ruleset"],
@@ -399,6 +407,11 @@ export const TypingInfo: ModelTypingInfo = {
     CostTagAttributes: CostTagAttributes,
     CostTagDescription: CostTagDescription,
     CostTagDescriptionAttributes: CostTagDescriptionAttributes,
+    CostTagDescriptionResponse: CostTagDescriptionResponse,
+    CostTagDescriptionUpsertRequest: CostTagDescriptionUpsertRequest,
+    CostTagDescriptionUpsertRequestData: CostTagDescriptionUpsertRequestData,
+    CostTagDescriptionUpsertRequestDataAttributes:
+      CostTagDescriptionUpsertRequestDataAttributes,
     CostTagDescriptionsResponse: CostTagDescriptionsResponse,
     CostTagKey: CostTagKey,
     CostTagKeyAttributes: CostTagKeyAttributes,
@@ -457,6 +470,10 @@ export const TypingInfo: ModelTypingInfo = {
     GcpUcConfigResponse: GcpUcConfigResponse,
     GcpUcConfigResponseData: GcpUcConfigResponseData,
     GcpUcConfigResponseDataAttributes: GcpUcConfigResponseDataAttributes,
+    GenerateCostTagDescriptionResponse: GenerateCostTagDescriptionResponse,
+    GeneratedCostTagDescription: GeneratedCostTagDescription,
+    GeneratedCostTagDescriptionAttributes:
+      GeneratedCostTagDescriptionAttributes,
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
     JSONAPIErrorResponse: JSONAPIErrorResponse,
