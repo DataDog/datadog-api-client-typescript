@@ -152,7 +152,6 @@ import { ObservabilityPipelineSpecData } from "./ObservabilityPipelineSpecData";
 import { ObservabilityPipelineSplitArrayProcessor } from "./ObservabilityPipelineSplitArrayProcessor";
 import { ObservabilityPipelineSplitArrayProcessorArrayConfig } from "./ObservabilityPipelineSplitArrayProcessorArrayConfig";
 import { ObservabilityPipelineSplunkHecDestination } from "./ObservabilityPipelineSplunkHecDestination";
-import { ObservabilityPipelineSplunkHecMetricsDestination } from "./ObservabilityPipelineSplunkHecMetricsDestination";
 import { ObservabilityPipelineSplunkHecSource } from "./ObservabilityPipelineSplunkHecSource";
 import { ObservabilityPipelineSplunkHecSourceValidToken } from "./ObservabilityPipelineSplunkHecSourceValidToken";
 import { ObservabilityPipelineSplunkTcpSource } from "./ObservabilityPipelineSplunkTcpSource";
@@ -471,13 +470,6 @@ export const TypingInfo: ModelTypingInfo = {
       "from_source",
     ],
     ObservabilityPipelineSplunkHecDestinationType: ["splunk_hec"],
-    ObservabilityPipelineSplunkHecMetricsDestinationCompression: [
-      "none",
-      "gzip",
-    ],
-    ObservabilityPipelineSplunkHecMetricsDestinationType: [
-      "splunk_hec_metrics",
-    ],
     ObservabilityPipelineSplunkHecSourceType: ["splunk_hec"],
     ObservabilityPipelineSplunkTcpSourceType: ["splunk_tcp"],
     ObservabilityPipelineSumoLogicDestinationEncoding: [
@@ -548,7 +540,6 @@ export const TypingInfo: ModelTypingInfo = {
       "ObservabilityPipelineSyslogNgDestination",
       "ObservabilityPipelineDatabricksZerobusDestination",
       "ObservabilityPipelineDatadogMetricsDestination",
-      "ObservabilityPipelineSplunkHecMetricsDestination",
     ],
     ObservabilityPipelineConfigProcessorItem: [
       "ObservabilityPipelineFilterProcessor",
@@ -916,8 +907,6 @@ export const TypingInfo: ModelTypingInfo = {
       ObservabilityPipelineSplitArrayProcessorArrayConfig,
     ObservabilityPipelineSplunkHecDestination:
       ObservabilityPipelineSplunkHecDestination,
-    ObservabilityPipelineSplunkHecMetricsDestination:
-      ObservabilityPipelineSplunkHecMetricsDestination,
     ObservabilityPipelineSplunkHecSource: ObservabilityPipelineSplunkHecSource,
     ObservabilityPipelineSplunkHecSourceValidToken:
       ObservabilityPipelineSplunkHecSourceValidToken,

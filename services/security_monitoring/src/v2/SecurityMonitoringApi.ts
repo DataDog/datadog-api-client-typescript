@@ -7358,7 +7358,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
-      HttpMethod.GET,
+      HttpMethod.POST,
       overrides,
     );
     requestContext.setHeaderParam("Accept", "application/json");
