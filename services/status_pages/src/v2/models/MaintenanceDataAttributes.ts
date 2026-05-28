@@ -25,6 +25,10 @@ export class MaintenanceDataAttributes {
    */
   "inProgressDescription"?: string;
   /**
+   * Whether the maintenance was backfilled.
+   */
+  "isBackfilled"?: boolean;
+  /**
    * Timestamp of when the maintenance was last modified.
    */
   "modifiedAt"?: Date;
@@ -83,6 +87,10 @@ export class MaintenanceDataAttributes {
     inProgressDescription: {
       baseName: "in_progress_description",
       type: "string",
+    },
+    isBackfilled: {
+      baseName: "is_backfilled",
+      type: "boolean",
     },
     modifiedAt: {
       baseName: "modified_at",
