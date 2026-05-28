@@ -1,4 +1,5 @@
 export {
+  StorageManagementApiDeleteSyncConfigRequest,
   StorageManagementApiUpsertSyncConfigRequest,
   StorageManagementApi,
 } from "./StorageManagementApi";
