@@ -1,0 +1,53 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+/**
+ * Attributes of a single tile in the End User Device Monitoring overview dashboard.
+ */
+export class OverviewItemDataAttributes {
+  /**
+   * Human-readable name of the overview tile.
+   */
+  "name"?: string;
+  /**
+   * Numeric value displayed on the overview tile.
+   */
+  "value"?: number;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    name: {
+      baseName: "name",
+      type: "string",
+    },
+    value: {
+      baseName: "value",
+      type: "number",
+      format: "int64",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return OverviewItemDataAttributes.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

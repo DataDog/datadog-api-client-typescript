@@ -649,6 +649,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@datadog/datadog-api-client-end-user-device-monitoring@workspace:services/end_user_device_monitoring":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-end-user-device-monitoring@workspace:services/end_user_device_monitoring"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@datadog/datadog-api-client-entity-integration-configs@workspace:services/entity_integration_configs":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-entity-integration-configs@workspace:services/entity_integration_configs"
