@@ -6846,6 +6846,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "CloudInventorySyncConfigResponse",
   },
+  "StorageManagementApi.V2.DeleteSyncConfig": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "CodeCoverageApi.V2.GetCodeCoverageBranchSummary": {
     body: {
       type: "BranchCoverageSummaryRequest",

@@ -37,6 +37,51 @@ export class StorageManagementApiRequestFactory extends BaseAPIRequestFactory {
       this.userAgent = buildUserAgent("storage-management", version);
     }
   }
+  public async deleteSyncConfig(
+    id: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "deleteSyncConfig");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/cloudinventoryservice/syncconfigs/{id}".replace(
+        "{id}",
+        encodeURIComponent(String(id)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "StorageManagementApi.v2.deleteSyncConfig",
+      StorageManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async upsertSyncConfig(
     body: UpsertCloudInventorySyncConfigRequest,
     _options?: Configuration,
@@ -89,6 +134,70 @@ export class StorageManagementApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class StorageManagementApiResponseProcessor {
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteSyncConfig
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteSyncConfig(response: ResponseContext): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode === 404) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -167,6 +276,14 @@ export class StorageManagementApiResponseProcessor {
   }
 }
 
+export interface StorageManagementApiDeleteSyncConfigRequest {
+  /**
+   * Unique identifier of the Storage Management configuration.
+   * @type string
+   */
+  id: string;
+}
+
 export interface StorageManagementApiUpsertSyncConfigRequest {
   /**
    * @type UpsertCloudInventorySyncConfigRequest
@@ -192,6 +309,27 @@ export class StorageManagementApi {
       new StorageManagementApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new StorageManagementApiResponseProcessor();
+  }
+
+  /**
+   * Delete a Storage Management configuration by its unique identifier. Deleting a configuration stops inventory file synchronization for the associated cloud account.
+   * @param param The request object
+   */
+  public deleteSyncConfig(
+    param: StorageManagementApiDeleteSyncConfigRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteSyncConfig(
+      param.id,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteSyncConfig(responseContext);
+        });
+    });
   }
 
   /**
