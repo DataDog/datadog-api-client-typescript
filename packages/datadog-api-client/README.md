@@ -349,6 +349,7 @@ apiInstance
 | Action Connection | @datadog/datadog-api-client-action-connection | [README.md](../../services/action-connection/README.md) |
 | Actions Datastores | @datadog/datadog-api-client-actions-datastores | [README.md](../../services/actions-datastores/README.md) |
 | Agentless Scanning | @datadog/datadog-api-client-agentless-scanning | [README.md](../../services/agentless-scanning/README.md) |
+| Annotations | @datadog/datadog-api-client-annotations | [README.md](../../services/annotations/README.md) |
 | API Management | @datadog/datadog-api-client-api-management | [README.md](../../services/api-management/README.md) |
 | APM | @datadog/datadog-api-client-apm | [README.md](../../services/apm/README.md) |
 | APM Retention Filters | @datadog/datadog-api-client-apm-retention-filters | [README.md](../../services/apm-retention-filters/README.md) |

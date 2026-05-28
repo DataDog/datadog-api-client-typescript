@@ -3384,6 +3384,65 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "AwsOnDemandResponse",
   },
+  "AnnotationsApi.V2.ListAnnotations": {
+    pageId: {
+      type: "string",
+      format: "",
+    },
+    startTime: {
+      type: "number",
+      format: "int64",
+    },
+    endTime: {
+      type: "number",
+      format: "int64",
+    },
+    widgetId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "AnnotationsResponse",
+  },
+  "AnnotationsApi.V2.CreateAnnotation": {
+    body: {
+      type: "AnnotationCreateRequest",
+      format: "",
+    },
+    operationResponseType: "AnnotationResponse",
+  },
+  "AnnotationsApi.V2.GetPageAnnotations": {
+    pageId: {
+      type: "string",
+      format: "",
+    },
+    startTime: {
+      type: "number",
+      format: "int64",
+    },
+    endTime: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "PageAnnotationsResponse",
+  },
+  "AnnotationsApi.V2.UpdateAnnotation": {
+    annotationId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "AnnotationUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "AnnotationResponse",
+  },
+  "AnnotationsApi.V2.DeleteAnnotation": {
+    annotationId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
   "UsersApi.V2.AnonymizeUsers": {
     body: {
       type: "AnonymizeUsersRequest",
