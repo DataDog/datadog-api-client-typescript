@@ -361,6 +361,7 @@ export const TypingInfo: ModelTypingInfo = {
       "FormulaAndFunctionMetricQueryDefinition",
       "FormulaAndFunctionEventQueryDefinition",
       "FormulaAndFunctionApmResourceStatsQueryDefinition",
+      "FormulaAndFunctionApmMetricsQueryDefinition",
     ],
     EventsAggregation: ["EventsAggregationValue", "string"],
     FormulaAndFunctionEventQueryGroupByConfig: [
