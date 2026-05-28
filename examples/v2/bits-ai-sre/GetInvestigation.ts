@@ -1,14 +1,14 @@
 /**
- * Get a Bits AI investigation returns "OK" response
+ * Get a Bits AI SRE investigation returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
 configuration.unstableOperations["v2.getInvestigation"] = true;
-const apiInstance = new v2.BitsAIApi(configuration);
+const apiInstance = new v2.BitsAISREApi(configuration);
 
-const params: v2.BitsAIApiGetInvestigationRequest = {
+const params: v2.BitsAISREApiGetInvestigationRequest = {
   id: "id",
 };
 
