@@ -8,11 +8,11 @@ import { PersonalAccessTokenUpdateData } from "./PersonalAccessTokenUpdateData";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Request used to update a personal access token.
+ * Request used to update an access token.
  */
 export class PersonalAccessTokenUpdateRequest {
   /**
-   * Object used to update a personal access token.
+   * Object used to update an access token.
    */
   "data": PersonalAccessTokenUpdateData;
 

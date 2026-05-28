@@ -1,5 +1,5 @@
 /**
- * Get all personal access tokens returns "OK" response
+ * Get all access tokens returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

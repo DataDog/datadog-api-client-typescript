@@ -9,11 +9,11 @@ import { PersonalAccessTokensType } from "./PersonalAccessTokensType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Object used to create a personal access token.
+ * Object used to create an access token.
  */
 export class PersonalAccessTokenCreateData {
   /**
-   * Attributes used to create a personal access token.
+   * Attributes used to create an access token.
    */
   "attributes": PersonalAccessTokenCreateAttributes;
   /**

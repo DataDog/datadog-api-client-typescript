@@ -14,7 +14,7 @@ const SERVICE_ACCOUNT_USER_DATA_ID = process.env
 const params: v2.ServiceAccountsApiCreateServiceAccountAccessTokenRequest = {
   body: {
     data: {
-      type: "personal_access_tokens",
+      type: "service_access_tokens",
       attributes: {
         name: "Example-Service-Account",
         scopes: ["dashboards_read"],
@@ -26,7 +26,7 @@ const params: v2.ServiceAccountsApiCreateServiceAccountAccessTokenRequest = {
 
 apiInstance
   .createServiceAccountAccessToken(params)
-  .then((data: v2.PersonalAccessTokenCreateResponse) => {
+  .then((data: v2.ServiceAccessTokenCreateResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

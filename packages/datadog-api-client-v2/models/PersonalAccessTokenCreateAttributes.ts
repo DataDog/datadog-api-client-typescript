@@ -7,19 +7,19 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes used to create a personal access token.
+ * Attributes used to create an access token.
  */
 export class PersonalAccessTokenCreateAttributes {
   /**
-   * Expiration date of the personal access token. Must be at least 24 hours in the future.
+   * Expiration date of the access token. Must be at least 24 hours in the future.
    */
   "expiresAt": Date;
   /**
-   * Name of the personal access token.
+   * Name of the access token.
    */
   "name": string;
   /**
-   * Array of scopes to grant the personal access token.
+   * Array of scopes to grant the access token.
    */
   "scopes": Array<string>;
 

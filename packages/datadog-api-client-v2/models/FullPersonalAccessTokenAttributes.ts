@@ -7,31 +7,31 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes of a full personal access token, including the token key.
+ * Attributes of a full access token, including the token key.
  */
 export class FullPersonalAccessTokenAttributes {
   /**
-   * Creation date of the personal access token.
+   * Creation date of the access token.
    */
   "createdAt"?: Date;
   /**
-   * Expiration date of the personal access token.
+   * Expiration date of the access token.
    */
   "expiresAt"?: Date;
   /**
-   * The personal access token key. Only returned upon creation.
+   * The access token key. Only returned upon creation.
    */
   "key"?: string;
   /**
-   * Name of the personal access token.
+   * Name of the access token.
    */
   "name"?: string;
   /**
-   * The public portion of the personal access token.
+   * The public portion of the access token.
    */
   "publicPortion"?: string;
   /**
-   * Array of scopes granted to the personal access token.
+   * Array of scopes granted to the access token.
    */
   "scopes"?: Array<string>;
 
