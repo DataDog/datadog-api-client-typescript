@@ -1243,6 +1243,12 @@ import { DetailedFinding } from "./DetailedFinding";
 import { DetailedFindingAttributes } from "./DetailedFindingAttributes";
 import { DeviceAttributes } from "./DeviceAttributes";
 import { DeviceAttributesInterfaceStatuses } from "./DeviceAttributesInterfaceStatuses";
+import { DeviceBaseArray } from "./DeviceBaseArray";
+import { DeviceBaseData } from "./DeviceBaseData";
+import { DeviceBaseDataAttributes } from "./DeviceBaseDataAttributes";
+import { DeviceDetails } from "./DeviceDetails";
+import { DeviceDetailsData } from "./DeviceDetailsData";
+import { DeviceDetailsDataAttributes } from "./DeviceDetailsDataAttributes";
 import { DevicesListData } from "./DevicesListData";
 import { DomainAllowlist } from "./DomainAllowlist";
 import { DomainAllowlistAttributes } from "./DomainAllowlistAttributes";
@@ -1696,6 +1702,10 @@ import { GoogleChatUpdateOrganizationHandleRequestAttributes } from "./GoogleCha
 import { GoogleChatUpdateOrganizationHandleRequestData } from "./GoogleChatUpdateOrganizationHandleRequestData";
 import { GoogleMeetConfigurationReference } from "./GoogleMeetConfigurationReference";
 import { GoogleMeetConfigurationReferenceData } from "./GoogleMeetConfigurationReferenceData";
+import { GraphItemArray } from "./GraphItemArray";
+import { GraphItemData } from "./GraphItemData";
+import { GraphItemDataAttributes } from "./GraphItemDataAttributes";
+import { GraphItemDataAttributesCountsItems } from "./GraphItemDataAttributesCountsItems";
 import { GreyNoiseAPIKey } from "./GreyNoiseAPIKey";
 import { GreyNoiseAPIKeyUpdate } from "./GreyNoiseAPIKeyUpdate";
 import { GreyNoiseIntegration } from "./GreyNoiseIntegration";
@@ -1940,6 +1950,9 @@ import { IssueCaseJiraIssueResult } from "./IssueCaseJiraIssueResult";
 import { IssueCaseReference } from "./IssueCaseReference";
 import { IssueCaseRelationship } from "./IssueCaseRelationship";
 import { IssueCaseRelationships } from "./IssueCaseRelationships";
+import { IssueDefinitionArray } from "./IssueDefinitionArray";
+import { IssueDefinitionData } from "./IssueDefinitionData";
+import { IssueDefinitionDataAttributes } from "./IssueDefinitionDataAttributes";
 import { IssueReference } from "./IssueReference";
 import { IssueRegression } from "./IssueRegression";
 import { IssueRelationships } from "./IssueRelationships";
@@ -2608,6 +2621,13 @@ import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
 import { NullableUserRelationship } from "./NullableUserRelationship";
 import { NullableUserRelationshipData } from "./NullableUserRelationshipData";
+import { OAuthClientRegistrationError } from "./OAuthClientRegistrationError";
+import { OAuthClientRegistrationRequest } from "./OAuthClientRegistrationRequest";
+import { OAuthClientRegistrationResponse } from "./OAuthClientRegistrationResponse";
+import { OAuthScopesRestriction } from "./OAuthScopesRestriction";
+import { OAuthScopesRestrictionResponse } from "./OAuthScopesRestrictionResponse";
+import { OAuthScopesRestrictionResponseAttributes } from "./OAuthScopesRestrictionResponseAttributes";
+import { OAuthScopesRestrictionResponseData } from "./OAuthScopesRestrictionResponseData";
 import { OCIConfig } from "./OCIConfig";
 import { OCIConfigAttributes } from "./OCIConfigAttributes";
 import { OCIConfigsResponse } from "./OCIConfigsResponse";
@@ -2914,6 +2934,9 @@ import { OutcomesResponseIncludedRuleAttributes } from "./OutcomesResponseInclud
 import { OutcomesResponseLinks } from "./OutcomesResponseLinks";
 import { OutputSchema } from "./OutputSchema";
 import { OutputSchemaParameters } from "./OutputSchemaParameters";
+import { OverviewItemArray } from "./OverviewItemArray";
+import { OverviewItemData } from "./OverviewItemData";
+import { OverviewItemDataAttributes } from "./OverviewItemDataAttributes";
 import { OverwriteAllocationsRequest } from "./OverwriteAllocationsRequest";
 import { PaginatedResponseMeta } from "./PaginatedResponseMeta";
 import { Pagination } from "./Pagination";
@@ -4395,6 +4418,9 @@ import { UpsertCatalogKindResponse } from "./UpsertCatalogKindResponse";
 import { UpsertCloudInventorySyncConfigRequest } from "./UpsertCloudInventorySyncConfigRequest";
 import { UpsertCloudInventorySyncConfigRequestAttributes } from "./UpsertCloudInventorySyncConfigRequestAttributes";
 import { UpsertCloudInventorySyncConfigRequestData } from "./UpsertCloudInventorySyncConfigRequestData";
+import { UpsertOAuthScopesRestrictionData } from "./UpsertOAuthScopesRestrictionData";
+import { UpsertOAuthScopesRestrictionDataAttributes } from "./UpsertOAuthScopesRestrictionDataAttributes";
+import { UpsertOAuthScopesRestrictionRequest } from "./UpsertOAuthScopesRestrictionRequest";
 import { UrlParam } from "./UrlParam";
 import { UrlParamUpdate } from "./UrlParamUpdate";
 import { UsageApplicationSecurityMonitoringResponse } from "./UsageApplicationSecurityMonitoringResponse";
@@ -5175,6 +5201,7 @@ const enumsMap: { [key: string]: any[] } = {
     "monitor",
   ],
   DetailedFindingType: ["detailed_finding"],
+  DeviceDetailsDataType: ["devices"],
   DnsMetricKey: [
     "dns_total_requests",
     "dns_failures",
@@ -5380,6 +5407,7 @@ const enumsMap: { [key: string]: any[] } = {
   GlobalVariableType: ["global_variables"],
   GoogleChatAppNamedSpaceType: ["google-chat-app-named-space"],
   GoogleChatOrganizationHandleType: ["google-chat-organization-handle"],
+  GraphItemDataType: ["graph_items"],
   GreyNoiseAPIKeyType: ["GreyNoiseAPIKey"],
   GreyNoiseIntegrationType: ["GreyNoise"],
   GuardrailTriggerAction: ["PAUSE", "ABORT"],
@@ -5478,6 +5506,7 @@ const enumsMap: { [key: string]: any[] } = {
   InvestigationType: ["investigation"],
   IoCScoreEffect: ["RAISE_SCORE", "LOWER_SCORE", "NO_EFFECT"],
   IssueCaseResourceType: ["case"],
+  IssueDefinitionDataType: ["issue_definitions"],
   IssueLanguage: [
     "BRIGHTSCRIPT",
     "C",
@@ -5757,6 +5786,10 @@ const enumsMap: { [key: string]: any[] } = {
   NotificationRulesType: ["notification_rules"],
   NotionAPIKeyType: ["NotionAPIKey"],
   NotionIntegrationType: ["Notion"],
+  OAuthClientRegistrationGrantType: ["authorization_code", "refresh_token"],
+  OAuthClientRegistrationResponseType: ["code"],
+  OAuthOidcScope: ["openid", "profile", "email", "offline_access"],
+  OAuthScopesRestrictionType: ["scopes_restriction"],
   OCIConfigType: ["oci_config"],
   ObservabilityPipelineAddEnvVarsProcessorType: ["add_env_vars"],
   ObservabilityPipelineAddFieldsProcessorType: ["add_fields"],
@@ -6129,6 +6162,7 @@ const enumsMap: { [key: string]: any[] } = {
     "ARRAY_BOOLEAN",
     "ARRAY_OBJECT",
   ],
+  OverviewItemDataType: ["overview_items"],
   PageUrgency: ["low", "high"],
   PaginationMetaPageType: ["offset_limit"],
   PatchDegradationRequestDataAttributesStatus: [
@@ -6980,6 +7014,7 @@ const enumsMap: { [key: string]: any[] } = {
   UpdateOutcomesAsyncType: ["batched-outcome"],
   UpdateRulesetRequestDataType: ["update_ruleset"],
   UpdateTenancyConfigDataType: ["oci_tenancy"],
+  UpsertOAuthScopesRestrictionType: ["upsert_scopes_restriction"],
   Urgency: ["low", "high", "dynamic"],
   UsageAttributionTypesType: ["usage_attribution_types"],
   UsageTimeSeriesType: ["usage_timeseries"],
@@ -8600,6 +8635,12 @@ const typeMap: { [index: string]: any } = {
   DetailedFindingAttributes: DetailedFindingAttributes,
   DeviceAttributes: DeviceAttributes,
   DeviceAttributesInterfaceStatuses: DeviceAttributesInterfaceStatuses,
+  DeviceBaseArray: DeviceBaseArray,
+  DeviceBaseData: DeviceBaseData,
+  DeviceBaseDataAttributes: DeviceBaseDataAttributes,
+  DeviceDetails: DeviceDetails,
+  DeviceDetailsData: DeviceDetailsData,
+  DeviceDetailsDataAttributes: DeviceDetailsDataAttributes,
   DevicesListData: DevicesListData,
   DomainAllowlist: DomainAllowlist,
   DomainAllowlistAttributes: DomainAllowlistAttributes,
@@ -9119,6 +9160,10 @@ const typeMap: { [index: string]: any } = {
     GoogleChatUpdateOrganizationHandleRequestData,
   GoogleMeetConfigurationReference: GoogleMeetConfigurationReference,
   GoogleMeetConfigurationReferenceData: GoogleMeetConfigurationReferenceData,
+  GraphItemArray: GraphItemArray,
+  GraphItemData: GraphItemData,
+  GraphItemDataAttributes: GraphItemDataAttributes,
+  GraphItemDataAttributesCountsItems: GraphItemDataAttributesCountsItems,
   GreyNoiseAPIKey: GreyNoiseAPIKey,
   GreyNoiseAPIKeyUpdate: GreyNoiseAPIKeyUpdate,
   GreyNoiseIntegration: GreyNoiseIntegration,
@@ -9395,6 +9440,9 @@ const typeMap: { [index: string]: any } = {
   IssueCaseReference: IssueCaseReference,
   IssueCaseRelationship: IssueCaseRelationship,
   IssueCaseRelationships: IssueCaseRelationships,
+  IssueDefinitionArray: IssueDefinitionArray,
+  IssueDefinitionData: IssueDefinitionData,
+  IssueDefinitionDataAttributes: IssueDefinitionDataAttributes,
   IssueReference: IssueReference,
   IssueRegression: IssueRegression,
   IssueRelationships: IssueRelationships,
@@ -10177,6 +10225,14 @@ const typeMap: { [index: string]: any } = {
   NullableRelationshipToUserData: NullableRelationshipToUserData,
   NullableUserRelationship: NullableUserRelationship,
   NullableUserRelationshipData: NullableUserRelationshipData,
+  OAuthClientRegistrationError: OAuthClientRegistrationError,
+  OAuthClientRegistrationRequest: OAuthClientRegistrationRequest,
+  OAuthClientRegistrationResponse: OAuthClientRegistrationResponse,
+  OAuthScopesRestriction: OAuthScopesRestriction,
+  OAuthScopesRestrictionResponse: OAuthScopesRestrictionResponse,
+  OAuthScopesRestrictionResponseAttributes:
+    OAuthScopesRestrictionResponseAttributes,
+  OAuthScopesRestrictionResponseData: OAuthScopesRestrictionResponseData,
   OCIConfig: OCIConfig,
   OCIConfigAttributes: OCIConfigAttributes,
   OCIConfigsResponse: OCIConfigsResponse,
@@ -10619,6 +10675,9 @@ const typeMap: { [index: string]: any } = {
   OutcomesResponseLinks: OutcomesResponseLinks,
   OutputSchema: OutputSchema,
   OutputSchemaParameters: OutputSchemaParameters,
+  OverviewItemArray: OverviewItemArray,
+  OverviewItemData: OverviewItemData,
+  OverviewItemDataAttributes: OverviewItemDataAttributes,
   OverwriteAllocationsRequest: OverwriteAllocationsRequest,
   PaginatedResponseMeta: PaginatedResponseMeta,
   Pagination: Pagination,
@@ -12457,6 +12516,10 @@ const typeMap: { [index: string]: any } = {
     UpsertCloudInventorySyncConfigRequestAttributes,
   UpsertCloudInventorySyncConfigRequestData:
     UpsertCloudInventorySyncConfigRequestData,
+  UpsertOAuthScopesRestrictionData: UpsertOAuthScopesRestrictionData,
+  UpsertOAuthScopesRestrictionDataAttributes:
+    UpsertOAuthScopesRestrictionDataAttributes,
+  UpsertOAuthScopesRestrictionRequest: UpsertOAuthScopesRestrictionRequest,
   UrlParam: UrlParam,
   UrlParamUpdate: UrlParamUpdate,
   UsageApplicationSecurityMonitoringResponse:
