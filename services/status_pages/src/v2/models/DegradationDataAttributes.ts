@@ -22,6 +22,10 @@ export class DegradationDataAttributes {
    */
   "description"?: string;
   /**
+   * Whether the degradation was backfilled.
+   */
+  "isBackfilled"?: boolean;
+  /**
    * Timestamp of when the degradation was last modified.
    */
   "modifiedAt"?: Date;
@@ -68,6 +72,10 @@ export class DegradationDataAttributes {
     description: {
       baseName: "description",
       type: "string",
+    },
+    isBackfilled: {
+      baseName: "is_backfilled",
+      type: "boolean",
     },
     modifiedAt: {
       baseName: "modified_at",
