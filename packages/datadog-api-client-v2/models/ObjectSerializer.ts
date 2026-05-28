@@ -3612,6 +3612,9 @@ import { SecurityMonitoringRuleCase } from "./SecurityMonitoringRuleCase";
 import { SecurityMonitoringRuleCaseAction } from "./SecurityMonitoringRuleCaseAction";
 import { SecurityMonitoringRuleCaseActionOptions } from "./SecurityMonitoringRuleCaseActionOptions";
 import { SecurityMonitoringRuleCaseCreate } from "./SecurityMonitoringRuleCaseCreate";
+import { SecurityMonitoringRuleConvertBulkAttributes } from "./SecurityMonitoringRuleConvertBulkAttributes";
+import { SecurityMonitoringRuleConvertBulkData } from "./SecurityMonitoringRuleConvertBulkData";
+import { SecurityMonitoringRuleConvertBulkPayload } from "./SecurityMonitoringRuleConvertBulkPayload";
 import { SecurityMonitoringRuleConvertResponse } from "./SecurityMonitoringRuleConvertResponse";
 import { SecurityMonitoringRuleImpossibleTravelOptions } from "./SecurityMonitoringRuleImpossibleTravelOptions";
 import { SecurityMonitoringRuleNewValueOptions } from "./SecurityMonitoringRuleNewValueOptions";
@@ -6570,6 +6573,9 @@ const enumsMap: { [key: string]: any[] } = {
     "block_user",
     "user_behavior",
     "flag_ip",
+  ],
+  SecurityMonitoringRuleConvertBulkDataType: [
+    "security_monitoring_rules_convert_bulk",
   ],
   SecurityMonitoringRuleDetectionMethod: [
     "threshold",
@@ -11502,6 +11508,11 @@ const typeMap: { [index: string]: any } = {
   SecurityMonitoringRuleCaseActionOptions:
     SecurityMonitoringRuleCaseActionOptions,
   SecurityMonitoringRuleCaseCreate: SecurityMonitoringRuleCaseCreate,
+  SecurityMonitoringRuleConvertBulkAttributes:
+    SecurityMonitoringRuleConvertBulkAttributes,
+  SecurityMonitoringRuleConvertBulkData: SecurityMonitoringRuleConvertBulkData,
+  SecurityMonitoringRuleConvertBulkPayload:
+    SecurityMonitoringRuleConvertBulkPayload,
   SecurityMonitoringRuleConvertResponse: SecurityMonitoringRuleConvertResponse,
   SecurityMonitoringRuleImpossibleTravelOptions:
     SecurityMonitoringRuleImpossibleTravelOptions,
