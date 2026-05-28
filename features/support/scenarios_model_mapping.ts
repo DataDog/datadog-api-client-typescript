@@ -8356,6 +8356,29 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IssueResponse",
     },
+    "v2.GetEUDMDevices": {
+        "operationResponseType": "DeviceBaseArray",
+    },
+    "v2.GetEUDMDevice": {
+        "deviceId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DeviceDetails",
+    },
+    "v2.GetEUDMGraph": {
+        "by": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "GraphItemArray",
+    },
+    "v2.GetEUDMIssues": {
+        "operationResponseType": "IssueDefinitionArray",
+    },
+    "v2.GetEUDMOverview": {
+        "operationResponseType": "OverviewItemArray",
+    },
     "v2.ListEvents": {
         "filterQuery": {
             "type": "string",
@@ -10977,6 +11000,38 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "int32",
             },
         "operationResponseType": "SingleAggregatedDnsResponseArray",
+    },
+    "v2.GetScopesRestriction": {
+        "clientUuid": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "OAuthScopesRestrictionResponse",
+    },
+    "v2.UpsertScopesRestriction": {
+        "clientUuid": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "UpsertOAuthScopesRestrictionRequest",
+            "format": "",
+            },
+        "operationResponseType": "OAuthScopesRestrictionResponse",
+    },
+    "v2.DeleteScopesRestriction": {
+        "clientUuid": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.RegisterOAuthClient": {
+        "body": {
+            "type": "OAuthClientRegistrationRequest",
+            "format": "",
+            },
+        "operationResponseType": "OAuthClientRegistrationResponse",
     },
     "v2.ListPipelines": {
         "pageSize": {

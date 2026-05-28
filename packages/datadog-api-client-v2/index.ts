@@ -466,6 +466,12 @@ export {
 } from "./apis/DowntimesApi";
 
 export {
+  EndUserDeviceMonitoringApiGetEUDMDeviceRequest,
+  EndUserDeviceMonitoringApiGetEUDMGraphRequest,
+  EndUserDeviceMonitoringApi,
+} from "./apis/EndUserDeviceMonitoringApi";
+
+export {
   EntityIntegrationConfigsApiDeleteEntityIntegrationConfigRequest,
   EntityIntegrationConfigsApiGetEntityIntegrationConfigRequest,
   EntityIntegrationConfigsApiUpdateEntityIntegrationConfigRequest,
@@ -860,6 +866,14 @@ export {
   NetworkDeviceMonitoringApiUpdateInterfaceUserTagsRequest,
   NetworkDeviceMonitoringApi,
 } from "./apis/NetworkDeviceMonitoringApi";
+
+export {
+  OAuth2ClientPublicApiDeleteScopesRestrictionRequest,
+  OAuth2ClientPublicApiGetScopesRestrictionRequest,
+  OAuth2ClientPublicApiRegisterOAuthClientRequest,
+  OAuth2ClientPublicApiUpsertScopesRestrictionRequest,
+  OAuth2ClientPublicApi,
+} from "./apis/OAuth2ClientPublicApi";
 
 export {
   OCIIntegrationApiCreateTenancyConfigRequest,
@@ -3110,6 +3124,13 @@ export { DetailedFindingAttributes } from "./models/DetailedFindingAttributes";
 export { DetailedFindingType } from "./models/DetailedFindingType";
 export { DeviceAttributes } from "./models/DeviceAttributes";
 export { DeviceAttributesInterfaceStatuses } from "./models/DeviceAttributesInterfaceStatuses";
+export { DeviceBaseArray } from "./models/DeviceBaseArray";
+export { DeviceBaseData } from "./models/DeviceBaseData";
+export { DeviceBaseDataAttributes } from "./models/DeviceBaseDataAttributes";
+export { DeviceDetails } from "./models/DeviceDetails";
+export { DeviceDetailsData } from "./models/DeviceDetailsData";
+export { DeviceDetailsDataAttributes } from "./models/DeviceDetailsDataAttributes";
+export { DeviceDetailsDataType } from "./models/DeviceDetailsDataType";
 export { DevicesListData } from "./models/DevicesListData";
 export { DnsMetricKey } from "./models/DnsMetricKey";
 export { DomainAllowlist } from "./models/DomainAllowlist";
@@ -3724,6 +3745,11 @@ export { GoogleChatUpdateOrganizationHandleRequestAttributes } from "./models/Go
 export { GoogleChatUpdateOrganizationHandleRequestData } from "./models/GoogleChatUpdateOrganizationHandleRequestData";
 export { GoogleMeetConfigurationReference } from "./models/GoogleMeetConfigurationReference";
 export { GoogleMeetConfigurationReferenceData } from "./models/GoogleMeetConfigurationReferenceData";
+export { GraphItemArray } from "./models/GraphItemArray";
+export { GraphItemData } from "./models/GraphItemData";
+export { GraphItemDataAttributes } from "./models/GraphItemDataAttributes";
+export { GraphItemDataAttributesCountsItems } from "./models/GraphItemDataAttributesCountsItems";
+export { GraphItemDataType } from "./models/GraphItemDataType";
 export { GreyNoiseAPIKey } from "./models/GreyNoiseAPIKey";
 export { GreyNoiseAPIKeyType } from "./models/GreyNoiseAPIKeyType";
 export { GreyNoiseAPIKeyUpdate } from "./models/GreyNoiseAPIKeyUpdate";
@@ -4034,6 +4060,10 @@ export { IssueCaseReference } from "./models/IssueCaseReference";
 export { IssueCaseRelationship } from "./models/IssueCaseRelationship";
 export { IssueCaseRelationships } from "./models/IssueCaseRelationships";
 export { IssueCaseResourceType } from "./models/IssueCaseResourceType";
+export { IssueDefinitionArray } from "./models/IssueDefinitionArray";
+export { IssueDefinitionData } from "./models/IssueDefinitionData";
+export { IssueDefinitionDataAttributes } from "./models/IssueDefinitionDataAttributes";
+export { IssueDefinitionDataType } from "./models/IssueDefinitionDataType";
 export { IssueIncluded } from "./models/IssueIncluded";
 export { IssueLanguage } from "./models/IssueLanguage";
 export { IssuePlatform } from "./models/IssuePlatform";
@@ -4866,6 +4896,17 @@ export { NullableRelationshipToUser } from "./models/NullableRelationshipToUser"
 export { NullableRelationshipToUserData } from "./models/NullableRelationshipToUserData";
 export { NullableUserRelationship } from "./models/NullableUserRelationship";
 export { NullableUserRelationshipData } from "./models/NullableUserRelationshipData";
+export { OAuthClientRegistrationError } from "./models/OAuthClientRegistrationError";
+export { OAuthClientRegistrationGrantType } from "./models/OAuthClientRegistrationGrantType";
+export { OAuthClientRegistrationRequest } from "./models/OAuthClientRegistrationRequest";
+export { OAuthClientRegistrationResponse } from "./models/OAuthClientRegistrationResponse";
+export { OAuthClientRegistrationResponseType } from "./models/OAuthClientRegistrationResponseType";
+export { OAuthOidcScope } from "./models/OAuthOidcScope";
+export { OAuthScopesRestriction } from "./models/OAuthScopesRestriction";
+export { OAuthScopesRestrictionResponse } from "./models/OAuthScopesRestrictionResponse";
+export { OAuthScopesRestrictionResponseAttributes } from "./models/OAuthScopesRestrictionResponseAttributes";
+export { OAuthScopesRestrictionResponseData } from "./models/OAuthScopesRestrictionResponseData";
+export { OAuthScopesRestrictionType } from "./models/OAuthScopesRestrictionType";
 export { ObservabilityPipeline } from "./models/ObservabilityPipeline";
 export { ObservabilityPipelineAddEnvVarsProcessor } from "./models/ObservabilityPipelineAddEnvVarsProcessor";
 export { ObservabilityPipelineAddEnvVarsProcessorType } from "./models/ObservabilityPipelineAddEnvVarsProcessorType";
@@ -5372,6 +5413,10 @@ export { OutcomeType } from "./models/OutcomeType";
 export { OutputSchema } from "./models/OutputSchema";
 export { OutputSchemaParameters } from "./models/OutputSchemaParameters";
 export { OutputSchemaParametersType } from "./models/OutputSchemaParametersType";
+export { OverviewItemArray } from "./models/OverviewItemArray";
+export { OverviewItemData } from "./models/OverviewItemData";
+export { OverviewItemDataAttributes } from "./models/OverviewItemDataAttributes";
+export { OverviewItemDataType } from "./models/OverviewItemDataType";
 export { OverwriteAllocationsRequest } from "./models/OverwriteAllocationsRequest";
 export { PageUrgency } from "./models/PageUrgency";
 export { PaginatedResponseMeta } from "./models/PaginatedResponseMeta";
@@ -7255,6 +7300,10 @@ export { UpsertCatalogKindResponse } from "./models/UpsertCatalogKindResponse";
 export { UpsertCloudInventorySyncConfigRequest } from "./models/UpsertCloudInventorySyncConfigRequest";
 export { UpsertCloudInventorySyncConfigRequestAttributes } from "./models/UpsertCloudInventorySyncConfigRequestAttributes";
 export { UpsertCloudInventorySyncConfigRequestData } from "./models/UpsertCloudInventorySyncConfigRequestData";
+export { UpsertOAuthScopesRestrictionData } from "./models/UpsertOAuthScopesRestrictionData";
+export { UpsertOAuthScopesRestrictionDataAttributes } from "./models/UpsertOAuthScopesRestrictionDataAttributes";
+export { UpsertOAuthScopesRestrictionRequest } from "./models/UpsertOAuthScopesRestrictionRequest";
+export { UpsertOAuthScopesRestrictionType } from "./models/UpsertOAuthScopesRestrictionType";
 export { Urgency } from "./models/Urgency";
 export { UrlParam } from "./models/UrlParam";
 export { UrlParamUpdate } from "./models/UrlParamUpdate";
