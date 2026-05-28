@@ -156,9 +156,18 @@ import { AnalysisResponseDataAttributes } from "./AnalysisResponseDataAttributes
 import { AnalysisRuleResponse } from "./AnalysisRuleResponse";
 import { AnalysisViolation } from "./AnalysisViolation";
 import { Annotation } from "./Annotation";
+import { AnnotationAttributes } from "./AnnotationAttributes";
+import { AnnotationCreateAttributes } from "./AnnotationCreateAttributes";
+import { AnnotationCreateRequest } from "./AnnotationCreateRequest";
+import { AnnotationData } from "./AnnotationData";
 import { AnnotationDisplay } from "./AnnotationDisplay";
 import { AnnotationDisplayBounds } from "./AnnotationDisplayBounds";
+import { AnnotationInPage } from "./AnnotationInPage";
 import { AnnotationMarkdownTextAnnotation } from "./AnnotationMarkdownTextAnnotation";
+import { AnnotationRequestData } from "./AnnotationRequestData";
+import { AnnotationResponse } from "./AnnotationResponse";
+import { AnnotationUpdateRequest } from "./AnnotationUpdateRequest";
+import { AnnotationsResponse } from "./AnnotationsResponse";
 import { AnonymizeUserError } from "./AnonymizeUserError";
 import { AnonymizeUsersRequest } from "./AnonymizeUsersRequest";
 import { AnonymizeUsersRequestAttributes } from "./AnonymizeUsersRequestAttributes";
@@ -2608,6 +2617,13 @@ import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
 import { NullableUserRelationship } from "./NullableUserRelationship";
 import { NullableUserRelationshipData } from "./NullableUserRelationshipData";
+import { OAuthClientRegistrationError } from "./OAuthClientRegistrationError";
+import { OAuthClientRegistrationRequest } from "./OAuthClientRegistrationRequest";
+import { OAuthClientRegistrationResponse } from "./OAuthClientRegistrationResponse";
+import { OAuthScopesRestriction } from "./OAuthScopesRestriction";
+import { OAuthScopesRestrictionResponse } from "./OAuthScopesRestrictionResponse";
+import { OAuthScopesRestrictionResponseAttributes } from "./OAuthScopesRestrictionResponseAttributes";
+import { OAuthScopesRestrictionResponseData } from "./OAuthScopesRestrictionResponseData";
 import { OCIConfig } from "./OCIConfig";
 import { OCIConfigAttributes } from "./OCIConfigAttributes";
 import { OCIConfigsResponse } from "./OCIConfigsResponse";
@@ -2915,6 +2931,9 @@ import { OutcomesResponseLinks } from "./OutcomesResponseLinks";
 import { OutputSchema } from "./OutputSchema";
 import { OutputSchemaParameters } from "./OutputSchemaParameters";
 import { OverwriteAllocationsRequest } from "./OverwriteAllocationsRequest";
+import { PageAnnotationsAttributes } from "./PageAnnotationsAttributes";
+import { PageAnnotationsData } from "./PageAnnotationsData";
+import { PageAnnotationsResponse } from "./PageAnnotationsResponse";
 import { PaginatedResponseMeta } from "./PaginatedResponseMeta";
 import { Pagination } from "./Pagination";
 import { PaginationMeta } from "./PaginationMeta";
@@ -4395,6 +4414,9 @@ import { UpsertCatalogKindResponse } from "./UpsertCatalogKindResponse";
 import { UpsertCloudInventorySyncConfigRequest } from "./UpsertCloudInventorySyncConfigRequest";
 import { UpsertCloudInventorySyncConfigRequestAttributes } from "./UpsertCloudInventorySyncConfigRequestAttributes";
 import { UpsertCloudInventorySyncConfigRequestData } from "./UpsertCloudInventorySyncConfigRequestData";
+import { UpsertOAuthScopesRestrictionData } from "./UpsertOAuthScopesRestrictionData";
+import { UpsertOAuthScopesRestrictionDataAttributes } from "./UpsertOAuthScopesRestrictionDataAttributes";
+import { UpsertOAuthScopesRestrictionRequest } from "./UpsertOAuthScopesRestrictionRequest";
 import { UrlParam } from "./UrlParam";
 import { UrlParamUpdate } from "./UrlParamUpdate";
 import { UsageApplicationSecurityMonitoringResponse } from "./UsageApplicationSecurityMonitoringResponse";
@@ -4604,6 +4626,9 @@ const enumsMap: { [key: string]: any[] } = {
   AnalysisEditType: ["ADD", "UPDATE", "REMOVE"],
   AnalysisRequestDataType: ["analysis_request"],
   AnalysisResponseDataType: ["server_request"],
+  AnnotationColor: ["gray", "blue", "purple", "green", "yellow", "red"],
+  AnnotationKind: ["pointInTime", "timeRegion"],
+  AnnotationType: ["annotation"],
   AnonymizeUsersRequestType: ["anonymize_users_request"],
   AnonymizeUsersResponseType: ["anonymize_users_response"],
   AnthropicAPIKeyType: ["AnthropicAPIKey"],
@@ -5757,6 +5782,10 @@ const enumsMap: { [key: string]: any[] } = {
   NotificationRulesType: ["notification_rules"],
   NotionAPIKeyType: ["NotionAPIKey"],
   NotionIntegrationType: ["Notion"],
+  OAuthClientRegistrationGrantType: ["authorization_code", "refresh_token"],
+  OAuthClientRegistrationResponseType: ["code"],
+  OAuthOidcScope: ["openid", "profile", "email", "offline_access"],
+  OAuthScopesRestrictionType: ["scopes_restriction"],
   OCIConfigType: ["oci_config"],
   ObservabilityPipelineAddEnvVarsProcessorType: ["add_env_vars"],
   ObservabilityPipelineAddFieldsProcessorType: ["add_fields"],
@@ -6129,6 +6158,7 @@ const enumsMap: { [key: string]: any[] } = {
     "ARRAY_BOOLEAN",
     "ARRAY_OBJECT",
   ],
+  PageAnnotationsType: ["page_annotations"],
   PageUrgency: ["low", "high"],
   PaginationMetaPageType: ["offset_limit"],
   PatchDegradationRequestDataAttributesStatus: [
@@ -6980,6 +7010,7 @@ const enumsMap: { [key: string]: any[] } = {
   UpdateOutcomesAsyncType: ["batched-outcome"],
   UpdateRulesetRequestDataType: ["update_ruleset"],
   UpdateTenancyConfigDataType: ["oci_tenancy"],
+  UpsertOAuthScopesRestrictionType: ["upsert_scopes_restriction"],
   Urgency: ["low", "high", "dynamic"],
   UsageAttributionTypesType: ["usage_attribution_types"],
   UsageTimeSeriesType: ["usage_timeseries"],
@@ -7306,9 +7337,18 @@ const typeMap: { [index: string]: any } = {
   AnalysisRuleResponse: AnalysisRuleResponse,
   AnalysisViolation: AnalysisViolation,
   Annotation: Annotation,
+  AnnotationAttributes: AnnotationAttributes,
+  AnnotationCreateAttributes: AnnotationCreateAttributes,
+  AnnotationCreateRequest: AnnotationCreateRequest,
+  AnnotationData: AnnotationData,
   AnnotationDisplay: AnnotationDisplay,
   AnnotationDisplayBounds: AnnotationDisplayBounds,
+  AnnotationInPage: AnnotationInPage,
   AnnotationMarkdownTextAnnotation: AnnotationMarkdownTextAnnotation,
+  AnnotationRequestData: AnnotationRequestData,
+  AnnotationResponse: AnnotationResponse,
+  AnnotationUpdateRequest: AnnotationUpdateRequest,
+  AnnotationsResponse: AnnotationsResponse,
   AnonymizeUserError: AnonymizeUserError,
   AnonymizeUsersRequest: AnonymizeUsersRequest,
   AnonymizeUsersRequestAttributes: AnonymizeUsersRequestAttributes,
@@ -10177,6 +10217,14 @@ const typeMap: { [index: string]: any } = {
   NullableRelationshipToUserData: NullableRelationshipToUserData,
   NullableUserRelationship: NullableUserRelationship,
   NullableUserRelationshipData: NullableUserRelationshipData,
+  OAuthClientRegistrationError: OAuthClientRegistrationError,
+  OAuthClientRegistrationRequest: OAuthClientRegistrationRequest,
+  OAuthClientRegistrationResponse: OAuthClientRegistrationResponse,
+  OAuthScopesRestriction: OAuthScopesRestriction,
+  OAuthScopesRestrictionResponse: OAuthScopesRestrictionResponse,
+  OAuthScopesRestrictionResponseAttributes:
+    OAuthScopesRestrictionResponseAttributes,
+  OAuthScopesRestrictionResponseData: OAuthScopesRestrictionResponseData,
   OCIConfig: OCIConfig,
   OCIConfigAttributes: OCIConfigAttributes,
   OCIConfigsResponse: OCIConfigsResponse,
@@ -10620,6 +10668,9 @@ const typeMap: { [index: string]: any } = {
   OutputSchema: OutputSchema,
   OutputSchemaParameters: OutputSchemaParameters,
   OverwriteAllocationsRequest: OverwriteAllocationsRequest,
+  PageAnnotationsAttributes: PageAnnotationsAttributes,
+  PageAnnotationsData: PageAnnotationsData,
+  PageAnnotationsResponse: PageAnnotationsResponse,
   PaginatedResponseMeta: PaginatedResponseMeta,
   Pagination: Pagination,
   PaginationMeta: PaginationMeta,
@@ -12457,6 +12508,10 @@ const typeMap: { [index: string]: any } = {
     UpsertCloudInventorySyncConfigRequestAttributes,
   UpsertCloudInventorySyncConfigRequestData:
     UpsertCloudInventorySyncConfigRequestData,
+  UpsertOAuthScopesRestrictionData: UpsertOAuthScopesRestrictionData,
+  UpsertOAuthScopesRestrictionDataAttributes:
+    UpsertOAuthScopesRestrictionDataAttributes,
+  UpsertOAuthScopesRestrictionRequest: UpsertOAuthScopesRestrictionRequest,
   UrlParam: UrlParam,
   UrlParamUpdate: UrlParamUpdate,
   UsageApplicationSecurityMonitoringResponse:

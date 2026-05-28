@@ -79,6 +79,15 @@ export {
 } from "./apis/AgentlessScanningApi";
 
 export {
+  AnnotationsApiCreateAnnotationRequest,
+  AnnotationsApiDeleteAnnotationRequest,
+  AnnotationsApiGetPageAnnotationsRequest,
+  AnnotationsApiListAnnotationsRequest,
+  AnnotationsApiUpdateAnnotationRequest,
+  AnnotationsApi,
+} from "./apis/AnnotationsApi";
+
+export {
   AppBuilderApiCreateAppRequest,
   AppBuilderApiCreatePublishRequestRequest,
   AppBuilderApiDeleteAppRequest,
@@ -860,6 +869,14 @@ export {
   NetworkDeviceMonitoringApiUpdateInterfaceUserTagsRequest,
   NetworkDeviceMonitoringApi,
 } from "./apis/NetworkDeviceMonitoringApi";
+
+export {
+  OAuth2ClientPublicApiDeleteScopesRestrictionRequest,
+  OAuth2ClientPublicApiGetScopesRestrictionRequest,
+  OAuth2ClientPublicApiRegisterOAuthClientRequest,
+  OAuth2ClientPublicApiUpsertScopesRestrictionRequest,
+  OAuth2ClientPublicApi,
+} from "./apis/OAuth2ClientPublicApi";
 
 export {
   OCIIntegrationApiCreateTenancyConfigRequest,
@@ -1652,9 +1669,21 @@ export { AnalysisResponseDataType } from "./models/AnalysisResponseDataType";
 export { AnalysisRuleResponse } from "./models/AnalysisRuleResponse";
 export { AnalysisViolation } from "./models/AnalysisViolation";
 export { Annotation } from "./models/Annotation";
+export { AnnotationAttributes } from "./models/AnnotationAttributes";
+export { AnnotationColor } from "./models/AnnotationColor";
+export { AnnotationCreateAttributes } from "./models/AnnotationCreateAttributes";
+export { AnnotationCreateRequest } from "./models/AnnotationCreateRequest";
+export { AnnotationData } from "./models/AnnotationData";
 export { AnnotationDisplay } from "./models/AnnotationDisplay";
 export { AnnotationDisplayBounds } from "./models/AnnotationDisplayBounds";
+export { AnnotationInPage } from "./models/AnnotationInPage";
+export { AnnotationKind } from "./models/AnnotationKind";
 export { AnnotationMarkdownTextAnnotation } from "./models/AnnotationMarkdownTextAnnotation";
+export { AnnotationRequestData } from "./models/AnnotationRequestData";
+export { AnnotationResponse } from "./models/AnnotationResponse";
+export { AnnotationsResponse } from "./models/AnnotationsResponse";
+export { AnnotationType } from "./models/AnnotationType";
+export { AnnotationUpdateRequest } from "./models/AnnotationUpdateRequest";
 export { AnonymizeUserError } from "./models/AnonymizeUserError";
 export { AnonymizeUsersRequest } from "./models/AnonymizeUsersRequest";
 export { AnonymizeUsersRequestAttributes } from "./models/AnonymizeUsersRequestAttributes";
@@ -4866,6 +4895,17 @@ export { NullableRelationshipToUser } from "./models/NullableRelationshipToUser"
 export { NullableRelationshipToUserData } from "./models/NullableRelationshipToUserData";
 export { NullableUserRelationship } from "./models/NullableUserRelationship";
 export { NullableUserRelationshipData } from "./models/NullableUserRelationshipData";
+export { OAuthClientRegistrationError } from "./models/OAuthClientRegistrationError";
+export { OAuthClientRegistrationGrantType } from "./models/OAuthClientRegistrationGrantType";
+export { OAuthClientRegistrationRequest } from "./models/OAuthClientRegistrationRequest";
+export { OAuthClientRegistrationResponse } from "./models/OAuthClientRegistrationResponse";
+export { OAuthClientRegistrationResponseType } from "./models/OAuthClientRegistrationResponseType";
+export { OAuthOidcScope } from "./models/OAuthOidcScope";
+export { OAuthScopesRestriction } from "./models/OAuthScopesRestriction";
+export { OAuthScopesRestrictionResponse } from "./models/OAuthScopesRestrictionResponse";
+export { OAuthScopesRestrictionResponseAttributes } from "./models/OAuthScopesRestrictionResponseAttributes";
+export { OAuthScopesRestrictionResponseData } from "./models/OAuthScopesRestrictionResponseData";
+export { OAuthScopesRestrictionType } from "./models/OAuthScopesRestrictionType";
 export { ObservabilityPipeline } from "./models/ObservabilityPipeline";
 export { ObservabilityPipelineAddEnvVarsProcessor } from "./models/ObservabilityPipelineAddEnvVarsProcessor";
 export { ObservabilityPipelineAddEnvVarsProcessorType } from "./models/ObservabilityPipelineAddEnvVarsProcessorType";
@@ -5373,6 +5413,10 @@ export { OutputSchema } from "./models/OutputSchema";
 export { OutputSchemaParameters } from "./models/OutputSchemaParameters";
 export { OutputSchemaParametersType } from "./models/OutputSchemaParametersType";
 export { OverwriteAllocationsRequest } from "./models/OverwriteAllocationsRequest";
+export { PageAnnotationsAttributes } from "./models/PageAnnotationsAttributes";
+export { PageAnnotationsData } from "./models/PageAnnotationsData";
+export { PageAnnotationsResponse } from "./models/PageAnnotationsResponse";
+export { PageAnnotationsType } from "./models/PageAnnotationsType";
 export { PageUrgency } from "./models/PageUrgency";
 export { PaginatedResponseMeta } from "./models/PaginatedResponseMeta";
 export { Pagination } from "./models/Pagination";
@@ -7255,6 +7299,10 @@ export { UpsertCatalogKindResponse } from "./models/UpsertCatalogKindResponse";
 export { UpsertCloudInventorySyncConfigRequest } from "./models/UpsertCloudInventorySyncConfigRequest";
 export { UpsertCloudInventorySyncConfigRequestAttributes } from "./models/UpsertCloudInventorySyncConfigRequestAttributes";
 export { UpsertCloudInventorySyncConfigRequestData } from "./models/UpsertCloudInventorySyncConfigRequestData";
+export { UpsertOAuthScopesRestrictionData } from "./models/UpsertOAuthScopesRestrictionData";
+export { UpsertOAuthScopesRestrictionDataAttributes } from "./models/UpsertOAuthScopesRestrictionDataAttributes";
+export { UpsertOAuthScopesRestrictionRequest } from "./models/UpsertOAuthScopesRestrictionRequest";
+export { UpsertOAuthScopesRestrictionType } from "./models/UpsertOAuthScopesRestrictionType";
 export { Urgency } from "./models/Urgency";
 export { UrlParam } from "./models/UrlParam";
 export { UrlParamUpdate } from "./models/UrlParamUpdate";
