@@ -7451,6 +7451,46 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "CostTagDescriptionsResponse",
   },
+  "CloudCostManagementApi.V2.GetCostTagDescriptionByKey": {
+    tagKey: {
+      type: "string",
+      format: "",
+    },
+    filterCloud: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "CostTagDescriptionResponse",
+  },
+  "CloudCostManagementApi.V2.UpsertCostTagDescriptionByKey": {
+    tagKey: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "CostTagDescriptionUpsertRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "CloudCostManagementApi.V2.DeleteCostTagDescriptionByKey": {
+    tagKey: {
+      type: "string",
+      format: "",
+    },
+    cloud: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "CloudCostManagementApi.V2.GenerateCostTagDescriptionByKey": {
+    tagKey: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "GenerateCostTagDescriptionResponse",
+  },
   "CloudCostManagementApi.V2.ListCostTagKeys": {
     filterMetric: {
       type: "string",
@@ -10989,6 +11029,38 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "int32",
     },
     operationResponseType: "SingleAggregatedDnsResponseArray",
+  },
+  "OAuth2ClientPublicApi.V2.GetScopesRestriction": {
+    clientUuid: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "OAuthScopesRestrictionResponse",
+  },
+  "OAuth2ClientPublicApi.V2.UpsertScopesRestriction": {
+    clientUuid: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "UpsertOAuthScopesRestrictionRequest",
+      format: "",
+    },
+    operationResponseType: "OAuthScopesRestrictionResponse",
+  },
+  "OAuth2ClientPublicApi.V2.DeleteScopesRestriction": {
+    clientUuid: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "OAuth2ClientPublicApi.V2.RegisterOAuthClient": {
+    body: {
+      type: "OAuthClientRegistrationRequest",
+      format: "",
+    },
+    operationResponseType: "OAuthClientRegistrationResponse",
   },
   "ObservabilityPipelinesApi.V2.ListPipelines": {
     pageSize: {

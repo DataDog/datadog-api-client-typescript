@@ -8,9 +8,11 @@ export {
   CloudCostManagementApiDeleteCostAWSCURConfigRequest,
   CloudCostManagementApiDeleteCostAzureUCConfigRequest,
   CloudCostManagementApiDeleteCostGCPUsageCostConfigRequest,
+  CloudCostManagementApiDeleteCostTagDescriptionByKeyRequest,
   CloudCostManagementApiDeleteCustomAllocationRuleRequest,
   CloudCostManagementApiDeleteCustomCostsFileRequest,
   CloudCostManagementApiDeleteTagPipelinesRulesetRequest,
+  CloudCostManagementApiGenerateCostTagDescriptionByKeyRequest,
   CloudCostManagementApiGetBudgetRequest,
   CloudCostManagementApiGetCommitmentsCommitmentListRequest,
   CloudCostManagementApiGetCommitmentsCoverageScalarRequest,
@@ -24,6 +26,7 @@ export {
   CloudCostManagementApiGetCostAnomalyRequest,
   CloudCostManagementApiGetCostAzureUCConfigRequest,
   CloudCostManagementApiGetCostGCPUsageCostConfigRequest,
+  CloudCostManagementApiGetCostTagDescriptionByKeyRequest,
   CloudCostManagementApiGetCostTagKeyRequest,
   CloudCostManagementApiGetCostTagMetadataCurrencyRequest,
   CloudCostManagementApiGetCustomAllocationRuleRequest,
@@ -49,6 +52,7 @@ export {
   CloudCostManagementApiUpdateTagPipelinesRulesetRequest,
   CloudCostManagementApiUploadCustomCostsFileRequest,
   CloudCostManagementApiUpsertBudgetRequest,
+  CloudCostManagementApiUpsertCostTagDescriptionByKeyRequest,
   CloudCostManagementApiValidateBudgetRequest,
   CloudCostManagementApiValidateQueryRequest,
   CloudCostManagementApi,
@@ -183,9 +187,13 @@ export { CostTag } from "./models/CostTag";
 export { CostTagAttributes } from "./models/CostTagAttributes";
 export { CostTagDescription } from "./models/CostTagDescription";
 export { CostTagDescriptionAttributes } from "./models/CostTagDescriptionAttributes";
+export { CostTagDescriptionResponse } from "./models/CostTagDescriptionResponse";
 export { CostTagDescriptionSource } from "./models/CostTagDescriptionSource";
 export { CostTagDescriptionsResponse } from "./models/CostTagDescriptionsResponse";
 export { CostTagDescriptionType } from "./models/CostTagDescriptionType";
+export { CostTagDescriptionUpsertRequest } from "./models/CostTagDescriptionUpsertRequest";
+export { CostTagDescriptionUpsertRequestData } from "./models/CostTagDescriptionUpsertRequestData";
+export { CostTagDescriptionUpsertRequestDataAttributes } from "./models/CostTagDescriptionUpsertRequestDataAttributes";
 export { CostTagKey } from "./models/CostTagKey";
 export { CostTagKeyAttributes } from "./models/CostTagKeyAttributes";
 export { CostTagKeyDetails } from "./models/CostTagKeyDetails";
@@ -247,6 +255,10 @@ export { GCPUsageCostConfigPostRequestType } from "./models/GCPUsageCostConfigPo
 export { GCPUsageCostConfigResponse } from "./models/GCPUsageCostConfigResponse";
 export { GCPUsageCostConfigsResponse } from "./models/GCPUsageCostConfigsResponse";
 export { GCPUsageCostConfigType } from "./models/GCPUsageCostConfigType";
+export { GenerateCostTagDescriptionResponse } from "./models/GenerateCostTagDescriptionResponse";
+export { GeneratedCostTagDescription } from "./models/GeneratedCostTagDescription";
+export { GeneratedCostTagDescriptionAttributes } from "./models/GeneratedCostTagDescriptionAttributes";
+export { GeneratedCostTagDescriptionType } from "./models/GeneratedCostTagDescriptionType";
 export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
 export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
 export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
