@@ -7046,16 +7046,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "SecurityMonitoringApi.v2.muteSecurityFindings"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'muteSecurityFindings' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.muteSecurityFindings'] = true`",
-      );
-    }
-
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "muteSecurityFindings");
