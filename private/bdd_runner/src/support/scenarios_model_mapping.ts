@@ -8368,6 +8368,29 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "IssueResponse",
   },
+  "EndUserDeviceMonitoringApi.V2.GetEUDMDevices": {
+    operationResponseType: "DeviceBaseArray",
+  },
+  "EndUserDeviceMonitoringApi.V2.GetEUDMDevice": {
+    deviceId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "DeviceDetails",
+  },
+  "EndUserDeviceMonitoringApi.V2.GetEUDMGraph": {
+    by: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "GraphItemArray",
+  },
+  "EndUserDeviceMonitoringApi.V2.GetEUDMIssues": {
+    operationResponseType: "IssueDefinitionArray",
+  },
+  "EndUserDeviceMonitoringApi.V2.GetEUDMOverview": {
+    operationResponseType: "OverviewItemArray",
+  },
   "EventsApi.V2.ListEvents": {
     filterQuery: {
       type: "string",
@@ -10989,6 +11012,38 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "int32",
     },
     operationResponseType: "SingleAggregatedDnsResponseArray",
+  },
+  "OAuth2ClientPublicApi.V2.GetScopesRestriction": {
+    clientUuid: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "OAuthScopesRestrictionResponse",
+  },
+  "OAuth2ClientPublicApi.V2.UpsertScopesRestriction": {
+    clientUuid: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "UpsertOAuthScopesRestrictionRequest",
+      format: "",
+    },
+    operationResponseType: "OAuthScopesRestrictionResponse",
+  },
+  "OAuth2ClientPublicApi.V2.DeleteScopesRestriction": {
+    clientUuid: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "OAuth2ClientPublicApi.V2.RegisterOAuthClient": {
+    body: {
+      type: "OAuthClientRegistrationRequest",
+      format: "",
+    },
+    operationResponseType: "OAuthClientRegistrationResponse",
   },
   "ObservabilityPipelinesApi.V2.ListPipelines": {
     pageSize: {

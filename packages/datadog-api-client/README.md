@@ -388,6 +388,7 @@ apiInstance
 | Domain Allowlist | @datadog/datadog-api-client-domain-allowlist | [README.md](../../services/domain-allowlist/README.md) |
 | DORA Metrics | @datadog/datadog-api-client-dora-metrics | [README.md](../../services/dora-metrics/README.md) |
 | Downtimes | @datadog/datadog-api-client-downtimes | [README.md](../../services/downtimes/README.md) |
+| End User Device Monitoring | @datadog/datadog-api-client-end-user-device-monitoring | [README.md](../../services/end-user-device-monitoring/README.md) |
 | Entity Integration Configs | @datadog/datadog-api-client-entity-integration-configs | [README.md](../../services/entity-integration-configs/README.md) |
 | Entity Risk Scores | @datadog/datadog-api-client-entity-risk-scores | [README.md](../../services/entity-risk-scores/README.md) |
 | Error Tracking | @datadog/datadog-api-client-error-tracking | [README.md](../../services/error-tracking/README.md) |
@@ -420,6 +421,7 @@ apiInstance
 | Monitors | @datadog/datadog-api-client-monitors | [README.md](../../services/monitors/README.md) |
 | Network Device Monitoring | @datadog/datadog-api-client-network-device-monitoring | [README.md](../../services/network-device-monitoring/README.md) |
 | Notebooks | @datadog/datadog-api-client-notebooks | [README.md](../../services/notebooks/README.md) |
+| OAuth2 Client Public | @datadog/datadog-api-client-o-auth2-client-public | [README.md](../../services/o-auth2-client-public/README.md) |
 | Observability Pipelines | @datadog/datadog-api-client-observability-pipelines | [README.md](../../services/observability-pipelines/README.md) |
 | OCI Integration | @datadog/datadog-api-client-oci-integration | [README.md](../../services/oci-integration/README.md) |
 | Okta Integration | @datadog/datadog-api-client-okta-integration | [README.md](../../services/okta-integration/README.md) |
