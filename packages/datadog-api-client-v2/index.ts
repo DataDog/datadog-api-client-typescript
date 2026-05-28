@@ -79,6 +79,15 @@ export {
 } from "./apis/AgentlessScanningApi";
 
 export {
+  AnnotationsApiCreateAnnotationRequest,
+  AnnotationsApiDeleteAnnotationRequest,
+  AnnotationsApiGetPageAnnotationsRequest,
+  AnnotationsApiListAnnotationsRequest,
+  AnnotationsApiUpdateAnnotationRequest,
+  AnnotationsApi,
+} from "./apis/AnnotationsApi";
+
+export {
   AppBuilderApiCreateAppRequest,
   AppBuilderApiCreatePublishRequestRequest,
   AppBuilderApiDeleteAppRequest,
@@ -1664,9 +1673,21 @@ export { AnalysisResponseDataType } from "./models/AnalysisResponseDataType";
 export { AnalysisRuleResponse } from "./models/AnalysisRuleResponse";
 export { AnalysisViolation } from "./models/AnalysisViolation";
 export { Annotation } from "./models/Annotation";
+export { AnnotationAttributes } from "./models/AnnotationAttributes";
+export { AnnotationColor } from "./models/AnnotationColor";
+export { AnnotationCreateAttributes } from "./models/AnnotationCreateAttributes";
+export { AnnotationCreateRequest } from "./models/AnnotationCreateRequest";
+export { AnnotationData } from "./models/AnnotationData";
 export { AnnotationDisplay } from "./models/AnnotationDisplay";
 export { AnnotationDisplayBounds } from "./models/AnnotationDisplayBounds";
+export { AnnotationInPage } from "./models/AnnotationInPage";
+export { AnnotationKind } from "./models/AnnotationKind";
 export { AnnotationMarkdownTextAnnotation } from "./models/AnnotationMarkdownTextAnnotation";
+export { AnnotationRequestData } from "./models/AnnotationRequestData";
+export { AnnotationResponse } from "./models/AnnotationResponse";
+export { AnnotationsResponse } from "./models/AnnotationsResponse";
+export { AnnotationType } from "./models/AnnotationType";
+export { AnnotationUpdateRequest } from "./models/AnnotationUpdateRequest";
 export { AnonymizeUserError } from "./models/AnonymizeUserError";
 export { AnonymizeUsersRequest } from "./models/AnonymizeUsersRequest";
 export { AnonymizeUsersRequestAttributes } from "./models/AnonymizeUsersRequestAttributes";
@@ -5404,6 +5425,10 @@ export { OutputSchema } from "./models/OutputSchema";
 export { OutputSchemaParameters } from "./models/OutputSchemaParameters";
 export { OutputSchemaParametersType } from "./models/OutputSchemaParametersType";
 export { OverwriteAllocationsRequest } from "./models/OverwriteAllocationsRequest";
+export { PageAnnotationsAttributes } from "./models/PageAnnotationsAttributes";
+export { PageAnnotationsData } from "./models/PageAnnotationsData";
+export { PageAnnotationsResponse } from "./models/PageAnnotationsResponse";
+export { PageAnnotationsType } from "./models/PageAnnotationsType";
 export { PageUrgency } from "./models/PageUrgency";
 export { PaginatedResponseMeta } from "./models/PaginatedResponseMeta";
 export { Pagination } from "./models/Pagination";

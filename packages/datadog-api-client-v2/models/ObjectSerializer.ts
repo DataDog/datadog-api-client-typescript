@@ -156,9 +156,18 @@ import { AnalysisResponseDataAttributes } from "./AnalysisResponseDataAttributes
 import { AnalysisRuleResponse } from "./AnalysisRuleResponse";
 import { AnalysisViolation } from "./AnalysisViolation";
 import { Annotation } from "./Annotation";
+import { AnnotationAttributes } from "./AnnotationAttributes";
+import { AnnotationCreateAttributes } from "./AnnotationCreateAttributes";
+import { AnnotationCreateRequest } from "./AnnotationCreateRequest";
+import { AnnotationData } from "./AnnotationData";
 import { AnnotationDisplay } from "./AnnotationDisplay";
 import { AnnotationDisplayBounds } from "./AnnotationDisplayBounds";
+import { AnnotationInPage } from "./AnnotationInPage";
 import { AnnotationMarkdownTextAnnotation } from "./AnnotationMarkdownTextAnnotation";
+import { AnnotationRequestData } from "./AnnotationRequestData";
+import { AnnotationResponse } from "./AnnotationResponse";
+import { AnnotationUpdateRequest } from "./AnnotationUpdateRequest";
+import { AnnotationsResponse } from "./AnnotationsResponse";
 import { AnonymizeUserError } from "./AnonymizeUserError";
 import { AnonymizeUsersRequest } from "./AnonymizeUsersRequest";
 import { AnonymizeUsersRequestAttributes } from "./AnonymizeUsersRequestAttributes";
@@ -2929,6 +2938,9 @@ import { OutcomesResponseLinks } from "./OutcomesResponseLinks";
 import { OutputSchema } from "./OutputSchema";
 import { OutputSchemaParameters } from "./OutputSchemaParameters";
 import { OverwriteAllocationsRequest } from "./OverwriteAllocationsRequest";
+import { PageAnnotationsAttributes } from "./PageAnnotationsAttributes";
+import { PageAnnotationsData } from "./PageAnnotationsData";
+import { PageAnnotationsResponse } from "./PageAnnotationsResponse";
 import { PaginatedResponseMeta } from "./PaginatedResponseMeta";
 import { Pagination } from "./Pagination";
 import { PaginationMeta } from "./PaginationMeta";
@@ -4621,6 +4633,9 @@ const enumsMap: { [key: string]: any[] } = {
   AnalysisEditType: ["ADD", "UPDATE", "REMOVE"],
   AnalysisRequestDataType: ["analysis_request"],
   AnalysisResponseDataType: ["server_request"],
+  AnnotationColor: ["gray", "blue", "purple", "green", "yellow", "red"],
+  AnnotationKind: ["pointInTime", "timeRegion"],
+  AnnotationType: ["annotation"],
   AnonymizeUsersRequestType: ["anonymize_users_request"],
   AnonymizeUsersResponseType: ["anonymize_users_response"],
   AnthropicAPIKeyType: ["AnthropicAPIKey"],
@@ -6151,6 +6166,7 @@ const enumsMap: { [key: string]: any[] } = {
     "ARRAY_BOOLEAN",
     "ARRAY_OBJECT",
   ],
+  PageAnnotationsType: ["page_annotations"],
   PageUrgency: ["low", "high"],
   PaginationMetaPageType: ["offset_limit"],
   PatchDegradationRequestDataAttributesStatus: [
@@ -7329,9 +7345,18 @@ const typeMap: { [index: string]: any } = {
   AnalysisRuleResponse: AnalysisRuleResponse,
   AnalysisViolation: AnalysisViolation,
   Annotation: Annotation,
+  AnnotationAttributes: AnnotationAttributes,
+  AnnotationCreateAttributes: AnnotationCreateAttributes,
+  AnnotationCreateRequest: AnnotationCreateRequest,
+  AnnotationData: AnnotationData,
   AnnotationDisplay: AnnotationDisplay,
   AnnotationDisplayBounds: AnnotationDisplayBounds,
+  AnnotationInPage: AnnotationInPage,
   AnnotationMarkdownTextAnnotation: AnnotationMarkdownTextAnnotation,
+  AnnotationRequestData: AnnotationRequestData,
+  AnnotationResponse: AnnotationResponse,
+  AnnotationUpdateRequest: AnnotationUpdateRequest,
+  AnnotationsResponse: AnnotationsResponse,
   AnonymizeUserError: AnonymizeUserError,
   AnonymizeUsersRequest: AnonymizeUsersRequest,
   AnonymizeUsersRequestAttributes: AnonymizeUsersRequestAttributes,
@@ -10659,6 +10684,9 @@ const typeMap: { [index: string]: any } = {
   OutputSchema: OutputSchema,
   OutputSchemaParameters: OutputSchemaParameters,
   OverwriteAllocationsRequest: OverwriteAllocationsRequest,
+  PageAnnotationsAttributes: PageAnnotationsAttributes,
+  PageAnnotationsData: PageAnnotationsData,
+  PageAnnotationsResponse: PageAnnotationsResponse,
   PaginatedResponseMeta: PaginatedResponseMeta,
   Pagination: Pagination,
   PaginationMeta: PaginationMeta,

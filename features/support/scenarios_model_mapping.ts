@@ -3374,6 +3374,65 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "AwsOnDemandResponse",
     },
+    "v2.ListAnnotations": {
+        "pageId": {
+            "type": "string",
+            "format": "",
+            },
+        "startTime": {
+            "type": "number",
+            "format": "int64",
+            },
+        "endTime": {
+            "type": "number",
+            "format": "int64",
+            },
+        "widgetId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AnnotationsResponse",
+    },
+    "v2.CreateAnnotation": {
+        "body": {
+            "type": "AnnotationCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AnnotationResponse",
+    },
+    "v2.GetPageAnnotations": {
+        "pageId": {
+            "type": "string",
+            "format": "",
+            },
+        "startTime": {
+            "type": "number",
+            "format": "int64",
+            },
+        "endTime": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "PageAnnotationsResponse",
+    },
+    "v2.UpdateAnnotation": {
+        "annotationId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "AnnotationUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AnnotationResponse",
+    },
+    "v2.DeleteAnnotation": {
+        "annotationId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.AnonymizeUsers": {
         "body": {
             "type": "AnonymizeUsersRequest",
