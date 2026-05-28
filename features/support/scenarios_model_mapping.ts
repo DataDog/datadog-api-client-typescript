@@ -7439,6 +7439,46 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CostTagDescriptionsResponse",
     },
+    "v2.GetCostTagDescriptionByKey": {
+        "tagKey": {
+            "type": "string",
+            "format": "",
+            },
+        "filterCloud": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CostTagDescriptionResponse",
+    },
+    "v2.UpsertCostTagDescriptionByKey": {
+        "tagKey": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CostTagDescriptionUpsertRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.DeleteCostTagDescriptionByKey": {
+        "tagKey": {
+            "type": "string",
+            "format": "",
+            },
+        "cloud": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.GenerateCostTagDescriptionByKey": {
+        "tagKey": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "GenerateCostTagDescriptionResponse",
+    },
     "v2.ListCostTagKeys": {
         "filterMetric": {
             "type": "string",
@@ -10977,6 +11017,38 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "int32",
             },
         "operationResponseType": "SingleAggregatedDnsResponseArray",
+    },
+    "v2.GetScopesRestriction": {
+        "clientUuid": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "OAuthScopesRestrictionResponse",
+    },
+    "v2.UpsertScopesRestriction": {
+        "clientUuid": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "UpsertOAuthScopesRestrictionRequest",
+            "format": "",
+            },
+        "operationResponseType": "OAuthScopesRestrictionResponse",
+    },
+    "v2.DeleteScopesRestriction": {
+        "clientUuid": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.RegisterOAuthClient": {
+        "body": {
+            "type": "OAuthClientRegistrationRequest",
+            "format": "",
+            },
+        "operationResponseType": "OAuthClientRegistrationResponse",
     },
     "v2.ListPipelines": {
         "pageSize": {
