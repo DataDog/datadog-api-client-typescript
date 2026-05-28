@@ -1,0 +1,66 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+import { AnnotationInPage } from "./AnnotationInPage";
+
+/**
+ * Attributes of the annotations on a page.
+ */
+export class PageAnnotationsAttributes {
+  /**
+   * Map of annotation UUID to annotation object, keyed by annotation ID.
+   */
+  "annotations": { [key: string]: AnnotationInPage };
+  /**
+   * List of annotation IDs that apply to the entire page rather than a specific widget.
+   */
+  "globalAnnotations": Array<string>;
+  /**
+   * Map from widget ID to the list of annotation IDs displayed on that widget.
+   */
+  "widgetMapping": { [key: string]: Array<string> };
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    annotations: {
+      baseName: "annotations",
+      type: "{ [key: string]: AnnotationInPage; }",
+      required: true,
+    },
+    globalAnnotations: {
+      baseName: "global_annotations",
+      type: "Array<string>",
+      required: true,
+      format: "uuid",
+    },
+    widgetMapping: {
+      baseName: "widget_mapping",
+      type: "{ [key: string]: Array<string>; }",
+      required: true,
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return PageAnnotationsAttributes.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

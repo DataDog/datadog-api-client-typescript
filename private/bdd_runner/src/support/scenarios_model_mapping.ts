@@ -3384,6 +3384,65 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "AwsOnDemandResponse",
   },
+  "AnnotationsApi.V2.ListAnnotations": {
+    pageId: {
+      type: "string",
+      format: "",
+    },
+    startTime: {
+      type: "number",
+      format: "int64",
+    },
+    endTime: {
+      type: "number",
+      format: "int64",
+    },
+    widgetId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "AnnotationsResponse",
+  },
+  "AnnotationsApi.V2.CreateAnnotation": {
+    body: {
+      type: "AnnotationCreateRequest",
+      format: "",
+    },
+    operationResponseType: "AnnotationResponse",
+  },
+  "AnnotationsApi.V2.GetPageAnnotations": {
+    pageId: {
+      type: "string",
+      format: "",
+    },
+    startTime: {
+      type: "number",
+      format: "int64",
+    },
+    endTime: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "PageAnnotationsResponse",
+  },
+  "AnnotationsApi.V2.UpdateAnnotation": {
+    annotationId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "AnnotationUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "AnnotationResponse",
+  },
+  "AnnotationsApi.V2.DeleteAnnotation": {
+    annotationId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
   "UsersApi.V2.AnonymizeUsers": {
     body: {
       type: "AnonymizeUsersRequest",
@@ -10989,6 +11048,38 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "int32",
     },
     operationResponseType: "SingleAggregatedDnsResponseArray",
+  },
+  "OAuth2ClientPublicApi.V2.GetScopesRestriction": {
+    clientUuid: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "OAuthScopesRestrictionResponse",
+  },
+  "OAuth2ClientPublicApi.V2.UpsertScopesRestriction": {
+    clientUuid: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "UpsertOAuthScopesRestrictionRequest",
+      format: "",
+    },
+    operationResponseType: "OAuthScopesRestrictionResponse",
+  },
+  "OAuth2ClientPublicApi.V2.DeleteScopesRestriction": {
+    clientUuid: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "OAuth2ClientPublicApi.V2.RegisterOAuthClient": {
+    body: {
+      type: "OAuthClientRegistrationRequest",
+      format: "",
+    },
+    operationResponseType: "OAuthClientRegistrationResponse",
   },
   "ObservabilityPipelinesApi.V2.ListPipelines": {
     pageSize: {

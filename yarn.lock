@@ -280,6 +280,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@datadog/datadog-api-client-annotations@workspace:services/annotations":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-annotations@workspace:services/annotations"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@datadog/datadog-api-client-api-management@workspace:services/api_management":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-api-management@workspace:services/api_management"
