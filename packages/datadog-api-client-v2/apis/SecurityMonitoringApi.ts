@@ -6193,7 +6193,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = _config
       .getServer("v2.SecurityMonitoringApi.searchSecurityMonitoringHistsignals")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
