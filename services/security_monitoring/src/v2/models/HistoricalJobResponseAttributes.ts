@@ -39,6 +39,10 @@ export class HistoricalJobResponseAttributes {
    */
   "modifiedAt"?: string;
   /**
+   * Job execution progress as a value between 0 and 1. Available for ongoing jobs.
+   */
+  "progressRate"?: number;
+  /**
    * Whether the job outputs signals.
    */
   "signalOutput"?: boolean;
@@ -88,6 +92,11 @@ export class HistoricalJobResponseAttributes {
     modifiedAt: {
       baseName: "modifiedAt",
       type: "string",
+    },
+    progressRate: {
+      baseName: "progressRate",
+      type: "number",
+      format: "double",
     },
     signalOutput: {
       baseName: "signalOutput",

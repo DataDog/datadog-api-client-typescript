@@ -16,7 +16,7 @@ export class JobDefinition {
    */
   "calculatedFields"?: Array<CalculatedField>;
   /**
-   * Cases used for generating job results.
+   * Cases used for generating job results. Up to 10 cases are allowed.
    */
   "cases": Array<SecurityMonitoringRuleCaseCreate>;
   /**
@@ -44,7 +44,7 @@ export class JobDefinition {
    */
   "options"?: HistoricalJobOptions;
   /**
-   * Queries for selecting logs analyzed by the job.
+   * Queries for selecting logs analyzed by the job. Up to 10 queries are allowed.
    */
   "queries": Array<HistoricalJobQuery>;
   /**
@@ -56,7 +56,7 @@ export class JobDefinition {
    */
   "tags"?: Array<string>;
   /**
-   * Cases for generating results from third-party detection method. Only available for third-party detection method.
+   * Cases for generating results from third-party detection method. Only available for third-party detection method. Up to 10 cases are allowed.
    */
   "thirdPartyCases"?: Array<SecurityMonitoringThirdPartyRuleCaseCreate>;
   /**
