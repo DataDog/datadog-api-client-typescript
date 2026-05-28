@@ -2827,6 +2827,16 @@ import { OpenAIAPIKeyUpdate } from "./OpenAIAPIKeyUpdate";
 import { OpenAIIntegration } from "./OpenAIIntegration";
 import { OpenAIIntegrationUpdate } from "./OpenAIIntegrationUpdate";
 import { OpenAPIEndpoint } from "./OpenAPIEndpoint";
+import { OpsgenieAccountCreateAttributes } from "./OpsgenieAccountCreateAttributes";
+import { OpsgenieAccountCreateData } from "./OpsgenieAccountCreateData";
+import { OpsgenieAccountCreateRequest } from "./OpsgenieAccountCreateRequest";
+import { OpsgenieAccountResponse } from "./OpsgenieAccountResponse";
+import { OpsgenieAccountResponseAttributes } from "./OpsgenieAccountResponseAttributes";
+import { OpsgenieAccountResponseData } from "./OpsgenieAccountResponseData";
+import { OpsgenieAccountUpdateAttributes } from "./OpsgenieAccountUpdateAttributes";
+import { OpsgenieAccountUpdateData } from "./OpsgenieAccountUpdateData";
+import { OpsgenieAccountUpdateRequest } from "./OpsgenieAccountUpdateRequest";
+import { OpsgenieAccountsResponse } from "./OpsgenieAccountsResponse";
 import { OpsgenieServiceCreateAttributes } from "./OpsgenieServiceCreateAttributes";
 import { OpsgenieServiceCreateData } from "./OpsgenieServiceCreateData";
 import { OpsgenieServiceCreateRequest } from "./OpsgenieServiceCreateRequest";
@@ -6138,6 +6148,7 @@ const enumsMap: { [key: string]: any[] } = {
   OnDemandConcurrencyCapType: ["on_demand_concurrency_cap"],
   OpenAIAPIKeyType: ["OpenAIAPIKey"],
   OpenAIIntegrationType: ["OpenAI"],
+  OpsgenieAccountType: ["opsgenie-account"],
   OpsgenieServiceRegionType: ["us", "eu", "custom"],
   OpsgenieServiceType: ["opsgenie-service"],
   OrderDirection: ["asc", "desc"],
@@ -10579,6 +10590,16 @@ const typeMap: { [index: string]: any } = {
   OpenAIIntegration: OpenAIIntegration,
   OpenAIIntegrationUpdate: OpenAIIntegrationUpdate,
   OpenAPIEndpoint: OpenAPIEndpoint,
+  OpsgenieAccountCreateAttributes: OpsgenieAccountCreateAttributes,
+  OpsgenieAccountCreateData: OpsgenieAccountCreateData,
+  OpsgenieAccountCreateRequest: OpsgenieAccountCreateRequest,
+  OpsgenieAccountResponse: OpsgenieAccountResponse,
+  OpsgenieAccountResponseAttributes: OpsgenieAccountResponseAttributes,
+  OpsgenieAccountResponseData: OpsgenieAccountResponseData,
+  OpsgenieAccountUpdateAttributes: OpsgenieAccountUpdateAttributes,
+  OpsgenieAccountUpdateData: OpsgenieAccountUpdateData,
+  OpsgenieAccountUpdateRequest: OpsgenieAccountUpdateRequest,
+  OpsgenieAccountsResponse: OpsgenieAccountsResponse,
   OpsgenieServiceCreateAttributes: OpsgenieServiceCreateAttributes,
   OpsgenieServiceCreateData: OpsgenieServiceCreateData,
   OpsgenieServiceCreateRequest: OpsgenieServiceCreateRequest,
