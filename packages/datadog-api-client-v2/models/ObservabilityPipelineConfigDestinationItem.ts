@@ -26,6 +26,7 @@ import { ObservabilityPipelineRsyslogDestination } from "./ObservabilityPipeline
 import { ObservabilityPipelineSentinelOneDestination } from "./ObservabilityPipelineSentinelOneDestination";
 import { ObservabilityPipelineSocketDestination } from "./ObservabilityPipelineSocketDestination";
 import { ObservabilityPipelineSplunkHecDestination } from "./ObservabilityPipelineSplunkHecDestination";
+import { ObservabilityPipelineSplunkHecMetricsDestination } from "./ObservabilityPipelineSplunkHecMetricsDestination";
 import { ObservabilityPipelineSumoLogicDestination } from "./ObservabilityPipelineSumoLogicDestination";
 import { ObservabilityPipelineSyslogNgDestination } from "./ObservabilityPipelineSyslogNgDestination";
 
@@ -61,4 +62,5 @@ export type ObservabilityPipelineConfigDestinationItem =
   | ObservabilityPipelineSyslogNgDestination
   | ObservabilityPipelineDatabricksZerobusDestination
   | ObservabilityPipelineDatadogMetricsDestination
+  | ObservabilityPipelineSplunkHecMetricsDestination
   | UnparsedObject;

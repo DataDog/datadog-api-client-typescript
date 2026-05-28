@@ -1393,6 +1393,7 @@ export {
 } from "./apis/StatusPagesApi";
 
 export {
+  StorageManagementApiDeleteSyncConfigRequest,
   StorageManagementApiUpsertSyncConfigRequest,
   StorageManagementApi,
 } from "./apis/StorageManagementApi";
@@ -5155,6 +5156,9 @@ export { ObservabilityPipelineSplunkHecDestination } from "./models/Observabilit
 export { ObservabilityPipelineSplunkHecDestinationEncoding } from "./models/ObservabilityPipelineSplunkHecDestinationEncoding";
 export { ObservabilityPipelineSplunkHecDestinationTokenStrategy } from "./models/ObservabilityPipelineSplunkHecDestinationTokenStrategy";
 export { ObservabilityPipelineSplunkHecDestinationType } from "./models/ObservabilityPipelineSplunkHecDestinationType";
+export { ObservabilityPipelineSplunkHecMetricsDestination } from "./models/ObservabilityPipelineSplunkHecMetricsDestination";
+export { ObservabilityPipelineSplunkHecMetricsDestinationCompression } from "./models/ObservabilityPipelineSplunkHecMetricsDestinationCompression";
+export { ObservabilityPipelineSplunkHecMetricsDestinationType } from "./models/ObservabilityPipelineSplunkHecMetricsDestinationType";
 export { ObservabilityPipelineSplunkHecSource } from "./models/ObservabilityPipelineSplunkHecSource";
 export { ObservabilityPipelineSplunkHecSourceType } from "./models/ObservabilityPipelineSplunkHecSourceType";
 export { ObservabilityPipelineSplunkHecSourceValidToken } from "./models/ObservabilityPipelineSplunkHecSourceValidToken";
