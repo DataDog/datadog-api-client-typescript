@@ -2849,6 +2849,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "FormulaAndFunctionMetricQueryDefinition",
     "FormulaAndFunctionEventQueryDefinition",
     "FormulaAndFunctionApmResourceStatsQueryDefinition",
+    "FormulaAndFunctionApmMetricsQueryDefinition",
   ],
   EventsAggregation: ["EventsAggregationValue", "string"],
   FormulaAndFunctionEventQueryGroupByConfig: [

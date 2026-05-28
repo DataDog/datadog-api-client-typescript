@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { FormulaAndFunctionApmMetricsQueryDefinition } from "./FormulaAndFunctionApmMetricsQueryDefinition";
 import { FormulaAndFunctionApmResourceStatsQueryDefinition } from "./FormulaAndFunctionApmResourceStatsQueryDefinition";
 import { FormulaAndFunctionEventQueryDefinition } from "./FormulaAndFunctionEventQueryDefinition";
 import { FormulaAndFunctionMetricQueryDefinition } from "./FormulaAndFunctionMetricQueryDefinition";
@@ -17,4 +18,5 @@ export type DistributionWidgetHistogramRequestQuery =
   | FormulaAndFunctionMetricQueryDefinition
   | FormulaAndFunctionEventQueryDefinition
   | FormulaAndFunctionApmResourceStatsQueryDefinition
+  | FormulaAndFunctionApmMetricsQueryDefinition
   | UnparsedObject;
