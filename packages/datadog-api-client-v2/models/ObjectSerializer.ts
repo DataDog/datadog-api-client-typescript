@@ -2758,7 +2758,6 @@ import { ObservabilityPipelineSpecData } from "./ObservabilityPipelineSpecData";
 import { ObservabilityPipelineSplitArrayProcessor } from "./ObservabilityPipelineSplitArrayProcessor";
 import { ObservabilityPipelineSplitArrayProcessorArrayConfig } from "./ObservabilityPipelineSplitArrayProcessorArrayConfig";
 import { ObservabilityPipelineSplunkHecDestination } from "./ObservabilityPipelineSplunkHecDestination";
-import { ObservabilityPipelineSplunkHecMetricsDestination } from "./ObservabilityPipelineSplunkHecMetricsDestination";
 import { ObservabilityPipelineSplunkHecSource } from "./ObservabilityPipelineSplunkHecSource";
 import { ObservabilityPipelineSplunkHecSourceValidToken } from "./ObservabilityPipelineSplunkHecSourceValidToken";
 import { ObservabilityPipelineSplunkTcpSource } from "./ObservabilityPipelineSplunkTcpSource";
@@ -6051,8 +6050,6 @@ const enumsMap: { [key: string]: any[] } = {
     "from_source",
   ],
   ObservabilityPipelineSplunkHecDestinationType: ["splunk_hec"],
-  ObservabilityPipelineSplunkHecMetricsDestinationCompression: ["none", "gzip"],
-  ObservabilityPipelineSplunkHecMetricsDestinationType: ["splunk_hec_metrics"],
   ObservabilityPipelineSplunkHecSourceType: ["splunk_hec"],
   ObservabilityPipelineSplunkTcpSourceType: ["splunk_tcp"],
   ObservabilityPipelineSumoLogicDestinationEncoding: [
@@ -10445,8 +10442,6 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineSplitArrayProcessorArrayConfig,
   ObservabilityPipelineSplunkHecDestination:
     ObservabilityPipelineSplunkHecDestination,
-  ObservabilityPipelineSplunkHecMetricsDestination:
-    ObservabilityPipelineSplunkHecMetricsDestination,
   ObservabilityPipelineSplunkHecSource: ObservabilityPipelineSplunkHecSource,
   ObservabilityPipelineSplunkHecSourceValidToken:
     ObservabilityPipelineSplunkHecSourceValidToken,
@@ -12979,7 +12974,6 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineSyslogNgDestination",
     "ObservabilityPipelineDatabricksZerobusDestination",
     "ObservabilityPipelineDatadogMetricsDestination",
-    "ObservabilityPipelineSplunkHecMetricsDestination",
   ],
   ObservabilityPipelineConfigProcessorItem: [
     "ObservabilityPipelineFilterProcessor",
