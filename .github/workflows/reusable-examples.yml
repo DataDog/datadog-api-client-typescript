@@ -17,7 +17,7 @@ on:
         description: 'Node.js version to use for examples'
         required: false
         type: string
-        default: '16'
+        default: '20'
     secrets:
       PIPELINE_GITHUB_APP_ID:
         required: false
