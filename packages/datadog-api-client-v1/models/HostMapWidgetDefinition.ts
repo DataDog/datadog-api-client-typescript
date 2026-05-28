@@ -45,7 +45,7 @@ export class HostMapWidgetDefinition {
    */
   "notes"?: string;
   /**
-   * List of definitions.
+   * Query definition for the host map widget. Supports two mutually exclusive formats distinguished by the presence of `request_type`: the legacy metric-based format (`fill`/`size`) and the infrastructure-backed format (`request_type`, `node_type`, `enrichments`).
    */
   "requests": HostMapWidgetDefinitionRequests;
   /**
