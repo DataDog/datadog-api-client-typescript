@@ -6425,6 +6425,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SecurityMonitoringRuleConvertResponse",
     },
+    "v2.BulkConvertExistingSecurityMonitoringRules": {
+        "body": {
+            "type": "SecurityMonitoringRuleConvertBulkPayload",
+            "format": "",
+            },
+        "operationResponseType": "HttpFile",
+    },
     "v2.TestSecurityMonitoringRule": {
         "body": {
             "type": "SecurityMonitoringRuleTestRequest",

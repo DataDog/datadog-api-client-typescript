@@ -1160,6 +1160,7 @@ export {
   SecurityMonitoringApiAttachCaseRequest,
   SecurityMonitoringApiAttachJiraIssueRequest,
   SecurityMonitoringApiBatchGetSecurityMonitoringDatasetDependenciesRequest,
+  SecurityMonitoringApiBulkConvertExistingSecurityMonitoringRulesRequest,
   SecurityMonitoringApiBulkCreateSampleLogGenerationSubscriptionsRequest,
   SecurityMonitoringApiBulkDeleteSecurityMonitoringRulesRequest,
   SecurityMonitoringApiBulkEditSecurityMonitoringSignalsRequest,
@@ -6286,6 +6287,10 @@ export { SecurityMonitoringRuleCaseActionOptions } from "./models/SecurityMonito
 export { SecurityMonitoringRuleCaseActionOptionsFlaggedIPType } from "./models/SecurityMonitoringRuleCaseActionOptionsFlaggedIPType";
 export { SecurityMonitoringRuleCaseActionType } from "./models/SecurityMonitoringRuleCaseActionType";
 export { SecurityMonitoringRuleCaseCreate } from "./models/SecurityMonitoringRuleCaseCreate";
+export { SecurityMonitoringRuleConvertBulkAttributes } from "./models/SecurityMonitoringRuleConvertBulkAttributes";
+export { SecurityMonitoringRuleConvertBulkData } from "./models/SecurityMonitoringRuleConvertBulkData";
+export { SecurityMonitoringRuleConvertBulkDataType } from "./models/SecurityMonitoringRuleConvertBulkDataType";
+export { SecurityMonitoringRuleConvertBulkPayload } from "./models/SecurityMonitoringRuleConvertBulkPayload";
 export { SecurityMonitoringRuleConvertPayload } from "./models/SecurityMonitoringRuleConvertPayload";
 export { SecurityMonitoringRuleConvertResponse } from "./models/SecurityMonitoringRuleConvertResponse";
 export { SecurityMonitoringRuleCreatePayload } from "./models/SecurityMonitoringRuleCreatePayload";
