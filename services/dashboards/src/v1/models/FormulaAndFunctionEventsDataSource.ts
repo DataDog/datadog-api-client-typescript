@@ -18,6 +18,7 @@ export type FormulaAndFunctionEventsDataSource =
   | typeof PRODUCT_ANALYTICS
   | typeof ON_CALL_EVENTS
   | typeof ERRORS
+  | typeof LLM_OBSERVABILITY
   | UnparsedObject;
 export const LOGS = "logs";
 export const SPANS = "spans";
@@ -33,3 +34,4 @@ export const INCIDENT_ANALYTICS = "incident_analytics";
 export const PRODUCT_ANALYTICS = "product_analytics";
 export const ON_CALL_EVENTS = "on_call_events";
 export const ERRORS = "errors";
+export const LLM_OBSERVABILITY = "llm_observability";
