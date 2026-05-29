@@ -1128,9 +1128,12 @@ export {
 export {
   RumRetentionFiltersApiCreateRetentionFilterRequest,
   RumRetentionFiltersApiDeleteRetentionFilterRequest,
+  RumRetentionFiltersApiGetPermanentRetentionFilterRequest,
   RumRetentionFiltersApiGetRetentionFilterRequest,
+  RumRetentionFiltersApiListPermanentRetentionFiltersRequest,
   RumRetentionFiltersApiListRetentionFiltersRequest,
   RumRetentionFiltersApiOrderRetentionFiltersRequest,
+  RumRetentionFiltersApiUpdatePermanentRetentionFilterRequest,
   RumRetentionFiltersApiUpdateRetentionFilterRequest,
   RumRetentionFiltersApi,
 } from "./apis/RumRetentionFiltersApi";
@@ -5975,6 +5978,16 @@ export { RumMetricUpdateAttributes } from "./models/RumMetricUpdateAttributes";
 export { RumMetricUpdateCompute } from "./models/RumMetricUpdateCompute";
 export { RumMetricUpdateData } from "./models/RumMetricUpdateData";
 export { RumMetricUpdateRequest } from "./models/RumMetricUpdateRequest";
+export { RumPermanentRetentionFilterAttributes } from "./models/RumPermanentRetentionFilterAttributes";
+export { RumPermanentRetentionFilterData } from "./models/RumPermanentRetentionFilterData";
+export { RumPermanentRetentionFilterEditability } from "./models/RumPermanentRetentionFilterEditability";
+export { RumPermanentRetentionFilterID } from "./models/RumPermanentRetentionFilterID";
+export { RumPermanentRetentionFilterResponse } from "./models/RumPermanentRetentionFilterResponse";
+export { RumPermanentRetentionFiltersResponse } from "./models/RumPermanentRetentionFiltersResponse";
+export { RumPermanentRetentionFilterType } from "./models/RumPermanentRetentionFilterType";
+export { RumPermanentRetentionFilterUpdateAttributes } from "./models/RumPermanentRetentionFilterUpdateAttributes";
+export { RumPermanentRetentionFilterUpdateData } from "./models/RumPermanentRetentionFilterUpdateData";
+export { RumPermanentRetentionFilterUpdateRequest } from "./models/RumPermanentRetentionFilterUpdateRequest";
 export { RUMProductAnalyticsRetentionScale } from "./models/RUMProductAnalyticsRetentionScale";
 export { RUMProductAnalyticsRetentionState } from "./models/RUMProductAnalyticsRetentionState";
 export { RUMProductScales } from "./models/RUMProductScales";

@@ -17,6 +17,10 @@ import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { RumPermanentRetentionFilterID } from "../models/RumPermanentRetentionFilterID";
+import { RumPermanentRetentionFilterResponse } from "../models/RumPermanentRetentionFilterResponse";
+import { RumPermanentRetentionFiltersResponse } from "../models/RumPermanentRetentionFiltersResponse";
+import { RumPermanentRetentionFilterUpdateRequest } from "../models/RumPermanentRetentionFilterUpdateRequest";
 import { RumRetentionFilterCreateRequest } from "../models/RumRetentionFilterCreateRequest";
 import { RumRetentionFilterResponse } from "../models/RumRetentionFilterResponse";
 import { RumRetentionFiltersOrderRequest } from "../models/RumRetentionFiltersOrderRequest";
@@ -115,6 +119,48 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
+  public async getPermanentRetentionFilter(
+    appId: string,
+    permanentRfId: RumPermanentRetentionFilterID,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'appId' is not null or undefined
+    if (appId === null || appId === undefined) {
+      throw new RequiredError("appId", "getPermanentRetentionFilter");
+    }
+
+    // verify required parameter 'permanentRfId' is not null or undefined
+    if (permanentRfId === null || permanentRfId === undefined) {
+      throw new RequiredError("permanentRfId", "getPermanentRetentionFilter");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/rum/applications/{app_id}/retention_filters/permanent/{permanent_rf_id}"
+        .replace("{app_id}", encodeURIComponent(String(appId)))
+        .replace(
+          "{permanent_rf_id}",
+          encodeURIComponent(String(permanentRfId))
+        );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.RumRetentionFiltersApi.getPermanentRetentionFilter")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async getRetentionFilter(
     appId: string,
     rfId: string,
@@ -141,6 +187,40 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const requestContext = _config
       .getServer("v2.RumRetentionFiltersApi.getRetentionFilter")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listPermanentRetentionFilters(
+    appId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'appId' is not null or undefined
+    if (appId === null || appId === undefined) {
+      throw new RequiredError("appId", "listPermanentRetentionFilters");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/rum/applications/{app_id}/retention_filters/permanent".replace(
+        "{app_id}",
+        encodeURIComponent(String(appId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.RumRetentionFiltersApi.listPermanentRetentionFilters")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -226,6 +306,72 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "RumRetentionFiltersOrderRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updatePermanentRetentionFilter(
+    appId: string,
+    permanentRfId: RumPermanentRetentionFilterID,
+    body: RumPermanentRetentionFilterUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'appId' is not null or undefined
+    if (appId === null || appId === undefined) {
+      throw new RequiredError("appId", "updatePermanentRetentionFilter");
+    }
+
+    // verify required parameter 'permanentRfId' is not null or undefined
+    if (permanentRfId === null || permanentRfId === undefined) {
+      throw new RequiredError(
+        "permanentRfId",
+        "updatePermanentRetentionFilter"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updatePermanentRetentionFilter");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/rum/applications/{app_id}/retention_filters/permanent/{permanent_rf_id}"
+        .replace("{app_id}", encodeURIComponent(String(appId)))
+        .replace(
+          "{permanent_rf_id}",
+          encodeURIComponent(String(permanentRfId))
+        );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.RumRetentionFiltersApi.updatePermanentRetentionFilter")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "RumPermanentRetentionFilterUpdateRequest",
+        ""
+      ),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -414,6 +560,70 @@ export class RumRetentionFiltersApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getPermanentRetentionFilter
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getPermanentRetentionFilter(
+    response: ResponseContext
+  ): Promise<RumPermanentRetentionFilterResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: RumPermanentRetentionFilterResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "RumPermanentRetentionFilterResponse"
+        ) as RumPermanentRetentionFilterResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: RumPermanentRetentionFilterResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "RumPermanentRetentionFilterResponse",
+          ""
+        ) as RumPermanentRetentionFilterResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getRetentionFilter
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -462,6 +672,66 @@ export class RumRetentionFiltersApiResponseProcessor {
         "RumRetentionFilterResponse",
         ""
       ) as RumRetentionFilterResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listPermanentRetentionFilters
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listPermanentRetentionFilters(
+    response: ResponseContext
+  ): Promise<RumPermanentRetentionFiltersResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: RumPermanentRetentionFiltersResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "RumPermanentRetentionFiltersResponse"
+        ) as RumPermanentRetentionFiltersResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: RumPermanentRetentionFiltersResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "RumPermanentRetentionFiltersResponse",
+          ""
+        ) as RumPermanentRetentionFiltersResponse;
       return body;
     }
 
@@ -598,6 +868,71 @@ export class RumRetentionFiltersApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updatePermanentRetentionFilter
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updatePermanentRetentionFilter(
+    response: ResponseContext
+  ): Promise<RumPermanentRetentionFilterResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: RumPermanentRetentionFilterResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "RumPermanentRetentionFilterResponse"
+        ) as RumPermanentRetentionFilterResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: RumPermanentRetentionFilterResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "RumPermanentRetentionFilterResponse",
+          ""
+        ) as RumPermanentRetentionFilterResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateRetentionFilter
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -684,6 +1019,19 @@ export interface RumRetentionFiltersApiDeleteRetentionFilterRequest {
   rfId: string;
 }
 
+export interface RumRetentionFiltersApiGetPermanentRetentionFilterRequest {
+  /**
+   * RUM application ID.
+   * @type string
+   */
+  appId: string;
+  /**
+   * The identifier of the permanent RUM retention filter.
+   * @type RumPermanentRetentionFilterID
+   */
+  permanentRfId: RumPermanentRetentionFilterID;
+}
+
 export interface RumRetentionFiltersApiGetRetentionFilterRequest {
   /**
    * RUM application ID.
@@ -695,6 +1043,14 @@ export interface RumRetentionFiltersApiGetRetentionFilterRequest {
    * @type string
    */
   rfId: string;
+}
+
+export interface RumRetentionFiltersApiListPermanentRetentionFiltersRequest {
+  /**
+   * RUM application ID.
+   * @type string
+   */
+  appId: string;
 }
 
 export interface RumRetentionFiltersApiListRetentionFiltersRequest {
@@ -716,6 +1072,24 @@ export interface RumRetentionFiltersApiOrderRetentionFiltersRequest {
    * @type RumRetentionFiltersOrderRequest
    */
   body: RumRetentionFiltersOrderRequest;
+}
+
+export interface RumRetentionFiltersApiUpdatePermanentRetentionFilterRequest {
+  /**
+   * RUM application ID.
+   * @type string
+   */
+  appId: string;
+  /**
+   * The identifier of the permanent RUM retention filter.
+   * @type RumPermanentRetentionFilterID
+   */
+  permanentRfId: RumPermanentRetentionFilterID;
+  /**
+   * New configuration of the permanent RUM retention filter.
+   * @type RumPermanentRetentionFilterUpdateRequest
+   */
+  body: RumPermanentRetentionFilterUpdateRequest;
 }
 
 export interface RumRetentionFiltersApiUpdateRetentionFilterRequest {
@@ -799,6 +1173,31 @@ export class RumRetentionFiltersApi {
   }
 
   /**
+   * Get a permanent RUM retention filter for a RUM application by its identifier.
+   * @param param The request object
+   */
+  public getPermanentRetentionFilter(
+    param: RumRetentionFiltersApiGetPermanentRetentionFilterRequest,
+    options?: Configuration
+  ): Promise<RumPermanentRetentionFilterResponse> {
+    const requestContextPromise =
+      this.requestFactory.getPermanentRetentionFilter(
+        param.appId,
+        param.permanentRfId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getPermanentRetentionFilter(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Get a RUM retention filter for a RUM application.
    * @param param The request object
    */
@@ -816,6 +1215,29 @@ export class RumRetentionFiltersApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getRetentionFilter(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get the list of permanent RUM retention filters for a RUM application.
+   * Permanent retention filters are predefined filters that cannot be created or deleted.
+   * For each filter, the `editability` block indicates which cross-product fields can be updated.
+   * @param param The request object
+   */
+  public listPermanentRetentionFilters(
+    param: RumRetentionFiltersApiListPermanentRetentionFiltersRequest,
+    options?: Configuration
+  ): Promise<RumPermanentRetentionFiltersResponse> {
+    const requestContextPromise =
+      this.requestFactory.listPermanentRetentionFilters(param.appId, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listPermanentRetentionFilters(
+            responseContext
+          );
         });
     });
   }
@@ -860,6 +1282,34 @@ export class RumRetentionFiltersApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.orderRetentionFilters(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update the cross-product sampling configuration of a permanent RUM retention filter for a RUM application.
+   * Only fields marked as editable in the `editability` block of the filter can be updated.
+   * Updating a non-editable field returns a `400` response.
+   * @param param The request object
+   */
+  public updatePermanentRetentionFilter(
+    param: RumRetentionFiltersApiUpdatePermanentRetentionFilterRequest,
+    options?: Configuration
+  ): Promise<RumPermanentRetentionFilterResponse> {
+    const requestContextPromise =
+      this.requestFactory.updatePermanentRetentionFilter(
+        param.appId,
+        param.permanentRfId,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updatePermanentRetentionFilter(
+            responseContext
+          );
         });
     });
   }
