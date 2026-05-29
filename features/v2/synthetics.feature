@@ -527,6 +527,22 @@ Feature: Synthetics
     Then the response status is 200 OK
 
   @generated @skip @team:DataDog/synthetics-orchestrating-managing
+  Scenario: Search for similar Synthetic tests returns "API error response." response
+    Given operation "SearchSyntheticsSimilarTests" enabled
+    And new "SearchSyntheticsSimilarTests" request
+    And body with value {"data": {"attributes": {"limit": 10, "similarity_threshold": 0.7, "steps_description": "login with username and password\nnavigate to product page\nadd to cart\ncheckout", "test_summary": "check a user can add a product to the cart and check out.", "test_type": "api"}, "type": "synthetics_similar_test"}}
+    When the request is sent
+    Then the response status is 400 API error response.
+
+  @generated @skip @team:DataDog/synthetics-orchestrating-managing
+  Scenario: Search for similar Synthetic tests returns "OK" response
+    Given operation "SearchSyntheticsSimilarTests" enabled
+    And new "SearchSyntheticsSimilarTests" request
+    And body with value {"data": {"attributes": {"limit": 10, "similarity_threshold": 0.7, "steps_description": "login with username and password\nnavigate to product page\nadd to cart\ncheckout", "test_summary": "check a user can add a product to the cart and check out.", "test_type": "api"}, "type": "synthetics_similar_test"}}
+    When the request is sent
+    Then the response status is 200 OK
+
+  @generated @skip @team:DataDog/synthetics-orchestrating-managing
   Scenario: Search test suites returns "API error response." response
     Given new "SearchSuites" request
     When the request is sent

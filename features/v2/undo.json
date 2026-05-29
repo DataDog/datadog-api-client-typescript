@@ -7825,6 +7825,12 @@
       "type": "safe"
     }
   },
+  "SearchSyntheticsSimilarTests": {
+    "tag": "Synthetics",
+    "undo": {
+      "type": "safe"
+    }
+  },
   "GetTestFileDownloadUrl": {
     "tag": "Synthetics",
     "undo": {
