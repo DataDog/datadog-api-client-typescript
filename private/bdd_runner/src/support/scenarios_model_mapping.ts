@@ -12716,6 +12716,39 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "RumRetentionFilterResponse",
   },
+  "RumRetentionFiltersApi.V2.ListPermanentRetentionFilters": {
+    appId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "RumPermanentRetentionFiltersResponse",
+  },
+  "RumRetentionFiltersApi.V2.GetPermanentRetentionFilter": {
+    appId: {
+      type: "string",
+      format: "",
+    },
+    permanentRfId: {
+      type: "RumPermanentRetentionFilterID",
+      format: "",
+    },
+    operationResponseType: "RumPermanentRetentionFilterResponse",
+  },
+  "RumRetentionFiltersApi.V2.UpdatePermanentRetentionFilter": {
+    appId: {
+      type: "string",
+      format: "",
+    },
+    permanentRfId: {
+      type: "RumPermanentRetentionFilterID",
+      format: "",
+    },
+    body: {
+      type: "RumPermanentRetentionFilterUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "RumPermanentRetentionFilterResponse",
+  },
   "RumRetentionFiltersApi.V2.GetRetentionFilter": {
     appId: {
       type: "string",
