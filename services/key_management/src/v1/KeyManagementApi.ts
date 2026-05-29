@@ -1191,6 +1191,8 @@ export class KeyManagementApi {
 
   /**
    * Creates an API key with a given name.
+   *
+   * **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
    * @param param The request object
    */
   public createAPIKey(
@@ -1213,6 +1215,8 @@ export class KeyManagementApi {
   /**
    * Create an application key with a given name.
    * This endpoint is disabled for organizations in [One-Time Read mode](https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode).
+   *
+   * **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
    * @param param The request object
    */
   public createApplicationKey(
@@ -1234,6 +1238,8 @@ export class KeyManagementApi {
 
   /**
    * Delete a given API key.
+   *
+   * **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
    * @param param The request object
    */
   public deleteAPIKey(
@@ -1256,6 +1262,8 @@ export class KeyManagementApi {
   /**
    * Delete a given application key.
    * This endpoint is disabled for organizations in [One-Time Read mode](https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode).
+   *
+   * **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
    * @param param The request object
    */
   public deleteApplicationKey(
@@ -1277,6 +1285,8 @@ export class KeyManagementApi {
 
   /**
    * Get a given API key.
+   *
+   * **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
    * @param param The request object
    */
   public getAPIKey(
@@ -1299,6 +1309,8 @@ export class KeyManagementApi {
   /**
    * Get a given application key.
    * This endpoint is disabled for organizations in [One-Time Read mode](https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode).
+   *
+   * **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
    * @param param The request object
    */
   public getApplicationKey(
@@ -1320,6 +1332,8 @@ export class KeyManagementApi {
 
   /**
    * Get all API keys available for your account.
+   *
+   * **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
    * @param param The request object
    */
   public listAPIKeys(options?: Configuration): Promise<ApiKeyListResponse> {
@@ -1336,6 +1350,8 @@ export class KeyManagementApi {
   /**
    * Get all application keys available for your Datadog account.
    * This endpoint is disabled for organizations in [One-Time Read mode](https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode).
+   *
+   * **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
    * @param param The request object
    */
   public listApplicationKeys(
@@ -1354,6 +1370,8 @@ export class KeyManagementApi {
 
   /**
    * Edit an API key name.
+   *
+   * **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
    * @param param The request object
    */
   public updateAPIKey(
@@ -1377,6 +1395,8 @@ export class KeyManagementApi {
   /**
    * Edit an application key name.
    * This endpoint is disabled for organizations in [One-Time Read mode](https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode).
+   *
+   * **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
    * @param param The request object
    */
   public updateApplicationKey(
