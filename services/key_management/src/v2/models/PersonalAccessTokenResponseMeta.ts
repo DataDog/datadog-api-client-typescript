@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { PersonalAccessTokenResponseMetaPage } from "./PersonalAccessTokenResponseMetaPage";
 
 /**
- * Additional information related to the personal access token response.
+ * Additional information related to the access token response.
  */
 export class PersonalAccessTokenResponseMeta {
   /**

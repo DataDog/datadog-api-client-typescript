@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { FullPersonalAccessToken } from "./FullPersonalAccessToken";
 
 /**
- * Response for creating a personal access token. Includes the token key.
+ * Response for creating an access token. Includes the token key.
  */
 export class PersonalAccessTokenCreateResponse {
   /**
-   * Datadog personal access token, including the token key.
+   * Datadog access token, including the token key.
    */
   "data"?: FullPersonalAccessToken;
   /**

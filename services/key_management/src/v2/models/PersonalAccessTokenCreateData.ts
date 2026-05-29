@@ -4,11 +4,11 @@ import { PersonalAccessTokenCreateAttributes } from "./PersonalAccessTokenCreate
 import { PersonalAccessTokensType } from "./PersonalAccessTokensType";
 
 /**
- * Object used to create a personal access token.
+ * Object used to create an access token.
  */
 export class PersonalAccessTokenCreateData {
   /**
-   * Attributes used to create a personal access token.
+   * Attributes used to create an access token.
    */
   "attributes": PersonalAccessTokenCreateAttributes;
   /**

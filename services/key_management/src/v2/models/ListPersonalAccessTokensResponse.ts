@@ -1,18 +1,18 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { PersonalAccessToken } from "./PersonalAccessToken";
+import { AccessTokenListItem } from "./AccessTokenListItem";
 import { PersonalAccessTokenResponseMeta } from "./PersonalAccessTokenResponseMeta";
 
 /**
- * Response for a list of personal access tokens.
+ * Response for a list of access tokens. Includes both personal and service access tokens.
  */
 export class ListPersonalAccessTokensResponse {
   /**
-   * Array of personal access tokens.
+   * Array of access tokens. Includes both personal and service access tokens.
    */
-  "data"?: Array<PersonalAccessToken>;
+  "data"?: Array<AccessTokenListItem>;
   /**
-   * Additional information related to the personal access token response.
+   * Additional information related to the access token response.
    */
   "meta"?: PersonalAccessTokenResponseMeta;
   /**
@@ -32,7 +32,7 @@ export class ListPersonalAccessTokensResponse {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "Array<PersonalAccessToken>",
+      type: "Array<AccessTokenListItem>",
     },
     meta: {
       baseName: "meta",

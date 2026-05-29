@@ -21,6 +21,10 @@ export {
   KeyManagementApi,
 } from "./KeyManagementApi";
 
+export { AccessTokenListItem } from "./models/AccessTokenListItem";
+export { AccessTokenListItemRelationships } from "./models/AccessTokenListItemRelationships";
+export { AccessTokenOwnerType } from "./models/AccessTokenOwnerType";
+export { AccessTokensType } from "./models/AccessTokensType";
 export { APIErrorResponse } from "./models/APIErrorResponse";
 export { APIKeyCreateAttributes } from "./models/APIKeyCreateAttributes";
 export { APIKeyCreateData } from "./models/APIKeyCreateData";
@@ -86,6 +90,8 @@ export { PersonalAccessTokensType } from "./models/PersonalAccessTokensType";
 export { PersonalAccessTokenUpdateAttributes } from "./models/PersonalAccessTokenUpdateAttributes";
 export { PersonalAccessTokenUpdateData } from "./models/PersonalAccessTokenUpdateData";
 export { PersonalAccessTokenUpdateRequest } from "./models/PersonalAccessTokenUpdateRequest";
+export { RelationshipToAccessTokenOwner } from "./models/RelationshipToAccessTokenOwner";
+export { RelationshipToAccessTokenOwnerData } from "./models/RelationshipToAccessTokenOwnerData";
 export { RelationshipToOrganization } from "./models/RelationshipToOrganization";
 export { RelationshipToOrganizationData } from "./models/RelationshipToOrganizationData";
 export { RelationshipToOrganizations } from "./models/RelationshipToOrganizations";

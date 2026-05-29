@@ -3777,7 +3777,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
-    filterOwnerUuid: {
+    filterOwnedBy: {
       type: "Array<string>",
       format: "",
     },
@@ -3791,21 +3791,21 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     operationResponseType: "PersonalAccessTokenCreateResponse",
   },
   "KeyManagementApi.V2.GetPersonalAccessToken": {
-    patId: {
+    tokenId: {
       type: "string",
       format: "",
     },
     operationResponseType: "PersonalAccessTokenResponse",
   },
   "KeyManagementApi.V2.RevokePersonalAccessToken": {
-    patId: {
+    tokenId: {
       type: "string",
       format: "",
     },
     operationResponseType: "{}",
   },
   "KeyManagementApi.V2.UpdatePersonalAccessToken": {
-    patId: {
+    tokenId: {
       type: "string",
       format: "",
     },
@@ -13301,7 +13301,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
-    operationResponseType: "ListPersonalAccessTokensResponse",
+    operationResponseType: "ListServiceAccessTokensResponse",
   },
   "ServiceAccountsApi.V2.CreateServiceAccountAccessToken": {
     serviceAccountId: {
@@ -13312,25 +13312,25 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "ServiceAccountAccessTokenCreateRequest",
       format: "",
     },
-    operationResponseType: "PersonalAccessTokenCreateResponse",
+    operationResponseType: "ServiceAccessTokenCreateResponse",
   },
   "ServiceAccountsApi.V2.GetServiceAccountAccessToken": {
     serviceAccountId: {
       type: "string",
       format: "",
     },
-    patId: {
+    tokenId: {
       type: "string",
       format: "",
     },
-    operationResponseType: "PersonalAccessTokenResponse",
+    operationResponseType: "ServiceAccessTokenResponse",
   },
   "ServiceAccountsApi.V2.RevokeServiceAccountAccessToken": {
     serviceAccountId: {
       type: "string",
       format: "",
     },
-    patId: {
+    tokenId: {
       type: "string",
       format: "",
     },
@@ -13341,15 +13341,15 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
-    patId: {
+    tokenId: {
       type: "string",
       format: "",
     },
     body: {
-      type: "PersonalAccessTokenUpdateRequest",
+      type: "ServiceAccountAccessTokenUpdateRequest",
       format: "",
     },
-    operationResponseType: "PersonalAccessTokenResponse",
+    operationResponseType: "ServiceAccessTokenResponse",
   },
   "ServiceAccountsApi.V2.ListServiceAccountApplicationKeys": {
     serviceAccountId: {

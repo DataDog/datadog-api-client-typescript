@@ -12,6 +12,8 @@ import { APIKeyUpdateRequest } from "./APIKeyUpdateRequest";
 import { APIKeysResponse } from "./APIKeysResponse";
 import { APIKeysResponseMeta } from "./APIKeysResponseMeta";
 import { APIKeysResponseMetaPage } from "./APIKeysResponseMetaPage";
+import { AccessTokenListItem } from "./AccessTokenListItem";
+import { AccessTokenListItemRelationships } from "./AccessTokenListItemRelationships";
 import { ApplicationKeyCreateAttributes } from "./ApplicationKeyCreateAttributes";
 import { ApplicationKeyCreateData } from "./ApplicationKeyCreateData";
 import { ApplicationKeyCreateRequest } from "./ApplicationKeyCreateRequest";
@@ -54,6 +56,8 @@ import { PersonalAccessTokenResponseMetaPage } from "./PersonalAccessTokenRespon
 import { PersonalAccessTokenUpdateAttributes } from "./PersonalAccessTokenUpdateAttributes";
 import { PersonalAccessTokenUpdateData } from "./PersonalAccessTokenUpdateData";
 import { PersonalAccessTokenUpdateRequest } from "./PersonalAccessTokenUpdateRequest";
+import { RelationshipToAccessTokenOwner } from "./RelationshipToAccessTokenOwner";
+import { RelationshipToAccessTokenOwnerData } from "./RelationshipToAccessTokenOwnerData";
 import { RelationshipToOrganization } from "./RelationshipToOrganization";
 import { RelationshipToOrganizationData } from "./RelationshipToOrganizationData";
 import { RelationshipToOrganizations } from "./RelationshipToOrganizations";
@@ -88,6 +92,8 @@ export const TypingInfo: ModelTypingInfo = {
       "-name",
     ],
     APIKeysType: ["api_keys"],
+    AccessTokenOwnerType: ["users", "service_account"],
+    AccessTokensType: ["personal_access_tokens", "service_access_tokens"],
     ApplicationKeysSort: [
       "created_at",
       "-created_at",
@@ -107,6 +113,8 @@ export const TypingInfo: ModelTypingInfo = {
       "-created_at",
       "expires_at",
       "-expires_at",
+      "last_used_at",
+      "-last_used_at",
     ],
     PersonalAccessTokensType: ["personal_access_tokens"],
     RolesType: ["roles"],
@@ -131,6 +139,8 @@ export const TypingInfo: ModelTypingInfo = {
     APIKeysResponse: APIKeysResponse,
     APIKeysResponseMeta: APIKeysResponseMeta,
     APIKeysResponseMetaPage: APIKeysResponseMetaPage,
+    AccessTokenListItem: AccessTokenListItem,
+    AccessTokenListItemRelationships: AccessTokenListItemRelationships,
     ApplicationKeyCreateAttributes: ApplicationKeyCreateAttributes,
     ApplicationKeyCreateData: ApplicationKeyCreateData,
     ApplicationKeyCreateRequest: ApplicationKeyCreateRequest,
@@ -173,6 +183,8 @@ export const TypingInfo: ModelTypingInfo = {
     PersonalAccessTokenUpdateAttributes: PersonalAccessTokenUpdateAttributes,
     PersonalAccessTokenUpdateData: PersonalAccessTokenUpdateData,
     PersonalAccessTokenUpdateRequest: PersonalAccessTokenUpdateRequest,
+    RelationshipToAccessTokenOwner: RelationshipToAccessTokenOwner,
+    RelationshipToAccessTokenOwnerData: RelationshipToAccessTokenOwnerData,
     RelationshipToOrganization: RelationshipToOrganization,
     RelationshipToOrganizationData: RelationshipToOrganizationData,
     RelationshipToOrganizations: RelationshipToOrganizations,

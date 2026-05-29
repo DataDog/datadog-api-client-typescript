@@ -4,15 +4,15 @@ import { PersonalAccessTokensType } from "./PersonalAccessTokensType";
 import { PersonalAccessTokenUpdateAttributes } from "./PersonalAccessTokenUpdateAttributes";
 
 /**
- * Object used to update a personal access token.
+ * Object used to update an access token.
  */
 export class PersonalAccessTokenUpdateData {
   /**
-   * Attributes used to update a personal access token.
+   * Attributes used to update an access token.
    */
   "attributes": PersonalAccessTokenUpdateAttributes;
   /**
-   * ID of the personal access token.
+   * ID of the access token.
    */
   "id": string;
   /**

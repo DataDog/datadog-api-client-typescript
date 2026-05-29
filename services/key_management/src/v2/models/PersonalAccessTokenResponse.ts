@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { PersonalAccessToken } from "./PersonalAccessToken";
 
 /**
- * Response for retrieving a personal access token.
+ * Response for retrieving an access token.
  */
 export class PersonalAccessTokenResponse {
   /**
-   * Datadog personal access token.
+   * Datadog access token.
    */
   "data"?: PersonalAccessToken;
   /**
