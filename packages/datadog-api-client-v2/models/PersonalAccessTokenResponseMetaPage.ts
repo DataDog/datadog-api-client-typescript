@@ -11,7 +11,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class PersonalAccessTokenResponseMetaPage {
   /**
-   * Total filtered personal access token count.
+   * Total filtered access token count.
    */
   "totalFilteredCount"?: number;
 

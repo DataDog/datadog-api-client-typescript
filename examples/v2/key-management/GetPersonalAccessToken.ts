@@ -12,7 +12,7 @@ const PERSONAL_ACCESS_TOKEN_DATA_ID = process.env
   .PERSONAL_ACCESS_TOKEN_DATA_ID as string;
 
 const params: v2.KeyManagementApiGetPersonalAccessTokenRequest = {
-  patId: PERSONAL_ACCESS_TOKEN_DATA_ID,
+  tokenId: PERSONAL_ACCESS_TOKEN_DATA_ID,
 };
 
 apiInstance

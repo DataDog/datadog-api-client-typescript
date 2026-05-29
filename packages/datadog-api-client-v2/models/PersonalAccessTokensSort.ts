@@ -17,6 +17,8 @@ export type PersonalAccessTokensSort =
   | typeof CREATED_AT_DESCENDING
   | typeof EXPIRES_AT_ASCENDING
   | typeof EXPIRES_AT_DESCENDING
+  | typeof LAST_USED_AT_ASCENDING
+  | typeof LAST_USED_AT_DESCENDING
   | UnparsedObject;
 export const NAME_ASCENDING = "name";
 export const NAME_DESCENDING = "-name";
@@ -24,3 +26,5 @@ export const CREATED_AT_ASCENDING = "created_at";
 export const CREATED_AT_DESCENDING = "-created_at";
 export const EXPIRES_AT_ASCENDING = "expires_at";
 export const EXPIRES_AT_DESCENDING = "-expires_at";
+export const LAST_USED_AT_ASCENDING = "last_used_at";
+export const LAST_USED_AT_DESCENDING = "-last_used_at";

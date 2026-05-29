@@ -17,7 +17,7 @@ const params: v2.ServiceAccountsApiListServiceAccountAccessTokensRequest = {
 
 apiInstance
   .listServiceAccountAccessTokens(params)
-  .then((data: v2.ListPersonalAccessTokensResponse) => {
+  .then((data: v2.ListServiceAccessTokensResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

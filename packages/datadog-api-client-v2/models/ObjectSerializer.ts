@@ -84,6 +84,8 @@ import { AWSRegionsIncludeAll } from "./AWSRegionsIncludeAll";
 import { AWSRegionsIncludeOnly } from "./AWSRegionsIncludeOnly";
 import { AWSResourcesConfig } from "./AWSResourcesConfig";
 import { AWSTracesConfig } from "./AWSTracesConfig";
+import { AccessTokenListItem } from "./AccessTokenListItem";
+import { AccessTokenListItemRelationships } from "./AccessTokenListItemRelationships";
 import { AccountFilteringConfig } from "./AccountFilteringConfig";
 import { ActionConnectionAttributes } from "./ActionConnectionAttributes";
 import { ActionConnectionAttributesUpdate } from "./ActionConnectionAttributesUpdate";
@@ -1583,6 +1585,8 @@ import { FullCustomFrameworkData } from "./FullCustomFrameworkData";
 import { FullCustomFrameworkDataAttributes } from "./FullCustomFrameworkDataAttributes";
 import { FullPersonalAccessToken } from "./FullPersonalAccessToken";
 import { FullPersonalAccessTokenAttributes } from "./FullPersonalAccessTokenAttributes";
+import { FullServiceAccessToken } from "./FullServiceAccessToken";
+import { FullServiceAccessTokenAttributes } from "./FullServiceAccessTokenAttributes";
 import { GCPIntegration } from "./GCPIntegration";
 import { GCPIntegrationUpdate } from "./GCPIntegrationUpdate";
 import { GCPMetricNamespaceConfig } from "./GCPMetricNamespaceConfig";
@@ -2324,6 +2328,7 @@ import { ListScorecardScoresMeta } from "./ListScorecardScoresMeta";
 import { ListScorecardScoresResponse } from "./ListScorecardScoresResponse";
 import { ListScorecardsResponse } from "./ListScorecardsResponse";
 import { ListSecurityFindingsResponse } from "./ListSecurityFindingsResponse";
+import { ListServiceAccessTokensResponse } from "./ListServiceAccessTokensResponse";
 import { ListTagsResponse } from "./ListTagsResponse";
 import { ListTagsResponseData } from "./ListTagsResponseData";
 import { ListTagsResponseDataAttributes } from "./ListTagsResponseDataAttributes";
@@ -3181,6 +3186,8 @@ import { RelationResponse } from "./RelationResponse";
 import { RelationResponseMeta } from "./RelationResponseMeta";
 import { RelationToEntity } from "./RelationToEntity";
 import { RelationshipItem } from "./RelationshipItem";
+import { RelationshipToAccessTokenOwner } from "./RelationshipToAccessTokenOwner";
+import { RelationshipToAccessTokenOwnerData } from "./RelationshipToAccessTokenOwnerData";
 import { RelationshipToIncident } from "./RelationshipToIncident";
 import { RelationshipToIncidentAttachment } from "./RelationshipToIncidentAttachment";
 import { RelationshipToIncidentAttachmentData } from "./RelationshipToIncidentAttachmentData";
@@ -3216,6 +3223,8 @@ import { RelationshipToRuleData } from "./RelationshipToRuleData";
 import { RelationshipToRuleDataObject } from "./RelationshipToRuleDataObject";
 import { RelationshipToSAMLAssertionAttribute } from "./RelationshipToSAMLAssertionAttribute";
 import { RelationshipToSAMLAssertionAttributeData } from "./RelationshipToSAMLAssertionAttributeData";
+import { RelationshipToServiceAccount } from "./RelationshipToServiceAccount";
+import { RelationshipToServiceAccountData } from "./RelationshipToServiceAccountData";
 import { RelationshipToTeam } from "./RelationshipToTeam";
 import { RelationshipToTeamData } from "./RelationshipToTeamData";
 import { RelationshipToTeamLinkData } from "./RelationshipToTeamLinkData";
@@ -3757,9 +3766,19 @@ import { SensitiveDataScannerStandardPatternsResponseData } from "./SensitiveDat
 import { SensitiveDataScannerStandardPatternsResponseItem } from "./SensitiveDataScannerStandardPatternsResponseItem";
 import { SensitiveDataScannerSuppressions } from "./SensitiveDataScannerSuppressions";
 import { SensitiveDataScannerTextReplacement } from "./SensitiveDataScannerTextReplacement";
+import { ServiceAccessToken } from "./ServiceAccessToken";
+import { ServiceAccessTokenAttributes } from "./ServiceAccessTokenAttributes";
+import { ServiceAccessTokenCreateResponse } from "./ServiceAccessTokenCreateResponse";
+import { ServiceAccessTokenRelationships } from "./ServiceAccessTokenRelationships";
+import { ServiceAccessTokenResponse } from "./ServiceAccessTokenResponse";
+import { ServiceAccessTokenResponseMeta } from "./ServiceAccessTokenResponseMeta";
+import { ServiceAccessTokenResponseMetaPage } from "./ServiceAccessTokenResponseMetaPage";
 import { ServiceAccountAccessTokenCreateAttributes } from "./ServiceAccountAccessTokenCreateAttributes";
 import { ServiceAccountAccessTokenCreateData } from "./ServiceAccountAccessTokenCreateData";
 import { ServiceAccountAccessTokenCreateRequest } from "./ServiceAccountAccessTokenCreateRequest";
+import { ServiceAccountAccessTokenUpdateAttributes } from "./ServiceAccountAccessTokenUpdateAttributes";
+import { ServiceAccountAccessTokenUpdateData } from "./ServiceAccountAccessTokenUpdateData";
+import { ServiceAccountAccessTokenUpdateRequest } from "./ServiceAccountAccessTokenUpdateRequest";
 import { ServiceAccountCreateAttributes } from "./ServiceAccountCreateAttributes";
 import { ServiceAccountCreateData } from "./ServiceAccountCreateData";
 import { ServiceAccountCreateRequest } from "./ServiceAccountCreateRequest";
@@ -4612,6 +4631,8 @@ const enumsMap: { [key: string]: any[] } = {
   AWSLogsServicesResponseDataType: ["logs_services"],
   AWSNamespacesResponseDataType: ["namespaces"],
   AWSNewExternalIDResponseDataType: ["external_id"],
+  AccessTokenOwnerType: ["users", "service_account"],
+  AccessTokensType: ["personal_access_tokens", "service_access_tokens"],
   ActionConnectionDataType: ["action_connection"],
   ActionQueryType: ["action"],
   ActiveBillingDimensionsType: ["billing_dimensions"],
@@ -6200,6 +6221,8 @@ const enumsMap: { [key: string]: any[] } = {
     "-created_at",
     "expires_at",
     "-expires_at",
+    "last_used_at",
+    "-last_used_at",
   ],
   PersonalAccessTokensType: ["personal_access_tokens"],
   PlaylistDataType: ["rum_replay_playlist"],
@@ -6707,6 +6730,8 @@ const enumsMap: { [key: string]: any[] } = {
     "partial_replacement_from_beginning",
     "partial_replacement_from_end",
   ],
+  ServiceAccessTokensType: ["service_access_tokens"],
+  ServiceAccountType: ["service_account"],
   ServiceDefinitionSchemaVersions: ["v1", "v2", "v2.1", "v2.2"],
   ServiceDefinitionV1ResourceType: [
     "doc",
@@ -7282,6 +7307,8 @@ const typeMap: { [index: string]: any } = {
   AWSRegionsIncludeOnly: AWSRegionsIncludeOnly,
   AWSResourcesConfig: AWSResourcesConfig,
   AWSTracesConfig: AWSTracesConfig,
+  AccessTokenListItem: AccessTokenListItem,
+  AccessTokenListItemRelationships: AccessTokenListItemRelationships,
   AccountFilteringConfig: AccountFilteringConfig,
   ActionConnectionAttributes: ActionConnectionAttributes,
   ActionConnectionAttributesUpdate: ActionConnectionAttributesUpdate,
@@ -9032,6 +9059,8 @@ const typeMap: { [index: string]: any } = {
   FullCustomFrameworkDataAttributes: FullCustomFrameworkDataAttributes,
   FullPersonalAccessToken: FullPersonalAccessToken,
   FullPersonalAccessTokenAttributes: FullPersonalAccessTokenAttributes,
+  FullServiceAccessToken: FullServiceAccessToken,
+  FullServiceAccessTokenAttributes: FullServiceAccessTokenAttributes,
   GCPIntegration: GCPIntegration,
   GCPIntegrationUpdate: GCPIntegrationUpdate,
   GCPMetricNamespaceConfig: GCPMetricNamespaceConfig,
@@ -9896,6 +9925,7 @@ const typeMap: { [index: string]: any } = {
   ListScorecardScoresResponse: ListScorecardScoresResponse,
   ListScorecardsResponse: ListScorecardsResponse,
   ListSecurityFindingsResponse: ListSecurityFindingsResponse,
+  ListServiceAccessTokensResponse: ListServiceAccessTokensResponse,
   ListTagsResponse: ListTagsResponse,
   ListTagsResponseData: ListTagsResponseData,
   ListTagsResponseDataAttributes: ListTagsResponseDataAttributes,
@@ -10966,6 +10996,8 @@ const typeMap: { [index: string]: any } = {
   RelationResponseMeta: RelationResponseMeta,
   RelationToEntity: RelationToEntity,
   RelationshipItem: RelationshipItem,
+  RelationshipToAccessTokenOwner: RelationshipToAccessTokenOwner,
+  RelationshipToAccessTokenOwnerData: RelationshipToAccessTokenOwnerData,
   RelationshipToIncident: RelationshipToIncident,
   RelationshipToIncidentAttachment: RelationshipToIncidentAttachment,
   RelationshipToIncidentAttachmentData: RelationshipToIncidentAttachmentData,
@@ -11008,6 +11040,8 @@ const typeMap: { [index: string]: any } = {
   RelationshipToSAMLAssertionAttribute: RelationshipToSAMLAssertionAttribute,
   RelationshipToSAMLAssertionAttributeData:
     RelationshipToSAMLAssertionAttributeData,
+  RelationshipToServiceAccount: RelationshipToServiceAccount,
+  RelationshipToServiceAccountData: RelationshipToServiceAccountData,
   RelationshipToTeam: RelationshipToTeam,
   RelationshipToTeamData: RelationshipToTeamData,
   RelationshipToTeamLinkData: RelationshipToTeamLinkData,
@@ -11726,11 +11760,23 @@ const typeMap: { [index: string]: any } = {
     SensitiveDataScannerStandardPatternsResponseItem,
   SensitiveDataScannerSuppressions: SensitiveDataScannerSuppressions,
   SensitiveDataScannerTextReplacement: SensitiveDataScannerTextReplacement,
+  ServiceAccessToken: ServiceAccessToken,
+  ServiceAccessTokenAttributes: ServiceAccessTokenAttributes,
+  ServiceAccessTokenCreateResponse: ServiceAccessTokenCreateResponse,
+  ServiceAccessTokenRelationships: ServiceAccessTokenRelationships,
+  ServiceAccessTokenResponse: ServiceAccessTokenResponse,
+  ServiceAccessTokenResponseMeta: ServiceAccessTokenResponseMeta,
+  ServiceAccessTokenResponseMetaPage: ServiceAccessTokenResponseMetaPage,
   ServiceAccountAccessTokenCreateAttributes:
     ServiceAccountAccessTokenCreateAttributes,
   ServiceAccountAccessTokenCreateData: ServiceAccountAccessTokenCreateData,
   ServiceAccountAccessTokenCreateRequest:
     ServiceAccountAccessTokenCreateRequest,
+  ServiceAccountAccessTokenUpdateAttributes:
+    ServiceAccountAccessTokenUpdateAttributes,
+  ServiceAccountAccessTokenUpdateData: ServiceAccountAccessTokenUpdateData,
+  ServiceAccountAccessTokenUpdateRequest:
+    ServiceAccountAccessTokenUpdateRequest,
   ServiceAccountCreateAttributes: ServiceAccountCreateAttributes,
   ServiceAccountCreateData: ServiceAccountCreateData,
   ServiceAccountCreateRequest: ServiceAccountCreateRequest,

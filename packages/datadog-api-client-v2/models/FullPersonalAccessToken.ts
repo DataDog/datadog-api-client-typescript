@@ -10,19 +10,19 @@ import { PersonalAccessTokensType } from "./PersonalAccessTokensType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Datadog personal access token, including the token key.
+ * Datadog access token, including the token key.
  */
 export class FullPersonalAccessToken {
   /**
-   * Attributes of a full personal access token, including the token key.
+   * Attributes of a full access token, including the token key.
    */
   "attributes"?: FullPersonalAccessTokenAttributes;
   /**
-   * ID of the personal access token.
+   * ID of the access token.
    */
   "id"?: string;
   /**
-   * Resources related to the personal access token.
+   * Resources related to the access token.
    */
   "relationships"?: PersonalAccessTokenRelationships;
   /**

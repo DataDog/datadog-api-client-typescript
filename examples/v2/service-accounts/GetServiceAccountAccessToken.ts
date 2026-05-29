@@ -17,12 +17,12 @@ const SERVICE_ACCOUNT_ACCESS_TOKEN_DATA_ID = process.env
 
 const params: v2.ServiceAccountsApiGetServiceAccountAccessTokenRequest = {
   serviceAccountId: SERVICE_ACCOUNT_USER_DATA_ID,
-  patId: SERVICE_ACCOUNT_ACCESS_TOKEN_DATA_ID,
+  tokenId: SERVICE_ACCOUNT_ACCESS_TOKEN_DATA_ID,
 };
 
 apiInstance
   .getServiceAccountAccessToken(params)
-  .then((data: v2.PersonalAccessTokenResponse) => {
+  .then((data: v2.ServiceAccessTokenResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

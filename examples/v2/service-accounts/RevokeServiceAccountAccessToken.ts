@@ -17,7 +17,7 @@ const SERVICE_ACCOUNT_ACCESS_TOKEN_DATA_ID = process.env
 
 const params: v2.ServiceAccountsApiRevokeServiceAccountAccessTokenRequest = {
   serviceAccountId: SERVICE_ACCOUNT_USER_DATA_ID,
-  patId: SERVICE_ACCOUNT_ACCESS_TOKEN_DATA_ID,
+  tokenId: SERVICE_ACCOUNT_ACCESS_TOKEN_DATA_ID,
 };
 
 apiInstance

@@ -19,19 +19,19 @@ const params: v2.ServiceAccountsApiUpdateServiceAccountAccessTokenRequest = {
   body: {
     data: {
       id: SERVICE_ACCOUNT_ACCESS_TOKEN_DATA_ID,
-      type: "personal_access_tokens",
+      type: "service_access_tokens",
       attributes: {
-        name: "My Personal Access Token-updated",
+        name: "My Access Token-updated",
       },
     },
   },
   serviceAccountId: SERVICE_ACCOUNT_USER_DATA_ID,
-  patId: SERVICE_ACCOUNT_ACCESS_TOKEN_DATA_ID,
+  tokenId: SERVICE_ACCOUNT_ACCESS_TOKEN_DATA_ID,
 };
 
 apiInstance
   .updateServiceAccountAccessToken(params)
-  .then((data: v2.PersonalAccessTokenResponse) => {
+  .then((data: v2.ServiceAccessTokenResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { PersonalAccessTokensType } from "./PersonalAccessTokensType";
+import { ServiceAccessTokensType } from "./ServiceAccessTokensType";
 import { ServiceAccountAccessTokenCreateAttributes } from "./ServiceAccountAccessTokenCreateAttributes";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -17,9 +17,9 @@ export class ServiceAccountAccessTokenCreateData {
    */
   "attributes": ServiceAccountAccessTokenCreateAttributes;
   /**
-   * Personal access tokens resource type.
+   * Service access tokens resource type.
    */
-  "type": PersonalAccessTokensType;
+  "type": ServiceAccessTokensType;
 
   /**
    * A container for additional, undeclared properties.
@@ -44,7 +44,7 @@ export class ServiceAccountAccessTokenCreateData {
     },
     type: {
       baseName: "type",
-      type: "PersonalAccessTokensType",
+      type: "ServiceAccessTokensType",
       required: true,
     },
     additionalProperties: {
