@@ -1,8 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { HostMapRequest } from "./HostMapRequest";
 import { HostMapWidgetGroupBy } from "./HostMapWidgetGroupBy";
-import { HostMapWidgetInfrastructureRequest } from "./HostMapWidgetInfrastructureRequest";
+import { HostMapWidgetInfrastructureRequestLeaf } from "./HostMapWidgetInfrastructureRequestLeaf";
 import { HostMapWidgetInfrastructureRequestRequestType } from "./HostMapWidgetInfrastructureRequestRequestType";
 import { HostMapWidgetInfrastructureStyle } from "./HostMapWidgetInfrastructureStyle";
 import { HostMapWidgetNodeType } from "./HostMapWidgetNodeType";
@@ -10,15 +9,15 @@ import { HostMapWidgetScalarRequest } from "./HostMapWidgetScalarRequest";
 import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
 
 /**
- * Query definition for the host map widget. Supports two mutually exclusive formats distinguished by the presence of `request_type`: the legacy metric-based format (`fill`/`size`) and the infrastructure-backed format (`request_type`, `node_type`, `enrichments`).
+ * Infrastructure-backed request for the host map widget. Supports entity-based
+ * visualization with metric query enrichments, tag-based filtering, flexible grouping,
+ * and hierarchical views.
  */
-export class HostMapWidgetDefinitionRequests {
+export class HostMapWidgetInfrastructureRequest {
   /**
-   * Infrastructure-backed request for the host map widget. Supports entity-based
-   * visualization with metric query enrichments, tag-based filtering, flexible grouping,
-   * and hierarchical views.
+   * Infrastructure-backed host map child request (leaf node, no further nesting supported).
    */
-  "child"?: HostMapWidgetInfrastructureRequest;
+  "child"?: HostMapWidgetInfrastructureRequestLeaf;
   /**
    * List of conditional formatting rules applied to fill values.
    */
@@ -26,11 +25,7 @@ export class HostMapWidgetDefinitionRequests {
   /**
    * Metric or event queries joined to the entity set. Each formula specifies a visual dimension.
    */
-  "enrichments"?: Array<HostMapWidgetScalarRequest>;
-  /**
-   * Updated host map.
-   */
-  "fill"?: HostMapRequest;
+  "enrichments": Array<HostMapWidgetScalarRequest>;
   /**
    * Filter string for the entity set in tag format (for example, `env:prod`).
    */
@@ -51,15 +46,11 @@ export class HostMapWidgetDefinitionRequests {
   /**
    * Which type of infrastructure entity to visualize in the host map.
    */
-  "nodeType"?: HostMapWidgetNodeType;
+  "nodeType": HostMapWidgetNodeType;
   /**
    * Identifies this as an infrastructure-backed host map request.
    */
-  "requestType"?: HostMapWidgetInfrastructureRequestRequestType;
-  /**
-   * Updated host map.
-   */
-  "size"?: HostMapRequest;
+  "requestType": HostMapWidgetInfrastructureRequestRequestType;
   /**
    * Style configuration for the infrastructure host map.
    */
@@ -81,7 +72,7 @@ export class HostMapWidgetDefinitionRequests {
   static readonly attributeTypeMap: AttributeTypeMap = {
     child: {
       baseName: "child",
-      type: "HostMapWidgetInfrastructureRequest",
+      type: "HostMapWidgetInfrastructureRequestLeaf",
     },
     conditionalFormats: {
       baseName: "conditional_formats",
@@ -90,10 +81,7 @@ export class HostMapWidgetDefinitionRequests {
     enrichments: {
       baseName: "enrichments",
       type: "Array<HostMapWidgetScalarRequest>",
-    },
-    fill: {
-      baseName: "fill",
-      type: "HostMapRequest",
+      required: true,
     },
     filter: {
       baseName: "filter",
@@ -114,14 +102,12 @@ export class HostMapWidgetDefinitionRequests {
     nodeType: {
       baseName: "node_type",
       type: "HostMapWidgetNodeType",
+      required: true,
     },
     requestType: {
       baseName: "request_type",
       type: "HostMapWidgetInfrastructureRequestRequestType",
-    },
-    size: {
-      baseName: "size",
-      type: "HostMapRequest",
+      required: true,
     },
     style: {
       baseName: "style",
@@ -137,7 +123,7 @@ export class HostMapWidgetDefinitionRequests {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return HostMapWidgetDefinitionRequests.attributeTypeMap;
+    return HostMapWidgetInfrastructureRequest.attributeTypeMap;
   }
 
   public constructor() {}

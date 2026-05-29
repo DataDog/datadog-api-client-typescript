@@ -74,6 +74,12 @@ import { HostMapRequest } from "./HostMapRequest";
 import { HostMapWidgetDefinition } from "./HostMapWidgetDefinition";
 import { HostMapWidgetDefinitionRequests } from "./HostMapWidgetDefinitionRequests";
 import { HostMapWidgetDefinitionStyle } from "./HostMapWidgetDefinitionStyle";
+import { HostMapWidgetFormula } from "./HostMapWidgetFormula";
+import { HostMapWidgetGroupBy } from "./HostMapWidgetGroupBy";
+import { HostMapWidgetInfrastructureRequest } from "./HostMapWidgetInfrastructureRequest";
+import { HostMapWidgetInfrastructureRequestLeaf } from "./HostMapWidgetInfrastructureRequestLeaf";
+import { HostMapWidgetInfrastructureStyle } from "./HostMapWidgetInfrastructureStyle";
+import { HostMapWidgetScalarRequest } from "./HostMapWidgetScalarRequest";
 import { IFrameWidgetDefinition } from "./IFrameWidgetDefinition";
 import { ImageWidgetDefinition } from "./ImageWidgetDefinition";
 import { ListStreamColumn } from "./ListStreamColumn";
@@ -421,6 +427,10 @@ export const TypingInfo: ModelTypingInfo = {
     GroupWidgetDefinitionType: ["group"],
     HeatMapWidgetDefinitionType: ["heatmap"],
     HostMapWidgetDefinitionType: ["hostmap"],
+    HostMapWidgetDimension: ["node", "fill", "size"],
+    HostMapWidgetInfrastructureRequestRequestType: ["infrastructure_hostmap"],
+    HostMapWidgetNodeType: ["host", "container", "pod", "cluster"],
+    HostMapWidgetScalarRequestResponseFormat: ["scalar"],
     IFrameWidgetDefinitionType: ["iframe"],
     ImageWidgetDefinitionType: ["image"],
     ListStreamColumnWidth: ["auto", "compact", "full"],
@@ -885,6 +895,13 @@ export const TypingInfo: ModelTypingInfo = {
     HostMapWidgetDefinition: HostMapWidgetDefinition,
     HostMapWidgetDefinitionRequests: HostMapWidgetDefinitionRequests,
     HostMapWidgetDefinitionStyle: HostMapWidgetDefinitionStyle,
+    HostMapWidgetFormula: HostMapWidgetFormula,
+    HostMapWidgetGroupBy: HostMapWidgetGroupBy,
+    HostMapWidgetInfrastructureRequest: HostMapWidgetInfrastructureRequest,
+    HostMapWidgetInfrastructureRequestLeaf:
+      HostMapWidgetInfrastructureRequestLeaf,
+    HostMapWidgetInfrastructureStyle: HostMapWidgetInfrastructureStyle,
+    HostMapWidgetScalarRequest: HostMapWidgetScalarRequest,
     IFrameWidgetDefinition: IFrameWidgetDefinition,
     ImageWidgetDefinition: ImageWidgetDefinition,
     ListStreamColumn: ListStreamColumn,
