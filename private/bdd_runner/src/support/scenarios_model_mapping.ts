@@ -2965,6 +2965,36 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsDatasetResponse",
   },
+  "LLMObservabilityApi.V2.BatchUpdateLLMObsDataset": {
+    projectId: {
+      type: "string",
+      format: "",
+    },
+    datasetId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "LLMObsDatasetBatchUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "LLMObsDatasetRecordsMutationResponse",
+  },
+  "LLMObservabilityApi.V2.CloneLLMObsDataset": {
+    projectId: {
+      type: "string",
+      format: "",
+    },
+    datasetId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "LLMObsDatasetCloneRequest",
+      format: "",
+    },
+    operationResponseType: "LLMObsDatasetResponse",
+  },
   "LLMObservabilityApi.V2.GetLLMObsDatasetDraftState": {
     projectId: {
       type: "string",
@@ -2997,6 +3027,25 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "{}",
+  },
+  "LLMObservabilityApi.V2.ExportLLMObsDataset": {
+    projectId: {
+      type: "string",
+      format: "",
+    },
+    datasetId: {
+      type: "string",
+      format: "",
+    },
+    format: {
+      type: "LLMObsDatasetExportFormat",
+      format: "",
+    },
+    version: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "string",
   },
   "LLMObservabilityApi.V2.ListLLMObsDatasetRecords": {
     projectId: {
@@ -3066,6 +3115,21 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "LLMObservabilityApi.V2.RestoreLLMObsDatasetVersion": {
+    projectId: {
+      type: "string",
+      format: "",
+    },
+    datasetId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "LLMObsDatasetRestoreVersionRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "LLMObservabilityApi.V2.ListLLMObsDatasetVersions": {
     projectId: {
       type: "string",
@@ -3076,6 +3140,37 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "LLMObsDatasetVersionsResponse",
+  },
+  "LLMObservabilityApi.V2.UploadLLMObsDatasetRecordsFile": {
+    projectId: {
+      type: "string",
+      format: "",
+    },
+    datasetId: {
+      type: "string",
+      format: "",
+    },
+    deduplicate: {
+      type: "boolean",
+      format: "",
+    },
+    overwrite: {
+      type: "boolean",
+      format: "",
+    },
+    tags: {
+      type: "Array<string>",
+      format: "",
+    },
+    includeUserData: {
+      type: "boolean",
+      format: "",
+    },
+    file: {
+      type: "HttpFile",
+      format: "binary",
+    },
+    operationResponseType: "{}",
   },
   "LLMObservabilityApi.V2.ListLLMObsExperimentEvents": {
     experimentId: {

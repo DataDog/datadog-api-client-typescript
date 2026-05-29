@@ -67,6 +67,14 @@ import { LLMObsDataDeletionRequestData } from "./LLMObsDataDeletionRequestData";
 import { LLMObsDataDeletionResponse } from "./LLMObsDataDeletionResponse";
 import { LLMObsDataDeletionResponseAttributes } from "./LLMObsDataDeletionResponseAttributes";
 import { LLMObsDataDeletionResponseData } from "./LLMObsDataDeletionResponseData";
+import { LLMObsDatasetBatchUpdateDataAttributesRequest } from "./LLMObsDatasetBatchUpdateDataAttributesRequest";
+import { LLMObsDatasetBatchUpdateDataRequest } from "./LLMObsDatasetBatchUpdateDataRequest";
+import { LLMObsDatasetBatchUpdateInsertRecord } from "./LLMObsDatasetBatchUpdateInsertRecord";
+import { LLMObsDatasetBatchUpdateRequest } from "./LLMObsDatasetBatchUpdateRequest";
+import { LLMObsDatasetBatchUpdateUpdateRecord } from "./LLMObsDatasetBatchUpdateUpdateRecord";
+import { LLMObsDatasetCloneDataAttributesRequest } from "./LLMObsDatasetCloneDataAttributesRequest";
+import { LLMObsDatasetCloneDataRequest } from "./LLMObsDatasetCloneDataRequest";
+import { LLMObsDatasetCloneRequest } from "./LLMObsDatasetCloneRequest";
 import { LLMObsDatasetDataAttributesRequest } from "./LLMObsDatasetDataAttributesRequest";
 import { LLMObsDatasetDataAttributesResponse } from "./LLMObsDatasetDataAttributesResponse";
 import { LLMObsDatasetDataRequest } from "./LLMObsDatasetDataRequest";
@@ -77,6 +85,7 @@ import { LLMObsDatasetDraftStateResponse } from "./LLMObsDatasetDraftStateRespon
 import { LLMObsDatasetDraftStateUser } from "./LLMObsDatasetDraftStateUser";
 import { LLMObsDatasetRecordDataResponse } from "./LLMObsDatasetRecordDataResponse";
 import { LLMObsDatasetRecordItem } from "./LLMObsDatasetRecordItem";
+import { LLMObsDatasetRecordTagOperations } from "./LLMObsDatasetRecordTagOperations";
 import { LLMObsDatasetRecordUpdateItem } from "./LLMObsDatasetRecordUpdateItem";
 import { LLMObsDatasetRecordsDataAttributesRequest } from "./LLMObsDatasetRecordsDataAttributesRequest";
 import { LLMObsDatasetRecordsDataRequest } from "./LLMObsDatasetRecordsDataRequest";
@@ -89,6 +98,9 @@ import { LLMObsDatasetRecordsUpdateDataRequest } from "./LLMObsDatasetRecordsUpd
 import { LLMObsDatasetRecordsUpdateRequest } from "./LLMObsDatasetRecordsUpdateRequest";
 import { LLMObsDatasetRequest } from "./LLMObsDatasetRequest";
 import { LLMObsDatasetResponse } from "./LLMObsDatasetResponse";
+import { LLMObsDatasetRestoreVersionDataAttributesRequest } from "./LLMObsDatasetRestoreVersionDataAttributesRequest";
+import { LLMObsDatasetRestoreVersionDataRequest } from "./LLMObsDatasetRestoreVersionDataRequest";
+import { LLMObsDatasetRestoreVersionRequest } from "./LLMObsDatasetRestoreVersionRequest";
 import { LLMObsDatasetUpdateDataAttributesRequest } from "./LLMObsDatasetUpdateDataAttributesRequest";
 import { LLMObsDatasetUpdateDataRequest } from "./LLMObsDatasetUpdateDataRequest";
 import { LLMObsDatasetUpdateRequest } from "./LLMObsDatasetUpdateRequest";
@@ -259,6 +271,7 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsDataDeletionRequestType: ["create_deletion_req"],
     LLMObsDataDeletionResponseType: ["deletion_request"],
     LLMObsDatasetDraftStateType: ["draft_state_data"],
+    LLMObsDatasetExportFormat: ["csv"],
     LLMObsDatasetType: ["datasets"],
     LLMObsDatasetVersionType: ["dataset_version"],
     LLMObsDisplayBlockInteractionType: ["display_block"],
@@ -404,6 +417,16 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsDataDeletionResponse: LLMObsDataDeletionResponse,
     LLMObsDataDeletionResponseAttributes: LLMObsDataDeletionResponseAttributes,
     LLMObsDataDeletionResponseData: LLMObsDataDeletionResponseData,
+    LLMObsDatasetBatchUpdateDataAttributesRequest:
+      LLMObsDatasetBatchUpdateDataAttributesRequest,
+    LLMObsDatasetBatchUpdateDataRequest: LLMObsDatasetBatchUpdateDataRequest,
+    LLMObsDatasetBatchUpdateInsertRecord: LLMObsDatasetBatchUpdateInsertRecord,
+    LLMObsDatasetBatchUpdateRequest: LLMObsDatasetBatchUpdateRequest,
+    LLMObsDatasetBatchUpdateUpdateRecord: LLMObsDatasetBatchUpdateUpdateRecord,
+    LLMObsDatasetCloneDataAttributesRequest:
+      LLMObsDatasetCloneDataAttributesRequest,
+    LLMObsDatasetCloneDataRequest: LLMObsDatasetCloneDataRequest,
+    LLMObsDatasetCloneRequest: LLMObsDatasetCloneRequest,
     LLMObsDatasetDataAttributesRequest: LLMObsDatasetDataAttributesRequest,
     LLMObsDatasetDataAttributesResponse: LLMObsDatasetDataAttributesResponse,
     LLMObsDatasetDataRequest: LLMObsDatasetDataRequest,
@@ -415,6 +438,7 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsDatasetDraftStateUser: LLMObsDatasetDraftStateUser,
     LLMObsDatasetRecordDataResponse: LLMObsDatasetRecordDataResponse,
     LLMObsDatasetRecordItem: LLMObsDatasetRecordItem,
+    LLMObsDatasetRecordTagOperations: LLMObsDatasetRecordTagOperations,
     LLMObsDatasetRecordUpdateItem: LLMObsDatasetRecordUpdateItem,
     LLMObsDatasetRecordsDataAttributesRequest:
       LLMObsDatasetRecordsDataAttributesRequest,
@@ -430,6 +454,11 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsDatasetRecordsUpdateRequest: LLMObsDatasetRecordsUpdateRequest,
     LLMObsDatasetRequest: LLMObsDatasetRequest,
     LLMObsDatasetResponse: LLMObsDatasetResponse,
+    LLMObsDatasetRestoreVersionDataAttributesRequest:
+      LLMObsDatasetRestoreVersionDataAttributesRequest,
+    LLMObsDatasetRestoreVersionDataRequest:
+      LLMObsDatasetRestoreVersionDataRequest,
+    LLMObsDatasetRestoreVersionRequest: LLMObsDatasetRestoreVersionRequest,
     LLMObsDatasetUpdateDataAttributesRequest:
       LLMObsDatasetUpdateDataAttributesRequest,
     LLMObsDatasetUpdateDataRequest: LLMObsDatasetUpdateDataRequest,
