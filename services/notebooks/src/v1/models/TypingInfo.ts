@@ -224,6 +224,7 @@ export const TypingInfo: ModelTypingInfo = {
       "product_analytics",
       "on_call_events",
       "errors",
+      "llm_observability",
     ],
     FormulaAndFunctionMetricAggregation: [
       "avg",
