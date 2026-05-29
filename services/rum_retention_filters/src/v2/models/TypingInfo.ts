@@ -4,6 +4,14 @@ import { APIErrorResponse } from "./APIErrorResponse";
 import { RumCrossProductSampling } from "./RumCrossProductSampling";
 import { RumCrossProductSamplingCreate } from "./RumCrossProductSamplingCreate";
 import { RumCrossProductSamplingUpdate } from "./RumCrossProductSamplingUpdate";
+import { RumPermanentRetentionFilterAttributes } from "./RumPermanentRetentionFilterAttributes";
+import { RumPermanentRetentionFilterData } from "./RumPermanentRetentionFilterData";
+import { RumPermanentRetentionFilterEditability } from "./RumPermanentRetentionFilterEditability";
+import { RumPermanentRetentionFilterResponse } from "./RumPermanentRetentionFilterResponse";
+import { RumPermanentRetentionFilterUpdateAttributes } from "./RumPermanentRetentionFilterUpdateAttributes";
+import { RumPermanentRetentionFilterUpdateData } from "./RumPermanentRetentionFilterUpdateData";
+import { RumPermanentRetentionFilterUpdateRequest } from "./RumPermanentRetentionFilterUpdateRequest";
+import { RumPermanentRetentionFiltersResponse } from "./RumPermanentRetentionFiltersResponse";
 import { RumRetentionFilterAttributes } from "./RumRetentionFilterAttributes";
 import { RumRetentionFilterCreateAttributes } from "./RumRetentionFilterCreateAttributes";
 import { RumRetentionFilterCreateData } from "./RumRetentionFilterCreateData";
@@ -20,6 +28,12 @@ import { RumRetentionFiltersResponse } from "./RumRetentionFiltersResponse";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
+    RumPermanentRetentionFilterID: [
+      "rum_apm_flat_sampling",
+      "synthetics_sessions",
+      "forced_replay_sessions",
+    ],
+    RumPermanentRetentionFilterType: ["permanent_retention_filters"],
     RumRetentionFilterEventType: [
       "session",
       "view",
@@ -37,6 +51,19 @@ export const TypingInfo: ModelTypingInfo = {
     RumCrossProductSampling: RumCrossProductSampling,
     RumCrossProductSamplingCreate: RumCrossProductSamplingCreate,
     RumCrossProductSamplingUpdate: RumCrossProductSamplingUpdate,
+    RumPermanentRetentionFilterAttributes:
+      RumPermanentRetentionFilterAttributes,
+    RumPermanentRetentionFilterData: RumPermanentRetentionFilterData,
+    RumPermanentRetentionFilterEditability:
+      RumPermanentRetentionFilterEditability,
+    RumPermanentRetentionFilterResponse: RumPermanentRetentionFilterResponse,
+    RumPermanentRetentionFilterUpdateAttributes:
+      RumPermanentRetentionFilterUpdateAttributes,
+    RumPermanentRetentionFilterUpdateData:
+      RumPermanentRetentionFilterUpdateData,
+    RumPermanentRetentionFilterUpdateRequest:
+      RumPermanentRetentionFilterUpdateRequest,
+    RumPermanentRetentionFiltersResponse: RumPermanentRetentionFiltersResponse,
     RumRetentionFilterAttributes: RumRetentionFilterAttributes,
     RumRetentionFilterCreateAttributes: RumRetentionFilterCreateAttributes,
     RumRetentionFilterCreateData: RumRetentionFilterCreateData,
