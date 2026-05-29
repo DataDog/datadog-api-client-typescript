@@ -131,6 +131,12 @@ import { HostMapRequest } from "./HostMapRequest";
 import { HostMapWidgetDefinition } from "./HostMapWidgetDefinition";
 import { HostMapWidgetDefinitionRequests } from "./HostMapWidgetDefinitionRequests";
 import { HostMapWidgetDefinitionStyle } from "./HostMapWidgetDefinitionStyle";
+import { HostMapWidgetFormula } from "./HostMapWidgetFormula";
+import { HostMapWidgetGroupBy } from "./HostMapWidgetGroupBy";
+import { HostMapWidgetInfrastructureRequest } from "./HostMapWidgetInfrastructureRequest";
+import { HostMapWidgetInfrastructureRequestLeaf } from "./HostMapWidgetInfrastructureRequestLeaf";
+import { HostMapWidgetInfrastructureStyle } from "./HostMapWidgetInfrastructureStyle";
+import { HostMapWidgetScalarRequest } from "./HostMapWidgetScalarRequest";
 import { HostMeta } from "./HostMeta";
 import { HostMetaInstallMethod } from "./HostMetaInstallMethod";
 import { HostMetrics } from "./HostMetrics";
@@ -989,6 +995,10 @@ const enumsMap: { [key: string]: any[] } = {
   GroupWidgetDefinitionType: ["group"],
   HeatMapWidgetDefinitionType: ["heatmap"],
   HostMapWidgetDefinitionType: ["hostmap"],
+  HostMapWidgetDimension: ["node", "fill", "size"],
+  HostMapWidgetInfrastructureRequestRequestType: ["infrastructure_hostmap"],
+  HostMapWidgetNodeType: ["host", "container", "pod", "cluster"],
+  HostMapWidgetScalarRequestResponseFormat: ["scalar"],
   HourlyUsageAttributionUsageType: [
     "api_usage",
     "apm_fargate_usage",
@@ -2175,6 +2185,13 @@ const typeMap: { [index: string]: any } = {
   HostMapWidgetDefinition: HostMapWidgetDefinition,
   HostMapWidgetDefinitionRequests: HostMapWidgetDefinitionRequests,
   HostMapWidgetDefinitionStyle: HostMapWidgetDefinitionStyle,
+  HostMapWidgetFormula: HostMapWidgetFormula,
+  HostMapWidgetGroupBy: HostMapWidgetGroupBy,
+  HostMapWidgetInfrastructureRequest: HostMapWidgetInfrastructureRequest,
+  HostMapWidgetInfrastructureRequestLeaf:
+    HostMapWidgetInfrastructureRequestLeaf,
+  HostMapWidgetInfrastructureStyle: HostMapWidgetInfrastructureStyle,
+  HostMapWidgetScalarRequest: HostMapWidgetScalarRequest,
   HostMeta: HostMeta,
   HostMetaInstallMethod: HostMetaInstallMethod,
   HostMetrics: HostMetrics,
