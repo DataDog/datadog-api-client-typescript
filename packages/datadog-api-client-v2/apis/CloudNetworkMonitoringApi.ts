@@ -23,6 +23,7 @@ export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFacto
     to?: number,
     groupBy?: string,
     tags?: string,
+    query?: string,
     limit?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -67,6 +68,13 @@ export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFacto
         ""
       );
     }
+    if (query !== undefined) {
+      requestContext.setQueryParam(
+        "query",
+        ObjectSerializer.serialize(query, "string", ""),
+        ""
+      );
+    }
     if (limit !== undefined) {
       requestContext.setQueryParam(
         "limit",
@@ -89,6 +97,7 @@ export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFacto
     to?: number,
     groupBy?: string,
     tags?: string,
+    query?: string,
     limit?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -130,6 +139,13 @@ export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFacto
       requestContext.setQueryParam(
         "tags",
         ObjectSerializer.serialize(tags, "string", ""),
+        ""
+      );
+    }
+    if (query !== undefined) {
+      requestContext.setQueryParam(
+        "query",
+        ObjectSerializer.serialize(query, "string", ""),
         ""
       );
     }
@@ -295,6 +311,11 @@ export interface CloudNetworkMonitoringApiGetAggregatedConnectionsRequest {
    */
   tags?: string;
   /**
+   * Free-form search query using AND/OR/NOT operators, wildcards, and parentheses. When provided, takes precedence over the `tags` parameter.
+   * @type string
+   */
+  query?: string;
+  /**
    * The number of connections to be returned. The maximum value is 7500. The default is 100.
    * @type number
    */
@@ -322,6 +343,11 @@ export interface CloudNetworkMonitoringApiGetAggregatedDnsRequest {
    * @type string
    */
   tags?: string;
+  /**
+   * Free-form search query using AND/OR/NOT operators, wildcards, and parentheses. When provided, takes precedence over the `tags` parameter.
+   * @type string
+   */
+  query?: string;
   /**
    * The number of aggregated DNS entries to be returned. The maximum value is 7500. The default is 100.
    * @type number
@@ -360,6 +386,7 @@ export class CloudNetworkMonitoringApi {
       param.to,
       param.groupBy,
       param.tags,
+      param.query,
       param.limit,
       options
     );
@@ -387,6 +414,7 @@ export class CloudNetworkMonitoringApi {
       param.to,
       param.groupBy,
       param.tags,
+      param.query,
       param.limit,
       options
     );
