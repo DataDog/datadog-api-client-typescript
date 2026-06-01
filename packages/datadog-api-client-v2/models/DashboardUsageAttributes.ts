@@ -8,7 +8,7 @@ import { DashboardUsageUser } from "./DashboardUsageUser";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Usage statistics for a dashboard.
+ * Usage statistics for a dashboard. The `viewer` field and all view-count fields (`total_views`, `viewed_at`, `total_views_by_type`) are populated only when Real User Monitoring (RUM) is active for the org.
  */
 export class DashboardUsageAttributes {
   /**
@@ -40,15 +40,15 @@ export class DashboardUsageAttributes {
    */
   "title"?: string;
   /**
-   * The total number of times the dashboard has been viewed.
+   * Total view count for the dashboard. Counts only views captured by Real User Monitoring (RUM); `0` in orgs without RUM.
    */
   "totalViews"?: number;
   /**
-   * View counts keyed by view type. Possible keys are `in_app`, `embed`, `public`, `shared`, `api`, and `unknown`.
+   * View counts keyed by view type (`in_app`, `embed`, `public`, `shared`, `api`, `unknown`). Counts only views captured by Real User Monitoring (RUM); empty in orgs without RUM.
    */
   "totalViewsByType"?: { [key: string]: number };
   /**
-   * When the dashboard was most recently viewed.
+   * When the dashboard was most recently viewed. Populated only when Real User Monitoring (RUM) is active for the org; `null` in orgs without RUM.
    */
   "viewedAt"?: Date;
   /**
