@@ -2333,6 +2333,8 @@ import { ListPipelinesResponseMeta } from "./ListPipelinesResponseMeta";
 import { ListPowerpacksResponse } from "./ListPowerpacksResponse";
 import { ListRelationCatalogResponse } from "./ListRelationCatalogResponse";
 import { ListRelationCatalogResponseLinks } from "./ListRelationCatalogResponseLinks";
+import { ListRowsResponse } from "./ListRowsResponse";
+import { ListRowsResponseLinks } from "./ListRowsResponseLinks";
 import { ListRulesResponse } from "./ListRulesResponse";
 import { ListRulesResponseDataItem } from "./ListRulesResponseDataItem";
 import { ListRulesResponseLinks } from "./ListRulesResponseLinks";
@@ -9967,6 +9969,8 @@ const typeMap: { [index: string]: any } = {
   ListPowerpacksResponse: ListPowerpacksResponse,
   ListRelationCatalogResponse: ListRelationCatalogResponse,
   ListRelationCatalogResponseLinks: ListRelationCatalogResponseLinks,
+  ListRowsResponse: ListRowsResponse,
+  ListRowsResponseLinks: ListRowsResponseLinks,
   ListRulesResponse: ListRulesResponse,
   ListRulesResponseDataItem: ListRulesResponseDataItem,
   ListRulesResponseLinks: ListRulesResponseLinks,
