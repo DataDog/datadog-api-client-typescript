@@ -91,6 +91,8 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
   public async listDashboardsUsage(
     pageLimit?: number,
     pageOffset?: number,
+    filterEditedBefore?: string,
+    filterViewedBefore?: string,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -134,6 +136,20 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "page[offset]",
         serialize(pageOffset, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (filterEditedBefore !== undefined) {
+      requestContext.setQueryParam(
+        "filter[edited_before]",
+        serialize(filterEditedBefore, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterViewedBefore !== undefined) {
+      requestContext.setQueryParam(
+        "filter[viewed_before]",
+        serialize(filterViewedBefore, TypingInfo, "string", ""),
         "",
       );
     }
@@ -291,6 +307,16 @@ export interface DashboardsApiListDashboardsUsageRequest {
    * @type number
    */
   pageOffset?: number;
+  /**
+   * Return only dashboards whose last edit (`edited_at`) is strictly before this ISO 8601 timestamp (`edited_at < value`; boundary matches are excluded). Must include a timezone offset (for example, `Z` or `+00:00`); naive timestamps return HTTP 400.
+   * @type string
+   */
+  filterEditedBefore?: string;
+  /**
+   * Return only dashboards whose most recent view (`viewed_at`) is strictly before this ISO 8601 timestamp, including dashboards that have never been viewed. Must include a timezone offset; naive timestamps return HTTP 400. Orgs without Real User Monitoring (RUM) will see all dashboards returned by this filter.
+   * @type string
+   */
+  filterViewedBefore?: string;
 }
 
 export class DashboardsApi {
@@ -313,7 +339,7 @@ export class DashboardsApi {
   }
 
   /**
-   * Get usage statistics for a single dashboard. The response includes view counts, the most recent view and edit times, widget counts, and the dashboard quality score.
+   * Get usage statistics for a single dashboard. The response includes view counts, the most recent view and edit times, widget counts, and the dashboard quality score. View-count fields depend on Real User Monitoring (RUM) and are `null` or `0` in orgs without RUM.
    * @param param The request object
    */
   public getDashboardUsage(
@@ -334,7 +360,7 @@ export class DashboardsApi {
   }
 
   /**
-   * Get paginated usage statistics for every dashboard in the caller's organization. Use `page[limit]` and `page[offset]` to walk the result set.
+   * Get paginated usage statistics for every dashboard in the caller's organization. Use `page[limit]` and `page[offset]` to walk the result set. Use `filter[edited_before]` or `filter[viewed_before]` to narrow results by recency. View-count fields depend on Real User Monitoring (RUM) and are `null` or `0` in orgs without RUM.
    * @param param The request object
    */
   public listDashboardsUsage(
@@ -344,6 +370,8 @@ export class DashboardsApi {
     const requestContextPromise = this.requestFactory.listDashboardsUsage(
       param.pageLimit,
       param.pageOffset,
+      param.filterEditedBefore,
+      param.filterViewedBefore,
       options,
     );
     return requestContextPromise.then((requestContext) => {
@@ -371,6 +399,8 @@ export class DashboardsApi {
       const requestContext = await this.requestFactory.listDashboardsUsage(
         param.pageLimit,
         param.pageOffset,
+        param.filterEditedBefore,
+        param.filterViewedBefore,
         options,
       );
       const responseContext =

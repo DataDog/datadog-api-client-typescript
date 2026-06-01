@@ -8,7 +8,7 @@ import { DashboardUsageType } from "./DashboardUsageType";
  */
 export class DashboardUsage {
   /**
-   * Usage statistics for a dashboard.
+   * Usage statistics for a dashboard. The `viewer` field and all view-count fields (`total_views`, `viewed_at`, `total_views_by_type`) are populated only when Real User Monitoring (RUM) is active for the org.
    */
   "attributes": DashboardUsageAttributes;
   /**
