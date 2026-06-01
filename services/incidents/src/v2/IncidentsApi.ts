@@ -30,11 +30,26 @@ import { CreateIncidentNotificationRuleRequest } from "./models/CreateIncidentNo
 import { CreateIncidentNotificationTemplateRequest } from "./models/CreateIncidentNotificationTemplateRequest";
 import { GlobalIncidentSettingsRequest } from "./models/GlobalIncidentSettingsRequest";
 import { GlobalIncidentSettingsResponse } from "./models/GlobalIncidentSettingsResponse";
+import { IncidentAIPostmortemResponse } from "./models/IncidentAIPostmortemResponse";
+import { IncidentConfigurationPatchRequest } from "./models/IncidentConfigurationPatchRequest";
+import { IncidentConfigurationRequest } from "./models/IncidentConfigurationRequest";
+import { IncidentConfigurationResponse } from "./models/IncidentConfigurationResponse";
+import { IncidentCreateOnCallPageRequest } from "./models/IncidentCreateOnCallPageRequest";
+import { IncidentCreatePageFromIncidentRequest } from "./models/IncidentCreatePageFromIncidentRequest";
 import { IncidentCreateRequest } from "./models/IncidentCreateRequest";
+import { IncidentGoogleChatConfigurationPatchRequest } from "./models/IncidentGoogleChatConfigurationPatchRequest";
+import { IncidentGoogleChatConfigurationRequest } from "./models/IncidentGoogleChatConfigurationRequest";
+import { IncidentGoogleChatConfigurationResponse } from "./models/IncidentGoogleChatConfigurationResponse";
+import { IncidentGoogleMeetConfigurationPatchRequest } from "./models/IncidentGoogleMeetConfigurationPatchRequest";
+import { IncidentGoogleMeetConfigurationRequest } from "./models/IncidentGoogleMeetConfigurationRequest";
+import { IncidentGoogleMeetConfigurationResponse } from "./models/IncidentGoogleMeetConfigurationResponse";
 import { IncidentHandleRequest } from "./models/IncidentHandleRequest";
 import { IncidentHandleResponse } from "./models/IncidentHandleResponse";
 import { IncidentHandlesResponse } from "./models/IncidentHandlesResponse";
 import { IncidentImpactCreateRequest } from "./models/IncidentImpactCreateRequest";
+import { IncidentImpactFieldRequest } from "./models/IncidentImpactFieldRequest";
+import { IncidentImpactFieldResponse } from "./models/IncidentImpactFieldResponse";
+import { IncidentImpactFieldsResponse } from "./models/IncidentImpactFieldsResponse";
 import { IncidentImpactRelatedObject } from "./models/IncidentImpactRelatedObject";
 import { IncidentImpactResponse } from "./models/IncidentImpactResponse";
 import { IncidentImpactsResponse } from "./models/IncidentImpactsResponse";
@@ -49,13 +64,29 @@ import { IncidentNotificationRule } from "./models/IncidentNotificationRule";
 import { IncidentNotificationRuleArray } from "./models/IncidentNotificationRuleArray";
 import { IncidentNotificationTemplate } from "./models/IncidentNotificationTemplate";
 import { IncidentNotificationTemplateArray } from "./models/IncidentNotificationTemplateArray";
+import { IncidentOnCallPageLinkRequest } from "./models/IncidentOnCallPageLinkRequest";
+import { IncidentOrgSettingsListResponse } from "./models/IncidentOrgSettingsListResponse";
+import { IncidentOrgSettingsResponse } from "./models/IncidentOrgSettingsResponse";
+import { IncidentPageUUIDResponse } from "./models/IncidentPageUUIDResponse";
 import { IncidentRelatedObject } from "./models/IncidentRelatedObject";
+import { IncidentResponderRequest } from "./models/IncidentResponderRequest";
+import { IncidentResponderResponse } from "./models/IncidentResponderResponse";
+import { IncidentRespondersResponse } from "./models/IncidentRespondersResponse";
 import { IncidentResponse } from "./models/IncidentResponse";
 import { IncidentResponseData } from "./models/IncidentResponseData";
+import { IncidentRulePatchRequest } from "./models/IncidentRulePatchRequest";
+import { IncidentRuleRequest } from "./models/IncidentRuleRequest";
+import { IncidentRuleResponse } from "./models/IncidentRuleResponse";
+import { IncidentRulesResponse } from "./models/IncidentRulesResponse";
 import { IncidentSearchResponse } from "./models/IncidentSearchResponse";
 import { IncidentSearchResponseIncidentsData } from "./models/IncidentSearchResponseIncidentsData";
 import { IncidentSearchSortOrder } from "./models/IncidentSearchSortOrder";
+import { IncidentServiceNowRecordRequest } from "./models/IncidentServiceNowRecordRequest";
 import { IncidentsResponse } from "./models/IncidentsResponse";
+import { IncidentTimestampOverridePatchRequest } from "./models/IncidentTimestampOverridePatchRequest";
+import { IncidentTimestampOverrideRequest } from "./models/IncidentTimestampOverrideRequest";
+import { IncidentTimestampOverrideResponse } from "./models/IncidentTimestampOverrideResponse";
+import { IncidentTimestampOverridesResponse } from "./models/IncidentTimestampOverridesResponse";
 import { IncidentTodoCreateRequest } from "./models/IncidentTodoCreateRequest";
 import { IncidentTodoListResponse } from "./models/IncidentTodoListResponse";
 import { IncidentTodoPatchRequest } from "./models/IncidentTodoPatchRequest";
@@ -69,6 +100,10 @@ import { IncidentUserDefinedFieldCreateRequest } from "./models/IncidentUserDefi
 import { IncidentUserDefinedFieldListResponse } from "./models/IncidentUserDefinedFieldListResponse";
 import { IncidentUserDefinedFieldResponse } from "./models/IncidentUserDefinedFieldResponse";
 import { IncidentUserDefinedFieldUpdateRequest } from "./models/IncidentUserDefinedFieldUpdateRequest";
+import { IncidentUserDefinedRolePatchRequest } from "./models/IncidentUserDefinedRolePatchRequest";
+import { IncidentUserDefinedRoleRequest } from "./models/IncidentUserDefinedRoleRequest";
+import { IncidentUserDefinedRoleResponse } from "./models/IncidentUserDefinedRoleResponse";
+import { IncidentUserDefinedRolesResponse } from "./models/IncidentUserDefinedRolesResponse";
 import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 import { PatchAttachmentRequest } from "./models/PatchAttachmentRequest";
 import { PatchIncidentNotificationTemplateRequest } from "./models/PatchIncidentNotificationTemplateRequest";
@@ -291,6 +326,197 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async createIncidentConfiguration(
+    incidentId: string,
+    body: IncidentConfigurationRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["IncidentsApi.v2.createIncidentConfiguration"]
+    ) {
+      throw new Error(
+        "Unstable operation 'createIncidentConfiguration' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentConfiguration'] = true`",
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "createIncidentConfiguration");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createIncidentConfiguration");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/{incident_id}/configurations".replace(
+        "{incident_id}",
+        encodeURIComponent(String(incidentId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.createIncidentConfiguration",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "IncidentConfigurationRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createIncidentGoogleChatConfiguration(
+    body: IncidentGoogleChatConfigurationRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "IncidentsApi.v2.createIncidentGoogleChatConfiguration"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createIncidentGoogleChatConfiguration' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentGoogleChatConfiguration'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createIncidentGoogleChatConfiguration");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/config/google-chat-configurations";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.createIncidentGoogleChatConfiguration",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "IncidentGoogleChatConfigurationRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createIncidentGoogleMeetConfiguration(
+    body: IncidentGoogleMeetConfigurationRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "IncidentsApi.v2.createIncidentGoogleMeetConfiguration"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createIncidentGoogleMeetConfiguration' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentGoogleMeetConfiguration'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createIncidentGoogleMeetConfiguration");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/config/google-meet-configurations";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.createIncidentGoogleMeetConfiguration",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "IncidentGoogleMeetConfigurationRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async createIncidentImpact(
     incidentId: string,
     body: IncidentImpactCreateRequest,
@@ -352,6 +578,65 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "IncidentImpactCreateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createIncidentImpactField(
+    body: IncidentImpactFieldRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["IncidentsApi.v2.createIncidentImpactField"]
+    ) {
+      throw new Error(
+        "Unstable operation 'createIncidentImpactField' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentImpactField'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createIncidentImpactField");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/config/impact-fields";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.createIncidentImpactField",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "IncidentImpactFieldRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -700,6 +985,202 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async createIncidentResponder(
+    incidentId: string,
+    body: IncidentResponderRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["IncidentsApi.v2.createIncidentResponder"]
+    ) {
+      throw new Error(
+        "Unstable operation 'createIncidentResponder' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentResponder'] = true`",
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "createIncidentResponder");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createIncidentResponder");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/{incident_id}/responders".replace(
+      "{incident_id}",
+      encodeURIComponent(String(incidentId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.createIncidentResponder",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "IncidentResponderRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createIncidentRule(
+    body: IncidentRuleRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["IncidentsApi.v2.createIncidentRule"]) {
+      throw new Error(
+        "Unstable operation 'createIncidentRule' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentRule'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createIncidentRule");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/config/rules";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.createIncidentRule",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "IncidentRuleRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createIncidentServiceNowRecord(
+    incidentId: string,
+    body: IncidentServiceNowRecordRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "IncidentsApi.v2.createIncidentServiceNowRecord"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createIncidentServiceNowRecord' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentServiceNowRecord'] = true`",
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "createIncidentServiceNowRecord");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createIncidentServiceNowRecord");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/{incident_id}/servicenow-records".replace(
+        "{incident_id}",
+        encodeURIComponent(String(incidentId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.createIncidentServiceNowRecord",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "IncidentServiceNowRecordRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async createIncidentTodo(
     incidentId: string,
     body: IncidentTodoCreateRequest,
@@ -895,6 +1376,282 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async createIncidentUserDefinedRole(
+    body: IncidentUserDefinedRoleRequest,
+    include?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "IncidentsApi.v2.createIncidentUserDefinedRole"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createIncidentUserDefinedRole' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentUserDefinedRole'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createIncidentUserDefinedRole");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/config/user-defined-roles";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.createIncidentUserDefinedRole",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        serialize(include, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "IncidentUserDefinedRoleRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createOnCallPageFromIncident(
+    incidentId: string,
+    body: IncidentCreateOnCallPageRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "IncidentsApi.v2.createOnCallPageFromIncident"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createOnCallPageFromIncident' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createOnCallPageFromIncident'] = true`",
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "createOnCallPageFromIncident");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createOnCallPageFromIncident");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/{incident_id}/page".replace(
+      "{incident_id}",
+      encodeURIComponent(String(incidentId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.createOnCallPageFromIncident",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "IncidentCreateOnCallPageRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createPageFromIncident(
+    incidentId: string,
+    body: IncidentCreatePageFromIncidentRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["IncidentsApi.v2.createPageFromIncident"]) {
+      throw new Error(
+        "Unstable operation 'createPageFromIncident' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createPageFromIncident'] = true`",
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "createPageFromIncident");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createPageFromIncident");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/{incident_id}/cases/page".replace(
+      "{incident_id}",
+      encodeURIComponent(String(incidentId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.createPageFromIncident",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "IncidentCreatePageFromIncidentRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createTimestampOverride(
+    incidentId: string,
+    body: IncidentTimestampOverrideRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["IncidentsApi.v2.createTimestampOverride"]
+    ) {
+      throw new Error(
+        "Unstable operation 'createTimestampOverride' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createTimestampOverride'] = true`",
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "createTimestampOverride");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createTimestampOverride");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/{incident_id}/timestamp-overrides".replace(
+        "{incident_id}",
+        encodeURIComponent(String(incidentId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.createTimestampOverride",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "IncidentTimestampOverrideRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteGlobalIncidentHandle(
     _options?: Configuration,
   ): Promise<RequestContext> {
@@ -1073,6 +1830,60 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentsApi.v2.deleteIncidentImpact",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteIncidentImpactField(
+    fieldId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["IncidentsApi.v2.deleteIncidentImpactField"]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteIncidentImpactField' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.deleteIncidentImpactField'] = true`",
+      );
+    }
+
+    // verify required parameter 'fieldId' is not null or undefined
+    if (fieldId === null || fieldId === undefined) {
+      throw new RequiredError("fieldId", "deleteIncidentImpactField");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/config/impact-fields/{field_id}".replace(
+        "{field_id}",
+        encodeURIComponent(String(fieldId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.deleteIncidentImpactField",
       IncidentsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -1350,6 +2161,116 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deleteIncidentResponder(
+    incidentId: string,
+    responderId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["IncidentsApi.v2.deleteIncidentResponder"]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteIncidentResponder' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.deleteIncidentResponder'] = true`",
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "deleteIncidentResponder");
+    }
+
+    // verify required parameter 'responderId' is not null or undefined
+    if (responderId === null || responderId === undefined) {
+      throw new RequiredError("responderId", "deleteIncidentResponder");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/{incident_id}/responders/{responder_id}"
+        .replace("{incident_id}", encodeURIComponent(String(incidentId)))
+        .replace("{responder_id}", encodeURIComponent(String(responderId)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.deleteIncidentResponder",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteIncidentRule(
+    ruleId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["IncidentsApi.v2.deleteIncidentRule"]) {
+      throw new Error(
+        "Unstable operation 'deleteIncidentRule' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.deleteIncidentRule'] = true`",
+      );
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError("ruleId", "deleteIncidentRule");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/config/rules/{rule_id}".replace(
+      "{rule_id}",
+      encodeURIComponent(String(ruleId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.deleteIncidentRule",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteIncidentTodo(
     incidentId: string,
     todoId: string,
@@ -1515,6 +2436,121 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deleteIncidentUserDefinedRole(
+    roleId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "IncidentsApi.v2.deleteIncidentUserDefinedRole"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteIncidentUserDefinedRole' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.deleteIncidentUserDefinedRole'] = true`",
+      );
+    }
+
+    // verify required parameter 'roleId' is not null or undefined
+    if (roleId === null || roleId === undefined) {
+      throw new RequiredError("roleId", "deleteIncidentUserDefinedRole");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/config/user-defined-roles/{role_id}".replace(
+        "{role_id}",
+        encodeURIComponent(String(roleId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.deleteIncidentUserDefinedRole",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteTimestampOverride(
+    incidentId: string,
+    id: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["IncidentsApi.v2.deleteTimestampOverride"]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteTimestampOverride' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.deleteTimestampOverride'] = true`",
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "deleteTimestampOverride");
+    }
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "deleteTimestampOverride");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/{incident_id}/timestamp-overrides/{id}"
+        .replace("{incident_id}", encodeURIComponent(String(incidentId)))
+        .replace("{id}", encodeURIComponent(String(id)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.deleteTimestampOverride",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getGlobalIncidentSettings(
     _options?: Configuration,
   ): Promise<RequestContext> {
@@ -1607,6 +2643,60 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
         serialize(include, TypingInfo, "Array<IncidentRelatedObject>", ""),
         "csv",
       );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getIncidentAIPostmortem(
+    incidentId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["IncidentsApi.v2.getIncidentAIPostmortem"]
+    ) {
+      throw new Error(
+        "Unstable operation 'getIncidentAIPostmortem' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.getIncidentAIPostmortem'] = true`",
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "getIncidentAIPostmortem");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/{incident_id}/ai/postmortem".replace(
+        "{incident_id}",
+        encodeURIComponent(String(incidentId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.getIncidentAIPostmortem",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
     // Apply auth methods
@@ -1867,6 +2957,114 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getIncidentResponder(
+    incidentId: string,
+    responderId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["IncidentsApi.v2.getIncidentResponder"]) {
+      throw new Error(
+        "Unstable operation 'getIncidentResponder' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.getIncidentResponder'] = true`",
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "getIncidentResponder");
+    }
+
+    // verify required parameter 'responderId' is not null or undefined
+    if (responderId === null || responderId === undefined) {
+      throw new RequiredError("responderId", "getIncidentResponder");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/{incident_id}/responders/{responder_id}"
+        .replace("{incident_id}", encodeURIComponent(String(incidentId)))
+        .replace("{responder_id}", encodeURIComponent(String(responderId)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.getIncidentResponder",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getIncidentRule(
+    ruleId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["IncidentsApi.v2.getIncidentRule"]) {
+      throw new Error(
+        "Unstable operation 'getIncidentRule' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.getIncidentRule'] = true`",
+      );
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError("ruleId", "getIncidentRule");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/config/rules/{rule_id}".replace(
+      "{rule_id}",
+      encodeURIComponent(String(ruleId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.getIncidentRule",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getIncidentTodo(
     incidentId: string,
     todoId: string,
@@ -2040,6 +3238,136 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getIncidentUserDefinedRole(
+    roleId: string,
+    include?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["IncidentsApi.v2.getIncidentUserDefinedRole"]
+    ) {
+      throw new Error(
+        "Unstable operation 'getIncidentUserDefinedRole' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.getIncidentUserDefinedRole'] = true`",
+      );
+    }
+
+    // verify required parameter 'roleId' is not null or undefined
+    if (roleId === null || roleId === undefined) {
+      throw new RequiredError("roleId", "getIncidentUserDefinedRole");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/config/user-defined-roles/{role_id}".replace(
+        "{role_id}",
+        encodeURIComponent(String(roleId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.getIncidentUserDefinedRole",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        serialize(include, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getOrgSettingsByIncidentType(
+    incidentTypeId: string,
+    include?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "IncidentsApi.v2.getOrgSettingsByIncidentType"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getOrgSettingsByIncidentType' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.getOrgSettingsByIncidentType'] = true`",
+      );
+    }
+
+    // verify required parameter 'incidentTypeId' is not null or undefined
+    if (incidentTypeId === null || incidentTypeId === undefined) {
+      throw new RequiredError("incidentTypeId", "getOrgSettingsByIncidentType");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/config/types/{incident_type_id}/org-settings".replace(
+        "{incident_type_id}",
+        encodeURIComponent(String(incidentTypeId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.getOrgSettingsByIncidentType",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        serialize(include, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async importIncident(
     body: IncidentImportRequest,
     include?: Array<IncidentImportRelatedObject>,
@@ -2098,6 +3426,72 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "IncidentImportRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async linkPageToIncident(
+    incidentId: string,
+    body: IncidentOnCallPageLinkRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["IncidentsApi.v2.linkPageToIncident"]) {
+      throw new Error(
+        "Unstable operation 'linkPageToIncident' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.linkPageToIncident'] = true`",
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "linkPageToIncident");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "linkPageToIncident");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/{incident_id}/pages/link".replace(
+      "{incident_id}",
+      encodeURIComponent(String(incidentId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.linkPageToIncident",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "IncidentOnCallPageLinkRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -2230,6 +3624,50 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listIncidentImpactFields(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["IncidentsApi.v2.listIncidentImpactFields"]
+    ) {
+      throw new Error(
+        "Unstable operation 'listIncidentImpactFields' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.listIncidentImpactFields'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/config/impact-fields";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.listIncidentImpactFields",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -2514,6 +3952,125 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listIncidentResponders(
+    incidentId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["IncidentsApi.v2.listIncidentResponders"]) {
+      throw new Error(
+        "Unstable operation 'listIncidentResponders' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.listIncidentResponders'] = true`",
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "listIncidentResponders");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/{incident_id}/responders".replace(
+      "{incident_id}",
+      encodeURIComponent(String(incidentId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.listIncidentResponders",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listIncidentRules(
+    filterTaskId?: string,
+    filterTrigger?: string,
+    incidentTypeUuid?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["IncidentsApi.v2.listIncidentRules"]) {
+      throw new Error(
+        "Unstable operation 'listIncidentRules' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.listIncidentRules'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/config/rules";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.listIncidentRules",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (filterTaskId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[task_id]",
+        serialize(filterTaskId, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterTrigger !== undefined) {
+      requestContext.setQueryParam(
+        "filter[trigger]",
+        serialize(filterTrigger, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (incidentTypeUuid !== undefined) {
+      requestContext.setQueryParam(
+        "incidentTypeUUID",
+        serialize(incidentTypeUuid, TypingInfo, "string", "uuid"),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async listIncidents(
     include?: Array<IncidentRelatedObject>,
     pageSize?: number,
@@ -2763,6 +4320,284 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
         "",
       );
     }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listIncidentUserDefinedRoles(
+    filterIncidentType?: string,
+    include?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "IncidentsApi.v2.listIncidentUserDefinedRoles"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listIncidentUserDefinedRoles' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.listIncidentUserDefinedRoles'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/config/user-defined-roles";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.listIncidentUserDefinedRoles",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (filterIncidentType !== undefined) {
+      requestContext.setQueryParam(
+        "filter[incident-type]",
+        serialize(filterIncidentType, TypingInfo, "string", "uuid"),
+        "",
+      );
+    }
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        serialize(include, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listOrgSettings(
+    pageSize?: number,
+    pageOffset?: number,
+    includeDeleted?: boolean,
+    include?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["IncidentsApi.v2.listOrgSettings"]) {
+      throw new Error(
+        "Unstable operation 'listOrgSettings' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.listOrgSettings'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/config/types/org-settings";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.listOrgSettings",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        serialize(pageSize, TypingInfo, "number", ""),
+        "",
+      );
+    }
+    if (pageOffset !== undefined) {
+      requestContext.setQueryParam(
+        "page[offset]",
+        serialize(pageOffset, TypingInfo, "number", ""),
+        "",
+      );
+    }
+    if (includeDeleted !== undefined) {
+      requestContext.setQueryParam(
+        "include-deleted",
+        serialize(includeDeleted, TypingInfo, "boolean", ""),
+        "",
+      );
+    }
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        serialize(include, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listTimestampOverrides(
+    incidentId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["IncidentsApi.v2.listTimestampOverrides"]) {
+      throw new Error(
+        "Unstable operation 'listTimestampOverrides' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.listTimestampOverrides'] = true`",
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "listTimestampOverrides");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/{incident_id}/timestamp-overrides".replace(
+        "{incident_id}",
+        encodeURIComponent(String(incidentId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.listTimestampOverrides",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async patchIncidentImpact(
+    incidentId: string,
+    impactId: string,
+    body: IncidentImpactCreateRequest,
+    include?: Array<IncidentImpactRelatedObject>,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["IncidentsApi.v2.patchIncidentImpact"]) {
+      throw new Error(
+        "Unstable operation 'patchIncidentImpact' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.patchIncidentImpact'] = true`",
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "patchIncidentImpact");
+    }
+
+    // verify required parameter 'impactId' is not null or undefined
+    if (impactId === null || impactId === undefined) {
+      throw new RequiredError("impactId", "patchIncidentImpact");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "patchIncidentImpact");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/{incident_id}/impacts/{impact_id}"
+      .replace("{incident_id}", encodeURIComponent(String(incidentId)))
+      .replace("{impact_id}", encodeURIComponent(String(impactId)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.patchIncidentImpact",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        serialize(
+          include,
+          TypingInfo,
+          "Array<IncidentImpactRelatedObject>",
+          "",
+        ),
+        "csv",
+      );
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "IncidentImpactCreateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -3151,6 +4986,382 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async updateIncidentConfiguration(
+    incidentId: string,
+    body: IncidentConfigurationPatchRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["IncidentsApi.v2.updateIncidentConfiguration"]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateIncidentConfiguration' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateIncidentConfiguration'] = true`",
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "updateIncidentConfiguration");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateIncidentConfiguration");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/{incident_id}/configurations".replace(
+        "{incident_id}",
+        encodeURIComponent(String(incidentId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.updateIncidentConfiguration",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "IncidentConfigurationPatchRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateIncidentGoogleChatConfiguration(
+    id: string,
+    body: IncidentGoogleChatConfigurationPatchRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "IncidentsApi.v2.updateIncidentGoogleChatConfiguration"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateIncidentGoogleChatConfiguration' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateIncidentGoogleChatConfiguration'] = true`",
+      );
+    }
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "updateIncidentGoogleChatConfiguration");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateIncidentGoogleChatConfiguration");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/config/google-chat-configurations/{id}".replace(
+        "{id}",
+        encodeURIComponent(String(id)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.updateIncidentGoogleChatConfiguration",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(
+        body,
+        TypingInfo,
+        "IncidentGoogleChatConfigurationPatchRequest",
+        "",
+      ),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateIncidentGoogleMeetConfiguration(
+    id: string,
+    body: IncidentGoogleMeetConfigurationPatchRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "IncidentsApi.v2.updateIncidentGoogleMeetConfiguration"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateIncidentGoogleMeetConfiguration' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateIncidentGoogleMeetConfiguration'] = true`",
+      );
+    }
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "updateIncidentGoogleMeetConfiguration");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateIncidentGoogleMeetConfiguration");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/config/google-meet-configurations/{id}".replace(
+        "{id}",
+        encodeURIComponent(String(id)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.updateIncidentGoogleMeetConfiguration",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(
+        body,
+        TypingInfo,
+        "IncidentGoogleMeetConfigurationPatchRequest",
+        "",
+      ),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateIncidentImpact(
+    incidentId: string,
+    impactId: string,
+    body: IncidentImpactCreateRequest,
+    include?: Array<IncidentImpactRelatedObject>,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["IncidentsApi.v2.updateIncidentImpact"]) {
+      throw new Error(
+        "Unstable operation 'updateIncidentImpact' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateIncidentImpact'] = true`",
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "updateIncidentImpact");
+    }
+
+    // verify required parameter 'impactId' is not null or undefined
+    if (impactId === null || impactId === undefined) {
+      throw new RequiredError("impactId", "updateIncidentImpact");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateIncidentImpact");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/{incident_id}/impacts/{impact_id}"
+      .replace("{incident_id}", encodeURIComponent(String(incidentId)))
+      .replace("{impact_id}", encodeURIComponent(String(impactId)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.updateIncidentImpact",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        serialize(
+          include,
+          TypingInfo,
+          "Array<IncidentImpactRelatedObject>",
+          "",
+        ),
+        "csv",
+      );
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "IncidentImpactCreateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateIncidentImpactField(
+    fieldId: string,
+    body: IncidentImpactFieldRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["IncidentsApi.v2.updateIncidentImpactField"]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateIncidentImpactField' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateIncidentImpactField'] = true`",
+      );
+    }
+
+    // verify required parameter 'fieldId' is not null or undefined
+    if (fieldId === null || fieldId === undefined) {
+      throw new RequiredError("fieldId", "updateIncidentImpactField");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateIncidentImpactField");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/config/impact-fields/{field_id}".replace(
+        "{field_id}",
+        encodeURIComponent(String(fieldId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.updateIncidentImpactField",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "IncidentImpactFieldRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async updateIncidentIntegration(
     incidentId: string,
     integrationMetadataId: string,
@@ -3473,6 +5684,72 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async updateIncidentRule(
+    ruleId: string,
+    body: IncidentRulePatchRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["IncidentsApi.v2.updateIncidentRule"]) {
+      throw new Error(
+        "Unstable operation 'updateIncidentRule' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateIncidentRule'] = true`",
+      );
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError("ruleId", "updateIncidentRule");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateIncidentRule");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/config/rules/{rule_id}".replace(
+      "{rule_id}",
+      encodeURIComponent(String(ruleId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.updateIncidentRule",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "IncidentRulePatchRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async updateIncidentTodo(
     incidentId: string,
     todoId: string,
@@ -3692,6 +5969,161 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
 
     return requestContext;
   }
+
+  public async updateIncidentUserDefinedRole(
+    roleId: string,
+    body: IncidentUserDefinedRolePatchRequest,
+    include?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "IncidentsApi.v2.updateIncidentUserDefinedRole"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateIncidentUserDefinedRole' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateIncidentUserDefinedRole'] = true`",
+      );
+    }
+
+    // verify required parameter 'roleId' is not null or undefined
+    if (roleId === null || roleId === undefined) {
+      throw new RequiredError("roleId", "updateIncidentUserDefinedRole");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateIncidentUserDefinedRole");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/config/user-defined-roles/{role_id}".replace(
+        "{role_id}",
+        encodeURIComponent(String(roleId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.updateIncidentUserDefinedRole",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        serialize(include, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "IncidentUserDefinedRolePatchRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateTimestampOverride(
+    incidentId: string,
+    id: string,
+    body: IncidentTimestampOverridePatchRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["IncidentsApi.v2.updateTimestampOverride"]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateTimestampOverride' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateTimestampOverride'] = true`",
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "updateTimestampOverride");
+    }
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "updateTimestampOverride");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateTimestampOverride");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/{incident_id}/timestamp-overrides/{id}"
+        .replace("{incident_id}", encodeURIComponent(String(incidentId)))
+        .replace("{id}", encodeURIComponent(String(id)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentsApi.v2.updateTimestampOverride",
+      IncidentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "IncidentTimestampOverridePatchRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
 }
 
 export class IncidentsApiResponseProcessor {
@@ -3898,6 +6330,190 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createIncidentConfiguration
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createIncidentConfiguration(
+    response: ResponseContext,
+  ): Promise<IncidentConfigurationResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: IncidentConfigurationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentConfigurationResponse",
+      ) as IncidentConfigurationResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentConfigurationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentConfigurationResponse",
+        "",
+      ) as IncidentConfigurationResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createIncidentGoogleChatConfiguration
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createIncidentGoogleChatConfiguration(
+    response: ResponseContext,
+  ): Promise<IncidentGoogleChatConfigurationResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: IncidentGoogleChatConfigurationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentGoogleChatConfigurationResponse",
+      ) as IncidentGoogleChatConfigurationResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentGoogleChatConfigurationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentGoogleChatConfigurationResponse",
+        "",
+      ) as IncidentGoogleChatConfigurationResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createIncidentGoogleMeetConfiguration
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createIncidentGoogleMeetConfiguration(
+    response: ResponseContext,
+  ): Promise<IncidentGoogleMeetConfigurationResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: IncidentGoogleMeetConfigurationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentGoogleMeetConfigurationResponse",
+      ) as IncidentGoogleMeetConfigurationResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentGoogleMeetConfigurationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentGoogleMeetConfigurationResponse",
+        "",
+      ) as IncidentGoogleMeetConfigurationResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createIncidentImpact
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3946,6 +6562,67 @@ export class IncidentsApiResponseProcessor {
         "IncidentImpactResponse",
         "",
       ) as IncidentImpactResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createIncidentImpactField
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createIncidentImpactField(
+    response: ResponseContext,
+  ): Promise<IncidentImpactFieldResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: IncidentImpactFieldResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentImpactFieldResponse",
+      ) as IncidentImpactFieldResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentImpactFieldResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentImpactFieldResponse",
+        "",
+      ) as IncidentImpactFieldResponse;
       return body;
     }
 
@@ -4300,6 +6977,191 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createIncidentResponder
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createIncidentResponder(
+    response: ResponseContext,
+  ): Promise<IncidentResponderResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: IncidentResponderResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentResponderResponse",
+      ) as IncidentResponderResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentResponderResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentResponderResponse",
+        "",
+      ) as IncidentResponderResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createIncidentRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createIncidentRule(
+    response: ResponseContext,
+  ): Promise<IncidentRuleResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: IncidentRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentRuleResponse",
+      ) as IncidentRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentRuleResponse",
+        "",
+      ) as IncidentRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createIncidentServiceNowRecord
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createIncidentServiceNowRecord(
+    response: ResponseContext,
+  ): Promise<IncidentIntegrationMetadataResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: IncidentIntegrationMetadataResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentIntegrationMetadataResponse",
+      ) as IncidentIntegrationMetadataResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentIntegrationMetadataResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentIntegrationMetadataResponse",
+        "",
+      ) as IncidentIntegrationMetadataResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createIncidentTodo
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4505,6 +7367,269 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createIncidentUserDefinedRole
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createIncidentUserDefinedRole(
+    response: ResponseContext,
+  ): Promise<IncidentUserDefinedRoleResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: IncidentUserDefinedRoleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentUserDefinedRoleResponse",
+      ) as IncidentUserDefinedRoleResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentUserDefinedRoleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentUserDefinedRoleResponse",
+        "",
+      ) as IncidentUserDefinedRoleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createOnCallPageFromIncident
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createOnCallPageFromIncident(
+    response: ResponseContext,
+  ): Promise<IncidentPageUUIDResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: IncidentPageUUIDResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentPageUUIDResponse",
+      ) as IncidentPageUUIDResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentPageUUIDResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentPageUUIDResponse",
+        "",
+      ) as IncidentPageUUIDResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createPageFromIncident
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createPageFromIncident(
+    response: ResponseContext,
+  ): Promise<IncidentPageUUIDResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: IncidentPageUUIDResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentPageUUIDResponse",
+      ) as IncidentPageUUIDResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentPageUUIDResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentPageUUIDResponse",
+        "",
+      ) as IncidentPageUUIDResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createTimestampOverride
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createTimestampOverride(
+    response: ResponseContext,
+  ): Promise<IncidentTimestampOverrideResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: IncidentTimestampOverrideResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentTimestampOverrideResponse",
+      ) as IncidentTimestampOverrideResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentTimestampOverrideResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentTimestampOverrideResponse",
+        "",
+      ) as IncidentTimestampOverrideResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteGlobalIncidentHandle
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4679,6 +7804,57 @@ export class IncidentsApiResponseProcessor {
       return;
     }
     if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteIncidentImpactField
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteIncidentImpactField(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
@@ -4937,6 +8113,106 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deleteIncidentResponder
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteIncidentResponder(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteIncidentRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteIncidentRule(response: ResponseContext): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteIncidentTodo
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -5105,6 +8381,134 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deleteIncidentUserDefinedRole
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteIncidentUserDefinedRole(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteTimestampOverride
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteTimestampOverride(
+    response: ResponseContext,
+  ): Promise<IncidentTimestampOverrideResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: IncidentTimestampOverrideResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentTimestampOverrideResponse",
+      ) as IncidentTimestampOverrideResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentTimestampOverrideResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentTimestampOverrideResponse",
+        "",
+      ) as IncidentTimestampOverrideResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getGlobalIncidentSettings
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -5230,6 +8634,68 @@ export class IncidentsApiResponseProcessor {
         "IncidentResponse",
         "",
       ) as IncidentResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getIncidentAIPostmortem
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getIncidentAIPostmortem(
+    response: ResponseContext,
+  ): Promise<IncidentAIPostmortemResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: IncidentAIPostmortemResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentAIPostmortemResponse",
+      ) as IncidentAIPostmortemResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentAIPostmortemResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentAIPostmortemResponse",
+        "",
+      ) as IncidentAIPostmortemResponse;
       return body;
     }
 
@@ -5507,6 +8973,130 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getIncidentResponder
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getIncidentResponder(
+    response: ResponseContext,
+  ): Promise<IncidentResponderResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: IncidentResponderResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentResponderResponse",
+      ) as IncidentResponderResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentResponderResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentResponderResponse",
+        "",
+      ) as IncidentResponderResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getIncidentRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getIncidentRule(
+    response: ResponseContext,
+  ): Promise<IncidentRuleResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: IncidentRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentRuleResponse",
+      ) as IncidentRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentRuleResponse",
+        "",
+      ) as IncidentRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getIncidentTodo
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -5712,6 +9302,145 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getIncidentUserDefinedRole
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getIncidentUserDefinedRole(
+    response: ResponseContext,
+  ): Promise<IncidentUserDefinedRoleResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: IncidentUserDefinedRoleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentUserDefinedRoleResponse",
+      ) as IncidentUserDefinedRoleResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentUserDefinedRoleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentUserDefinedRoleResponse",
+        "",
+      ) as IncidentUserDefinedRoleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getOrgSettingsByIncidentType
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getOrgSettingsByIncidentType(
+    response: ResponseContext,
+  ): Promise<IncidentOrgSettingsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: IncidentOrgSettingsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentOrgSettingsResponse",
+      ) as IncidentOrgSettingsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentOrgSettingsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentOrgSettingsResponse",
+        "",
+      ) as IncidentOrgSettingsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to importIncident
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -5760,6 +9489,89 @@ export class IncidentsApiResponseProcessor {
         "IncidentImportResponse",
         "",
       ) as IncidentImportResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to linkPageToIncident
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async linkPageToIncident(
+    response: ResponseContext,
+  ): Promise<IncidentIntegrationMetadataResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: IncidentIntegrationMetadataResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentIntegrationMetadataResponse",
+      ) as IncidentIntegrationMetadataResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode === 409) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentIntegrationMetadataResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentIntegrationMetadataResponse",
+        "",
+      ) as IncidentIntegrationMetadataResponse;
       return body;
     }
 
@@ -5893,6 +9705,67 @@ export class IncidentsApiResponseProcessor {
         "AttachmentArray",
         "",
       ) as AttachmentArray;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listIncidentImpactFields
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listIncidentImpactFields(
+    response: ResponseContext,
+  ): Promise<IncidentImpactFieldsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: IncidentImpactFieldsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentImpactFieldsResponse",
+      ) as IncidentImpactFieldsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentImpactFieldsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentImpactFieldsResponse",
+        "",
+      ) as IncidentImpactFieldsResponse;
       return body;
     }
 
@@ -6232,6 +10105,129 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listIncidentResponders
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listIncidentResponders(
+    response: ResponseContext,
+  ): Promise<IncidentRespondersResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: IncidentRespondersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentRespondersResponse",
+      ) as IncidentRespondersResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentRespondersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentRespondersResponse",
+        "",
+      ) as IncidentRespondersResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listIncidentRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listIncidentRules(
+    response: ResponseContext,
+  ): Promise<IncidentRulesResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: IncidentRulesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentRulesResponse",
+      ) as IncidentRulesResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentRulesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentRulesResponse",
+        "",
+      ) as IncidentRulesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listIncidents
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -6484,6 +10480,268 @@ export class IncidentsApiResponseProcessor {
         "IncidentUserDefinedFieldListResponse",
         "",
       ) as IncidentUserDefinedFieldListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listIncidentUserDefinedRoles
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listIncidentUserDefinedRoles(
+    response: ResponseContext,
+  ): Promise<IncidentUserDefinedRolesResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: IncidentUserDefinedRolesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentUserDefinedRolesResponse",
+      ) as IncidentUserDefinedRolesResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentUserDefinedRolesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentUserDefinedRolesResponse",
+        "",
+      ) as IncidentUserDefinedRolesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listOrgSettings
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listOrgSettings(
+    response: ResponseContext,
+  ): Promise<IncidentOrgSettingsListResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: IncidentOrgSettingsListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentOrgSettingsListResponse",
+      ) as IncidentOrgSettingsListResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentOrgSettingsListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentOrgSettingsListResponse",
+        "",
+      ) as IncidentOrgSettingsListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listTimestampOverrides
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listTimestampOverrides(
+    response: ResponseContext,
+  ): Promise<IncidentTimestampOverridesResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: IncidentTimestampOverridesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentTimestampOverridesResponse",
+      ) as IncidentTimestampOverridesResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentTimestampOverridesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentTimestampOverridesResponse",
+        "",
+      ) as IncidentTimestampOverridesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to patchIncidentImpact
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async patchIncidentImpact(
+    response: ResponseContext,
+  ): Promise<IncidentImpactResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: IncidentImpactResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentImpactResponse",
+      ) as IncidentImpactResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentImpactResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentImpactResponse",
+        "",
+      ) as IncidentImpactResponse;
       return body;
     }
 
@@ -6837,6 +11095,316 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateIncidentConfiguration
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateIncidentConfiguration(
+    response: ResponseContext,
+  ): Promise<IncidentConfigurationResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: IncidentConfigurationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentConfigurationResponse",
+      ) as IncidentConfigurationResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentConfigurationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentConfigurationResponse",
+        "",
+      ) as IncidentConfigurationResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateIncidentGoogleChatConfiguration
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateIncidentGoogleChatConfiguration(
+    response: ResponseContext,
+  ): Promise<IncidentGoogleChatConfigurationResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: IncidentGoogleChatConfigurationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentGoogleChatConfigurationResponse",
+      ) as IncidentGoogleChatConfigurationResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentGoogleChatConfigurationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentGoogleChatConfigurationResponse",
+        "",
+      ) as IncidentGoogleChatConfigurationResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateIncidentGoogleMeetConfiguration
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateIncidentGoogleMeetConfiguration(
+    response: ResponseContext,
+  ): Promise<IncidentGoogleMeetConfigurationResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: IncidentGoogleMeetConfigurationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentGoogleMeetConfigurationResponse",
+      ) as IncidentGoogleMeetConfigurationResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentGoogleMeetConfigurationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentGoogleMeetConfigurationResponse",
+        "",
+      ) as IncidentGoogleMeetConfigurationResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateIncidentImpact
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateIncidentImpact(
+    response: ResponseContext,
+  ): Promise<IncidentImpactResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: IncidentImpactResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentImpactResponse",
+      ) as IncidentImpactResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentImpactResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentImpactResponse",
+        "",
+      ) as IncidentImpactResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateIncidentImpactField
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateIncidentImpactField(
+    response: ResponseContext,
+  ): Promise<IncidentImpactFieldResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: IncidentImpactFieldResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentImpactFieldResponse",
+      ) as IncidentImpactFieldResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentImpactFieldResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentImpactFieldResponse",
+        "",
+      ) as IncidentImpactFieldResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateIncidentIntegration
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -7100,6 +11668,68 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateIncidentRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateIncidentRule(
+    response: ResponseContext,
+  ): Promise<IncidentRuleResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: IncidentRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentRuleResponse",
+      ) as IncidentRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentRuleResponse",
+        "",
+      ) as IncidentRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateIncidentTodo
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -7300,6 +11930,145 @@ export class IncidentsApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"',
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateIncidentUserDefinedRole
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateIncidentUserDefinedRole(
+    response: ResponseContext,
+  ): Promise<IncidentUserDefinedRoleResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: IncidentUserDefinedRoleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentUserDefinedRoleResponse",
+      ) as IncidentUserDefinedRoleResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentUserDefinedRoleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentUserDefinedRoleResponse",
+        "",
+      ) as IncidentUserDefinedRoleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateTimestampOverride
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateTimestampOverride(
+    response: ResponseContext,
+  ): Promise<IncidentTimestampOverrideResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: IncidentTimestampOverrideResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentTimestampOverrideResponse",
+      ) as IncidentTimestampOverrideResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentTimestampOverrideResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "IncidentTimestampOverrideResponse",
+        "",
+      ) as IncidentTimestampOverrideResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
 }
 
 export interface IncidentsApiCreateGlobalIncidentHandleRequest {
@@ -7339,6 +12108,35 @@ export interface IncidentsApiCreateIncidentAttachmentRequest {
   include?: string;
 }
 
+export interface IncidentsApiCreateIncidentConfigurationRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * Incident configuration payload.
+   * @type IncidentConfigurationRequest
+   */
+  body: IncidentConfigurationRequest;
+}
+
+export interface IncidentsApiCreateIncidentGoogleChatConfigurationRequest {
+  /**
+   * Google Chat configuration payload.
+   * @type IncidentGoogleChatConfigurationRequest
+   */
+  body: IncidentGoogleChatConfigurationRequest;
+}
+
+export interface IncidentsApiCreateIncidentGoogleMeetConfigurationRequest {
+  /**
+   * Google Meet configuration payload.
+   * @type IncidentGoogleMeetConfigurationRequest
+   */
+  body: IncidentGoogleMeetConfigurationRequest;
+}
+
 export interface IncidentsApiCreateIncidentImpactRequest {
   /**
    * The UUID of the incident.
@@ -7355,6 +12153,14 @@ export interface IncidentsApiCreateIncidentImpactRequest {
    * @type Array<IncidentImpactRelatedObject>
    */
   include?: Array<IncidentImpactRelatedObject>;
+}
+
+export interface IncidentsApiCreateIncidentImpactFieldRequest {
+  /**
+   * Impact field payload.
+   * @type IncidentImpactFieldRequest
+   */
+  body: IncidentImpactFieldRequest;
 }
 
 export interface IncidentsApiCreateIncidentIntegrationRequest {
@@ -7403,6 +12209,40 @@ export interface IncidentsApiCreateIncidentPostmortemTemplateRequest {
   body: PostmortemTemplateRequest;
 }
 
+export interface IncidentsApiCreateIncidentResponderRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * Incident responder payload.
+   * @type IncidentResponderRequest
+   */
+  body: IncidentResponderRequest;
+}
+
+export interface IncidentsApiCreateIncidentRuleRequest {
+  /**
+   * Incident rule payload.
+   * @type IncidentRuleRequest
+   */
+  body: IncidentRuleRequest;
+}
+
+export interface IncidentsApiCreateIncidentServiceNowRecordRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * ServiceNow record payload.
+   * @type IncidentServiceNowRecordRequest
+   */
+  body: IncidentServiceNowRecordRequest;
+}
+
 export interface IncidentsApiCreateIncidentTodoRequest {
   /**
    * The UUID of the incident.
@@ -7437,6 +12277,57 @@ export interface IncidentsApiCreateIncidentUserDefinedFieldRequest {
   include?: string;
 }
 
+export interface IncidentsApiCreateIncidentUserDefinedRoleRequest {
+  /**
+   * @type IncidentUserDefinedRoleRequest
+   */
+  body: IncidentUserDefinedRoleRequest;
+  /**
+   * Comma-separated list of related resources to include in the response.
+   * @type string
+   */
+  include?: string;
+}
+
+export interface IncidentsApiCreateOnCallPageFromIncidentRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * On-call page creation payload.
+   * @type IncidentCreateOnCallPageRequest
+   */
+  body: IncidentCreateOnCallPageRequest;
+}
+
+export interface IncidentsApiCreatePageFromIncidentRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * Page creation payload.
+   * @type IncidentCreatePageFromIncidentRequest
+   */
+  body: IncidentCreatePageFromIncidentRequest;
+}
+
+export interface IncidentsApiCreateTimestampOverrideRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * Timestamp override payload.
+   * @type IncidentTimestampOverrideRequest
+   */
+  body: IncidentTimestampOverrideRequest;
+}
+
 export interface IncidentsApiDeleteIncidentRequest {
   /**
    * The UUID of the incident.
@@ -7469,6 +12360,14 @@ export interface IncidentsApiDeleteIncidentImpactRequest {
    * @type string
    */
   impactId: string;
+}
+
+export interface IncidentsApiDeleteIncidentImpactFieldRequest {
+  /**
+   * The UUID of the impact field.
+   * @type string
+   */
+  fieldId: string;
 }
 
 export interface IncidentsApiDeleteIncidentIntegrationRequest {
@@ -7518,6 +12417,27 @@ export interface IncidentsApiDeleteIncidentPostmortemTemplateRequest {
   templateId: string;
 }
 
+export interface IncidentsApiDeleteIncidentResponderRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * The UUID of the incident responder.
+   * @type string
+   */
+  responderId: string;
+}
+
+export interface IncidentsApiDeleteIncidentRuleRequest {
+  /**
+   * The UUID of the incident rule.
+   * @type string
+   */
+  ruleId: string;
+}
+
 export interface IncidentsApiDeleteIncidentTodoRequest {
   /**
    * The UUID of the incident.
@@ -7547,6 +12467,27 @@ export interface IncidentsApiDeleteIncidentUserDefinedFieldRequest {
   fieldId: string;
 }
 
+export interface IncidentsApiDeleteIncidentUserDefinedRoleRequest {
+  /**
+   * The UUID of the incident user-defined role.
+   * @type string
+   */
+  roleId: string;
+}
+
+export interface IncidentsApiDeleteTimestampOverrideRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * The UUID of the timestamp override.
+   * @type string
+   */
+  id: string;
+}
+
 export interface IncidentsApiGetIncidentRequest {
   /**
    * The UUID of the incident.
@@ -7558,6 +12499,14 @@ export interface IncidentsApiGetIncidentRequest {
    * @type Array<IncidentRelatedObject>
    */
   include?: Array<IncidentRelatedObject>;
+}
+
+export interface IncidentsApiGetIncidentAIPostmortemRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
 }
 
 export interface IncidentsApiGetIncidentIntegrationRequest {
@@ -7607,6 +12556,27 @@ export interface IncidentsApiGetIncidentPostmortemTemplateRequest {
   templateId: string;
 }
 
+export interface IncidentsApiGetIncidentResponderRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * The UUID of the incident responder.
+   * @type string
+   */
+  responderId: string;
+}
+
+export interface IncidentsApiGetIncidentRuleRequest {
+  /**
+   * The UUID of the incident rule.
+   * @type string
+   */
+  ruleId: string;
+}
+
 export interface IncidentsApiGetIncidentTodoRequest {
   /**
    * The UUID of the incident.
@@ -7641,6 +12611,32 @@ export interface IncidentsApiGetIncidentUserDefinedFieldRequest {
   include?: string;
 }
 
+export interface IncidentsApiGetIncidentUserDefinedRoleRequest {
+  /**
+   * The UUID of the incident user-defined role.
+   * @type string
+   */
+  roleId: string;
+  /**
+   * Comma-separated list of related resources to include in the response.
+   * @type string
+   */
+  include?: string;
+}
+
+export interface IncidentsApiGetOrgSettingsByIncidentTypeRequest {
+  /**
+   * The UUID of the incident type.
+   * @type string
+   */
+  incidentTypeId: string;
+  /**
+   * Comma-separated list of related resources to include in the response.
+   * @type string
+   */
+  include?: string;
+}
+
 export interface IncidentsApiImportIncidentRequest {
   /**
    * Incident import payload.
@@ -7652,6 +12648,19 @@ export interface IncidentsApiImportIncidentRequest {
    * @type Array<IncidentImportRelatedObject>
    */
   include?: Array<IncidentImportRelatedObject>;
+}
+
+export interface IncidentsApiLinkPageToIncidentRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * On-call page link payload.
+   * @type IncidentOnCallPageLinkRequest
+   */
+  body: IncidentOnCallPageLinkRequest;
 }
 
 export interface IncidentsApiListGlobalIncidentHandlesRequest {
@@ -7722,6 +12731,32 @@ export interface IncidentsApiListIncidentNotificationTemplatesRequest {
   include?: string;
 }
 
+export interface IncidentsApiListIncidentRespondersRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+}
+
+export interface IncidentsApiListIncidentRulesRequest {
+  /**
+   * Filter rules by task ID.
+   * @type string
+   */
+  filterTaskId?: string;
+  /**
+   * Filter rules by trigger.
+   * @type string
+   */
+  filterTrigger?: string;
+  /**
+   * Filter rules by incident type UUID.
+   * @type string
+   */
+  incidentTypeUuid?: string;
+}
+
 export interface IncidentsApiListIncidentsRequest {
   /**
    * Specifies which types of related objects should be included in the response.
@@ -7782,6 +12817,73 @@ export interface IncidentsApiListIncidentUserDefinedFieldsRequest {
    * @type string
    */
   include?: string;
+}
+
+export interface IncidentsApiListIncidentUserDefinedRolesRequest {
+  /**
+   * Filter roles by incident type UUID.
+   * @type string
+   */
+  filterIncidentType?: string;
+  /**
+   * Comma-separated list of related resources to include in the response.
+   * @type string
+   */
+  include?: string;
+}
+
+export interface IncidentsApiListOrgSettingsRequest {
+  /**
+   * Maximum number of results to return.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * The offset for pagination.
+   * @type number
+   */
+  pageOffset?: number;
+  /**
+   * Whether to include deleted records.
+   * @type boolean
+   */
+  includeDeleted?: boolean;
+  /**
+   * Comma-separated list of related resources to include in the response.
+   * @type string
+   */
+  include?: string;
+}
+
+export interface IncidentsApiListTimestampOverridesRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+}
+
+export interface IncidentsApiPatchIncidentImpactRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * The UUID of the incident impact.
+   * @type string
+   */
+  impactId: string;
+  /**
+   * Incident impact patch payload.
+   * @type IncidentImpactCreateRequest
+   */
+  body: IncidentImpactCreateRequest;
+  /**
+   * Specifies which related resources should be included in the response.
+   * @type Array<IncidentImpactRelatedObject>
+   */
+  include?: Array<IncidentImpactRelatedObject>;
 }
 
 export interface IncidentsApiSearchIncidentsRequest {
@@ -7873,6 +12975,81 @@ export interface IncidentsApiUpdateIncidentAttachmentRequest {
   include?: string;
 }
 
+export interface IncidentsApiUpdateIncidentConfigurationRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * Incident configuration patch payload.
+   * @type IncidentConfigurationPatchRequest
+   */
+  body: IncidentConfigurationPatchRequest;
+}
+
+export interface IncidentsApiUpdateIncidentGoogleChatConfigurationRequest {
+  /**
+   * The UUID of the Google Chat configuration.
+   * @type string
+   */
+  id: string;
+  /**
+   * Google Chat configuration patch payload.
+   * @type IncidentGoogleChatConfigurationPatchRequest
+   */
+  body: IncidentGoogleChatConfigurationPatchRequest;
+}
+
+export interface IncidentsApiUpdateIncidentGoogleMeetConfigurationRequest {
+  /**
+   * The UUID of the Google Meet configuration.
+   * @type string
+   */
+  id: string;
+  /**
+   * Google Meet configuration patch payload.
+   * @type IncidentGoogleMeetConfigurationPatchRequest
+   */
+  body: IncidentGoogleMeetConfigurationPatchRequest;
+}
+
+export interface IncidentsApiUpdateIncidentImpactRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * The UUID of the incident impact.
+   * @type string
+   */
+  impactId: string;
+  /**
+   * Incident impact payload.
+   * @type IncidentImpactCreateRequest
+   */
+  body: IncidentImpactCreateRequest;
+  /**
+   * Specifies which related resources should be included in the response.
+   * @type Array<IncidentImpactRelatedObject>
+   */
+  include?: Array<IncidentImpactRelatedObject>;
+}
+
+export interface IncidentsApiUpdateIncidentImpactFieldRequest {
+  /**
+   * The UUID of the impact field.
+   * @type string
+   */
+  fieldId: string;
+  /**
+   * Impact field update payload.
+   * @type IncidentImpactFieldRequest
+   */
+  body: IncidentImpactFieldRequest;
+}
+
 export interface IncidentsApiUpdateIncidentIntegrationRequest {
   /**
    * The UUID of the incident.
@@ -7937,6 +13114,19 @@ export interface IncidentsApiUpdateIncidentPostmortemTemplateRequest {
   body: PostmortemTemplateRequest;
 }
 
+export interface IncidentsApiUpdateIncidentRuleRequest {
+  /**
+   * The UUID of the incident rule.
+   * @type string
+   */
+  ruleId: string;
+  /**
+   * Incident rule patch payload.
+   * @type IncidentRulePatchRequest
+   */
+  body: IncidentRulePatchRequest;
+}
+
 export interface IncidentsApiUpdateIncidentTodoRequest {
   /**
    * The UUID of the incident.
@@ -7984,6 +13174,41 @@ export interface IncidentsApiUpdateIncidentUserDefinedFieldRequest {
    * @type string
    */
   include?: string;
+}
+
+export interface IncidentsApiUpdateIncidentUserDefinedRoleRequest {
+  /**
+   * The UUID of the incident user-defined role.
+   * @type string
+   */
+  roleId: string;
+  /**
+   * @type IncidentUserDefinedRolePatchRequest
+   */
+  body: IncidentUserDefinedRolePatchRequest;
+  /**
+   * Comma-separated list of related resources to include in the response.
+   * @type string
+   */
+  include?: string;
+}
+
+export interface IncidentsApiUpdateTimestampOverrideRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * The UUID of the timestamp override.
+   * @type string
+   */
+  id: string;
+  /**
+   * Timestamp override patch payload.
+   * @type IncidentTimestampOverridePatchRequest
+   */
+  body: IncidentTimestampOverridePatchRequest;
 }
 
 export class IncidentsApi {
@@ -8077,6 +13302,79 @@ export class IncidentsApi {
   }
 
   /**
+   * Create a configuration for an incident.
+   * @param param The request object
+   */
+  public createIncidentConfiguration(
+    param: IncidentsApiCreateIncidentConfigurationRequest,
+    options?: Configuration,
+  ): Promise<IncidentConfigurationResponse> {
+    const requestContextPromise =
+      this.requestFactory.createIncidentConfiguration(
+        param.incidentId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createIncidentConfiguration(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Create a Google Chat configuration for incidents.
+   * @param param The request object
+   */
+  public createIncidentGoogleChatConfiguration(
+    param: IncidentsApiCreateIncidentGoogleChatConfigurationRequest,
+    options?: Configuration,
+  ): Promise<IncidentGoogleChatConfigurationResponse> {
+    const requestContextPromise =
+      this.requestFactory.createIncidentGoogleChatConfiguration(
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createIncidentGoogleChatConfiguration(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Create a Google Meet configuration for incidents.
+   * @param param The request object
+   */
+  public createIncidentGoogleMeetConfiguration(
+    param: IncidentsApiCreateIncidentGoogleMeetConfigurationRequest,
+    options?: Configuration,
+  ): Promise<IncidentGoogleMeetConfigurationResponse> {
+    const requestContextPromise =
+      this.requestFactory.createIncidentGoogleMeetConfiguration(
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createIncidentGoogleMeetConfiguration(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Create an impact for an incident.
    * @param param The request object
    */
@@ -8095,6 +13393,29 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createIncidentImpact(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Create an impact field for incidents.
+   * @param param The request object
+   */
+  public createIncidentImpactField(
+    param: IncidentsApiCreateIncidentImpactFieldRequest,
+    options?: Configuration,
+  ): Promise<IncidentImpactFieldResponse> {
+    const requestContextPromise = this.requestFactory.createIncidentImpactField(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createIncidentImpactField(
+            responseContext,
+          );
         });
     });
   }
@@ -8219,6 +13540,76 @@ export class IncidentsApi {
   }
 
   /**
+   * Add a responder to an incident.
+   * @param param The request object
+   */
+  public createIncidentResponder(
+    param: IncidentsApiCreateIncidentResponderRequest,
+    options?: Configuration,
+  ): Promise<IncidentResponderResponse> {
+    const requestContextPromise = this.requestFactory.createIncidentResponder(
+      param.incidentId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createIncidentResponder(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Create an incident rule.
+   * @param param The request object
+   */
+  public createIncidentRule(
+    param: IncidentsApiCreateIncidentRuleRequest,
+    options?: Configuration,
+  ): Promise<IncidentRuleResponse> {
+    const requestContextPromise = this.requestFactory.createIncidentRule(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createIncidentRule(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Create a ServiceNow record for an incident.
+   * @param param The request object
+   */
+  public createIncidentServiceNowRecord(
+    param: IncidentsApiCreateIncidentServiceNowRecordRequest,
+    options?: Configuration,
+  ): Promise<IncidentIntegrationMetadataResponse> {
+    const requestContextPromise =
+      this.requestFactory.createIncidentServiceNowRecord(
+        param.incidentId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createIncidentServiceNowRecord(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Create an incident todo.
    * @param param The request object
    */
@@ -8280,6 +13671,102 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createIncidentUserDefinedField(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Create a new user-defined role for incidents.
+   * @param param The request object
+   */
+  public createIncidentUserDefinedRole(
+    param: IncidentsApiCreateIncidentUserDefinedRoleRequest,
+    options?: Configuration,
+  ): Promise<IncidentUserDefinedRoleResponse> {
+    const requestContextPromise =
+      this.requestFactory.createIncidentUserDefinedRole(
+        param.body,
+        param.include,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createIncidentUserDefinedRole(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Create an on-call page directly from an incident.
+   * @param param The request object
+   */
+  public createOnCallPageFromIncident(
+    param: IncidentsApiCreateOnCallPageFromIncidentRequest,
+    options?: Configuration,
+  ): Promise<IncidentPageUUIDResponse> {
+    const requestContextPromise =
+      this.requestFactory.createOnCallPageFromIncident(
+        param.incidentId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createOnCallPageFromIncident(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Create a page from an incident using the Cases service.
+   * @param param The request object
+   */
+  public createPageFromIncident(
+    param: IncidentsApiCreatePageFromIncidentRequest,
+    options?: Configuration,
+  ): Promise<IncidentPageUUIDResponse> {
+    const requestContextPromise = this.requestFactory.createPageFromIncident(
+      param.incidentId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createPageFromIncident(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Create a timestamp override for an incident.
+   * @param param The request object
+   */
+  public createTimestampOverride(
+    param: IncidentsApiCreateTimestampOverrideRequest,
+    options?: Configuration,
+  ): Promise<IncidentTimestampOverrideResponse> {
+    const requestContextPromise = this.requestFactory.createTimestampOverride(
+      param.incidentId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createTimestampOverride(
             responseContext,
           );
         });
@@ -8366,6 +13853,29 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteIncidentImpact(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete an impact field for incidents.
+   * @param param The request object
+   */
+  public deleteIncidentImpactField(
+    param: IncidentsApiDeleteIncidentImpactFieldRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteIncidentImpactField(
+      param.fieldId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteIncidentImpactField(
+            responseContext,
+          );
         });
     });
   }
@@ -8469,6 +13979,51 @@ export class IncidentsApi {
   }
 
   /**
+   * Remove a responder from an incident.
+   * @param param The request object
+   */
+  public deleteIncidentResponder(
+    param: IncidentsApiDeleteIncidentResponderRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteIncidentResponder(
+      param.incidentId,
+      param.responderId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteIncidentResponder(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete an incident rule.
+   * @param param The request object
+   */
+  public deleteIncidentRule(
+    param: IncidentsApiDeleteIncidentRuleRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteIncidentRule(
+      param.ruleId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteIncidentRule(responseContext);
+        });
+    });
+  }
+
+  /**
    * Delete an incident todo.
    * @param param The request object
    */
@@ -8536,6 +14091,51 @@ export class IncidentsApi {
   }
 
   /**
+   * Delete an existing user-defined role for incidents.
+   * @param param The request object
+   */
+  public deleteIncidentUserDefinedRole(
+    param: IncidentsApiDeleteIncidentUserDefinedRoleRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteIncidentUserDefinedRole(param.roleId, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteIncidentUserDefinedRole(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete a timestamp override for an incident.
+   * @param param The request object
+   */
+  public deleteTimestampOverride(
+    param: IncidentsApiDeleteTimestampOverrideRequest,
+    options?: Configuration,
+  ): Promise<IncidentTimestampOverrideResponse> {
+    const requestContextPromise = this.requestFactory.deleteTimestampOverride(
+      param.incidentId,
+      param.id,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteTimestampOverride(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Retrieve global incident settings for the organization.
    * @param param The request object
    */
@@ -8573,6 +14173,29 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getIncident(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Generate an AI postmortem for an incident.
+   * @param param The request object
+   */
+  public getIncidentAIPostmortem(
+    param: IncidentsApiGetIncidentAIPostmortemRequest,
+    options?: Configuration,
+  ): Promise<IncidentAIPostmortemResponse> {
+    const requestContextPromise = this.requestFactory.getIncidentAIPostmortem(
+      param.incidentId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getIncidentAIPostmortem(
+            responseContext,
+          );
         });
     });
   }
@@ -8674,6 +14297,49 @@ export class IncidentsApi {
   }
 
   /**
+   * Get a single responder for an incident.
+   * @param param The request object
+   */
+  public getIncidentResponder(
+    param: IncidentsApiGetIncidentResponderRequest,
+    options?: Configuration,
+  ): Promise<IncidentResponderResponse> {
+    const requestContextPromise = this.requestFactory.getIncidentResponder(
+      param.incidentId,
+      param.responderId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getIncidentResponder(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a single incident rule by ID.
+   * @param param The request object
+   */
+  public getIncidentRule(
+    param: IncidentsApiGetIncidentRuleRequest,
+    options?: Configuration,
+  ): Promise<IncidentRuleResponse> {
+    const requestContextPromise = this.requestFactory.getIncidentRule(
+      param.ruleId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getIncidentRule(responseContext);
+        });
+    });
+  }
+
+  /**
    * Get incident todo details.
    * @param param The request object
    */
@@ -8742,6 +14408,56 @@ export class IncidentsApi {
   }
 
   /**
+   * Retrieve a single user-defined role for incidents.
+   * @param param The request object
+   */
+  public getIncidentUserDefinedRole(
+    param: IncidentsApiGetIncidentUserDefinedRoleRequest,
+    options?: Configuration,
+  ): Promise<IncidentUserDefinedRoleResponse> {
+    const requestContextPromise =
+      this.requestFactory.getIncidentUserDefinedRole(
+        param.roleId,
+        param.include,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getIncidentUserDefinedRole(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Get the org settings for a specific incident type.
+   * @param param The request object
+   */
+  public getOrgSettingsByIncidentType(
+    param: IncidentsApiGetOrgSettingsByIncidentTypeRequest,
+    options?: Configuration,
+  ): Promise<IncidentOrgSettingsResponse> {
+    const requestContextPromise =
+      this.requestFactory.getOrgSettingsByIncidentType(
+        param.incidentTypeId,
+        param.include,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getOrgSettingsByIncidentType(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Import an incident from an external system. This endpoint allows you to create incidents with
    * historical data such as custom timestamps for detection, declaration, and resolution.
    * Imported incidents do not execute integrations or notification rules.
@@ -8761,6 +14477,28 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.importIncident(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Link an existing on-call page to an incident.
+   * @param param The request object
+   */
+  public linkPageToIncident(
+    param: IncidentsApiLinkPageToIncidentRequest,
+    options?: Configuration,
+  ): Promise<IncidentIntegrationMetadataResponse> {
+    const requestContextPromise = this.requestFactory.linkPageToIncident(
+      param.incidentId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.linkPageToIncident(responseContext);
         });
     });
   }
@@ -8807,6 +14545,26 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listIncidentAttachments(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * List all impact fields for incidents.
+   * @param param The request object
+   */
+  public listIncidentImpactFields(
+    options?: Configuration,
+  ): Promise<IncidentImpactFieldsResponse> {
+    const requestContextPromise =
+      this.requestFactory.listIncidentImpactFields(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listIncidentImpactFields(
             responseContext,
           );
         });
@@ -8920,6 +14678,50 @@ export class IncidentsApi {
           return this.responseProcessor.listIncidentPostmortemTemplates(
             responseContext,
           );
+        });
+    });
+  }
+
+  /**
+   * List all responders for an incident.
+   * @param param The request object
+   */
+  public listIncidentResponders(
+    param: IncidentsApiListIncidentRespondersRequest,
+    options?: Configuration,
+  ): Promise<IncidentRespondersResponse> {
+    const requestContextPromise = this.requestFactory.listIncidentResponders(
+      param.incidentId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listIncidentResponders(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List all incident rules.
+   * @param param The request object
+   */
+  public listIncidentRules(
+    param: IncidentsApiListIncidentRulesRequest = {},
+    options?: Configuration,
+  ): Promise<IncidentRulesResponse> {
+    const requestContextPromise = this.requestFactory.listIncidentRules(
+      param.filterTaskId,
+      param.filterTrigger,
+      param.incidentTypeUuid,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listIncidentRules(responseContext);
         });
     });
   }
@@ -9056,6 +14858,100 @@ export class IncidentsApi {
           return this.responseProcessor.listIncidentUserDefinedFields(
             responseContext,
           );
+        });
+    });
+  }
+
+  /**
+   * List all user-defined roles for incidents.
+   * @param param The request object
+   */
+  public listIncidentUserDefinedRoles(
+    param: IncidentsApiListIncidentUserDefinedRolesRequest = {},
+    options?: Configuration,
+  ): Promise<IncidentUserDefinedRolesResponse> {
+    const requestContextPromise =
+      this.requestFactory.listIncidentUserDefinedRoles(
+        param.filterIncidentType,
+        param.include,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listIncidentUserDefinedRoles(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * List org settings for all incident types.
+   * @param param The request object
+   */
+  public listOrgSettings(
+    param: IncidentsApiListOrgSettingsRequest = {},
+    options?: Configuration,
+  ): Promise<IncidentOrgSettingsListResponse> {
+    const requestContextPromise = this.requestFactory.listOrgSettings(
+      param.pageSize,
+      param.pageOffset,
+      param.includeDeleted,
+      param.include,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listOrgSettings(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List all timestamp overrides for an incident.
+   * @param param The request object
+   */
+  public listTimestampOverrides(
+    param: IncidentsApiListTimestampOverridesRequest,
+    options?: Configuration,
+  ): Promise<IncidentTimestampOverridesResponse> {
+    const requestContextPromise = this.requestFactory.listTimestampOverrides(
+      param.incidentId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listTimestampOverrides(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Partially update an incident impact.
+   * @param param The request object
+   */
+  public patchIncidentImpact(
+    param: IncidentsApiPatchIncidentImpactRequest,
+    options?: Configuration,
+  ): Promise<IncidentImpactResponse> {
+    const requestContextPromise = this.requestFactory.patchIncidentImpact(
+      param.incidentId,
+      param.impactId,
+      param.body,
+      param.include,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.patchIncidentImpact(responseContext);
         });
     });
   }
@@ -9233,6 +15129,129 @@ export class IncidentsApi {
   }
 
   /**
+   * Update a configuration for an incident.
+   * @param param The request object
+   */
+  public updateIncidentConfiguration(
+    param: IncidentsApiUpdateIncidentConfigurationRequest,
+    options?: Configuration,
+  ): Promise<IncidentConfigurationResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateIncidentConfiguration(
+        param.incidentId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateIncidentConfiguration(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Update a Google Chat configuration for incidents.
+   * @param param The request object
+   */
+  public updateIncidentGoogleChatConfiguration(
+    param: IncidentsApiUpdateIncidentGoogleChatConfigurationRequest,
+    options?: Configuration,
+  ): Promise<IncidentGoogleChatConfigurationResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateIncidentGoogleChatConfiguration(
+        param.id,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateIncidentGoogleChatConfiguration(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Update a Google Meet configuration for incidents.
+   * @param param The request object
+   */
+  public updateIncidentGoogleMeetConfiguration(
+    param: IncidentsApiUpdateIncidentGoogleMeetConfigurationRequest,
+    options?: Configuration,
+  ): Promise<IncidentGoogleMeetConfigurationResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateIncidentGoogleMeetConfiguration(
+        param.id,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateIncidentGoogleMeetConfiguration(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Update an incident impact.
+   * @param param The request object
+   */
+  public updateIncidentImpact(
+    param: IncidentsApiUpdateIncidentImpactRequest,
+    options?: Configuration,
+  ): Promise<IncidentImpactResponse> {
+    const requestContextPromise = this.requestFactory.updateIncidentImpact(
+      param.incidentId,
+      param.impactId,
+      param.body,
+      param.include,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateIncidentImpact(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update an impact field for incidents.
+   * @param param The request object
+   */
+  public updateIncidentImpactField(
+    param: IncidentsApiUpdateIncidentImpactFieldRequest,
+    options?: Configuration,
+  ): Promise<IncidentImpactFieldResponse> {
+    const requestContextPromise = this.requestFactory.updateIncidentImpactField(
+      param.fieldId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateIncidentImpactField(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Update an existing incident integration metadata.
    * @param param The request object
    */
@@ -9335,6 +15354,28 @@ export class IncidentsApi {
   }
 
   /**
+   * Update an incident rule.
+   * @param param The request object
+   */
+  public updateIncidentRule(
+    param: IncidentsApiUpdateIncidentRuleRequest,
+    options?: Configuration,
+  ): Promise<IncidentRuleResponse> {
+    const requestContextPromise = this.requestFactory.updateIncidentRule(
+      param.ruleId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateIncidentRule(responseContext);
+        });
+    });
+  }
+
+  /**
    * Update an incident todo.
    * @param param The request object
    */
@@ -9399,6 +15440,57 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateIncidentUserDefinedField(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Update an existing user-defined role for incidents.
+   * @param param The request object
+   */
+  public updateIncidentUserDefinedRole(
+    param: IncidentsApiUpdateIncidentUserDefinedRoleRequest,
+    options?: Configuration,
+  ): Promise<IncidentUserDefinedRoleResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateIncidentUserDefinedRole(
+        param.roleId,
+        param.body,
+        param.include,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateIncidentUserDefinedRole(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Update a timestamp override for an incident.
+   * @param param The request object
+   */
+  public updateTimestampOverride(
+    param: IncidentsApiUpdateTimestampOverrideRequest,
+    options?: Configuration,
+  ): Promise<IncidentTimestampOverrideResponse> {
+    const requestContextPromise = this.requestFactory.updateTimestampOverride(
+      param.incidentId,
+      param.id,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateTimestampOverride(
             responseContext,
           );
         });
