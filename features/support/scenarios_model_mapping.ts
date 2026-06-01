@@ -8893,6 +8893,70 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "GlobalIncidentSettingsResponse",
     },
+    "v2.CreateIncidentGoogleChatConfiguration": {
+        "body": {
+            "type": "IncidentGoogleChatConfigurationRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentGoogleChatConfigurationResponse",
+    },
+    "v2.UpdateIncidentGoogleChatConfiguration": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "IncidentGoogleChatConfigurationPatchRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentGoogleChatConfigurationResponse",
+    },
+    "v2.CreateIncidentGoogleMeetConfiguration": {
+        "body": {
+            "type": "IncidentGoogleMeetConfigurationRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentGoogleMeetConfigurationResponse",
+    },
+    "v2.UpdateIncidentGoogleMeetConfiguration": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "IncidentGoogleMeetConfigurationPatchRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentGoogleMeetConfigurationResponse",
+    },
+    "v2.ListIncidentImpactFields": {
+        "operationResponseType": "IncidentImpactFieldsResponse",
+    },
+    "v2.CreateIncidentImpactField": {
+        "body": {
+            "type": "IncidentImpactFieldRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentImpactFieldResponse",
+    },
+    "v2.UpdateIncidentImpactField": {
+        "fieldId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "IncidentImpactFieldRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentImpactFieldResponse",
+    },
+    "v2.DeleteIncidentImpactField": {
+        "fieldId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListIncidentNotificationRules": {
         "include": {
             "type": "string",
@@ -9034,6 +9098,53 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "PostmortemTemplateResponse",
     },
+    "v2.ListIncidentRules": {
+        "filterTaskId": {
+            "type": "string",
+            "format": "",
+            },
+        "filterTrigger": {
+            "type": "string",
+            "format": "",
+            },
+        "incidentTypeUuid": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "IncidentRulesResponse",
+    },
+    "v2.CreateIncidentRule": {
+        "body": {
+            "type": "IncidentRuleRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentRuleResponse",
+    },
+    "v2.GetIncidentRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "IncidentRuleResponse",
+    },
+    "v2.DeleteIncidentRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateIncidentRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "IncidentRulePatchRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentRuleResponse",
+    },
     "v2.ListIncidentTypes": {
         "includeDeleted": {
             "type": "boolean",
@@ -9047,6 +9158,25 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "IncidentTypeResponse",
+    },
+    "v2.ListOrgSettings": {
+        "pageSize": {
+            "type": "number",
+            "format": "",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "",
+            },
+        "includeDeleted": {
+            "type": "boolean",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentOrgSettingsListResponse",
     },
     "v2.GetIncidentType": {
         "incidentTypeId": {
@@ -9072,6 +9202,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "IncidentTypeResponse",
+    },
+    "v2.GetOrgSettingsByIncidentType": {
+        "incidentTypeId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentOrgSettingsResponse",
     },
     "v2.ListIncidentUserDefinedFields": {
         "pageSize": {
@@ -9140,6 +9281,61 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IncidentUserDefinedFieldResponse",
     },
+    "v2.ListIncidentUserDefinedRoles": {
+        "filterIncidentType": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentUserDefinedRolesResponse",
+    },
+    "v2.CreateIncidentUserDefinedRole": {
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentUserDefinedRoleRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentUserDefinedRoleResponse",
+    },
+    "v2.GetIncidentUserDefinedRole": {
+        "roleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentUserDefinedRoleResponse",
+    },
+    "v2.DeleteIncidentUserDefinedRole": {
+        "roleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateIncidentUserDefinedRole": {
+        "roleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentUserDefinedRolePatchRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentUserDefinedRoleResponse",
+    },
     "v2.ImportIncident": {
         "include": {
             "type": "Array<IncidentImportRelatedObject>",
@@ -9206,6 +9402,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "IncidentResponse",
+    },
+    "v2.GetIncidentAIPostmortem": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentAIPostmortemResponse",
     },
     "v2.ListIncidentAttachments": {
         "incidentId": {
@@ -9278,6 +9481,39 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "Attachment",
     },
+    "v2.CreatePageFromIncident": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentCreatePageFromIncidentRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentPageUUIDResponse",
+    },
+    "v2.CreateIncidentConfiguration": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentConfigurationRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentConfigurationResponse",
+    },
+    "v2.UpdateIncidentConfiguration": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentConfigurationPatchRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentConfigurationResponse",
+    },
     "v2.ListIncidentImpacts": {
         "incidentId": {
             "type": "string",
@@ -9304,6 +9540,25 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IncidentImpactResponse",
     },
+    "v2.UpdateIncidentImpact": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "impactId": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "Array<IncidentImpactRelatedObject>",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentImpactCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentImpactResponse",
+    },
     "v2.DeleteIncidentImpact": {
         "incidentId": {
             "type": "string",
@@ -9314,6 +9569,47 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "{}",
+    },
+    "v2.PatchIncidentImpact": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "impactId": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "Array<IncidentImpactRelatedObject>",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentImpactCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentImpactResponse",
+    },
+    "v2.CreateOnCallPageFromIncident": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentCreateOnCallPageRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentPageUUIDResponse",
+    },
+    "v2.LinkPageToIncident": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentOnCallPageLinkRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentIntegrationMetadataResponse",
     },
     "v2.ListIncidentIntegrations": {
         "incidentId": {
@@ -9424,6 +9720,101 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "IncidentTodoResponse",
+    },
+    "v2.ListIncidentResponders": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentRespondersResponse",
+    },
+    "v2.CreateIncidentResponder": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentResponderRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentResponderResponse",
+    },
+    "v2.GetIncidentResponder": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "responderId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "IncidentResponderResponse",
+    },
+    "v2.DeleteIncidentResponder": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "responderId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.CreateIncidentServiceNowRecord": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentServiceNowRecordRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentIntegrationMetadataResponse",
+    },
+    "v2.ListTimestampOverrides": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentTimestampOverridesResponse",
+    },
+    "v2.CreateTimestampOverride": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentTimestampOverrideRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentTimestampOverrideResponse",
+    },
+    "v2.DeleteTimestampOverride": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "IncidentTimestampOverrideResponse",
+    },
+    "v2.UpdateTimestampOverride": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "IncidentTimestampOverridePatchRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentTimestampOverrideResponse",
     },
     "v2.ListAWSAccounts": {
         "awsAccountId": {

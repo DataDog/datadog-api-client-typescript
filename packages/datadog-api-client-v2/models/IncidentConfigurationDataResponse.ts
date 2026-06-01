@@ -1,0 +1,83 @@
+/**
+ * Unless explicitly stated otherwise all files in this repository are licensed under the Apache-2.0 License.
+ * This product includes software developed at Datadog (https://www.datadoghq.com/).
+ * Copyright 2020-Present Datadog, Inc.
+ */
+import { IncidentConfigurationDataAttributesResponse } from "./IncidentConfigurationDataAttributesResponse";
+import { IncidentConfigurationRelationships } from "./IncidentConfigurationRelationships";
+import { IncidentConfigurationType } from "./IncidentConfigurationType";
+
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+/**
+ * Incident configuration data in a response.
+ */
+export class IncidentConfigurationDataResponse {
+  /**
+   * Attributes of an incident configuration in a response.
+   */
+  "attributes": IncidentConfigurationDataAttributesResponse;
+  /**
+   * The incident configuration identifier.
+   */
+  "id": string;
+  /**
+   * Relationships for an incident configuration.
+   */
+  "relationships"?: IncidentConfigurationRelationships;
+  /**
+   * Incident configuration resource type.
+   */
+  "type": IncidentConfigurationType;
+
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    attributes: {
+      baseName: "attributes",
+      type: "IncidentConfigurationDataAttributesResponse",
+      required: true,
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
+      format: "uuid",
+    },
+    relationships: {
+      baseName: "relationships",
+      type: "IncidentConfigurationRelationships",
+    },
+    type: {
+      baseName: "type",
+      type: "IncidentConfigurationType",
+      required: true,
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return IncidentConfigurationDataResponse.attributeTypeMap;
+  }
+
+  public constructor() {}
+}
