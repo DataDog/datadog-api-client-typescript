@@ -30,6 +30,7 @@ import { BatchUpsertRowsRequestArray } from "./models/BatchUpsertRowsRequestArra
 import { CreateTableRequest } from "./models/CreateTableRequest";
 import { CreateUploadRequest } from "./models/CreateUploadRequest";
 import { CreateUploadResponse } from "./models/CreateUploadResponse";
+import { ListRowsResponse } from "./models/ListRowsResponse";
 import { PatchTableRequest } from "./models/PatchTableRequest";
 import { ReferenceTableSortType } from "./models/ReferenceTableSortType";
 import { TableResultV2 } from "./models/TableResultV2";
@@ -397,6 +398,70 @@ export class ReferenceTablesApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listReferenceTableRows(
+    id: string,
+    pageLimit?: number,
+    pageContinuationToken?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "listReferenceTableRows");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/reference-tables/tables/{id}/rows/list".replace(
+        "{id}",
+        encodeURIComponent(String(id)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ReferenceTablesApi.v2.listReferenceTableRows",
+      ReferenceTablesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (pageLimit !== undefined) {
+      requestContext.setQueryParam(
+        "page[limit]",
+        serialize(pageLimit, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageContinuationToken !== undefined) {
+      requestContext.setQueryParam(
+        "page[continuation_token]",
+        serialize(pageContinuationToken, TypingInfo, "string", ""),
+        "",
+      );
     }
 
     // Apply auth methods
@@ -1017,6 +1082,67 @@ export class ReferenceTablesApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listReferenceTableRows
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listReferenceTableRows(
+    response: ResponseContext,
+  ): Promise<ListRowsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ListRowsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ListRowsResponse",
+      ) as ListRowsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ListRowsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ListRowsResponse",
+        "",
+      ) as ListRowsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listTables
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1226,6 +1352,24 @@ export interface ReferenceTablesApiGetTableRequest {
    * @type string
    */
   id: string;
+}
+
+export interface ReferenceTablesApiListReferenceTableRowsRequest {
+  /**
+   * Unique identifier of the reference table to list rows from.
+   * @type string
+   */
+  id: string;
+  /**
+   * Number of rows to return per page. Defaults to 100, maximum is 1000.
+   * @type number
+   */
+  pageLimit?: number;
+  /**
+   * Opaque cursor from the previous response's next link. Pass this to retrieve the next page on the same consistent snapshot.
+   * @type string
+   */
+  pageContinuationToken?: string;
 }
 
 export interface ReferenceTablesApiListTablesRequest {
@@ -1454,6 +1598,29 @@ export class ReferenceTablesApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getTable(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List all rows in a reference table using cursor-based pagination. Pass the `page[continuation_token]` from the previous response to fetch the next page on the same consistent snapshot. Returns 400 for tables with more than 10,000,000 rows.
+   * @param param The request object
+   */
+  public listReferenceTableRows(
+    param: ReferenceTablesApiListReferenceTableRowsRequest,
+    options?: Configuration,
+  ): Promise<ListRowsResponse> {
+    const requestContextPromise = this.requestFactory.listReferenceTableRows(
+      param.id,
+      param.pageLimit,
+      param.pageContinuationToken,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listReferenceTableRows(responseContext);
         });
     });
   }

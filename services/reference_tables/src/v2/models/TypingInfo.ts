@@ -29,6 +29,8 @@ import { CreateUploadRequestDataAttributes } from "./CreateUploadRequestDataAttr
 import { CreateUploadResponse } from "./CreateUploadResponse";
 import { CreateUploadResponseData } from "./CreateUploadResponseData";
 import { CreateUploadResponseDataAttributes } from "./CreateUploadResponseDataAttributes";
+import { ListRowsResponse } from "./ListRowsResponse";
+import { ListRowsResponseLinks } from "./ListRowsResponseLinks";
 import { PatchTableRequest } from "./PatchTableRequest";
 import { PatchTableRequestData } from "./PatchTableRequestData";
 import { PatchTableRequestDataAttributes } from "./PatchTableRequestDataAttributes";
@@ -148,6 +150,8 @@ export const TypingInfo: ModelTypingInfo = {
     CreateUploadResponse: CreateUploadResponse,
     CreateUploadResponseData: CreateUploadResponseData,
     CreateUploadResponseDataAttributes: CreateUploadResponseDataAttributes,
+    ListRowsResponse: ListRowsResponse,
+    ListRowsResponseLinks: ListRowsResponseLinks,
     PatchTableRequest: PatchTableRequest,
     PatchTableRequestData: PatchTableRequestData,
     PatchTableRequestDataAttributes: PatchTableRequestDataAttributes,

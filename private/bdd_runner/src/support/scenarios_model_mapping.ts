@@ -12299,6 +12299,21 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "ReferenceTablesApi.V2.ListReferenceTableRows": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    pageLimit: {
+      type: "number",
+      format: "int64",
+    },
+    pageContinuationToken: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ListRowsResponse",
+  },
   "ReferenceTablesApi.V2.CreateReferenceTableUpload": {
     body: {
       type: "CreateUploadRequest",

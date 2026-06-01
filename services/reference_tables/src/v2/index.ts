@@ -6,6 +6,7 @@ export {
   ReferenceTablesApiDeleteTableRequest,
   ReferenceTablesApiGetRowsByIDRequest,
   ReferenceTablesApiGetTableRequest,
+  ReferenceTablesApiListReferenceTableRowsRequest,
   ReferenceTablesApiListTablesRequest,
   ReferenceTablesApiUpdateReferenceTableRequest,
   ReferenceTablesApiUpsertRowsRequest,
@@ -47,6 +48,8 @@ export { CreateUploadResponse } from "./models/CreateUploadResponse";
 export { CreateUploadResponseData } from "./models/CreateUploadResponseData";
 export { CreateUploadResponseDataAttributes } from "./models/CreateUploadResponseDataAttributes";
 export { CreateUploadResponseDataType } from "./models/CreateUploadResponseDataType";
+export { ListRowsResponse } from "./models/ListRowsResponse";
+export { ListRowsResponseLinks } from "./models/ListRowsResponseLinks";
 export { PatchTableRequest } from "./models/PatchTableRequest";
 export { PatchTableRequestData } from "./models/PatchTableRequestData";
 export { PatchTableRequestDataAttributes } from "./models/PatchTableRequestDataAttributes";
