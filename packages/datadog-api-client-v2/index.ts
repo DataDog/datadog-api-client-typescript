@@ -1040,6 +1040,7 @@ export {
   ReferenceTablesApiDeleteTableRequest,
   ReferenceTablesApiGetRowsByIDRequest,
   ReferenceTablesApiGetTableRequest,
+  ReferenceTablesApiListReferenceTableRowsRequest,
   ReferenceTablesApiListTablesRequest,
   ReferenceTablesApiUpdateReferenceTableRequest,
   ReferenceTablesApiUpsertRowsRequest,
@@ -4274,6 +4275,8 @@ export { ListPipelinesResponseMeta } from "./models/ListPipelinesResponseMeta";
 export { ListPowerpacksResponse } from "./models/ListPowerpacksResponse";
 export { ListRelationCatalogResponse } from "./models/ListRelationCatalogResponse";
 export { ListRelationCatalogResponseLinks } from "./models/ListRelationCatalogResponseLinks";
+export { ListRowsResponse } from "./models/ListRowsResponse";
+export { ListRowsResponseLinks } from "./models/ListRowsResponseLinks";
 export { ListRulesResponse } from "./models/ListRulesResponse";
 export { ListRulesResponseDataItem } from "./models/ListRulesResponseDataItem";
 export { ListRulesResponseLinks } from "./models/ListRulesResponseLinks";
