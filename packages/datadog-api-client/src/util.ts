@@ -27,8 +27,8 @@ export const isBrowser: boolean =
 
 export const isNode: boolean =
   typeof process !== "undefined" &&
-  process.release &&
-  process.release.name === "node";
+  process.versions != null &&
+  process.versions.node != null;
 
 export class DDate extends Date {
   originalDate: string | undefined;
@@ -62,8 +62,8 @@ export function buildUserAgent(
 
   if (
     typeof process !== "undefined" &&
-    process.release &&
-    process.release.name === "node"
+    process.versions != null &&
+    process.versions.node != null
   ) {
     userAgent = `datadog-api-client-${clientName}/${clientVersion} (datadog-api-client ${version}; typescript; node ${process.versions.node}; os ${process.platform}; arch ${process.arch})`;
   }
