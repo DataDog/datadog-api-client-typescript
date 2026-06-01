@@ -19,8 +19,8 @@ export const isBrowser: boolean =
 
 export const isNode: boolean =
   typeof process !== "undefined" &&
-  process.release &&
-  process.release.name === "node";
+  process.versions != null &&
+  process.versions.node != null;
 
 export class DDate extends Date {
   originalDate: string | undefined;
