@@ -2,6 +2,7 @@ export {
   SecurityMonitoringApiActivateContentPackRequest,
   SecurityMonitoringApiAttachCaseRequest,
   SecurityMonitoringApiAttachJiraIssueRequest,
+  SecurityMonitoringApiAttachServiceNowTicketRequest,
   SecurityMonitoringApiBatchGetSecurityMonitoringDatasetDependenciesRequest,
   SecurityMonitoringApiBulkConvertExistingSecurityMonitoringRulesRequest,
   SecurityMonitoringApiBulkCreateSampleLogGenerationSubscriptionsRequest,
@@ -26,6 +27,7 @@ export {
   SecurityMonitoringApiCreateSecurityMonitoringIntegrationConfigRequest,
   SecurityMonitoringApiCreateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiCreateSecurityMonitoringSuppressionRequest,
+  SecurityMonitoringApiCreateServiceNowTicketsRequest,
   SecurityMonitoringApiCreateSignalNotificationRuleRequest,
   SecurityMonitoringApiCreateStaticAnalysisAstRequest,
   SecurityMonitoringApiCreateStaticAnalysisServerAnalysisRequest,
@@ -107,6 +109,7 @@ export {
   SecurityMonitoringApiTestExistingSecurityMonitoringRuleRequest,
   SecurityMonitoringApiTestSecurityMonitoringRuleRequest,
   SecurityMonitoringApiUpdateCustomFrameworkRequest,
+  SecurityMonitoringApiUpdateFindingsAssigneeRequest,
   SecurityMonitoringApiUpdateResourceEvaluationFiltersRequest,
   SecurityMonitoringApiUpdateSecurityFilterRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringCriticalAssetRequest,
@@ -145,6 +148,16 @@ export { AssetOperatingSystem } from "./models/AssetOperatingSystem";
 export { AssetRisks } from "./models/AssetRisks";
 export { AssetType } from "./models/AssetType";
 export { AssetVersion } from "./models/AssetVersion";
+export { AssigneeDataType } from "./models/AssigneeDataType";
+export { AssigneeRequest } from "./models/AssigneeRequest";
+export { AssigneeRequestData } from "./models/AssigneeRequestData";
+export { AssigneeRequestDataAttributes } from "./models/AssigneeRequestDataAttributes";
+export { AssigneeRequestDataRelationships } from "./models/AssigneeRequestDataRelationships";
+export { AssigneeResponse } from "./models/AssigneeResponse";
+export { AssigneeResponseData } from "./models/AssigneeResponseData";
+export { AssigneeResponseDataAttributes } from "./models/AssigneeResponseDataAttributes";
+export { AssigneeResponseMeta } from "./models/AssigneeResponseMeta";
+export { AssignmentResult } from "./models/AssignmentResult";
 export { AttachCaseRequest } from "./models/AttachCaseRequest";
 export { AttachCaseRequestData } from "./models/AttachCaseRequestData";
 export { AttachCaseRequestDataRelationships } from "./models/AttachCaseRequestDataRelationships";
@@ -152,6 +165,10 @@ export { AttachJiraIssueRequest } from "./models/AttachJiraIssueRequest";
 export { AttachJiraIssueRequestData } from "./models/AttachJiraIssueRequestData";
 export { AttachJiraIssueRequestDataAttributes } from "./models/AttachJiraIssueRequestDataAttributes";
 export { AttachJiraIssueRequestDataRelationships } from "./models/AttachJiraIssueRequestDataRelationships";
+export { AttachServiceNowTicketRequest } from "./models/AttachServiceNowTicketRequest";
+export { AttachServiceNowTicketRequestData } from "./models/AttachServiceNowTicketRequestData";
+export { AttachServiceNowTicketRequestDataAttributes } from "./models/AttachServiceNowTicketRequestDataAttributes";
+export { AttachServiceNowTicketRequestDataRelationships } from "./models/AttachServiceNowTicketRequestDataRelationships";
 export { BulkMuteFindingsRequest } from "./models/BulkMuteFindingsRequest";
 export { BulkMuteFindingsRequestAttributes } from "./models/BulkMuteFindingsRequestAttributes";
 export { BulkMuteFindingsRequestData } from "./models/BulkMuteFindingsRequestData";
@@ -194,6 +211,10 @@ export { CreateJiraIssueRequestDataRelationships } from "./models/CreateJiraIssu
 export { CreateNotificationRuleParameters } from "./models/CreateNotificationRuleParameters";
 export { CreateNotificationRuleParametersData } from "./models/CreateNotificationRuleParametersData";
 export { CreateNotificationRuleParametersDataAttributes } from "./models/CreateNotificationRuleParametersDataAttributes";
+export { CreateServiceNowTicketRequestArray } from "./models/CreateServiceNowTicketRequestArray";
+export { CreateServiceNowTicketRequestData } from "./models/CreateServiceNowTicketRequestData";
+export { CreateServiceNowTicketRequestDataAttributes } from "./models/CreateServiceNowTicketRequestDataAttributes";
+export { CreateServiceNowTicketRequestDataRelationships } from "./models/CreateServiceNowTicketRequestDataRelationships";
 export { CustomFrameworkControl } from "./models/CustomFrameworkControl";
 export { CustomFrameworkData } from "./models/CustomFrameworkData";
 export { CustomFrameworkDataAttributes } from "./models/CustomFrameworkDataAttributes";
@@ -238,6 +259,8 @@ export { FindingMute } from "./models/FindingMute";
 export { FindingMuteReason } from "./models/FindingMuteReason";
 export { FindingRule } from "./models/FindingRule";
 export { Findings } from "./models/Findings";
+export { FindingServiceNowTicket } from "./models/FindingServiceNowTicket";
+export { FindingServiceNowTicketResult } from "./models/FindingServiceNowTicketResult";
 export { FindingStatus } from "./models/FindingStatus";
 export { FindingType } from "./models/FindingType";
 export { FindingVulnerabilityType } from "./models/FindingVulnerabilityType";
@@ -657,6 +680,7 @@ export { SecurityMonitoringThirdPartyRuleCaseCreate } from "./models/SecurityMon
 export { SecurityMonitoringTriageUser } from "./models/SecurityMonitoringTriageUser";
 export { SecurityMonitoringUser } from "./models/SecurityMonitoringUser";
 export { Selectors } from "./models/Selectors";
+export { ServiceNowTicketsDataType } from "./models/ServiceNowTicketsDataType";
 export { SignalEntitiesAttributes } from "./models/SignalEntitiesAttributes";
 export { SignalEntitiesData } from "./models/SignalEntitiesData";
 export { SignalEntitiesResponse } from "./models/SignalEntitiesResponse";
