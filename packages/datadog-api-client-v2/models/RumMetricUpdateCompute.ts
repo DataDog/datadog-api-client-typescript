@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The compute rule to compute the rum-based metric.
+ * The compute rule to compute the RUM-based metric.
  */
 export class RumMetricUpdateCompute {
   /**

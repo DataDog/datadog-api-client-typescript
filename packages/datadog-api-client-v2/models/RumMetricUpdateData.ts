@@ -9,15 +9,15 @@ import { RumMetricUpdateAttributes } from "./RumMetricUpdateAttributes";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The new rum-based metric properties.
+ * The new RUM-based metric properties.
  */
 export class RumMetricUpdateData {
   /**
-   * The rum-based metric properties that will be updated.
+   * The RUM-based metric properties that will be updated.
    */
   "attributes": RumMetricUpdateAttributes;
   /**
-   * The name of the rum-based metric.
+   * The name of the RUM-based metric.
    */
   "id"?: string;
   /**

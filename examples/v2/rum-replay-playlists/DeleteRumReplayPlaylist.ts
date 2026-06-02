@@ -1,5 +1,5 @@
 /**
- * Delete rum replay playlist returns "No Content" response
+ * Delete RUM replay playlist returns "No Content" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
