@@ -8,6 +8,7 @@ import { SecurityEntityConfigRisks } from "./SecurityEntityConfigRisks";
 import { SecurityEntityMetadata } from "./SecurityEntityMetadata";
 import { SecurityEntityRiskScore } from "./SecurityEntityRiskScore";
 import { SecurityEntityRiskScoreAttributes } from "./SecurityEntityRiskScoreAttributes";
+import { SecurityEntityRiskScoreResponse } from "./SecurityEntityRiskScoreResponse";
 import { SecurityEntityRiskScoresMeta } from "./SecurityEntityRiskScoresMeta";
 import { SecurityEntityRiskScoresResponse } from "./SecurityEntityRiskScoresResponse";
 
@@ -20,7 +21,7 @@ export const TypingInfo: ModelTypingInfo = {
       "low",
       "info",
     ],
-    SecurityEntityRiskScoreType: ["security_entity_risk_score"],
+    SecurityEntityRiskScoreType: ["SecurityEntityRiskScore"],
   },
   oneOfMap: {},
   typeMap: {
@@ -32,6 +33,7 @@ export const TypingInfo: ModelTypingInfo = {
     SecurityEntityMetadata: SecurityEntityMetadata,
     SecurityEntityRiskScore: SecurityEntityRiskScore,
     SecurityEntityRiskScoreAttributes: SecurityEntityRiskScoreAttributes,
+    SecurityEntityRiskScoreResponse: SecurityEntityRiskScoreResponse,
     SecurityEntityRiskScoresMeta: SecurityEntityRiskScoresMeta,
     SecurityEntityRiskScoresResponse: SecurityEntityRiskScoresResponse,
   },

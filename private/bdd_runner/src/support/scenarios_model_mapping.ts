@@ -13542,6 +13542,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "SecurityEntityRiskScoresResponse",
   },
+  "EntityRiskScoresApi.V2.GetEntityRiskScore": {
+    entityId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "SecurityEntityRiskScoreResponse",
+  },
   "SensitiveDataScannerApi.V2.ListScanningGroups": {
     operationResponseType: "SensitiveDataScannerGetConfigResponse",
   },
