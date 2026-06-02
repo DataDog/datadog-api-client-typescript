@@ -12947,6 +12947,27 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "RumMetricResponse",
     },
+    "v2.QueryAggregatedLongTasks": {
+        "body": {
+            "type": "AggregatedLongTasksRequest",
+            "format": "",
+            },
+        "operationResponseType": "AggregatedLongTasksResponse",
+    },
+    "v2.QueryAggregatedSignalsProblems": {
+        "body": {
+            "type": "AggregatedSignalsProblemsRequest",
+            "format": "",
+            },
+        "operationResponseType": "AggregatedSignalsProblemsResponse",
+    },
+    "v2.QueryAggregatedWaterfall": {
+        "body": {
+            "type": "AggregatedWaterfallRequest",
+            "format": "",
+            },
+        "operationResponseType": "AggregatedWaterfallResponse",
+    },
     "v2.ListRumReplayPlaylists": {
         "filterCreatedByUuid": {
             "type": "string",
