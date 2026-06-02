@@ -710,7 +710,7 @@ export class CIVisibilityPipelinesApi {
       for (const item of results) {
         yield item;
       }
-      if (results.length < pageSize) {
+      if (results.length === 0) {
         break;
       }
       const cursorMeta = response.meta;
@@ -793,7 +793,7 @@ export class CIVisibilityPipelinesApi {
       for (const item of results) {
         yield item;
       }
-      if (results.length < pageSize) {
+      if (results.length === 0) {
         break;
       }
       const cursorMeta = response.meta;
