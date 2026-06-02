@@ -468,6 +468,7 @@ apiInstance
 | Static Analysis | @datadog/datadog-api-client-static-analysis | [README.md](../../services/static-analysis/README.md) |
 | Status Pages | @datadog/datadog-api-client-status-pages | [README.md](../../services/status-pages/README.md) |
 | Statuspage Integration | @datadog/datadog-api-client-statuspage-integration | [README.md](../../services/statuspage-integration/README.md) |
+| Stegadography | @datadog/datadog-api-client-stegadography | [README.md](../../services/stegadography/README.md) |
 | Storage Management | @datadog/datadog-api-client-storage-management | [README.md](../../services/storage-management/README.md) |
 | Synthetics | @datadog/datadog-api-client-synthetics | [README.md](../../services/synthetics/README.md) |
 | Tags | @datadog/datadog-api-client-tags | [README.md](../../services/tags/README.md) |
