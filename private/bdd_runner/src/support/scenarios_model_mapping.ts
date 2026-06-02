@@ -5657,6 +5657,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ListSecurityFindingsResponse",
   },
+  "SecurityMonitoringApi.V2.UpdateFindingsAssignee": {
+    body: {
+      type: "AssigneeRequest",
+      format: "",
+    },
+    operationResponseType: "AssigneeResponse",
+  },
   "SecurityMonitoringApi.V2.CreateCases": {
     body: {
       type: "CreateCaseRequestArray",
@@ -5709,6 +5716,20 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "ListSecurityFindingsResponse",
+  },
+  "SecurityMonitoringApi.V2.CreateServiceNowTickets": {
+    body: {
+      type: "CreateServiceNowTicketRequestArray",
+      format: "",
+    },
+    operationResponseType: "FindingCaseResponseArray",
+  },
+  "SecurityMonitoringApi.V2.AttachServiceNowTicket": {
+    body: {
+      type: "AttachServiceNowTicketRequest",
+      format: "",
+    },
+    operationResponseType: "FindingCaseResponse",
   },
   "SecurityMonitoringApi.V2.ListAssetsSBOMs": {
     pageToken: {

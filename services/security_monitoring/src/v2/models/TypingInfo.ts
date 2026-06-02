@@ -19,6 +19,15 @@ import { AssetAttributes } from "./AssetAttributes";
 import { AssetOperatingSystem } from "./AssetOperatingSystem";
 import { AssetRisks } from "./AssetRisks";
 import { AssetVersion } from "./AssetVersion";
+import { AssigneeRequest } from "./AssigneeRequest";
+import { AssigneeRequestData } from "./AssigneeRequestData";
+import { AssigneeRequestDataAttributes } from "./AssigneeRequestDataAttributes";
+import { AssigneeRequestDataRelationships } from "./AssigneeRequestDataRelationships";
+import { AssigneeResponse } from "./AssigneeResponse";
+import { AssigneeResponseData } from "./AssigneeResponseData";
+import { AssigneeResponseDataAttributes } from "./AssigneeResponseDataAttributes";
+import { AssigneeResponseMeta } from "./AssigneeResponseMeta";
+import { AssignmentResult } from "./AssignmentResult";
 import { AttachCaseRequest } from "./AttachCaseRequest";
 import { AttachCaseRequestData } from "./AttachCaseRequestData";
 import { AttachCaseRequestDataRelationships } from "./AttachCaseRequestDataRelationships";
@@ -26,6 +35,10 @@ import { AttachJiraIssueRequest } from "./AttachJiraIssueRequest";
 import { AttachJiraIssueRequestData } from "./AttachJiraIssueRequestData";
 import { AttachJiraIssueRequestDataAttributes } from "./AttachJiraIssueRequestDataAttributes";
 import { AttachJiraIssueRequestDataRelationships } from "./AttachJiraIssueRequestDataRelationships";
+import { AttachServiceNowTicketRequest } from "./AttachServiceNowTicketRequest";
+import { AttachServiceNowTicketRequestData } from "./AttachServiceNowTicketRequestData";
+import { AttachServiceNowTicketRequestDataAttributes } from "./AttachServiceNowTicketRequestDataAttributes";
+import { AttachServiceNowTicketRequestDataRelationships } from "./AttachServiceNowTicketRequestDataRelationships";
 import { BulkMuteFindingsRequest } from "./BulkMuteFindingsRequest";
 import { BulkMuteFindingsRequestAttributes } from "./BulkMuteFindingsRequestAttributes";
 import { BulkMuteFindingsRequestData } from "./BulkMuteFindingsRequestData";
@@ -63,6 +76,10 @@ import { CreateJiraIssueRequestDataRelationships } from "./CreateJiraIssueReques
 import { CreateNotificationRuleParameters } from "./CreateNotificationRuleParameters";
 import { CreateNotificationRuleParametersData } from "./CreateNotificationRuleParametersData";
 import { CreateNotificationRuleParametersDataAttributes } from "./CreateNotificationRuleParametersDataAttributes";
+import { CreateServiceNowTicketRequestArray } from "./CreateServiceNowTicketRequestArray";
+import { CreateServiceNowTicketRequestData } from "./CreateServiceNowTicketRequestData";
+import { CreateServiceNowTicketRequestDataAttributes } from "./CreateServiceNowTicketRequestDataAttributes";
+import { CreateServiceNowTicketRequestDataRelationships } from "./CreateServiceNowTicketRequestDataRelationships";
 import { CustomFrameworkControl } from "./CustomFrameworkControl";
 import { CustomFrameworkData } from "./CustomFrameworkData";
 import { CustomFrameworkDataAttributes } from "./CustomFrameworkDataAttributes";
@@ -99,6 +116,8 @@ import { FindingJiraIssue } from "./FindingJiraIssue";
 import { FindingJiraIssueResult } from "./FindingJiraIssueResult";
 import { FindingMute } from "./FindingMute";
 import { FindingRule } from "./FindingRule";
+import { FindingServiceNowTicket } from "./FindingServiceNowTicket";
+import { FindingServiceNowTicketResult } from "./FindingServiceNowTicketResult";
 import { Findings } from "./Findings";
 import { FrameworkHandleAndVersionResponseData } from "./FrameworkHandleAndVersionResponseData";
 import { FullCustomFrameworkData } from "./FullCustomFrameworkData";
@@ -454,6 +473,7 @@ export const TypingInfo: ModelTypingInfo = {
     AnalysisResponseDataType: ["server_request"],
     AssetEntityType: ["assets"],
     AssetType: ["Repository", "Service", "Host", "HostImage", "Image"],
+    AssigneeDataType: ["assignee"],
     CaseDataType: ["cases"],
     CaseManagementProjectDataType: ["projects"],
     CasePriority: ["NOT_DEFINED", "P1", "P2", "P3", "P4", "P5"],
@@ -789,6 +809,7 @@ export const TypingInfo: ModelTypingInfo = {
       "suppressions",
       "critical_assets",
     ],
+    ServiceNowTicketsDataType: ["servicenow_tickets"],
     SignalEntitiesType: ["entities"],
     SpecVersion: ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5"],
     TriggerSource: ["security_findings", "security_signals"],
@@ -921,6 +942,15 @@ export const TypingInfo: ModelTypingInfo = {
     AssetOperatingSystem: AssetOperatingSystem,
     AssetRisks: AssetRisks,
     AssetVersion: AssetVersion,
+    AssigneeRequest: AssigneeRequest,
+    AssigneeRequestData: AssigneeRequestData,
+    AssigneeRequestDataAttributes: AssigneeRequestDataAttributes,
+    AssigneeRequestDataRelationships: AssigneeRequestDataRelationships,
+    AssigneeResponse: AssigneeResponse,
+    AssigneeResponseData: AssigneeResponseData,
+    AssigneeResponseDataAttributes: AssigneeResponseDataAttributes,
+    AssigneeResponseMeta: AssigneeResponseMeta,
+    AssignmentResult: AssignmentResult,
     AttachCaseRequest: AttachCaseRequest,
     AttachCaseRequestData: AttachCaseRequestData,
     AttachCaseRequestDataRelationships: AttachCaseRequestDataRelationships,
@@ -929,6 +959,12 @@ export const TypingInfo: ModelTypingInfo = {
     AttachJiraIssueRequestDataAttributes: AttachJiraIssueRequestDataAttributes,
     AttachJiraIssueRequestDataRelationships:
       AttachJiraIssueRequestDataRelationships,
+    AttachServiceNowTicketRequest: AttachServiceNowTicketRequest,
+    AttachServiceNowTicketRequestData: AttachServiceNowTicketRequestData,
+    AttachServiceNowTicketRequestDataAttributes:
+      AttachServiceNowTicketRequestDataAttributes,
+    AttachServiceNowTicketRequestDataRelationships:
+      AttachServiceNowTicketRequestDataRelationships,
     BulkMuteFindingsRequest: BulkMuteFindingsRequest,
     BulkMuteFindingsRequestAttributes: BulkMuteFindingsRequestAttributes,
     BulkMuteFindingsRequestData: BulkMuteFindingsRequestData,
@@ -970,6 +1006,12 @@ export const TypingInfo: ModelTypingInfo = {
     CreateNotificationRuleParametersData: CreateNotificationRuleParametersData,
     CreateNotificationRuleParametersDataAttributes:
       CreateNotificationRuleParametersDataAttributes,
+    CreateServiceNowTicketRequestArray: CreateServiceNowTicketRequestArray,
+    CreateServiceNowTicketRequestData: CreateServiceNowTicketRequestData,
+    CreateServiceNowTicketRequestDataAttributes:
+      CreateServiceNowTicketRequestDataAttributes,
+    CreateServiceNowTicketRequestDataRelationships:
+      CreateServiceNowTicketRequestDataRelationships,
     CustomFrameworkControl: CustomFrameworkControl,
     CustomFrameworkData: CustomFrameworkData,
     CustomFrameworkDataAttributes: CustomFrameworkDataAttributes,
@@ -1007,6 +1049,8 @@ export const TypingInfo: ModelTypingInfo = {
     FindingJiraIssueResult: FindingJiraIssueResult,
     FindingMute: FindingMute,
     FindingRule: FindingRule,
+    FindingServiceNowTicket: FindingServiceNowTicket,
+    FindingServiceNowTicketResult: FindingServiceNowTicketResult,
     Findings: Findings,
     FrameworkHandleAndVersionResponseData:
       FrameworkHandleAndVersionResponseData,
