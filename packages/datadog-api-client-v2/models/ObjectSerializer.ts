@@ -101,6 +101,35 @@ import { ActiveBillingDimensionsBody } from "./ActiveBillingDimensionsBody";
 import { ActiveBillingDimensionsResponse } from "./ActiveBillingDimensionsResponse";
 import { AddMemberTeamRequest } from "./AddMemberTeamRequest";
 import { Advisory } from "./Advisory";
+import { AggregatedHighFrozenFrameRate } from "./AggregatedHighFrozenFrameRate";
+import { AggregatedHighScriptEval } from "./AggregatedHighScriptEval";
+import { AggregatedLongTasksByInvokerType } from "./AggregatedLongTasksByInvokerType";
+import { AggregatedLongTasksRequest } from "./AggregatedLongTasksRequest";
+import { AggregatedLongTasksRequestAttributes } from "./AggregatedLongTasksRequestAttributes";
+import { AggregatedLongTasksRequestData } from "./AggregatedLongTasksRequestData";
+import { AggregatedLongTasksResponse } from "./AggregatedLongTasksResponse";
+import { AggregatedLongTasksResponseAttributes } from "./AggregatedLongTasksResponseAttributes";
+import { AggregatedLongTasksResponseData } from "./AggregatedLongTasksResponseData";
+import { AggregatedLowCacheHitRate } from "./AggregatedLowCacheHitRate";
+import { AggregatedMobileScrollFriction } from "./AggregatedMobileScrollFriction";
+import { AggregatedResource } from "./AggregatedResource";
+import { AggregatedResourceTimingBreakdown } from "./AggregatedResourceTimingBreakdown";
+import { AggregatedSignalsProblemsRequest } from "./AggregatedSignalsProblemsRequest";
+import { AggregatedSignalsProblemsRequestAttributes } from "./AggregatedSignalsProblemsRequestAttributes";
+import { AggregatedSignalsProblemsRequestData } from "./AggregatedSignalsProblemsRequestData";
+import { AggregatedSignalsProblemsResponse } from "./AggregatedSignalsProblemsResponse";
+import { AggregatedSignalsProblemsResponseAttributes } from "./AggregatedSignalsProblemsResponseAttributes";
+import { AggregatedSignalsProblemsResponseData } from "./AggregatedSignalsProblemsResponseData";
+import { AggregatedSlowFCPHighBytes } from "./AggregatedSlowFCPHighBytes";
+import { AggregatedSlowInteractionLongTask } from "./AggregatedSlowInteractionLongTask";
+import { AggregatedUncompressedResource } from "./AggregatedUncompressedResource";
+import { AggregatedWaterfallPerformanceCriteria } from "./AggregatedWaterfallPerformanceCriteria";
+import { AggregatedWaterfallRequest } from "./AggregatedWaterfallRequest";
+import { AggregatedWaterfallRequestAttributes } from "./AggregatedWaterfallRequestAttributes";
+import { AggregatedWaterfallRequestData } from "./AggregatedWaterfallRequestData";
+import { AggregatedWaterfallResponse } from "./AggregatedWaterfallResponse";
+import { AggregatedWaterfallResponseAttributes } from "./AggregatedWaterfallResponseAttributes";
+import { AggregatedWaterfallResponseData } from "./AggregatedWaterfallResponseData";
 import { AiCustomRuleItem } from "./AiCustomRuleItem";
 import { AiCustomRuleRequest } from "./AiCustomRuleRequest";
 import { AiCustomRuleRequestAttributes } from "./AiCustomRuleRequestAttributes";
@@ -2403,6 +2432,8 @@ import { LogsQueryOptions } from "./LogsQueryOptions";
 import { LogsResponseMetadata } from "./LogsResponseMetadata";
 import { LogsResponseMetadataPage } from "./LogsResponseMetadataPage";
 import { LogsWarning } from "./LogsWarning";
+import { LongTaskMetricStats } from "./LongTaskMetricStats";
+import { LongTaskStatsPerView } from "./LongTaskStatsPerView";
 import { MSTeamsIntegrationMetadata } from "./MSTeamsIntegrationMetadata";
 import { MSTeamsIntegrationMetadataTeamsItem } from "./MSTeamsIntegrationMetadataTeamsItem";
 import { Maintenance } from "./Maintenance";
@@ -3912,6 +3943,8 @@ import { ShiftDataRelationshipsUserData } from "./ShiftDataRelationshipsUserData
 import { SignalEntitiesAttributes } from "./SignalEntitiesAttributes";
 import { SignalEntitiesData } from "./SignalEntitiesData";
 import { SignalEntitiesResponse } from "./SignalEntitiesResponse";
+import { SignalsProblemsDetections } from "./SignalsProblemsDetections";
+import { SignalsProblemsSampleMetadata } from "./SignalsProblemsSampleMetadata";
 import { SimpleMonitorUserTemplate } from "./SimpleMonitorUserTemplate";
 import { SingleAggregatedConnectionResponseArray } from "./SingleAggregatedConnectionResponseArray";
 import { SingleAggregatedConnectionResponseData } from "./SingleAggregatedConnectionResponseData";
@@ -4395,6 +4428,7 @@ import { TimeseriesFormulaRequestAttributes } from "./TimeseriesFormulaRequestAt
 import { TimeseriesResponse } from "./TimeseriesResponse";
 import { TimeseriesResponseAttributes } from "./TimeseriesResponseAttributes";
 import { TimeseriesResponseSeries } from "./TimeseriesResponseSeries";
+import { TopLongTaskInvoker } from "./TopLongTaskInvoker";
 import { TraceAttributes } from "./TraceAttributes";
 import { TraceData } from "./TraceData";
 import { TraceResponse } from "./TraceResponse";
@@ -4718,6 +4752,15 @@ const enumsMap: { [key: string]: any[] } = {
   ActionConnectionDataType: ["action_connection"],
   ActionQueryType: ["action"],
   ActiveBillingDimensionsType: ["billing_dimensions"],
+  AggregatedLongTasksRequestType: ["aggregated_long_tasks"],
+  AggregatedSignalsProblemsRequestType: ["aggregated_signals_problems"],
+  AggregatedWaterfallPerformanceCriteriaMetric: [
+    "loading_time",
+    "largest_contentful_paint",
+    "first_contentful_paint",
+    "interaction_to_next_paint",
+  ],
+  AggregatedWaterfallRequestType: ["aggregated_waterfall"],
   AiCustomRuleDataType: ["ai_rule"],
   AiCustomRuleRevisionDataType: ["ai_rule_revision"],
   AiCustomRuleRevisionExecutionMode: ["auto", "manual", "always"],
@@ -7427,6 +7470,38 @@ const typeMap: { [index: string]: any } = {
   ActiveBillingDimensionsResponse: ActiveBillingDimensionsResponse,
   AddMemberTeamRequest: AddMemberTeamRequest,
   Advisory: Advisory,
+  AggregatedHighFrozenFrameRate: AggregatedHighFrozenFrameRate,
+  AggregatedHighScriptEval: AggregatedHighScriptEval,
+  AggregatedLongTasksByInvokerType: AggregatedLongTasksByInvokerType,
+  AggregatedLongTasksRequest: AggregatedLongTasksRequest,
+  AggregatedLongTasksRequestAttributes: AggregatedLongTasksRequestAttributes,
+  AggregatedLongTasksRequestData: AggregatedLongTasksRequestData,
+  AggregatedLongTasksResponse: AggregatedLongTasksResponse,
+  AggregatedLongTasksResponseAttributes: AggregatedLongTasksResponseAttributes,
+  AggregatedLongTasksResponseData: AggregatedLongTasksResponseData,
+  AggregatedLowCacheHitRate: AggregatedLowCacheHitRate,
+  AggregatedMobileScrollFriction: AggregatedMobileScrollFriction,
+  AggregatedResource: AggregatedResource,
+  AggregatedResourceTimingBreakdown: AggregatedResourceTimingBreakdown,
+  AggregatedSignalsProblemsRequest: AggregatedSignalsProblemsRequest,
+  AggregatedSignalsProblemsRequestAttributes:
+    AggregatedSignalsProblemsRequestAttributes,
+  AggregatedSignalsProblemsRequestData: AggregatedSignalsProblemsRequestData,
+  AggregatedSignalsProblemsResponse: AggregatedSignalsProblemsResponse,
+  AggregatedSignalsProblemsResponseAttributes:
+    AggregatedSignalsProblemsResponseAttributes,
+  AggregatedSignalsProblemsResponseData: AggregatedSignalsProblemsResponseData,
+  AggregatedSlowFCPHighBytes: AggregatedSlowFCPHighBytes,
+  AggregatedSlowInteractionLongTask: AggregatedSlowInteractionLongTask,
+  AggregatedUncompressedResource: AggregatedUncompressedResource,
+  AggregatedWaterfallPerformanceCriteria:
+    AggregatedWaterfallPerformanceCriteria,
+  AggregatedWaterfallRequest: AggregatedWaterfallRequest,
+  AggregatedWaterfallRequestAttributes: AggregatedWaterfallRequestAttributes,
+  AggregatedWaterfallRequestData: AggregatedWaterfallRequestData,
+  AggregatedWaterfallResponse: AggregatedWaterfallResponse,
+  AggregatedWaterfallResponseAttributes: AggregatedWaterfallResponseAttributes,
+  AggregatedWaterfallResponseData: AggregatedWaterfallResponseData,
   AiCustomRuleItem: AiCustomRuleItem,
   AiCustomRuleRequest: AiCustomRuleRequest,
   AiCustomRuleRequestAttributes: AiCustomRuleRequestAttributes,
@@ -10108,6 +10183,8 @@ const typeMap: { [index: string]: any } = {
   LogsResponseMetadata: LogsResponseMetadata,
   LogsResponseMetadataPage: LogsResponseMetadataPage,
   LogsWarning: LogsWarning,
+  LongTaskMetricStats: LongTaskMetricStats,
+  LongTaskStatsPerView: LongTaskStatsPerView,
   MSTeamsIntegrationMetadata: MSTeamsIntegrationMetadata,
   MSTeamsIntegrationMetadataTeamsItem: MSTeamsIntegrationMetadataTeamsItem,
   Maintenance: Maintenance,
@@ -12034,6 +12111,8 @@ const typeMap: { [index: string]: any } = {
   SignalEntitiesAttributes: SignalEntitiesAttributes,
   SignalEntitiesData: SignalEntitiesData,
   SignalEntitiesResponse: SignalEntitiesResponse,
+  SignalsProblemsDetections: SignalsProblemsDetections,
+  SignalsProblemsSampleMetadata: SignalsProblemsSampleMetadata,
   SimpleMonitorUserTemplate: SimpleMonitorUserTemplate,
   SingleAggregatedConnectionResponseArray:
     SingleAggregatedConnectionResponseArray,
@@ -12628,6 +12707,7 @@ const typeMap: { [index: string]: any } = {
   TimeseriesResponse: TimeseriesResponse,
   TimeseriesResponseAttributes: TimeseriesResponseAttributes,
   TimeseriesResponseSeries: TimeseriesResponseSeries,
+  TopLongTaskInvoker: TopLongTaskInvoker,
   TraceAttributes: TraceAttributes,
   TraceData: TraceData,
   TraceResponse: TraceResponse,

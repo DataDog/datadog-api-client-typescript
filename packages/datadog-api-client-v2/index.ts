@@ -1036,6 +1036,13 @@ export {
 } from "./apis/RUMApi";
 
 export {
+  RUMInsightsApiQueryAggregatedLongTasksRequest,
+  RUMInsightsApiQueryAggregatedSignalsProblemsRequest,
+  RUMInsightsApiQueryAggregatedWaterfallRequest,
+  RUMInsightsApi,
+} from "./apis/RUMInsightsApi";
+
+export {
   ReferenceTablesApiBatchRowsQueryRequest,
   ReferenceTablesApiCreateReferenceTableRequest,
   ReferenceTablesApiCreateReferenceTableUploadRequest,
@@ -1645,6 +1652,39 @@ export { ActiveBillingDimensionsResponse } from "./models/ActiveBillingDimension
 export { ActiveBillingDimensionsType } from "./models/ActiveBillingDimensionsType";
 export { AddMemberTeamRequest } from "./models/AddMemberTeamRequest";
 export { Advisory } from "./models/Advisory";
+export { AggregatedHighFrozenFrameRate } from "./models/AggregatedHighFrozenFrameRate";
+export { AggregatedHighScriptEval } from "./models/AggregatedHighScriptEval";
+export { AggregatedLongTasksByInvokerType } from "./models/AggregatedLongTasksByInvokerType";
+export { AggregatedLongTasksRequest } from "./models/AggregatedLongTasksRequest";
+export { AggregatedLongTasksRequestAttributes } from "./models/AggregatedLongTasksRequestAttributes";
+export { AggregatedLongTasksRequestData } from "./models/AggregatedLongTasksRequestData";
+export { AggregatedLongTasksRequestType } from "./models/AggregatedLongTasksRequestType";
+export { AggregatedLongTasksResponse } from "./models/AggregatedLongTasksResponse";
+export { AggregatedLongTasksResponseAttributes } from "./models/AggregatedLongTasksResponseAttributes";
+export { AggregatedLongTasksResponseData } from "./models/AggregatedLongTasksResponseData";
+export { AggregatedLowCacheHitRate } from "./models/AggregatedLowCacheHitRate";
+export { AggregatedMobileScrollFriction } from "./models/AggregatedMobileScrollFriction";
+export { AggregatedResource } from "./models/AggregatedResource";
+export { AggregatedResourceTimingBreakdown } from "./models/AggregatedResourceTimingBreakdown";
+export { AggregatedSignalsProblemsRequest } from "./models/AggregatedSignalsProblemsRequest";
+export { AggregatedSignalsProblemsRequestAttributes } from "./models/AggregatedSignalsProblemsRequestAttributes";
+export { AggregatedSignalsProblemsRequestData } from "./models/AggregatedSignalsProblemsRequestData";
+export { AggregatedSignalsProblemsRequestType } from "./models/AggregatedSignalsProblemsRequestType";
+export { AggregatedSignalsProblemsResponse } from "./models/AggregatedSignalsProblemsResponse";
+export { AggregatedSignalsProblemsResponseAttributes } from "./models/AggregatedSignalsProblemsResponseAttributes";
+export { AggregatedSignalsProblemsResponseData } from "./models/AggregatedSignalsProblemsResponseData";
+export { AggregatedSlowFCPHighBytes } from "./models/AggregatedSlowFCPHighBytes";
+export { AggregatedSlowInteractionLongTask } from "./models/AggregatedSlowInteractionLongTask";
+export { AggregatedUncompressedResource } from "./models/AggregatedUncompressedResource";
+export { AggregatedWaterfallPerformanceCriteria } from "./models/AggregatedWaterfallPerformanceCriteria";
+export { AggregatedWaterfallPerformanceCriteriaMetric } from "./models/AggregatedWaterfallPerformanceCriteriaMetric";
+export { AggregatedWaterfallRequest } from "./models/AggregatedWaterfallRequest";
+export { AggregatedWaterfallRequestAttributes } from "./models/AggregatedWaterfallRequestAttributes";
+export { AggregatedWaterfallRequestData } from "./models/AggregatedWaterfallRequestData";
+export { AggregatedWaterfallRequestType } from "./models/AggregatedWaterfallRequestType";
+export { AggregatedWaterfallResponse } from "./models/AggregatedWaterfallResponse";
+export { AggregatedWaterfallResponseAttributes } from "./models/AggregatedWaterfallResponseAttributes";
+export { AggregatedWaterfallResponseData } from "./models/AggregatedWaterfallResponseData";
 export { AiCustomRuleDataType } from "./models/AiCustomRuleDataType";
 export { AiCustomRuleItem } from "./models/AiCustomRuleItem";
 export { AiCustomRuleRequest } from "./models/AiCustomRuleRequest";
@@ -4669,6 +4709,8 @@ export { LogsSortOrder } from "./models/LogsSortOrder";
 export { LogsStorageTier } from "./models/LogsStorageTier";
 export { LogsWarning } from "./models/LogsWarning";
 export { LogType } from "./models/LogType";
+export { LongTaskMetricStats } from "./models/LongTaskMetricStats";
+export { LongTaskStatsPerView } from "./models/LongTaskStatsPerView";
 export { Maintenance } from "./models/Maintenance";
 export { MaintenanceArray } from "./models/MaintenanceArray";
 export { MaintenanceData } from "./models/MaintenanceData";
@@ -6702,6 +6744,8 @@ export { SignalEntitiesAttributes } from "./models/SignalEntitiesAttributes";
 export { SignalEntitiesData } from "./models/SignalEntitiesData";
 export { SignalEntitiesResponse } from "./models/SignalEntitiesResponse";
 export { SignalEntitiesType } from "./models/SignalEntitiesType";
+export { SignalsProblemsDetections } from "./models/SignalsProblemsDetections";
+export { SignalsProblemsSampleMetadata } from "./models/SignalsProblemsSampleMetadata";
 export { SimpleMonitorUserTemplate } from "./models/SimpleMonitorUserTemplate";
 export { SingleAggregatedConnectionResponseArray } from "./models/SingleAggregatedConnectionResponseArray";
 export { SingleAggregatedConnectionResponseData } from "./models/SingleAggregatedConnectionResponseData";
@@ -7326,6 +7370,7 @@ export { TimeseriesResponse } from "./models/TimeseriesResponse";
 export { TimeseriesResponseAttributes } from "./models/TimeseriesResponseAttributes";
 export { TimeseriesResponseSeries } from "./models/TimeseriesResponseSeries";
 export { TokenType } from "./models/TokenType";
+export { TopLongTaskInvoker } from "./models/TopLongTaskInvoker";
 export { TraceAttributes } from "./models/TraceAttributes";
 export { TraceData } from "./models/TraceData";
 export { TraceResponse } from "./models/TraceResponse";
