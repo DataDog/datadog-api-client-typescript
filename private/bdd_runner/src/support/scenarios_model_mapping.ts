@@ -12959,6 +12959,27 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "RumMetricResponse",
   },
+  "RUMInsightsApi.V2.QueryAggregatedLongTasks": {
+    body: {
+      type: "AggregatedLongTasksRequest",
+      format: "",
+    },
+    operationResponseType: "AggregatedLongTasksResponse",
+  },
+  "RUMInsightsApi.V2.QueryAggregatedSignalsProblems": {
+    body: {
+      type: "AggregatedSignalsProblemsRequest",
+      format: "",
+    },
+    operationResponseType: "AggregatedSignalsProblemsResponse",
+  },
+  "RUMInsightsApi.V2.QueryAggregatedWaterfall": {
+    body: {
+      type: "AggregatedWaterfallRequest",
+      format: "",
+    },
+    operationResponseType: "AggregatedWaterfallResponse",
+  },
   "RumReplayPlaylistsApi.V2.ListRumReplayPlaylists": {
     filterCreatedByUuid: {
       type: "string",
