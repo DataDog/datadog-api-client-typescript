@@ -21,11 +21,13 @@ import { CreateWorkflowRequest } from "../models/CreateWorkflowRequest";
 import { CreateWorkflowResponse } from "../models/CreateWorkflowResponse";
 import { GetWorkflowResponse } from "../models/GetWorkflowResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
+import { ListWorkflowsResponse } from "../models/ListWorkflowsResponse";
 import { UpdateWorkflowRequest } from "../models/UpdateWorkflowRequest";
 import { UpdateWorkflowResponse } from "../models/UpdateWorkflowResponse";
 import { WorkflowInstanceCreateRequest } from "../models/WorkflowInstanceCreateRequest";
 import { WorkflowInstanceCreateResponse } from "../models/WorkflowInstanceCreateResponse";
 import { WorkflowListInstancesResponse } from "../models/WorkflowListInstancesResponse";
+import { WorkflowListItem } from "../models/WorkflowListItem";
 import { WorklflowCancelInstanceResponse } from "../models/WorklflowCancelInstanceResponse";
 import { WorklflowGetInstanceResponse } from "../models/WorklflowGetInstanceResponse";
 
@@ -314,6 +316,88 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listWorkflows(
+    limit?: number,
+    page?: number,
+    sort?: string,
+    filterQuery?: string,
+    filterTriggerType?: Array<string>,
+    filterIncludeUnpublished?: boolean,
+    filterIncludeSpecs?: boolean,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/workflows";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.WorkflowAutomationApi.listWorkflows")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (limit !== undefined) {
+      requestContext.setQueryParam(
+        "limit",
+        ObjectSerializer.serialize(limit, "number", "int64"),
+        ""
+      );
+    }
+    if (page !== undefined) {
+      requestContext.setQueryParam(
+        "page",
+        ObjectSerializer.serialize(page, "number", "int64"),
+        ""
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        ObjectSerializer.serialize(sort, "string", ""),
+        ""
+      );
+    }
+    if (filterQuery !== undefined) {
+      requestContext.setQueryParam(
+        "filter[query]",
+        ObjectSerializer.serialize(filterQuery, "string", ""),
+        ""
+      );
+    }
+    if (filterTriggerType !== undefined) {
+      requestContext.setQueryParam(
+        "filter[triggerType]",
+        ObjectSerializer.serialize(filterTriggerType, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterIncludeUnpublished !== undefined) {
+      requestContext.setQueryParam(
+        "filter[includeUnpublished]",
+        ObjectSerializer.serialize(filterIncludeUnpublished, "boolean", ""),
+        ""
+      );
+    }
+    if (filterIncludeSpecs !== undefined) {
+      requestContext.setQueryParam(
+        "filter[includeSpecs]",
+        ObjectSerializer.serialize(filterIncludeSpecs, "boolean", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
     ]);
 
     return requestContext;
@@ -812,6 +896,68 @@ export class WorkflowAutomationApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listWorkflows
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listWorkflows(
+    response: ResponseContext
+  ): Promise<ListWorkflowsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ListWorkflowsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListWorkflowsResponse"
+      ) as ListWorkflowsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ListWorkflowsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListWorkflowsResponse",
+        ""
+      ) as ListWorkflowsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateWorkflow
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -952,6 +1098,44 @@ export interface WorkflowAutomationApiListWorkflowInstancesRequest {
    * @type number
    */
   pageNumber?: number;
+}
+
+export interface WorkflowAutomationApiListWorkflowsRequest {
+  /**
+   * The maximum number of workflows to return per page.
+   * @type number
+   */
+  limit?: number;
+  /**
+   * The page number to return, starting from 0.
+   * @type number
+   */
+  page?: number;
+  /**
+   * The sort order for the returned workflows. Provide a comma-separated list of fields, each optionally prefixed with `-` for descending order. Supported fields are `name`, `createdAt`, `updatedAt`, `creatorName`, `ownerName`, and `lastExecutedAt`.
+   * @type string
+   */
+  sort?: string;
+  /**
+   * A search query used to filter the returned workflows. The query performs a case-insensitive substring match against each workflow's name, creator name, and handle. If the query contains a colon (for example, `team:infra`), it is instead treated as a `key:value` tag filter.
+   * @type string
+   */
+  filterQuery?: string;
+  /**
+   * Filter the returned workflows by one or more trigger types, such as `monitor`, `schedule`, or `githubWebhook`. Repeat the parameter to filter by multiple trigger types.
+   * @type Array<string>
+   */
+  filterTriggerType?: Array<string>;
+  /**
+   * Whether to include unpublished workflows in the response.
+   * @type boolean
+   */
+  filterIncludeUnpublished?: boolean;
+  /**
+   * Whether to include the full spec of each workflow in the response. When `false` (the default), each workflow's `spec` is returned as `null`.
+   * @type boolean
+   */
+  filterIncludeSpecs?: boolean;
 }
 
 export interface WorkflowAutomationApiUpdateWorkflowRequest {
@@ -1133,6 +1317,79 @@ export class WorkflowAutomationApi {
           return this.responseProcessor.listWorkflowInstances(responseContext);
         });
     });
+  }
+
+  /**
+   * List all workflows in your organization. This API requires a [registered application key](https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key). Alternatively, you can configure these permissions [in the UI](https://docs.datadoghq.com/account_management/api-app-keys/#actions-api-access).
+   * @param param The request object
+   */
+  public listWorkflows(
+    param: WorkflowAutomationApiListWorkflowsRequest = {},
+    options?: Configuration
+  ): Promise<ListWorkflowsResponse> {
+    const requestContextPromise = this.requestFactory.listWorkflows(
+      param.limit,
+      param.page,
+      param.sort,
+      param.filterQuery,
+      param.filterTriggerType,
+      param.filterIncludeUnpublished,
+      param.filterIncludeSpecs,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listWorkflows(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Provide a paginated version of listWorkflows returning a generator with all the items.
+   */
+  public async *listWorkflowsWithPagination(
+    param: WorkflowAutomationApiListWorkflowsRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<WorkflowListItem> {
+    let pageSize = 50;
+    if (param.limit !== undefined) {
+      pageSize = param.limit;
+    }
+    param.limit = pageSize;
+    param.page = 0;
+    while (true) {
+      const requestContext = await this.requestFactory.listWorkflows(
+        param.limit,
+        param.page,
+        param.sort,
+        param.filterQuery,
+        param.filterTriggerType,
+        param.filterIncludeUnpublished,
+        param.filterIncludeSpecs,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listWorkflows(
+        responseContext
+      );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      param.page = param.page + 1;
+    }
   }
 
   /**
