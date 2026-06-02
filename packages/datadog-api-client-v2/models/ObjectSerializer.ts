@@ -320,6 +320,15 @@ import { AssignSeatsUserRequestDataAttributes } from "./AssignSeatsUserRequestDa
 import { AssignSeatsUserResponse } from "./AssignSeatsUserResponse";
 import { AssignSeatsUserResponseData } from "./AssignSeatsUserResponseData";
 import { AssignSeatsUserResponseDataAttributes } from "./AssignSeatsUserResponseDataAttributes";
+import { AssigneeRequest } from "./AssigneeRequest";
+import { AssigneeRequestData } from "./AssigneeRequestData";
+import { AssigneeRequestDataAttributes } from "./AssigneeRequestDataAttributes";
+import { AssigneeRequestDataRelationships } from "./AssigneeRequestDataRelationships";
+import { AssigneeResponse } from "./AssigneeResponse";
+import { AssigneeResponseData } from "./AssigneeResponseData";
+import { AssigneeResponseDataAttributes } from "./AssigneeResponseDataAttributes";
+import { AssigneeResponseMeta } from "./AssigneeResponseMeta";
+import { AssignmentResult } from "./AssignmentResult";
 import { AttachCaseRequest } from "./AttachCaseRequest";
 import { AttachCaseRequestData } from "./AttachCaseRequestData";
 import { AttachCaseRequestDataRelationships } from "./AttachCaseRequestDataRelationships";
@@ -327,6 +336,10 @@ import { AttachJiraIssueRequest } from "./AttachJiraIssueRequest";
 import { AttachJiraIssueRequestData } from "./AttachJiraIssueRequestData";
 import { AttachJiraIssueRequestDataAttributes } from "./AttachJiraIssueRequestDataAttributes";
 import { AttachJiraIssueRequestDataRelationships } from "./AttachJiraIssueRequestDataRelationships";
+import { AttachServiceNowTicketRequest } from "./AttachServiceNowTicketRequest";
+import { AttachServiceNowTicketRequestData } from "./AttachServiceNowTicketRequestData";
+import { AttachServiceNowTicketRequestDataAttributes } from "./AttachServiceNowTicketRequestDataAttributes";
+import { AttachServiceNowTicketRequestDataRelationships } from "./AttachServiceNowTicketRequestDataRelationships";
 import { Attachment } from "./Attachment";
 import { AttachmentArray } from "./AttachmentArray";
 import { AttachmentData } from "./AttachmentData";
@@ -1005,6 +1018,10 @@ import { CreateRulesetRequestDataAttributesRulesItemsQuery } from "./CreateRules
 import { CreateRulesetRequestDataAttributesRulesItemsQueryAddition } from "./CreateRulesetRequestDataAttributesRulesItemsQueryAddition";
 import { CreateRulesetRequestDataAttributesRulesItemsReferenceTable } from "./CreateRulesetRequestDataAttributesRulesItemsReferenceTable";
 import { CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems } from "./CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems";
+import { CreateServiceNowTicketRequestArray } from "./CreateServiceNowTicketRequestArray";
+import { CreateServiceNowTicketRequestData } from "./CreateServiceNowTicketRequestData";
+import { CreateServiceNowTicketRequestDataAttributes } from "./CreateServiceNowTicketRequestDataAttributes";
+import { CreateServiceNowTicketRequestDataRelationships } from "./CreateServiceNowTicketRequestDataRelationships";
 import { CreateStatusPageRequest } from "./CreateStatusPageRequest";
 import { CreateStatusPageRequestData } from "./CreateStatusPageRequestData";
 import { CreateStatusPageRequestDataAttributes } from "./CreateStatusPageRequestDataAttributes";
@@ -1520,6 +1537,8 @@ import { FindingJiraIssue } from "./FindingJiraIssue";
 import { FindingJiraIssueResult } from "./FindingJiraIssueResult";
 import { FindingMute } from "./FindingMute";
 import { FindingRule } from "./FindingRule";
+import { FindingServiceNowTicket } from "./FindingServiceNowTicket";
+import { FindingServiceNowTicketResult } from "./FindingServiceNowTicketResult";
 import { Findings } from "./Findings";
 import { FlakyTest } from "./FlakyTest";
 import { FlakyTestAttributes } from "./FlakyTestAttributes";
@@ -4971,6 +4990,7 @@ const enumsMap: { [key: string]: any[] } = {
   AsanaIntegrationType: ["Asana"],
   AssetEntityType: ["assets"],
   AssetType: ["Repository", "Service", "Host", "HostImage", "Image"],
+  AssigneeDataType: ["assignee"],
   AttachmentDataAttributesAttachmentType: ["postmortem", "link"],
   AuditLogsEventType: ["audit"],
   AuditLogsResponseStatus: ["done", "timeout"],
@@ -6923,6 +6943,7 @@ const enumsMap: { [key: string]: any[] } = {
   ServiceNowIntegrationType: ["ServiceNow"],
   ServiceNowTemplateType: ["servicenow_templates"],
   ServiceNowTicketResourceType: ["tickets"],
+  ServiceNowTicketsDataType: ["servicenow_tickets"],
   ServiceNowUserType: ["users"],
   ShiftDataRelationshipsUserDataType: ["users"],
   ShiftDataType: ["shifts"],
@@ -7747,6 +7768,15 @@ const typeMap: { [index: string]: any } = {
   AssignSeatsUserResponse: AssignSeatsUserResponse,
   AssignSeatsUserResponseData: AssignSeatsUserResponseData,
   AssignSeatsUserResponseDataAttributes: AssignSeatsUserResponseDataAttributes,
+  AssigneeRequest: AssigneeRequest,
+  AssigneeRequestData: AssigneeRequestData,
+  AssigneeRequestDataAttributes: AssigneeRequestDataAttributes,
+  AssigneeRequestDataRelationships: AssigneeRequestDataRelationships,
+  AssigneeResponse: AssigneeResponse,
+  AssigneeResponseData: AssigneeResponseData,
+  AssigneeResponseDataAttributes: AssigneeResponseDataAttributes,
+  AssigneeResponseMeta: AssigneeResponseMeta,
+  AssignmentResult: AssignmentResult,
   AttachCaseRequest: AttachCaseRequest,
   AttachCaseRequestData: AttachCaseRequestData,
   AttachCaseRequestDataRelationships: AttachCaseRequestDataRelationships,
@@ -7755,6 +7785,12 @@ const typeMap: { [index: string]: any } = {
   AttachJiraIssueRequestDataAttributes: AttachJiraIssueRequestDataAttributes,
   AttachJiraIssueRequestDataRelationships:
     AttachJiraIssueRequestDataRelationships,
+  AttachServiceNowTicketRequest: AttachServiceNowTicketRequest,
+  AttachServiceNowTicketRequestData: AttachServiceNowTicketRequestData,
+  AttachServiceNowTicketRequestDataAttributes:
+    AttachServiceNowTicketRequestDataAttributes,
+  AttachServiceNowTicketRequestDataRelationships:
+    AttachServiceNowTicketRequestDataRelationships,
   Attachment: Attachment,
   AttachmentArray: AttachmentArray,
   AttachmentData: AttachmentData,
@@ -8529,6 +8565,12 @@ const typeMap: { [index: string]: any } = {
     CreateRulesetRequestDataAttributesRulesItemsReferenceTable,
   CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems:
     CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems,
+  CreateServiceNowTicketRequestArray: CreateServiceNowTicketRequestArray,
+  CreateServiceNowTicketRequestData: CreateServiceNowTicketRequestData,
+  CreateServiceNowTicketRequestDataAttributes:
+    CreateServiceNowTicketRequestDataAttributes,
+  CreateServiceNowTicketRequestDataRelationships:
+    CreateServiceNowTicketRequestDataRelationships,
   CreateStatusPageRequest: CreateStatusPageRequest,
   CreateStatusPageRequestData: CreateStatusPageRequestData,
   CreateStatusPageRequestDataAttributes: CreateStatusPageRequestDataAttributes,
@@ -9141,6 +9183,8 @@ const typeMap: { [index: string]: any } = {
   FindingJiraIssueResult: FindingJiraIssueResult,
   FindingMute: FindingMute,
   FindingRule: FindingRule,
+  FindingServiceNowTicket: FindingServiceNowTicket,
+  FindingServiceNowTicketResult: FindingServiceNowTicketResult,
   Findings: Findings,
   FlakyTest: FlakyTest,
   FlakyTestAttributes: FlakyTestAttributes,

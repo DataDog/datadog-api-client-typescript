@@ -5645,6 +5645,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ListSecurityFindingsResponse",
     },
+    "v2.UpdateFindingsAssignee": {
+        "body": {
+            "type": "AssigneeRequest",
+            "format": "",
+            },
+        "operationResponseType": "AssigneeResponse",
+    },
     "v2.CreateCases": {
         "body": {
             "type": "CreateCaseRequestArray",
@@ -5697,6 +5704,20 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "ListSecurityFindingsResponse",
+    },
+    "v2.CreateServiceNowTickets": {
+        "body": {
+            "type": "CreateServiceNowTicketRequestArray",
+            "format": "",
+            },
+        "operationResponseType": "FindingCaseResponseArray",
+    },
+    "v2.AttachServiceNowTicket": {
+        "body": {
+            "type": "AttachServiceNowTicketRequest",
+            "format": "",
+            },
+        "operationResponseType": "FindingCaseResponse",
     },
     "v2.ListAssetsSBOMs": {
         "pageToken": {

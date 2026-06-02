@@ -5,6 +5,7 @@
  */
 import { CaseInsightsItems } from "./CaseInsightsItems";
 import { FindingJiraIssue } from "./FindingJiraIssue";
+import { FindingServiceNowTicket } from "./FindingServiceNowTicket";
 import { RelationshipToUser } from "./RelationshipToUser";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -65,6 +66,10 @@ export class FindingCaseResponseDataAttributes {
    * Priority of the case.
    */
   "priority"?: string;
+  /**
+   * ServiceNow ticket associated with the case.
+   */
+  "servicenowTicket"?: FindingServiceNowTicket;
   /**
    * Status of the case.
    */
@@ -157,6 +162,10 @@ export class FindingCaseResponseDataAttributes {
     priority: {
       baseName: "priority",
       type: "string",
+    },
+    servicenowTicket: {
+      baseName: "servicenow_ticket",
+      type: "FindingServiceNowTicket",
     },
     status: {
       baseName: "status",

@@ -21,8 +21,11 @@ import { AnalysisRequest } from "../models/AnalysisRequest";
 import { AnalysisResponse } from "../models/AnalysisResponse";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { AssetType } from "../models/AssetType";
+import { AssigneeRequest } from "../models/AssigneeRequest";
+import { AssigneeResponse } from "../models/AssigneeResponse";
 import { AttachCaseRequest } from "../models/AttachCaseRequest";
 import { AttachJiraIssueRequest } from "../models/AttachJiraIssueRequest";
+import { AttachServiceNowTicketRequest } from "../models/AttachServiceNowTicketRequest";
 import { BulkMuteFindingsRequest } from "../models/BulkMuteFindingsRequest";
 import { BulkMuteFindingsResponse } from "../models/BulkMuteFindingsResponse";
 import { CloudAssetType } from "../models/CloudAssetType";
@@ -32,6 +35,7 @@ import { CreateCustomFrameworkRequest } from "../models/CreateCustomFrameworkReq
 import { CreateCustomFrameworkResponse } from "../models/CreateCustomFrameworkResponse";
 import { CreateJiraIssueRequestArray } from "../models/CreateJiraIssueRequestArray";
 import { CreateNotificationRuleParameters } from "../models/CreateNotificationRuleParameters";
+import { CreateServiceNowTicketRequestArray } from "../models/CreateServiceNowTicketRequestArray";
 import { DefaultRulesetsPerLanguageResponse } from "../models/DefaultRulesetsPerLanguageResponse";
 import { DeleteCustomFrameworkResponse } from "../models/DeleteCustomFrameworkResponse";
 import { DetachCaseRequest } from "../models/DetachCaseRequest";
@@ -283,6 +287,55 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AttachJiraIssueRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async attachServiceNowTicket(
+    body: AttachServiceNowTicketRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'attachServiceNowTicket'");
+    if (!_config.unstableOperations["v2.attachServiceNowTicket"]) {
+      throw new Error(
+        "Unstable operation 'attachServiceNowTicket' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "attachServiceNowTicket");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/findings/servicenow_tickets";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.attachServiceNowTicket")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "AttachServiceNowTicketRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -1528,6 +1581,59 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       ObjectSerializer.serialize(
         body,
         "SecurityMonitoringSuppressionCreateRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createServiceNowTickets(
+    body: CreateServiceNowTicketRequestArray,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'createServiceNowTickets'");
+    if (!_config.unstableOperations["v2.createServiceNowTickets"]) {
+      throw new Error(
+        "Unstable operation 'createServiceNowTickets' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createServiceNowTickets");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/findings/servicenow_tickets";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.createServiceNowTickets")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "CreateServiceNowTicketRequestArray",
         ""
       ),
       contentType
@@ -6464,6 +6570,55 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async updateFindingsAssignee(
+    body: AssigneeRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'updateFindingsAssignee'");
+    if (!_config.unstableOperations["v2.updateFindingsAssignee"]) {
+      throw new Error(
+        "Unstable operation 'updateFindingsAssignee' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateFindingsAssignee");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/findings/assignee";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.updateFindingsAssignee")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "AssigneeRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async updateResourceEvaluationFilters(
     body: UpdateResourceEvaluationFiltersRequest,
     _options?: Configuration
@@ -7232,6 +7387,68 @@ export class SecurityMonitoringApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async attachJiraIssue(
+    response: ResponseContext
+  ): Promise<FindingCaseResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: FindingCaseResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "FindingCaseResponse"
+      ) as FindingCaseResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: FindingCaseResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "FindingCaseResponse",
+        ""
+      ) as FindingCaseResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to attachServiceNowTicket
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async attachServiceNowTicket(
     response: ResponseContext
   ): Promise<FindingCaseResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
@@ -8869,6 +9086,68 @@ export class SecurityMonitoringApiResponseProcessor {
           "SecurityMonitoringSuppressionResponse",
           ""
         ) as SecurityMonitoringSuppressionResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createServiceNowTickets
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createServiceNowTickets(
+    response: ResponseContext
+  ): Promise<FindingCaseResponseArray> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: FindingCaseResponseArray = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "FindingCaseResponseArray"
+      ) as FindingCaseResponseArray;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: FindingCaseResponseArray = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "FindingCaseResponseArray",
+        ""
+      ) as FindingCaseResponseArray;
       return body;
     }
 
@@ -14841,6 +15120,68 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateFindingsAssignee
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateFindingsAssignee(
+    response: ResponseContext
+  ): Promise<AssigneeResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 202) {
+      const body: AssigneeResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "AssigneeResponse"
+      ) as AssigneeResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AssigneeResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "AssigneeResponse",
+        ""
+      ) as AssigneeResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateResourceEvaluationFilters
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -15544,6 +15885,13 @@ export interface SecurityMonitoringApiAttachJiraIssueRequest {
   body: AttachJiraIssueRequest;
 }
 
+export interface SecurityMonitoringApiAttachServiceNowTicketRequest {
+  /**
+   * @type AttachServiceNowTicketRequest
+   */
+  body: AttachServiceNowTicketRequest;
+}
+
 export interface SecurityMonitoringApiBatchGetSecurityMonitoringDatasetDependenciesRequest {
   /**
    * @type SecurityMonitoringDatasetDependenciesRequest
@@ -15733,6 +16081,13 @@ export interface SecurityMonitoringApiCreateSecurityMonitoringSuppressionRequest
    * @type SecurityMonitoringSuppressionCreateRequest
    */
   body: SecurityMonitoringSuppressionCreateRequest;
+}
+
+export interface SecurityMonitoringApiCreateServiceNowTicketsRequest {
+  /**
+   * @type CreateServiceNowTicketRequestArray
+   */
+  body: CreateServiceNowTicketRequestArray;
 }
 
 export interface SecurityMonitoringApiCreateSignalNotificationRuleRequest {
@@ -17158,6 +17513,13 @@ export interface SecurityMonitoringApiUpdateCustomFrameworkRequest {
   body: UpdateCustomFrameworkRequest;
 }
 
+export interface SecurityMonitoringApiUpdateFindingsAssigneeRequest {
+  /**
+   * @type AssigneeRequest
+   */
+  body: AssigneeRequest;
+}
+
 export interface SecurityMonitoringApiUpdateResourceEvaluationFiltersRequest {
   /**
    * @type UpdateResourceEvaluationFiltersRequest
@@ -17352,6 +17714,28 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.attachJiraIssue(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Attach security findings to a ServiceNow ticket by providing the ServiceNow ticket URL.
+   * You can attach up to 50 security findings per ServiceNow ticket. If the ServiceNow ticket is not linked to any case, this operation will create a case for the security findings and link the ServiceNow ticket to the newly created case. Security findings that are already attached to another ServiceNow ticket will be detached from their previous ServiceNow ticket and attached to the specified ServiceNow ticket.
+   * @param param The request object
+   */
+  public attachServiceNowTicket(
+    param: SecurityMonitoringApiAttachServiceNowTicketRequest,
+    options?: Configuration
+  ): Promise<FindingCaseResponse> {
+    const requestContextPromise = this.requestFactory.attachServiceNowTicket(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.attachServiceNowTicket(responseContext);
         });
     });
   }
@@ -17954,6 +18338,30 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createSecurityMonitoringSuppression(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Create ServiceNow tickets for security findings.
+   * This operation creates a case in Datadog and a ServiceNow ticket linked to that case for bidirectional sync between Datadog and ServiceNow. You can create up to 50 ServiceNow tickets per request and associate up to 50 security findings per ServiceNow ticket. Security findings that are already attached to another ServiceNow ticket will be detached from their previous ServiceNow ticket and attached to the newly created ServiceNow ticket.
+   * @param param The request object
+   */
+  public createServiceNowTickets(
+    param: SecurityMonitoringApiCreateServiceNowTicketsRequest,
+    options?: Configuration
+  ): Promise<FindingCaseResponseArray> {
+    const requestContextPromise = this.requestFactory.createServiceNowTickets(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createServiceNowTickets(
             responseContext
           );
         });
@@ -20640,6 +21048,28 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateCustomFramework(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Assign or unassign security findings.
+   * You can assign up to 100 security findings per request. Set `assignee_id` to the unique identifier of the Datadog user you want to assign the findings to. Omit `assignee_id` (or set it to `null`) to unassign the findings. Per-finding warnings and failures are returned in the response `meta` object.
+   * @param param The request object
+   */
+  public updateFindingsAssignee(
+    param: SecurityMonitoringApiUpdateFindingsAssigneeRequest,
+    options?: Configuration
+  ): Promise<AssigneeResponse> {
+    const requestContextPromise = this.requestFactory.updateFindingsAssignee(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateFindingsAssignee(responseContext);
         });
     });
   }
