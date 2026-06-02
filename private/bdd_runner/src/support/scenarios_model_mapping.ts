@@ -8167,6 +8167,14 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "number",
       format: "int64",
     },
+    filterEditedBefore: {
+      type: "string",
+      format: "",
+    },
+    filterViewedBefore: {
+      type: "string",
+      format: "",
+    },
     operationResponseType: "ListDashboardsUsageResponse",
   },
   "DashboardsApi.V2.GetDashboardUsage": {
