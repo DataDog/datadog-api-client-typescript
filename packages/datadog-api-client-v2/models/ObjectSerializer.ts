@@ -4032,6 +4032,25 @@ import { StatusPagesComponentGroupRelationshipsStatusPage } from "./StatusPagesC
 import { StatusPagesComponentGroupRelationshipsStatusPageData } from "./StatusPagesComponentGroupRelationshipsStatusPageData";
 import { StatusPagesUser } from "./StatusPagesUser";
 import { StatusPagesUserAttributes } from "./StatusPagesUserAttributes";
+import { StatuspageAccountCreateAttributes } from "./StatuspageAccountCreateAttributes";
+import { StatuspageAccountCreateData } from "./StatuspageAccountCreateData";
+import { StatuspageAccountCreateRequest } from "./StatuspageAccountCreateRequest";
+import { StatuspageAccountResponse } from "./StatuspageAccountResponse";
+import { StatuspageAccountResponseAttributes } from "./StatuspageAccountResponseAttributes";
+import { StatuspageAccountResponseData } from "./StatuspageAccountResponseData";
+import { StatuspageAccountUpdateAttributes } from "./StatuspageAccountUpdateAttributes";
+import { StatuspageAccountUpdateData } from "./StatuspageAccountUpdateData";
+import { StatuspageAccountUpdateRequest } from "./StatuspageAccountUpdateRequest";
+import { StatuspageUrlSettingCreateAttributes } from "./StatuspageUrlSettingCreateAttributes";
+import { StatuspageUrlSettingCreateData } from "./StatuspageUrlSettingCreateData";
+import { StatuspageUrlSettingCreateRequest } from "./StatuspageUrlSettingCreateRequest";
+import { StatuspageUrlSettingResponse } from "./StatuspageUrlSettingResponse";
+import { StatuspageUrlSettingResponseAttributes } from "./StatuspageUrlSettingResponseAttributes";
+import { StatuspageUrlSettingResponseData } from "./StatuspageUrlSettingResponseData";
+import { StatuspageUrlSettingUpdateAttributes } from "./StatuspageUrlSettingUpdateAttributes";
+import { StatuspageUrlSettingUpdateData } from "./StatuspageUrlSettingUpdateData";
+import { StatuspageUrlSettingUpdateRequest } from "./StatuspageUrlSettingUpdateRequest";
+import { StatuspageUrlSettingsResponse } from "./StatuspageUrlSettingsResponse";
 import { Step } from "./Step";
 import { StepDisplay } from "./StepDisplay";
 import { StepDisplayBounds } from "./StepDisplayBounds";
@@ -6903,6 +6922,8 @@ const enumsMap: { [key: string]: any[] } = {
   StatusPagesComponentGroupAttributesComponentsItemsType: ["component"],
   StatusPagesComponentGroupType: ["components"],
   StatusPagesUserType: ["users"],
+  StatuspageAccountType: ["statuspage-account"],
+  StatuspageUrlSettingType: ["statuspage-url-setting"],
   SuiteJsonPatchType: ["suites_json_patch"],
   SuiteSearchResponseType: ["suites_search"],
   SyntheticsApiMultistepParentTestType: ["parent_test"],
@@ -12126,6 +12147,26 @@ const typeMap: { [index: string]: any } = {
     StatusPagesComponentGroupRelationshipsStatusPageData,
   StatusPagesUser: StatusPagesUser,
   StatusPagesUserAttributes: StatusPagesUserAttributes,
+  StatuspageAccountCreateAttributes: StatuspageAccountCreateAttributes,
+  StatuspageAccountCreateData: StatuspageAccountCreateData,
+  StatuspageAccountCreateRequest: StatuspageAccountCreateRequest,
+  StatuspageAccountResponse: StatuspageAccountResponse,
+  StatuspageAccountResponseAttributes: StatuspageAccountResponseAttributes,
+  StatuspageAccountResponseData: StatuspageAccountResponseData,
+  StatuspageAccountUpdateAttributes: StatuspageAccountUpdateAttributes,
+  StatuspageAccountUpdateData: StatuspageAccountUpdateData,
+  StatuspageAccountUpdateRequest: StatuspageAccountUpdateRequest,
+  StatuspageUrlSettingCreateAttributes: StatuspageUrlSettingCreateAttributes,
+  StatuspageUrlSettingCreateData: StatuspageUrlSettingCreateData,
+  StatuspageUrlSettingCreateRequest: StatuspageUrlSettingCreateRequest,
+  StatuspageUrlSettingResponse: StatuspageUrlSettingResponse,
+  StatuspageUrlSettingResponseAttributes:
+    StatuspageUrlSettingResponseAttributes,
+  StatuspageUrlSettingResponseData: StatuspageUrlSettingResponseData,
+  StatuspageUrlSettingUpdateAttributes: StatuspageUrlSettingUpdateAttributes,
+  StatuspageUrlSettingUpdateData: StatuspageUrlSettingUpdateData,
+  StatuspageUrlSettingUpdateRequest: StatuspageUrlSettingUpdateRequest,
+  StatuspageUrlSettingsResponse: StatuspageUrlSettingsResponse,
   Step: Step,
   StepDisplay: StepDisplay,
   StepDisplayBounds: StepDisplayBounds,

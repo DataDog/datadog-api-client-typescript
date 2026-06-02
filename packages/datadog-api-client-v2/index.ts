@@ -1433,6 +1433,15 @@ export {
 } from "./apis/StatusPagesApi";
 
 export {
+  StatuspageIntegrationApiCreateStatuspageAccountRequest,
+  StatuspageIntegrationApiCreateStatuspageUrlSettingRequest,
+  StatuspageIntegrationApiDeleteStatuspageUrlSettingRequest,
+  StatuspageIntegrationApiUpdateStatuspageAccountRequest,
+  StatuspageIntegrationApiUpdateStatuspageUrlSettingRequest,
+  StatuspageIntegrationApi,
+} from "./apis/StatuspageIntegrationApi";
+
+export {
   StorageManagementApiDeleteSyncConfigRequest,
   StorageManagementApiUpsertSyncConfigRequest,
   StorageManagementApi,
@@ -6788,6 +6797,16 @@ export { StatsigIntegration } from "./models/StatsigIntegration";
 export { StatsigIntegrationType } from "./models/StatsigIntegrationType";
 export { StatsigIntegrationUpdate } from "./models/StatsigIntegrationUpdate";
 export { StatusPage } from "./models/StatusPage";
+export { StatuspageAccountCreateAttributes } from "./models/StatuspageAccountCreateAttributes";
+export { StatuspageAccountCreateData } from "./models/StatuspageAccountCreateData";
+export { StatuspageAccountCreateRequest } from "./models/StatuspageAccountCreateRequest";
+export { StatuspageAccountResponse } from "./models/StatuspageAccountResponse";
+export { StatuspageAccountResponseAttributes } from "./models/StatuspageAccountResponseAttributes";
+export { StatuspageAccountResponseData } from "./models/StatuspageAccountResponseData";
+export { StatuspageAccountType } from "./models/StatuspageAccountType";
+export { StatuspageAccountUpdateAttributes } from "./models/StatuspageAccountUpdateAttributes";
+export { StatuspageAccountUpdateData } from "./models/StatuspageAccountUpdateData";
+export { StatuspageAccountUpdateRequest } from "./models/StatuspageAccountUpdateRequest";
 export { StatusPageArray } from "./models/StatusPageArray";
 export { StatusPageArrayIncluded } from "./models/StatusPageArrayIncluded";
 export { StatusPageAsIncluded } from "./models/StatusPageAsIncluded";
@@ -6843,6 +6862,17 @@ export { StatusPagesComponentGroupType } from "./models/StatusPagesComponentGrou
 export { StatusPagesUser } from "./models/StatusPagesUser";
 export { StatusPagesUserAttributes } from "./models/StatusPagesUserAttributes";
 export { StatusPagesUserType } from "./models/StatusPagesUserType";
+export { StatuspageUrlSettingCreateAttributes } from "./models/StatuspageUrlSettingCreateAttributes";
+export { StatuspageUrlSettingCreateData } from "./models/StatuspageUrlSettingCreateData";
+export { StatuspageUrlSettingCreateRequest } from "./models/StatuspageUrlSettingCreateRequest";
+export { StatuspageUrlSettingResponse } from "./models/StatuspageUrlSettingResponse";
+export { StatuspageUrlSettingResponseAttributes } from "./models/StatuspageUrlSettingResponseAttributes";
+export { StatuspageUrlSettingResponseData } from "./models/StatuspageUrlSettingResponseData";
+export { StatuspageUrlSettingsResponse } from "./models/StatuspageUrlSettingsResponse";
+export { StatuspageUrlSettingType } from "./models/StatuspageUrlSettingType";
+export { StatuspageUrlSettingUpdateAttributes } from "./models/StatuspageUrlSettingUpdateAttributes";
+export { StatuspageUrlSettingUpdateData } from "./models/StatuspageUrlSettingUpdateData";
+export { StatuspageUrlSettingUpdateRequest } from "./models/StatuspageUrlSettingUpdateRequest";
 export { Step } from "./models/Step";
 export { StepDisplay } from "./models/StepDisplay";
 export { StepDisplayBounds } from "./models/StepDisplayBounds";
