@@ -1461,6 +1461,11 @@ export {
 } from "./apis/StatuspageIntegrationApi";
 
 export {
+  StegadographyApiGetWidgetsFromImageRequest,
+  StegadographyApi,
+} from "./apis/StegadographyApi";
+
+export {
   StorageManagementApiDeleteSyncConfigRequest,
   StorageManagementApiUpsertSyncConfigRequest,
   StorageManagementApi,
@@ -6976,6 +6981,10 @@ export { StatuspageUrlSettingType } from "./models/StatuspageUrlSettingType";
 export { StatuspageUrlSettingUpdateAttributes } from "./models/StatuspageUrlSettingUpdateAttributes";
 export { StatuspageUrlSettingUpdateData } from "./models/StatuspageUrlSettingUpdateData";
 export { StatuspageUrlSettingUpdateRequest } from "./models/StatuspageUrlSettingUpdateRequest";
+export { StegadographyWidgetAttributes } from "./models/StegadographyWidgetAttributes";
+export { StegadographyWidgetData } from "./models/StegadographyWidgetData";
+export { StegadographyWidgetsResponse } from "./models/StegadographyWidgetsResponse";
+export { StegadographyWidgetType } from "./models/StegadographyWidgetType";
 export { Step } from "./models/Step";
 export { StepDisplay } from "./models/StepDisplay";
 export { StepDisplayBounds } from "./models/StepDisplayBounds";
