@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Source from which to query items to display in the stream.
+ * Source from which to query items to display in the stream. apm_issue_stream, rum_issue_stream, and logs_issue_stream are deprecated. Use issue_stream instead.
  */
 
 export type ListStreamSource =
@@ -24,6 +24,7 @@ export type ListStreamSource =
   | typeof EVENT_STREAM
   | typeof RUM_STREAM
   | typeof LLM_OBSERVABILITY_STREAM
+  | typeof ISSUE_STREAM
   | UnparsedObject;
 export const LOGS_STREAM = "logs_stream";
 export const AUDIT_STREAM = "audit_stream";
@@ -38,3 +39,4 @@ export const LOGS_TRANSACTION_STREAM = "logs_transaction_stream";
 export const EVENT_STREAM = "event_stream";
 export const RUM_STREAM = "rum_stream";
 export const LLM_OBSERVABILITY_STREAM = "llm_observability_stream";
+export const ISSUE_STREAM = "issue_stream";

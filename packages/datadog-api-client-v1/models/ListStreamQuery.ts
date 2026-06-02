@@ -5,6 +5,8 @@
  */
 import { ListStreamComputeItems } from "./ListStreamComputeItems";
 import { ListStreamGroupByItems } from "./ListStreamGroupByItems";
+import { ListStreamIssuePersona } from "./ListStreamIssuePersona";
+import { ListStreamIssueState } from "./ListStreamIssueState";
 import { ListStreamSource } from "./ListStreamSource";
 import { WidgetEventSize } from "./WidgetEventSize";
 import { WidgetFieldSort } from "./WidgetFieldSort";
@@ -16,6 +18,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ListStreamQuery {
   /**
+   * Filter by assignee UUIDs. Usable only with `issue_stream`.
+   */
+  "assigneeUuids"?: Array<string>;
+  /**
    * Specifies the field for logs pattern clustering. Usable only with logs_pattern_stream.
    */
   "clusteringPatternFieldPath"?: string;
@@ -24,7 +30,7 @@ export class ListStreamQuery {
    */
   "compute"?: Array<ListStreamComputeItems>;
   /**
-   * Source from which to query items to display in the stream.
+   * Source from which to query items to display in the stream. apm_issue_stream, rum_issue_stream, and logs_issue_stream are deprecated. Use issue_stream instead.
    */
   "dataSource": ListStreamSource;
   /**
@@ -40,6 +46,10 @@ export class ListStreamQuery {
    */
   "indexes"?: Array<string>;
   /**
+   * Persona filter for the `issue_stream` data source.
+   */
+  "persona"?: ListStreamIssuePersona;
+  /**
    * Widget query.
    */
   "queryString": string;
@@ -48,9 +58,21 @@ export class ListStreamQuery {
    */
   "sort"?: WidgetFieldSort;
   /**
+   * Filter by issue states. Usable only with `issue_stream`.
+   */
+  "states"?: Array<ListStreamIssueState>;
+  /**
    * Option for storage location. Feature in Private Beta.
    */
   "storage"?: string;
+  /**
+   * Filter by suspected causes. Usable only with `issue_stream`.
+   */
+  "suspectedCauses"?: Array<string>;
+  /**
+   * Filter by team handles. Usable only with `issue_stream`.
+   */
+  "teamHandles"?: Array<string>;
 
   /**
    * A container for additional, undeclared properties.
@@ -68,6 +90,10 @@ export class ListStreamQuery {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    assigneeUuids: {
+      baseName: "assignee_uuids",
+      type: "Array<string>",
+    },
     clusteringPatternFieldPath: {
       baseName: "clustering_pattern_field_path",
       type: "string",
@@ -93,6 +119,10 @@ export class ListStreamQuery {
       baseName: "indexes",
       type: "Array<string>",
     },
+    persona: {
+      baseName: "persona",
+      type: "ListStreamIssuePersona",
+    },
     queryString: {
       baseName: "query_string",
       type: "string",
@@ -102,9 +132,21 @@ export class ListStreamQuery {
       baseName: "sort",
       type: "WidgetFieldSort",
     },
+    states: {
+      baseName: "states",
+      type: "Array<ListStreamIssueState>",
+    },
     storage: {
       baseName: "storage",
       type: "string",
+    },
+    suspectedCauses: {
+      baseName: "suspected_causes",
+      type: "Array<string>",
+    },
+    teamHandles: {
+      baseName: "team_handles",
+      type: "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
