@@ -1962,6 +1962,8 @@ export class MonitorsApi {
 
   /**
    * Validate the monitor provided in the request.
+   *
+   * **Note**: Log monitors require an unscoped App Key and `logs_read_data` permission.
    * @param param The request object
    */
   public validateExistingMonitor(
@@ -1987,7 +1989,7 @@ export class MonitorsApi {
   /**
    * Validate the monitor provided in the request.
    *
-   * **Note**: Log monitors require an unscoped App Key.
+   * **Note**: Log monitors require an unscoped App Key and `logs_read_data` permission.
    * @param param The request object
    */
   public validateMonitor(
