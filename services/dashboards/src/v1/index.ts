@@ -172,6 +172,8 @@ export { ListStreamColumnWidth } from "./models/ListStreamColumnWidth";
 export { ListStreamComputeAggregation } from "./models/ListStreamComputeAggregation";
 export { ListStreamComputeItems } from "./models/ListStreamComputeItems";
 export { ListStreamGroupByItems } from "./models/ListStreamGroupByItems";
+export { ListStreamIssuePersona } from "./models/ListStreamIssuePersona";
+export { ListStreamIssueState } from "./models/ListStreamIssueState";
 export { ListStreamQuery } from "./models/ListStreamQuery";
 export { ListStreamResponseFormat } from "./models/ListStreamResponseFormat";
 export { ListStreamSource } from "./models/ListStreamSource";

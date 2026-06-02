@@ -452,6 +452,8 @@ export const TypingInfo: ModelTypingInfo = {
       "latest",
       "most_frequent",
     ],
+    ListStreamIssuePersona: ["all", "browser", "mobile", "backend"],
+    ListStreamIssueState: ["OPEN", "IGNORED", "ACKNOWLEDGED", "RESOLVED"],
     ListStreamResponseFormat: ["event_list"],
     ListStreamSource: [
       "logs_stream",
@@ -467,6 +469,7 @@ export const TypingInfo: ModelTypingInfo = {
       "event_stream",
       "rum_stream",
       "llm_observability_stream",
+      "issue_stream",
     ],
     ListStreamWidgetDefinitionType: ["list_stream"],
     LogStreamWidgetDefinitionType: ["log_stream"],
