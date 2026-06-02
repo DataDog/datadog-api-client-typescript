@@ -6,6 +6,7 @@ export {
   WorkflowAutomationApiGetWorkflowRequest,
   WorkflowAutomationApiGetWorkflowInstanceRequest,
   WorkflowAutomationApiListWorkflowInstancesRequest,
+  WorkflowAutomationApiListWorkflowsRequest,
   WorkflowAutomationApiUpdateWorkflowRequest,
   WorkflowAutomationApi,
 } from "./WorkflowAutomationApi";
@@ -48,6 +49,9 @@ export { InputSchemaParametersType } from "./models/InputSchemaParametersType";
 export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
 export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
 export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
+export { ListWorkflowsResponse } from "./models/ListWorkflowsResponse";
+export { ListWorkflowsResponseMeta } from "./models/ListWorkflowsResponseMeta";
+export { ListWorkflowsResponseMetaPage } from "./models/ListWorkflowsResponseMetaPage";
 export { MonitorTrigger } from "./models/MonitorTrigger";
 export { MonitorTriggerWrapper } from "./models/MonitorTriggerWrapper";
 export { NotebookTriggerWrapper } from "./models/NotebookTriggerWrapper";
@@ -92,6 +96,8 @@ export { WorkflowInstanceListItem } from "./models/WorkflowInstanceListItem";
 export { WorkflowListInstancesResponse } from "./models/WorkflowListInstancesResponse";
 export { WorkflowListInstancesResponseMeta } from "./models/WorkflowListInstancesResponseMeta";
 export { WorkflowListInstancesResponseMetaPage } from "./models/WorkflowListInstancesResponseMetaPage";
+export { WorkflowListItem } from "./models/WorkflowListItem";
+export { WorkflowListItemAttributes } from "./models/WorkflowListItemAttributes";
 export { WorkflowTriggerWrapper } from "./models/WorkflowTriggerWrapper";
 export { WorkflowUserRelationship } from "./models/WorkflowUserRelationship";
 export { WorkflowUserRelationshipData } from "./models/WorkflowUserRelationshipData";
