@@ -492,6 +492,7 @@ export {
 } from "./apis/EntityIntegrationConfigsApi";
 
 export {
+  EntityRiskScoresApiGetEntityRiskScoreRequest,
   EntityRiskScoresApiListEntityRiskScoresRequest,
   EntityRiskScoresApi,
 } from "./apis/EntityRiskScoresApi";
@@ -6291,6 +6292,7 @@ export { SecurityEntityMetadata } from "./models/SecurityEntityMetadata";
 export { SecurityEntityRiskScore } from "./models/SecurityEntityRiskScore";
 export { SecurityEntityRiskScoreAttributes } from "./models/SecurityEntityRiskScoreAttributes";
 export { SecurityEntityRiskScoreAttributesSeverity } from "./models/SecurityEntityRiskScoreAttributesSeverity";
+export { SecurityEntityRiskScoreResponse } from "./models/SecurityEntityRiskScoreResponse";
 export { SecurityEntityRiskScoresMeta } from "./models/SecurityEntityRiskScoresMeta";
 export { SecurityEntityRiskScoresResponse } from "./models/SecurityEntityRiskScoresResponse";
 export { SecurityEntityRiskScoreType } from "./models/SecurityEntityRiskScoreType";

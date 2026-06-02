@@ -7,10 +7,10 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Resource type
+ * Resource type.
  */
 
 export type SecurityEntityRiskScoreType =
   | typeof SECURITY_ENTITY_RISK_SCORE
   | UnparsedObject;
-export const SECURITY_ENTITY_RISK_SCORE = "security_entity_risk_score";
+export const SECURITY_ENTITY_RISK_SCORE = "SecurityEntityRiskScore";

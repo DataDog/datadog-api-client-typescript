@@ -3599,6 +3599,7 @@ import { SecurityEntityConfigRisks } from "./SecurityEntityConfigRisks";
 import { SecurityEntityMetadata } from "./SecurityEntityMetadata";
 import { SecurityEntityRiskScore } from "./SecurityEntityRiskScore";
 import { SecurityEntityRiskScoreAttributes } from "./SecurityEntityRiskScoreAttributes";
+import { SecurityEntityRiskScoreResponse } from "./SecurityEntityRiskScoreResponse";
 import { SecurityEntityRiskScoresMeta } from "./SecurityEntityRiskScoresMeta";
 import { SecurityEntityRiskScoresResponse } from "./SecurityEntityRiskScoresResponse";
 import { SecurityFilter } from "./SecurityFilter";
@@ -6648,7 +6649,7 @@ const enumsMap: { [key: string]: any[] } = {
     "low",
     "info",
   ],
-  SecurityEntityRiskScoreType: ["security_entity_risk_score"],
+  SecurityEntityRiskScoreType: ["SecurityEntityRiskScore"],
   SecurityFilterFilteredDataType: ["logs"],
   SecurityFilterType: ["security_filters"],
   SecurityFilterVersionType: ["security_filters_configuration"],
@@ -11627,6 +11628,7 @@ const typeMap: { [index: string]: any } = {
   SecurityEntityMetadata: SecurityEntityMetadata,
   SecurityEntityRiskScore: SecurityEntityRiskScore,
   SecurityEntityRiskScoreAttributes: SecurityEntityRiskScoreAttributes,
+  SecurityEntityRiskScoreResponse: SecurityEntityRiskScoreResponse,
   SecurityEntityRiskScoresMeta: SecurityEntityRiskScoresMeta,
   SecurityEntityRiskScoresResponse: SecurityEntityRiskScoresResponse,
   SecurityFilter: SecurityFilter,

@@ -1,4 +1,7 @@
-import { BaseAPIRequestFactory } from "../../datadog-api-client-common/baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   applySecurityAuthentication,
@@ -15,9 +18,49 @@ import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
+import { SecurityEntityRiskScoreResponse } from "../models/SecurityEntityRiskScoreResponse";
 import { SecurityEntityRiskScoresResponse } from "../models/SecurityEntityRiskScoresResponse";
 
 export class EntityRiskScoresApiRequestFactory extends BaseAPIRequestFactory {
+  public async getEntityRiskScore(
+    entityId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getEntityRiskScore'");
+    if (!_config.unstableOperations["v2.getEntityRiskScore"]) {
+      throw new Error("Unstable operation 'getEntityRiskScore' is disabled");
+    }
+
+    // verify required parameter 'entityId' is not null or undefined
+    if (entityId === null || entityId === undefined) {
+      throw new RequiredError("entityId", "getEntityRiskScore");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security-entities/risk-scores/{entity_id}".replace(
+        "{entity_id}",
+        encodeURIComponent(String(entityId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.EntityRiskScoresApi.getEntityRiskScore")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listEntityRiskScores(
     from?: number,
     to?: number,
@@ -119,6 +162,94 @@ export class EntityRiskScoresApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getEntityRiskScore
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getEntityRiskScore(
+    response: ResponseContext
+  ): Promise<SecurityEntityRiskScoreResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SecurityEntityRiskScoreResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityEntityRiskScoreResponse"
+        ) as SecurityEntityRiskScoreResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityEntityRiskScoreResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityEntityRiskScoreResponse",
+          ""
+        ) as SecurityEntityRiskScoreResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listEntityRiskScores
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -203,6 +334,14 @@ export class EntityRiskScoresApiResponseProcessor {
   }
 }
 
+export interface EntityRiskScoresApiGetEntityRiskScoreRequest {
+  /**
+   * The URL-encoded unique identifier for the entity.
+   * @type string
+   */
+  entityId: string;
+}
+
 export interface EntityRiskScoresApiListEntityRiskScoresRequest {
   /**
    * Start time for the query in Unix timestamp (milliseconds). Defaults to 2 weeks ago.
@@ -263,6 +402,27 @@ export class EntityRiskScoresApi {
       requestFactory || new EntityRiskScoresApiRequestFactory(configuration);
     this.responseProcessor =
       responseProcessor || new EntityRiskScoresApiResponseProcessor();
+  }
+
+  /**
+   * Get the risk score for a specific entity by its ID. Returns security risk assessment including risk score, severity, detected signals, misconfigurations, and identity risks.
+   * @param param The request object
+   */
+  public getEntityRiskScore(
+    param: EntityRiskScoresApiGetEntityRiskScoreRequest,
+    options?: Configuration
+  ): Promise<SecurityEntityRiskScoreResponse> {
+    const requestContextPromise = this.requestFactory.getEntityRiskScore(
+      param.entityId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getEntityRiskScore(responseContext);
+        });
+    });
   }
 
   /**

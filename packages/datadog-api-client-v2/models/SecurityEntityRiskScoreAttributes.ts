@@ -10,55 +10,63 @@ import { SecurityEntityRiskScoreAttributesSeverity } from "./SecurityEntityRiskS
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes of an entity risk score
+ * Attributes of an entity risk score.
  */
 export class SecurityEntityRiskScoreAttributes {
+  /**
+   * Cloud account IDs associated with the entity.
+   */
+  "accountIds": Array<string>;
   /**
    * Configuration risks associated with the entity
    */
   "configRisks": SecurityEntityConfigRisks;
   /**
-   * Unique identifier for the entity
-   */
-  "entityId": string;
-  /**
    * Metadata about the entity from cloud providers
    */
   "entityMetadata": SecurityEntityMetadata;
   /**
-   * Human-readable name of the entity
+   * Human-readable name of the entity.
    */
   "entityName"?: string;
   /**
-   * Cloud providers associated with the entity
+   * Cloud providers associated with the entity.
    */
   "entityProviders": Array<string>;
   /**
-   * Roles associated with the entity
+   * Roles associated with the entity.
    */
   "entityRoles"?: Array<string>;
   /**
-   * Type of the entity (e.g., aws_iam_user, aws_ec2_instance)
+   * Sub-types associated with the entity.
    */
-  "entityType": string;
+  "entitySubTypes": Array<string>;
   /**
-   * Timestamp when the entity was first detected (Unix milliseconds)
+   * Type of the entity (for example, aws_iam_user, aws_ec2_instance).
+   */
+  "entityType"?: string;
+  /**
+   * All types associated with the entity.
+   */
+  "entityTypes"?: Array<string>;
+  /**
+   * Timestamp when the entity was first detected (Unix milliseconds).
    */
   "firstDetected": number;
   /**
-   * Title of the most recent signal detected for this entity
+   * Title of the most recent signal detected for this entity.
    */
   "lastActivityTitle": string;
   /**
-   * Timestamp when the entity was last detected (Unix milliseconds)
+   * Timestamp when the entity was last detected (Unix milliseconds).
    */
   "lastDetected": number;
   /**
-   * Current risk score for the entity
+   * Current risk score for the entity.
    */
   "riskScore": number;
   /**
-   * Change in risk score compared to previous period
+   * Change in risk score compared to previous period.
    */
   "riskScoreEvolution": number;
   /**
@@ -66,7 +74,7 @@ export class SecurityEntityRiskScoreAttributes {
    */
   "severity": SecurityEntityRiskScoreAttributesSeverity;
   /**
-   * Number of security signals detected for this entity
+   * Number of security signals detected for this entity.
    */
   "signalsDetected": number;
 
@@ -86,14 +94,14 @@ export class SecurityEntityRiskScoreAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    accountIds: {
+      baseName: "accountIds",
+      type: "Array<string>",
+      required: true,
+    },
     configRisks: {
       baseName: "configRisks",
       type: "SecurityEntityConfigRisks",
-      required: true,
-    },
-    entityId: {
-      baseName: "entityID",
-      type: "string",
       required: true,
     },
     entityMetadata: {
@@ -114,10 +122,18 @@ export class SecurityEntityRiskScoreAttributes {
       baseName: "entityRoles",
       type: "Array<string>",
     },
+    entitySubTypes: {
+      baseName: "entitySubTypes",
+      type: "Array<string>",
+      required: true,
+    },
     entityType: {
       baseName: "entityType",
       type: "string",
-      required: true,
+    },
+    entityTypes: {
+      baseName: "entityTypes",
+      type: "Array<string>",
     },
     firstDetected: {
       baseName: "firstDetected",
