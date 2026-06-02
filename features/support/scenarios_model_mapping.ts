@@ -9886,6 +9886,44 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "OpsgenieServiceResponse",
     },
+    "v2.GetIncidentTemplates": {
+        "operationResponseType": "SalesforceIncidentsTemplatesResponse",
+    },
+    "v2.CreateIncidentTemplate": {
+        "body": {
+            "type": "SalesforceIncidentsTemplateCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SalesforceIncidentsTemplateResponse",
+    },
+    "v2.DeleteIncidentTemplate": {
+        "incidentTemplateId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateIncidentTemplate": {
+        "incidentTemplateId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SalesforceIncidentsTemplateUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SalesforceIncidentsTemplateResponse",
+    },
+    "v2.GetSalesforceOrganizations": {
+        "operationResponseType": "SalesforceIncidentsOrganizationsResponse",
+    },
+    "v2.DeleteSalesforceOrganization": {
+        "salesforceOrgId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListServiceNowAssignmentGroups": {
         "instanceId": {
             "type": "string",
