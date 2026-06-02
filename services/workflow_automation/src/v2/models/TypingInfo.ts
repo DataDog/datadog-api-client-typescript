@@ -35,6 +35,9 @@ import { InputSchemaParameters } from "./InputSchemaParameters";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
+import { ListWorkflowsResponse } from "./ListWorkflowsResponse";
+import { ListWorkflowsResponseMeta } from "./ListWorkflowsResponseMeta";
+import { ListWorkflowsResponseMetaPage } from "./ListWorkflowsResponseMetaPage";
 import { MonitorTrigger } from "./MonitorTrigger";
 import { MonitorTriggerWrapper } from "./MonitorTriggerWrapper";
 import { NotebookTriggerWrapper } from "./NotebookTriggerWrapper";
@@ -74,6 +77,8 @@ import { WorkflowInstanceListItem } from "./WorkflowInstanceListItem";
 import { WorkflowListInstancesResponse } from "./WorkflowListInstancesResponse";
 import { WorkflowListInstancesResponseMeta } from "./WorkflowListInstancesResponseMeta";
 import { WorkflowListInstancesResponseMetaPage } from "./WorkflowListInstancesResponseMetaPage";
+import { WorkflowListItem } from "./WorkflowListItem";
+import { WorkflowListItemAttributes } from "./WorkflowListItemAttributes";
 import { WorkflowTriggerWrapper } from "./WorkflowTriggerWrapper";
 import { WorkflowUserRelationship } from "./WorkflowUserRelationship";
 import { WorkflowUserRelationshipData } from "./WorkflowUserRelationshipData";
@@ -184,6 +189,9 @@ export const TypingInfo: ModelTypingInfo = {
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
     JSONAPIErrorResponse: JSONAPIErrorResponse,
+    ListWorkflowsResponse: ListWorkflowsResponse,
+    ListWorkflowsResponseMeta: ListWorkflowsResponseMeta,
+    ListWorkflowsResponseMetaPage: ListWorkflowsResponseMetaPage,
     MonitorTrigger: MonitorTrigger,
     MonitorTriggerWrapper: MonitorTriggerWrapper,
     NotebookTriggerWrapper: NotebookTriggerWrapper,
@@ -224,6 +232,8 @@ export const TypingInfo: ModelTypingInfo = {
     WorkflowListInstancesResponseMeta: WorkflowListInstancesResponseMeta,
     WorkflowListInstancesResponseMetaPage:
       WorkflowListInstancesResponseMetaPage,
+    WorkflowListItem: WorkflowListItem,
+    WorkflowListItemAttributes: WorkflowListItemAttributes,
     WorkflowTriggerWrapper: WorkflowTriggerWrapper,
     WorkflowUserRelationship: WorkflowUserRelationship,
     WorkflowUserRelationshipData: WorkflowUserRelationshipData,
