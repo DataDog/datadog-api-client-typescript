@@ -9823,6 +9823,34 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "TenancyConfig",
     },
+    "v2.ListOpsgenieAccounts": {
+        "operationResponseType": "OpsgenieAccountsResponse",
+    },
+    "v2.CreateOpsgenieAccount": {
+        "body": {
+            "type": "OpsgenieAccountCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "OpsgenieAccountResponse",
+    },
+    "v2.DeleteOpsgenieAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateOpsgenieAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "OpsgenieAccountUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "OpsgenieAccountResponse",
+    },
     "v2.ListOpsgenieServices": {
         "operationResponseType": "OpsgenieServicesResponse",
     },
