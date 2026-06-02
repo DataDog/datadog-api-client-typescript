@@ -1,16 +1,16 @@
 export {
-  RumAudienceManagementApiCreateConnectionRequest,
-  RumAudienceManagementApiDeleteConnectionRequest,
-  RumAudienceManagementApiGetAccountFacetInfoRequest,
-  RumAudienceManagementApiGetMappingRequest,
-  RumAudienceManagementApiGetUserFacetInfoRequest,
-  RumAudienceManagementApiListConnectionsRequest,
-  RumAudienceManagementApiQueryAccountsRequest,
-  RumAudienceManagementApiQueryEventFilteredUsersRequest,
-  RumAudienceManagementApiQueryUsersRequest,
-  RumAudienceManagementApiUpdateConnectionRequest,
-  RumAudienceManagementApi,
-} from "./RumAudienceManagementApi";
+  RUMAudienceManagementApiCreateConnectionRequest,
+  RUMAudienceManagementApiDeleteConnectionRequest,
+  RUMAudienceManagementApiGetAccountFacetInfoRequest,
+  RUMAudienceManagementApiGetMappingRequest,
+  RUMAudienceManagementApiGetUserFacetInfoRequest,
+  RUMAudienceManagementApiListConnectionsRequest,
+  RUMAudienceManagementApiQueryAccountsRequest,
+  RUMAudienceManagementApiQueryEventFilteredUsersRequest,
+  RUMAudienceManagementApiQueryUsersRequest,
+  RUMAudienceManagementApiUpdateConnectionRequest,
+  RUMAudienceManagementApi,
+} from "./RUMAudienceManagementApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
 export { CreateConnectionRequest } from "./models/CreateConnectionRequest";

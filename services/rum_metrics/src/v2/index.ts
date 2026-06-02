@@ -1,10 +1,10 @@
 export {
-  RumMetricsApiCreateRumMetricRequest,
-  RumMetricsApiDeleteRumMetricRequest,
-  RumMetricsApiGetRumMetricRequest,
-  RumMetricsApiUpdateRumMetricRequest,
-  RumMetricsApi,
-} from "./RumMetricsApi";
+  RUMMetricsApiCreateRumMetricRequest,
+  RUMMetricsApiDeleteRumMetricRequest,
+  RUMMetricsApiGetRumMetricRequest,
+  RUMMetricsApiUpdateRumMetricRequest,
+  RUMMetricsApi,
+} from "./RUMMetricsApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
 export { RumMetricCompute } from "./models/RumMetricCompute";

@@ -21,10 +21,10 @@ yarn add @datadog/datadog-api-client-rum-replay-sessions
 ## Getting Started
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
-import { RumReplaySessionsApiV2 } from "@datadog/datadog-api-client-rum-replay-sessions";
+import { RUMReplaySessionsApiV2 } from "@datadog/datadog-api-client-rum-replay-sessions";
 
 const configuration = createConfiguration();
-const apiInstance = new RumReplaySessionsApiV2(configuration);
+const apiInstance = new RUMReplaySessionsApiV2(configuration);
 const params = {/* parameters */};
 
 apiInstance.getSegments(params).then(() => {

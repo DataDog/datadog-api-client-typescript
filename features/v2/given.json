@@ -1195,7 +1195,7 @@
     ],
     "step": "there is a valid \"rum_metric\" in the system",
     "key": "rum_metric",
-    "tag": "Rum Metrics",
+    "tag": "RUM Metrics",
     "operationId": "CreateRumMetric"
   },
   {

@@ -2,7 +2,7 @@
 
 ## Description
 
-Auto-generated tag Rum Audience Management
+Auto-generated tag RUM Audience Management
 
 ## Navigation
 
@@ -21,19 +21,19 @@ yarn add @datadog/datadog-api-client-rum-audience-management
 ## Getting Started
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
-import { RumAudienceManagementApiV2 } from "@datadog/datadog-api-client-rum-audience-management";
+import { RUMAudienceManagementApiV2 } from "@datadog/datadog-api-client-rum-audience-management";
 import { v2 } from "@datadog/datadog-api-client-rum-audience-management";
 
 const configuration = createConfiguration();
 // Enable unstable operations
 const configurationOpts = {
     unstableOperations: {
-        "RumAudienceManagementApi.v2.getAccountFacetInfo": true
+        "RUMAudienceManagementApi.v2.getAccountFacetInfo": true
     }
 }
 
 const configuration = createConfiguration(configurationOpts);
-const apiInstance = new RumAudienceManagementApiV2(configuration);
+const apiInstance = new RUMAudienceManagementApiV2(configuration);
 const params = {/* parameters */};
 
 apiInstance.getAccountFacetInfo(params).then((data) => {

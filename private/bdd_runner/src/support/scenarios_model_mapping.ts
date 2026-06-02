@@ -12195,49 +12195,49 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ProductAnalyticsTimeseriesResponse",
   },
-  "RumAudienceManagementApi.V2.GetAccountFacetInfo": {
+  "RUMAudienceManagementApi.V2.GetAccountFacetInfo": {
     body: {
       type: "FacetInfoRequest",
       format: "",
     },
     operationResponseType: "FacetInfoResponse",
   },
-  "RumAudienceManagementApi.V2.QueryAccounts": {
+  "RUMAudienceManagementApi.V2.QueryAccounts": {
     body: {
       type: "QueryAccountRequest",
       format: "",
     },
     operationResponseType: "QueryResponse",
   },
-  "RumAudienceManagementApi.V2.QueryEventFilteredUsers": {
+  "RUMAudienceManagementApi.V2.QueryEventFilteredUsers": {
     body: {
       type: "QueryEventFilteredUsersRequest",
       format: "",
     },
     operationResponseType: "QueryResponse",
   },
-  "RumAudienceManagementApi.V2.GetUserFacetInfo": {
+  "RUMAudienceManagementApi.V2.GetUserFacetInfo": {
     body: {
       type: "FacetInfoRequest",
       format: "",
     },
     operationResponseType: "FacetInfoResponse",
   },
-  "RumAudienceManagementApi.V2.QueryUsers": {
+  "RUMAudienceManagementApi.V2.QueryUsers": {
     body: {
       type: "QueryUsersRequest",
       format: "",
     },
     operationResponseType: "QueryResponse",
   },
-  "RumAudienceManagementApi.V2.GetMapping": {
+  "RUMAudienceManagementApi.V2.GetMapping": {
     entity: {
       type: "string",
       format: "",
     },
     operationResponseType: "GetMappingResponse",
   },
-  "RumAudienceManagementApi.V2.UpdateConnection": {
+  "RUMAudienceManagementApi.V2.UpdateConnection": {
     entity: {
       type: "string",
       format: "",
@@ -12248,7 +12248,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
-  "RumAudienceManagementApi.V2.CreateConnection": {
+  "RUMAudienceManagementApi.V2.CreateConnection": {
     entity: {
       type: "string",
       format: "",
@@ -12259,7 +12259,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
-  "RumAudienceManagementApi.V2.DeleteConnection": {
+  "RUMAudienceManagementApi.V2.DeleteConnection": {
     id: {
       type: "string",
       format: "",
@@ -12270,7 +12270,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
-  "RumAudienceManagementApi.V2.ListConnections": {
+  "RUMAudienceManagementApi.V2.ListConnections": {
     entity: {
       type: "string",
       format: "",
@@ -12676,7 +12676,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "CloudWorkloadSecurityAgentRuleResponse",
   },
-  "RumReplayHeatmapsApi.V2.ListReplayHeatmapSnapshots": {
+  "RUMReplayHeatmapsApi.V2.ListReplayHeatmapSnapshots": {
     filterDeviceType: {
       type: "string",
       format: "",
@@ -12695,21 +12695,21 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "SnapshotArray",
   },
-  "RumReplayHeatmapsApi.V2.CreateReplayHeatmapSnapshot": {
+  "RUMReplayHeatmapsApi.V2.CreateReplayHeatmapSnapshot": {
     body: {
       type: "SnapshotCreateRequest",
       format: "",
     },
     operationResponseType: "Snapshot",
   },
-  "RumReplayHeatmapsApi.V2.DeleteReplayHeatmapSnapshot": {
+  "RUMReplayHeatmapsApi.V2.DeleteReplayHeatmapSnapshot": {
     snapshotId: {
       type: "string",
       format: "",
     },
     operationResponseType: "{}",
   },
-  "RumReplayHeatmapsApi.V2.UpdateReplayHeatmapSnapshot": {
+  "RUMReplayHeatmapsApi.V2.UpdateReplayHeatmapSnapshot": {
     snapshotId: {
       type: "string",
       format: "",
@@ -12825,7 +12825,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "RUMEventsResponse",
   },
-  "RumRetentionFiltersApi.V2.OrderRetentionFilters": {
+  "RUMRetentionFiltersApi.V2.OrderRetentionFilters": {
     appId: {
       type: "string",
       format: "",
@@ -12836,14 +12836,14 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "RumRetentionFiltersOrderResponse",
   },
-  "RumRetentionFiltersApi.V2.ListRetentionFilters": {
+  "RUMRetentionFiltersApi.V2.ListRetentionFilters": {
     appId: {
       type: "string",
       format: "",
     },
     operationResponseType: "RumRetentionFiltersResponse",
   },
-  "RumRetentionFiltersApi.V2.CreateRetentionFilter": {
+  "RUMRetentionFiltersApi.V2.CreateRetentionFilter": {
     appId: {
       type: "string",
       format: "",
@@ -12854,14 +12854,14 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "RumRetentionFilterResponse",
   },
-  "RumRetentionFiltersApi.V2.ListPermanentRetentionFilters": {
+  "RUMRetentionFiltersApi.V2.ListPermanentRetentionFilters": {
     appId: {
       type: "string",
       format: "",
     },
     operationResponseType: "RumPermanentRetentionFiltersResponse",
   },
-  "RumRetentionFiltersApi.V2.GetPermanentRetentionFilter": {
+  "RUMRetentionFiltersApi.V2.GetPermanentRetentionFilter": {
     appId: {
       type: "string",
       format: "",
@@ -12872,7 +12872,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "RumPermanentRetentionFilterResponse",
   },
-  "RumRetentionFiltersApi.V2.UpdatePermanentRetentionFilter": {
+  "RUMRetentionFiltersApi.V2.UpdatePermanentRetentionFilter": {
     appId: {
       type: "string",
       format: "",
@@ -12887,7 +12887,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "RumPermanentRetentionFilterResponse",
   },
-  "RumRetentionFiltersApi.V2.GetRetentionFilter": {
+  "RUMRetentionFiltersApi.V2.GetRetentionFilter": {
     appId: {
       type: "string",
       format: "",
@@ -12898,7 +12898,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "RumRetentionFilterResponse",
   },
-  "RumRetentionFiltersApi.V2.DeleteRetentionFilter": {
+  "RUMRetentionFiltersApi.V2.DeleteRetentionFilter": {
     appId: {
       type: "string",
       format: "",
@@ -12909,7 +12909,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
-  "RumRetentionFiltersApi.V2.UpdateRetentionFilter": {
+  "RUMRetentionFiltersApi.V2.UpdateRetentionFilter": {
     appId: {
       type: "string",
       format: "",
@@ -12924,31 +12924,31 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "RumRetentionFilterResponse",
   },
-  "RumMetricsApi.V2.ListRumMetrics": {
+  "RUMMetricsApi.V2.ListRumMetrics": {
     operationResponseType: "RumMetricsResponse",
   },
-  "RumMetricsApi.V2.CreateRumMetric": {
+  "RUMMetricsApi.V2.CreateRumMetric": {
     body: {
       type: "RumMetricCreateRequest",
       format: "",
     },
     operationResponseType: "RumMetricResponse",
   },
-  "RumMetricsApi.V2.GetRumMetric": {
+  "RUMMetricsApi.V2.GetRumMetric": {
     metricId: {
       type: "string",
       format: "",
     },
     operationResponseType: "RumMetricResponse",
   },
-  "RumMetricsApi.V2.DeleteRumMetric": {
+  "RUMMetricsApi.V2.DeleteRumMetric": {
     metricId: {
       type: "string",
       format: "",
     },
     operationResponseType: "{}",
   },
-  "RumMetricsApi.V2.UpdateRumMetric": {
+  "RUMMetricsApi.V2.UpdateRumMetric": {
     metricId: {
       type: "string",
       format: "",
@@ -12959,7 +12959,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "RumMetricResponse",
   },
-  "RumReplayPlaylistsApi.V2.ListRumReplayPlaylists": {
+  "RUMReplayPlaylistsApi.V2.ListRumReplayPlaylists": {
     filterCreatedByUuid: {
       type: "string",
       format: "",
@@ -12978,21 +12978,21 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "PlaylistArray",
   },
-  "RumReplayPlaylistsApi.V2.CreateRumReplayPlaylist": {
+  "RUMReplayPlaylistsApi.V2.CreateRumReplayPlaylist": {
     body: {
       type: "Playlist",
       format: "",
     },
     operationResponseType: "Playlist",
   },
-  "RumReplayPlaylistsApi.V2.GetRumReplayPlaylist": {
+  "RUMReplayPlaylistsApi.V2.GetRumReplayPlaylist": {
     playlistId: {
       type: "number",
       format: "",
     },
     operationResponseType: "Playlist",
   },
-  "RumReplayPlaylistsApi.V2.UpdateRumReplayPlaylist": {
+  "RUMReplayPlaylistsApi.V2.UpdateRumReplayPlaylist": {
     playlistId: {
       type: "number",
       format: "",
@@ -13003,14 +13003,14 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "Playlist",
   },
-  "RumReplayPlaylistsApi.V2.DeleteRumReplayPlaylist": {
+  "RUMReplayPlaylistsApi.V2.DeleteRumReplayPlaylist": {
     playlistId: {
       type: "number",
       format: "",
     },
     operationResponseType: "{}",
   },
-  "RumReplayPlaylistsApi.V2.ListRumReplayPlaylistSessions": {
+  "RUMReplayPlaylistsApi.V2.ListRumReplayPlaylistSessions": {
     playlistId: {
       type: "number",
       format: "",
@@ -13025,7 +13025,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "PlaylistsSessionArray",
   },
-  "RumReplayPlaylistsApi.V2.BulkRemoveRumReplayPlaylistSessions": {
+  "RUMReplayPlaylistsApi.V2.BulkRemoveRumReplayPlaylistSessions": {
     playlistId: {
       type: "number",
       format: "",
@@ -13036,7 +13036,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
-  "RumReplayPlaylistsApi.V2.AddRumReplaySessionToPlaylist": {
+  "RUMReplayPlaylistsApi.V2.AddRumReplaySessionToPlaylist": {
     dataSource: {
       type: "string",
       format: "",
@@ -13055,7 +13055,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "PlaylistsSession",
   },
-  "RumReplayPlaylistsApi.V2.RemoveRumReplaySessionFromPlaylist": {
+  "RUMReplayPlaylistsApi.V2.RemoveRumReplaySessionFromPlaylist": {
     playlistId: {
       type: "number",
       format: "",
@@ -13066,7 +13066,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
-  "RumReplaySessionsApi.V2.GetSegments": {
+  "RUMReplaySessionsApi.V2.GetSegments": {
     viewId: {
       type: "string",
       format: "",
@@ -13093,7 +13093,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
-  "RumReplayViewershipApi.V2.ListRumReplaySessionWatchers": {
+  "RUMReplayViewershipApi.V2.ListRumReplaySessionWatchers": {
     pageSize: {
       type: "number",
       format: "",
@@ -13108,7 +13108,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "WatcherArray",
   },
-  "RumReplayViewershipApi.V2.CreateRumReplaySessionWatch": {
+  "RUMReplayViewershipApi.V2.CreateRumReplaySessionWatch": {
     sessionId: {
       type: "string",
       format: "",
@@ -13119,14 +13119,14 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "Watch",
   },
-  "RumReplayViewershipApi.V2.DeleteRumReplaySessionWatch": {
+  "RUMReplayViewershipApi.V2.DeleteRumReplaySessionWatch": {
     sessionId: {
       type: "string",
       format: "",
     },
     operationResponseType: "{}",
   },
-  "RumReplayViewershipApi.V2.ListRumReplayViewershipHistorySessions": {
+  "RUMReplayViewershipApi.V2.ListRumReplayViewershipHistorySessions": {
     filterWatchedAtStart: {
       type: "number",
       format: "int64",

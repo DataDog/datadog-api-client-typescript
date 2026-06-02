@@ -21,11 +21,11 @@ yarn add @datadog/datadog-api-client-rum-replay-heatmaps
 ## Getting Started
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
-import { RumReplayHeatmapsApiV2 } from "@datadog/datadog-api-client-rum-replay-heatmaps";
+import { RUMReplayHeatmapsApiV2 } from "@datadog/datadog-api-client-rum-replay-heatmaps";
 import { v2 } from "@datadog/datadog-api-client-rum-replay-heatmaps";
 
 const configuration = createConfiguration();
-const apiInstance = new RumReplayHeatmapsApiV2(configuration);
+const apiInstance = new RUMReplayHeatmapsApiV2(configuration);
 const params = {/* parameters */};
 
 apiInstance.listReplayHeatmapSnapshots(params).then((data) => {

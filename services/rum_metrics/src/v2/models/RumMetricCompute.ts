@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { RumMetricComputeAggregationType } from "./RumMetricComputeAggregationType";
 
 /**
- * The compute rule to compute the rum-based metric.
+ * The compute rule to compute the RUM-based metric.
  */
 export class RumMetricCompute {
   /**
@@ -16,7 +16,7 @@ export class RumMetricCompute {
    */
   "includePercentiles"?: boolean;
   /**
-   * The path to the value the rum-based metric will aggregate on.
+   * The path to the value the RUM-based metric will aggregate on.
    * Only present when `aggregation_type` is `distribution`.
    */
   "path"?: string;

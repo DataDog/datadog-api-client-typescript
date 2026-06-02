@@ -1,3 +1,3 @@
 export * as v2 from "./v2";
 
-export { RumMetricsApi as RumMetricsApiV2 } from "./v2/RumMetricsApi";
+export { RUMMetricsApi as RUMMetricsApiV2 } from "./v2/RUMMetricsApi";

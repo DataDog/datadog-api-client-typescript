@@ -1,6 +1,6 @@
 export {
-  RumReplaySessionsApiGetSegmentsRequest,
-  RumReplaySessionsApi,
-} from "./RumReplaySessionsApi";
+  RUMReplaySessionsApiGetSegmentsRequest,
+  RUMReplaySessionsApi,
+} from "./RUMReplaySessionsApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";

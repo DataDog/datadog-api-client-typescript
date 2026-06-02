@@ -1,10 +1,10 @@
 export {
-  RumReplayViewershipApiCreateRumReplaySessionWatchRequest,
-  RumReplayViewershipApiDeleteRumReplaySessionWatchRequest,
-  RumReplayViewershipApiListRumReplaySessionWatchersRequest,
-  RumReplayViewershipApiListRumReplayViewershipHistorySessionsRequest,
-  RumReplayViewershipApi,
-} from "./RumReplayViewershipApi";
+  RUMReplayViewershipApiCreateRumReplaySessionWatchRequest,
+  RUMReplayViewershipApiDeleteRumReplaySessionWatchRequest,
+  RUMReplayViewershipApiListRumReplaySessionWatchersRequest,
+  RUMReplayViewershipApiListRumReplayViewershipHistorySessionsRequest,
+  RUMReplayViewershipApi,
+} from "./RUMReplayViewershipApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
 export { ViewershipHistorySessionArray } from "./models/ViewershipHistorySessionArray";

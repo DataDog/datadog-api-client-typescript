@@ -7,11 +7,11 @@ import { RumMetricGroupBy } from "./RumMetricGroupBy";
 import { RumMetricUniqueness } from "./RumMetricUniqueness";
 
 /**
- * The object describing the Datadog rum-based metric to create.
+ * The object describing the Datadog RUM-based metric to create.
  */
 export class RumMetricCreateAttributes {
   /**
-   * The compute rule to compute the rum-based metric.
+   * The compute rule to compute the RUM-based metric.
    */
   "compute": RumMetricCompute;
   /**
@@ -19,7 +19,7 @@ export class RumMetricCreateAttributes {
    */
   "eventType": RumMetricEventType;
   /**
-   * The rum-based metric filter. Events matching this filter will be aggregated in this metric.
+   * The RUM-based metric filter. Events matching this filter will be aggregated in this metric.
    */
   "filter"?: RumMetricFilter;
   /**

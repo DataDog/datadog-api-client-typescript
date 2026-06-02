@@ -1,15 +1,15 @@
 export {
-  RumReplayPlaylistsApiAddRumReplaySessionToPlaylistRequest,
-  RumReplayPlaylistsApiBulkRemoveRumReplayPlaylistSessionsRequest,
-  RumReplayPlaylistsApiCreateRumReplayPlaylistRequest,
-  RumReplayPlaylistsApiDeleteRumReplayPlaylistRequest,
-  RumReplayPlaylistsApiGetRumReplayPlaylistRequest,
-  RumReplayPlaylistsApiListRumReplayPlaylistSessionsRequest,
-  RumReplayPlaylistsApiListRumReplayPlaylistsRequest,
-  RumReplayPlaylistsApiRemoveRumReplaySessionFromPlaylistRequest,
-  RumReplayPlaylistsApiUpdateRumReplayPlaylistRequest,
-  RumReplayPlaylistsApi,
-} from "./RumReplayPlaylistsApi";
+  RUMReplayPlaylistsApiAddRumReplaySessionToPlaylistRequest,
+  RUMReplayPlaylistsApiBulkRemoveRumReplayPlaylistSessionsRequest,
+  RUMReplayPlaylistsApiCreateRumReplayPlaylistRequest,
+  RUMReplayPlaylistsApiDeleteRumReplayPlaylistRequest,
+  RUMReplayPlaylistsApiGetRumReplayPlaylistRequest,
+  RUMReplayPlaylistsApiListRumReplayPlaylistSessionsRequest,
+  RUMReplayPlaylistsApiListRumReplayPlaylistsRequest,
+  RUMReplayPlaylistsApiRemoveRumReplaySessionFromPlaylistRequest,
+  RUMReplayPlaylistsApiUpdateRumReplayPlaylistRequest,
+  RUMReplayPlaylistsApi,
+} from "./RUMReplayPlaylistsApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
 export { Playlist } from "./models/Playlist";

@@ -1,15 +1,15 @@
 export {
-  RumRetentionFiltersApiCreateRetentionFilterRequest,
-  RumRetentionFiltersApiDeleteRetentionFilterRequest,
-  RumRetentionFiltersApiGetPermanentRetentionFilterRequest,
-  RumRetentionFiltersApiGetRetentionFilterRequest,
-  RumRetentionFiltersApiListPermanentRetentionFiltersRequest,
-  RumRetentionFiltersApiListRetentionFiltersRequest,
-  RumRetentionFiltersApiOrderRetentionFiltersRequest,
-  RumRetentionFiltersApiUpdatePermanentRetentionFilterRequest,
-  RumRetentionFiltersApiUpdateRetentionFilterRequest,
-  RumRetentionFiltersApi,
-} from "./RumRetentionFiltersApi";
+  RUMRetentionFiltersApiCreateRetentionFilterRequest,
+  RUMRetentionFiltersApiDeleteRetentionFilterRequest,
+  RUMRetentionFiltersApiGetPermanentRetentionFilterRequest,
+  RUMRetentionFiltersApiGetRetentionFilterRequest,
+  RUMRetentionFiltersApiListPermanentRetentionFiltersRequest,
+  RUMRetentionFiltersApiListRetentionFiltersRequest,
+  RUMRetentionFiltersApiOrderRetentionFiltersRequest,
+  RUMRetentionFiltersApiUpdatePermanentRetentionFilterRequest,
+  RUMRetentionFiltersApiUpdateRetentionFilterRequest,
+  RUMRetentionFiltersApi,
+} from "./RUMRetentionFiltersApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
 export { RumCrossProductSampling } from "./models/RumCrossProductSampling";

@@ -440,13 +440,13 @@ apiInstance
 | Restriction Policies | @datadog/datadog-api-client-restriction-policies | [README.md](../../services/restriction-policies/README.md) |
 | Roles | @datadog/datadog-api-client-roles | [README.md](../../services/roles/README.md) |
 | RUM | @datadog/datadog-api-client-rum | [README.md](../../services/rum/README.md) |
-| Rum Audience Management | @datadog/datadog-api-client-rum-audience-management | [README.md](../../services/rum-audience-management/README.md) |
-| Rum Metrics | @datadog/datadog-api-client-rum-metrics | [README.md](../../services/rum-metrics/README.md) |
-| Rum Replay Heatmaps | @datadog/datadog-api-client-rum-replay-heatmaps | [README.md](../../services/rum-replay-heatmaps/README.md) |
-| Rum Replay Playlists | @datadog/datadog-api-client-rum-replay-playlists | [README.md](../../services/rum-replay-playlists/README.md) |
-| Rum Replay Sessions | @datadog/datadog-api-client-rum-replay-sessions | [README.md](../../services/rum-replay-sessions/README.md) |
-| Rum Replay Viewership | @datadog/datadog-api-client-rum-replay-viewership | [README.md](../../services/rum-replay-viewership/README.md) |
-| Rum Retention Filters | @datadog/datadog-api-client-rum-retention-filters | [README.md](../../services/rum-retention-filters/README.md) |
+| RUM Audience Management | @datadog/datadog-api-client-rum-audience-management | [README.md](../../services/rum-audience-management/README.md) |
+| RUM Metrics | @datadog/datadog-api-client-rum-metrics | [README.md](../../services/rum-metrics/README.md) |
+| RUM Replay Heatmaps | @datadog/datadog-api-client-rum-replay-heatmaps | [README.md](../../services/rum-replay-heatmaps/README.md) |
+| RUM Replay Playlists | @datadog/datadog-api-client-rum-replay-playlists | [README.md](../../services/rum-replay-playlists/README.md) |
+| RUM Replay Sessions | @datadog/datadog-api-client-rum-replay-sessions | [README.md](../../services/rum-replay-sessions/README.md) |
+| RUM Replay Viewership | @datadog/datadog-api-client-rum-replay-viewership | [README.md](../../services/rum-replay-viewership/README.md) |
+| RUM Retention Filters | @datadog/datadog-api-client-rum-retention-filters | [README.md](../../services/rum-retention-filters/README.md) |
 | Scorecards | @datadog/datadog-api-client-scorecards | [README.md](../../services/scorecards/README.md) |
 | Seats | @datadog/datadog-api-client-seats | [README.md](../../services/seats/README.md) |
 | Security Monitoring | @datadog/datadog-api-client-security-monitoring | [README.md](../../services/security-monitoring/README.md) |

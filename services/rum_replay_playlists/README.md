@@ -21,11 +21,11 @@ yarn add @datadog/datadog-api-client-rum-replay-playlists
 ## Getting Started
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
-import { RumReplayPlaylistsApiV2 } from "@datadog/datadog-api-client-rum-replay-playlists";
+import { RUMReplayPlaylistsApiV2 } from "@datadog/datadog-api-client-rum-replay-playlists";
 import { v2 } from "@datadog/datadog-api-client-rum-replay-playlists";
 
 const configuration = createConfiguration();
-const apiInstance = new RumReplayPlaylistsApiV2(configuration);
+const apiInstance = new RUMReplayPlaylistsApiV2(configuration);
 const params = {/* parameters */};
 
 apiInstance.listRumReplayPlaylists(params).then((data) => {
