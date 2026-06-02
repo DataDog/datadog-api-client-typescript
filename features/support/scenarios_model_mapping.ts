@@ -9993,6 +9993,45 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "StatuspageUrlSettingResponse",
     },
+    "v2.GetAllAuthMethods": {
+        "include": {
+            "type": "WebhooksAuthMethodProtocol",
+            "format": "",
+            },
+        "operationResponseType": "WebhooksAuthMethodsResponse",
+    },
+    "v2.CreateOAuth2ClientCredentials": {
+        "body": {
+            "type": "WebhooksOAuth2ClientCredentialsCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "WebhooksOAuth2ClientCredentialsResponse",
+    },
+    "v2.GetOAuth2ClientCredentials": {
+        "authMethodId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "WebhooksOAuth2ClientCredentialsResponse",
+    },
+    "v2.DeleteOAuth2ClientCredentials": {
+        "authMethodId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateOAuth2ClientCredentials": {
+        "authMethodId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "WebhooksOAuth2ClientCredentialsUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "WebhooksOAuth2ClientCredentialsResponse",
+    },
     "v2.ListIntegrations": {
         "operationResponseType": "ListIntegrationsResponse",
     },
