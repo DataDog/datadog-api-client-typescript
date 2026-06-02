@@ -15359,6 +15359,37 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.ListWorkflows": {
+        "limit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "page": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "filterQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "filterTriggerType": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "filterIncludeUnpublished": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterIncludeSpecs": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "ListWorkflowsResponse",
+    },
     "v2.CreateWorkflow": {
         "body": {
             "type": "CreateWorkflowRequest",
