@@ -3445,6 +3445,19 @@ import { SLOReportPostResponseData } from "./SLOReportPostResponseData";
 import { SLOReportStatusGetResponse } from "./SLOReportStatusGetResponse";
 import { SLOReportStatusGetResponseAttributes } from "./SLOReportStatusGetResponseAttributes";
 import { SLOReportStatusGetResponseData } from "./SLOReportStatusGetResponseData";
+import { SalesforceIncidentsOrganizationResponseAttributes } from "./SalesforceIncidentsOrganizationResponseAttributes";
+import { SalesforceIncidentsOrganizationResponseData } from "./SalesforceIncidentsOrganizationResponseData";
+import { SalesforceIncidentsOrganizationsResponse } from "./SalesforceIncidentsOrganizationsResponse";
+import { SalesforceIncidentsTemplateCreateAttributes } from "./SalesforceIncidentsTemplateCreateAttributes";
+import { SalesforceIncidentsTemplateCreateData } from "./SalesforceIncidentsTemplateCreateData";
+import { SalesforceIncidentsTemplateCreateRequest } from "./SalesforceIncidentsTemplateCreateRequest";
+import { SalesforceIncidentsTemplateResponse } from "./SalesforceIncidentsTemplateResponse";
+import { SalesforceIncidentsTemplateResponseAttributes } from "./SalesforceIncidentsTemplateResponseAttributes";
+import { SalesforceIncidentsTemplateResponseData } from "./SalesforceIncidentsTemplateResponseData";
+import { SalesforceIncidentsTemplateUpdateAttributes } from "./SalesforceIncidentsTemplateUpdateAttributes";
+import { SalesforceIncidentsTemplateUpdateData } from "./SalesforceIncidentsTemplateUpdateData";
+import { SalesforceIncidentsTemplateUpdateRequest } from "./SalesforceIncidentsTemplateUpdateRequest";
+import { SalesforceIncidentsTemplatesResponse } from "./SalesforceIncidentsTemplatesResponse";
 import { SampleLogGenerationBulkSubscriptionAttributes } from "./SampleLogGenerationBulkSubscriptionAttributes";
 import { SampleLogGenerationBulkSubscriptionData } from "./SampleLogGenerationBulkSubscriptionData";
 import { SampleLogGenerationBulkSubscriptionItemMeta } from "./SampleLogGenerationBulkSubscriptionItemMeta";
@@ -6515,6 +6528,9 @@ const enumsMap: { [key: string]: any[] } = {
     "completed_with_errors",
     "failed",
   ],
+  SalesforceIncidentsOrganizationType: ["salesforce-incidents-org"],
+  SalesforceIncidentsTemplatePriority: ["Critical", "High", "Moderate", "Low"],
+  SalesforceIncidentsTemplateType: ["salesforce-incidents-incident-template"],
   SampleLogGenerationBulkSubscriptionRequestType: [
     "bulk_subscription_requests",
   ],
@@ -11371,6 +11387,28 @@ const typeMap: { [index: string]: any } = {
   SLOReportStatusGetResponse: SLOReportStatusGetResponse,
   SLOReportStatusGetResponseAttributes: SLOReportStatusGetResponseAttributes,
   SLOReportStatusGetResponseData: SLOReportStatusGetResponseData,
+  SalesforceIncidentsOrganizationResponseAttributes:
+    SalesforceIncidentsOrganizationResponseAttributes,
+  SalesforceIncidentsOrganizationResponseData:
+    SalesforceIncidentsOrganizationResponseData,
+  SalesforceIncidentsOrganizationsResponse:
+    SalesforceIncidentsOrganizationsResponse,
+  SalesforceIncidentsTemplateCreateAttributes:
+    SalesforceIncidentsTemplateCreateAttributes,
+  SalesforceIncidentsTemplateCreateData: SalesforceIncidentsTemplateCreateData,
+  SalesforceIncidentsTemplateCreateRequest:
+    SalesforceIncidentsTemplateCreateRequest,
+  SalesforceIncidentsTemplateResponse: SalesforceIncidentsTemplateResponse,
+  SalesforceIncidentsTemplateResponseAttributes:
+    SalesforceIncidentsTemplateResponseAttributes,
+  SalesforceIncidentsTemplateResponseData:
+    SalesforceIncidentsTemplateResponseData,
+  SalesforceIncidentsTemplateUpdateAttributes:
+    SalesforceIncidentsTemplateUpdateAttributes,
+  SalesforceIncidentsTemplateUpdateData: SalesforceIncidentsTemplateUpdateData,
+  SalesforceIncidentsTemplateUpdateRequest:
+    SalesforceIncidentsTemplateUpdateRequest,
+  SalesforceIncidentsTemplatesResponse: SalesforceIncidentsTemplatesResponse,
   SampleLogGenerationBulkSubscriptionAttributes:
     SampleLogGenerationBulkSubscriptionAttributes,
   SampleLogGenerationBulkSubscriptionData:
