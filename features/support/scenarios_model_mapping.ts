@@ -14640,6 +14640,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.GetStegadographyWidgets": {
+        "image": {
+            "type": "HttpFile",
+            "format": "binary",
+            },
+        "operationResponseType": "StegadographyGetWidgetsResponse",
+    },
     "v2.GetApiMultistepSubtests": {
         "publicId": {
             "type": "string",
