@@ -1044,6 +1044,13 @@ export {
 } from "./apis/RUMInsightsApi";
 
 export {
+  RUMRetentionFiltersHardcodedApiGetHardcodedRetentionFilterRequest,
+  RUMRetentionFiltersHardcodedApiListHardcodedRetentionFiltersRequest,
+  RUMRetentionFiltersHardcodedApiUpdateHardcodedRetentionFilterRequest,
+  RUMRetentionFiltersHardcodedApi,
+} from "./apis/RUMRetentionFiltersHardcodedApi";
+
+export {
   ReferenceTablesApiBatchRowsQueryRequest,
   ReferenceTablesApiCreateReferenceTableRequest,
   ReferenceTablesApiCreateReferenceTableUploadRequest,
@@ -6064,6 +6071,20 @@ export { RUMGroupBy } from "./models/RUMGroupBy";
 export { RUMGroupByHistogram } from "./models/RUMGroupByHistogram";
 export { RUMGroupByMissing } from "./models/RUMGroupByMissing";
 export { RUMGroupByTotal } from "./models/RUMGroupByTotal";
+export { RumHardcodedCrossProductSampling } from "./models/RumHardcodedCrossProductSampling";
+export { RumHardcodedCrossProductSamplingEditability } from "./models/RumHardcodedCrossProductSamplingEditability";
+export { RumHardcodedCrossProductSamplingUpdate } from "./models/RumHardcodedCrossProductSamplingUpdate";
+export { RumHardcodedRetentionFilterAttributes } from "./models/RumHardcodedRetentionFilterAttributes";
+export { RumHardcodedRetentionFilterData } from "./models/RumHardcodedRetentionFilterData";
+export { RumHardcodedRetentionFilterEventType } from "./models/RumHardcodedRetentionFilterEventType";
+export { RumHardcodedRetentionFilterMeta } from "./models/RumHardcodedRetentionFilterMeta";
+export { RumHardcodedRetentionFilterMetaSource } from "./models/RumHardcodedRetentionFilterMetaSource";
+export { RumHardcodedRetentionFilterResponse } from "./models/RumHardcodedRetentionFilterResponse";
+export { RumHardcodedRetentionFiltersResponse } from "./models/RumHardcodedRetentionFiltersResponse";
+export { RumHardcodedRetentionFilterType } from "./models/RumHardcodedRetentionFilterType";
+export { RumHardcodedRetentionFilterUpdateAttributes } from "./models/RumHardcodedRetentionFilterUpdateAttributes";
+export { RumHardcodedRetentionFilterUpdateData } from "./models/RumHardcodedRetentionFilterUpdateData";
+export { RumHardcodedRetentionFilterUpdateRequest } from "./models/RumHardcodedRetentionFilterUpdateRequest";
 export { RumMetricCompute } from "./models/RumMetricCompute";
 export { RumMetricComputeAggregationType } from "./models/RumMetricComputeAggregationType";
 export { RumMetricCreateAttributes } from "./models/RumMetricCreateAttributes";
