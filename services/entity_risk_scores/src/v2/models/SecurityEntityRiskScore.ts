@@ -8,7 +8,7 @@ import { SecurityEntityRiskScoreType } from "./SecurityEntityRiskScoreType";
  */
 export class SecurityEntityRiskScore {
   /**
-   * Attributes of an entity risk score
+   * Attributes of an entity risk score.
    */
   "attributes": SecurityEntityRiskScoreAttributes;
   /**
@@ -16,7 +16,7 @@ export class SecurityEntityRiskScore {
    */
   "id": string;
   /**
-   * Resource type
+   * Resource type.
    */
   "type": SecurityEntityRiskScoreType;
   /**
