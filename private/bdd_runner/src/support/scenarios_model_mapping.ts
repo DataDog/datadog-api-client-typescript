@@ -14652,6 +14652,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "StegadographyApi.V2.GetWidgetsFromImage": {
+    image: {
+      type: "HttpFile",
+      format: "binary",
+    },
+    operationResponseType: "StegadographyWidgetsResponse",
+  },
   "SyntheticsApi.V2.GetApiMultistepSubtests": {
     publicId: {
       type: "string",
