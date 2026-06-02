@@ -604,6 +604,7 @@ export function createConfiguration(
       "v2.queryAggregatedSignalsProblems": false,
       "v2.queryAggregatedWaterfall": false,
       "v2.createScorecardOutcomesBatch": false,
+      "v2.getEntityRiskScore": false,
       "v2.listEntityRiskScores": false,
       "v2.createIncidentService": false,
       "v2.deleteIncidentService": false,
