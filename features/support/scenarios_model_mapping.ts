@@ -11226,6 +11226,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "query": {
+            "type": "string",
+            "format": "",
+            },
         "limit": {
             "type": "number",
             "format": "int32",
@@ -11246,6 +11250,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "tags": {
+            "type": "string",
+            "format": "",
+            },
+        "query": {
             "type": "string",
             "format": "",
             },
