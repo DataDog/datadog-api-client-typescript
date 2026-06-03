@@ -35,6 +35,9 @@ import { UsageAttributionTypesResponse } from "./UsageAttributionTypesResponse";
 import { UsageDataObject } from "./UsageDataObject";
 import { UsageLambdaTracedInvocationsResponse } from "./UsageLambdaTracedInvocationsResponse";
 import { UsageObservabilityPipelinesResponse } from "./UsageObservabilityPipelinesResponse";
+import { UsageSummaryAvailableFieldsAttributes } from "./UsageSummaryAvailableFieldsAttributes";
+import { UsageSummaryAvailableFieldsBody } from "./UsageSummaryAvailableFieldsBody";
+import { UsageSummaryAvailableFieldsResponse } from "./UsageSummaryAvailableFieldsResponse";
 import { UsageTimeSeriesObject } from "./UsageTimeSeriesObject";
 
 export const TypingInfo: ModelTypingInfo = {
@@ -55,6 +58,7 @@ export const TypingInfo: ModelTypingInfo = {
     ProjectedCostType: ["projected_cost"],
     SortDirection: ["desc", "asc"],
     UsageAttributionTypesType: ["usage_attribution_types"],
+    UsageSummaryAvailableFieldsType: ["usage_summary_available_fields"],
     UsageTimeSeriesType: ["usage_timeseries"],
   },
   oneOfMap: {},
@@ -97,6 +101,10 @@ export const TypingInfo: ModelTypingInfo = {
     UsageDataObject: UsageDataObject,
     UsageLambdaTracedInvocationsResponse: UsageLambdaTracedInvocationsResponse,
     UsageObservabilityPipelinesResponse: UsageObservabilityPipelinesResponse,
+    UsageSummaryAvailableFieldsAttributes:
+      UsageSummaryAvailableFieldsAttributes,
+    UsageSummaryAvailableFieldsBody: UsageSummaryAvailableFieldsBody,
+    UsageSummaryAvailableFieldsResponse: UsageSummaryAvailableFieldsResponse,
     UsageTimeSeriesObject: UsageTimeSeriesObject,
   },
 };
