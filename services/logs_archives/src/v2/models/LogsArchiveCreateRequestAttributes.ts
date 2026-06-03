@@ -21,9 +21,17 @@ export class LogsArchiveCreateRequestAttributes {
    */
   "includeTags"?: boolean;
   /**
+   * An array of attributes to use as lookup keys for the archive.
+   */
+  "lookupAttributes"?: Array<string>;
+  /**
    * The archive name.
    */
   "name": string;
+  /**
+   * An array of attributes to use as partition keys for the archive. The attribute used most frequently for querying should be first.
+   */
+  "partitioningAttributes"?: Array<string>;
   /**
    * The archive query/filter. Logs matching this query are included in the archive.
    */
@@ -64,10 +72,18 @@ export class LogsArchiveCreateRequestAttributes {
       baseName: "include_tags",
       type: "boolean",
     },
+    lookupAttributes: {
+      baseName: "lookup_attributes",
+      type: "Array<string>",
+    },
     name: {
       baseName: "name",
       type: "string",
       required: true,
+    },
+    partitioningAttributes: {
+      baseName: "partitioning_attributes",
+      type: "Array<string>",
     },
     query: {
       baseName: "query",
