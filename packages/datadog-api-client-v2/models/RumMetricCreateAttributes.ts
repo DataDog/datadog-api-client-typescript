@@ -12,11 +12,11 @@ import { RumMetricUniqueness } from "./RumMetricUniqueness";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The object describing the Datadog RUM-based metric to create.
+ * The object describing the Datadog rum-based metric to create.
  */
 export class RumMetricCreateAttributes {
   /**
-   * The compute rule to compute the RUM-based metric.
+   * The compute rule to compute the rum-based metric.
    */
   "compute": RumMetricCompute;
   /**
@@ -24,7 +24,7 @@ export class RumMetricCreateAttributes {
    */
   "eventType": RumMetricEventType;
   /**
-   * The RUM-based metric filter. Events matching this filter will be aggregated in this metric.
+   * The rum-based metric filter. Events matching this filter will be aggregated in this metric.
    */
   "filter"?: RumMetricFilter;
   /**

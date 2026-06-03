@@ -1,5 +1,5 @@
 /**
- * List RUM replay viewership history sessions returns "OK" response
+ * List rum replay viewership history sessions returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
