@@ -12880,6 +12880,39 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "RUMEventsResponse",
     },
+    "v2.ListHardcodedRetentionFilters": {
+        "appId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "RumHardcodedRetentionFiltersResponse",
+    },
+    "v2.GetHardcodedRetentionFilter": {
+        "appId": {
+            "type": "string",
+            "format": "",
+            },
+        "rfId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "RumHardcodedRetentionFilterResponse",
+    },
+    "v2.UpdateHardcodedRetentionFilter": {
+        "appId": {
+            "type": "string",
+            "format": "",
+            },
+        "rfId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RumHardcodedRetentionFilterUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "RumHardcodedRetentionFilterResponse",
+    },
     "v2.OrderRetentionFilters": {
         "appId": {
             "type": "string",
