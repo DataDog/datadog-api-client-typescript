@@ -1,6 +1,24 @@
 import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
+import { ELFSourcemapAttributes } from "./ELFSourcemapAttributes";
+import { ELFSourcemapData } from "./ELFSourcemapData";
+import { FlutterSourcemapAttributes } from "./FlutterSourcemapAttributes";
+import { FlutterSourcemapData } from "./FlutterSourcemapData";
+import { IL2CPPSourcemapAttributes } from "./IL2CPPSourcemapAttributes";
+import { IL2CPPSourcemapData } from "./IL2CPPSourcemapData";
+import { IOSSourcemapAttributes } from "./IOSSourcemapAttributes";
+import { IOSSourcemapData } from "./IOSSourcemapData";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
+import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
+import { JSSourcemapAttributes } from "./JSSourcemapAttributes";
+import { JSSourcemapData } from "./JSSourcemapData";
+import { JVMSourcemapAttributes } from "./JVMSourcemapAttributes";
+import { JVMSourcemapData } from "./JVMSourcemapData";
+import { ListSourcemapsResponse } from "./ListSourcemapsResponse";
+import { NDKSourcemapAttributes } from "./NDKSourcemapAttributes";
+import { NDKSourcemapData } from "./NDKSourcemapData";
 import { RUMAggregateBucketValueTimeseriesPoint } from "./RUMAggregateBucketValueTimeseriesPoint";
 import { RUMAggregateRequest } from "./RUMAggregateRequest";
 import { RUMAggregateSort } from "./RUMAggregateSort";
@@ -36,6 +54,20 @@ import { RUMResponseMetadata } from "./RUMResponseMetadata";
 import { RUMResponsePage } from "./RUMResponsePage";
 import { RUMSearchEventsRequest } from "./RUMSearchEventsRequest";
 import { RUMWarning } from "./RUMWarning";
+import { ReactNativeSourcemapAttributes } from "./ReactNativeSourcemapAttributes";
+import { ReactNativeSourcemapData } from "./ReactNativeSourcemapData";
+import { ServiceRepositoryInfoRequest } from "./ServiceRepositoryInfoRequest";
+import { ServiceRepositoryInfoRequestAttributes } from "./ServiceRepositoryInfoRequestAttributes";
+import { ServiceRepositoryInfoRequestData } from "./ServiceRepositoryInfoRequestData";
+import { ServiceRepositoryInfoResponse } from "./ServiceRepositoryInfoResponse";
+import { ServiceRepositoryInfoResponseAttributes } from "./ServiceRepositoryInfoResponseAttributes";
+import { ServiceRepositoryInfoResponseData } from "./ServiceRepositoryInfoResponseData";
+import { SourcemapFileAttributes } from "./SourcemapFileAttributes";
+import { SourcemapFileData } from "./SourcemapFileData";
+import { SourcemapFileResponse } from "./SourcemapFileResponse";
+import { SourcemapsListMeta } from "./SourcemapsListMeta";
+import { SourcemapsListMetaPage } from "./SourcemapsListMetaPage";
+import { SourcemapsResponse } from "./SourcemapsResponse";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
@@ -65,6 +97,26 @@ export const TypingInfo: ModelTypingInfo = {
     RUMResponseStatus: ["done", "timeout"],
     RUMSort: ["timestamp", "-timestamp"],
     RUMSortOrder: ["asc", "desc"],
+    ServiceRepositoryInfoDataType: ["service_repository_info"],
+    ServiceRepositoryInfoStatus: [
+      "success",
+      "not_found",
+      "no_repository",
+      "internal_error",
+      "unknown",
+    ],
+    SourcemapDataType: ["sourcemaps"],
+    SourcemapFileDataType: ["sourcemap_files"],
+    SourcemapMapKind: [
+      "js",
+      "jvm",
+      "ios",
+      "react",
+      "flutter",
+      "elf",
+      "ndk",
+      "il2cpp",
+    ],
   },
   oneOfMap: {
     RUMAggregateBucketValue: [
@@ -74,9 +126,37 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     RUMGroupByMissing: ["string", "number"],
     RUMGroupByTotal: ["boolean", "string", "number"],
+    SourcemapItem: [
+      "JSSourcemapData",
+      "ReactNativeSourcemapData",
+      "IOSSourcemapData",
+      "JVMSourcemapData",
+      "FlutterSourcemapData",
+      "ELFSourcemapData",
+      "NDKSourcemapData",
+      "IL2CPPSourcemapData",
+    ],
   },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
+    ELFSourcemapAttributes: ELFSourcemapAttributes,
+    ELFSourcemapData: ELFSourcemapData,
+    FlutterSourcemapAttributes: FlutterSourcemapAttributes,
+    FlutterSourcemapData: FlutterSourcemapData,
+    IL2CPPSourcemapAttributes: IL2CPPSourcemapAttributes,
+    IL2CPPSourcemapData: IL2CPPSourcemapData,
+    IOSSourcemapAttributes: IOSSourcemapAttributes,
+    IOSSourcemapData: IOSSourcemapData,
+    JSONAPIErrorItem: JSONAPIErrorItem,
+    JSONAPIErrorItemSource: JSONAPIErrorItemSource,
+    JSONAPIErrorResponse: JSONAPIErrorResponse,
+    JSSourcemapAttributes: JSSourcemapAttributes,
+    JSSourcemapData: JSSourcemapData,
+    JVMSourcemapAttributes: JVMSourcemapAttributes,
+    JVMSourcemapData: JVMSourcemapData,
+    ListSourcemapsResponse: ListSourcemapsResponse,
+    NDKSourcemapAttributes: NDKSourcemapAttributes,
+    NDKSourcemapData: NDKSourcemapData,
     RUMAggregateBucketValueTimeseriesPoint:
       RUMAggregateBucketValueTimeseriesPoint,
     RUMAggregateRequest: RUMAggregateRequest,
@@ -113,5 +193,21 @@ export const TypingInfo: ModelTypingInfo = {
     RUMResponsePage: RUMResponsePage,
     RUMSearchEventsRequest: RUMSearchEventsRequest,
     RUMWarning: RUMWarning,
+    ReactNativeSourcemapAttributes: ReactNativeSourcemapAttributes,
+    ReactNativeSourcemapData: ReactNativeSourcemapData,
+    ServiceRepositoryInfoRequest: ServiceRepositoryInfoRequest,
+    ServiceRepositoryInfoRequestAttributes:
+      ServiceRepositoryInfoRequestAttributes,
+    ServiceRepositoryInfoRequestData: ServiceRepositoryInfoRequestData,
+    ServiceRepositoryInfoResponse: ServiceRepositoryInfoResponse,
+    ServiceRepositoryInfoResponseAttributes:
+      ServiceRepositoryInfoResponseAttributes,
+    ServiceRepositoryInfoResponseData: ServiceRepositoryInfoResponseData,
+    SourcemapFileAttributes: SourcemapFileAttributes,
+    SourcemapFileData: SourcemapFileData,
+    SourcemapFileResponse: SourcemapFileResponse,
+    SourcemapsListMeta: SourcemapsListMeta,
+    SourcemapsListMetaPage: SourcemapsListMetaPage,
+    SourcemapsResponse: SourcemapsResponse,
   },
 };

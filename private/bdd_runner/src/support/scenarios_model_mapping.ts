@@ -12892,6 +12892,281 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "RUMEventsResponse",
   },
+  "RUMApi.V2.GetSourcemaps": {
+    filename: {
+      type: "string",
+      format: "",
+    },
+    service: {
+      type: "string",
+      format: "",
+    },
+    version: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "SourcemapFileResponse",
+  },
+  "RUMApi.V2.DeleteSourcemaps": {
+    mapkind: {
+      type: "SourcemapMapKind",
+      format: "",
+    },
+    dryRun: {
+      type: "boolean",
+      format: "",
+    },
+    filterService: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterVersion: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterVariant: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterId: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterBuildId: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterUuid: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterPlatform: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterBuildNumber: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterBundleName: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterArch: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterSymbolSource: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterOrigin: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterOriginVersion: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterFilename: {
+      type: "string",
+      format: "",
+    },
+    filterDebugId: {
+      type: "string",
+      format: "",
+    },
+    filterGnuBuildId: {
+      type: "string",
+      format: "",
+    },
+    filterGoBuildId: {
+      type: "string",
+      format: "",
+    },
+    filterFileHash: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "SourcemapsResponse",
+  },
+  "RUMApi.V2.ListSourcemaps": {
+    mapkind: {
+      type: "SourcemapMapKind",
+      format: "",
+    },
+    pageSize: {
+      type: "number",
+      format: "",
+    },
+    pageNumber: {
+      type: "number",
+      format: "",
+    },
+    filterService: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterVersion: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterVariant: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterId: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterBuildId: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterUuid: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterPlatform: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterBuildNumber: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterBundleName: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterArch: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterSymbolSource: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterOrigin: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterOriginVersion: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterFilename: {
+      type: "string",
+      format: "",
+    },
+    filterDebugId: {
+      type: "string",
+      format: "",
+    },
+    filterGnuBuildId: {
+      type: "string",
+      format: "",
+    },
+    filterGoBuildId: {
+      type: "string",
+      format: "",
+    },
+    filterFileHash: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ListSourcemapsResponse",
+  },
+  "RUMApi.V2.RestoreSourcemaps": {
+    mapkind: {
+      type: "SourcemapMapKind",
+      format: "",
+    },
+    dryRun: {
+      type: "boolean",
+      format: "",
+    },
+    filterService: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterVersion: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterVariant: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterId: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterBuildId: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterUuid: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterPlatform: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterBuildNumber: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterBundleName: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterArch: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterSymbolSource: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterOrigin: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterOriginVersion: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterFilename: {
+      type: "string",
+      format: "",
+    },
+    filterDebugId: {
+      type: "string",
+      format: "",
+    },
+    filterGnuBuildId: {
+      type: "string",
+      format: "",
+    },
+    filterGoBuildId: {
+      type: "string",
+      format: "",
+    },
+    filterFileHash: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "SourcemapsResponse",
+  },
+  "RUMApi.V2.GetServiceRepositoryInfo": {
+    body: {
+      type: "ServiceRepositoryInfoRequest",
+      format: "",
+    },
+    operationResponseType: "ServiceRepositoryInfoResponse",
+  },
   "RUMRetentionFiltersHardcodedApi.V2.ListHardcodedRetentionFilters": {
     appId: {
       type: "string",

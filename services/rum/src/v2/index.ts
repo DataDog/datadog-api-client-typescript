@@ -2,14 +2,39 @@ export {
   RUMApiAggregateRUMEventsRequest,
   RUMApiCreateRUMApplicationRequest,
   RUMApiDeleteRUMApplicationRequest,
+  RUMApiDeleteSourcemapsRequest,
   RUMApiGetRUMApplicationRequest,
+  RUMApiGetServiceRepositoryInfoRequest,
+  RUMApiGetSourcemapsRequest,
   RUMApiListRUMEventsRequest,
+  RUMApiListSourcemapsRequest,
+  RUMApiRestoreSourcemapsRequest,
   RUMApiSearchRUMEventsRequest,
   RUMApiUpdateRUMApplicationRequest,
   RUMApi,
 } from "./RUMApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
+export { ELFSourcemapAttributes } from "./models/ELFSourcemapAttributes";
+export { ELFSourcemapData } from "./models/ELFSourcemapData";
+export { FlutterSourcemapAttributes } from "./models/FlutterSourcemapAttributes";
+export { FlutterSourcemapData } from "./models/FlutterSourcemapData";
+export { IL2CPPSourcemapAttributes } from "./models/IL2CPPSourcemapAttributes";
+export { IL2CPPSourcemapData } from "./models/IL2CPPSourcemapData";
+export { IOSSourcemapAttributes } from "./models/IOSSourcemapAttributes";
+export { IOSSourcemapData } from "./models/IOSSourcemapData";
+export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
+export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
+export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
+export { JSSourcemapAttributes } from "./models/JSSourcemapAttributes";
+export { JSSourcemapData } from "./models/JSSourcemapData";
+export { JVMSourcemapAttributes } from "./models/JVMSourcemapAttributes";
+export { JVMSourcemapData } from "./models/JVMSourcemapData";
+export { ListSourcemapsResponse } from "./models/ListSourcemapsResponse";
+export { NDKSourcemapAttributes } from "./models/NDKSourcemapAttributes";
+export { NDKSourcemapData } from "./models/NDKSourcemapData";
+export { ReactNativeSourcemapAttributes } from "./models/ReactNativeSourcemapAttributes";
+export { ReactNativeSourcemapData } from "./models/ReactNativeSourcemapData";
 export { RUMAggregateBucketValue } from "./models/RUMAggregateBucketValue";
 export { RUMAggregateBucketValueTimeseriesPoint } from "./models/RUMAggregateBucketValueTimeseriesPoint";
 export { RUMAggregateRequest } from "./models/RUMAggregateRequest";
@@ -61,3 +86,21 @@ export { RUMSearchEventsRequest } from "./models/RUMSearchEventsRequest";
 export { RUMSort } from "./models/RUMSort";
 export { RUMSortOrder } from "./models/RUMSortOrder";
 export { RUMWarning } from "./models/RUMWarning";
+export { ServiceRepositoryInfoDataType } from "./models/ServiceRepositoryInfoDataType";
+export { ServiceRepositoryInfoRequest } from "./models/ServiceRepositoryInfoRequest";
+export { ServiceRepositoryInfoRequestAttributes } from "./models/ServiceRepositoryInfoRequestAttributes";
+export { ServiceRepositoryInfoRequestData } from "./models/ServiceRepositoryInfoRequestData";
+export { ServiceRepositoryInfoResponse } from "./models/ServiceRepositoryInfoResponse";
+export { ServiceRepositoryInfoResponseAttributes } from "./models/ServiceRepositoryInfoResponseAttributes";
+export { ServiceRepositoryInfoResponseData } from "./models/ServiceRepositoryInfoResponseData";
+export { ServiceRepositoryInfoStatus } from "./models/ServiceRepositoryInfoStatus";
+export { SourcemapDataType } from "./models/SourcemapDataType";
+export { SourcemapFileAttributes } from "./models/SourcemapFileAttributes";
+export { SourcemapFileData } from "./models/SourcemapFileData";
+export { SourcemapFileDataType } from "./models/SourcemapFileDataType";
+export { SourcemapFileResponse } from "./models/SourcemapFileResponse";
+export { SourcemapItem } from "./models/SourcemapItem";
+export { SourcemapMapKind } from "./models/SourcemapMapKind";
+export { SourcemapsListMeta } from "./models/SourcemapsListMeta";
+export { SourcemapsListMetaPage } from "./models/SourcemapsListMetaPage";
+export { SourcemapsResponse } from "./models/SourcemapsResponse";
