@@ -11,7 +11,7 @@ export class LLMObsExperimentDataAttributesRequest {
   /**
    * Identifier of the dataset used in this experiment.
    */
-  "datasetId": string;
+  "datasetId"?: string;
   /**
    * Version of the dataset to use. Defaults to the current version if not specified.
    */
@@ -33,9 +33,17 @@ export class LLMObsExperimentDataAttributesRequest {
    */
   "name": string;
   /**
+   * Identifier of the parent (baseline) experiment this experiment is run against.
+   */
+  "parentExperimentId"?: string;
+  /**
    * Identifier of the project this experiment belongs to.
    */
   "projectId": string;
+  /**
+   * Number of runs configured for this experiment.
+   */
+  "runCount"?: number;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -58,7 +66,6 @@ export class LLMObsExperimentDataAttributesRequest {
     datasetId: {
       baseName: "dataset_id",
       type: "string",
-      required: true,
     },
     datasetVersion: {
       baseName: "dataset_version",
@@ -82,10 +89,19 @@ export class LLMObsExperimentDataAttributesRequest {
       type: "string",
       required: true,
     },
+    parentExperimentId: {
+      baseName: "parent_experiment_id",
+      type: "string",
+    },
     projectId: {
       baseName: "project_id",
       type: "string",
       required: true,
+    },
+    runCount: {
+      baseName: "run_count",
+      type: "number",
+      format: "int32",
     },
     additionalProperties: {
       baseName: "additionalProperties",

@@ -29,6 +29,8 @@ export {
   LLMObservabilityApiListLLMObsDatasetVersionsRequest,
   LLMObservabilityApiListLLMObsDatasetsRequest,
   LLMObservabilityApiListLLMObsExperimentEventsRequest,
+  LLMObservabilityApiListLLMObsExperimentEventsV1Request,
+  LLMObservabilityApiListLLMObsExperimentEventsV2Request,
   LLMObservabilityApiListLLMObsExperimentsRequest,
   LLMObservabilityApiListLLMObsIntegrationAccountsRequest,
   LLMObservabilityApiListLLMObsIntegrationModelsRequest,
@@ -256,15 +258,20 @@ export { LLMObsExperimentRequest } from "./models/LLMObsExperimentRequest";
 export { LLMObsExperimentResponse } from "./models/LLMObsExperimentResponse";
 export { LLMObsExperimentRunDataResponse } from "./models/LLMObsExperimentRunDataResponse";
 export { LLMObsExperimentSpan } from "./models/LLMObsExperimentSpan";
+export { LLMObsExperimentSpanDataResponse } from "./models/LLMObsExperimentSpanDataResponse";
 export { LLMObsExperimentSpanError } from "./models/LLMObsExperimentSpanError";
 export { LLMObsExperimentSpanMeta } from "./models/LLMObsExperimentSpanMeta";
+export { LLMObsExperimentSpansResponse } from "./models/LLMObsExperimentSpansResponse";
 export { LLMObsExperimentSpanStatus } from "./models/LLMObsExperimentSpanStatus";
+export { LLMObsExperimentSpanType } from "./models/LLMObsExperimentSpanType";
 export { LLMObsExperimentSpanWithEvals } from "./models/LLMObsExperimentSpanWithEvals";
 export { LLMObsExperimentsResponse } from "./models/LLMObsExperimentsResponse";
+export { LLMObsExperimentStatus } from "./models/LLMObsExperimentStatus";
 export { LLMObsExperimentType } from "./models/LLMObsExperimentType";
 export { LLMObsExperimentUpdateDataAttributesRequest } from "./models/LLMObsExperimentUpdateDataAttributesRequest";
 export { LLMObsExperimentUpdateDataRequest } from "./models/LLMObsExperimentUpdateDataRequest";
 export { LLMObsExperimentUpdateRequest } from "./models/LLMObsExperimentUpdateRequest";
+export { LLMObsExperimentUser } from "./models/LLMObsExperimentUser";
 export { LLMObsInferenceCode } from "./models/LLMObsInferenceCode";
 export { LLMObsInferenceContent } from "./models/LLMObsInferenceContent";
 export { LLMObsInferenceContentValue } from "./models/LLMObsInferenceContentValue";

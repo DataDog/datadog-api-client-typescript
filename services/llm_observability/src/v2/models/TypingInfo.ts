@@ -143,12 +143,15 @@ import { LLMObsExperimentRequest } from "./LLMObsExperimentRequest";
 import { LLMObsExperimentResponse } from "./LLMObsExperimentResponse";
 import { LLMObsExperimentRunDataResponse } from "./LLMObsExperimentRunDataResponse";
 import { LLMObsExperimentSpan } from "./LLMObsExperimentSpan";
+import { LLMObsExperimentSpanDataResponse } from "./LLMObsExperimentSpanDataResponse";
 import { LLMObsExperimentSpanError } from "./LLMObsExperimentSpanError";
 import { LLMObsExperimentSpanMeta } from "./LLMObsExperimentSpanMeta";
 import { LLMObsExperimentSpanWithEvals } from "./LLMObsExperimentSpanWithEvals";
+import { LLMObsExperimentSpansResponse } from "./LLMObsExperimentSpansResponse";
 import { LLMObsExperimentUpdateDataAttributesRequest } from "./LLMObsExperimentUpdateDataAttributesRequest";
 import { LLMObsExperimentUpdateDataRequest } from "./LLMObsExperimentUpdateDataRequest";
 import { LLMObsExperimentUpdateRequest } from "./LLMObsExperimentUpdateRequest";
+import { LLMObsExperimentUser } from "./LLMObsExperimentUser";
 import { LLMObsExperimentationAnalyticsAggregate } from "./LLMObsExperimentationAnalyticsAggregate";
 import { LLMObsExperimentationAnalyticsCompute } from "./LLMObsExperimentationAnalyticsCompute";
 import { LLMObsExperimentationAnalyticsDataAttributesRequest } from "./LLMObsExperimentationAnalyticsDataAttributesRequest";
@@ -278,6 +281,8 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsEventType: ["events"],
     LLMObsExperimentEventsType: ["experiment_events"],
     LLMObsExperimentSpanStatus: ["ok", "error"],
+    LLMObsExperimentSpanType: ["experiments"],
+    LLMObsExperimentStatus: ["running", "completed", "failed", "interrupted"],
     LLMObsExperimentType: ["experiments"],
     LLMObsExperimentationSortFieldDirection: ["asc", "desc"],
     LLMObsExperimentationType: ["experimentation"],
@@ -516,13 +521,16 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsExperimentResponse: LLMObsExperimentResponse,
     LLMObsExperimentRunDataResponse: LLMObsExperimentRunDataResponse,
     LLMObsExperimentSpan: LLMObsExperimentSpan,
+    LLMObsExperimentSpanDataResponse: LLMObsExperimentSpanDataResponse,
     LLMObsExperimentSpanError: LLMObsExperimentSpanError,
     LLMObsExperimentSpanMeta: LLMObsExperimentSpanMeta,
     LLMObsExperimentSpanWithEvals: LLMObsExperimentSpanWithEvals,
+    LLMObsExperimentSpansResponse: LLMObsExperimentSpansResponse,
     LLMObsExperimentUpdateDataAttributesRequest:
       LLMObsExperimentUpdateDataAttributesRequest,
     LLMObsExperimentUpdateDataRequest: LLMObsExperimentUpdateDataRequest,
     LLMObsExperimentUpdateRequest: LLMObsExperimentUpdateRequest,
+    LLMObsExperimentUser: LLMObsExperimentUser,
     LLMObsExperimentationAnalyticsAggregate:
       LLMObsExperimentationAnalyticsAggregate,
     LLMObsExperimentationAnalyticsCompute:

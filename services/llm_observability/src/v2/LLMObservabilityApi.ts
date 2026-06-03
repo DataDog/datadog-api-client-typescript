@@ -70,6 +70,7 @@ import { LLMObsExperimentEventsRequest } from "./models/LLMObsExperimentEventsRe
 import { LLMObsExperimentEventsV2Response } from "./models/LLMObsExperimentEventsV2Response";
 import { LLMObsExperimentRequest } from "./models/LLMObsExperimentRequest";
 import { LLMObsExperimentResponse } from "./models/LLMObsExperimentResponse";
+import { LLMObsExperimentSpansResponse } from "./models/LLMObsExperimentSpansResponse";
 import { LLMObsExperimentsResponse } from "./models/LLMObsExperimentsResponse";
 import { LLMObsExperimentUpdateRequest } from "./models/LLMObsExperimentUpdateRequest";
 import { LLMObsIntegrationAccount } from "./models/LLMObsIntegrationAccount";
@@ -2109,10 +2110,127 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listLLMObsExperimentEventsV1(
+    experimentId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.listLLMObsExperimentEventsV1"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listLLMObsExperimentEventsV1' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsExperimentEventsV1'] = true`",
+      );
+    }
+
+    // verify required parameter 'experimentId' is not null or undefined
+    if (experimentId === null || experimentId === undefined) {
+      throw new RequiredError("experimentId", "listLLMObsExperimentEventsV1");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/llm-obs/v1/experiments/{experiment_id}/events".replace(
+        "{experiment_id}",
+        encodeURIComponent(String(experimentId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.listLLMObsExperimentEventsV1",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listLLMObsExperimentEventsV2(
+    experimentId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.listLLMObsExperimentEventsV2"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listLLMObsExperimentEventsV2' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsExperimentEventsV2'] = true`",
+      );
+    }
+
+    // verify required parameter 'experimentId' is not null or undefined
+    if (experimentId === null || experimentId === undefined) {
+      throw new RequiredError("experimentId", "listLLMObsExperimentEventsV2");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/llm-obs/v2/experiments/{experiment_id}/events".replace(
+        "{experiment_id}",
+        encodeURIComponent(String(experimentId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.listLLMObsExperimentEventsV2",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listLLMObsExperiments(
     filterProjectId?: string,
     filterDatasetId?: string,
     filterId?: string,
+    filterName?: string,
+    filterExperiment?: string,
+    filterMetadata?: string,
+    filterParentExperimentId?: string,
+    filterIsDeleted?: boolean,
+    includeUserData?: boolean,
+    includeDatasetNames?: boolean,
     pageCursor?: string,
     pageLimit?: number,
     _options?: Configuration,
@@ -2169,6 +2287,55 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter[id]",
         serialize(filterId, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterName !== undefined) {
+      requestContext.setQueryParam(
+        "filter[name]",
+        serialize(filterName, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterExperiment !== undefined) {
+      requestContext.setQueryParam(
+        "filter[experiment]",
+        serialize(filterExperiment, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterMetadata !== undefined) {
+      requestContext.setQueryParam(
+        "filter[metadata]",
+        serialize(filterMetadata, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterParentExperimentId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[parent_experiment_id]",
+        serialize(filterParentExperimentId, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterIsDeleted !== undefined) {
+      requestContext.setQueryParam(
+        "filter[is_deleted]",
+        serialize(filterIsDeleted, TypingInfo, "boolean", ""),
+        "",
+      );
+    }
+    if (includeUserData !== undefined) {
+      requestContext.setQueryParam(
+        "include[user_data]",
+        serialize(includeUserData, TypingInfo, "boolean", ""),
+        "",
+      );
+    }
+    if (includeDatasetNames !== undefined) {
+      requestContext.setQueryParam(
+        "include[dataset_names]",
+        serialize(includeDatasetNames, TypingInfo, "boolean", ""),
         "",
       );
     }
@@ -5881,6 +6048,172 @@ export class LLMObservabilityApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listLLMObsExperimentEventsV1
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listLLMObsExperimentEventsV1(
+    response: ResponseContext,
+  ): Promise<LLMObsExperimentSpansResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsExperimentSpansResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsExperimentSpansResponse",
+      ) as LLMObsExperimentSpansResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsExperimentSpansResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsExperimentSpansResponse",
+        "",
+      ) as LLMObsExperimentSpansResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listLLMObsExperimentEventsV2
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listLLMObsExperimentEventsV2(
+    response: ResponseContext,
+  ): Promise<LLMObsExperimentEventsV2Response> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsExperimentEventsV2Response = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsExperimentEventsV2Response",
+      ) as LLMObsExperimentEventsV2Response;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsExperimentEventsV2Response = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsExperimentEventsV2Response",
+        "",
+      ) as LLMObsExperimentEventsV2Response;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listLLMObsExperiments
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -7797,6 +8130,22 @@ export interface LLMObservabilityApiListLLMObsExperimentEventsRequest {
   pageCursor?: string;
 }
 
+export interface LLMObservabilityApiListLLMObsExperimentEventsV1Request {
+  /**
+   * The ID of the LLM Observability experiment.
+   * @type string
+   */
+  experimentId: string;
+}
+
+export interface LLMObservabilityApiListLLMObsExperimentEventsV2Request {
+  /**
+   * The ID of the LLM Observability experiment.
+   * @type string
+   */
+  experimentId: string;
+}
+
 export interface LLMObservabilityApiListLLMObsExperimentsRequest {
   /**
    * Filter experiments by project ID. Required if `filter[dataset_id]` is not provided.
@@ -7814,12 +8163,50 @@ export interface LLMObservabilityApiListLLMObsExperimentsRequest {
    */
   filterId?: string;
   /**
-   * Use the Pagination cursor to retrieve the next page of results.
+   * Filter experiments by their exact run name.
+   * @type string
+   */
+  filterName?: string;
+  /**
+   * Filter by logical experiment name. This is the `name` field set when creating an experiment through `POST /experiments`. Returns all experiment runs that share the same name, enabling cross-commit and cross-branch comparisons.
+   * @type string
+   */
+  filterExperiment?: string;
+  /**
+   * Filter by JSONB metadata containment. Provide a JSON object string where
+   * experiments whose metadata contains all specified key-value pairs are returned.
+   * For example: `{"commit":"abc123","branch":"main"}`.
+   * @type string
+   */
+  filterMetadata?: string;
+  /**
+   * Filter experiments by the ID of their parent (baseline) experiment. Returns all experiments that were run against the given baseline. Can be specified multiple times.
+   * @type string
+   */
+  filterParentExperimentId?: string;
+  /**
+   * When `true`, return only soft-deleted experiments. Defaults to `false`.
+   * @type boolean
+   */
+  filterIsDeleted?: boolean;
+  /**
+   * When `true`, enrich each experiment with its author's user data in the `author` field.
+   * @type boolean
+   */
+  includeUserData?: boolean;
+  /**
+   * When `true`, enrich each experiment with its dataset name in the `dataset_name` field.
+   * @type boolean
+   */
+  includeDatasetNames?: boolean;
+  /**
+   * Use the pagination cursor returned in `meta.after` to retrieve the next page of results.
    * @type string
    */
   pageCursor?: string;
   /**
-   * Maximum number of results to return per page.
+   * Maximum number of results to return per page. Values above 5000 are clamped
+   * to 5000. Defaults to 5000.
    * @type number
    */
   pageLimit?: number;
@@ -8885,6 +9272,54 @@ export class LLMObservabilityApi {
   }
 
   /**
+   * Retrieve spans with their evaluation metrics for a given experiment. Returns spans only, with no summary metrics and no pagination. Deprecated in favor of `ListLLMObsExperimentEventsV3`.
+   * @param param The request object
+   */
+  public listLLMObsExperimentEventsV1(
+    param: LLMObservabilityApiListLLMObsExperimentEventsV1Request,
+    options?: Configuration,
+  ): Promise<LLMObsExperimentSpansResponse> {
+    const requestContextPromise =
+      this.requestFactory.listLLMObsExperimentEventsV1(
+        param.experimentId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listLLMObsExperimentEventsV1(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Retrieve spans and experiment-level summary metrics for a given experiment. Returns the full events payload without pagination. Deprecated: use `ListLLMObsExperimentEventsV3` instead.
+   * @param param The request object
+   */
+  public listLLMObsExperimentEventsV2(
+    param: LLMObservabilityApiListLLMObsExperimentEventsV2Request,
+    options?: Configuration,
+  ): Promise<LLMObsExperimentEventsV2Response> {
+    const requestContextPromise =
+      this.requestFactory.listLLMObsExperimentEventsV2(
+        param.experimentId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listLLMObsExperimentEventsV2(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * List all LLM Observability experiments sorted by creation date, newest first.
    * @param param The request object
    */
@@ -8896,6 +9331,13 @@ export class LLMObservabilityApi {
       param.filterProjectId,
       param.filterDatasetId,
       param.filterId,
+      param.filterName,
+      param.filterExperiment,
+      param.filterMetadata,
+      param.filterParentExperimentId,
+      param.filterIsDeleted,
+      param.includeUserData,
+      param.includeDatasetNames,
       param.pageCursor,
       param.pageLimit,
       options,
