@@ -4117,6 +4117,9 @@ import { StatuspageUrlSettingUpdateAttributes } from "./StatuspageUrlSettingUpda
 import { StatuspageUrlSettingUpdateData } from "./StatuspageUrlSettingUpdateData";
 import { StatuspageUrlSettingUpdateRequest } from "./StatuspageUrlSettingUpdateRequest";
 import { StatuspageUrlSettingsResponse } from "./StatuspageUrlSettingsResponse";
+import { StegadographyGetWidgetsResponse } from "./StegadographyGetWidgetsResponse";
+import { StegadographyWidget } from "./StegadographyWidget";
+import { StegadographyWidgetAttributes } from "./StegadographyWidgetAttributes";
 import { Step } from "./Step";
 import { StepDisplay } from "./StepDisplay";
 import { StepDisplayBounds } from "./StepDisplayBounds";
@@ -7020,6 +7023,7 @@ const enumsMap: { [key: string]: any[] } = {
   StatusPagesUserType: ["users"],
   StatuspageAccountType: ["statuspage-account"],
   StatuspageUrlSettingType: ["statuspage-url-setting"],
+  StegadographyWidgetType: ["widget"],
   SuiteJsonPatchType: ["suites_json_patch"],
   SuiteSearchResponseType: ["suites_search"],
   SyntheticsApiMultistepParentTestType: ["parent_test"],
@@ -12350,6 +12354,9 @@ const typeMap: { [index: string]: any } = {
   StatuspageUrlSettingUpdateData: StatuspageUrlSettingUpdateData,
   StatuspageUrlSettingUpdateRequest: StatuspageUrlSettingUpdateRequest,
   StatuspageUrlSettingsResponse: StatuspageUrlSettingsResponse,
+  StegadographyGetWidgetsResponse: StegadographyGetWidgetsResponse,
+  StegadographyWidget: StegadographyWidget,
+  StegadographyWidgetAttributes: StegadographyWidgetAttributes,
   Step: Step,
   StepDisplay: StepDisplay,
   StepDisplayBounds: StepDisplayBounds,
