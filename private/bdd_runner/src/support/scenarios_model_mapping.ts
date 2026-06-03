@@ -14040,6 +14040,23 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "StaticAnalysisApi.V2.CreateSCAScan": {
+    body: {
+      type: "McpScanRequest",
+      format: "",
+    },
+    operationResponseType: "McpScanRequestResponse",
+  },
+  "StaticAnalysisApi.V2.GetSCAScan": {
+    jobId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ScanResultResponse",
+  },
+  "StaticAnalysisApi.V2.ListSCALicenses": {
+    operationResponseType: "LicensesListResponse",
+  },
   "StaticAnalysisApi.V2.CreateSCAResolveVulnerableSymbols": {
     body: {
       type: "ResolveVulnerableSymbolsRequest",

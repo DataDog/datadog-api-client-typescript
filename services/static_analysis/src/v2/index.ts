@@ -8,6 +8,7 @@ export {
   StaticAnalysisApiCreateCustomRulesetRequest,
   StaticAnalysisApiCreateSCAResolveVulnerableSymbolsRequest,
   StaticAnalysisApiCreateSCAResultRequest,
+  StaticAnalysisApiCreateSCAScanRequest,
   StaticAnalysisApiDeleteAiCustomRuleRequest,
   StaticAnalysisApiDeleteAiCustomRulesetRequest,
   StaticAnalysisApiDeleteAiMemoryViolationResultRequest,
@@ -19,6 +20,7 @@ export {
   StaticAnalysisApiGetCustomRuleRequest,
   StaticAnalysisApiGetCustomRuleRevisionRequest,
   StaticAnalysisApiGetCustomRulesetRequest,
+  StaticAnalysisApiGetSCAScanRequest,
   StaticAnalysisApiListAiCustomRuleRevisionsRequest,
   StaticAnalysisApiListAiCustomRulesetsRequest,
   StaticAnalysisApiListCustomRuleRevisionsRequest,
@@ -99,6 +101,20 @@ export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
 export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
 export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 export { Language } from "./models/Language";
+export { LicensesListResponse } from "./models/LicensesListResponse";
+export { LicensesListResponseData } from "./models/LicensesListResponseData";
+export { LicensesListResponseDataAttributes } from "./models/LicensesListResponseDataAttributes";
+export { LicensesListResponseDataAttributesLicensesItems } from "./models/LicensesListResponseDataAttributesLicensesItems";
+export { LicensesListResponseDataType } from "./models/LicensesListResponseDataType";
+export { McpScanRequest } from "./models/McpScanRequest";
+export { McpScanRequestData } from "./models/McpScanRequestData";
+export { McpScanRequestDataAttributes } from "./models/McpScanRequestDataAttributes";
+export { McpScanRequestDataAttributesLibrariesItems } from "./models/McpScanRequestDataAttributesLibrariesItems";
+export { McpScanRequestDataType } from "./models/McpScanRequestDataType";
+export { McpScanRequestResponse } from "./models/McpScanRequestResponse";
+export { McpScanRequestResponseData } from "./models/McpScanRequestResponseData";
+export { McpScanRequestResponseDataAttributes } from "./models/McpScanRequestResponseDataAttributes";
+export { McpScanRequestResponseDataType } from "./models/McpScanRequestResponseDataType";
 export { ResolveVulnerableSymbolsRequest } from "./models/ResolveVulnerableSymbolsRequest";
 export { ResolveVulnerableSymbolsRequestData } from "./models/ResolveVulnerableSymbolsRequestData";
 export { ResolveVulnerableSymbolsRequestDataAttributes } from "./models/ResolveVulnerableSymbolsRequestDataAttributes";
@@ -114,6 +130,7 @@ export { RevertCustomRuleRevisionDataType } from "./models/RevertCustomRuleRevis
 export { RevertCustomRuleRevisionRequest } from "./models/RevertCustomRuleRevisionRequest";
 export { RevertCustomRuleRevisionRequestData } from "./models/RevertCustomRuleRevisionRequestData";
 export { RevertCustomRuleRevisionRequestDataAttributes } from "./models/RevertCustomRuleRevisionRequestDataAttributes";
+export { ScanResultResponse } from "./models/ScanResultResponse";
 export { ScaRequest } from "./models/ScaRequest";
 export { ScaRequestData } from "./models/ScaRequestData";
 export { ScaRequestDataAttributes } from "./models/ScaRequestDataAttributes";
