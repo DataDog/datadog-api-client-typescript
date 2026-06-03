@@ -4608,6 +4608,9 @@ import { UsageAttributionTypesResponse } from "./UsageAttributionTypesResponse";
 import { UsageDataObject } from "./UsageDataObject";
 import { UsageLambdaTracedInvocationsResponse } from "./UsageLambdaTracedInvocationsResponse";
 import { UsageObservabilityPipelinesResponse } from "./UsageObservabilityPipelinesResponse";
+import { UsageSummaryAvailableFieldsAttributes } from "./UsageSummaryAvailableFieldsAttributes";
+import { UsageSummaryAvailableFieldsBody } from "./UsageSummaryAvailableFieldsBody";
+import { UsageSummaryAvailableFieldsResponse } from "./UsageSummaryAvailableFieldsResponse";
 import { UsageTimeSeriesObject } from "./UsageTimeSeriesObject";
 import { User } from "./User";
 import { UserAttributes } from "./UserAttributes";
@@ -7261,6 +7264,7 @@ const enumsMap: { [key: string]: any[] } = {
   UpsertOAuthScopesRestrictionType: ["upsert_scopes_restriction"],
   Urgency: ["low", "high", "dynamic"],
   UsageAttributionTypesType: ["usage_attribution_types"],
+  UsageSummaryAvailableFieldsType: ["usage_summary_available_fields"],
   UsageTimeSeriesType: ["usage_timeseries"],
   UserAttributesStatus: ["active", "deactivated", "pending"],
   UserInvitationsType: ["user_invitations"],
@@ -12992,6 +12996,9 @@ const typeMap: { [index: string]: any } = {
   UsageDataObject: UsageDataObject,
   UsageLambdaTracedInvocationsResponse: UsageLambdaTracedInvocationsResponse,
   UsageObservabilityPipelinesResponse: UsageObservabilityPipelinesResponse,
+  UsageSummaryAvailableFieldsAttributes: UsageSummaryAvailableFieldsAttributes,
+  UsageSummaryAvailableFieldsBody: UsageSummaryAvailableFieldsBody,
+  UsageSummaryAvailableFieldsResponse: UsageSummaryAvailableFieldsResponse,
   UsageTimeSeriesObject: UsageTimeSeriesObject,
   User: User,
   UserAttributes: UserAttributes,
