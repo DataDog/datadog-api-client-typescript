@@ -2321,6 +2321,10 @@ import { LayerRelationshipsMembersDataItems } from "./LayerRelationshipsMembersD
 import { LeakedKey } from "./LeakedKey";
 import { LeakedKeyAttributes } from "./LeakedKeyAttributes";
 import { Library } from "./Library";
+import { LicensesListResponse } from "./LicensesListResponse";
+import { LicensesListResponseData } from "./LicensesListResponseData";
+import { LicensesListResponseDataAttributes } from "./LicensesListResponseDataAttributes";
+import { LicensesListResponseDataAttributesLicensesItems } from "./LicensesListResponseDataAttributesLicensesItems";
 import { Links } from "./Links";
 import { ListAPIsResponse } from "./ListAPIsResponse";
 import { ListAPIsResponseData } from "./ListAPIsResponseData";
@@ -2484,6 +2488,13 @@ import { ManagedOrgsRelationshipToOrg } from "./ManagedOrgsRelationshipToOrg";
 import { ManagedOrgsRelationshipToOrgs } from "./ManagedOrgsRelationshipToOrgs";
 import { ManagedOrgsRelationships } from "./ManagedOrgsRelationships";
 import { ManagedOrgsResponse } from "./ManagedOrgsResponse";
+import { McpScanRequest } from "./McpScanRequest";
+import { McpScanRequestData } from "./McpScanRequestData";
+import { McpScanRequestDataAttributes } from "./McpScanRequestDataAttributes";
+import { McpScanRequestDataAttributesLibrariesItems } from "./McpScanRequestDataAttributesLibrariesItems";
+import { McpScanRequestResponse } from "./McpScanRequestResponse";
+import { McpScanRequestResponseData } from "./McpScanRequestResponseData";
+import { McpScanRequestResponseDataAttributes } from "./McpScanRequestResponseDataAttributes";
 import { MemberTeam } from "./MemberTeam";
 import { Metadata } from "./Metadata";
 import { Metric } from "./Metric";
@@ -5850,6 +5861,7 @@ const enumsMap: { [key: string]: any[] } = {
   LayerRelationshipsMembersDataItemsType: ["members"],
   LayerType: ["layers"],
   LeakedKeyType: ["leaked_keys"],
+  LicensesListResponseDataType: ["licenserequest"],
   ListConnectionsResponseDataType: ["list_connections_response"],
   ListDeploymentRulesDataType: ["list_deployment_rules"],
   ListTeamsInclude: ["team_links", "user_team_permissions"],
@@ -5896,6 +5908,8 @@ const enumsMap: { [key: string]: any[] } = {
   MaintenanceDataAttributesStatus: ["scheduled", "in_progress", "completed"],
   MaintenanceWindowResourceType: ["maintenance_window"],
   ManagedOrgsType: ["managed_orgs"],
+  McpScanRequestDataType: ["mcpscanrequest"],
+  McpScanRequestResponseDataType: ["mcpscanrequestresponse"],
   MemberTeamType: ["member_teams"],
   MetricActiveConfigurationType: ["actively_queried_configurations"],
   MetricBulkConfigureTagsType: ["metric_bulk_configure_tags"],
@@ -10118,6 +10132,11 @@ const typeMap: { [index: string]: any } = {
   LeakedKey: LeakedKey,
   LeakedKeyAttributes: LeakedKeyAttributes,
   Library: Library,
+  LicensesListResponse: LicensesListResponse,
+  LicensesListResponseData: LicensesListResponseData,
+  LicensesListResponseDataAttributes: LicensesListResponseDataAttributes,
+  LicensesListResponseDataAttributesLicensesItems:
+    LicensesListResponseDataAttributesLicensesItems,
   Links: Links,
   ListAPIsResponse: ListAPIsResponse,
   ListAPIsResponseData: ListAPIsResponseData,
@@ -10295,6 +10314,14 @@ const typeMap: { [index: string]: any } = {
   ManagedOrgsRelationshipToOrgs: ManagedOrgsRelationshipToOrgs,
   ManagedOrgsRelationships: ManagedOrgsRelationships,
   ManagedOrgsResponse: ManagedOrgsResponse,
+  McpScanRequest: McpScanRequest,
+  McpScanRequestData: McpScanRequestData,
+  McpScanRequestDataAttributes: McpScanRequestDataAttributes,
+  McpScanRequestDataAttributesLibrariesItems:
+    McpScanRequestDataAttributesLibrariesItems,
+  McpScanRequestResponse: McpScanRequestResponse,
+  McpScanRequestResponseData: McpScanRequestResponseData,
+  McpScanRequestResponseDataAttributes: McpScanRequestResponseDataAttributes,
   MemberTeam: MemberTeam,
   Metadata: Metadata,
   Metric: Metric,
@@ -13637,6 +13664,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "ProcessScalarQuery",
     "ContainerScalarQuery",
   ],
+  ScanResultResponse: ["{ [key: string]: any; }"],
   ScheduleDataIncludedItem: [
     "TeamReference",
     "Layer",
