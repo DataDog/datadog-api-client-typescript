@@ -7,6 +7,7 @@ import { CasePriority } from "./CasePriority";
 import { CaseStatus } from "./CaseStatus";
 import { IssueCaseInsight } from "./IssueCaseInsight";
 import { IssueCaseJiraIssue } from "./IssueCaseJiraIssue";
+import { IssueCaseLinearIssue } from "./IssueCaseLinearIssue";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -50,6 +51,10 @@ export class IssueCaseAttributes {
    * Key of the case.
    */
   "key"?: string;
+  /**
+   * Linear issue of the case.
+   */
+  "linearIssue"?: IssueCaseLinearIssue;
   /**
    * Timestamp of when the case was last modified.
    */
@@ -125,6 +130,10 @@ export class IssueCaseAttributes {
     key: {
       baseName: "key",
       type: "string",
+    },
+    linearIssue: {
+      baseName: "linear_issue",
+      type: "IssueCaseLinearIssue",
     },
     modifiedAt: {
       baseName: "modified_at",

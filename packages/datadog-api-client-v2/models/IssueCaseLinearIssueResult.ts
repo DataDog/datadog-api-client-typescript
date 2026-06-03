@@ -3,26 +3,33 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { IssueCaseJiraIssueResult } from "./IssueCaseJiraIssueResult";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Jira issue of the case.
+ * Contains the identifiers and URL for a successfully created Linear issue.
  */
-export class IssueCaseJiraIssue {
+export class IssueCaseLinearIssueResult {
   /**
-   * Error message set when the Jira issue creation fails.
+   * Linear account identifier.
    */
-  "errorMessage"?: string;
+  "accountId"?: string;
   /**
-   * Contains the identifiers and URL for a successfully created Jira issue.
+   * Linear issue identifier.
    */
-  "result"?: IssueCaseJiraIssueResult;
+  "issueId"?: string;
   /**
-   * Creation status of the Jira issue.
+   * Linear issue key.
    */
-  "status"?: string;
+  "issueKey"?: string;
+  /**
+   * Linear issue URL.
+   */
+  "issueUrl"?: string;
+  /**
+   * Linear team identifier.
+   */
+  "teamId"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -40,16 +47,24 @@ export class IssueCaseJiraIssue {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    errorMessage: {
-      baseName: "error_message",
+    accountId: {
+      baseName: "account_id",
       type: "string",
     },
-    result: {
-      baseName: "result",
-      type: "IssueCaseJiraIssueResult",
+    issueId: {
+      baseName: "issue_id",
+      type: "string",
     },
-    status: {
-      baseName: "status",
+    issueKey: {
+      baseName: "issue_key",
+      type: "string",
+    },
+    issueUrl: {
+      baseName: "issue_url",
+      type: "string",
+    },
+    teamId: {
+      baseName: "team_id",
       type: "string",
     },
     additionalProperties: {
@@ -62,7 +77,7 @@ export class IssueCaseJiraIssue {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IssueCaseJiraIssue.attributeTypeMap;
+    return IssueCaseLinearIssueResult.attributeTypeMap;
   }
 
   public constructor() {}

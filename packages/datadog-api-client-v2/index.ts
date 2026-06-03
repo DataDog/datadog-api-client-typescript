@@ -4202,6 +4202,8 @@ export { IssueCaseAttributes } from "./models/IssueCaseAttributes";
 export { IssueCaseInsight } from "./models/IssueCaseInsight";
 export { IssueCaseJiraIssue } from "./models/IssueCaseJiraIssue";
 export { IssueCaseJiraIssueResult } from "./models/IssueCaseJiraIssueResult";
+export { IssueCaseLinearIssue } from "./models/IssueCaseLinearIssue";
+export { IssueCaseLinearIssueResult } from "./models/IssueCaseLinearIssueResult";
 export { IssueCaseReference } from "./models/IssueCaseReference";
 export { IssueCaseRelationship } from "./models/IssueCaseRelationship";
 export { IssueCaseRelationships } from "./models/IssueCaseRelationships";

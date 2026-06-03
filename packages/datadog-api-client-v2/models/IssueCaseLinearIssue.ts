@@ -3,24 +3,24 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { IssueCaseJiraIssueResult } from "./IssueCaseJiraIssueResult";
+import { IssueCaseLinearIssueResult } from "./IssueCaseLinearIssueResult";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Jira issue of the case.
+ * Linear issue of the case.
  */
-export class IssueCaseJiraIssue {
+export class IssueCaseLinearIssue {
   /**
-   * Error message set when the Jira issue creation fails.
+   * Error message set when the Linear issue creation fails.
    */
   "errorMessage"?: string;
   /**
-   * Contains the identifiers and URL for a successfully created Jira issue.
+   * Contains the identifiers and URL for a successfully created Linear issue.
    */
-  "result"?: IssueCaseJiraIssueResult;
+  "result"?: IssueCaseLinearIssueResult;
   /**
-   * Creation status of the Jira issue.
+   * Creation status of the Linear issue.
    */
   "status"?: string;
 
@@ -46,7 +46,7 @@ export class IssueCaseJiraIssue {
     },
     result: {
       baseName: "result",
-      type: "IssueCaseJiraIssueResult",
+      type: "IssueCaseLinearIssueResult",
     },
     status: {
       baseName: "status",
@@ -62,7 +62,7 @@ export class IssueCaseJiraIssue {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IssueCaseJiraIssue.attributeTypeMap;
+    return IssueCaseLinearIssue.attributeTypeMap;
   }
 
   public constructor() {}
