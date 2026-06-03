@@ -1,5 +1,5 @@
 /**
- * Delete a rum-based metric returns "No Content" response
+ * Delete a RUM-based metric returns "No Content" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

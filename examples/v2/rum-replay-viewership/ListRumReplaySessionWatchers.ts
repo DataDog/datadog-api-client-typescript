@@ -1,5 +1,5 @@
 /**
- * List rum replay session watchers returns "OK" response
+ * List RUM replay session watchers returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

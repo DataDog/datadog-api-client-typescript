@@ -11,7 +11,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class RumMetricGroupBy {
   /**
-   * The path to the value the rum-based metric will be aggregated over.
+   * The path to the value the RUM-based metric will be aggregated over.
    */
   "path": string;
   /**

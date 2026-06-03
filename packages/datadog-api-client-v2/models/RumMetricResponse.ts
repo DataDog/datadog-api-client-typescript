@@ -8,11 +8,11 @@ import { RumMetricResponseData } from "./RumMetricResponseData";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The rum-based metric object.
+ * The RUM-based metric object.
  */
 export class RumMetricResponse {
   /**
-   * The rum-based metric properties.
+   * The RUM-based metric properties.
    */
   "data"?: RumMetricResponseData;
 

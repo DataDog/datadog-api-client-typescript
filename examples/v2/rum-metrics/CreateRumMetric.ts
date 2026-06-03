@@ -1,5 +1,5 @@
 /**
- * Create a rum-based metric returns "Created" response
+ * Create a RUM-based metric returns "Created" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

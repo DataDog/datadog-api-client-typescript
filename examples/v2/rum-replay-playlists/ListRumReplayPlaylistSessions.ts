@@ -1,5 +1,5 @@
 /**
- * List rum replay playlist sessions returns "OK" response
+ * List RUM replay playlist sessions returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

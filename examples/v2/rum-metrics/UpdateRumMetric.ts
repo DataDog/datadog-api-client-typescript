@@ -1,5 +1,5 @@
 /**
- * Update a rum-based metric returns "OK" response
+ * Update a RUM-based metric returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
