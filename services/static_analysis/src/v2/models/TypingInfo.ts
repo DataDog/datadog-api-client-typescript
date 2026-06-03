@@ -58,6 +58,17 @@ import { CustomRulesetResponse } from "./CustomRulesetResponse";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
+import { LicensesListResponse } from "./LicensesListResponse";
+import { LicensesListResponseData } from "./LicensesListResponseData";
+import { LicensesListResponseDataAttributes } from "./LicensesListResponseDataAttributes";
+import { LicensesListResponseDataAttributesLicensesItems } from "./LicensesListResponseDataAttributesLicensesItems";
+import { McpScanRequest } from "./McpScanRequest";
+import { McpScanRequestData } from "./McpScanRequestData";
+import { McpScanRequestDataAttributes } from "./McpScanRequestDataAttributes";
+import { McpScanRequestDataAttributesLibrariesItems } from "./McpScanRequestDataAttributesLibrariesItems";
+import { McpScanRequestResponse } from "./McpScanRequestResponse";
+import { McpScanRequestResponseData } from "./McpScanRequestResponseData";
+import { McpScanRequestResponseDataAttributes } from "./McpScanRequestResponseDataAttributes";
 import { ResolveVulnerableSymbolsRequest } from "./ResolveVulnerableSymbolsRequest";
 import { ResolveVulnerableSymbolsRequestData } from "./ResolveVulnerableSymbolsRequestData";
 import { ResolveVulnerableSymbolsRequestDataAttributes } from "./ResolveVulnerableSymbolsRequestDataAttributes";
@@ -118,6 +129,9 @@ export const TypingInfo: ModelTypingInfo = {
       "KOTLIN",
       "SWIFT",
     ],
+    LicensesListResponseDataType: ["licenserequest"],
+    McpScanRequestDataType: ["mcpscanrequest"],
+    McpScanRequestResponseDataType: ["mcpscanrequestresponse"],
     ResolveVulnerableSymbolsRequestDataType: [
       "resolve-vulnerable-symbols-request",
     ],
@@ -127,7 +141,9 @@ export const TypingInfo: ModelTypingInfo = {
     RevertCustomRuleRevisionDataType: ["revert_custom_rule_revision_request"],
     ScaRequestDataType: ["scarequests"],
   },
-  oneOfMap: {},
+  oneOfMap: {
+    ScanResultResponse: ["{ [key: string]: any; }"],
+  },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     AiCustomRuleItem: AiCustomRuleItem,
@@ -191,6 +207,19 @@ export const TypingInfo: ModelTypingInfo = {
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
     JSONAPIErrorResponse: JSONAPIErrorResponse,
+    LicensesListResponse: LicensesListResponse,
+    LicensesListResponseData: LicensesListResponseData,
+    LicensesListResponseDataAttributes: LicensesListResponseDataAttributes,
+    LicensesListResponseDataAttributesLicensesItems:
+      LicensesListResponseDataAttributesLicensesItems,
+    McpScanRequest: McpScanRequest,
+    McpScanRequestData: McpScanRequestData,
+    McpScanRequestDataAttributes: McpScanRequestDataAttributes,
+    McpScanRequestDataAttributesLibrariesItems:
+      McpScanRequestDataAttributesLibrariesItems,
+    McpScanRequestResponse: McpScanRequestResponse,
+    McpScanRequestResponseData: McpScanRequestResponseData,
+    McpScanRequestResponseDataAttributes: McpScanRequestResponseDataAttributes,
     ResolveVulnerableSymbolsRequest: ResolveVulnerableSymbolsRequest,
     ResolveVulnerableSymbolsRequestData: ResolveVulnerableSymbolsRequestData,
     ResolveVulnerableSymbolsRequestDataAttributes:

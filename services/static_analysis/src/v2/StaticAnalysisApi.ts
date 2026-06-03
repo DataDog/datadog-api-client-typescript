@@ -46,9 +46,13 @@ import { CustomRulesetListResponse } from "./models/CustomRulesetListResponse";
 import { CustomRulesetRequest } from "./models/CustomRulesetRequest";
 import { CustomRulesetResponse } from "./models/CustomRulesetResponse";
 import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
+import { LicensesListResponse } from "./models/LicensesListResponse";
+import { McpScanRequest } from "./models/McpScanRequest";
+import { McpScanRequestResponse } from "./models/McpScanRequestResponse";
 import { ResolveVulnerableSymbolsRequest } from "./models/ResolveVulnerableSymbolsRequest";
 import { ResolveVulnerableSymbolsResponse } from "./models/ResolveVulnerableSymbolsResponse";
 import { RevertCustomRuleRevisionRequest } from "./models/RevertCustomRuleRevisionRequest";
+import { ScanResultResponse } from "./models/ScanResultResponse";
 import { ScaRequest } from "./models/ScaRequest";
 import { version } from "../version";
 
@@ -627,6 +631,63 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ScaRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createSCAScan(
+    body: McpScanRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["StaticAnalysisApi.v2.createSCAScan"]) {
+      throw new Error(
+        "Unstable operation 'createSCAScan' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.createSCAScan'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createSCAScan");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/static-analysis-sca/dependencies/scan";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "StaticAnalysisApi.v2.createSCAScan",
+      StaticAnalysisApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "McpScanRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -1263,6 +1324,58 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getSCAScan(
+    jobId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["StaticAnalysisApi.v2.getSCAScan"]) {
+      throw new Error(
+        "Unstable operation 'getSCAScan' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.getSCAScan'] = true`",
+      );
+    }
+
+    // verify required parameter 'jobId' is not null or undefined
+    if (jobId === null || jobId === undefined) {
+      throw new RequiredError("jobId", "getSCAScan");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/static-analysis-sca/dependencies/scan/{job_id}".replace(
+        "{job_id}",
+        encodeURIComponent(String(jobId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "StaticAnalysisApi.v2.getSCAScan",
+      StaticAnalysisApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async listAiCustomRuleRevisions(
     rulesetName: string,
     ruleName: string,
@@ -1605,6 +1718,47 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listSCALicenses(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["StaticAnalysisApi.v2.listSCALicenses"]) {
+      throw new Error(
+        "Unstable operation 'listSCALicenses' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.listSCALicenses'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/static-analysis-sca/licenses/list";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "StaticAnalysisApi.v2.listSCALicenses",
+      StaticAnalysisApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
     ]);
 
     return requestContext;
@@ -2468,6 +2622,83 @@ export class StaticAnalysisApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createSCAScan
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createSCAScan(
+    response: ResponseContext,
+  ): Promise<McpScanRequestResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 202) {
+      const body: McpScanRequestResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "McpScanRequestResponse",
+      ) as McpScanRequestResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: McpScanRequestResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "McpScanRequestResponse",
+        "",
+      ) as McpScanRequestResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteAiCustomRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3302,6 +3533,83 @@ export class StaticAnalysisApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getSCAScan
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSCAScan(
+    response: ResponseContext,
+  ): Promise<ScanResultResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ScanResultResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ScanResultResponse",
+      ) as ScanResultResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 404) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ScanResultResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ScanResultResponse",
+        "",
+      ) as ScanResultResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listAiCustomRuleRevisions
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3766,6 +4074,62 @@ export class StaticAnalysisApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listSCALicenses
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listSCALicenses(
+    response: ResponseContext,
+  ): Promise<LicensesListResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LicensesListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LicensesListResponse",
+      ) as LicensesListResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LicensesListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LicensesListResponse",
+        "",
+      ) as LicensesListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to revertCustomRuleRevision
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4072,6 +4436,13 @@ export interface StaticAnalysisApiCreateSCAResultRequest {
   body: ScaRequest;
 }
 
+export interface StaticAnalysisApiCreateSCAScanRequest {
+  /**
+   * @type McpScanRequest
+   */
+  body: McpScanRequest;
+}
+
 export interface StaticAnalysisApiDeleteAiCustomRuleRequest {
   /**
    * The ruleset name.
@@ -4198,6 +4569,14 @@ export interface StaticAnalysisApiGetCustomRulesetRequest {
    * @type string
    */
   rulesetName: string;
+}
+
+export interface StaticAnalysisApiGetSCAScanRequest {
+  /**
+   * The job identifier returned when the scan was submitted.
+   * @type string
+   */
+  jobId: string;
 }
 
 export interface StaticAnalysisApiListAiCustomRuleRevisionsRequest {
@@ -4521,6 +4900,26 @@ export class StaticAnalysisApi {
   }
 
   /**
+   * @param param The request object
+   */
+  public createSCAScan(
+    param: StaticAnalysisApiCreateSCAScanRequest,
+    options?: Configuration,
+  ): Promise<McpScanRequestResponse> {
+    const requestContextPromise = this.requestFactory.createSCAScan(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createSCAScan(responseContext);
+        });
+    });
+  }
+
+  /**
    * Delete an AI custom rule by name within a ruleset.
    * @param param The request object
    */
@@ -4762,6 +5161,26 @@ export class StaticAnalysisApi {
   }
 
   /**
+   * @param param The request object
+   */
+  public getSCAScan(
+    param: StaticAnalysisApiGetSCAScanRequest,
+    options?: Configuration,
+  ): Promise<ScanResultResponse> {
+    const requestContextPromise = this.requestFactory.getSCAScan(
+      param.jobId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSCAScan(responseContext);
+        });
+    });
+  }
+
+  /**
    * Get all revisions for an AI custom rule.
    * @param param The request object
    */
@@ -4973,6 +5392,22 @@ export class StaticAnalysisApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listCustomRulesets(responseContext);
+        });
+    });
+  }
+
+  /**
+   * @param param The request object
+   */
+  public listSCALicenses(
+    options?: Configuration,
+  ): Promise<LicensesListResponse> {
+    const requestContextPromise = this.requestFactory.listSCALicenses(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listSCALicenses(responseContext);
         });
     });
   }
