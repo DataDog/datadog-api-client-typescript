@@ -1029,8 +1029,13 @@ export {
   RUMApiAggregateRUMEventsRequest,
   RUMApiCreateRUMApplicationRequest,
   RUMApiDeleteRUMApplicationRequest,
+  RUMApiDeleteSourcemapsRequest,
   RUMApiGetRUMApplicationRequest,
+  RUMApiGetServiceRepositoryInfoRequest,
+  RUMApiGetSourcemapsRequest,
   RUMApiListRUMEventsRequest,
+  RUMApiListSourcemapsRequest,
+  RUMApiRestoreSourcemapsRequest,
   RUMApiSearchRUMEventsRequest,
   RUMApiUpdateRUMApplicationRequest,
   RUMApi,
@@ -3357,6 +3362,8 @@ export { DowntimeStatus } from "./models/DowntimeStatus";
 export { DowntimeUpdateRequest } from "./models/DowntimeUpdateRequest";
 export { DowntimeUpdateRequestAttributes } from "./models/DowntimeUpdateRequestAttributes";
 export { DowntimeUpdateRequestData } from "./models/DowntimeUpdateRequestData";
+export { ELFSourcemapAttributes } from "./models/ELFSourcemapAttributes";
+export { ELFSourcemapData } from "./models/ELFSourcemapData";
 export { EntityAttributes } from "./models/EntityAttributes";
 export { EntityContextEntity } from "./models/EntityContextEntity";
 export { EntityContextEntityAttributes } from "./models/EntityContextEntityAttributes";
@@ -3706,6 +3713,8 @@ export { FleetTracersResponse } from "./models/FleetTracersResponse";
 export { FleetTracersResponseData } from "./models/FleetTracersResponseData";
 export { FleetTracersResponseDataAttributes } from "./models/FleetTracersResponseDataAttributes";
 export { FleetTracersResponseMeta } from "./models/FleetTracersResponseMeta";
+export { FlutterSourcemapAttributes } from "./models/FlutterSourcemapAttributes";
+export { FlutterSourcemapData } from "./models/FlutterSourcemapData";
 export { FormTrigger } from "./models/FormTrigger";
 export { FormTriggerWrapper } from "./models/FormTriggerWrapper";
 export { FormulaLimit } from "./models/FormulaLimit";
@@ -3951,6 +3960,8 @@ export { HTTPTokenAuth } from "./models/HTTPTokenAuth";
 export { HTTPTokenAuthType } from "./models/HTTPTokenAuthType";
 export { HTTPTokenAuthUpdate } from "./models/HTTPTokenAuthUpdate";
 export { HTTPTokenUpdate } from "./models/HTTPTokenUpdate";
+export { IL2CPPSourcemapAttributes } from "./models/IL2CPPSourcemapAttributes";
+export { IL2CPPSourcemapData } from "./models/IL2CPPSourcemapData";
 export { IncidentAttachmentType } from "./models/IncidentAttachmentType";
 export { IncidentCreateAttributes } from "./models/IncidentCreateAttributes";
 export { IncidentCreateData } from "./models/IncidentCreateData";
@@ -4185,6 +4196,8 @@ export { IoCIndicatorDetailed } from "./models/IoCIndicatorDetailed";
 export { IoCScoreEffect } from "./models/IoCScoreEffect";
 export { IoCSignalSeverityCount } from "./models/IoCSignalSeverityCount";
 export { IoCSource } from "./models/IoCSource";
+export { IOSSourcemapAttributes } from "./models/IOSSourcemapAttributes";
+export { IOSSourcemapData } from "./models/IOSSourcemapData";
 export { IPAllowlistAttributes } from "./models/IPAllowlistAttributes";
 export { IPAllowlistData } from "./models/IPAllowlistData";
 export { IPAllowlistEntry } from "./models/IPAllowlistEntry";
@@ -4293,6 +4306,10 @@ export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
 export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 export { JsonPatchOperation } from "./models/JsonPatchOperation";
 export { JsonPatchOperationOp } from "./models/JsonPatchOperationOp";
+export { JSSourcemapAttributes } from "./models/JSSourcemapAttributes";
+export { JSSourcemapData } from "./models/JSSourcemapData";
+export { JVMSourcemapAttributes } from "./models/JVMSourcemapAttributes";
+export { JVMSourcemapData } from "./models/JVMSourcemapData";
 export { KindAttributes } from "./models/KindAttributes";
 export { KindData } from "./models/KindData";
 export { KindMetadata } from "./models/KindMetadata";
@@ -4397,6 +4414,7 @@ export { ListScorecardScoresResponse } from "./models/ListScorecardScoresRespons
 export { ListScorecardsResponse } from "./models/ListScorecardsResponse";
 export { ListSecurityFindingsResponse } from "./models/ListSecurityFindingsResponse";
 export { ListServiceAccessTokensResponse } from "./models/ListServiceAccessTokensResponse";
+export { ListSourcemapsResponse } from "./models/ListSourcemapsResponse";
 export { ListTagsResponse } from "./models/ListTagsResponse";
 export { ListTagsResponseData } from "./models/ListTagsResponseData";
 export { ListTagsResponseDataAttributes } from "./models/ListTagsResponseDataAttributes";
@@ -5033,6 +5051,8 @@ export { MuteFindingsRequestDataAttributes } from "./models/MuteFindingsRequestD
 export { MuteFindingsRequestDataRelationships } from "./models/MuteFindingsRequestDataRelationships";
 export { MuteFindingsResponse } from "./models/MuteFindingsResponse";
 export { MuteFindingsResponseData } from "./models/MuteFindingsResponseData";
+export { NDKSourcemapAttributes } from "./models/NDKSourcemapAttributes";
+export { NDKSourcemapData } from "./models/NDKSourcemapData";
 export { NodeTypesResponse } from "./models/NodeTypesResponse";
 export { NodeTypesResponseData } from "./models/NodeTypesResponseData";
 export { NodeTypesResponseDataAttributes } from "./models/NodeTypesResponseDataAttributes";
@@ -5827,6 +5847,8 @@ export { QueryUsersRequestDataAttributes } from "./models/QueryUsersRequestDataA
 export { QueryUsersRequestDataAttributesSort } from "./models/QueryUsersRequestDataAttributesSort";
 export { QueryUsersRequestDataType } from "./models/QueryUsersRequestDataType";
 export { RawErrorBudgetRemaining } from "./models/RawErrorBudgetRemaining";
+export { ReactNativeSourcemapAttributes } from "./models/ReactNativeSourcemapAttributes";
+export { ReactNativeSourcemapData } from "./models/ReactNativeSourcemapData";
 export { ReadinessGate } from "./models/ReadinessGate";
 export { ReadinessGateThresholdType } from "./models/ReadinessGateThresholdType";
 export { RecommendationAttributes } from "./models/RecommendationAttributes";
@@ -6798,6 +6820,14 @@ export { ServiceNowUserAttributes } from "./models/ServiceNowUserAttributes";
 export { ServiceNowUserData } from "./models/ServiceNowUserData";
 export { ServiceNowUsersResponse } from "./models/ServiceNowUsersResponse";
 export { ServiceNowUserType } from "./models/ServiceNowUserType";
+export { ServiceRepositoryInfoDataType } from "./models/ServiceRepositoryInfoDataType";
+export { ServiceRepositoryInfoRequest } from "./models/ServiceRepositoryInfoRequest";
+export { ServiceRepositoryInfoRequestAttributes } from "./models/ServiceRepositoryInfoRequestAttributes";
+export { ServiceRepositoryInfoRequestData } from "./models/ServiceRepositoryInfoRequestData";
+export { ServiceRepositoryInfoResponse } from "./models/ServiceRepositoryInfoResponse";
+export { ServiceRepositoryInfoResponseAttributes } from "./models/ServiceRepositoryInfoResponseAttributes";
+export { ServiceRepositoryInfoResponseData } from "./models/ServiceRepositoryInfoResponseData";
+export { ServiceRepositoryInfoStatus } from "./models/ServiceRepositoryInfoStatus";
 export { SessionIdArray } from "./models/SessionIdArray";
 export { SessionIdData } from "./models/SessionIdData";
 export { Shift } from "./models/Shift";
@@ -6861,6 +6891,16 @@ export { SnapshotUpdateRequestDataAttributes } from "./models/SnapshotUpdateRequ
 export { SnapshotUpdateRequestDataType } from "./models/SnapshotUpdateRequestDataType";
 export { SoftwareCatalogTriggerWrapper } from "./models/SoftwareCatalogTriggerWrapper";
 export { SortDirection } from "./models/SortDirection";
+export { SourcemapDataType } from "./models/SourcemapDataType";
+export { SourcemapFileAttributes } from "./models/SourcemapFileAttributes";
+export { SourcemapFileData } from "./models/SourcemapFileData";
+export { SourcemapFileDataType } from "./models/SourcemapFileDataType";
+export { SourcemapFileResponse } from "./models/SourcemapFileResponse";
+export { SourcemapItem } from "./models/SourcemapItem";
+export { SourcemapMapKind } from "./models/SourcemapMapKind";
+export { SourcemapsListMeta } from "./models/SourcemapsListMeta";
+export { SourcemapsListMetaPage } from "./models/SourcemapsListMetaPage";
+export { SourcemapsResponse } from "./models/SourcemapsResponse";
 export { Span } from "./models/Span";
 export { SpansAggregateBucket } from "./models/SpansAggregateBucket";
 export { SpansAggregateBucketAttributes } from "./models/SpansAggregateBucketAttributes";

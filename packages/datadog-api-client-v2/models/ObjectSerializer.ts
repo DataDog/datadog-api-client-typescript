@@ -1340,6 +1340,8 @@ import { DowntimeScheduleRecurrencesUpdateRequest } from "./DowntimeScheduleRecu
 import { DowntimeUpdateRequest } from "./DowntimeUpdateRequest";
 import { DowntimeUpdateRequestAttributes } from "./DowntimeUpdateRequestAttributes";
 import { DowntimeUpdateRequestData } from "./DowntimeUpdateRequestData";
+import { ELFSourcemapAttributes } from "./ELFSourcemapAttributes";
+import { ELFSourcemapData } from "./ELFSourcemapData";
 import { EPSS } from "./EPSS";
 import { EntityAttributes } from "./EntityAttributes";
 import { EntityContextEntity } from "./EntityContextEntity";
@@ -1617,6 +1619,8 @@ import { FleetTracersResponse } from "./FleetTracersResponse";
 import { FleetTracersResponseData } from "./FleetTracersResponseData";
 import { FleetTracersResponseDataAttributes } from "./FleetTracersResponseDataAttributes";
 import { FleetTracersResponseMeta } from "./FleetTracersResponseMeta";
+import { FlutterSourcemapAttributes } from "./FlutterSourcemapAttributes";
+import { FlutterSourcemapData } from "./FlutterSourcemapData";
 import { FormTrigger } from "./FormTrigger";
 import { FormTriggerWrapper } from "./FormTriggerWrapper";
 import { FormulaLimit } from "./FormulaLimit";
@@ -1807,6 +1811,10 @@ import { HourlyUsageMeasurement } from "./HourlyUsageMeasurement";
 import { HourlyUsageMetadata } from "./HourlyUsageMetadata";
 import { HourlyUsagePagination } from "./HourlyUsagePagination";
 import { HourlyUsageResponse } from "./HourlyUsageResponse";
+import { IL2CPPSourcemapAttributes } from "./IL2CPPSourcemapAttributes";
+import { IL2CPPSourcemapData } from "./IL2CPPSourcemapData";
+import { IOSSourcemapAttributes } from "./IOSSourcemapAttributes";
+import { IOSSourcemapData } from "./IOSSourcemapData";
 import { IPAllowlistAttributes } from "./IPAllowlistAttributes";
 import { IPAllowlistData } from "./IPAllowlistData";
 import { IPAllowlistEntry } from "./IPAllowlistEntry";
@@ -2044,6 +2052,10 @@ import { ItemApiPayloadMetaSchemaField } from "./ItemApiPayloadMetaSchemaField";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
+import { JSSourcemapAttributes } from "./JSSourcemapAttributes";
+import { JSSourcemapData } from "./JSSourcemapData";
+import { JVMSourcemapAttributes } from "./JVMSourcemapAttributes";
+import { JVMSourcemapData } from "./JVMSourcemapData";
 import { JiraAccountAttributes } from "./JiraAccountAttributes";
 import { JiraAccountData } from "./JiraAccountData";
 import { JiraAccountRelationship } from "./JiraAccountRelationship";
@@ -2395,6 +2407,7 @@ import { ListScorecardScoresResponse } from "./ListScorecardScoresResponse";
 import { ListScorecardsResponse } from "./ListScorecardsResponse";
 import { ListSecurityFindingsResponse } from "./ListSecurityFindingsResponse";
 import { ListServiceAccessTokensResponse } from "./ListServiceAccessTokensResponse";
+import { ListSourcemapsResponse } from "./ListSourcemapsResponse";
 import { ListTagsResponse } from "./ListTagsResponse";
 import { ListTagsResponseData } from "./ListTagsResponseData";
 import { ListTagsResponseDataAttributes } from "./ListTagsResponseDataAttributes";
@@ -2681,6 +2694,8 @@ import { MuteFindingsRequestDataAttributes } from "./MuteFindingsRequestDataAttr
 import { MuteFindingsRequestDataRelationships } from "./MuteFindingsRequestDataRelationships";
 import { MuteFindingsResponse } from "./MuteFindingsResponse";
 import { MuteFindingsResponseData } from "./MuteFindingsResponseData";
+import { NDKSourcemapAttributes } from "./NDKSourcemapAttributes";
+import { NDKSourcemapData } from "./NDKSourcemapData";
 import { NodeTypesResponse } from "./NodeTypesResponse";
 import { NodeTypesResponseData } from "./NodeTypesResponseData";
 import { NodeTypesResponseDataAttributes } from "./NodeTypesResponseDataAttributes";
@@ -3254,6 +3269,8 @@ import { RUMResponsePage } from "./RUMResponsePage";
 import { RUMSearchEventsRequest } from "./RUMSearchEventsRequest";
 import { RUMWarning } from "./RUMWarning";
 import { RawErrorBudgetRemaining } from "./RawErrorBudgetRemaining";
+import { ReactNativeSourcemapAttributes } from "./ReactNativeSourcemapAttributes";
+import { ReactNativeSourcemapData } from "./ReactNativeSourcemapData";
 import { ReadinessGate } from "./ReadinessGate";
 import { RecommendationAttributes } from "./RecommendationAttributes";
 import { RecommendationData } from "./RecommendationData";
@@ -3974,6 +3991,12 @@ import { ServiceNowTicketResult } from "./ServiceNowTicketResult";
 import { ServiceNowUserAttributes } from "./ServiceNowUserAttributes";
 import { ServiceNowUserData } from "./ServiceNowUserData";
 import { ServiceNowUsersResponse } from "./ServiceNowUsersResponse";
+import { ServiceRepositoryInfoRequest } from "./ServiceRepositoryInfoRequest";
+import { ServiceRepositoryInfoRequestAttributes } from "./ServiceRepositoryInfoRequestAttributes";
+import { ServiceRepositoryInfoRequestData } from "./ServiceRepositoryInfoRequestData";
+import { ServiceRepositoryInfoResponse } from "./ServiceRepositoryInfoResponse";
+import { ServiceRepositoryInfoResponseAttributes } from "./ServiceRepositoryInfoResponseAttributes";
+import { ServiceRepositoryInfoResponseData } from "./ServiceRepositoryInfoResponseData";
 import { SessionIdArray } from "./SessionIdArray";
 import { SessionIdData } from "./SessionIdData";
 import { Shift } from "./Shift";
@@ -4017,6 +4040,12 @@ import { SnapshotUpdateRequest } from "./SnapshotUpdateRequest";
 import { SnapshotUpdateRequestData } from "./SnapshotUpdateRequestData";
 import { SnapshotUpdateRequestDataAttributes } from "./SnapshotUpdateRequestDataAttributes";
 import { SoftwareCatalogTriggerWrapper } from "./SoftwareCatalogTriggerWrapper";
+import { SourcemapFileAttributes } from "./SourcemapFileAttributes";
+import { SourcemapFileData } from "./SourcemapFileData";
+import { SourcemapFileResponse } from "./SourcemapFileResponse";
+import { SourcemapsListMeta } from "./SourcemapsListMeta";
+import { SourcemapsListMetaPage } from "./SourcemapsListMetaPage";
+import { SourcemapsResponse } from "./SourcemapsResponse";
 import { Span } from "./Span";
 import { SpansAggregateBucket } from "./SpansAggregateBucket";
 import { SpansAggregateBucketAttributes } from "./SpansAggregateBucketAttributes";
@@ -6984,6 +7013,14 @@ const enumsMap: { [key: string]: any[] } = {
   ServiceNowTicketResourceType: ["tickets"],
   ServiceNowTicketsDataType: ["servicenow_tickets"],
   ServiceNowUserType: ["users"],
+  ServiceRepositoryInfoDataType: ["service_repository_info"],
+  ServiceRepositoryInfoStatus: [
+    "success",
+    "not_found",
+    "no_repository",
+    "internal_error",
+    "unknown",
+  ],
   ShiftDataRelationshipsUserDataType: ["users"],
   ShiftDataType: ["shifts"],
   SignalEntitiesType: ["entities"],
@@ -7007,6 +7044,18 @@ const enumsMap: { [key: string]: any[] } = {
   SlosQueryType: ["metric", "time_slice", "monitor"],
   SnapshotUpdateRequestDataType: ["snapshots"],
   SortDirection: ["desc", "asc"],
+  SourcemapDataType: ["sourcemaps"],
+  SourcemapFileDataType: ["sourcemap_files"],
+  SourcemapMapKind: [
+    "js",
+    "jvm",
+    "ios",
+    "react",
+    "flutter",
+    "elf",
+    "ndk",
+    "il2cpp",
+  ],
   SpansAggregateBucketType: ["bucket"],
   SpansAggregateRequestType: ["aggregate_request"],
   SpansAggregateResponseStatus: ["done", "timeout"],
@@ -8994,6 +9043,8 @@ const typeMap: { [index: string]: any } = {
   DowntimeUpdateRequest: DowntimeUpdateRequest,
   DowntimeUpdateRequestAttributes: DowntimeUpdateRequestAttributes,
   DowntimeUpdateRequestData: DowntimeUpdateRequestData,
+  ELFSourcemapAttributes: ELFSourcemapAttributes,
+  ELFSourcemapData: ELFSourcemapData,
   EPSS: EPSS,
   EntityAttributes: EntityAttributes,
   EntityContextEntity: EntityContextEntity,
@@ -9306,6 +9357,8 @@ const typeMap: { [index: string]: any } = {
   FleetTracersResponseData: FleetTracersResponseData,
   FleetTracersResponseDataAttributes: FleetTracersResponseDataAttributes,
   FleetTracersResponseMeta: FleetTracersResponseMeta,
+  FlutterSourcemapAttributes: FlutterSourcemapAttributes,
+  FlutterSourcemapData: FlutterSourcemapData,
   FormTrigger: FormTrigger,
   FormTriggerWrapper: FormTriggerWrapper,
   FormulaLimit: FormulaLimit,
@@ -9522,6 +9575,10 @@ const typeMap: { [index: string]: any } = {
   HourlyUsageMetadata: HourlyUsageMetadata,
   HourlyUsagePagination: HourlyUsagePagination,
   HourlyUsageResponse: HourlyUsageResponse,
+  IL2CPPSourcemapAttributes: IL2CPPSourcemapAttributes,
+  IL2CPPSourcemapData: IL2CPPSourcemapData,
+  IOSSourcemapAttributes: IOSSourcemapAttributes,
+  IOSSourcemapData: IOSSourcemapData,
   IPAllowlistAttributes: IPAllowlistAttributes,
   IPAllowlistData: IPAllowlistData,
   IPAllowlistEntry: IPAllowlistEntry,
@@ -9791,6 +9848,10 @@ const typeMap: { [index: string]: any } = {
   JSONAPIErrorItem: JSONAPIErrorItem,
   JSONAPIErrorItemSource: JSONAPIErrorItemSource,
   JSONAPIErrorResponse: JSONAPIErrorResponse,
+  JSSourcemapAttributes: JSSourcemapAttributes,
+  JSSourcemapData: JSSourcemapData,
+  JVMSourcemapAttributes: JVMSourcemapAttributes,
+  JVMSourcemapData: JVMSourcemapData,
   JiraAccountAttributes: JiraAccountAttributes,
   JiraAccountData: JiraAccountData,
   JiraAccountRelationship: JiraAccountRelationship,
@@ -10212,6 +10273,7 @@ const typeMap: { [index: string]: any } = {
   ListScorecardsResponse: ListScorecardsResponse,
   ListSecurityFindingsResponse: ListSecurityFindingsResponse,
   ListServiceAccessTokensResponse: ListServiceAccessTokensResponse,
+  ListSourcemapsResponse: ListSourcemapsResponse,
   ListTagsResponse: ListTagsResponse,
   ListTagsResponseData: ListTagsResponseData,
   ListTagsResponseDataAttributes: ListTagsResponseDataAttributes,
@@ -10548,6 +10610,8 @@ const typeMap: { [index: string]: any } = {
   MuteFindingsRequestDataRelationships: MuteFindingsRequestDataRelationships,
   MuteFindingsResponse: MuteFindingsResponse,
   MuteFindingsResponseData: MuteFindingsResponseData,
+  NDKSourcemapAttributes: NDKSourcemapAttributes,
+  NDKSourcemapData: NDKSourcemapData,
   NodeTypesResponse: NodeTypesResponse,
   NodeTypesResponseData: NodeTypesResponseData,
   NodeTypesResponseDataAttributes: NodeTypesResponseDataAttributes,
@@ -11285,6 +11349,8 @@ const typeMap: { [index: string]: any } = {
   RUMSearchEventsRequest: RUMSearchEventsRequest,
   RUMWarning: RUMWarning,
   RawErrorBudgetRemaining: RawErrorBudgetRemaining,
+  ReactNativeSourcemapAttributes: ReactNativeSourcemapAttributes,
+  ReactNativeSourcemapData: ReactNativeSourcemapData,
   ReadinessGate: ReadinessGate,
   RecommendationAttributes: RecommendationAttributes,
   RecommendationData: RecommendationData,
@@ -12214,6 +12280,14 @@ const typeMap: { [index: string]: any } = {
   ServiceNowUserAttributes: ServiceNowUserAttributes,
   ServiceNowUserData: ServiceNowUserData,
   ServiceNowUsersResponse: ServiceNowUsersResponse,
+  ServiceRepositoryInfoRequest: ServiceRepositoryInfoRequest,
+  ServiceRepositoryInfoRequestAttributes:
+    ServiceRepositoryInfoRequestAttributes,
+  ServiceRepositoryInfoRequestData: ServiceRepositoryInfoRequestData,
+  ServiceRepositoryInfoResponse: ServiceRepositoryInfoResponse,
+  ServiceRepositoryInfoResponseAttributes:
+    ServiceRepositoryInfoResponseAttributes,
+  ServiceRepositoryInfoResponseData: ServiceRepositoryInfoResponseData,
   SessionIdArray: SessionIdArray,
   SessionIdData: SessionIdData,
   Shift: Shift,
@@ -12263,6 +12337,12 @@ const typeMap: { [index: string]: any } = {
   SnapshotUpdateRequestData: SnapshotUpdateRequestData,
   SnapshotUpdateRequestDataAttributes: SnapshotUpdateRequestDataAttributes,
   SoftwareCatalogTriggerWrapper: SoftwareCatalogTriggerWrapper,
+  SourcemapFileAttributes: SourcemapFileAttributes,
+  SourcemapFileData: SourcemapFileData,
+  SourcemapFileResponse: SourcemapFileResponse,
+  SourcemapsListMeta: SourcemapsListMeta,
+  SourcemapsListMetaPage: SourcemapsListMetaPage,
+  SourcemapsResponse: SourcemapsResponse,
   Span: Span,
   SpansAggregateBucket: SpansAggregateBucket,
   SpansAggregateBucketAttributes: SpansAggregateBucketAttributes,
@@ -13725,6 +13805,16 @@ const oneOfMap: { [index: string]: string[] } = {
   ServiceNowCredentials: ["ServiceNowBasicAuth"],
   ServiceNowCredentialsUpdate: ["ServiceNowBasicAuthUpdate"],
   ShiftIncluded: ["ScheduleUser"],
+  SourcemapItem: [
+    "JSSourcemapData",
+    "ReactNativeSourcemapData",
+    "IOSSourcemapData",
+    "JVMSourcemapData",
+    "FlutterSourcemapData",
+    "ELFSourcemapData",
+    "NDKSourcemapData",
+    "IL2CPPSourcemapData",
+  ],
   SpansAggregateBucketValue: [
     "string",
     "number",
