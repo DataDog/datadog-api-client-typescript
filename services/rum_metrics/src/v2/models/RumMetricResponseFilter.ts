@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * The RUM-based metric filter. RUM events matching this filter will be aggregated in this metric.
+ * The rum-based metric filter. RUM events matching this filter will be aggregated in this metric.
  */
 export class RumMetricResponseFilter {
   /**

@@ -4,15 +4,15 @@ import { RumMetricCreateAttributes } from "./RumMetricCreateAttributes";
 import { RumMetricType } from "./RumMetricType";
 
 /**
- * The new RUM-based metric properties.
+ * The new rum-based metric properties.
  */
 export class RumMetricCreateData {
   /**
-   * The object describing the Datadog RUM-based metric to create.
+   * The object describing the Datadog rum-based metric to create.
    */
   "attributes": RumMetricCreateAttributes;
   /**
-   * The name of the RUM-based metric.
+   * The name of the rum-based metric.
    */
   "id": string;
   /**

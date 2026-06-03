@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { RumMetricResponseData } from "./RumMetricResponseData";
 
 /**
- * All the available RUM-based metric objects.
+ * All the available rum-based metric objects.
  */
 export class RumMetricsResponse {
   /**
-   * A list of RUM-based metric objects.
+   * A list of rum-based metric objects.
    */
   "data"?: Array<RumMetricResponseData>;
   /**

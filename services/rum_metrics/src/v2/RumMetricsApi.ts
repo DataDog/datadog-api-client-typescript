@@ -561,7 +561,7 @@ export class RumMetricsApiResponseProcessor {
 
 export interface RumMetricsApiCreateRumMetricRequest {
   /**
-   * The definition of the new RUM-based metric.
+   * The definition of the new rum-based metric.
    * @type RumMetricCreateRequest
    */
   body: RumMetricCreateRequest;
@@ -569,7 +569,7 @@ export interface RumMetricsApiCreateRumMetricRequest {
 
 export interface RumMetricsApiDeleteRumMetricRequest {
   /**
-   * The name of the RUM-based metric.
+   * The name of the rum-based metric.
    * @type string
    */
   metricId: string;
@@ -577,7 +577,7 @@ export interface RumMetricsApiDeleteRumMetricRequest {
 
 export interface RumMetricsApiGetRumMetricRequest {
   /**
-   * The name of the RUM-based metric.
+   * The name of the rum-based metric.
    * @type string
    */
   metricId: string;
@@ -585,12 +585,12 @@ export interface RumMetricsApiGetRumMetricRequest {
 
 export interface RumMetricsApiUpdateRumMetricRequest {
   /**
-   * The name of the RUM-based metric.
+   * The name of the rum-based metric.
    * @type string
    */
   metricId: string;
   /**
-   * New definition of the RUM-based metric.
+   * New definition of the rum-based metric.
    * @type RumMetricUpdateRequest
    */
   body: RumMetricUpdateRequest;
@@ -617,7 +617,7 @@ export class RumMetricsApi {
 
   /**
    * Create a metric based on your organization's RUM data.
-   * Returns the RUM-based metric object from the request body when the request is successful.
+   * Returns the rum-based metric object from the request body when the request is successful.
    * @param param The request object
    */
   public createRumMetric(
@@ -638,7 +638,7 @@ export class RumMetricsApi {
   }
 
   /**
-   * Delete a specific RUM-based metric from your organization.
+   * Delete a specific rum-based metric from your organization.
    * @param param The request object
    */
   public deleteRumMetric(
@@ -659,7 +659,7 @@ export class RumMetricsApi {
   }
 
   /**
-   * Get a specific RUM-based metric from your organization.
+   * Get a specific rum-based metric from your organization.
    * @param param The request object
    */
   public getRumMetric(
@@ -680,7 +680,7 @@ export class RumMetricsApi {
   }
 
   /**
-   * Get the list of configured RUM-based metrics with their definitions.
+   * Get the list of configured rum-based metrics with their definitions.
    * @param param The request object
    */
   public listRumMetrics(options?: Configuration): Promise<RumMetricsResponse> {
@@ -695,8 +695,8 @@ export class RumMetricsApi {
   }
 
   /**
-   * Update a specific RUM-based metric from your organization.
-   * Returns the RUM-based metric object from the request body when the request is successful.
+   * Update a specific rum-based metric from your organization.
+   * Returns the rum-based metric object from the request body when the request is successful.
    * @param param The request object
    */
   public updateRumMetric(
