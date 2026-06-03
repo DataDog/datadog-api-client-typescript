@@ -9,7 +9,13 @@ import { UsageSummaryDate } from "./UsageSummaryDate";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response summarizing all usage aggregated across the months in the request for all organizations, and broken down by month and by organization.
+ * Response summarizing all usage aggregated across the months in the request for
+ * all organizations, and broken down by month and by organization.
+ *
+ * Newly added billing dimensions and usage types appear as untyped keys on the
+ * `additionalProperties` map instead of as typed fields. Call
+ * `GET /api/v2/usage/summary/available_fields` to enumerate every key returned
+ * at this response level—both typed fields and `additionalProperties` keys.
  */
 export class UsageSummaryResponse {
   /**

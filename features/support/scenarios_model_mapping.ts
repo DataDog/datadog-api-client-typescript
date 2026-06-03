@@ -8029,6 +8029,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ProjectedCostResponse",
     },
+    "v2.GetUsageSummaryAvailableFields": {
+        "operationResponseType": "UsageSummaryAvailableFieldsResponse",
+    },
     "v2.GetUsageAttributionTypes": {
         "operationResponseType": "UsageAttributionTypesResponse",
     },
