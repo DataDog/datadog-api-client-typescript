@@ -5,6 +5,10 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  */
 export class IssueCaseJiraIssueResult {
   /**
+   * Jira account identifier.
+   */
+  "accountId"?: string;
+  /**
    * Jira issue identifier.
    */
   "issueId"?: string;
@@ -16,6 +20,10 @@ export class IssueCaseJiraIssueResult {
    * Jira issue URL.
    */
   "issueUrl"?: string;
+  /**
+   * Jira project identifier.
+   */
+  "projectId"?: string;
   /**
    * Jira project key.
    */
@@ -35,6 +43,10 @@ export class IssueCaseJiraIssueResult {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    accountId: {
+      baseName: "account_id",
+      type: "string",
+    },
     issueId: {
       baseName: "issue_id",
       type: "string",
@@ -45,6 +57,10 @@ export class IssueCaseJiraIssueResult {
     },
     issueUrl: {
       baseName: "issue_url",
+      type: "string",
+    },
+    projectId: {
+      baseName: "project_id",
       type: "string",
     },
     projectKey: {

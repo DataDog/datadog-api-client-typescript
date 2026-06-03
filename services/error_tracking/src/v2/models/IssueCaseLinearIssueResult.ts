@@ -1,0 +1,76 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+/**
+ * Contains the identifiers and URL for a successfully created Linear issue.
+ */
+export class IssueCaseLinearIssueResult {
+  /**
+   * Linear account identifier.
+   */
+  "accountId"?: string;
+  /**
+   * Linear issue identifier.
+   */
+  "issueId"?: string;
+  /**
+   * Linear issue key.
+   */
+  "issueKey"?: string;
+  /**
+   * Linear issue URL.
+   */
+  "issueUrl"?: string;
+  /**
+   * Linear team identifier.
+   */
+  "teamId"?: string;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    accountId: {
+      baseName: "account_id",
+      type: "string",
+    },
+    issueId: {
+      baseName: "issue_id",
+      type: "string",
+    },
+    issueKey: {
+      baseName: "issue_key",
+      type: "string",
+    },
+    issueUrl: {
+      baseName: "issue_url",
+      type: "string",
+    },
+    teamId: {
+      baseName: "team_id",
+      type: "string",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return IssueCaseLinearIssueResult.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

@@ -13,6 +13,8 @@ import { IssueCaseAttributes } from "./IssueCaseAttributes";
 import { IssueCaseInsight } from "./IssueCaseInsight";
 import { IssueCaseJiraIssue } from "./IssueCaseJiraIssue";
 import { IssueCaseJiraIssueResult } from "./IssueCaseJiraIssueResult";
+import { IssueCaseLinearIssue } from "./IssueCaseLinearIssue";
+import { IssueCaseLinearIssueResult } from "./IssueCaseLinearIssueResult";
 import { IssueCaseReference } from "./IssueCaseReference";
 import { IssueCaseRelationship } from "./IssueCaseRelationship";
 import { IssueCaseRelationships } from "./IssueCaseRelationships";
@@ -153,6 +155,8 @@ export const TypingInfo: ModelTypingInfo = {
     IssueCaseInsight: IssueCaseInsight,
     IssueCaseJiraIssue: IssueCaseJiraIssue,
     IssueCaseJiraIssueResult: IssueCaseJiraIssueResult,
+    IssueCaseLinearIssue: IssueCaseLinearIssue,
+    IssueCaseLinearIssueResult: IssueCaseLinearIssueResult,
     IssueCaseReference: IssueCaseReference,
     IssueCaseRelationship: IssueCaseRelationship,
     IssueCaseRelationships: IssueCaseRelationships,

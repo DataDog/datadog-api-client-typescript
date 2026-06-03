@@ -7,6 +7,10 @@ import { IssueCaseJiraIssueResult } from "./IssueCaseJiraIssueResult";
  */
 export class IssueCaseJiraIssue {
   /**
+   * Error message set when the Jira issue creation fails.
+   */
+  "errorMessage"?: string;
+  /**
    * Contains the identifiers and URL for a successfully created Jira issue.
    */
   "result"?: IssueCaseJiraIssueResult;
@@ -29,6 +33,10 @@ export class IssueCaseJiraIssue {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    errorMessage: {
+      baseName: "error_message",
+      type: "string",
+    },
     result: {
       baseName: "result",
       type: "IssueCaseJiraIssueResult",
