@@ -2,7 +2,7 @@
 
 ## Description
 
-Manage configuration of [rum-based metrics](https://app.datadoghq.com/rum/generate-metrics) for your organization.
+Manage configuration of [RUM-based metrics](https://app.datadoghq.com/rum/generate-metrics) for your organization.
 
 ## Navigation
 

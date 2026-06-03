@@ -5,15 +5,15 @@ import { RumMetricGroupBy } from "./RumMetricGroupBy";
 import { RumMetricUpdateCompute } from "./RumMetricUpdateCompute";
 
 /**
- * The rum-based metric properties that will be updated.
+ * The RUM-based metric properties that will be updated.
  */
 export class RumMetricUpdateAttributes {
   /**
-   * The compute rule to compute the rum-based metric.
+   * The compute rule to compute the RUM-based metric.
    */
   "compute"?: RumMetricUpdateCompute;
   /**
-   * The rum-based metric filter. Events matching this filter will be aggregated in this metric.
+   * The RUM-based metric filter. Events matching this filter will be aggregated in this metric.
    */
   "filter"?: RumMetricFilter;
   /**
