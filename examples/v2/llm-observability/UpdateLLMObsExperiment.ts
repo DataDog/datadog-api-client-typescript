@@ -11,7 +11,10 @@ const apiInstance = new v2.LLMObservabilityApi(configuration);
 const params: v2.LLMObservabilityApiUpdateLLMObsExperimentRequest = {
   body: {
     data: {
-      attributes: {},
+      attributes: {
+        datasetId: "9f64e5c7-dc5a-45c8-a17c-1b85f0bec97d",
+        status: "completed",
+      },
       type: "experiments",
     },
   },
