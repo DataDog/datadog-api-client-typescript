@@ -3442,6 +3442,15 @@ import { RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems } from
 import { RulesetStatusRespArray } from "./RulesetStatusRespArray";
 import { RulesetStatusRespData } from "./RulesetStatusRespData";
 import { RulesetStatusRespDataAttributes } from "./RulesetStatusRespDataAttributes";
+import { RumConfigAttributes } from "./RumConfigAttributes";
+import { RumConfigCreateAttributes } from "./RumConfigCreateAttributes";
+import { RumConfigCreateData } from "./RumConfigCreateData";
+import { RumConfigCreateRequest } from "./RumConfigCreateRequest";
+import { RumConfigData } from "./RumConfigData";
+import { RumConfigResponse } from "./RumConfigResponse";
+import { RumConfigUpdateAttributes } from "./RumConfigUpdateAttributes";
+import { RumConfigUpdateData } from "./RumConfigUpdateData";
+import { RumConfigUpdateRequest } from "./RumConfigUpdateRequest";
 import { RumCrossProductSampling } from "./RumCrossProductSampling";
 import { RumCrossProductSamplingCreate } from "./RumCrossProductSamplingCreate";
 import { RumCrossProductSamplingUpdate } from "./RumCrossProductSamplingUpdate";
@@ -6557,6 +6566,7 @@ const enumsMap: { [key: string]: any[] } = {
   RulesValidateQueryResponseDataType: ["validate_response"],
   RulesetRespDataType: ["ruleset"],
   RulesetStatusRespDataType: ["ruleset_status"],
+  RumConfigType: ["rum_config"],
   RumHardcodedRetentionFilterEventType: [
     "session",
     "view",
@@ -11495,6 +11505,15 @@ const typeMap: { [index: string]: any } = {
   RulesetStatusRespArray: RulesetStatusRespArray,
   RulesetStatusRespData: RulesetStatusRespData,
   RulesetStatusRespDataAttributes: RulesetStatusRespDataAttributes,
+  RumConfigAttributes: RumConfigAttributes,
+  RumConfigCreateAttributes: RumConfigCreateAttributes,
+  RumConfigCreateData: RumConfigCreateData,
+  RumConfigCreateRequest: RumConfigCreateRequest,
+  RumConfigData: RumConfigData,
+  RumConfigResponse: RumConfigResponse,
+  RumConfigUpdateAttributes: RumConfigUpdateAttributes,
+  RumConfigUpdateData: RumConfigUpdateData,
+  RumConfigUpdateRequest: RumConfigUpdateRequest,
   RumCrossProductSampling: RumCrossProductSampling,
   RumCrossProductSamplingCreate: RumCrossProductSamplingCreate,
   RumCrossProductSamplingUpdate: RumCrossProductSamplingUpdate,
