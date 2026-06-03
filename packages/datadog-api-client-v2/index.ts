@@ -1411,6 +1411,7 @@ export {
   StaticAnalysisApiCreateCustomRulesetRequest,
   StaticAnalysisApiCreateSCAResolveVulnerableSymbolsRequest,
   StaticAnalysisApiCreateSCAResultRequest,
+  StaticAnalysisApiCreateSCAScanRequest,
   StaticAnalysisApiDeleteAiCustomRuleRequest,
   StaticAnalysisApiDeleteAiCustomRulesetRequest,
   StaticAnalysisApiDeleteAiMemoryViolationResultRequest,
@@ -1422,6 +1423,7 @@ export {
   StaticAnalysisApiGetCustomRuleRequest,
   StaticAnalysisApiGetCustomRuleRevisionRequest,
   StaticAnalysisApiGetCustomRulesetRequest,
+  StaticAnalysisApiGetSCAScanRequest,
   StaticAnalysisApiListAiCustomRuleRevisionsRequest,
   StaticAnalysisApiListAiCustomRulesetsRequest,
   StaticAnalysisApiListCustomRuleRevisionsRequest,
@@ -4317,6 +4319,11 @@ export { LeakedKey } from "./models/LeakedKey";
 export { LeakedKeyAttributes } from "./models/LeakedKeyAttributes";
 export { LeakedKeyType } from "./models/LeakedKeyType";
 export { Library } from "./models/Library";
+export { LicensesListResponse } from "./models/LicensesListResponse";
+export { LicensesListResponseData } from "./models/LicensesListResponseData";
+export { LicensesListResponseDataAttributes } from "./models/LicensesListResponseDataAttributes";
+export { LicensesListResponseDataAttributesLicensesItems } from "./models/LicensesListResponseDataAttributesLicensesItems";
+export { LicensesListResponseDataType } from "./models/LicensesListResponseDataType";
 export { Links } from "./models/Links";
 export { ListAllocationsResponse } from "./models/ListAllocationsResponse";
 export { ListAPIsResponse } from "./models/ListAPIsResponse";
@@ -4779,6 +4786,15 @@ export { ManagedOrgsRelationshipToOrg } from "./models/ManagedOrgsRelationshipTo
 export { ManagedOrgsRelationshipToOrgs } from "./models/ManagedOrgsRelationshipToOrgs";
 export { ManagedOrgsResponse } from "./models/ManagedOrgsResponse";
 export { ManagedOrgsType } from "./models/ManagedOrgsType";
+export { McpScanRequest } from "./models/McpScanRequest";
+export { McpScanRequestData } from "./models/McpScanRequestData";
+export { McpScanRequestDataAttributes } from "./models/McpScanRequestDataAttributes";
+export { McpScanRequestDataAttributesLibrariesItems } from "./models/McpScanRequestDataAttributesLibrariesItems";
+export { McpScanRequestDataType } from "./models/McpScanRequestDataType";
+export { McpScanRequestResponse } from "./models/McpScanRequestResponse";
+export { McpScanRequestResponseData } from "./models/McpScanRequestResponseData";
+export { McpScanRequestResponseDataAttributes } from "./models/McpScanRequestResponseDataAttributes";
+export { McpScanRequestResponseDataType } from "./models/McpScanRequestResponseDataType";
 export { MemberTeam } from "./models/MemberTeam";
 export { MemberTeamType } from "./models/MemberTeamType";
 export { Metadata } from "./models/Metadata";
@@ -6232,6 +6248,7 @@ export { ScannedAssetMetadataAsset } from "./models/ScannedAssetMetadataAsset";
 export { ScannedAssetMetadataAttributes } from "./models/ScannedAssetMetadataAttributes";
 export { ScannedAssetMetadataLastSuccess } from "./models/ScannedAssetMetadataLastSuccess";
 export { ScannedAssetsMetadata } from "./models/ScannedAssetsMetadata";
+export { ScanResultResponse } from "./models/ScanResultResponse";
 export { ScaRequest } from "./models/ScaRequest";
 export { ScaRequestData } from "./models/ScaRequestData";
 export { ScaRequestDataAttributes } from "./models/ScaRequestDataAttributes";
