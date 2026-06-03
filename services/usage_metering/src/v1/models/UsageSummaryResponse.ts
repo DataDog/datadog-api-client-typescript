@@ -18,6 +18,26 @@ export class UsageSummaryResponse {
    */
   "agentHostTop99pSum"?: number;
   /**
+   * Shows the sum of all AI credits used by Agent Builder over all hours in the current month for all organizations.
+   */
+  "aiCreditsAgentBuilderAiCreditsAggSum"?: number;
+  /**
+   * Shows the sum of all AI credits over all hours in the current month for all organizations.
+   */
+  "aiCreditsAggSum"?: number;
+  /**
+   * Shows the sum of all AI credits used by Bits AI Assistant over all hours in the current month for all organizations.
+   */
+  "aiCreditsBitsAssistantAiCreditsAggSum"?: number;
+  /**
+   * Shows the sum of all AI credits used by Bits AI Dev over all hours in the current month for all organizations.
+   */
+  "aiCreditsBitsDevAiCreditsAggSum"?: number;
+  /**
+   * Shows the sum of all AI credits used by Bits AI SRE over all hours in the current month for all organizations.
+   */
+  "aiCreditsBitsSreAiCreditsAggSum"?: number;
+  /**
    * Shows the 99th percentile of all Azure app services using APM over all hours in the current month all organizations.
    */
   "apmAzureAppServiceHostTop99pSum"?: number;
@@ -57,6 +77,10 @@ export class UsageSummaryResponse {
    * Shows the total number of organizations that had Audit Trail enabled over a specific number of months.
    */
   "auditTrailEnabledHwmSum"?: number;
+  /**
+   * Shows the sum of all Audit Trail event forwarding events over all hours in the current month for all organizations.
+   */
+  "auditTrailEventForwardingEventsAggSum"?: number;
   /**
    * The average total count for Fargate Container Profiler over all hours in the current month for all organizations.
    */
@@ -358,6 +382,14 @@ export class UsageSummaryResponse {
    */
   "dataJobsMonitoringHostHrAggSum"?: number;
   /**
+   * Shows the sum of all Data Streams Monitoring hosts over all hours in the current month for all organizations.
+   */
+  "dataStreamMonitoringHostCountAggSum"?: number;
+  /**
+   * Shows the 99th percentile of all Data Streams Monitoring hosts over all hours in the current month for all organizations.
+   */
+  "dataStreamMonitoringHostCountTop99pSum"?: number;
+  /**
    * Shows the 99th percentile of all Database Monitoring hosts over all hours in the current month for all organizations.
    */
   "dbmHostTop99pSum"?: number;
@@ -550,6 +582,130 @@ export class UsageSummaryResponse {
    */
   "indexedEventsCountAggSum"?: number;
   /**
+   * Shows the sum of all indexed custom metrics points over all hours in the current month for all organizations.
+   */
+  "indexedPointsAggSum"?: number;
+  /**
+   * Shows the sum of all Infrastructure vCPU cores over all hours in the current month for all organizations.
+   */
+  "infraCpuAggSum"?: number;
+  /**
+   * Shows the average of all Infrastructure vCPU cores over all hours in the current month for all organizations.
+   */
+  "infraCpuAvgSum"?: number;
+  /**
+   * Shows the sum of all default Infrastructure host vCPU cores reported by the Datadog Agent over all hours in the current month for all organizations.
+   */
+  "infraCpuDefaultInfraHostVcpuAgentAggSum"?: number;
+  /**
+   * Shows the average of all default Infrastructure host vCPU cores reported by the Datadog Agent over all hours in the current month for all organizations.
+   */
+  "infraCpuDefaultInfraHostVcpuAgentAvgSum"?: number;
+  /**
+   * Shows the sum of all default basic Infrastructure host vCPU cores reported by the Datadog Agent over all hours in the current month for all organizations.
+   */
+  "infraCpuDefaultInfraHostVcpuAgentBasicAggSum"?: number;
+  /**
+   * Shows the average of all default basic Infrastructure host vCPU cores reported by the Datadog Agent over all hours in the current month for all organizations.
+   */
+  "infraCpuDefaultInfraHostVcpuAgentBasicAvgSum"?: number;
+  /**
+   * Shows the sum of all default Infrastructure host vCPU cores on AWS over all hours in the current month for all organizations.
+   */
+  "infraCpuDefaultInfraHostVcpuAwsAggSum"?: number;
+  /**
+   * Shows the average of all default Infrastructure host vCPU cores on AWS over all hours in the current month for all organizations.
+   */
+  "infraCpuDefaultInfraHostVcpuAwsAvgSum"?: number;
+  /**
+   * Shows the sum of all default Infrastructure host vCPU cores on Azure over all hours in the current month for all organizations.
+   */
+  "infraCpuDefaultInfraHostVcpuAzureAggSum"?: number;
+  /**
+   * Shows the average of all default Infrastructure host vCPU cores on Azure over all hours in the current month for all organizations.
+   */
+  "infraCpuDefaultInfraHostVcpuAzureAvgSum"?: number;
+  /**
+   * Shows the sum of all default Infrastructure host vCPU cores on GCP over all hours in the current month for all organizations.
+   */
+  "infraCpuDefaultInfraHostVcpuGcpAggSum"?: number;
+  /**
+   * Shows the average of all default Infrastructure host vCPU cores on GCP over all hours in the current month for all organizations.
+   */
+  "infraCpuDefaultInfraHostVcpuGcpAvgSum"?: number;
+  /**
+   * Shows the sum of all default Infrastructure host vCPU cores on Nutanix over all hours in the current month for all organizations.
+   */
+  "infraCpuDefaultInfraHostVcpuNutanixAggSum"?: number;
+  /**
+   * Shows the average of all default Infrastructure host vCPU cores on Nutanix over all hours in the current month for all organizations.
+   */
+  "infraCpuDefaultInfraHostVcpuNutanixAvgSum"?: number;
+  /**
+   * Shows the sum of all default basic Infrastructure host vCPU cores on Nutanix over all hours in the current month for all organizations.
+   */
+  "infraCpuDefaultInfraHostVcpuNutanixBasicAggSum"?: number;
+  /**
+   * Shows the average of all default basic Infrastructure host vCPU cores on Nutanix over all hours in the current month for all organizations.
+   */
+  "infraCpuDefaultInfraHostVcpuNutanixBasicAvgSum"?: number;
+  /**
+   * Shows the sum of all default Infrastructure host vCPU cores reported by OpenTelemetry over all hours in the current month for all organizations.
+   */
+  "infraCpuDefaultInfraHostVcpuOpentelemetryAggSum"?: number;
+  /**
+   * Shows the average of all default Infrastructure host vCPU cores reported by OpenTelemetry over all hours in the current month for all organizations.
+   */
+  "infraCpuDefaultInfraHostVcpuOpentelemetryAvgSum"?: number;
+  /**
+   * Shows the sum of all observed Infrastructure host vCPU cores reported by the Datadog Agent over all hours in the current month for all organizations.
+   */
+  "infraCpuObservedInfraHostVcpuAgentAggSum"?: number;
+  /**
+   * Shows the average of all observed Infrastructure host vCPU cores reported by the Datadog Agent over all hours in the current month for all organizations.
+   */
+  "infraCpuObservedInfraHostVcpuAgentAvgSum"?: number;
+  /**
+   * Shows the sum of all observed Infrastructure host vCPU cores on AWS over all hours in the current month for all organizations.
+   */
+  "infraCpuObservedInfraHostVcpuAwsAggSum"?: number;
+  /**
+   * Shows the average of all observed Infrastructure host vCPU cores on AWS over all hours in the current month for all organizations.
+   */
+  "infraCpuObservedInfraHostVcpuAwsAvgSum"?: number;
+  /**
+   * Shows the sum of all observed Infrastructure host vCPU cores on Azure over all hours in the current month for all organizations.
+   */
+  "infraCpuObservedInfraHostVcpuAzureAggSum"?: number;
+  /**
+   * Shows the average of all observed Infrastructure host vCPU cores on Azure over all hours in the current month for all organizations.
+   */
+  "infraCpuObservedInfraHostVcpuAzureAvgSum"?: number;
+  /**
+   * Shows the sum of all observed Infrastructure host vCPU cores on GCP over all hours in the current month for all organizations.
+   */
+  "infraCpuObservedInfraHostVcpuGcpAggSum"?: number;
+  /**
+   * Shows the average of all observed Infrastructure host vCPU cores on GCP over all hours in the current month for all organizations.
+   */
+  "infraCpuObservedInfraHostVcpuGcpAvgSum"?: number;
+  /**
+   * Shows the sum of all observed Infrastructure host vCPU cores on Nutanix over all hours in the current month for all organizations.
+   */
+  "infraCpuObservedInfraHostVcpuNutanixAggSum"?: number;
+  /**
+   * Shows the average of all observed Infrastructure host vCPU cores on Nutanix over all hours in the current month for all organizations.
+   */
+  "infraCpuObservedInfraHostVcpuNutanixAvgSum"?: number;
+  /**
+   * Shows the sum of all observed Infrastructure host vCPU cores reported by OpenTelemetry over all hours in the current month for all organizations.
+   */
+  "infraCpuObservedInfraHostVcpuOpentelemetryAggSum"?: number;
+  /**
+   * Shows the average of all observed Infrastructure host vCPU cores reported by OpenTelemetry over all hours in the current month for all organizations.
+   */
+  "infraCpuObservedInfraHostVcpuOpentelemetryAvgSum"?: number;
+  /**
    * Shows the 99th percentile of all Edge Devices Monitoring devices over all hours in the current month for all organizations.
    */
   "infraEdgeMonitoringDevicesTop99pSum"?: number;
@@ -574,9 +730,21 @@ export class UsageSummaryResponse {
    */
   "infraStorageMgmtObjectsCountAvgSum"?: number;
   /**
+   * Shows the sum of all ingested custom metrics points over all hours in the current month for all organizations.
+   */
+  "ingestPointsAggSum"?: number;
+  /**
    * Shows the sum of all log bytes ingested over all hours in the current month for all organizations.
    */
   "ingestedEventsBytesAggSum"?: number;
+  /**
+   * Shows the sum of all Application Performance Monitoring IoT hosts over all hours in the current month for all organizations.
+   */
+  "iotApmHostAggSum"?: number;
+  /**
+   * Shows the 99th percentile of all Application Performance Monitoring IoT hosts over all hours in the current month for all organizations.
+   */
+  "iotApmHostTop99pSum"?: number;
   /**
    * Shows the sum of all IoT devices over all hours in the current month for all organizations.
    */
@@ -598,6 +766,22 @@ export class UsageSummaryResponse {
    */
   "liveIngestedBytesAggSum"?: number;
   /**
+   * Shows the sum of all LLM Observability 15-day retention spans over all hours in the current month for all organizations.
+   */
+  "llmObservability15dayRetentionSpansAggSum"?: number;
+  /**
+   * Shows the sum of all LLM Observability 30-day retention spans over all hours in the current month for all organizations.
+   */
+  "llmObservability30dayRetentionSpansAggSum"?: number;
+  /**
+   * Shows the sum of all LLM Observability 60-day retention spans over all hours in the current month for all organizations.
+   */
+  "llmObservability60dayRetentionSpansAggSum"?: number;
+  /**
+   * Shows the sum of all LLM Observability 90-day retention spans over all hours in the current month for all organizations.
+   */
+  "llmObservability90dayRetentionSpansAggSum"?: number;
+  /**
    * Sum of all LLM observability sessions for all hours in the current month for all organizations.
    */
   "llmObservabilityAggSum"?: number;
@@ -606,9 +790,17 @@ export class UsageSummaryResponse {
    */
   "llmObservabilityMinSpendAggSum"?: number;
   /**
+   * Shows the sum of all Logs Archive Search scanned data over all hours in the current month for all organizations.
+   */
+  "logsArchiveSearchGbScannedAggSum"?: number;
+  /**
    * Object containing logs usage data broken down by retention period.
    */
   "logsByRetention"?: LogsByRetention;
+  /**
+   * Shows the sum of all custom metric names over all hours in the current month for all organizations.
+   */
+  "metricNamesAggSum"?: number;
   /**
    * Shows the sum of all mobile lite sessions over all hours in the current month for all organizations (To be deprecated on October 1st, 2024).
    */
@@ -1014,6 +1206,14 @@ export class UsageSummaryResponse {
    */
   "siemAnalyzedLogsAddOnCountAggSum"?: number;
   /**
+   * Shows the sum of all Network Device Monitoring devices over all hours in the current month for all organizations.
+   */
+  "snmpDeviceCountAggSum"?: number;
+  /**
+   * Shows the 99th percentile of all Network Device Monitoring devices over all hours in the current month for all organizations.
+   */
+  "snmpDeviceCountTop99pSum"?: number;
+  /**
    * Shows the first date of usage in the current month for all organizations.
    */
   "startDate"?: Date;
@@ -1081,6 +1281,31 @@ export class UsageSummaryResponse {
       type: "number",
       format: "int64",
     },
+    aiCreditsAgentBuilderAiCreditsAggSum: {
+      baseName: "ai_credits_agent_builder_ai_credits_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    aiCreditsAggSum: {
+      baseName: "ai_credits_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    aiCreditsBitsAssistantAiCreditsAggSum: {
+      baseName: "ai_credits_bits_assistant_ai_credits_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    aiCreditsBitsDevAiCreditsAggSum: {
+      baseName: "ai_credits_bits_dev_ai_credits_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    aiCreditsBitsSreAiCreditsAggSum: {
+      baseName: "ai_credits_bits_sre_ai_credits_agg_sum",
+      type: "number",
+      format: "int64",
+    },
     apmAzureAppServiceHostTop99pSum: {
       baseName: "apm_azure_app_service_host_top99p_sum",
       type: "number",
@@ -1128,6 +1353,11 @@ export class UsageSummaryResponse {
     },
     auditTrailEnabledHwmSum: {
       baseName: "audit_trail_enabled_hwm_sum",
+      type: "number",
+      format: "int64",
+    },
+    auditTrailEventForwardingEventsAggSum: {
+      baseName: "audit_trail_event_forwarding_events_agg_sum",
       type: "number",
       format: "int64",
     },
@@ -1506,6 +1736,16 @@ export class UsageSummaryResponse {
       type: "number",
       format: "int64",
     },
+    dataStreamMonitoringHostCountAggSum: {
+      baseName: "data_stream_monitoring_host_count_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    dataStreamMonitoringHostCountTop99pSum: {
+      baseName: "data_stream_monitoring_host_count_top99p_sum",
+      type: "number",
+      format: "int64",
+    },
     dbmHostTop99pSum: {
       baseName: "dbm_host_top99p_sum",
       type: "number",
@@ -1747,6 +1987,161 @@ export class UsageSummaryResponse {
       type: "number",
       format: "int64",
     },
+    indexedPointsAggSum: {
+      baseName: "indexed_points_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraCpuAggSum: {
+      baseName: "infra_cpu_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraCpuAvgSum: {
+      baseName: "infra_cpu_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraCpuDefaultInfraHostVcpuAgentAggSum: {
+      baseName: "infra_cpu_default_infra_host_vcpu_agent_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraCpuDefaultInfraHostVcpuAgentAvgSum: {
+      baseName: "infra_cpu_default_infra_host_vcpu_agent_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraCpuDefaultInfraHostVcpuAgentBasicAggSum: {
+      baseName: "infra_cpu_default_infra_host_vcpu_agent_basic_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraCpuDefaultInfraHostVcpuAgentBasicAvgSum: {
+      baseName: "infra_cpu_default_infra_host_vcpu_agent_basic_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraCpuDefaultInfraHostVcpuAwsAggSum: {
+      baseName: "infra_cpu_default_infra_host_vcpu_aws_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraCpuDefaultInfraHostVcpuAwsAvgSum: {
+      baseName: "infra_cpu_default_infra_host_vcpu_aws_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraCpuDefaultInfraHostVcpuAzureAggSum: {
+      baseName: "infra_cpu_default_infra_host_vcpu_azure_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraCpuDefaultInfraHostVcpuAzureAvgSum: {
+      baseName: "infra_cpu_default_infra_host_vcpu_azure_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraCpuDefaultInfraHostVcpuGcpAggSum: {
+      baseName: "infra_cpu_default_infra_host_vcpu_gcp_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraCpuDefaultInfraHostVcpuGcpAvgSum: {
+      baseName: "infra_cpu_default_infra_host_vcpu_gcp_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraCpuDefaultInfraHostVcpuNutanixAggSum: {
+      baseName: "infra_cpu_default_infra_host_vcpu_nutanix_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraCpuDefaultInfraHostVcpuNutanixAvgSum: {
+      baseName: "infra_cpu_default_infra_host_vcpu_nutanix_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraCpuDefaultInfraHostVcpuNutanixBasicAggSum: {
+      baseName: "infra_cpu_default_infra_host_vcpu_nutanix_basic_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraCpuDefaultInfraHostVcpuNutanixBasicAvgSum: {
+      baseName: "infra_cpu_default_infra_host_vcpu_nutanix_basic_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraCpuDefaultInfraHostVcpuOpentelemetryAggSum: {
+      baseName: "infra_cpu_default_infra_host_vcpu_opentelemetry_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraCpuDefaultInfraHostVcpuOpentelemetryAvgSum: {
+      baseName: "infra_cpu_default_infra_host_vcpu_opentelemetry_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraCpuObservedInfraHostVcpuAgentAggSum: {
+      baseName: "infra_cpu_observed_infra_host_vcpu_agent_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraCpuObservedInfraHostVcpuAgentAvgSum: {
+      baseName: "infra_cpu_observed_infra_host_vcpu_agent_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraCpuObservedInfraHostVcpuAwsAggSum: {
+      baseName: "infra_cpu_observed_infra_host_vcpu_aws_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraCpuObservedInfraHostVcpuAwsAvgSum: {
+      baseName: "infra_cpu_observed_infra_host_vcpu_aws_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraCpuObservedInfraHostVcpuAzureAggSum: {
+      baseName: "infra_cpu_observed_infra_host_vcpu_azure_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraCpuObservedInfraHostVcpuAzureAvgSum: {
+      baseName: "infra_cpu_observed_infra_host_vcpu_azure_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraCpuObservedInfraHostVcpuGcpAggSum: {
+      baseName: "infra_cpu_observed_infra_host_vcpu_gcp_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraCpuObservedInfraHostVcpuGcpAvgSum: {
+      baseName: "infra_cpu_observed_infra_host_vcpu_gcp_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraCpuObservedInfraHostVcpuNutanixAggSum: {
+      baseName: "infra_cpu_observed_infra_host_vcpu_nutanix_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraCpuObservedInfraHostVcpuNutanixAvgSum: {
+      baseName: "infra_cpu_observed_infra_host_vcpu_nutanix_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraCpuObservedInfraHostVcpuOpentelemetryAggSum: {
+      baseName: "infra_cpu_observed_infra_host_vcpu_opentelemetry_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    infraCpuObservedInfraHostVcpuOpentelemetryAvgSum: {
+      baseName: "infra_cpu_observed_infra_host_vcpu_opentelemetry_avg_sum",
+      type: "number",
+      format: "int64",
+    },
     infraEdgeMonitoringDevicesTop99pSum: {
       baseName: "infra_edge_monitoring_devices_top99p_sum",
       type: "number",
@@ -1777,8 +2172,23 @@ export class UsageSummaryResponse {
       type: "number",
       format: "int64",
     },
+    ingestPointsAggSum: {
+      baseName: "ingest_points_agg_sum",
+      type: "number",
+      format: "int64",
+    },
     ingestedEventsBytesAggSum: {
       baseName: "ingested_events_bytes_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    iotApmHostAggSum: {
+      baseName: "iot_apm_host_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    iotApmHostTop99pSum: {
+      baseName: "iot_apm_host_top99p_sum",
       type: "number",
       format: "int64",
     },
@@ -1807,6 +2217,26 @@ export class UsageSummaryResponse {
       type: "number",
       format: "int64",
     },
+    llmObservability15dayRetentionSpansAggSum: {
+      baseName: "llm_observability_15day_retention_spans_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    llmObservability30dayRetentionSpansAggSum: {
+      baseName: "llm_observability_30day_retention_spans_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    llmObservability60dayRetentionSpansAggSum: {
+      baseName: "llm_observability_60day_retention_spans_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    llmObservability90dayRetentionSpansAggSum: {
+      baseName: "llm_observability_90day_retention_spans_agg_sum",
+      type: "number",
+      format: "int64",
+    },
     llmObservabilityAggSum: {
       baseName: "llm_observability_agg_sum",
       type: "number",
@@ -1817,9 +2247,19 @@ export class UsageSummaryResponse {
       type: "number",
       format: "int64",
     },
+    logsArchiveSearchGbScannedAggSum: {
+      baseName: "logs_archive_search_gb_scanned_agg_sum",
+      type: "number",
+      format: "int64",
+    },
     logsByRetention: {
       baseName: "logs_by_retention",
       type: "LogsByRetention",
+    },
+    metricNamesAggSum: {
+      baseName: "metric_names_agg_sum",
+      type: "number",
+      format: "int64",
     },
     mobileRumLiteSessionCountAggSum: {
       baseName: "mobile_rum_lite_session_count_agg_sum",
@@ -2334,6 +2774,16 @@ export class UsageSummaryResponse {
     },
     siemAnalyzedLogsAddOnCountAggSum: {
       baseName: "siem_analyzed_logs_add_on_count_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    snmpDeviceCountAggSum: {
+      baseName: "snmp_device_count_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    snmpDeviceCountTop99pSum: {
+      baseName: "snmp_device_count_top99p_sum",
       type: "number",
       format: "int64",
     },
