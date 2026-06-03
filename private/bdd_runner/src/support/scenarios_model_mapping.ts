@@ -8041,6 +8041,9 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ProjectedCostResponse",
   },
+  "UsageMeteringApi.V2.GetUsageSummaryAvailableFields": {
+    operationResponseType: "UsageSummaryAvailableFieldsResponse",
+  },
   "UsageMeteringApi.V2.GetUsageAttributionTypes": {
     operationResponseType: "UsageAttributionTypesResponse",
   },

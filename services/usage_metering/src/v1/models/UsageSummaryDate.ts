@@ -3,7 +3,12 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { UsageSummaryDateOrg } from "./UsageSummaryDateOrg";
 
 /**
- * Response with hourly report of all data billed by Datadog all organizations.
+ * Response with hourly report of all data billed by Datadog for all organizations.
+ *
+ * Newly added billing dimensions and usage types appear as untyped keys on the
+ * `additionalProperties` map instead of as typed fields. Call
+ * `GET /api/v2/usage/summary/available_fields` to enumerate every key returned
+ * at this response level—both typed fields and `additionalProperties` keys.
  */
 export class UsageSummaryDate {
   /**

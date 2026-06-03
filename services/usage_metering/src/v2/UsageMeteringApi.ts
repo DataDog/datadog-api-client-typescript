@@ -35,6 +35,7 @@ import { UsageApplicationSecurityMonitoringResponse } from "./models/UsageApplic
 import { UsageAttributionTypesResponse } from "./models/UsageAttributionTypesResponse";
 import { UsageLambdaTracedInvocationsResponse } from "./models/UsageLambdaTracedInvocationsResponse";
 import { UsageObservabilityPipelinesResponse } from "./models/UsageObservabilityPipelinesResponse";
+import { UsageSummaryAvailableFieldsResponse } from "./models/UsageSummaryAvailableFieldsResponse";
 import { version } from "../version";
 
 export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
@@ -901,6 +902,45 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     return requestContext;
   }
+
+  public async getUsageSummaryAvailableFields(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/usage/summary/available_fields";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "UsageMeteringApi.v2.getUsageSummaryAvailableFields",
+      UsageMeteringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339",
+    );
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
 }
 
 export class UsageMeteringApiResponseProcessor {
@@ -1619,6 +1659,62 @@ export class UsageMeteringApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"',
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getUsageSummaryAvailableFields
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getUsageSummaryAvailableFields(
+    response: ResponseContext,
+  ): Promise<UsageSummaryAvailableFieldsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: UsageSummaryAvailableFieldsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "UsageSummaryAvailableFieldsResponse",
+      ) as UsageSummaryAvailableFieldsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: UsageSummaryAvailableFieldsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "UsageSummaryAvailableFieldsResponse",
+        "",
+      ) as UsageSummaryAvailableFieldsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
 }
 
 export interface UsageMeteringApiGetBillingDimensionMappingRequest {
@@ -2214,6 +2310,32 @@ export class UsageMeteringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getUsageObservabilityPipelines(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * List the field names returned by `GET /api/v1/usage/summary` at each of its
+   * three response levels. Each list contains every key the data endpoint
+   * emits—both typed fields declared in the OpenAPI spec and untyped keys
+   * exposed through `additionalProperties` (the latter used for billing
+   * dimensions and usage types added after the v1 schema freeze).
+   *
+   * This endpoint is only accessible for [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/).
+   * @param param The request object
+   */
+  public getUsageSummaryAvailableFields(
+    options?: Configuration,
+  ): Promise<UsageSummaryAvailableFieldsResponse> {
+    const requestContextPromise =
+      this.requestFactory.getUsageSummaryAvailableFields(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getUsageSummaryAvailableFields(
             responseContext,
           );
         });
