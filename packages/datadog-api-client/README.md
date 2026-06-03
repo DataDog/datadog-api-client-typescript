@@ -441,6 +441,7 @@ apiInstance
 | Roles | @datadog/datadog-api-client-roles | [README.md](../../services/roles/README.md) |
 | RUM | @datadog/datadog-api-client-rum | [README.md](../../services/rum/README.md) |
 | Rum Audience Management | @datadog/datadog-api-client-rum-audience-management | [README.md](../../services/rum-audience-management/README.md) |
+| Rum Config | @datadog/datadog-api-client-rum-config | [README.md](../../services/rum-config/README.md) |
 | RUM Insights | @datadog/datadog-api-client-rum-insights | [README.md](../../services/rum-insights/README.md) |
 | Rum Metrics | @datadog/datadog-api-client-rum-metrics | [README.md](../../services/rum-metrics/README.md) |
 | Rum Replay Heatmaps | @datadog/datadog-api-client-rum-replay-heatmaps | [README.md](../../services/rum-replay-heatmaps/README.md) |
