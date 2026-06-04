@@ -2724,6 +2724,34 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
+    filterName: {
+      type: "string",
+      format: "",
+    },
+    filterExperiment: {
+      type: "string",
+      format: "",
+    },
+    filterMetadata: {
+      type: "string",
+      format: "",
+    },
+    filterParentExperimentId: {
+      type: "string",
+      format: "",
+    },
+    filterIsDeleted: {
+      type: "boolean",
+      format: "",
+    },
+    includeUserData: {
+      type: "boolean",
+      format: "",
+    },
+    includeDatasetNames: {
+      type: "boolean",
+      format: "",
+    },
     pageCursor: {
       type: "string",
       format: "",
@@ -2758,6 +2786,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "LLMObsExperimentResponse",
+  },
+  "LLMObservabilityApi.V2.ListLLMObsExperimentEventsV1": {
+    experimentId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "LLMObsExperimentSpansResponse",
   },
   "LLMObservabilityApi.V2.CreateLLMObsExperimentEvents": {
     experimentId: {
@@ -3140,6 +3175,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "LLMObsDatasetVersionsResponse",
+  },
+  "LLMObservabilityApi.V2.ListLLMObsExperimentEventsV2": {
+    experimentId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "LLMObsExperimentEventsV2Response",
   },
   "LLMObservabilityApi.V2.UploadLLMObsDatasetRecordsFile": {
     projectId: {
