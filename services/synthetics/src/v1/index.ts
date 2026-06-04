@@ -81,6 +81,10 @@ export { SyntheticsAssertionXPathTargetTarget } from "./models/SyntheticsAsserti
 export { SyntheticsBasicAuth } from "./models/SyntheticsBasicAuth";
 export { SyntheticsBasicAuthDigest } from "./models/SyntheticsBasicAuthDigest";
 export { SyntheticsBasicAuthDigestType } from "./models/SyntheticsBasicAuthDigestType";
+export { SyntheticsBasicAuthJWT } from "./models/SyntheticsBasicAuthJWT";
+export { SyntheticsBasicAuthJWTAddClaims } from "./models/SyntheticsBasicAuthJWTAddClaims";
+export { SyntheticsBasicAuthJWTAlgorithm } from "./models/SyntheticsBasicAuthJWTAlgorithm";
+export { SyntheticsBasicAuthJWTType } from "./models/SyntheticsBasicAuthJWTType";
 export { SyntheticsBasicAuthNTLM } from "./models/SyntheticsBasicAuthNTLM";
 export { SyntheticsBasicAuthNTLMType } from "./models/SyntheticsBasicAuthNTLMType";
 export { SyntheticsBasicAuthOauthClient } from "./models/SyntheticsBasicAuthOauthClient";

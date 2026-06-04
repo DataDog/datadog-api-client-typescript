@@ -26,6 +26,8 @@ import { SyntheticsAssertionTarget } from "./SyntheticsAssertionTarget";
 import { SyntheticsAssertionXPathTarget } from "./SyntheticsAssertionXPathTarget";
 import { SyntheticsAssertionXPathTargetTarget } from "./SyntheticsAssertionXPathTargetTarget";
 import { SyntheticsBasicAuthDigest } from "./SyntheticsBasicAuthDigest";
+import { SyntheticsBasicAuthJWT } from "./SyntheticsBasicAuthJWT";
+import { SyntheticsBasicAuthJWTAddClaims } from "./SyntheticsBasicAuthJWTAddClaims";
 import { SyntheticsBasicAuthNTLM } from "./SyntheticsBasicAuthNTLM";
 import { SyntheticsBasicAuthOauthClient } from "./SyntheticsBasicAuthOauthClient";
 import { SyntheticsBasicAuthOauthROP } from "./SyntheticsBasicAuthOauthROP";
@@ -225,6 +227,8 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     SyntheticsAssertionXPathOperator: ["validatesXPath"],
     SyntheticsBasicAuthDigestType: ["digest"],
+    SyntheticsBasicAuthJWTAlgorithm: ["HS256", "RS256", "ES256"],
+    SyntheticsBasicAuthJWTType: ["jwt"],
     SyntheticsBasicAuthNTLMType: ["ntlm"],
     SyntheticsBasicAuthOauthClientType: ["oauth-client"],
     SyntheticsBasicAuthOauthROPType: ["oauth-rop"],
@@ -455,6 +459,7 @@ export const TypingInfo: ModelTypingInfo = {
       "SyntheticsBasicAuthDigest",
       "SyntheticsBasicAuthOauthClient",
       "SyntheticsBasicAuthOauthROP",
+      "SyntheticsBasicAuthJWT",
     ],
     SyntheticsMobileStepParamsValue: ["string", "number"],
     SyntheticsTestRequestDNSServerPort: ["number", "string"],
@@ -491,6 +496,8 @@ export const TypingInfo: ModelTypingInfo = {
     SyntheticsAssertionXPathTarget: SyntheticsAssertionXPathTarget,
     SyntheticsAssertionXPathTargetTarget: SyntheticsAssertionXPathTargetTarget,
     SyntheticsBasicAuthDigest: SyntheticsBasicAuthDigest,
+    SyntheticsBasicAuthJWT: SyntheticsBasicAuthJWT,
+    SyntheticsBasicAuthJWTAddClaims: SyntheticsBasicAuthJWTAddClaims,
     SyntheticsBasicAuthNTLM: SyntheticsBasicAuthNTLM,
     SyntheticsBasicAuthOauthClient: SyntheticsBasicAuthOauthClient,
     SyntheticsBasicAuthOauthROP: SyntheticsBasicAuthOauthROP,

@@ -1,6 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 import { SyntheticsBasicAuthDigest } from "./SyntheticsBasicAuthDigest";
+import { SyntheticsBasicAuthJWT } from "./SyntheticsBasicAuthJWT";
 import { SyntheticsBasicAuthNTLM } from "./SyntheticsBasicAuthNTLM";
 import { SyntheticsBasicAuthOauthClient } from "./SyntheticsBasicAuthOauthClient";
 import { SyntheticsBasicAuthOauthROP } from "./SyntheticsBasicAuthOauthROP";
@@ -17,4 +18,5 @@ export type SyntheticsBasicAuth =
   | SyntheticsBasicAuthDigest
   | SyntheticsBasicAuthOauthClient
   | SyntheticsBasicAuthOauthROP
+  | SyntheticsBasicAuthJWT
   | UnparsedObject;
