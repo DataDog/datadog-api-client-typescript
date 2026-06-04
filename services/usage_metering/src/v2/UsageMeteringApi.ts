@@ -1811,13 +1811,15 @@ export interface UsageMeteringApiGetHourlyUsageRequest {
    */
   filterTimestampStart: Date;
   /**
-   * Comma separated list of product families to retrieve. Available families are `all`, `analyzed_logs`,
-   * `application_security`, `audit_trail`, `bits_ai`, `serverless`, `ci_app`, `cloud_cost_management`, `cloud_siem`,
-   * `csm_container_enterprise`, `csm_host_enterprise`, `cspm`, `custom_events`, `cws`, `dbm`, `error_tracking`,
-   * `fargate`, `infra_hosts`, `incident_management`, `indexed_logs`, `indexed_spans`, `ingested_spans`, `iot`,
-   * `lambda_traced_invocations`, `llm_observability`, `logs`, `network_flows`, `network_hosts`, `network_monitoring`,
-   * `observability_pipelines`, `online_archive`, `profiling`, `product_analytics`, `rum`, `rum_browser_sessions`,
-   * `rum_mobile_sessions`, `sds`, `snmp`, `software_delivery`, `synthetics_api`, `synthetics_browser`,
+   * Comma separated list of product families to retrieve. Available families are `all`, `ai`, `analyzed_logs`,
+   * `application_performance_monitoring`, `application_security`, `audit_trail`, `bits_ai`, `serverless`, `ci_app`,
+   * `cloud_cost_management`, `cloud_siem`, `csm_container_enterprise`, `csm_host_enterprise`, `csm_host_pro`, `cspm`,
+   * `custom_events`, `cws`, `data_observability`, `dbm`, `digital_experience_management`, `error_tracking`,
+   * `fargate`, `infra_hosts`, `incident_management`, `indexed_logs`, `indexed_spans`, `infrastructure_monitoring`,
+   * `ingested_spans`, `iot`, `lambda_traced_invocations`, `llm_observability`, `log_management`, `logs`,
+   * `network_flows`, `network_hosts`, `network_monitoring`, `observability_pipelines`, `online_archive`,
+   * `platform_capabilities`, `product_analytics`, `profiling`, `rum`, `rum_browser_sessions`, `rum_mobile_sessions`,
+   * `sds`, `security`, `snmp`, `software_delivery`, `synthetics_api`, `synthetics_browser`,
    * `synthetics_mobile`, `synthetics_parallel_testing`, `timeseries`, `vuln_management` and `workflow_executions`.
    * The following product family has been **deprecated**: `audit_logs`.
    * @type string
