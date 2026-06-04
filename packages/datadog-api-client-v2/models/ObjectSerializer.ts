@@ -1149,6 +1149,12 @@ import { CustomRulesetRequest } from "./CustomRulesetRequest";
 import { CustomRulesetRequestData } from "./CustomRulesetRequestData";
 import { CustomRulesetRequestDataAttributes } from "./CustomRulesetRequestDataAttributes";
 import { CustomRulesetResponse } from "./CustomRulesetResponse";
+import { CustomerOrgDisableRequest } from "./CustomerOrgDisableRequest";
+import { CustomerOrgDisableRequestAttributes } from "./CustomerOrgDisableRequestAttributes";
+import { CustomerOrgDisableRequestData } from "./CustomerOrgDisableRequestData";
+import { CustomerOrgDisableResponse } from "./CustomerOrgDisableResponse";
+import { CustomerOrgDisableResponseAttributes } from "./CustomerOrgDisableResponseAttributes";
+import { CustomerOrgDisableResponseData } from "./CustomerOrgDisableResponseData";
 import { DORADeploymentFetchResponse } from "./DORADeploymentFetchResponse";
 import { DORADeploymentObject } from "./DORADeploymentObject";
 import { DORADeploymentObjectAttributes } from "./DORADeploymentObjectAttributes";
@@ -5399,6 +5405,9 @@ const enumsMap: { [key: string]: any[] } = {
   CustomRuleRevisionAttributesSeverity: ["ERROR", "WARNING", "NOTICE"],
   CustomRuleRevisionDataType: ["custom_rule_revision"],
   CustomRulesetDataType: ["custom_ruleset"],
+  CustomerOrgDisableResponseType: ["org_disable"],
+  CustomerOrgDisableStatus: ["disabled", "pending_disable"],
+  CustomerOrgDisableType: ["customer_org_disable"],
   DORADeploymentPatchRemediationType: ["rollback", "rollforward"],
   DORADeploymentPatchRequestDataType: ["dora_deployment_patch_request"],
   DORADeploymentType: ["dora_deployment"],
@@ -8842,6 +8851,12 @@ const typeMap: { [index: string]: any } = {
   CustomRulesetRequestData: CustomRulesetRequestData,
   CustomRulesetRequestDataAttributes: CustomRulesetRequestDataAttributes,
   CustomRulesetResponse: CustomRulesetResponse,
+  CustomerOrgDisableRequest: CustomerOrgDisableRequest,
+  CustomerOrgDisableRequestAttributes: CustomerOrgDisableRequestAttributes,
+  CustomerOrgDisableRequestData: CustomerOrgDisableRequestData,
+  CustomerOrgDisableResponse: CustomerOrgDisableResponse,
+  CustomerOrgDisableResponseAttributes: CustomerOrgDisableResponseAttributes,
+  CustomerOrgDisableResponseData: CustomerOrgDisableResponseData,
   DORADeploymentFetchResponse: DORADeploymentFetchResponse,
   DORADeploymentObject: DORADeploymentObject,
   DORADeploymentObjectAttributes: DORADeploymentObjectAttributes,

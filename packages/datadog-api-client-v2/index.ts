@@ -403,6 +403,11 @@ export {
 } from "./apis/ContainersApi";
 
 export {
+  CustomerOrgApiDisableCustomerOrgRequest,
+  CustomerOrgApi,
+} from "./apis/CustomerOrgApi";
+
+export {
   DORAMetricsApiCreateDORADeploymentRequest,
   DORAMetricsApiCreateDORAFailureRequest,
   DORAMetricsApiCreateDORAIncidentRequest,
@@ -3091,6 +3096,15 @@ export { CustomDestinationType } from "./models/CustomDestinationType";
 export { CustomDestinationUpdateRequest } from "./models/CustomDestinationUpdateRequest";
 export { CustomDestinationUpdateRequestAttributes } from "./models/CustomDestinationUpdateRequestAttributes";
 export { CustomDestinationUpdateRequestDefinition } from "./models/CustomDestinationUpdateRequestDefinition";
+export { CustomerOrgDisableRequest } from "./models/CustomerOrgDisableRequest";
+export { CustomerOrgDisableRequestAttributes } from "./models/CustomerOrgDisableRequestAttributes";
+export { CustomerOrgDisableRequestData } from "./models/CustomerOrgDisableRequestData";
+export { CustomerOrgDisableResponse } from "./models/CustomerOrgDisableResponse";
+export { CustomerOrgDisableResponseAttributes } from "./models/CustomerOrgDisableResponseAttributes";
+export { CustomerOrgDisableResponseData } from "./models/CustomerOrgDisableResponseData";
+export { CustomerOrgDisableResponseType } from "./models/CustomerOrgDisableResponseType";
+export { CustomerOrgDisableStatus } from "./models/CustomerOrgDisableStatus";
+export { CustomerOrgDisableType } from "./models/CustomerOrgDisableType";
 export { CustomFrameworkControl } from "./models/CustomFrameworkControl";
 export { CustomFrameworkData } from "./models/CustomFrameworkData";
 export { CustomFrameworkDataAttributes } from "./models/CustomFrameworkDataAttributes";
