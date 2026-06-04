@@ -381,6 +381,7 @@ apiInstance
 | CSM Agents | @datadog/datadog-api-client-csm-agents | [README.md](../../services/csm-agents/README.md) |
 | CSM Coverage Analysis | @datadog/datadog-api-client-csm-coverage-analysis | [README.md](../../services/csm-coverage-analysis/README.md) |
 | CSM Threats | @datadog/datadog-api-client-csm-threats | [README.md](../../services/csm-threats/README.md) |
+| Customer Org | @datadog/datadog-api-client-customer-org | [README.md](../../services/customer-org/README.md) |
 | Dashboard Lists | @datadog/datadog-api-client-dashboard-lists | [README.md](../../services/dashboard-lists/README.md) |
 | Dashboard Secure Embed | @datadog/datadog-api-client-dashboard-secure-embed | [README.md](../../services/dashboard-secure-embed/README.md) |
 | Dashboards | @datadog/datadog-api-client-dashboards | [README.md](../../services/dashboards/README.md) |
