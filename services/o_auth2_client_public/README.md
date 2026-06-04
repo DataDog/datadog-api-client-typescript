@@ -29,15 +29,14 @@ const configuration = createConfiguration();
 // Enable unstable operations
 const configurationOpts = {
     unstableOperations: {
-        "OAuth2ClientPublicApi.v2.getScopesRestriction": true
+        "OAuth2ClientPublicApi.v2.getOAuth2WellKnownSites": true
     }
 }
 
 const configuration = createConfiguration(configurationOpts);
 const apiInstance = new OAuth2ClientPublicApiV2(configuration);
-const params = {/* parameters */};
 
-apiInstance.getScopesRestriction(params).then((data) => {
+apiInstance.getOAuth2WellKnownSites().then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

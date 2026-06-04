@@ -11426,6 +11426,9 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "SingleAggregatedDnsResponseArray",
   },
+  "OAuth2ClientPublicApi.V2.GetOAuth2WellKnownSites": {
+    operationResponseType: "OAuth2WellKnownSitesResponse",
+  },
   "OAuth2ClientPublicApi.V2.GetScopesRestriction": {
     clientUuid: {
       type: "string",
