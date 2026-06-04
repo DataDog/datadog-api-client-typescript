@@ -21,7 +21,7 @@ export class LLMObsAnnotationItem {
    */
   "interactionId": string;
   /**
-   * The label values for this annotation.
+   * Label values for this annotation.
    */
   "labelValues": { [key: string]: any };
   /**
