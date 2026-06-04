@@ -270,6 +270,8 @@ export function createConfiguration(
       "v2.listLLMObsDatasets": false,
       "v2.listLLMObsDatasetVersions": false,
       "v2.listLLMObsExperimentEvents": false,
+      "v2.listLLMObsExperimentEventsV1": false,
+      "v2.listLLMObsExperimentEventsV2": false,
       "v2.listLLMObsExperiments": false,
       "v2.listLLMObsIntegrationAccounts": false,
       "v2.listLLMObsIntegrationModels": false,
