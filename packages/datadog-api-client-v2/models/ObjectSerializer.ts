@@ -3040,6 +3040,9 @@ import { OrgGroupUpdateAttributes } from "./OrgGroupUpdateAttributes";
 import { OrgGroupUpdateData } from "./OrgGroupUpdateData";
 import { OrgGroupUpdateRequest } from "./OrgGroupUpdateRequest";
 import { OrgRelationshipData } from "./OrgRelationshipData";
+import { OrgSAMLPreferencesAttributes } from "./OrgSAMLPreferencesAttributes";
+import { OrgSAMLPreferencesData } from "./OrgSAMLPreferencesData";
+import { OrgSAMLPreferencesUpdateRequest } from "./OrgSAMLPreferencesUpdateRequest";
 import { Organization } from "./Organization";
 import { OrganizationAttributes } from "./OrganizationAttributes";
 import { OutboundEdge } from "./OutboundEdge";
@@ -3532,6 +3535,14 @@ import { RunHistoricalJobRequestAttributes } from "./RunHistoricalJobRequestAttr
 import { RunHistoricalJobRequestData } from "./RunHistoricalJobRequestData";
 import { SAMLAssertionAttribute } from "./SAMLAssertionAttribute";
 import { SAMLAssertionAttributeAttributes } from "./SAMLAssertionAttributeAttributes";
+import { SAMLConfiguration } from "./SAMLConfiguration";
+import { SAMLConfigurationAttributes } from "./SAMLConfigurationAttributes";
+import { SAMLConfigurationRelationships } from "./SAMLConfigurationRelationships";
+import { SAMLConfigurationResponse } from "./SAMLConfigurationResponse";
+import { SAMLConfigurationUpdateAttributes } from "./SAMLConfigurationUpdateAttributes";
+import { SAMLConfigurationUpdateData } from "./SAMLConfigurationUpdateData";
+import { SAMLConfigurationUpdateRequest } from "./SAMLConfigurationUpdateRequest";
+import { SAMLConfigurationsResponse } from "./SAMLConfigurationsResponse";
 import { SBOM } from "./SBOM";
 import { SBOMAttributes } from "./SBOMAttributes";
 import { SBOMComponent } from "./SBOMComponent";
@@ -6412,6 +6423,7 @@ const enumsMap: { [key: string]: any[] } = {
   OrgGroupSortOption: ["name", "-name", "uuid", "-uuid"],
   OrgGroupType: ["org_groups"],
   OrgResourceType: ["orgs"],
+  OrgSAMLPreferencesType: ["saml_preferences"],
   OrganizationsType: ["orgs"],
   OutcomeType: ["outcome"],
   OutcomesBatchType: ["batched-outcome"],
@@ -6650,6 +6662,7 @@ const enumsMap: { [key: string]: any[] } = {
   RumRetentionFilterType: ["retention_filters"],
   RunHistoricalJobRequestDataType: ["historicalDetectionsJobCreate"],
   SAMLAssertionAttributesType: ["saml_assertion_attributes"],
+  SAMLConfigurationsType: ["saml_configurations"],
   SBOMComponentLicenseType: [
     "network_strong_copyleft",
     "non_standard_copyleft",
@@ -11116,6 +11129,9 @@ const typeMap: { [index: string]: any } = {
   OrgGroupUpdateData: OrgGroupUpdateData,
   OrgGroupUpdateRequest: OrgGroupUpdateRequest,
   OrgRelationshipData: OrgRelationshipData,
+  OrgSAMLPreferencesAttributes: OrgSAMLPreferencesAttributes,
+  OrgSAMLPreferencesData: OrgSAMLPreferencesData,
+  OrgSAMLPreferencesUpdateRequest: OrgSAMLPreferencesUpdateRequest,
   Organization: Organization,
   OrganizationAttributes: OrganizationAttributes,
   OutboundEdge: OutboundEdge,
@@ -11665,6 +11681,14 @@ const typeMap: { [index: string]: any } = {
   RunHistoricalJobRequestData: RunHistoricalJobRequestData,
   SAMLAssertionAttribute: SAMLAssertionAttribute,
   SAMLAssertionAttributeAttributes: SAMLAssertionAttributeAttributes,
+  SAMLConfiguration: SAMLConfiguration,
+  SAMLConfigurationAttributes: SAMLConfigurationAttributes,
+  SAMLConfigurationRelationships: SAMLConfigurationRelationships,
+  SAMLConfigurationResponse: SAMLConfigurationResponse,
+  SAMLConfigurationUpdateAttributes: SAMLConfigurationUpdateAttributes,
+  SAMLConfigurationUpdateData: SAMLConfigurationUpdateData,
+  SAMLConfigurationUpdateRequest: SAMLConfigurationUpdateRequest,
+  SAMLConfigurationsResponse: SAMLConfigurationsResponse,
   SBOM: SBOM,
   SBOMAttributes: SBOMAttributes,
   SBOMComponent: SBOMComponent,

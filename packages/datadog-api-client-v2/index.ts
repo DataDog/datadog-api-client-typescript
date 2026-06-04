@@ -1005,8 +1005,11 @@ export {
 
 export {
   OrganizationsApiGetOrgConfigRequest,
+  OrganizationsApiGetSAMLConfigurationRequest,
   OrganizationsApiListOrgsRequest,
   OrganizationsApiUpdateOrgConfigRequest,
+  OrganizationsApiUpdateOrgSamlConfigurationsRequest,
+  OrganizationsApiUpdateSAMLConfigurationRequest,
   OrganizationsApiUploadIdPMetadataRequest,
   OrganizationsApi,
 } from "./apis/OrganizationsApi";
@@ -5627,6 +5630,10 @@ export { OrgGroupUpdateData } from "./models/OrgGroupUpdateData";
 export { OrgGroupUpdateRequest } from "./models/OrgGroupUpdateRequest";
 export { OrgRelationshipData } from "./models/OrgRelationshipData";
 export { OrgResourceType } from "./models/OrgResourceType";
+export { OrgSAMLPreferencesAttributes } from "./models/OrgSAMLPreferencesAttributes";
+export { OrgSAMLPreferencesData } from "./models/OrgSAMLPreferencesData";
+export { OrgSAMLPreferencesType } from "./models/OrgSAMLPreferencesType";
+export { OrgSAMLPreferencesUpdateRequest } from "./models/OrgSAMLPreferencesUpdateRequest";
 export { OutboundEdge } from "./models/OutboundEdge";
 export { OutcomesBatchAttributes } from "./models/OutcomesBatchAttributes";
 export { OutcomesBatchRequest } from "./models/OutcomesBatchRequest";
@@ -6240,6 +6247,15 @@ export { SalesforceIncidentsTemplateUpdateRequest } from "./models/SalesforceInc
 export { SAMLAssertionAttribute } from "./models/SAMLAssertionAttribute";
 export { SAMLAssertionAttributeAttributes } from "./models/SAMLAssertionAttributeAttributes";
 export { SAMLAssertionAttributesType } from "./models/SAMLAssertionAttributesType";
+export { SAMLConfiguration } from "./models/SAMLConfiguration";
+export { SAMLConfigurationAttributes } from "./models/SAMLConfigurationAttributes";
+export { SAMLConfigurationRelationships } from "./models/SAMLConfigurationRelationships";
+export { SAMLConfigurationResponse } from "./models/SAMLConfigurationResponse";
+export { SAMLConfigurationsResponse } from "./models/SAMLConfigurationsResponse";
+export { SAMLConfigurationsType } from "./models/SAMLConfigurationsType";
+export { SAMLConfigurationUpdateAttributes } from "./models/SAMLConfigurationUpdateAttributes";
+export { SAMLConfigurationUpdateData } from "./models/SAMLConfigurationUpdateData";
+export { SAMLConfigurationUpdateRequest } from "./models/SAMLConfigurationUpdateRequest";
 export { SampleLogGenerationBulkSubscriptionAttributes } from "./models/SampleLogGenerationBulkSubscriptionAttributes";
 export { SampleLogGenerationBulkSubscriptionData } from "./models/SampleLogGenerationBulkSubscriptionData";
 export { SampleLogGenerationBulkSubscriptionItemMeta } from "./models/SampleLogGenerationBulkSubscriptionItemMeta";

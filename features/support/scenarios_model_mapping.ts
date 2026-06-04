@@ -11781,6 +11781,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ManagedOrgsResponse",
     },
+    "v2.UpdateOrgSamlConfigurations": {
+        "body": {
+            "type": "OrgSAMLPreferencesUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListOrgConfigs": {
         "operationResponseType": "OrgConfigListResponse",
     },
@@ -11802,12 +11809,33 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "OrgConfigGetResponse",
     },
+    "v2.ListSAMLConfigurations": {
+        "operationResponseType": "SAMLConfigurationsResponse",
+    },
     "v2.UploadIdPMetadata": {
         "idpFile": {
             "type": "HttpFile",
             "format": "binary",
             },
         "operationResponseType": "{}",
+    },
+    "v2.GetSAMLConfiguration": {
+        "samlConfigUuid": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SAMLConfigurationResponse",
+    },
+    "v2.UpdateSAMLConfiguration": {
+        "samlConfigUuid": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SAMLConfigurationUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SAMLConfigurationResponse",
     },
     "v2.DisableCustomerOrg": {
         "body": {
