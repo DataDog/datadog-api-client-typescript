@@ -4,6 +4,8 @@ import { SLOCorrectionCategory } from "./SLOCorrectionCategory";
 
 /**
  * The attribute object associated with the SLO correction to be created.
+ *
+ * Exactly one of `slo_id` or `slo_query` must be provided.
  */
 export class SLOCorrectionCreateRequestAttributes {
   /**
@@ -28,9 +30,15 @@ export class SLOCorrectionCreateRequestAttributes {
    */
   "rrule"?: string;
   /**
-   * ID of the SLO that this correction applies to.
+   * ID of the single SLO that this correction applies to.
    */
-  "sloId": string;
+  "sloId"?: string;
+  /**
+   * Query that matches the SLOs this correction applies to.
+   * The query uses the [Events search syntax](https://docs.datadoghq.com/events/explorer/searching/)
+   * and can filter SLOs by SLO tags.
+   */
+  "sloQuery"?: string;
   /**
    * Starting time of the correction in epoch seconds.
    */
@@ -80,7 +88,10 @@ export class SLOCorrectionCreateRequestAttributes {
     sloId: {
       baseName: "slo_id",
       type: "string",
-      required: true,
+    },
+    sloQuery: {
+      baseName: "slo_query",
+      type: "string",
     },
     start: {
       baseName: "start",

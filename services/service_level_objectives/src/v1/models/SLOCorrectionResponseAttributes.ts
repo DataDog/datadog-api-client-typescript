@@ -46,9 +46,13 @@ export class SLOCorrectionResponseAttributes {
    */
   "rrule"?: string;
   /**
-   * ID of the SLO that this correction applies to.
+   * ID of the single SLO that this correction applies to.
    */
   "sloId"?: string;
+  /**
+   * Query that matches the SLOs this correction applies to.
+   */
+  "sloQuery"?: string;
   /**
    * Starting time of the correction in epoch seconds.
    */
@@ -114,6 +118,10 @@ export class SLOCorrectionResponseAttributes {
     },
     sloId: {
       baseName: "slo_id",
+      type: "string",
+    },
+    sloQuery: {
+      baseName: "slo_query",
       type: "string",
     },
     start: {
