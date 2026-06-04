@@ -4,6 +4,9 @@ import { APIErrorResponse } from "./APIErrorResponse";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
+import { OAuth2WellKnownSitesAttributes } from "./OAuth2WellKnownSitesAttributes";
+import { OAuth2WellKnownSitesData } from "./OAuth2WellKnownSitesData";
+import { OAuth2WellKnownSitesResponse } from "./OAuth2WellKnownSitesResponse";
 import { OAuthClientRegistrationError } from "./OAuthClientRegistrationError";
 import { OAuthClientRegistrationRequest } from "./OAuthClientRegistrationRequest";
 import { OAuthClientRegistrationResponse } from "./OAuthClientRegistrationResponse";
@@ -17,6 +20,7 @@ import { UpsertOAuthScopesRestrictionRequest } from "./UpsertOAuthScopesRestrict
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
+    OAuth2WellKnownSitesEnvType: ["env"],
     OAuthClientRegistrationGrantType: ["authorization_code", "refresh_token"],
     OAuthClientRegistrationResponseType: ["code"],
     OAuthOidcScope: ["openid", "profile", "email", "offline_access"],
@@ -29,6 +33,9 @@ export const TypingInfo: ModelTypingInfo = {
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
     JSONAPIErrorResponse: JSONAPIErrorResponse,
+    OAuth2WellKnownSitesAttributes: OAuth2WellKnownSitesAttributes,
+    OAuth2WellKnownSitesData: OAuth2WellKnownSitesData,
+    OAuth2WellKnownSitesResponse: OAuth2WellKnownSitesResponse,
     OAuthClientRegistrationError: OAuthClientRegistrationError,
     OAuthClientRegistrationRequest: OAuthClientRegistrationRequest,
     OAuthClientRegistrationResponse: OAuthClientRegistrationResponse,
