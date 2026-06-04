@@ -11809,6 +11809,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.DisableCustomerOrg": {
+        "body": {
+            "type": "CustomerOrgDisableRequest",
+            "format": "",
+            },
+        "operationResponseType": "CustomerOrgDisableResponse",
+    },
     "v2.ListOrgConnections": {
         "sinkOrgId": {
             "type": "string",
