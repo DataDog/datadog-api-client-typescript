@@ -8,7 +8,7 @@ import { SLOCorrectionCreateData } from "./SLOCorrectionCreateData";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * An object that defines a correction to be applied to an SLO.
+ * An object that defines a correction to be applied to one or more SLOs.
  */
 export class SLOCorrectionCreateRequest {
   /**

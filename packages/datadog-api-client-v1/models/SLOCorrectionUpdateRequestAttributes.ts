@@ -33,6 +33,12 @@ export class SLOCorrectionUpdateRequestAttributes {
    */
   "rrule"?: string;
   /**
+   * Query that matches the SLOs this correction applies to.
+   * The query uses the [Events search syntax](https://docs.datadoghq.com/events/explorer/searching/)
+   * and can filter SLOs by SLO tags.
+   */
+  "sloQuery"?: string;
+  /**
    * Starting time of the correction in epoch seconds.
    */
   "start"?: number;
@@ -77,6 +83,10 @@ export class SLOCorrectionUpdateRequestAttributes {
     },
     rrule: {
       baseName: "rrule",
+      type: "string",
+    },
+    sloQuery: {
+      baseName: "slo_query",
       type: "string",
     },
     start: {
