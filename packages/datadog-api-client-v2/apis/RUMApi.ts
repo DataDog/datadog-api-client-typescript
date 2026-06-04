@@ -17,6 +17,8 @@ import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
+import { ListSourcemapsResponse } from "../models/ListSourcemapsResponse";
 import { RUMAggregateRequest } from "../models/RUMAggregateRequest";
 import { RUMAnalyticsAggregateResponse } from "../models/RUMAnalyticsAggregateResponse";
 import { RUMApplicationCreateRequest } from "../models/RUMApplicationCreateRequest";
@@ -28,6 +30,11 @@ import { RUMEventsResponse } from "../models/RUMEventsResponse";
 import { RUMQueryPageOptions } from "../models/RUMQueryPageOptions";
 import { RUMSearchEventsRequest } from "../models/RUMSearchEventsRequest";
 import { RUMSort } from "../models/RUMSort";
+import { ServiceRepositoryInfoRequest } from "../models/ServiceRepositoryInfoRequest";
+import { ServiceRepositoryInfoResponse } from "../models/ServiceRepositoryInfoResponse";
+import { SourcemapFileResponse } from "../models/SourcemapFileResponse";
+import { SourcemapMapKind } from "../models/SourcemapMapKind";
+import { SourcemapsResponse } from "../models/SourcemapsResponse";
 
 export class RUMApiRequestFactory extends BaseAPIRequestFactory {
   public async aggregateRUMEvents(
@@ -145,6 +152,207 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deleteSourcemaps(
+    mapkind: SourcemapMapKind,
+    dryRun: boolean,
+    filterService?: Array<string>,
+    filterVersion?: Array<string>,
+    filterVariant?: Array<string>,
+    filterId?: Array<string>,
+    filterBuildId?: Array<string>,
+    filterUuid?: Array<string>,
+    filterPlatform?: Array<string>,
+    filterBuildNumber?: Array<string>,
+    filterBundleName?: Array<string>,
+    filterArch?: Array<string>,
+    filterSymbolSource?: Array<string>,
+    filterOrigin?: Array<string>,
+    filterOriginVersion?: Array<string>,
+    filterFilename?: string,
+    filterDebugId?: string,
+    filterGnuBuildId?: string,
+    filterGoBuildId?: string,
+    filterFileHash?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'deleteSourcemaps'");
+    if (!_config.unstableOperations["v2.deleteSourcemaps"]) {
+      throw new Error("Unstable operation 'deleteSourcemaps' is disabled");
+    }
+
+    // verify required parameter 'mapkind' is not null or undefined
+    if (mapkind === null || mapkind === undefined) {
+      throw new RequiredError("mapkind", "deleteSourcemaps");
+    }
+
+    // verify required parameter 'dryRun' is not null or undefined
+    if (dryRun === null || dryRun === undefined) {
+      throw new RequiredError("dryRun", "deleteSourcemaps");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/sourcemaps";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.RUMApi.deleteSourcemaps")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (mapkind !== undefined) {
+      requestContext.setQueryParam(
+        "mapkind",
+        ObjectSerializer.serialize(mapkind, "SourcemapMapKind", ""),
+        ""
+      );
+    }
+    if (dryRun !== undefined) {
+      requestContext.setQueryParam(
+        "dry_run",
+        ObjectSerializer.serialize(dryRun, "boolean", ""),
+        ""
+      );
+    }
+    if (filterService !== undefined) {
+      requestContext.setQueryParam(
+        "filter[service]",
+        ObjectSerializer.serialize(filterService, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterVersion !== undefined) {
+      requestContext.setQueryParam(
+        "filter[version]",
+        ObjectSerializer.serialize(filterVersion, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterVariant !== undefined) {
+      requestContext.setQueryParam(
+        "filter[variant]",
+        ObjectSerializer.serialize(filterVariant, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[id]",
+        ObjectSerializer.serialize(filterId, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterBuildId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[build_id]",
+        ObjectSerializer.serialize(filterBuildId, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterUuid !== undefined) {
+      requestContext.setQueryParam(
+        "filter[uuid]",
+        ObjectSerializer.serialize(filterUuid, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterPlatform !== undefined) {
+      requestContext.setQueryParam(
+        "filter[platform]",
+        ObjectSerializer.serialize(filterPlatform, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterBuildNumber !== undefined) {
+      requestContext.setQueryParam(
+        "filter[build_number]",
+        ObjectSerializer.serialize(filterBuildNumber, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterBundleName !== undefined) {
+      requestContext.setQueryParam(
+        "filter[bundle_name]",
+        ObjectSerializer.serialize(filterBundleName, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterArch !== undefined) {
+      requestContext.setQueryParam(
+        "filter[arch]",
+        ObjectSerializer.serialize(filterArch, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterSymbolSource !== undefined) {
+      requestContext.setQueryParam(
+        "filter[symbol_source]",
+        ObjectSerializer.serialize(filterSymbolSource, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterOrigin !== undefined) {
+      requestContext.setQueryParam(
+        "filter[origin]",
+        ObjectSerializer.serialize(filterOrigin, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterOriginVersion !== undefined) {
+      requestContext.setQueryParam(
+        "filter[origin_version]",
+        ObjectSerializer.serialize(filterOriginVersion, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterFilename !== undefined) {
+      requestContext.setQueryParam(
+        "filter[filename]",
+        ObjectSerializer.serialize(filterFilename, "string", ""),
+        ""
+      );
+    }
+    if (filterDebugId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[debug_id]",
+        ObjectSerializer.serialize(filterDebugId, "string", ""),
+        ""
+      );
+    }
+    if (filterGnuBuildId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[gnu_build_id]",
+        ObjectSerializer.serialize(filterGnuBuildId, "string", ""),
+        ""
+      );
+    }
+    if (filterGoBuildId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[go_build_id]",
+        ObjectSerializer.serialize(filterGoBuildId, "string", ""),
+        ""
+      );
+    }
+    if (filterFileHash !== undefined) {
+      requestContext.setQueryParam(
+        "filter[file_hash]",
+        ObjectSerializer.serialize(filterFileHash, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async getRUMApplication(
     id: string,
     _options?: Configuration
@@ -192,6 +400,124 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getServiceRepositoryInfo(
+    body: ServiceRepositoryInfoRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getServiceRepositoryInfo'");
+    if (!_config.unstableOperations["v2.getServiceRepositoryInfo"]) {
+      throw new Error(
+        "Unstable operation 'getServiceRepositoryInfo' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "getServiceRepositoryInfo");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/sourcemaps/service_repository_info";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.RUMApi.getServiceRepositoryInfo")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "ServiceRepositoryInfoRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getSourcemaps(
+    filename: string,
+    service: string,
+    version: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getSourcemaps'");
+    if (!_config.unstableOperations["v2.getSourcemaps"]) {
+      throw new Error("Unstable operation 'getSourcemaps' is disabled");
+    }
+
+    // verify required parameter 'filename' is not null or undefined
+    if (filename === null || filename === undefined) {
+      throw new RequiredError("filename", "getSourcemaps");
+    }
+
+    // verify required parameter 'service' is not null or undefined
+    if (service === null || service === undefined) {
+      throw new RequiredError("service", "getSourcemaps");
+    }
+
+    // verify required parameter 'version' is not null or undefined
+    if (version === null || version === undefined) {
+      throw new RequiredError("version", "getSourcemaps");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/sourcemaps";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.RUMApi.getSourcemaps")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (filename !== undefined) {
+      requestContext.setQueryParam(
+        "filename",
+        ObjectSerializer.serialize(filename, "string", ""),
+        ""
+      );
+    }
+    if (service !== undefined) {
+      requestContext.setQueryParam(
+        "service",
+        ObjectSerializer.serialize(service, "string", ""),
+        ""
+      );
+    }
+    if (version !== undefined) {
+      requestContext.setQueryParam(
+        "version",
+        ObjectSerializer.serialize(version, "string", ""),
+        ""
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -263,6 +589,406 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "page[limit]",
         ObjectSerializer.serialize(pageLimit, "number", "int32"),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listSourcemaps(
+    mapkind?: SourcemapMapKind,
+    pageSize?: number,
+    pageNumber?: number,
+    filterService?: Array<string>,
+    filterVersion?: Array<string>,
+    filterVariant?: Array<string>,
+    filterId?: Array<string>,
+    filterBuildId?: Array<string>,
+    filterUuid?: Array<string>,
+    filterPlatform?: Array<string>,
+    filterBuildNumber?: Array<string>,
+    filterBundleName?: Array<string>,
+    filterArch?: Array<string>,
+    filterSymbolSource?: Array<string>,
+    filterOrigin?: Array<string>,
+    filterOriginVersion?: Array<string>,
+    filterFilename?: string,
+    filterDebugId?: string,
+    filterGnuBuildId?: string,
+    filterGoBuildId?: string,
+    filterFileHash?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listSourcemaps'");
+    if (!_config.unstableOperations["v2.listSourcemaps"]) {
+      throw new Error("Unstable operation 'listSourcemaps' is disabled");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/sourcemaps/list";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.RUMApi.listSourcemaps")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (mapkind !== undefined) {
+      requestContext.setQueryParam(
+        "mapkind",
+        ObjectSerializer.serialize(mapkind, "SourcemapMapKind", ""),
+        ""
+      );
+    }
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", ""),
+        ""
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        ObjectSerializer.serialize(pageNumber, "number", ""),
+        ""
+      );
+    }
+    if (filterService !== undefined) {
+      requestContext.setQueryParam(
+        "filter[service]",
+        ObjectSerializer.serialize(filterService, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterVersion !== undefined) {
+      requestContext.setQueryParam(
+        "filter[version]",
+        ObjectSerializer.serialize(filterVersion, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterVariant !== undefined) {
+      requestContext.setQueryParam(
+        "filter[variant]",
+        ObjectSerializer.serialize(filterVariant, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[id]",
+        ObjectSerializer.serialize(filterId, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterBuildId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[build_id]",
+        ObjectSerializer.serialize(filterBuildId, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterUuid !== undefined) {
+      requestContext.setQueryParam(
+        "filter[uuid]",
+        ObjectSerializer.serialize(filterUuid, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterPlatform !== undefined) {
+      requestContext.setQueryParam(
+        "filter[platform]",
+        ObjectSerializer.serialize(filterPlatform, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterBuildNumber !== undefined) {
+      requestContext.setQueryParam(
+        "filter[build_number]",
+        ObjectSerializer.serialize(filterBuildNumber, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterBundleName !== undefined) {
+      requestContext.setQueryParam(
+        "filter[bundle_name]",
+        ObjectSerializer.serialize(filterBundleName, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterArch !== undefined) {
+      requestContext.setQueryParam(
+        "filter[arch]",
+        ObjectSerializer.serialize(filterArch, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterSymbolSource !== undefined) {
+      requestContext.setQueryParam(
+        "filter[symbol_source]",
+        ObjectSerializer.serialize(filterSymbolSource, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterOrigin !== undefined) {
+      requestContext.setQueryParam(
+        "filter[origin]",
+        ObjectSerializer.serialize(filterOrigin, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterOriginVersion !== undefined) {
+      requestContext.setQueryParam(
+        "filter[origin_version]",
+        ObjectSerializer.serialize(filterOriginVersion, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterFilename !== undefined) {
+      requestContext.setQueryParam(
+        "filter[filename]",
+        ObjectSerializer.serialize(filterFilename, "string", ""),
+        ""
+      );
+    }
+    if (filterDebugId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[debug_id]",
+        ObjectSerializer.serialize(filterDebugId, "string", ""),
+        ""
+      );
+    }
+    if (filterGnuBuildId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[gnu_build_id]",
+        ObjectSerializer.serialize(filterGnuBuildId, "string", ""),
+        ""
+      );
+    }
+    if (filterGoBuildId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[go_build_id]",
+        ObjectSerializer.serialize(filterGoBuildId, "string", ""),
+        ""
+      );
+    }
+    if (filterFileHash !== undefined) {
+      requestContext.setQueryParam(
+        "filter[file_hash]",
+        ObjectSerializer.serialize(filterFileHash, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async restoreSourcemaps(
+    mapkind: SourcemapMapKind,
+    dryRun: boolean,
+    filterService?: Array<string>,
+    filterVersion?: Array<string>,
+    filterVariant?: Array<string>,
+    filterId?: Array<string>,
+    filterBuildId?: Array<string>,
+    filterUuid?: Array<string>,
+    filterPlatform?: Array<string>,
+    filterBuildNumber?: Array<string>,
+    filterBundleName?: Array<string>,
+    filterArch?: Array<string>,
+    filterSymbolSource?: Array<string>,
+    filterOrigin?: Array<string>,
+    filterOriginVersion?: Array<string>,
+    filterFilename?: string,
+    filterDebugId?: string,
+    filterGnuBuildId?: string,
+    filterGoBuildId?: string,
+    filterFileHash?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'restoreSourcemaps'");
+    if (!_config.unstableOperations["v2.restoreSourcemaps"]) {
+      throw new Error("Unstable operation 'restoreSourcemaps' is disabled");
+    }
+
+    // verify required parameter 'mapkind' is not null or undefined
+    if (mapkind === null || mapkind === undefined) {
+      throw new RequiredError("mapkind", "restoreSourcemaps");
+    }
+
+    // verify required parameter 'dryRun' is not null or undefined
+    if (dryRun === null || dryRun === undefined) {
+      throw new RequiredError("dryRun", "restoreSourcemaps");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/sourcemaps/restore";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.RUMApi.restoreSourcemaps")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (mapkind !== undefined) {
+      requestContext.setQueryParam(
+        "mapkind",
+        ObjectSerializer.serialize(mapkind, "SourcemapMapKind", ""),
+        ""
+      );
+    }
+    if (dryRun !== undefined) {
+      requestContext.setQueryParam(
+        "dry_run",
+        ObjectSerializer.serialize(dryRun, "boolean", ""),
+        ""
+      );
+    }
+    if (filterService !== undefined) {
+      requestContext.setQueryParam(
+        "filter[service]",
+        ObjectSerializer.serialize(filterService, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterVersion !== undefined) {
+      requestContext.setQueryParam(
+        "filter[version]",
+        ObjectSerializer.serialize(filterVersion, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterVariant !== undefined) {
+      requestContext.setQueryParam(
+        "filter[variant]",
+        ObjectSerializer.serialize(filterVariant, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[id]",
+        ObjectSerializer.serialize(filterId, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterBuildId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[build_id]",
+        ObjectSerializer.serialize(filterBuildId, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterUuid !== undefined) {
+      requestContext.setQueryParam(
+        "filter[uuid]",
+        ObjectSerializer.serialize(filterUuid, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterPlatform !== undefined) {
+      requestContext.setQueryParam(
+        "filter[platform]",
+        ObjectSerializer.serialize(filterPlatform, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterBuildNumber !== undefined) {
+      requestContext.setQueryParam(
+        "filter[build_number]",
+        ObjectSerializer.serialize(filterBuildNumber, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterBundleName !== undefined) {
+      requestContext.setQueryParam(
+        "filter[bundle_name]",
+        ObjectSerializer.serialize(filterBundleName, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterArch !== undefined) {
+      requestContext.setQueryParam(
+        "filter[arch]",
+        ObjectSerializer.serialize(filterArch, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterSymbolSource !== undefined) {
+      requestContext.setQueryParam(
+        "filter[symbol_source]",
+        ObjectSerializer.serialize(filterSymbolSource, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterOrigin !== undefined) {
+      requestContext.setQueryParam(
+        "filter[origin]",
+        ObjectSerializer.serialize(filterOrigin, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterOriginVersion !== undefined) {
+      requestContext.setQueryParam(
+        "filter[origin_version]",
+        ObjectSerializer.serialize(filterOriginVersion, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterFilename !== undefined) {
+      requestContext.setQueryParam(
+        "filter[filename]",
+        ObjectSerializer.serialize(filterFilename, "string", ""),
+        ""
+      );
+    }
+    if (filterDebugId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[debug_id]",
+        ObjectSerializer.serialize(filterDebugId, "string", ""),
+        ""
+      );
+    }
+    if (filterGnuBuildId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[gnu_build_id]",
+        ObjectSerializer.serialize(filterGnuBuildId, "string", ""),
+        ""
+      );
+    }
+    if (filterGoBuildId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[go_build_id]",
+        ObjectSerializer.serialize(filterGoBuildId, "string", ""),
+        ""
+      );
+    }
+    if (filterFileHash !== undefined) {
+      requestContext.setQueryParam(
+        "filter[file_hash]",
+        ObjectSerializer.serialize(filterFileHash, "string", ""),
         ""
       );
     }
@@ -540,6 +1266,91 @@ export class RUMApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deleteSourcemaps
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteSourcemaps(
+    response: ResponseContext
+  ): Promise<SourcemapsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SourcemapsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SourcemapsResponse"
+      ) as SourcemapsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SourcemapsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SourcemapsResponse",
+        ""
+      ) as SourcemapsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getRUMApplication
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -656,6 +1467,172 @@ export class RUMApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getServiceRepositoryInfo
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getServiceRepositoryInfo(
+    response: ResponseContext
+  ): Promise<ServiceRepositoryInfoResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ServiceRepositoryInfoResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ServiceRepositoryInfoResponse"
+      ) as ServiceRepositoryInfoResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 401 || response.httpStatusCode === 500) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ServiceRepositoryInfoResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ServiceRepositoryInfoResponse",
+        ""
+      ) as ServiceRepositoryInfoResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getSourcemaps
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSourcemaps(
+    response: ResponseContext
+  ): Promise<SourcemapFileResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SourcemapFileResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SourcemapFileResponse"
+      ) as SourcemapFileResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SourcemapFileResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SourcemapFileResponse",
+        ""
+      ) as SourcemapFileResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listRUMEvents
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -704,6 +1681,176 @@ export class RUMApiResponseProcessor {
         "RUMEventsResponse",
         ""
       ) as RUMEventsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listSourcemaps
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listSourcemaps(
+    response: ResponseContext
+  ): Promise<ListSourcemapsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ListSourcemapsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListSourcemapsResponse"
+      ) as ListSourcemapsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 413 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ListSourcemapsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListSourcemapsResponse",
+        ""
+      ) as ListSourcemapsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to restoreSourcemaps
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async restoreSourcemaps(
+    response: ResponseContext
+  ): Promise<SourcemapsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SourcemapsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SourcemapsResponse"
+      ) as SourcemapsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SourcemapsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SourcemapsResponse",
+        ""
+      ) as SourcemapsResponse;
       return body;
     }
 
@@ -862,12 +2009,146 @@ export interface RUMApiDeleteRUMApplicationRequest {
   id: string;
 }
 
+export interface RUMApiDeleteSourcemapsRequest {
+  /**
+   * The type of source map. Valid values are `js`, `jvm`, `ios`,
+   * `react`, `flutter`, `elf`, `ndk`, `il2cpp`.
+   * @type SourcemapMapKind
+   */
+  mapkind: SourcemapMapKind;
+  /**
+   * When set to `true`, returns the source maps that would be deleted
+   * without performing the actual deletion. When set to `false`,
+   * performs the deletion.
+   * @type boolean
+   */
+  dryRun: boolean;
+  /**
+   * Filter by service names (multiple values allowed). Required for
+   * `js`, `jvm`, `react`, and `flutter` map kinds.
+   * @type Array<string>
+   */
+  filterService?: Array<string>;
+  /**
+   * Filter by version values (multiple values allowed, maximum 10).
+   * Required for `js`, `jvm`, `react`, and `flutter` map kinds.
+   * @type Array<string>
+   */
+  filterVersion?: Array<string>;
+  /**
+   * Filter by variant values (multiple values allowed). Supported for `jvm`.
+   * @type Array<string>
+   */
+  filterVariant?: Array<string>;
+  /**
+   * Filter by source map ID values (multiple values allowed). Supported for all map kinds.
+   * @type Array<string>
+   */
+  filterId?: Array<string>;
+  /**
+   * Filter by build ID values (multiple values allowed). Supported for `jvm`, `ndk`, and `il2cpp`.
+   * @type Array<string>
+   */
+  filterBuildId?: Array<string>;
+  /**
+   * Filter by UUID values (multiple values allowed). Supported for `ios`.
+   * @type Array<string>
+   */
+  filterUuid?: Array<string>;
+  /**
+   * Filter by platform values (multiple values allowed). Supported for `react`.
+   * @type Array<string>
+   */
+  filterPlatform?: Array<string>;
+  /**
+   * Filter by build number values (multiple values allowed). Supported for `react`.
+   * @type Array<string>
+   */
+  filterBuildNumber?: Array<string>;
+  /**
+   * Filter by bundle name values (multiple values allowed). Supported for `react`.
+   * @type Array<string>
+   */
+  filterBundleName?: Array<string>;
+  /**
+   * Filter by architecture values (multiple values allowed). Supported
+   * for `flutter`, `elf`, and `ndk`.
+   * @type Array<string>
+   */
+  filterArch?: Array<string>;
+  /**
+   * Filter by symbol source values (multiple values allowed). Supported for `elf`.
+   * @type Array<string>
+   */
+  filterSymbolSource?: Array<string>;
+  /**
+   * Filter by origin values (multiple values allowed). Supported for `elf`.
+   * @type Array<string>
+   */
+  filterOrigin?: Array<string>;
+  /**
+   * Filter by origin version values (multiple values allowed). Supported for `elf`.
+   * @type Array<string>
+   */
+  filterOriginVersion?: Array<string>;
+  /**
+   * Filter by filename (single value). Supported for `js`, `elf`, and `ndk`.
+   * @type string
+   */
+  filterFilename?: string;
+  /**
+   * Filter by debug ID (single value). Supported for `react`.
+   * @type string
+   */
+  filterDebugId?: string;
+  /**
+   * Filter by GNU build ID (single value). Supported for `elf`.
+   * @type string
+   */
+  filterGnuBuildId?: string;
+  /**
+   * Filter by Go build ID (single value). Supported for `elf`.
+   * @type string
+   */
+  filterGoBuildId?: string;
+  /**
+   * Filter by file hash (single value). Supported for `elf`.
+   * @type string
+   */
+  filterFileHash?: string;
+}
+
 export interface RUMApiGetRUMApplicationRequest {
   /**
    * RUM application ID.
    * @type string
    */
   id: string;
+}
+
+export interface RUMApiGetServiceRepositoryInfoRequest {
+  /**
+   * @type ServiceRepositoryInfoRequest
+   */
+  body: ServiceRepositoryInfoRequest;
+}
+
+export interface RUMApiGetSourcemapsRequest {
+  /**
+   * The path to the source map file.
+   * @type string
+   */
+  filename: string;
+  /**
+   * The service name associated with the source map.
+   * @type string
+   */
+  service: string;
+  /**
+   * The version of the service associated with the source map.
+   * @type string
+   */
+  version: string;
 }
 
 export interface RUMApiListRUMEventsRequest {
@@ -901,6 +2182,226 @@ export interface RUMApiListRUMEventsRequest {
    * @type number
    */
   pageLimit?: number;
+}
+
+export interface RUMApiListSourcemapsRequest {
+  /**
+   * The type of source map. Defaults to `js`.
+   * @type SourcemapMapKind
+   */
+  mapkind?: SourcemapMapKind;
+  /**
+   * The number of results to return per page. Must be at least 1.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * The page number to retrieve, starting from 1.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * Filter by service names (multiple values allowed). Required for
+   * `js`, `jvm`, `react`, and `flutter` map kinds.
+   * @type Array<string>
+   */
+  filterService?: Array<string>;
+  /**
+   * Filter by version values (multiple values allowed). Required for
+   * `js`, `jvm`, `react`, and `flutter` map kinds.
+   * @type Array<string>
+   */
+  filterVersion?: Array<string>;
+  /**
+   * Filter by variant values (multiple values allowed). Supported for `jvm`.
+   * @type Array<string>
+   */
+  filterVariant?: Array<string>;
+  /**
+   * Filter by source map ID values (multiple values allowed). Supported for all map kinds.
+   * @type Array<string>
+   */
+  filterId?: Array<string>;
+  /**
+   * Filter by build ID values (multiple values allowed). Supported for `jvm`, `ndk`, and `il2cpp`.
+   * @type Array<string>
+   */
+  filterBuildId?: Array<string>;
+  /**
+   * Filter by UUID values (multiple values allowed). Supported for `ios`.
+   * @type Array<string>
+   */
+  filterUuid?: Array<string>;
+  /**
+   * Filter by platform values (multiple values allowed). Supported for `react`.
+   * @type Array<string>
+   */
+  filterPlatform?: Array<string>;
+  /**
+   * Filter by build number values (multiple values allowed). Supported for `react`.
+   * @type Array<string>
+   */
+  filterBuildNumber?: Array<string>;
+  /**
+   * Filter by bundle name values (multiple values allowed). Supported for `react`.
+   * @type Array<string>
+   */
+  filterBundleName?: Array<string>;
+  /**
+   * Filter by architecture values (multiple values allowed). Supported
+   * for `flutter`, `elf`, and `ndk`.
+   * @type Array<string>
+   */
+  filterArch?: Array<string>;
+  /**
+   * Filter by symbol source values (multiple values allowed). Supported for `elf`.
+   * @type Array<string>
+   */
+  filterSymbolSource?: Array<string>;
+  /**
+   * Filter by origin values (multiple values allowed). Supported for `elf`.
+   * @type Array<string>
+   */
+  filterOrigin?: Array<string>;
+  /**
+   * Filter by origin version values (multiple values allowed). Supported for `elf`.
+   * @type Array<string>
+   */
+  filterOriginVersion?: Array<string>;
+  /**
+   * Filter by filename (single value). Supported for `js`, `elf`, and `ndk`.
+   * @type string
+   */
+  filterFilename?: string;
+  /**
+   * Filter by debug ID (single value). Supported for `react`.
+   * @type string
+   */
+  filterDebugId?: string;
+  /**
+   * Filter by GNU build ID (single value). Supported for `elf`.
+   * @type string
+   */
+  filterGnuBuildId?: string;
+  /**
+   * Filter by Go build ID (single value). Supported for `elf`.
+   * @type string
+   */
+  filterGoBuildId?: string;
+  /**
+   * Filter by file hash (single value). Supported for `elf`.
+   * @type string
+   */
+  filterFileHash?: string;
+}
+
+export interface RUMApiRestoreSourcemapsRequest {
+  /**
+   * The type of source map. Valid values are `js`, `jvm`, `ios`,
+   * `react`, `flutter`, `elf`, `ndk`, `il2cpp`.
+   * @type SourcemapMapKind
+   */
+  mapkind: SourcemapMapKind;
+  /**
+   * When set to `true`, returns the source maps that would be restored
+   * without performing the actual restoration. When set to `false`,
+   * performs the restoration.
+   * @type boolean
+   */
+  dryRun: boolean;
+  /**
+   * Filter by service names (multiple values allowed). Required for
+   * `js`, `jvm`, `react`, and `flutter` map kinds.
+   * @type Array<string>
+   */
+  filterService?: Array<string>;
+  /**
+   * Filter by version values (multiple values allowed, maximum 10).
+   * Required for `js`, `jvm`, `react`, and `flutter` map kinds.
+   * @type Array<string>
+   */
+  filterVersion?: Array<string>;
+  /**
+   * Filter by variant values (multiple values allowed). Supported for `jvm`.
+   * @type Array<string>
+   */
+  filterVariant?: Array<string>;
+  /**
+   * Filter by source map ID values (multiple values allowed). Supported for all map kinds.
+   * @type Array<string>
+   */
+  filterId?: Array<string>;
+  /**
+   * Filter by build ID values (multiple values allowed). Supported for `jvm`, `ndk`, and `il2cpp`.
+   * @type Array<string>
+   */
+  filterBuildId?: Array<string>;
+  /**
+   * Filter by UUID values (multiple values allowed). Supported for `ios`.
+   * @type Array<string>
+   */
+  filterUuid?: Array<string>;
+  /**
+   * Filter by platform values (multiple values allowed). Supported for `react`.
+   * @type Array<string>
+   */
+  filterPlatform?: Array<string>;
+  /**
+   * Filter by build number values (multiple values allowed). Supported for `react`.
+   * @type Array<string>
+   */
+  filterBuildNumber?: Array<string>;
+  /**
+   * Filter by bundle name values (multiple values allowed). Supported for `react`.
+   * @type Array<string>
+   */
+  filterBundleName?: Array<string>;
+  /**
+   * Filter by architecture values (multiple values allowed). Supported
+   * for `flutter`, `elf`, and `ndk`.
+   * @type Array<string>
+   */
+  filterArch?: Array<string>;
+  /**
+   * Filter by symbol source values (multiple values allowed). Supported for `elf`.
+   * @type Array<string>
+   */
+  filterSymbolSource?: Array<string>;
+  /**
+   * Filter by origin values (multiple values allowed). Supported for `elf`.
+   * @type Array<string>
+   */
+  filterOrigin?: Array<string>;
+  /**
+   * Filter by origin version values (multiple values allowed). Supported for `elf`.
+   * @type Array<string>
+   */
+  filterOriginVersion?: Array<string>;
+  /**
+   * Filter by filename (single value). Supported for `js`, `elf`, and `ndk`.
+   * @type string
+   */
+  filterFilename?: string;
+  /**
+   * Filter by debug ID (single value). Supported for `react`.
+   * @type string
+   */
+  filterDebugId?: string;
+  /**
+   * Filter by GNU build ID (single value). Supported for `elf`.
+   * @type string
+   */
+  filterGnuBuildId?: string;
+  /**
+   * Filter by Go build ID (single value). Supported for `elf`.
+   * @type string
+   */
+  filterGoBuildId?: string;
+  /**
+   * Filter by file hash (single value). Supported for `elf`.
+   * @type string
+   */
+  filterFileHash?: string;
 }
 
 export interface RUMApiSearchRUMEventsRequest {
@@ -1002,6 +2503,48 @@ export class RUMApi {
   }
 
   /**
+   * Deletes source maps matching the specified filter criteria. Supports
+   * dry-run mode to preview which source maps would be deleted without
+   * performing the actual deletion.
+   * @param param The request object
+   */
+  public deleteSourcemaps(
+    param: RUMApiDeleteSourcemapsRequest,
+    options?: Configuration
+  ): Promise<SourcemapsResponse> {
+    const requestContextPromise = this.requestFactory.deleteSourcemaps(
+      param.mapkind,
+      param.dryRun,
+      param.filterService,
+      param.filterVersion,
+      param.filterVariant,
+      param.filterId,
+      param.filterBuildId,
+      param.filterUuid,
+      param.filterPlatform,
+      param.filterBuildNumber,
+      param.filterBundleName,
+      param.filterArch,
+      param.filterSymbolSource,
+      param.filterOrigin,
+      param.filterOriginVersion,
+      param.filterFilename,
+      param.filterDebugId,
+      param.filterGnuBuildId,
+      param.filterGoBuildId,
+      param.filterFileHash,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteSourcemaps(responseContext);
+        });
+    });
+  }
+
+  /**
    * Get the RUM application with given ID in your organization.
    * @param param The request object
    */
@@ -1036,6 +2579,53 @@ export class RUMApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getRUMApplications(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Returns the repository URL and commit SHA associated with a given service and version.
+   * @param param The request object
+   */
+  public getServiceRepositoryInfo(
+    param: RUMApiGetServiceRepositoryInfoRequest,
+    options?: Configuration
+  ): Promise<ServiceRepositoryInfoResponse> {
+    const requestContextPromise = this.requestFactory.getServiceRepositoryInfo(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getServiceRepositoryInfo(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Retrieves the content of a specific JavaScript source map file by its
+   * filename, service name, and version.
+   * @param param The request object
+   */
+  public getSourcemaps(
+    param: RUMApiGetSourcemapsRequest,
+    options?: Configuration
+  ): Promise<SourcemapFileResponse> {
+    const requestContextPromise = this.requestFactory.getSourcemaps(
+      param.filename,
+      param.service,
+      param.version,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSourcemaps(responseContext);
         });
     });
   }
@@ -1126,6 +2716,89 @@ export class RUMApi {
 
       param.pageCursor = cursorMetaPageAfter;
     }
+  }
+
+  /**
+   * Retrieves a paginated list of source maps matching the specified filter criteria.
+   * @param param The request object
+   */
+  public listSourcemaps(
+    param: RUMApiListSourcemapsRequest = {},
+    options?: Configuration
+  ): Promise<ListSourcemapsResponse> {
+    const requestContextPromise = this.requestFactory.listSourcemaps(
+      param.mapkind,
+      param.pageSize,
+      param.pageNumber,
+      param.filterService,
+      param.filterVersion,
+      param.filterVariant,
+      param.filterId,
+      param.filterBuildId,
+      param.filterUuid,
+      param.filterPlatform,
+      param.filterBuildNumber,
+      param.filterBundleName,
+      param.filterArch,
+      param.filterSymbolSource,
+      param.filterOrigin,
+      param.filterOriginVersion,
+      param.filterFilename,
+      param.filterDebugId,
+      param.filterGnuBuildId,
+      param.filterGoBuildId,
+      param.filterFileHash,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listSourcemaps(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Restores previously deleted source maps matching the specified filter
+   * criteria. Supports dry-run mode to preview which source maps would be
+   * restored without performing the actual restoration.
+   * @param param The request object
+   */
+  public restoreSourcemaps(
+    param: RUMApiRestoreSourcemapsRequest,
+    options?: Configuration
+  ): Promise<SourcemapsResponse> {
+    const requestContextPromise = this.requestFactory.restoreSourcemaps(
+      param.mapkind,
+      param.dryRun,
+      param.filterService,
+      param.filterVersion,
+      param.filterVariant,
+      param.filterId,
+      param.filterBuildId,
+      param.filterUuid,
+      param.filterPlatform,
+      param.filterBuildNumber,
+      param.filterBundleName,
+      param.filterArch,
+      param.filterSymbolSource,
+      param.filterOrigin,
+      param.filterOriginVersion,
+      param.filterFilename,
+      param.filterDebugId,
+      param.filterGnuBuildId,
+      param.filterGoBuildId,
+      param.filterFileHash,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.restoreSourcemaps(responseContext);
+        });
+    });
   }
 
   /**
