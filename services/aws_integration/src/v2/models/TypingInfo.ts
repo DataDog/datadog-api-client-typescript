@@ -20,6 +20,13 @@ import { AWSCcmConfigRequestData } from "./AWSCcmConfigRequestData";
 import { AWSCcmConfigResponse } from "./AWSCcmConfigResponse";
 import { AWSCcmConfigResponseAttributes } from "./AWSCcmConfigResponseAttributes";
 import { AWSCcmConfigResponseData } from "./AWSCcmConfigResponseData";
+import { AWSCcmConfigValidationIssue } from "./AWSCcmConfigValidationIssue";
+import { AWSCcmConfigValidationRequest } from "./AWSCcmConfigValidationRequest";
+import { AWSCcmConfigValidationRequestAttributes } from "./AWSCcmConfigValidationRequestAttributes";
+import { AWSCcmConfigValidationRequestData } from "./AWSCcmConfigValidationRequestData";
+import { AWSCcmConfigValidationResponse } from "./AWSCcmConfigValidationResponse";
+import { AWSCcmConfigValidationResponseAttributes } from "./AWSCcmConfigValidationResponseAttributes";
+import { AWSCcmConfigValidationResponseData } from "./AWSCcmConfigValidationResponseData";
 import { AWSEventBridgeAccountConfiguration } from "./AWSEventBridgeAccountConfiguration";
 import { AWSEventBridgeCreateRequest } from "./AWSEventBridgeCreateRequest";
 import { AWSEventBridgeCreateRequestAttributes } from "./AWSEventBridgeCreateRequestAttributes";
@@ -59,6 +66,9 @@ import { AWSRegionsIncludeOnly } from "./AWSRegionsIncludeOnly";
 import { AWSResourcesConfig } from "./AWSResourcesConfig";
 import { AWSTracesConfig } from "./AWSTracesConfig";
 import { DataExportConfig } from "./DataExportConfig";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
+import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 import { XRayServicesIncludeAll } from "./XRayServicesIncludeAll";
 import { XRayServicesIncludeOnly } from "./XRayServicesIncludeOnly";
 
@@ -67,6 +77,26 @@ export const TypingInfo: ModelTypingInfo = {
     AWSAccountPartition: ["aws", "aws-cn", "aws-us-gov"],
     AWSAccountType: ["account"],
     AWSCcmConfigType: ["ccm_config"],
+    AWSCcmConfigValidationIssueCode: [
+      "ISSUE_CODE_UNSPECIFIED",
+      "CREDENTIAL_ERROR",
+      "BUCKET_NAME_INVALID_GOVCLOUD",
+      "S3_LIST_PERMISSION_MISSING",
+      "S3_GET_PERMISSION_MISSING",
+      "S3_BUCKET_REGION_MISMATCH",
+      "S3_BUCKET_NOT_ACCESSIBLE",
+      "EXPORT_LIST_PERMISSION_MISSING",
+      "EXPORT_GET_PERMISSION_MISSING",
+      "EXPORT_NOT_FOUND",
+      "EXPORT_STATUS_UNHEALTHY",
+      "TIME_GRANULARITY_INVALID",
+      "FILE_FORMAT_INVALID",
+      "INCLUDE_RESOURCES_DISABLED",
+      "REFRESH_CADENCE_INVALID",
+      "OVERWRITE_MODE_INVALID",
+      "QUERY_STATEMENT_INVALID",
+    ],
+    AWSCcmConfigValidationType: ["ccm_config_validation"],
     AWSEventBridgeCreateStatus: ["created"],
     AWSEventBridgeDeleteStatus: ["empty"],
     AWSEventBridgeType: ["event_bridge"],
@@ -104,6 +134,15 @@ export const TypingInfo: ModelTypingInfo = {
     AWSCcmConfigResponse: AWSCcmConfigResponse,
     AWSCcmConfigResponseAttributes: AWSCcmConfigResponseAttributes,
     AWSCcmConfigResponseData: AWSCcmConfigResponseData,
+    AWSCcmConfigValidationIssue: AWSCcmConfigValidationIssue,
+    AWSCcmConfigValidationRequest: AWSCcmConfigValidationRequest,
+    AWSCcmConfigValidationRequestAttributes:
+      AWSCcmConfigValidationRequestAttributes,
+    AWSCcmConfigValidationRequestData: AWSCcmConfigValidationRequestData,
+    AWSCcmConfigValidationResponse: AWSCcmConfigValidationResponse,
+    AWSCcmConfigValidationResponseAttributes:
+      AWSCcmConfigValidationResponseAttributes,
+    AWSCcmConfigValidationResponseData: AWSCcmConfigValidationResponseData,
     AWSEventBridgeAccountConfiguration: AWSEventBridgeAccountConfiguration,
     AWSEventBridgeCreateRequest: AWSEventBridgeCreateRequest,
     AWSEventBridgeCreateRequestAttributes:
@@ -150,6 +189,9 @@ export const TypingInfo: ModelTypingInfo = {
     AWSResourcesConfig: AWSResourcesConfig,
     AWSTracesConfig: AWSTracesConfig,
     DataExportConfig: DataExportConfig,
+    JSONAPIErrorItem: JSONAPIErrorItem,
+    JSONAPIErrorItemSource: JSONAPIErrorItemSource,
+    JSONAPIErrorResponse: JSONAPIErrorResponse,
     XRayServicesIncludeAll: XRayServicesIncludeAll,
     XRayServicesIncludeOnly: XRayServicesIncludeOnly,
   },
