@@ -36,6 +36,7 @@ export {
   AWSIntegrationApiListAWSAccountsRequest,
   AWSIntegrationApiUpdateAWSAccountRequest,
   AWSIntegrationApiUpdateAWSAccountCCMConfigRequest,
+  AWSIntegrationApiValidateAWSCCMConfigRequest,
   AWSIntegrationApi,
 } from "./apis/AWSIntegrationApi";
 
@@ -2099,6 +2100,15 @@ export { AWSCcmConfigResponse } from "./models/AWSCcmConfigResponse";
 export { AWSCcmConfigResponseAttributes } from "./models/AWSCcmConfigResponseAttributes";
 export { AWSCcmConfigResponseData } from "./models/AWSCcmConfigResponseData";
 export { AWSCcmConfigType } from "./models/AWSCcmConfigType";
+export { AWSCcmConfigValidationIssue } from "./models/AWSCcmConfigValidationIssue";
+export { AWSCcmConfigValidationIssueCode } from "./models/AWSCcmConfigValidationIssueCode";
+export { AWSCcmConfigValidationRequest } from "./models/AWSCcmConfigValidationRequest";
+export { AWSCcmConfigValidationRequestAttributes } from "./models/AWSCcmConfigValidationRequestAttributes";
+export { AWSCcmConfigValidationRequestData } from "./models/AWSCcmConfigValidationRequestData";
+export { AWSCcmConfigValidationResponse } from "./models/AWSCcmConfigValidationResponse";
+export { AWSCcmConfigValidationResponseAttributes } from "./models/AWSCcmConfigValidationResponseAttributes";
+export { AWSCcmConfigValidationResponseData } from "./models/AWSCcmConfigValidationResponseData";
+export { AWSCcmConfigValidationType } from "./models/AWSCcmConfigValidationType";
 export { AWSCloudAuthPersonaMappingAttributesResponse } from "./models/AWSCloudAuthPersonaMappingAttributesResponse";
 export { AWSCloudAuthPersonaMappingCreateAttributes } from "./models/AWSCloudAuthPersonaMappingCreateAttributes";
 export { AWSCloudAuthPersonaMappingCreateData } from "./models/AWSCloudAuthPersonaMappingCreateData";

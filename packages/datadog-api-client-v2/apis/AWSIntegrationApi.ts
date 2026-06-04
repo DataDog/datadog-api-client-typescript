@@ -23,6 +23,8 @@ import { AWSAccountsResponse } from "../models/AWSAccountsResponse";
 import { AWSAccountUpdateRequest } from "../models/AWSAccountUpdateRequest";
 import { AWSCcmConfigRequest } from "../models/AWSCcmConfigRequest";
 import { AWSCcmConfigResponse } from "../models/AWSCcmConfigResponse";
+import { AWSCcmConfigValidationRequest } from "../models/AWSCcmConfigValidationRequest";
+import { AWSCcmConfigValidationResponse } from "../models/AWSCcmConfigValidationResponse";
 import { AWSEventBridgeCreateRequest } from "../models/AWSEventBridgeCreateRequest";
 import { AWSEventBridgeCreateResponse } from "../models/AWSEventBridgeCreateResponse";
 import { AWSEventBridgeDeleteRequest } from "../models/AWSEventBridgeDeleteRequest";
@@ -31,6 +33,7 @@ import { AWSEventBridgeListResponse } from "../models/AWSEventBridgeListResponse
 import { AWSIntegrationIamPermissionsResponse } from "../models/AWSIntegrationIamPermissionsResponse";
 import { AWSNamespacesResponse } from "../models/AWSNamespacesResponse";
 import { AWSNewExternalIDResponse } from "../models/AWSNewExternalIDResponse";
+import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 
 export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
   public async createAWSAccount(
@@ -650,6 +653,52 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AWSCcmConfigRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async validateAWSCCMConfig(
+    body: AWSCcmConfigValidationRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'validateAWSCCMConfig'");
+    if (!_config.unstableOperations["v2.validateAWSCCMConfig"]) {
+      throw new Error("Unstable operation 'validateAWSCCMConfig' is disabled");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "validateAWSCCMConfig");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/integration/aws/validate_ccm_config";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.AWSIntegrationApi.validateAWSCCMConfig")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "AWSCcmConfigValidationRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -1686,6 +1735,87 @@ export class AWSIntegrationApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to validateAWSCCMConfig
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async validateAWSCCMConfig(
+    response: ResponseContext
+  ): Promise<AWSCcmConfigValidationResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: AWSCcmConfigValidationResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "AWSCcmConfigValidationResponse"
+      ) as AWSCcmConfigValidationResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 503) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AWSCcmConfigValidationResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "AWSCcmConfigValidationResponse",
+        ""
+      ) as AWSCcmConfigValidationResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
 }
 
 export interface AWSIntegrationApiCreateAWSAccountRequest {
@@ -1802,6 +1932,14 @@ export interface AWSIntegrationApiUpdateAWSAccountCCMConfigRequest {
    * @type AWSCcmConfigRequest
    */
   body: AWSCcmConfigRequest;
+}
+
+export interface AWSIntegrationApiValidateAWSCCMConfigRequest {
+  /**
+   * Validate a Cloud Cost Management config for an AWS account integration config.
+   * @type AWSCcmConfigValidationRequest
+   */
+  body: AWSCcmConfigValidationRequest;
 }
 
 export class AWSIntegrationApi {
@@ -2179,6 +2317,28 @@ export class AWSIntegrationApi {
           return this.responseProcessor.updateAWSAccountCCMConfig(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Validate a Cloud Cost Management config for an AWS account using Cost and Usage Report
+   * (CUR) 2.0 against Datadog's ingest requirements without persisting it.
+   * @param param The request object
+   */
+  public validateAWSCCMConfig(
+    param: AWSIntegrationApiValidateAWSCCMConfigRequest,
+    options?: Configuration
+  ): Promise<AWSCcmConfigValidationResponse> {
+    const requestContextPromise = this.requestFactory.validateAWSCCMConfig(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.validateAWSCCMConfig(responseContext);
         });
     });
   }
