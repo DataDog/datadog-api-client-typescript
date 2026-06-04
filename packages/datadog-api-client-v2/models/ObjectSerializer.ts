@@ -2708,6 +2708,9 @@ import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
 import { NullableUserRelationship } from "./NullableUserRelationship";
 import { NullableUserRelationshipData } from "./NullableUserRelationshipData";
+import { OAuth2WellKnownSitesAttributes } from "./OAuth2WellKnownSitesAttributes";
+import { OAuth2WellKnownSitesData } from "./OAuth2WellKnownSitesData";
+import { OAuth2WellKnownSitesResponse } from "./OAuth2WellKnownSitesResponse";
 import { OAuthClientRegistrationError } from "./OAuthClientRegistrationError";
 import { OAuthClientRegistrationRequest } from "./OAuthClientRegistrationRequest";
 import { OAuthClientRegistrationResponse } from "./OAuthClientRegistrationResponse";
@@ -6004,6 +6007,7 @@ const enumsMap: { [key: string]: any[] } = {
   NotificationRulesType: ["notification_rules"],
   NotionAPIKeyType: ["NotionAPIKey"],
   NotionIntegrationType: ["Notion"],
+  OAuth2WellKnownSitesEnvType: ["env"],
   OAuthClientRegistrationGrantType: ["authorization_code", "refresh_token"],
   OAuthClientRegistrationResponseType: ["code"],
   OAuthOidcScope: ["openid", "profile", "email", "offline_access"],
@@ -10584,6 +10588,9 @@ const typeMap: { [index: string]: any } = {
   NullableRelationshipToUserData: NullableRelationshipToUserData,
   NullableUserRelationship: NullableUserRelationship,
   NullableUserRelationshipData: NullableUserRelationshipData,
+  OAuth2WellKnownSitesAttributes: OAuth2WellKnownSitesAttributes,
+  OAuth2WellKnownSitesData: OAuth2WellKnownSitesData,
+  OAuth2WellKnownSitesResponse: OAuth2WellKnownSitesResponse,
   OAuthClientRegistrationError: OAuthClientRegistrationError,
   OAuthClientRegistrationRequest: OAuthClientRegistrationRequest,
   OAuthClientRegistrationResponse: OAuthClientRegistrationResponse,

@@ -5077,6 +5077,10 @@ export { NullableRelationshipToUser } from "./models/NullableRelationshipToUser"
 export { NullableRelationshipToUserData } from "./models/NullableRelationshipToUserData";
 export { NullableUserRelationship } from "./models/NullableUserRelationship";
 export { NullableUserRelationshipData } from "./models/NullableUserRelationshipData";
+export { OAuth2WellKnownSitesAttributes } from "./models/OAuth2WellKnownSitesAttributes";
+export { OAuth2WellKnownSitesData } from "./models/OAuth2WellKnownSitesData";
+export { OAuth2WellKnownSitesEnvType } from "./models/OAuth2WellKnownSitesEnvType";
+export { OAuth2WellKnownSitesResponse } from "./models/OAuth2WellKnownSitesResponse";
 export { OAuthClientRegistrationError } from "./models/OAuthClientRegistrationError";
 export { OAuthClientRegistrationGrantType } from "./models/OAuthClientRegistrationGrantType";
 export { OAuthClientRegistrationRequest } from "./models/OAuthClientRegistrationRequest";
