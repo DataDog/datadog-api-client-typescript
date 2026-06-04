@@ -17,7 +17,7 @@ export class LLMObsAnnotatedInteractionsDataResponse {
    */
   "attributes": LLMObsAnnotatedInteractionsDataAttributesResponse;
   /**
-   * The queue ID.
+   * The annotation queue ID.
    */
   "id": string;
   /**

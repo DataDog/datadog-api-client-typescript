@@ -2102,7 +2102,11 @@ import { LLMObsAnnotatedInteractionsByTraceResponse } from "./LLMObsAnnotatedInt
 import { LLMObsAnnotatedInteractionsDataAttributesResponse } from "./LLMObsAnnotatedInteractionsDataAttributesResponse";
 import { LLMObsAnnotatedInteractionsDataResponse } from "./LLMObsAnnotatedInteractionsDataResponse";
 import { LLMObsAnnotatedInteractionsResponse } from "./LLMObsAnnotatedInteractionsResponse";
+import { LLMObsAnnotationError } from "./LLMObsAnnotationError";
 import { LLMObsAnnotationItem } from "./LLMObsAnnotationItem";
+import { LLMObsAnnotationItemResponse } from "./LLMObsAnnotationItemResponse";
+import { LLMObsAnnotationLabelValue } from "./LLMObsAnnotationLabelValue";
+import { LLMObsAnnotationLabelValueResponse } from "./LLMObsAnnotationLabelValueResponse";
 import { LLMObsAnnotationQueueDataAttributesRequest } from "./LLMObsAnnotationQueueDataAttributesRequest";
 import { LLMObsAnnotationQueueDataAttributesResponse } from "./LLMObsAnnotationQueueDataAttributesResponse";
 import { LLMObsAnnotationQueueDataRequest } from "./LLMObsAnnotationQueueDataRequest";
@@ -2126,6 +2130,12 @@ import { LLMObsAnnotationQueueUpdateDataRequest } from "./LLMObsAnnotationQueueU
 import { LLMObsAnnotationQueueUpdateRequest } from "./LLMObsAnnotationQueueUpdateRequest";
 import { LLMObsAnnotationQueuesResponse } from "./LLMObsAnnotationQueuesResponse";
 import { LLMObsAnnotationSchema } from "./LLMObsAnnotationSchema";
+import { LLMObsAnnotationsDataAttributesRequest } from "./LLMObsAnnotationsDataAttributesRequest";
+import { LLMObsAnnotationsDataAttributesResponse } from "./LLMObsAnnotationsDataAttributesResponse";
+import { LLMObsAnnotationsDataRequest } from "./LLMObsAnnotationsDataRequest";
+import { LLMObsAnnotationsDataResponse } from "./LLMObsAnnotationsDataResponse";
+import { LLMObsAnnotationsRequest } from "./LLMObsAnnotationsRequest";
+import { LLMObsAnnotationsResponse } from "./LLMObsAnnotationsResponse";
 import { LLMObsAnthropicMetadata } from "./LLMObsAnthropicMetadata";
 import { LLMObsAnthropicThinkingConfig } from "./LLMObsAnthropicThinkingConfig";
 import { LLMObsAzureOpenAIMetadata } from "./LLMObsAzureOpenAIMetadata";
@@ -2199,9 +2209,16 @@ import { LLMObsDatasetVersionData } from "./LLMObsDatasetVersionData";
 import { LLMObsDatasetVersionDataAttributes } from "./LLMObsDatasetVersionDataAttributes";
 import { LLMObsDatasetVersionsResponse } from "./LLMObsDatasetVersionsResponse";
 import { LLMObsDatasetsResponse } from "./LLMObsDatasetsResponse";
+import { LLMObsDeleteAnnotationError } from "./LLMObsDeleteAnnotationError";
 import { LLMObsDeleteAnnotationQueueInteractionsDataAttributesRequest } from "./LLMObsDeleteAnnotationQueueInteractionsDataAttributesRequest";
 import { LLMObsDeleteAnnotationQueueInteractionsDataRequest } from "./LLMObsDeleteAnnotationQueueInteractionsDataRequest";
 import { LLMObsDeleteAnnotationQueueInteractionsRequest } from "./LLMObsDeleteAnnotationQueueInteractionsRequest";
+import { LLMObsDeleteAnnotationsDataAttributesRequest } from "./LLMObsDeleteAnnotationsDataAttributesRequest";
+import { LLMObsDeleteAnnotationsDataAttributesResponse } from "./LLMObsDeleteAnnotationsDataAttributesResponse";
+import { LLMObsDeleteAnnotationsDataRequest } from "./LLMObsDeleteAnnotationsDataRequest";
+import { LLMObsDeleteAnnotationsDataResponse } from "./LLMObsDeleteAnnotationsDataResponse";
+import { LLMObsDeleteAnnotationsRequest } from "./LLMObsDeleteAnnotationsRequest";
+import { LLMObsDeleteAnnotationsResponse } from "./LLMObsDeleteAnnotationsResponse";
 import { LLMObsDeleteDatasetRecordsDataAttributesRequest } from "./LLMObsDeleteDatasetRecordsDataAttributesRequest";
 import { LLMObsDeleteDatasetRecordsDataRequest } from "./LLMObsDeleteDatasetRecordsDataRequest";
 import { LLMObsDeleteDatasetRecordsRequest } from "./LLMObsDeleteDatasetRecordsRequest";
@@ -2324,6 +2341,7 @@ import { LLMObsSpansResponsePage } from "./LLMObsSpansResponsePage";
 import { LLMObsTraceAnnotatedInteractionItem } from "./LLMObsTraceAnnotatedInteractionItem";
 import { LLMObsTraceInteractionItem } from "./LLMObsTraceInteractionItem";
 import { LLMObsTraceInteractionResponseItem } from "./LLMObsTraceInteractionResponseItem";
+import { LLMObsUpsertAnnotationItem } from "./LLMObsUpsertAnnotationItem";
 import { LLMObsVertexAIMetadata } from "./LLMObsVertexAIMetadata";
 import { LaunchDarklyAPIKey } from "./LaunchDarklyAPIKey";
 import { LaunchDarklyAPIKeyUpdate } from "./LaunchDarklyAPIKeyUpdate";
@@ -5820,8 +5838,10 @@ const enumsMap: { [key: string]: any[] } = {
   JsonPatchOperationOp: ["add", "remove", "replace", "move", "copy", "test"],
   LLMObsAnnotatedInteractionsByTraceType: ["annotated_interactions_by_trace"],
   LLMObsAnnotatedInteractionsType: ["annotated_interactions"],
+  LLMObsAnnotationAssessment: ["pass", "fail"],
   LLMObsAnnotationQueueInteractionsType: ["interactions"],
   LLMObsAnnotationQueueType: ["queues"],
+  LLMObsAnnotationsType: ["annotations"],
   LLMObsAnthropicEffort: ["low", "medium", "high", "max"],
   LLMObsAnthropicThinkingType: ["enabled", "disabled", "adaptive"],
   LLMObsAnyInteractionType: [
@@ -9921,7 +9941,11 @@ const typeMap: { [index: string]: any } = {
   LLMObsAnnotatedInteractionsDataResponse:
     LLMObsAnnotatedInteractionsDataResponse,
   LLMObsAnnotatedInteractionsResponse: LLMObsAnnotatedInteractionsResponse,
+  LLMObsAnnotationError: LLMObsAnnotationError,
   LLMObsAnnotationItem: LLMObsAnnotationItem,
+  LLMObsAnnotationItemResponse: LLMObsAnnotationItemResponse,
+  LLMObsAnnotationLabelValue: LLMObsAnnotationLabelValue,
+  LLMObsAnnotationLabelValueResponse: LLMObsAnnotationLabelValueResponse,
   LLMObsAnnotationQueueDataAttributesRequest:
     LLMObsAnnotationQueueDataAttributesRequest,
   LLMObsAnnotationQueueDataAttributesResponse:
@@ -9960,6 +9984,14 @@ const typeMap: { [index: string]: any } = {
   LLMObsAnnotationQueueUpdateRequest: LLMObsAnnotationQueueUpdateRequest,
   LLMObsAnnotationQueuesResponse: LLMObsAnnotationQueuesResponse,
   LLMObsAnnotationSchema: LLMObsAnnotationSchema,
+  LLMObsAnnotationsDataAttributesRequest:
+    LLMObsAnnotationsDataAttributesRequest,
+  LLMObsAnnotationsDataAttributesResponse:
+    LLMObsAnnotationsDataAttributesResponse,
+  LLMObsAnnotationsDataRequest: LLMObsAnnotationsDataRequest,
+  LLMObsAnnotationsDataResponse: LLMObsAnnotationsDataResponse,
+  LLMObsAnnotationsRequest: LLMObsAnnotationsRequest,
+  LLMObsAnnotationsResponse: LLMObsAnnotationsResponse,
   LLMObsAnthropicMetadata: LLMObsAnthropicMetadata,
   LLMObsAnthropicThinkingConfig: LLMObsAnthropicThinkingConfig,
   LLMObsAzureOpenAIMetadata: LLMObsAzureOpenAIMetadata,
@@ -10044,12 +10076,21 @@ const typeMap: { [index: string]: any } = {
   LLMObsDatasetVersionDataAttributes: LLMObsDatasetVersionDataAttributes,
   LLMObsDatasetVersionsResponse: LLMObsDatasetVersionsResponse,
   LLMObsDatasetsResponse: LLMObsDatasetsResponse,
+  LLMObsDeleteAnnotationError: LLMObsDeleteAnnotationError,
   LLMObsDeleteAnnotationQueueInteractionsDataAttributesRequest:
     LLMObsDeleteAnnotationQueueInteractionsDataAttributesRequest,
   LLMObsDeleteAnnotationQueueInteractionsDataRequest:
     LLMObsDeleteAnnotationQueueInteractionsDataRequest,
   LLMObsDeleteAnnotationQueueInteractionsRequest:
     LLMObsDeleteAnnotationQueueInteractionsRequest,
+  LLMObsDeleteAnnotationsDataAttributesRequest:
+    LLMObsDeleteAnnotationsDataAttributesRequest,
+  LLMObsDeleteAnnotationsDataAttributesResponse:
+    LLMObsDeleteAnnotationsDataAttributesResponse,
+  LLMObsDeleteAnnotationsDataRequest: LLMObsDeleteAnnotationsDataRequest,
+  LLMObsDeleteAnnotationsDataResponse: LLMObsDeleteAnnotationsDataResponse,
+  LLMObsDeleteAnnotationsRequest: LLMObsDeleteAnnotationsRequest,
+  LLMObsDeleteAnnotationsResponse: LLMObsDeleteAnnotationsResponse,
   LLMObsDeleteDatasetRecordsDataAttributesRequest:
     LLMObsDeleteDatasetRecordsDataAttributesRequest,
   LLMObsDeleteDatasetRecordsDataRequest: LLMObsDeleteDatasetRecordsDataRequest,
@@ -10199,6 +10240,7 @@ const typeMap: { [index: string]: any } = {
   LLMObsTraceAnnotatedInteractionItem: LLMObsTraceAnnotatedInteractionItem,
   LLMObsTraceInteractionItem: LLMObsTraceInteractionItem,
   LLMObsTraceInteractionResponseItem: LLMObsTraceInteractionResponseItem,
+  LLMObsUpsertAnnotationItem: LLMObsUpsertAnnotationItem,
   LLMObsVertexAIMetadata: LLMObsVertexAIMetadata,
   LaunchDarklyAPIKey: LaunchDarklyAPIKey,
   LaunchDarklyAPIKeyUpdate: LaunchDarklyAPIKeyUpdate,
@@ -13536,6 +13578,12 @@ const oneOfMap: { [index: string]: string[] } = {
   LLMObsAnnotatedInteractionItem: [
     "LLMObsTraceAnnotatedInteractionItem",
     "LLMObsDisplayBlockAnnotatedInteractionItem",
+  ],
+  LLMObsAnnotationLabelValueValue: [
+    "number",
+    "string",
+    "Array<string>",
+    "boolean",
   ],
   LLMObsAnnotationQueueInteractionItem: [
     "LLMObsTraceInteractionItem",
