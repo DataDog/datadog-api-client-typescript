@@ -18,6 +18,7 @@ import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
+import { OAuth2WellKnownSitesResponse } from "../models/OAuth2WellKnownSitesResponse";
 import { OAuthClientRegistrationError } from "../models/OAuthClientRegistrationError";
 import { OAuthClientRegistrationRequest } from "../models/OAuthClientRegistrationRequest";
 import { OAuthClientRegistrationResponse } from "../models/OAuthClientRegistrationResponse";
@@ -62,6 +63,31 @@ export class OAuth2ClientPublicApiRequestFactory extends BaseAPIRequestFactory {
       "apiKeyAuth",
       "appKeyAuth",
     ]);
+
+    return requestContext;
+  }
+
+  public async getOAuth2WellKnownSites(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getOAuth2WellKnownSites'");
+    if (!_config.unstableOperations["v2.getOAuth2WellKnownSites"]) {
+      throw new Error(
+        "Unstable operation 'getOAuth2WellKnownSites' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/oauth2/.well-known/sites";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OAuth2ClientPublicApi.getOAuth2WellKnownSites")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
 
     return requestContext;
   }
@@ -272,6 +298,64 @@ export class OAuth2ClientPublicApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getOAuth2WellKnownSites
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getOAuth2WellKnownSites(
+    response: ResponseContext
+  ): Promise<OAuth2WellKnownSitesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: OAuth2WellKnownSitesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "OAuth2WellKnownSitesResponse"
+      ) as OAuth2WellKnownSitesResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OAuth2WellKnownSitesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "OAuth2WellKnownSitesResponse",
+        ""
+      ) as OAuth2WellKnownSitesResponse;
+      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -596,6 +680,26 @@ export class OAuth2ClientPublicApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteScopesRestriction(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Retrieve the list of public OAuth2 sites available for the current environment. This endpoint is used for OAuth2 discovery and returns sites where users can authenticate.
+   * @param param The request object
+   */
+  public getOAuth2WellKnownSites(
+    options?: Configuration
+  ): Promise<OAuth2WellKnownSitesResponse> {
+    const requestContextPromise =
+      this.requestFactory.getOAuth2WellKnownSites(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getOAuth2WellKnownSites(
             responseContext
           );
         });
