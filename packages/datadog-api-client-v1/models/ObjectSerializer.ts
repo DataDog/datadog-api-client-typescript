@@ -507,6 +507,8 @@ import { SyntheticsAssertionTarget } from "./SyntheticsAssertionTarget";
 import { SyntheticsAssertionXPathTarget } from "./SyntheticsAssertionXPathTarget";
 import { SyntheticsAssertionXPathTargetTarget } from "./SyntheticsAssertionXPathTargetTarget";
 import { SyntheticsBasicAuthDigest } from "./SyntheticsBasicAuthDigest";
+import { SyntheticsBasicAuthJWT } from "./SyntheticsBasicAuthJWT";
+import { SyntheticsBasicAuthJWTAddClaims } from "./SyntheticsBasicAuthJWTAddClaims";
 import { SyntheticsBasicAuthNTLM } from "./SyntheticsBasicAuthNTLM";
 import { SyntheticsBasicAuthOauthClient } from "./SyntheticsBasicAuthOauthClient";
 import { SyntheticsBasicAuthOauthROP } from "./SyntheticsBasicAuthOauthROP";
@@ -1662,6 +1664,8 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   SyntheticsAssertionXPathOperator: ["validatesXPath"],
   SyntheticsBasicAuthDigestType: ["digest"],
+  SyntheticsBasicAuthJWTAlgorithm: ["HS256", "RS256", "ES256"],
+  SyntheticsBasicAuthJWTType: ["jwt"],
   SyntheticsBasicAuthNTLMType: ["ntlm"],
   SyntheticsBasicAuthOauthClientType: ["oauth-client"],
   SyntheticsBasicAuthOauthROPType: ["oauth-rop"],
@@ -2601,6 +2605,8 @@ const typeMap: { [index: string]: any } = {
   SyntheticsAssertionXPathTarget: SyntheticsAssertionXPathTarget,
   SyntheticsAssertionXPathTargetTarget: SyntheticsAssertionXPathTargetTarget,
   SyntheticsBasicAuthDigest: SyntheticsBasicAuthDigest,
+  SyntheticsBasicAuthJWT: SyntheticsBasicAuthJWT,
+  SyntheticsBasicAuthJWTAddClaims: SyntheticsBasicAuthJWTAddClaims,
   SyntheticsBasicAuthNTLM: SyntheticsBasicAuthNTLM,
   SyntheticsBasicAuthOauthClient: SyntheticsBasicAuthOauthClient,
   SyntheticsBasicAuthOauthROP: SyntheticsBasicAuthOauthROP,
@@ -3020,6 +3026,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "SyntheticsBasicAuthDigest",
     "SyntheticsBasicAuthOauthClient",
     "SyntheticsBasicAuthOauthROP",
+    "SyntheticsBasicAuthJWT",
   ],
   SyntheticsMobileStepParamsValue: ["string", "number"],
   SyntheticsTestRequestDNSServerPort: ["number", "string"],
