@@ -539,6 +539,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     filter?: string,
     filterCreatedAtStart?: string,
     filterCreatedAtEnd?: string,
+    filterOwnedBy?: string,
     include?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -594,6 +595,13 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter[created_at][end]",
         ObjectSerializer.serialize(filterCreatedAtEnd, "string", ""),
+        ""
+      );
+    }
+    if (filterOwnedBy !== undefined) {
+      requestContext.setQueryParam(
+        "filter[owned_by]",
+        ObjectSerializer.serialize(filterOwnedBy, "string", ""),
         ""
       );
     }
@@ -2518,6 +2526,11 @@ export interface KeyManagementApiListApplicationKeysRequest {
    */
   filterCreatedAtEnd?: string;
   /**
+   * Filter application keys by owner ID.
+   * @type string
+   */
+  filterOwnedBy?: string;
+  /**
    * Resource path for related resources to include in the response. Only `owned_by` is supported.
    * @type string
    */
@@ -2931,6 +2944,7 @@ export class KeyManagementApi {
       param.filter,
       param.filterCreatedAtStart,
       param.filterCreatedAtEnd,
+      param.filterOwnedBy,
       param.include,
       options
     );
