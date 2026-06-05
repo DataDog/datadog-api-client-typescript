@@ -2650,6 +2650,28 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsAnnotatedInteractionsResponse",
   },
+  "LLMObservabilityApi.V2.UpsertLLMObsAnnotations": {
+    queueId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "LLMObsAnnotationsRequest",
+      format: "",
+    },
+    operationResponseType: "LLMObsAnnotationsResponse",
+  },
+  "LLMObservabilityApi.V2.DeleteLLMObsAnnotations": {
+    queueId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "LLMObsDeleteAnnotationsRequest",
+      format: "",
+    },
+    operationResponseType: "LLMObsDeleteAnnotationsResponse",
+  },
   "LLMObservabilityApi.V2.CreateLLMObsAnnotationQueueInteractions": {
     queueId: {
       type: "string",
