@@ -55,6 +55,8 @@ import { BillConfig } from "./BillConfig";
 import { Budget } from "./Budget";
 import { BudgetArray } from "./BudgetArray";
 import { BudgetAttributes } from "./BudgetAttributes";
+import { BudgetAttributesCosts } from "./BudgetAttributesCosts";
+import { BudgetAttributesCostsUnit } from "./BudgetAttributesCostsUnit";
 import { BudgetValidationRequest } from "./BudgetValidationRequest";
 import { BudgetValidationRequestData } from "./BudgetValidationRequestData";
 import { BudgetValidationResponse } from "./BudgetValidationResponse";
@@ -64,6 +66,7 @@ import { BudgetWithEntries } from "./BudgetWithEntries";
 import { BudgetWithEntriesData } from "./BudgetWithEntriesData";
 import { BudgetWithEntriesDataAttributes } from "./BudgetWithEntriesDataAttributes";
 import { BudgetWithEntriesDataAttributesEntriesItems } from "./BudgetWithEntriesDataAttributesEntriesItems";
+import { BudgetWithEntriesDataAttributesEntriesItemsCosts } from "./BudgetWithEntriesDataAttributesEntriesItemsCosts";
 import { BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems } from "./BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems";
 import { CommitmentsAwsEC2RICommitment } from "./CommitmentsAwsEC2RICommitment";
 import { CommitmentsAwsElasticacheRICommitment } from "./CommitmentsAwsElasticacheRICommitment";
@@ -345,6 +348,8 @@ export const TypingInfo: ModelTypingInfo = {
     Budget: Budget,
     BudgetArray: BudgetArray,
     BudgetAttributes: BudgetAttributes,
+    BudgetAttributesCosts: BudgetAttributesCosts,
+    BudgetAttributesCostsUnit: BudgetAttributesCostsUnit,
     BudgetValidationRequest: BudgetValidationRequest,
     BudgetValidationRequestData: BudgetValidationRequestData,
     BudgetValidationResponse: BudgetValidationResponse,
@@ -356,6 +361,8 @@ export const TypingInfo: ModelTypingInfo = {
     BudgetWithEntriesDataAttributes: BudgetWithEntriesDataAttributes,
     BudgetWithEntriesDataAttributesEntriesItems:
       BudgetWithEntriesDataAttributesEntriesItems,
+    BudgetWithEntriesDataAttributesEntriesItemsCosts:
+      BudgetWithEntriesDataAttributesEntriesItemsCosts,
     BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems:
       BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems,
     CommitmentsAwsEC2RICommitment: CommitmentsAwsEC2RICommitment,
