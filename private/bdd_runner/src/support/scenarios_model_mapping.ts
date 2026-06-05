@@ -9644,6 +9644,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   "AWSIntegrationApi.V2.GetAWSIntegrationIAMPermissionsStandard": {
     operationResponseType: "AWSIntegrationIamPermissionsResponse",
   },
+  "AWSIntegrationApi.V2.ValidateAWSCCMConfig": {
+    body: {
+      type: "AWSCcmConfigValidationRequest",
+      format: "",
+    },
+    operationResponseType: "AWSCcmConfigValidationResponse",
+  },
   "AWSLogsIntegrationApi.V2.ListAWSLogsServices": {
     operationResponseType: "AWSLogsServicesResponse",
   },

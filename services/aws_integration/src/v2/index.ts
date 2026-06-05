@@ -10,6 +10,7 @@ export {
   AWSIntegrationApiListAWSAccountsRequest,
   AWSIntegrationApiUpdateAWSAccountRequest,
   AWSIntegrationApiUpdateAWSAccountCCMConfigRequest,
+  AWSIntegrationApiValidateAWSCCMConfigRequest,
   AWSIntegrationApi,
 } from "./AWSIntegrationApi";
 
@@ -37,6 +38,15 @@ export { AWSCcmConfigResponse } from "./models/AWSCcmConfigResponse";
 export { AWSCcmConfigResponseAttributes } from "./models/AWSCcmConfigResponseAttributes";
 export { AWSCcmConfigResponseData } from "./models/AWSCcmConfigResponseData";
 export { AWSCcmConfigType } from "./models/AWSCcmConfigType";
+export { AWSCcmConfigValidationIssue } from "./models/AWSCcmConfigValidationIssue";
+export { AWSCcmConfigValidationIssueCode } from "./models/AWSCcmConfigValidationIssueCode";
+export { AWSCcmConfigValidationRequest } from "./models/AWSCcmConfigValidationRequest";
+export { AWSCcmConfigValidationRequestAttributes } from "./models/AWSCcmConfigValidationRequestAttributes";
+export { AWSCcmConfigValidationRequestData } from "./models/AWSCcmConfigValidationRequestData";
+export { AWSCcmConfigValidationResponse } from "./models/AWSCcmConfigValidationResponse";
+export { AWSCcmConfigValidationResponseAttributes } from "./models/AWSCcmConfigValidationResponseAttributes";
+export { AWSCcmConfigValidationResponseData } from "./models/AWSCcmConfigValidationResponseData";
+export { AWSCcmConfigValidationType } from "./models/AWSCcmConfigValidationType";
 export { AWSEventBridgeAccountConfiguration } from "./models/AWSEventBridgeAccountConfiguration";
 export { AWSEventBridgeCreateRequest } from "./models/AWSEventBridgeCreateRequest";
 export { AWSEventBridgeCreateRequestAttributes } from "./models/AWSEventBridgeCreateRequestAttributes";
@@ -84,6 +94,9 @@ export { AWSRegionsIncludeOnly } from "./models/AWSRegionsIncludeOnly";
 export { AWSResourcesConfig } from "./models/AWSResourcesConfig";
 export { AWSTracesConfig } from "./models/AWSTracesConfig";
 export { DataExportConfig } from "./models/DataExportConfig";
+export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
+export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
+export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 export { XRayServicesIncludeAll } from "./models/XRayServicesIncludeAll";
 export { XRayServicesIncludeOnly } from "./models/XRayServicesIncludeOnly";
 export { XRayServicesList } from "./models/XRayServicesList";
