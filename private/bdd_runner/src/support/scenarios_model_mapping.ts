@@ -3821,6 +3821,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
+    filterOwnedBy: {
+      type: "string",
+      format: "",
+    },
     include: {
       type: "string",
       format: "",
