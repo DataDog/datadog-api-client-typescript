@@ -573,6 +573,7 @@ export function createConfiguration(
       "v2.getScopesRestriction": false,
       "v2.registerOAuthClient": false,
       "v2.upsertScopesRestriction": false,
+      "v2.updateOrgSamlConfigurations": false,
       "v2.disableCustomerOrg": false,
       "v2.bulkUpdateOrgGroupMemberships": false,
       "v2.createOrgGroup": false,
