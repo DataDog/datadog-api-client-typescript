@@ -34,6 +34,13 @@ import { AWSCcmConfigRequestData } from "./AWSCcmConfigRequestData";
 import { AWSCcmConfigResponse } from "./AWSCcmConfigResponse";
 import { AWSCcmConfigResponseAttributes } from "./AWSCcmConfigResponseAttributes";
 import { AWSCcmConfigResponseData } from "./AWSCcmConfigResponseData";
+import { AWSCcmConfigValidationIssue } from "./AWSCcmConfigValidationIssue";
+import { AWSCcmConfigValidationRequest } from "./AWSCcmConfigValidationRequest";
+import { AWSCcmConfigValidationRequestAttributes } from "./AWSCcmConfigValidationRequestAttributes";
+import { AWSCcmConfigValidationRequestData } from "./AWSCcmConfigValidationRequestData";
+import { AWSCcmConfigValidationResponse } from "./AWSCcmConfigValidationResponse";
+import { AWSCcmConfigValidationResponseAttributes } from "./AWSCcmConfigValidationResponseAttributes";
+import { AWSCcmConfigValidationResponseData } from "./AWSCcmConfigValidationResponseData";
 import { AWSCloudAuthPersonaMappingAttributesResponse } from "./AWSCloudAuthPersonaMappingAttributesResponse";
 import { AWSCloudAuthPersonaMappingCreateAttributes } from "./AWSCloudAuthPersonaMappingCreateAttributes";
 import { AWSCloudAuthPersonaMappingCreateData } from "./AWSCloudAuthPersonaMappingCreateData";
@@ -4858,6 +4865,26 @@ const enumsMap: { [key: string]: any[] } = {
   AWSAccountType: ["account"],
   AWSAssumeRoleType: ["AWSAssumeRole"],
   AWSCcmConfigType: ["ccm_config"],
+  AWSCcmConfigValidationIssueCode: [
+    "ISSUE_CODE_UNSPECIFIED",
+    "CREDENTIAL_ERROR",
+    "BUCKET_NAME_INVALID_GOVCLOUD",
+    "S3_LIST_PERMISSION_MISSING",
+    "S3_GET_PERMISSION_MISSING",
+    "S3_BUCKET_REGION_MISMATCH",
+    "S3_BUCKET_NOT_ACCESSIBLE",
+    "EXPORT_LIST_PERMISSION_MISSING",
+    "EXPORT_GET_PERMISSION_MISSING",
+    "EXPORT_NOT_FOUND",
+    "EXPORT_STATUS_UNHEALTHY",
+    "TIME_GRANULARITY_INVALID",
+    "FILE_FORMAT_INVALID",
+    "INCLUDE_RESOURCES_DISABLED",
+    "REFRESH_CADENCE_INVALID",
+    "OVERWRITE_MODE_INVALID",
+    "QUERY_STATEMENT_INVALID",
+  ],
+  AWSCcmConfigValidationType: ["ccm_config_validation"],
   AWSCloudAuthPersonaMappingType: ["aws_cloud_auth_config"],
   AWSEventBridgeCreateStatus: ["created"],
   AWSEventBridgeDeleteStatus: ["empty"],
@@ -7562,6 +7589,15 @@ const typeMap: { [index: string]: any } = {
   AWSCcmConfigResponse: AWSCcmConfigResponse,
   AWSCcmConfigResponseAttributes: AWSCcmConfigResponseAttributes,
   AWSCcmConfigResponseData: AWSCcmConfigResponseData,
+  AWSCcmConfigValidationIssue: AWSCcmConfigValidationIssue,
+  AWSCcmConfigValidationRequest: AWSCcmConfigValidationRequest,
+  AWSCcmConfigValidationRequestAttributes:
+    AWSCcmConfigValidationRequestAttributes,
+  AWSCcmConfigValidationRequestData: AWSCcmConfigValidationRequestData,
+  AWSCcmConfigValidationResponse: AWSCcmConfigValidationResponse,
+  AWSCcmConfigValidationResponseAttributes:
+    AWSCcmConfigValidationResponseAttributes,
+  AWSCcmConfigValidationResponseData: AWSCcmConfigValidationResponseData,
   AWSCloudAuthPersonaMappingAttributesResponse:
     AWSCloudAuthPersonaMappingAttributesResponse,
   AWSCloudAuthPersonaMappingCreateAttributes:

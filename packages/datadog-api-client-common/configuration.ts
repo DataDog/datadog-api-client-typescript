@@ -527,6 +527,7 @@ export function createConfiguration(
       "v2.deleteAWSAccountCCMConfig": false,
       "v2.getAWSAccountCCMConfig": false,
       "v2.updateAWSAccountCCMConfig": false,
+      "v2.validateAWSCCMConfig": false,
       "v2.createJiraIssueTemplate": false,
       "v2.deleteJiraAccount": false,
       "v2.deleteJiraIssueTemplate": false,
