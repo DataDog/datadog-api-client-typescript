@@ -3517,6 +3517,14 @@ import { RumPermanentRetentionFilterUpdateAttributes } from "./RumPermanentReten
 import { RumPermanentRetentionFilterUpdateData } from "./RumPermanentRetentionFilterUpdateData";
 import { RumPermanentRetentionFilterUpdateRequest } from "./RumPermanentRetentionFilterUpdateRequest";
 import { RumPermanentRetentionFiltersResponse } from "./RumPermanentRetentionFiltersResponse";
+import { RumRateLimitAdaptiveConfig } from "./RumRateLimitAdaptiveConfig";
+import { RumRateLimitConfigAttributes } from "./RumRateLimitConfigAttributes";
+import { RumRateLimitConfigData } from "./RumRateLimitConfigData";
+import { RumRateLimitConfigResponse } from "./RumRateLimitConfigResponse";
+import { RumRateLimitConfigUpdateAttributes } from "./RumRateLimitConfigUpdateAttributes";
+import { RumRateLimitConfigUpdateData } from "./RumRateLimitConfigUpdateData";
+import { RumRateLimitConfigUpdateRequest } from "./RumRateLimitConfigUpdateRequest";
+import { RumRateLimitCustomConfig } from "./RumRateLimitCustomConfig";
 import { RumRetentionFilterAttributes } from "./RumRetentionFilterAttributes";
 import { RumRetentionFilterCreateAttributes } from "./RumRetentionFilterCreateAttributes";
 import { RumRetentionFilterCreateData } from "./RumRetentionFilterCreateData";
@@ -6650,6 +6658,11 @@ const enumsMap: { [key: string]: any[] } = {
     "forced_replay_sessions",
   ],
   RumPermanentRetentionFilterType: ["permanent_retention_filters"],
+  RumRateLimitConfigType: ["rum_rate_limit_config"],
+  RumRateLimitMode: ["custom", "adaptive"],
+  RumRateLimitQuotaReachedAction: ["stop", "slowdown"],
+  RumRateLimitScopeType: ["application"],
+  RumRateLimitWindowType: ["daily"],
   RumRetentionFilterEventType: [
     "session",
     "view",
@@ -11663,6 +11676,14 @@ const typeMap: { [index: string]: any } = {
   RumPermanentRetentionFilterUpdateRequest:
     RumPermanentRetentionFilterUpdateRequest,
   RumPermanentRetentionFiltersResponse: RumPermanentRetentionFiltersResponse,
+  RumRateLimitAdaptiveConfig: RumRateLimitAdaptiveConfig,
+  RumRateLimitConfigAttributes: RumRateLimitConfigAttributes,
+  RumRateLimitConfigData: RumRateLimitConfigData,
+  RumRateLimitConfigResponse: RumRateLimitConfigResponse,
+  RumRateLimitConfigUpdateAttributes: RumRateLimitConfigUpdateAttributes,
+  RumRateLimitConfigUpdateData: RumRateLimitConfigUpdateData,
+  RumRateLimitConfigUpdateRequest: RumRateLimitConfigUpdateRequest,
+  RumRateLimitCustomConfig: RumRateLimitCustomConfig,
   RumRetentionFilterAttributes: RumRetentionFilterAttributes,
   RumRetentionFilterCreateAttributes: RumRetentionFilterCreateAttributes,
   RumRetentionFilterCreateData: RumRetentionFilterCreateData,

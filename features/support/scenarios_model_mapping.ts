@@ -13405,6 +13405,43 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "RumMetricResponse",
     },
+    "v2.GetRumRateLimitConfig": {
+        "scopeType": {
+            "type": "RumRateLimitScopeType",
+            "format": "",
+            },
+        "scopeId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "RumRateLimitConfigResponse",
+    },
+    "v2.UpdateRumRateLimitConfig": {
+        "scopeType": {
+            "type": "RumRateLimitScopeType",
+            "format": "",
+            },
+        "scopeId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RumRateLimitConfigUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "RumRateLimitConfigResponse",
+    },
+    "v2.DeleteRumRateLimitConfig": {
+        "scopeType": {
+            "type": "RumRateLimitScopeType",
+            "format": "",
+            },
+        "scopeId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.QueryAggregatedLongTasks": {
         "body": {
             "type": "AggregatedLongTasksRequest",
