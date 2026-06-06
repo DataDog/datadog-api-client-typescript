@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { BudgetWithEntriesDataAttributesEntriesItemsCosts } from "./BudgetWithEntriesDataAttributesEntriesItemsCosts";
 import { BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems } from "./BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -15,6 +16,10 @@ export class BudgetWithEntriesDataAttributesEntriesItems {
    * The budgeted amount for this entry.
    */
   "amount"?: number;
+  /**
+   * Cost data for a single budget entry.
+   */
+  "costs"?: BudgetWithEntriesDataAttributesEntriesItemsCosts;
   /**
    * The month this budget entry applies to, in YYYYMM format.
    */
@@ -44,6 +49,10 @@ export class BudgetWithEntriesDataAttributesEntriesItems {
       baseName: "amount",
       type: "number",
       format: "double",
+    },
+    costs: {
+      baseName: "costs",
+      type: "BudgetWithEntriesDataAttributesEntriesItemsCosts",
     },
     month: {
       baseName: "month",

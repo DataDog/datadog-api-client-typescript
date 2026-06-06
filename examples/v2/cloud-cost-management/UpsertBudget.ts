@@ -11,11 +11,25 @@ const params: v2.CloudCostManagementApiUpsertBudgetRequest = {
   body: {
     data: {
       attributes: {
+        costs: {
+          actual: undefined,
+          amount: undefined,
+          forecast: undefined,
+          ootbForecast: undefined,
+        },
+        costsUnit: {},
         createdAt: 1738258683590,
         createdBy: "00000000-0a0a-0a0a-aaa0-00000000000a",
         endMonth: 202502,
         entries: [
           {
+            costs: {
+              actual: undefined,
+              amount: undefined,
+              customForecast: undefined,
+              forecast: undefined,
+              ootbForecast: undefined,
+            },
             tagFilters: [{}],
           },
         ],
