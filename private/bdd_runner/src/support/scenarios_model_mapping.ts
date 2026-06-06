@@ -7385,6 +7385,22 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
+    actual: {
+      type: "boolean",
+      format: "",
+    },
+    forecast: {
+      type: "boolean",
+      format: "",
+    },
+    start: {
+      type: "number",
+      format: "int64",
+    },
+    end: {
+      type: "number",
+      format: "int64",
+    },
     operationResponseType: "BudgetWithEntries",
   },
   "CloudCostManagementApi.V2.DeleteBudget": {
