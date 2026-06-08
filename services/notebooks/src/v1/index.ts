@@ -149,6 +149,8 @@ export { RetentionReturnCriteriaTimeIntervalUnit } from "./models/RetentionRetur
 export { RetentionSearch } from "./models/RetentionSearch";
 export { TableWidgetCellDisplayMode } from "./models/TableWidgetCellDisplayMode";
 export { TimeseriesRequestStyle } from "./models/TimeseriesRequestStyle";
+export { TimeseriesWidgetAnomalyDetection } from "./models/TimeseriesWidgetAnomalyDetection";
+export { TimeseriesWidgetAnomalyDetectionSensitivity } from "./models/TimeseriesWidgetAnomalyDetectionSensitivity";
 export { TimeseriesWidgetDefinition } from "./models/TimeseriesWidgetDefinition";
 export { TimeseriesWidgetDefinitionType } from "./models/TimeseriesWidgetDefinitionType";
 export { TimeseriesWidgetExpressionAlias } from "./models/TimeseriesWidgetExpressionAlias";

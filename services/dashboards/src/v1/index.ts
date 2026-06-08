@@ -344,6 +344,8 @@ export { TableWidgetTextFormatRule } from "./models/TableWidgetTextFormatRule";
 export { TimeseriesBackground } from "./models/TimeseriesBackground";
 export { TimeseriesBackgroundType } from "./models/TimeseriesBackgroundType";
 export { TimeseriesRequestStyle } from "./models/TimeseriesRequestStyle";
+export { TimeseriesWidgetAnomalyDetection } from "./models/TimeseriesWidgetAnomalyDetection";
+export { TimeseriesWidgetAnomalyDetectionSensitivity } from "./models/TimeseriesWidgetAnomalyDetectionSensitivity";
 export { TimeseriesWidgetDefinition } from "./models/TimeseriesWidgetDefinition";
 export { TimeseriesWidgetDefinitionType } from "./models/TimeseriesWidgetDefinitionType";
 export { TimeseriesWidgetExpressionAlias } from "./models/TimeseriesWidgetExpressionAlias";
