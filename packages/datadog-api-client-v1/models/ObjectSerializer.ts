@@ -617,6 +617,7 @@ import { TableWidgetTextFormatRule } from "./TableWidgetTextFormatRule";
 import { TagToHosts } from "./TagToHosts";
 import { TimeseriesBackground } from "./TimeseriesBackground";
 import { TimeseriesRequestStyle } from "./TimeseriesRequestStyle";
+import { TimeseriesWidgetAnomalyDetection } from "./TimeseriesWidgetAnomalyDetection";
 import { TimeseriesWidgetDefinition } from "./TimeseriesWidgetDefinition";
 import { TimeseriesWidgetExpressionAlias } from "./TimeseriesWidgetExpressionAlias";
 import { TimeseriesWidgetRequest } from "./TimeseriesWidgetRequest";
@@ -1899,6 +1900,7 @@ const enumsMap: { [key: string]: any[] } = {
   TableWidgetTextFormatReplaceSubstringType: ["substring"],
   TargetFormatType: ["auto", "string", "integer", "double"],
   TimeseriesBackgroundType: ["bars", "area"],
+  TimeseriesWidgetAnomalyDetectionSensitivity: ["never_detect"],
   TimeseriesWidgetDefinitionType: ["timeseries"],
   TimeseriesWidgetLegendColumn: ["value", "avg", "sum", "min", "max"],
   TimeseriesWidgetLegendLayout: ["auto", "horizontal", "vertical"],
@@ -2732,6 +2734,7 @@ const typeMap: { [index: string]: any } = {
   TagToHosts: TagToHosts,
   TimeseriesBackground: TimeseriesBackground,
   TimeseriesRequestStyle: TimeseriesRequestStyle,
+  TimeseriesWidgetAnomalyDetection: TimeseriesWidgetAnomalyDetection,
   TimeseriesWidgetDefinition: TimeseriesWidgetDefinition,
   TimeseriesWidgetExpressionAlias: TimeseriesWidgetExpressionAlias,
   TimeseriesWidgetRequest: TimeseriesWidgetRequest,
