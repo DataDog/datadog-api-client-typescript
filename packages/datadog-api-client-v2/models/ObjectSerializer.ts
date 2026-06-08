@@ -14415,21 +14415,34 @@ export class ObjectSerializer {
 
       if (extraAttributes.length > 0) {
         if ("additionalProperties" in attributesMap) {
-          if (!instance.additionalProperties) {
-            instance.additionalProperties = {};
-          }
-
           const additionalProperties: { [key: string]: any } = {};
-          for (const key of extraAttributes) {
-            additionalProperties[key] = data[key];
+          if (keepAllInAdditional) {
+            // Build reverse map from JSON baseName → attribute config for per-field deserialization.
+            // This preserves int64 precision for typed numeric fields via their declared format.
+            const baseNameToAttr: { [key: string]: any } = {};
+            for (const attrName in attributesMap) {
+              if (attrName !== "additionalProperties") {
+                baseNameToAttr[attributesMap[attrName].baseName] = attributesMap[attrName];
+              }
+            }
+            for (const key of extraAttributes) {
+              const attrInfo = baseNameToAttr[key];
+              additionalProperties[key] = attrInfo
+                ? ObjectSerializer.deserialize(data[key], attrInfo.type, attrInfo.format)
+                : data[key];
+            }
+            instance.additionalProperties = additionalProperties;
+          } else {
+            for (const key of extraAttributes) {
+              additionalProperties[key] = data[key];
+            }
+            const attributeObj = attributesMap["additionalProperties"];
+            instance.additionalProperties = ObjectSerializer.deserialize(
+              additionalProperties,
+              attributeObj.type,
+              attributeObj.format
+            );
           }
-
-          const attributeObj = attributesMap["additionalProperties"];
-          instance.additionalProperties = ObjectSerializer.deserialize(
-            additionalProperties,
-            attributeObj.type,
-            attributeObj.format
-          );
         } else {
           throw new Error(
             `found extra attributes '${extraAttributes}' in ${type}`
