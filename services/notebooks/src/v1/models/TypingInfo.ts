@@ -83,6 +83,7 @@ import { RetentionReturnCriteria } from "./RetentionReturnCriteria";
 import { RetentionReturnCriteriaTimeInterval } from "./RetentionReturnCriteriaTimeInterval";
 import { RetentionSearch } from "./RetentionSearch";
 import { TimeseriesRequestStyle } from "./TimeseriesRequestStyle";
+import { TimeseriesWidgetAnomalyDetection } from "./TimeseriesWidgetAnomalyDetection";
 import { TimeseriesWidgetDefinition } from "./TimeseriesWidgetDefinition";
 import { TimeseriesWidgetExpressionAlias } from "./TimeseriesWidgetExpressionAlias";
 import { TimeseriesWidgetRequest } from "./TimeseriesWidgetRequest";
@@ -288,6 +289,7 @@ export const TypingInfo: ModelTypingInfo = {
     RetentionReturnCriteriaTimeIntervalType: ["fixed"],
     RetentionReturnCriteriaTimeIntervalUnit: ["day", "week", "month"],
     TableWidgetCellDisplayMode: ["number", "bar", "trend"],
+    TimeseriesWidgetAnomalyDetectionSensitivity: ["never_detect"],
     TimeseriesWidgetDefinitionType: ["timeseries"],
     TimeseriesWidgetLegendColumn: ["value", "avg", "sum", "min", "max"],
     TimeseriesWidgetLegendLayout: ["auto", "horizontal", "vertical"],
@@ -521,6 +523,7 @@ export const TypingInfo: ModelTypingInfo = {
     RetentionReturnCriteriaTimeInterval: RetentionReturnCriteriaTimeInterval,
     RetentionSearch: RetentionSearch,
     TimeseriesRequestStyle: TimeseriesRequestStyle,
+    TimeseriesWidgetAnomalyDetection: TimeseriesWidgetAnomalyDetection,
     TimeseriesWidgetDefinition: TimeseriesWidgetDefinition,
     TimeseriesWidgetExpressionAlias: TimeseriesWidgetExpressionAlias,
     TimeseriesWidgetRequest: TimeseriesWidgetRequest,
