@@ -14404,11 +14404,18 @@ export class ObjectSerializer {
 
       const instance = new typeMap[type]();
       const attributesMap = typeMap[type].getAttributeTypeMap();
-      const attributesBaseNames = Object.keys(attributesMap).reduce(
-        (o, key) => Object.assign(o, { [attributesMap[key].baseName]: "" }),
-        {}
-      );
       const keepAllInAdditional = (typeMap[type] as any)._keepTypedInAdditionalProperties === true;
+      // Single pass: build attributesBaseNames (for extra-key detection) and, when needed,
+      // baseNameToAttr (for per-field typed deserialization preserving int64 precision).
+      const attributesBaseNames: { [key: string]: string } = {};
+      const baseNameToAttr: { [key: string]: any } = keepAllInAdditional ? {} : null;
+      for (const attrName in attributesMap) {
+        const baseName = attributesMap[attrName].baseName;
+        attributesBaseNames[baseName] = "";
+        if (keepAllInAdditional && attrName !== "additionalProperties") {
+          baseNameToAttr[baseName] = attributesMap[attrName];
+        }
+      }
       const extraAttributes = Object.keys(data).filter(
         (key) => keepAllInAdditional || !Object.prototype.hasOwnProperty.call(attributesBaseNames, key)
       );
@@ -14417,16 +14424,9 @@ export class ObjectSerializer {
         if ("additionalProperties" in attributesMap) {
           const additionalProperties: { [key: string]: any } = {};
           if (keepAllInAdditional) {
-            // Build reverse map from JSON baseName → attribute config for per-field deserialization.
-            // This preserves int64 precision for typed numeric fields via their declared format.
-            const baseNameToAttr: { [key: string]: any } = {};
-            for (const attrName in attributesMap) {
-              if (attrName !== "additionalProperties") {
-                baseNameToAttr[attributesMap[attrName].baseName] = attributesMap[attrName];
-              }
-            }
             for (const key of extraAttributes) {
               const attrInfo = baseNameToAttr[key];
+              // Use per-field type/format for typed attrs to preserve int64 precision.
               additionalProperties[key] = attrInfo
                 ? ObjectSerializer.deserialize(data[key], attrInfo.type, attrInfo.format)
                 : data[key];
