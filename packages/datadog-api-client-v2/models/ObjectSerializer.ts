@@ -14408,7 +14408,7 @@ export class ObjectSerializer {
       // Single pass: build attributesBaseNames (for extra-key detection) and, when needed,
       // baseNameToAttr (for per-field typed deserialization preserving int64 precision).
       const attributesBaseNames: { [key: string]: string } = {};
-      const baseNameToAttr: { [key: string]: any } = keepAllInAdditional ? {} : null;
+      const baseNameToAttr: { [key: string]: any } = {};
       for (const attrName in attributesMap) {
         const baseName = attributesMap[attrName].baseName;
         attributesBaseNames[baseName] = "";
