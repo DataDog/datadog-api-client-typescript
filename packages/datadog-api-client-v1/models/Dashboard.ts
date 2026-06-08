@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { DashboardDefaultTimeframeSetting } from "./DashboardDefaultTimeframeSetting";
 import { DashboardLayoutType } from "./DashboardLayoutType";
 import { DashboardReflowType } from "./DashboardReflowType";
 import { DashboardTab } from "./DashboardTab";
@@ -29,6 +30,10 @@ export class Dashboard {
    * Creation date of the dashboard.
    */
   "createdAt"?: Date;
+  /**
+   * The default timeframe applied when opening the dashboard. Set to `null` to clear the dashboard's default timeframe.
+   */
+  "defaultTimeframe"?: DashboardDefaultTimeframeSetting;
   /**
    * Description of the dashboard.
    */
@@ -122,6 +127,10 @@ export class Dashboard {
       baseName: "created_at",
       type: "Date",
       format: "date-time",
+    },
+    defaultTimeframe: {
+      baseName: "default_timeframe",
+      type: "DashboardDefaultTimeframeSetting",
     },
     description: {
       baseName: "description",
