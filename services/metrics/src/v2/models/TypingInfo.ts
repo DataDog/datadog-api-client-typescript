@@ -97,6 +97,30 @@ import { ScalarFormulaResponseAtrributes } from "./ScalarFormulaResponseAtrribut
 import { ScalarMeta } from "./ScalarMeta";
 import { ScalarResponse } from "./ScalarResponse";
 import { SloQuery } from "./SloQuery";
+import { TagIndexingRuleAttributes } from "./TagIndexingRuleAttributes";
+import { TagIndexingRuleCreateAttributes } from "./TagIndexingRuleCreateAttributes";
+import { TagIndexingRuleCreateData } from "./TagIndexingRuleCreateData";
+import { TagIndexingRuleCreateRequest } from "./TagIndexingRuleCreateRequest";
+import { TagIndexingRuleData } from "./TagIndexingRuleData";
+import { TagIndexingRuleDynamicTags } from "./TagIndexingRuleDynamicTags";
+import { TagIndexingRuleExemptionAttributes } from "./TagIndexingRuleExemptionAttributes";
+import { TagIndexingRuleExemptionCreateAttributes } from "./TagIndexingRuleExemptionCreateAttributes";
+import { TagIndexingRuleExemptionCreateData } from "./TagIndexingRuleExemptionCreateData";
+import { TagIndexingRuleExemptionCreateRequest } from "./TagIndexingRuleExemptionCreateRequest";
+import { TagIndexingRuleExemptionData } from "./TagIndexingRuleExemptionData";
+import { TagIndexingRuleExemptionResponse } from "./TagIndexingRuleExemptionResponse";
+import { TagIndexingRuleMetricMatch } from "./TagIndexingRuleMetricMatch";
+import { TagIndexingRuleOptions } from "./TagIndexingRuleOptions";
+import { TagIndexingRuleOptionsData } from "./TagIndexingRuleOptionsData";
+import { TagIndexingRuleOrderAttributes } from "./TagIndexingRuleOrderAttributes";
+import { TagIndexingRuleOrderData } from "./TagIndexingRuleOrderData";
+import { TagIndexingRuleOrderRequest } from "./TagIndexingRuleOrderRequest";
+import { TagIndexingRuleResponse } from "./TagIndexingRuleResponse";
+import { TagIndexingRuleUpdateAttributes } from "./TagIndexingRuleUpdateAttributes";
+import { TagIndexingRuleUpdateData } from "./TagIndexingRuleUpdateData";
+import { TagIndexingRuleUpdateRequest } from "./TagIndexingRuleUpdateRequest";
+import { TagIndexingRulesResponse } from "./TagIndexingRulesResponse";
+import { TagIndexingRulesResponseMeta } from "./TagIndexingRulesResponseMeta";
 import { TimeseriesFormulaQueryRequest } from "./TimeseriesFormulaQueryRequest";
 import { TimeseriesFormulaQueryResponse } from "./TimeseriesFormulaQueryResponse";
 import { TimeseriesFormulaRequest } from "./TimeseriesFormulaRequest";
@@ -250,6 +274,8 @@ export const TypingInfo: ModelTypingInfo = {
       "bad_minutes",
     ],
     SlosQueryType: ["metric", "time_slice", "monitor"],
+    TagIndexingRuleExemptionType: ["tag_indexing_rule_exemptions"],
+    TagIndexingRuleType: ["tag_indexing_rules"],
     TimeseriesFormulaRequestType: ["timeseries_request"],
     TimeseriesFormulaResponseType: ["timeseries_response"],
   },
@@ -387,6 +413,32 @@ export const TypingInfo: ModelTypingInfo = {
     ScalarMeta: ScalarMeta,
     ScalarResponse: ScalarResponse,
     SloQuery: SloQuery,
+    TagIndexingRuleAttributes: TagIndexingRuleAttributes,
+    TagIndexingRuleCreateAttributes: TagIndexingRuleCreateAttributes,
+    TagIndexingRuleCreateData: TagIndexingRuleCreateData,
+    TagIndexingRuleCreateRequest: TagIndexingRuleCreateRequest,
+    TagIndexingRuleData: TagIndexingRuleData,
+    TagIndexingRuleDynamicTags: TagIndexingRuleDynamicTags,
+    TagIndexingRuleExemptionAttributes: TagIndexingRuleExemptionAttributes,
+    TagIndexingRuleExemptionCreateAttributes:
+      TagIndexingRuleExemptionCreateAttributes,
+    TagIndexingRuleExemptionCreateData: TagIndexingRuleExemptionCreateData,
+    TagIndexingRuleExemptionCreateRequest:
+      TagIndexingRuleExemptionCreateRequest,
+    TagIndexingRuleExemptionData: TagIndexingRuleExemptionData,
+    TagIndexingRuleExemptionResponse: TagIndexingRuleExemptionResponse,
+    TagIndexingRuleMetricMatch: TagIndexingRuleMetricMatch,
+    TagIndexingRuleOptions: TagIndexingRuleOptions,
+    TagIndexingRuleOptionsData: TagIndexingRuleOptionsData,
+    TagIndexingRuleOrderAttributes: TagIndexingRuleOrderAttributes,
+    TagIndexingRuleOrderData: TagIndexingRuleOrderData,
+    TagIndexingRuleOrderRequest: TagIndexingRuleOrderRequest,
+    TagIndexingRuleResponse: TagIndexingRuleResponse,
+    TagIndexingRuleUpdateAttributes: TagIndexingRuleUpdateAttributes,
+    TagIndexingRuleUpdateData: TagIndexingRuleUpdateData,
+    TagIndexingRuleUpdateRequest: TagIndexingRuleUpdateRequest,
+    TagIndexingRulesResponse: TagIndexingRulesResponse,
+    TagIndexingRulesResponseMeta: TagIndexingRulesResponseMeta,
     TimeseriesFormulaQueryRequest: TimeseriesFormulaQueryRequest,
     TimeseriesFormulaQueryResponse: TimeseriesFormulaQueryResponse,
     TimeseriesFormulaRequest: TimeseriesFormulaRequest,
