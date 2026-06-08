@@ -9,7 +9,8 @@ configuration.unstableOperations["v2.getIndicatorOfCompromise"] = true;
 const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
 const params: v2.SecurityMonitoringApiGetIndicatorOfCompromiseRequest = {
-  indicator: "masscan/1.3 (https://github.com/robertdavidgraham/masscan)",
+  indicator: "192.0.2.1",
+  includeTriageHistory: true,
 };
 
 apiInstance
