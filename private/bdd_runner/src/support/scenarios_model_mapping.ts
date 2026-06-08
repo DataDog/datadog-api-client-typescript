@@ -10826,6 +10826,60 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "MetricBulkTagConfigResponse",
   },
+  "MetricsApi.V2.ListTagIndexingRules": {
+    pageLimit: {
+      type: "number",
+      format: "",
+    },
+    pageOffset: {
+      type: "number",
+      format: "",
+    },
+    search: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "TagIndexingRulesResponse",
+  },
+  "MetricsApi.V2.CreateTagIndexingRule": {
+    body: {
+      type: "TagIndexingRuleCreateRequest",
+      format: "",
+    },
+    operationResponseType: "TagIndexingRuleResponse",
+  },
+  "MetricsApi.V2.ReorderTagIndexingRules": {
+    body: {
+      type: "TagIndexingRuleOrderRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "MetricsApi.V2.GetTagIndexingRule": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "TagIndexingRuleResponse",
+  },
+  "MetricsApi.V2.UpdateTagIndexingRule": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "TagIndexingRuleUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "TagIndexingRuleResponse",
+  },
+  "MetricsApi.V2.DeleteTagIndexingRule": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "MetricsApi.V2.ListActiveMetricConfigurations": {
     metricName: {
       type: "string",
@@ -10908,6 +10962,38 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "MetricTagCardinalitiesResponse",
+  },
+  "MetricsApi.V2.GetTagIndexingRuleExemption": {
+    metricName: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "TagIndexingRuleExemptionResponse",
+  },
+  "MetricsApi.V2.CreateTagIndexingRuleExemption": {
+    metricName: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "TagIndexingRuleExemptionCreateRequest",
+      format: "",
+    },
+    operationResponseType: "TagIndexingRuleExemptionResponse",
+  },
+  "MetricsApi.V2.DeleteTagIndexingRuleExemption": {
+    metricName: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "MetricsApi.V2.ListTagIndexingRulesForMetric": {
+    metricName: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "TagIndexingRulesResponse",
   },
   "MetricsApi.V2.ListTagConfigurationByName": {
     metricName: {

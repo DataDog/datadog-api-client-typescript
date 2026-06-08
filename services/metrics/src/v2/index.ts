@@ -1,20 +1,30 @@
 export {
   MetricsApiCreateBulkTagsMetricsConfigurationRequest,
   MetricsApiCreateTagConfigurationRequest,
+  MetricsApiCreateTagIndexingRuleRequest,
+  MetricsApiCreateTagIndexingRuleExemptionRequest,
   MetricsApiDeleteBulkTagsMetricsConfigurationRequest,
   MetricsApiDeleteTagConfigurationRequest,
+  MetricsApiDeleteTagIndexingRuleRequest,
+  MetricsApiDeleteTagIndexingRuleExemptionRequest,
   MetricsApiEstimateMetricsOutputSeriesRequest,
   MetricsApiGetMetricTagCardinalityDetailsRequest,
+  MetricsApiGetTagIndexingRuleRequest,
+  MetricsApiGetTagIndexingRuleExemptionRequest,
   MetricsApiListActiveMetricConfigurationsRequest,
   MetricsApiListMetricAssetsRequest,
   MetricsApiListTagConfigurationByNameRequest,
   MetricsApiListTagConfigurationsRequest,
+  MetricsApiListTagIndexingRulesRequest,
+  MetricsApiListTagIndexingRulesForMetricRequest,
   MetricsApiListTagsByMetricNameRequest,
   MetricsApiListVolumesByMetricNameRequest,
   MetricsApiQueryScalarDataRequest,
   MetricsApiQueryTimeseriesDataRequest,
+  MetricsApiReorderTagIndexingRulesRequest,
   MetricsApiSubmitMetricsRequest,
   MetricsApiUpdateTagConfigurationRequest,
+  MetricsApiUpdateTagIndexingRuleRequest,
   MetricsApi,
 } from "./MetricsApi";
 
@@ -162,6 +172,32 @@ export { SloQuery } from "./models/SloQuery";
 export { SlosGroupMode } from "./models/SlosGroupMode";
 export { SlosMeasure } from "./models/SlosMeasure";
 export { SlosQueryType } from "./models/SlosQueryType";
+export { TagIndexingRuleAttributes } from "./models/TagIndexingRuleAttributes";
+export { TagIndexingRuleCreateAttributes } from "./models/TagIndexingRuleCreateAttributes";
+export { TagIndexingRuleCreateData } from "./models/TagIndexingRuleCreateData";
+export { TagIndexingRuleCreateRequest } from "./models/TagIndexingRuleCreateRequest";
+export { TagIndexingRuleData } from "./models/TagIndexingRuleData";
+export { TagIndexingRuleDynamicTags } from "./models/TagIndexingRuleDynamicTags";
+export { TagIndexingRuleExemptionAttributes } from "./models/TagIndexingRuleExemptionAttributes";
+export { TagIndexingRuleExemptionCreateAttributes } from "./models/TagIndexingRuleExemptionCreateAttributes";
+export { TagIndexingRuleExemptionCreateData } from "./models/TagIndexingRuleExemptionCreateData";
+export { TagIndexingRuleExemptionCreateRequest } from "./models/TagIndexingRuleExemptionCreateRequest";
+export { TagIndexingRuleExemptionData } from "./models/TagIndexingRuleExemptionData";
+export { TagIndexingRuleExemptionResponse } from "./models/TagIndexingRuleExemptionResponse";
+export { TagIndexingRuleExemptionType } from "./models/TagIndexingRuleExemptionType";
+export { TagIndexingRuleMetricMatch } from "./models/TagIndexingRuleMetricMatch";
+export { TagIndexingRuleOptions } from "./models/TagIndexingRuleOptions";
+export { TagIndexingRuleOptionsData } from "./models/TagIndexingRuleOptionsData";
+export { TagIndexingRuleOrderAttributes } from "./models/TagIndexingRuleOrderAttributes";
+export { TagIndexingRuleOrderData } from "./models/TagIndexingRuleOrderData";
+export { TagIndexingRuleOrderRequest } from "./models/TagIndexingRuleOrderRequest";
+export { TagIndexingRuleResponse } from "./models/TagIndexingRuleResponse";
+export { TagIndexingRulesResponse } from "./models/TagIndexingRulesResponse";
+export { TagIndexingRulesResponseMeta } from "./models/TagIndexingRulesResponseMeta";
+export { TagIndexingRuleType } from "./models/TagIndexingRuleType";
+export { TagIndexingRuleUpdateAttributes } from "./models/TagIndexingRuleUpdateAttributes";
+export { TagIndexingRuleUpdateData } from "./models/TagIndexingRuleUpdateData";
+export { TagIndexingRuleUpdateRequest } from "./models/TagIndexingRuleUpdateRequest";
 export { TimeseriesFormulaQueryRequest } from "./models/TimeseriesFormulaQueryRequest";
 export { TimeseriesFormulaQueryResponse } from "./models/TimeseriesFormulaQueryResponse";
 export { TimeseriesFormulaRequest } from "./models/TimeseriesFormulaRequest";
