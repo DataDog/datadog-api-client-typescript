@@ -38,6 +38,13 @@ import { MetricTagConfigurationUpdateRequest } from "../models/MetricTagConfigur
 import { MetricVolumesResponse } from "../models/MetricVolumesResponse";
 import { ScalarFormulaQueryRequest } from "../models/ScalarFormulaQueryRequest";
 import { ScalarFormulaQueryResponse } from "../models/ScalarFormulaQueryResponse";
+import { TagIndexingRuleCreateRequest } from "../models/TagIndexingRuleCreateRequest";
+import { TagIndexingRuleExemptionCreateRequest } from "../models/TagIndexingRuleExemptionCreateRequest";
+import { TagIndexingRuleExemptionResponse } from "../models/TagIndexingRuleExemptionResponse";
+import { TagIndexingRuleOrderRequest } from "../models/TagIndexingRuleOrderRequest";
+import { TagIndexingRuleResponse } from "../models/TagIndexingRuleResponse";
+import { TagIndexingRulesResponse } from "../models/TagIndexingRulesResponse";
+import { TagIndexingRuleUpdateRequest } from "../models/TagIndexingRuleUpdateRequest";
 import { TimeseriesFormulaQueryRequest } from "../models/TimeseriesFormulaQueryRequest";
 import { TimeseriesFormulaQueryResponse } from "../models/TimeseriesFormulaQueryResponse";
 
@@ -137,6 +144,104 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async createTagIndexingRule(
+    body: TagIndexingRuleCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createTagIndexingRule");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/metrics/tag-indexing-rules";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.MetricsApi.createTagIndexingRule")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "TagIndexingRuleCreateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createTagIndexingRuleExemption(
+    metricName: string,
+    body: TagIndexingRuleExemptionCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'metricName' is not null or undefined
+    if (metricName === null || metricName === undefined) {
+      throw new RequiredError("metricName", "createTagIndexingRuleExemption");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createTagIndexingRuleExemption");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/metrics/{metric_name}/tag-indexing-rule-exemptions".replace(
+        "{metric_name}",
+        encodeURIComponent(String(metricName))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.MetricsApi.createTagIndexingRuleExemption")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "TagIndexingRuleExemptionCreateRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteBulkTagsMetricsConfiguration(
     body: MetricBulkTagConfigDeleteRequest,
     _options?: Configuration
@@ -206,6 +311,75 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteTagIndexingRule(
+    id: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "deleteTagIndexingRule");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/metrics/tag-indexing-rules/{id}".replace(
+      "{id}",
+      encodeURIComponent(String(id))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.MetricsApi.deleteTagIndexingRule")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteTagIndexingRuleExemption(
+    metricName: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'metricName' is not null or undefined
+    if (metricName === null || metricName === undefined) {
+      throw new RequiredError("metricName", "deleteTagIndexingRuleExemption");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/metrics/{metric_name}/tag-indexing-rule-exemptions".replace(
+        "{metric_name}",
+        encodeURIComponent(String(metricName))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.MetricsApi.deleteTagIndexingRuleExemption")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -315,6 +489,75 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getTagIndexingRule(
+    id: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "getTagIndexingRule");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/metrics/tag-indexing-rules/{id}".replace(
+      "{id}",
+      encodeURIComponent(String(id))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.MetricsApi.getTagIndexingRule")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getTagIndexingRuleExemption(
+    metricName: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'metricName' is not null or undefined
+    if (metricName === null || metricName === undefined) {
+      throw new RequiredError("metricName", "getTagIndexingRuleExemption");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/metrics/{metric_name}/tag-indexing-rule-exemptions".replace(
+        "{metric_name}",
+        encodeURIComponent(String(metricName))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.MetricsApi.getTagIndexingRuleExemption")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -555,6 +798,92 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listTagIndexingRules(
+    pageLimit?: number,
+    pageOffset?: number,
+    search?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/metrics/tag-indexing-rules";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.MetricsApi.listTagIndexingRules")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (pageLimit !== undefined) {
+      requestContext.setQueryParam(
+        "page[limit]",
+        ObjectSerializer.serialize(pageLimit, "number", ""),
+        ""
+      );
+    }
+    if (pageOffset !== undefined) {
+      requestContext.setQueryParam(
+        "page[offset]",
+        ObjectSerializer.serialize(pageOffset, "number", ""),
+        ""
+      );
+    }
+    if (search !== undefined) {
+      requestContext.setQueryParam(
+        "search",
+        ObjectSerializer.serialize(search, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listTagIndexingRulesForMetric(
+    metricName: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'metricName' is not null or undefined
+    if (metricName === null || metricName === undefined) {
+      throw new RequiredError("metricName", "listTagIndexingRulesForMetric");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/metrics/{metric_name}/tag-indexing-rules".replace(
+        "{metric_name}",
+        encodeURIComponent(String(metricName))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.MetricsApi.listTagIndexingRulesForMetric")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async listTagsByMetricName(
     metricName: string,
     windowSeconds?: number,
@@ -766,6 +1095,48 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async reorderTagIndexingRules(
+    body: TagIndexingRuleOrderRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "reorderTagIndexingRules");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/metrics/tag-indexing-rules/order";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.MetricsApi.reorderTagIndexingRules")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "TagIndexingRuleOrderRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async submitMetrics(
     body: MetricPayload,
     contentEncoding?: MetricContentEncoding,
@@ -862,6 +1233,57 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateTagIndexingRule(
+    id: string,
+    body: TagIndexingRuleUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "updateTagIndexingRule");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateTagIndexingRule");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/metrics/tag-indexing-rules/{id}".replace(
+      "{id}",
+      encodeURIComponent(String(id))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.MetricsApi.updateTagIndexingRule")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "TagIndexingRuleUpdateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -999,6 +1421,138 @@ export class MetricsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createTagIndexingRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createTagIndexingRule(
+    response: ResponseContext
+  ): Promise<TagIndexingRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: TagIndexingRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TagIndexingRuleResponse"
+      ) as TagIndexingRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TagIndexingRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TagIndexingRuleResponse",
+        ""
+      ) as TagIndexingRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createTagIndexingRuleExemption
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createTagIndexingRuleExemption(
+    response: ResponseContext
+  ): Promise<TagIndexingRuleExemptionResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: TagIndexingRuleExemptionResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "TagIndexingRuleExemptionResponse"
+        ) as TagIndexingRuleExemptionResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TagIndexingRuleExemptionResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "TagIndexingRuleExemptionResponse",
+          ""
+        ) as TagIndexingRuleExemptionResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteBulkTagsMetricsConfiguration
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1097,6 +1651,116 @@ export class MetricsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteTagIndexingRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteTagIndexingRule(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteTagIndexingRuleExemption
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteTagIndexingRuleExemption(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1230,6 +1894,140 @@ export class MetricsApiResponseProcessor {
         "MetricTagCardinalitiesResponse",
         ""
       ) as MetricTagCardinalitiesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getTagIndexingRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getTagIndexingRule(
+    response: ResponseContext
+  ): Promise<TagIndexingRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: TagIndexingRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TagIndexingRuleResponse"
+      ) as TagIndexingRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TagIndexingRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TagIndexingRuleResponse",
+        ""
+      ) as TagIndexingRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getTagIndexingRuleExemption
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getTagIndexingRuleExemption(
+    response: ResponseContext
+  ): Promise<TagIndexingRuleExemptionResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: TagIndexingRuleExemptionResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "TagIndexingRuleExemptionResponse"
+        ) as TagIndexingRuleExemptionResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TagIndexingRuleExemptionResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "TagIndexingRuleExemptionResponse",
+          ""
+        ) as TagIndexingRuleExemptionResponse;
       return body;
     }
 
@@ -1498,6 +2296,136 @@ export class MetricsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listTagIndexingRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listTagIndexingRules(
+    response: ResponseContext
+  ): Promise<TagIndexingRulesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: TagIndexingRulesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TagIndexingRulesResponse"
+      ) as TagIndexingRulesResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TagIndexingRulesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TagIndexingRulesResponse",
+        ""
+      ) as TagIndexingRulesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listTagIndexingRulesForMetric
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listTagIndexingRulesForMetric(
+    response: ResponseContext
+  ): Promise<TagIndexingRulesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: TagIndexingRulesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TagIndexingRulesResponse"
+      ) as TagIndexingRulesResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TagIndexingRulesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TagIndexingRulesResponse",
+        ""
+      ) as TagIndexingRulesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listTagsByMetricName
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1750,6 +2678,63 @@ export class MetricsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to reorderTagIndexingRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async reorderTagIndexingRules(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to submitMetrics
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1872,6 +2857,73 @@ export class MetricsApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateTagIndexingRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateTagIndexingRule(
+    response: ResponseContext
+  ): Promise<TagIndexingRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: TagIndexingRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TagIndexingRuleResponse"
+      ) as TagIndexingRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TagIndexingRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TagIndexingRuleResponse",
+        ""
+      ) as TagIndexingRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
 }
 
 export interface MetricsApiCreateBulkTagsMetricsConfigurationRequest {
@@ -1893,6 +2945,25 @@ export interface MetricsApiCreateTagConfigurationRequest {
   body: MetricTagConfigurationCreateRequest;
 }
 
+export interface MetricsApiCreateTagIndexingRuleRequest {
+  /**
+   * @type TagIndexingRuleCreateRequest
+   */
+  body: TagIndexingRuleCreateRequest;
+}
+
+export interface MetricsApiCreateTagIndexingRuleExemptionRequest {
+  /**
+   * The name of the metric.
+   * @type string
+   */
+  metricName: string;
+  /**
+   * @type TagIndexingRuleExemptionCreateRequest
+   */
+  body: TagIndexingRuleExemptionCreateRequest;
+}
+
 export interface MetricsApiDeleteBulkTagsMetricsConfigurationRequest {
   /**
    * @type MetricBulkTagConfigDeleteRequest
@@ -1901,6 +2972,22 @@ export interface MetricsApiDeleteBulkTagsMetricsConfigurationRequest {
 }
 
 export interface MetricsApiDeleteTagConfigurationRequest {
+  /**
+   * The name of the metric.
+   * @type string
+   */
+  metricName: string;
+}
+
+export interface MetricsApiDeleteTagIndexingRuleRequest {
+  /**
+   * ID of the tag indexing rule.
+   * @type string
+   */
+  id: string;
+}
+
+export interface MetricsApiDeleteTagIndexingRuleExemptionRequest {
   /**
    * The name of the metric.
    * @type string
@@ -1942,6 +3029,22 @@ export interface MetricsApiEstimateMetricsOutputSeriesRequest {
 }
 
 export interface MetricsApiGetMetricTagCardinalityDetailsRequest {
+  /**
+   * The name of the metric.
+   * @type string
+   */
+  metricName: string;
+}
+
+export interface MetricsApiGetTagIndexingRuleRequest {
+  /**
+   * ID of the tag indexing rule.
+   * @type string
+   */
+  id: string;
+}
+
+export interface MetricsApiGetTagIndexingRuleExemptionRequest {
   /**
    * The name of the metric.
    * @type string
@@ -2037,6 +3140,32 @@ export interface MetricsApiListTagConfigurationsRequest {
   pageCursor?: string;
 }
 
+export interface MetricsApiListTagIndexingRulesRequest {
+  /**
+   * Page size (1–1000, default 100).
+   * @type number
+   */
+  pageLimit?: number;
+  /**
+   * Page offset from the start of the list (default 0).
+   * @type number
+   */
+  pageOffset?: number;
+  /**
+   * Substring filter on rule name.
+   * @type string
+   */
+  search?: string;
+}
+
+export interface MetricsApiListTagIndexingRulesForMetricRequest {
+  /**
+   * The name of the metric.
+   * @type string
+   */
+  metricName: string;
+}
+
 export interface MetricsApiListTagsByMetricNameRequest {
   /**
    * The name of the metric.
@@ -2108,6 +3237,13 @@ export interface MetricsApiQueryTimeseriesDataRequest {
   body: TimeseriesFormulaQueryRequest;
 }
 
+export interface MetricsApiReorderTagIndexingRulesRequest {
+  /**
+   * @type TagIndexingRuleOrderRequest
+   */
+  body: TagIndexingRuleOrderRequest;
+}
+
 export interface MetricsApiSubmitMetricsRequest {
   /**
    * @type MetricPayload
@@ -2130,6 +3266,18 @@ export interface MetricsApiUpdateTagConfigurationRequest {
    * @type MetricTagConfigurationUpdateRequest
    */
   body: MetricTagConfigurationUpdateRequest;
+}
+
+export interface MetricsApiUpdateTagIndexingRuleRequest {
+  /**
+   * ID of the tag indexing rule.
+   * @type string
+   */
+  id: string;
+  /**
+   * @type TagIndexingRuleUpdateRequest
+   */
+  body: TagIndexingRuleUpdateRequest;
 }
 
 export class MetricsApi {
@@ -2206,6 +3354,55 @@ export class MetricsApi {
   }
 
   /**
+   * Create a tag indexing rule for the org. `rule_order` is assigned server-side as max+1
+   * among existing rules; use the reorder endpoint to change the evaluation order.
+   * Requires the `Manage Tags for Metrics` permission.
+   * @param param The request object
+   */
+  public createTagIndexingRule(
+    param: MetricsApiCreateTagIndexingRuleRequest,
+    options?: Configuration
+  ): Promise<TagIndexingRuleResponse> {
+    const requestContextPromise = this.requestFactory.createTagIndexingRule(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createTagIndexingRule(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Exempt a metric from all tag indexing rules. The response includes the created
+   * exemption resource. Requires the `Manage Tags for Metrics` permission.
+   * @param param The request object
+   */
+  public createTagIndexingRuleExemption(
+    param: MetricsApiCreateTagIndexingRuleExemptionRequest,
+    options?: Configuration
+  ): Promise<TagIndexingRuleExemptionResponse> {
+    const requestContextPromise =
+      this.requestFactory.createTagIndexingRuleExemption(
+        param.metricName,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createTagIndexingRuleExemption(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Delete all custom lists of queryable tag keys for a set of existing count, gauge, rate, and distribution metrics.
    * Metrics are selected by passing a metric name prefix.
    * Results can be sent to a set of account email addresses, just like the same operation in the Datadog web app.
@@ -2251,6 +3448,55 @@ export class MetricsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteTagConfiguration(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Soft-delete a tag indexing rule. Idempotent: returns 204 whether the rule existed or was already deleted.
+   * Remaining rules in the org are automatically re-sequenced to keep `rule_order` dense and 1-based.
+   * Requires the `Manage Tags for Metrics` permission.
+   * @param param The request object
+   */
+  public deleteTagIndexingRule(
+    param: MetricsApiDeleteTagIndexingRuleRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteTagIndexingRule(
+      param.id,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteTagIndexingRule(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Remove a metric's exemption from tag indexing rules. Idempotent: returns 204 whether or not
+   * an exemption existed. Any associated legacy tag configuration record is also removed.
+   * Requires the `Manage Tags for Metrics` permission.
+   * @param param The request object
+   */
+  public deleteTagIndexingRuleExemption(
+    param: MetricsApiDeleteTagIndexingRuleExemptionRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteTagIndexingRuleExemption(
+        param.metricName,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteTagIndexingRuleExemption(
+            responseContext
+          );
         });
     });
   }
@@ -2302,6 +3548,54 @@ export class MetricsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getMetricTagCardinalityDetails(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get a single tag indexing rule by its UUID.
+   * @param param The request object
+   */
+  public getTagIndexingRule(
+    param: MetricsApiGetTagIndexingRuleRequest,
+    options?: Configuration
+  ): Promise<TagIndexingRuleResponse> {
+    const requestContextPromise = this.requestFactory.getTagIndexingRule(
+      param.id,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getTagIndexingRule(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Returns why a metric is excluded from tag indexing rules.
+   * Returns 200 with `kind=exemption` when an explicit exemption exists, 200 with
+   * `kind=legacy_tag_configuration` when the metric has a legacy tag configuration acting as an
+   * implicit exclusion, or 404 when neither applies.
+   * @param param The request object
+   */
+  public getTagIndexingRuleExemption(
+    param: MetricsApiGetTagIndexingRuleExemptionRequest,
+    options?: Configuration
+  ): Promise<TagIndexingRuleExemptionResponse> {
+    const requestContextPromise =
+      this.requestFactory.getTagIndexingRuleExemption(
+        param.metricName,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getTagIndexingRuleExemption(
             responseContext
           );
         });
@@ -2471,6 +3765,54 @@ export class MetricsApi {
   }
 
   /**
+   * List tag indexing rules for an org, sorted by `rule_order`, with offset/limit pagination.
+   * @param param The request object
+   */
+  public listTagIndexingRules(
+    param: MetricsApiListTagIndexingRulesRequest = {},
+    options?: Configuration
+  ): Promise<TagIndexingRulesResponse> {
+    const requestContextPromise = this.requestFactory.listTagIndexingRules(
+      param.pageLimit,
+      param.pageOffset,
+      param.search,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listTagIndexingRules(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List the tag indexing rules that apply to a given metric, sorted by `rule_order`.
+   * Matching is performed server-side using each rule's `metric_name_matches` glob patterns.
+   * @param param The request object
+   */
+  public listTagIndexingRulesForMetric(
+    param: MetricsApiListTagIndexingRulesForMetricRequest,
+    options?: Configuration
+  ): Promise<TagIndexingRulesResponse> {
+    const requestContextPromise =
+      this.requestFactory.listTagIndexingRulesForMetric(
+        param.metricName,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listTagIndexingRulesForMetric(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * View indexed and ingested tags for a given metric name.
    * Results are filtered by the `window[seconds]` parameter, which defaults to 14400 (4 hours).
    * @param param The request object
@@ -2570,6 +3912,31 @@ export class MetricsApi {
   }
 
   /**
+   * Atomically re-sequence the tag indexing rules for an org to match the supplied list of rule UUIDs.
+   * The server assigns `rule_order` 1, 2, … matching each rule UUID by position in the list.
+   * Requires the `Manage Tags for Metrics` permission.
+   * @param param The request object
+   */
+  public reorderTagIndexingRules(
+    param: MetricsApiReorderTagIndexingRulesRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.reorderTagIndexingRules(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.reorderTagIndexingRules(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards.
    * The maximum payload size is 500 kilobytes (512000 bytes). Compressed payloads must have a decompressed size of less than 5 megabytes (5242880 bytes).
    *
@@ -2624,6 +3991,30 @@ export class MetricsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateTagConfiguration(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Partially update a tag indexing rule. Fields omitted from the request body are left unchanged.
+   * Setting `rule_order` to a value already used by another rule returns 409; use the
+   * reorder endpoint for atomic re-sequencing. Requires the `Manage Tags for Metrics` permission.
+   * @param param The request object
+   */
+  public updateTagIndexingRule(
+    param: MetricsApiUpdateTagIndexingRuleRequest,
+    options?: Configuration
+  ): Promise<TagIndexingRuleResponse> {
+    const requestContextPromise = this.requestFactory.updateTagIndexingRule(
+      param.id,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateTagIndexingRule(responseContext);
         });
     });
   }

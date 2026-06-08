@@ -10814,6 +10814,60 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "MetricBulkTagConfigResponse",
     },
+    "v2.ListTagIndexingRules": {
+        "pageLimit": {
+            "type": "number",
+            "format": "",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "",
+            },
+        "search": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "TagIndexingRulesResponse",
+    },
+    "v2.CreateTagIndexingRule": {
+        "body": {
+            "type": "TagIndexingRuleCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "TagIndexingRuleResponse",
+    },
+    "v2.ReorderTagIndexingRules": {
+        "body": {
+            "type": "TagIndexingRuleOrderRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.GetTagIndexingRule": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "TagIndexingRuleResponse",
+    },
+    "v2.UpdateTagIndexingRule": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "TagIndexingRuleUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "TagIndexingRuleResponse",
+    },
+    "v2.DeleteTagIndexingRule": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListActiveMetricConfigurations": {
         "metricName": {
             "type": "string",
@@ -10896,6 +10950,38 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "MetricTagCardinalitiesResponse",
+    },
+    "v2.GetTagIndexingRuleExemption": {
+        "metricName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "TagIndexingRuleExemptionResponse",
+    },
+    "v2.CreateTagIndexingRuleExemption": {
+        "metricName": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "TagIndexingRuleExemptionCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "TagIndexingRuleExemptionResponse",
+    },
+    "v2.DeleteTagIndexingRuleExemption": {
+        "metricName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListTagIndexingRulesForMetric": {
+        "metricName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "TagIndexingRulesResponse",
     },
     "v2.ListTagConfigurationByName": {
         "metricName": {

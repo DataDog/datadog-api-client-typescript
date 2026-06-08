@@ -4411,6 +4411,30 @@ import { TableRowResourceData } from "./TableRowResourceData";
 import { TableRowResourceDataAttributes } from "./TableRowResourceDataAttributes";
 import { TableRowResourceIdentifier } from "./TableRowResourceIdentifier";
 import { TagData } from "./TagData";
+import { TagIndexingRuleAttributes } from "./TagIndexingRuleAttributes";
+import { TagIndexingRuleCreateAttributes } from "./TagIndexingRuleCreateAttributes";
+import { TagIndexingRuleCreateData } from "./TagIndexingRuleCreateData";
+import { TagIndexingRuleCreateRequest } from "./TagIndexingRuleCreateRequest";
+import { TagIndexingRuleData } from "./TagIndexingRuleData";
+import { TagIndexingRuleDynamicTags } from "./TagIndexingRuleDynamicTags";
+import { TagIndexingRuleExemptionAttributes } from "./TagIndexingRuleExemptionAttributes";
+import { TagIndexingRuleExemptionCreateAttributes } from "./TagIndexingRuleExemptionCreateAttributes";
+import { TagIndexingRuleExemptionCreateData } from "./TagIndexingRuleExemptionCreateData";
+import { TagIndexingRuleExemptionCreateRequest } from "./TagIndexingRuleExemptionCreateRequest";
+import { TagIndexingRuleExemptionData } from "./TagIndexingRuleExemptionData";
+import { TagIndexingRuleExemptionResponse } from "./TagIndexingRuleExemptionResponse";
+import { TagIndexingRuleMetricMatch } from "./TagIndexingRuleMetricMatch";
+import { TagIndexingRuleOptions } from "./TagIndexingRuleOptions";
+import { TagIndexingRuleOptionsData } from "./TagIndexingRuleOptionsData";
+import { TagIndexingRuleOrderAttributes } from "./TagIndexingRuleOrderAttributes";
+import { TagIndexingRuleOrderData } from "./TagIndexingRuleOrderData";
+import { TagIndexingRuleOrderRequest } from "./TagIndexingRuleOrderRequest";
+import { TagIndexingRuleResponse } from "./TagIndexingRuleResponse";
+import { TagIndexingRuleUpdateAttributes } from "./TagIndexingRuleUpdateAttributes";
+import { TagIndexingRuleUpdateData } from "./TagIndexingRuleUpdateData";
+import { TagIndexingRuleUpdateRequest } from "./TagIndexingRuleUpdateRequest";
+import { TagIndexingRulesResponse } from "./TagIndexingRulesResponse";
+import { TagIndexingRulesResponseMeta } from "./TagIndexingRulesResponseMeta";
 import { TargetingRule } from "./TargetingRule";
 import { TargetingRuleRequest } from "./TargetingRuleRequest";
 import { Team } from "./Team";
@@ -7302,6 +7326,8 @@ const enumsMap: { [key: string]: any[] } = {
   TableResultV2DataType: ["reference_table"],
   TableRowResourceDataType: ["row"],
   TagDataType: ["tag"],
+  TagIndexingRuleExemptionType: ["tag_indexing_rule_exemptions"],
+  TagIndexingRuleType: ["tag_indexing_rules"],
   TeamConnectionType: ["team_connection"],
   TeamHierarchyLinkType: ["team_hierarchy_links"],
   TeamLinkType: ["team_links"],
@@ -12877,6 +12903,31 @@ const typeMap: { [index: string]: any } = {
   TableRowResourceDataAttributes: TableRowResourceDataAttributes,
   TableRowResourceIdentifier: TableRowResourceIdentifier,
   TagData: TagData,
+  TagIndexingRuleAttributes: TagIndexingRuleAttributes,
+  TagIndexingRuleCreateAttributes: TagIndexingRuleCreateAttributes,
+  TagIndexingRuleCreateData: TagIndexingRuleCreateData,
+  TagIndexingRuleCreateRequest: TagIndexingRuleCreateRequest,
+  TagIndexingRuleData: TagIndexingRuleData,
+  TagIndexingRuleDynamicTags: TagIndexingRuleDynamicTags,
+  TagIndexingRuleExemptionAttributes: TagIndexingRuleExemptionAttributes,
+  TagIndexingRuleExemptionCreateAttributes:
+    TagIndexingRuleExemptionCreateAttributes,
+  TagIndexingRuleExemptionCreateData: TagIndexingRuleExemptionCreateData,
+  TagIndexingRuleExemptionCreateRequest: TagIndexingRuleExemptionCreateRequest,
+  TagIndexingRuleExemptionData: TagIndexingRuleExemptionData,
+  TagIndexingRuleExemptionResponse: TagIndexingRuleExemptionResponse,
+  TagIndexingRuleMetricMatch: TagIndexingRuleMetricMatch,
+  TagIndexingRuleOptions: TagIndexingRuleOptions,
+  TagIndexingRuleOptionsData: TagIndexingRuleOptionsData,
+  TagIndexingRuleOrderAttributes: TagIndexingRuleOrderAttributes,
+  TagIndexingRuleOrderData: TagIndexingRuleOrderData,
+  TagIndexingRuleOrderRequest: TagIndexingRuleOrderRequest,
+  TagIndexingRuleResponse: TagIndexingRuleResponse,
+  TagIndexingRuleUpdateAttributes: TagIndexingRuleUpdateAttributes,
+  TagIndexingRuleUpdateData: TagIndexingRuleUpdateData,
+  TagIndexingRuleUpdateRequest: TagIndexingRuleUpdateRequest,
+  TagIndexingRulesResponse: TagIndexingRulesResponse,
+  TagIndexingRulesResponseMeta: TagIndexingRulesResponseMeta,
   TargetingRule: TargetingRule,
   TargetingRuleRequest: TargetingRuleRequest,
   Team: Team,
