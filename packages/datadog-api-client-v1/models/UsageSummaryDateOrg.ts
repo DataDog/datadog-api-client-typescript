@@ -1259,6 +1259,11 @@ export class UsageSummaryDateOrg {
   /**
    * @ignore
    */
+  static readonly _keepTypedInAdditionalProperties = true;
+
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     accountName: {
       baseName: "account_name",

@@ -14408,8 +14408,9 @@ export class ObjectSerializer {
         (o, key) => Object.assign(o, { [attributesMap[key].baseName]: "" }),
         {}
       );
+      const keepAllInAdditional = (typeMap[type] as any)._keepTypedInAdditionalProperties === true;
       const extraAttributes = Object.keys(data).filter(
-        (key) => !Object.prototype.hasOwnProperty.call(attributesBaseNames, key)
+        (key) => keepAllInAdditional || !Object.prototype.hasOwnProperty.call(attributesBaseNames, key)
       );
 
       if (extraAttributes.length > 0) {
