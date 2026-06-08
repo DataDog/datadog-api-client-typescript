@@ -168,6 +168,13 @@ import { IoCIndicator } from "./IoCIndicator";
 import { IoCIndicatorDetailed } from "./IoCIndicatorDetailed";
 import { IoCSignalSeverityCount } from "./IoCSignalSeverityCount";
 import { IoCSource } from "./IoCSource";
+import { IoCTriageEvent } from "./IoCTriageEvent";
+import { IoCTriageWriteRequest } from "./IoCTriageWriteRequest";
+import { IoCTriageWriteRequestAttributes } from "./IoCTriageWriteRequestAttributes";
+import { IoCTriageWriteRequestData } from "./IoCTriageWriteRequestData";
+import { IoCTriageWriteResponse } from "./IoCTriageWriteResponse";
+import { IoCTriageWriteResponseAttributes } from "./IoCTriageWriteResponseAttributes";
+import { IoCTriageWriteResponseData } from "./IoCTriageWriteResponseData";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
@@ -1111,6 +1118,13 @@ export const TypingInfo: ModelTypingInfo = {
     IoCIndicatorDetailed: IoCIndicatorDetailed,
     IoCSignalSeverityCount: IoCSignalSeverityCount,
     IoCSource: IoCSource,
+    IoCTriageEvent: IoCTriageEvent,
+    IoCTriageWriteRequest: IoCTriageWriteRequest,
+    IoCTriageWriteRequestAttributes: IoCTriageWriteRequestAttributes,
+    IoCTriageWriteRequestData: IoCTriageWriteRequestData,
+    IoCTriageWriteResponse: IoCTriageWriteResponse,
+    IoCTriageWriteResponseAttributes: IoCTriageWriteResponseAttributes,
+    IoCTriageWriteResponseData: IoCTriageWriteResponseData,
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
     JSONAPIErrorResponse: JSONAPIErrorResponse,
