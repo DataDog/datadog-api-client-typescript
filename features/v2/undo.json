@@ -6247,6 +6247,24 @@
       "type": "idempotent"
     }
   },
+  "GetRumConfig": {
+    "tag": "Rum Config",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "UpdateRumConfig": {
+    "tag": "Rum Config",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "CreateRumConfig": {
+    "tag": "Rum Config",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
   "ListRumMetrics": {
     "tag": "Rum Metrics",
     "undo": {
