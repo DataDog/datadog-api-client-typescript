@@ -8162,6 +8162,72 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   "CSMCoverageAnalysisApi.V2.GetCSMServerlessCoverageAnalysis": {
     operationResponseType: "CsmServerlessCoverageAnalysisResponse",
   },
+  "CSMSettingsApi.V2.ListCSMAgentlessHosts": {
+    page: {
+      type: "number",
+      format: "int32",
+    },
+    size: {
+      type: "number",
+      format: "int32",
+    },
+    query: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "CsmAgentlessHostsResponse",
+  },
+  "CSMSettingsApi.V2.GetCSMAgentlessHostFacetInfo": {
+    facet: {
+      type: "string",
+      format: "",
+    },
+    search: {
+      type: "string",
+      format: "",
+    },
+    query: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "CsmHostFacetInfoResponse",
+  },
+  "CSMSettingsApi.V2.ListCSMAgentlessHostFacets": {
+    operationResponseType: "CsmAgentlessHostFacetsResponse",
+  },
+  "CSMSettingsApi.V2.ListCSMUnifiedHosts": {
+    page: {
+      type: "number",
+      format: "int32",
+    },
+    size: {
+      type: "number",
+      format: "int32",
+    },
+    query: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "CsmUnifiedHostsResponse",
+  },
+  "CSMSettingsApi.V2.GetCSMUnifiedHostFacetInfo": {
+    facet: {
+      type: "string",
+      format: "",
+    },
+    search: {
+      type: "string",
+      format: "",
+    },
+    query: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "CsmHostFacetInfoResponse",
+  },
+  "CSMSettingsApi.V2.ListCSMUnifiedHostFacets": {
+    operationResponseType: "CsmUnifiedHostFacetsResponse",
+  },
   "DashboardListsApi.V2.GetDashboardListItems": {
     dashboardListId: {
       type: "number",
