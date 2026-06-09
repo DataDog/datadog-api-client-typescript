@@ -577,6 +577,14 @@ export {
 } from "./apis/FleetAutomationApi";
 
 export {
+  FormsApiCreateAndPublishFormRequest,
+  FormsApiCreateFormRequest,
+  FormsApiDeleteFormRequest,
+  FormsApiGetFormRequest,
+  FormsApi,
+} from "./apis/FormsApi";
+
+export {
   GCPIntegrationApiCreateGCPSTSAccountRequest,
   GCPIntegrationApiDeleteGCPSTSAccountRequest,
   GCPIntegrationApiMakeGCPSTSDelegateRequest,
@@ -2945,6 +2953,9 @@ export { CreateFeatureFlagAttributes } from "./models/CreateFeatureFlagAttribute
 export { CreateFeatureFlagData } from "./models/CreateFeatureFlagData";
 export { CreateFeatureFlagDataType } from "./models/CreateFeatureFlagDataType";
 export { CreateFeatureFlagRequest } from "./models/CreateFeatureFlagRequest";
+export { CreateFormData } from "./models/CreateFormData";
+export { CreateFormDataAttributes } from "./models/CreateFormDataAttributes";
+export { CreateFormRequest } from "./models/CreateFormRequest";
 export { CreateIncidentNotificationRuleRequest } from "./models/CreateIncidentNotificationRuleRequest";
 export { CreateIncidentNotificationTemplateRequest } from "./models/CreateIncidentNotificationTemplateRequest";
 export { CreateJiraIssueRequestArray } from "./models/CreateJiraIssueRequestArray";
@@ -3279,6 +3290,8 @@ export { DeletedTestsRequestDeleteRequest } from "./models/DeletedTestsRequestDe
 export { DeletedTestsRequestType } from "./models/DeletedTestsRequestType";
 export { DeletedTestsResponse } from "./models/DeletedTestsResponse";
 export { DeletedTestsResponseType } from "./models/DeletedTestsResponseType";
+export { DeleteFormData } from "./models/DeleteFormData";
+export { DeleteFormResponse } from "./models/DeleteFormResponse";
 export { DependencyLocation } from "./models/DependencyLocation";
 export { Deployment } from "./models/Deployment";
 export { DeploymentAttributes } from "./models/DeploymentAttributes";
@@ -3763,9 +3776,23 @@ export { FleetTracersResponseDataAttributes } from "./models/FleetTracersRespons
 export { FleetTracersResponseMeta } from "./models/FleetTracersResponseMeta";
 export { FlutterSourcemapAttributes } from "./models/FlutterSourcemapAttributes";
 export { FlutterSourcemapData } from "./models/FlutterSourcemapData";
+export { FormData } from "./models/FormData";
+export { FormDataAttributes } from "./models/FormDataAttributes";
+export { FormDataDefinition } from "./models/FormDataDefinition";
+export { FormDataDefinitionType } from "./models/FormDataDefinitionType";
+export { FormDatastoreConfigAttributes } from "./models/FormDatastoreConfigAttributes";
+export { FormPublicationAttributes } from "./models/FormPublicationAttributes";
+export { FormResponse } from "./models/FormResponse";
+export { FormsResponse } from "./models/FormsResponse";
 export { FormTrigger } from "./models/FormTrigger";
 export { FormTriggerWrapper } from "./models/FormTriggerWrapper";
+export { FormType } from "./models/FormType";
+export { FormUiDefinition } from "./models/FormUiDefinition";
+export { FormUiDefinitionUiTheme } from "./models/FormUiDefinitionUiTheme";
+export { FormUiDefinitionUiThemePrimaryColor } from "./models/FormUiDefinitionUiThemePrimaryColor";
 export { FormulaLimit } from "./models/FormulaLimit";
+export { FormVersionAttributes } from "./models/FormVersionAttributes";
+export { FormVersionState } from "./models/FormVersionState";
 export { FrameworkHandleAndVersionResponseData } from "./models/FrameworkHandleAndVersionResponseData";
 export { FreshserviceAPIKey } from "./models/FreshserviceAPIKey";
 export { FreshserviceAPIKeyType } from "./models/FreshserviceAPIKeyType";
