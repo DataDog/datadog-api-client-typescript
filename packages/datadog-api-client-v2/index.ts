@@ -180,6 +180,14 @@ export {
 export { CSMCoverageAnalysisApi } from "./apis/CSMCoverageAnalysisApi";
 
 export {
+  CSMSettingsApiGetCSMAgentlessHostFacetInfoRequest,
+  CSMSettingsApiGetCSMUnifiedHostFacetInfoRequest,
+  CSMSettingsApiListCSMAgentlessHostsRequest,
+  CSMSettingsApiListCSMUnifiedHostsRequest,
+  CSMSettingsApi,
+} from "./apis/CSMSettingsApi";
+
+export {
   CSMThreatsApiCreateCSMThreatsAgentPolicyRequest,
   CSMThreatsApiCreateCSMThreatsAgentRuleRequest,
   CSMThreatsApiCreateCloudWorkloadSecurityAgentRuleRequest,
@@ -3040,6 +3048,15 @@ export { CreateWorkflowRequest } from "./models/CreateWorkflowRequest";
 export { CreateWorkflowResponse } from "./models/CreateWorkflowResponse";
 export { Creator } from "./models/Creator";
 export { CsmAgentData } from "./models/CsmAgentData";
+export { CsmAgentlessHostAttributes } from "./models/CsmAgentlessHostAttributes";
+export { CsmAgentlessHostData } from "./models/CsmAgentlessHostData";
+export { CsmAgentlessHostFacetAttributes } from "./models/CsmAgentlessHostFacetAttributes";
+export { CsmAgentlessHostFacetData } from "./models/CsmAgentlessHostFacetData";
+export { CsmAgentlessHostFacetsResponse } from "./models/CsmAgentlessHostFacetsResponse";
+export { CsmAgentlessHostFacetType } from "./models/CsmAgentlessHostFacetType";
+export { CsmAgentlessHostResourceType } from "./models/CsmAgentlessHostResourceType";
+export { CsmAgentlessHostsResponse } from "./models/CsmAgentlessHostsResponse";
+export { CsmAgentlessHostType } from "./models/CsmAgentlessHostType";
 export { CsmAgentsAttributes } from "./models/CsmAgentsAttributes";
 export { CSMAgentsMetadata } from "./models/CSMAgentsMetadata";
 export { CsmAgentsResponse } from "./models/CsmAgentsResponse";
@@ -3047,13 +3064,30 @@ export { CSMAgentsType } from "./models/CSMAgentsType";
 export { CsmCloudAccountsCoverageAnalysisAttributes } from "./models/CsmCloudAccountsCoverageAnalysisAttributes";
 export { CsmCloudAccountsCoverageAnalysisData } from "./models/CsmCloudAccountsCoverageAnalysisData";
 export { CsmCloudAccountsCoverageAnalysisResponse } from "./models/CsmCloudAccountsCoverageAnalysisResponse";
+export { CsmCloudProvider } from "./models/CsmCloudProvider";
 export { CsmCoverageAnalysis } from "./models/CsmCoverageAnalysis";
+export { CsmFacetInfoType } from "./models/CsmFacetInfoType";
+export { CsmHostFacetInfoAttributes } from "./models/CsmHostFacetInfoAttributes";
+export { CsmHostFacetInfoData } from "./models/CsmHostFacetInfoData";
+export { CsmHostFacetInfoItem } from "./models/CsmHostFacetInfoItem";
+export { CsmHostFacetInfoMeta } from "./models/CsmHostFacetInfoMeta";
+export { CsmHostFacetInfoResponse } from "./models/CsmHostFacetInfoResponse";
 export { CsmHostsAndContainersCoverageAnalysisAttributes } from "./models/CsmHostsAndContainersCoverageAnalysisAttributes";
 export { CsmHostsAndContainersCoverageAnalysisData } from "./models/CsmHostsAndContainersCoverageAnalysisData";
 export { CsmHostsAndContainersCoverageAnalysisResponse } from "./models/CsmHostsAndContainersCoverageAnalysisResponse";
 export { CsmServerlessCoverageAnalysisAttributes } from "./models/CsmServerlessCoverageAnalysisAttributes";
 export { CsmServerlessCoverageAnalysisData } from "./models/CsmServerlessCoverageAnalysisData";
 export { CsmServerlessCoverageAnalysisResponse } from "./models/CsmServerlessCoverageAnalysisResponse";
+export { CsmSettingsMeta } from "./models/CsmSettingsMeta";
+export { CsmUnifiedHostAttributes } from "./models/CsmUnifiedHostAttributes";
+export { CsmUnifiedHostData } from "./models/CsmUnifiedHostData";
+export { CsmUnifiedHostFacetData } from "./models/CsmUnifiedHostFacetData";
+export { CsmUnifiedHostFacetsResponse } from "./models/CsmUnifiedHostFacetsResponse";
+export { CsmUnifiedHostFacetType } from "./models/CsmUnifiedHostFacetType";
+export { CsmUnifiedHostsMeta } from "./models/CsmUnifiedHostsMeta";
+export { CsmUnifiedHostSource } from "./models/CsmUnifiedHostSource";
+export { CsmUnifiedHostsResponse } from "./models/CsmUnifiedHostsResponse";
+export { CsmUnifiedHostType } from "./models/CsmUnifiedHostType";
 export { CustomAttributeConfig } from "./models/CustomAttributeConfig";
 export { CustomAttributeConfigAttributesCreate } from "./models/CustomAttributeConfigAttributesCreate";
 export { CustomAttributeConfigCreate } from "./models/CustomAttributeConfigCreate";

@@ -1064,18 +1064,36 @@ import { CreateWorkflowRequest } from "./CreateWorkflowRequest";
 import { CreateWorkflowResponse } from "./CreateWorkflowResponse";
 import { Creator } from "./Creator";
 import { CsmAgentData } from "./CsmAgentData";
+import { CsmAgentlessHostAttributes } from "./CsmAgentlessHostAttributes";
+import { CsmAgentlessHostData } from "./CsmAgentlessHostData";
+import { CsmAgentlessHostFacetAttributes } from "./CsmAgentlessHostFacetAttributes";
+import { CsmAgentlessHostFacetData } from "./CsmAgentlessHostFacetData";
+import { CsmAgentlessHostFacetsResponse } from "./CsmAgentlessHostFacetsResponse";
+import { CsmAgentlessHostsResponse } from "./CsmAgentlessHostsResponse";
 import { CsmAgentsAttributes } from "./CsmAgentsAttributes";
 import { CsmAgentsResponse } from "./CsmAgentsResponse";
 import { CsmCloudAccountsCoverageAnalysisAttributes } from "./CsmCloudAccountsCoverageAnalysisAttributes";
 import { CsmCloudAccountsCoverageAnalysisData } from "./CsmCloudAccountsCoverageAnalysisData";
 import { CsmCloudAccountsCoverageAnalysisResponse } from "./CsmCloudAccountsCoverageAnalysisResponse";
 import { CsmCoverageAnalysis } from "./CsmCoverageAnalysis";
+import { CsmHostFacetInfoAttributes } from "./CsmHostFacetInfoAttributes";
+import { CsmHostFacetInfoData } from "./CsmHostFacetInfoData";
+import { CsmHostFacetInfoItem } from "./CsmHostFacetInfoItem";
+import { CsmHostFacetInfoMeta } from "./CsmHostFacetInfoMeta";
+import { CsmHostFacetInfoResponse } from "./CsmHostFacetInfoResponse";
 import { CsmHostsAndContainersCoverageAnalysisAttributes } from "./CsmHostsAndContainersCoverageAnalysisAttributes";
 import { CsmHostsAndContainersCoverageAnalysisData } from "./CsmHostsAndContainersCoverageAnalysisData";
 import { CsmHostsAndContainersCoverageAnalysisResponse } from "./CsmHostsAndContainersCoverageAnalysisResponse";
 import { CsmServerlessCoverageAnalysisAttributes } from "./CsmServerlessCoverageAnalysisAttributes";
 import { CsmServerlessCoverageAnalysisData } from "./CsmServerlessCoverageAnalysisData";
 import { CsmServerlessCoverageAnalysisResponse } from "./CsmServerlessCoverageAnalysisResponse";
+import { CsmSettingsMeta } from "./CsmSettingsMeta";
+import { CsmUnifiedHostAttributes } from "./CsmUnifiedHostAttributes";
+import { CsmUnifiedHostData } from "./CsmUnifiedHostData";
+import { CsmUnifiedHostFacetData } from "./CsmUnifiedHostFacetData";
+import { CsmUnifiedHostFacetsResponse } from "./CsmUnifiedHostFacetsResponse";
+import { CsmUnifiedHostsMeta } from "./CsmUnifiedHostsMeta";
+import { CsmUnifiedHostsResponse } from "./CsmUnifiedHostsResponse";
 import { CustomAttributeConfig } from "./CustomAttributeConfig";
 import { CustomAttributeConfigAttributesCreate } from "./CustomAttributeConfigAttributesCreate";
 import { CustomAttributeConfigCreate } from "./CustomAttributeConfigCreate";
@@ -5453,6 +5471,19 @@ const enumsMap: { [key: string]: any[] } = {
   CreateTableRequestDataType: ["reference_table"],
   CreateUploadRequestDataType: ["upload"],
   CreateUploadResponseDataType: ["upload"],
+  CsmAgentlessHostFacetType: ["agentless_host_facet"],
+  CsmAgentlessHostResourceType: [
+    "aws_ec2_instance",
+    "azure_virtual_machine_instance",
+    "gcp_compute_instance",
+    "oci_instance",
+  ],
+  CsmAgentlessHostType: ["agentless_host"],
+  CsmCloudProvider: ["aws", "gcp", "azure", "oci"],
+  CsmFacetInfoType: ["facet_info"],
+  CsmUnifiedHostFacetType: ["unified_host_facet"],
+  CsmUnifiedHostSource: ["agent", "agentless", "both"],
+  CsmUnifiedHostType: ["unified_host"],
   CustomAttributeConfigResourceType: ["custom_attribute"],
   CustomAttributeType: ["URL", "TEXT", "NUMBER", "SELECT"],
   CustomConnectionType: ["custom_connections"],
@@ -8841,6 +8872,12 @@ const typeMap: { [index: string]: any } = {
   CreateWorkflowResponse: CreateWorkflowResponse,
   Creator: Creator,
   CsmAgentData: CsmAgentData,
+  CsmAgentlessHostAttributes: CsmAgentlessHostAttributes,
+  CsmAgentlessHostData: CsmAgentlessHostData,
+  CsmAgentlessHostFacetAttributes: CsmAgentlessHostFacetAttributes,
+  CsmAgentlessHostFacetData: CsmAgentlessHostFacetData,
+  CsmAgentlessHostFacetsResponse: CsmAgentlessHostFacetsResponse,
+  CsmAgentlessHostsResponse: CsmAgentlessHostsResponse,
   CsmAgentsAttributes: CsmAgentsAttributes,
   CsmAgentsResponse: CsmAgentsResponse,
   CsmCloudAccountsCoverageAnalysisAttributes:
@@ -8849,6 +8886,11 @@ const typeMap: { [index: string]: any } = {
   CsmCloudAccountsCoverageAnalysisResponse:
     CsmCloudAccountsCoverageAnalysisResponse,
   CsmCoverageAnalysis: CsmCoverageAnalysis,
+  CsmHostFacetInfoAttributes: CsmHostFacetInfoAttributes,
+  CsmHostFacetInfoData: CsmHostFacetInfoData,
+  CsmHostFacetInfoItem: CsmHostFacetInfoItem,
+  CsmHostFacetInfoMeta: CsmHostFacetInfoMeta,
+  CsmHostFacetInfoResponse: CsmHostFacetInfoResponse,
   CsmHostsAndContainersCoverageAnalysisAttributes:
     CsmHostsAndContainersCoverageAnalysisAttributes,
   CsmHostsAndContainersCoverageAnalysisData:
@@ -8859,6 +8901,13 @@ const typeMap: { [index: string]: any } = {
     CsmServerlessCoverageAnalysisAttributes,
   CsmServerlessCoverageAnalysisData: CsmServerlessCoverageAnalysisData,
   CsmServerlessCoverageAnalysisResponse: CsmServerlessCoverageAnalysisResponse,
+  CsmSettingsMeta: CsmSettingsMeta,
+  CsmUnifiedHostAttributes: CsmUnifiedHostAttributes,
+  CsmUnifiedHostData: CsmUnifiedHostData,
+  CsmUnifiedHostFacetData: CsmUnifiedHostFacetData,
+  CsmUnifiedHostFacetsResponse: CsmUnifiedHostFacetsResponse,
+  CsmUnifiedHostsMeta: CsmUnifiedHostsMeta,
+  CsmUnifiedHostsResponse: CsmUnifiedHostsResponse,
   CustomAttributeConfig: CustomAttributeConfig,
   CustomAttributeConfigAttributesCreate: CustomAttributeConfigAttributesCreate,
   CustomAttributeConfigCreate: CustomAttributeConfigCreate,
