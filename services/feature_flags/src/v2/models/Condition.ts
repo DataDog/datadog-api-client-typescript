@@ -3,13 +3,16 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { ConditionOperator } from "./ConditionOperator";
 
 /**
- * Targeting condition details.
+ * Targeting condition details. A condition is either an inline
+ * predicate with `operator`, `attribute`, and `value`, or a reference to a
+ * saved filter with `saved_filter_id`. The inline fields are omitted for saved-filter
+ * references.
  */
 export class Condition {
   /**
-   * The user or request attribute to evaluate.
+   * The user or request attribute to evaluate. Omitted for saved-filter references.
    */
-  "attribute": string;
+  "attribute"?: string;
   /**
    * The timestamp when the condition was created.
    */
@@ -21,15 +24,19 @@ export class Condition {
   /**
    * The operator used in a targeting condition.
    */
-  "operator": ConditionOperator;
+  "operator"?: ConditionOperator;
+  /**
+   * The ID of the saved filter referenced by this condition, or null for inline conditions.
+   */
+  "savedFilterId"?: string;
   /**
    * The timestamp when the condition was last updated.
    */
   "updatedAt": Date;
   /**
-   * Values used by the selected operator.
+   * Values used by the selected operator. Omitted for saved-filter references.
    */
-  "value": Array<string>;
+  "value"?: Array<string>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -48,7 +55,6 @@ export class Condition {
     attribute: {
       baseName: "attribute",
       type: "string",
-      required: true,
     },
     createdAt: {
       baseName: "created_at",
@@ -65,7 +71,11 @@ export class Condition {
     operator: {
       baseName: "operator",
       type: "ConditionOperator",
-      required: true,
+    },
+    savedFilterId: {
+      baseName: "saved_filter_id",
+      type: "string",
+      format: "uuid",
     },
     updatedAt: {
       baseName: "updated_at",
@@ -76,7 +86,6 @@ export class Condition {
     value: {
       baseName: "value",
       type: "Array<string>",
-      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
