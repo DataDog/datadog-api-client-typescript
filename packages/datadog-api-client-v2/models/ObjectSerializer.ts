@@ -3433,6 +3433,21 @@ import { ReorderRuleResourceArray } from "./ReorderRuleResourceArray";
 import { ReorderRuleResourceData } from "./ReorderRuleResourceData";
 import { ReorderRulesetResourceArray } from "./ReorderRulesetResourceArray";
 import { ReorderRulesetResourceData } from "./ReorderRulesetResourceData";
+import { ReportScheduleAuthor } from "./ReportScheduleAuthor";
+import { ReportScheduleAuthorAttributes } from "./ReportScheduleAuthorAttributes";
+import { ReportScheduleAuthorRelationship } from "./ReportScheduleAuthorRelationship";
+import { ReportScheduleAuthorRelationshipData } from "./ReportScheduleAuthorRelationshipData";
+import { ReportScheduleCreateRequest } from "./ReportScheduleCreateRequest";
+import { ReportScheduleCreateRequestAttributes } from "./ReportScheduleCreateRequestAttributes";
+import { ReportScheduleCreateRequestData } from "./ReportScheduleCreateRequestData";
+import { ReportSchedulePatchRequest } from "./ReportSchedulePatchRequest";
+import { ReportSchedulePatchRequestAttributes } from "./ReportSchedulePatchRequestAttributes";
+import { ReportSchedulePatchRequestData } from "./ReportSchedulePatchRequestData";
+import { ReportScheduleResponse } from "./ReportScheduleResponse";
+import { ReportScheduleResponseAttributes } from "./ReportScheduleResponseAttributes";
+import { ReportScheduleResponseData } from "./ReportScheduleResponseData";
+import { ReportScheduleResponseRelationships } from "./ReportScheduleResponseRelationships";
+import { ReportScheduleTemplateVariable } from "./ReportScheduleTemplateVariable";
 import { ResolveVulnerableSymbolsRequest } from "./ResolveVulnerableSymbolsRequest";
 import { ResolveVulnerableSymbolsRequestData } from "./ResolveVulnerableSymbolsRequestData";
 import { ResolveVulnerableSymbolsRequestDataAttributes } from "./ResolveVulnerableSymbolsRequestDataAttributes";
@@ -6726,6 +6741,12 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   ReorderRuleResourceDataType: ["arbitrary_rule"],
   ReorderRulesetResourceDataType: ["ruleset"],
+  ReportScheduleAuthorType: ["users"],
+  ReportScheduleDeliveryFormat: ["pdf", "png", "pdf_and_png"],
+  ReportScheduleResourceType: ["dashboard", "integration_dashboard"],
+  ReportScheduleResponseAttributesDeliveryFormat: ["pdf", "png", "pdf_and_png"],
+  ReportScheduleStatus: ["active", "inactive"],
+  ReportScheduleType: ["schedule"],
   ResolveVulnerableSymbolsRequestDataType: [
     "resolve-vulnerable-symbols-request",
   ],
@@ -11735,6 +11756,21 @@ const typeMap: { [index: string]: any } = {
   ReorderRuleResourceData: ReorderRuleResourceData,
   ReorderRulesetResourceArray: ReorderRulesetResourceArray,
   ReorderRulesetResourceData: ReorderRulesetResourceData,
+  ReportScheduleAuthor: ReportScheduleAuthor,
+  ReportScheduleAuthorAttributes: ReportScheduleAuthorAttributes,
+  ReportScheduleAuthorRelationship: ReportScheduleAuthorRelationship,
+  ReportScheduleAuthorRelationshipData: ReportScheduleAuthorRelationshipData,
+  ReportScheduleCreateRequest: ReportScheduleCreateRequest,
+  ReportScheduleCreateRequestAttributes: ReportScheduleCreateRequestAttributes,
+  ReportScheduleCreateRequestData: ReportScheduleCreateRequestData,
+  ReportSchedulePatchRequest: ReportSchedulePatchRequest,
+  ReportSchedulePatchRequestAttributes: ReportSchedulePatchRequestAttributes,
+  ReportSchedulePatchRequestData: ReportSchedulePatchRequestData,
+  ReportScheduleResponse: ReportScheduleResponse,
+  ReportScheduleResponseAttributes: ReportScheduleResponseAttributes,
+  ReportScheduleResponseData: ReportScheduleResponseData,
+  ReportScheduleResponseRelationships: ReportScheduleResponseRelationships,
+  ReportScheduleTemplateVariable: ReportScheduleTemplateVariable,
   ResolveVulnerableSymbolsRequest: ResolveVulnerableSymbolsRequest,
   ResolveVulnerableSymbolsRequestData: ResolveVulnerableSymbolsRequestData,
   ResolveVulnerableSymbolsRequestDataAttributes:
@@ -14078,6 +14114,7 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   RUMGroupByMissing: ["string", "number"],
   RUMGroupByTotal: ["boolean", "string", "number"],
+  ReportScheduleIncludedResource: ["ReportScheduleAuthor"],
   RestrictionQueryResponseIncludedItem: ["RestrictionQueryRole"],
   RoutingRuleAction: [
     "SendSlackMessageAction",
