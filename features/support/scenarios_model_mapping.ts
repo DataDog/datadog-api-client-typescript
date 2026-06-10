@@ -8150,6 +8150,72 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.GetCSMServerlessCoverageAnalysis": {
         "operationResponseType": "CsmServerlessCoverageAnalysisResponse",
     },
+    "v2.ListCSMAgentlessHosts": {
+        "page": {
+            "type": "number",
+            "format": "int32",
+            },
+        "size": {
+            "type": "number",
+            "format": "int32",
+            },
+        "query": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CsmAgentlessHostsResponse",
+    },
+    "v2.GetCSMAgentlessHostFacetInfo": {
+        "facet": {
+            "type": "string",
+            "format": "",
+            },
+        "search": {
+            "type": "string",
+            "format": "",
+            },
+        "query": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CsmHostFacetInfoResponse",
+    },
+    "v2.ListCSMAgentlessHostFacets": {
+        "operationResponseType": "CsmAgentlessHostFacetsResponse",
+    },
+    "v2.ListCSMUnifiedHosts": {
+        "page": {
+            "type": "number",
+            "format": "int32",
+            },
+        "size": {
+            "type": "number",
+            "format": "int32",
+            },
+        "query": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CsmUnifiedHostsResponse",
+    },
+    "v2.GetCSMUnifiedHostFacetInfo": {
+        "facet": {
+            "type": "string",
+            "format": "",
+            },
+        "search": {
+            "type": "string",
+            "format": "",
+            },
+        "query": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CsmHostFacetInfoResponse",
+    },
+    "v2.ListCSMUnifiedHostFacets": {
+        "operationResponseType": "CsmUnifiedHostFacetsResponse",
+    },
     "v2.GetDashboardListItems": {
         "dashboardListId": {
             "type": "number",
