@@ -3095,6 +3095,27 @@ import { OutcomesResponseLinks } from "./OutcomesResponseLinks";
 import { OutputSchema } from "./OutputSchema";
 import { OutputSchemaParameters } from "./OutputSchemaParameters";
 import { OverwriteAllocationsRequest } from "./OverwriteAllocationsRequest";
+import { OwnershipEvidenceAttributes } from "./OwnershipEvidenceAttributes";
+import { OwnershipEvidenceData } from "./OwnershipEvidenceData";
+import { OwnershipEvidenceResponse } from "./OwnershipEvidenceResponse";
+import { OwnershipFeedbackRequest } from "./OwnershipFeedbackRequest";
+import { OwnershipFeedbackRequestAttributes } from "./OwnershipFeedbackRequestAttributes";
+import { OwnershipFeedbackRequestData } from "./OwnershipFeedbackRequestData";
+import { OwnershipFeedbackResponse } from "./OwnershipFeedbackResponse";
+import { OwnershipFeedbackResultAttributes } from "./OwnershipFeedbackResultAttributes";
+import { OwnershipFeedbackResultData } from "./OwnershipFeedbackResultData";
+import { OwnershipHistoryAttributes } from "./OwnershipHistoryAttributes";
+import { OwnershipHistoryData } from "./OwnershipHistoryData";
+import { OwnershipHistoryItem } from "./OwnershipHistoryItem";
+import { OwnershipHistoryPagination } from "./OwnershipHistoryPagination";
+import { OwnershipHistoryResponse } from "./OwnershipHistoryResponse";
+import { OwnershipInferenceAttributes } from "./OwnershipInferenceAttributes";
+import { OwnershipInferenceData } from "./OwnershipInferenceData";
+import { OwnershipInferenceItem } from "./OwnershipInferenceItem";
+import { OwnershipInferenceListAttributes } from "./OwnershipInferenceListAttributes";
+import { OwnershipInferenceListData } from "./OwnershipInferenceListData";
+import { OwnershipInferenceListResponse } from "./OwnershipInferenceListResponse";
+import { OwnershipInferenceResponse } from "./OwnershipInferenceResponse";
 import { PageAnnotationsAttributes } from "./PageAnnotationsAttributes";
 import { PageAnnotationsData } from "./PageAnnotationsData";
 import { PageAnnotationsResponse } from "./PageAnnotationsResponse";
@@ -6538,6 +6559,21 @@ const enumsMap: { [key: string]: any[] } = {
     "ARRAY_BOOLEAN",
     "ARRAY_OBJECT",
   ],
+  OwnershipEvidenceType: ["ownership_evidence"],
+  OwnershipFeedbackAction: ["confirm", "reject", "correct", "persist"],
+  OwnershipFeedbackResultType: ["ownership_feedback_result"],
+  OwnershipFeedbackType: ["ownership_feedback"],
+  OwnershipHistoryType: ["ownership_history"],
+  OwnershipInferenceStatus: [
+    "suggested",
+    "persisted",
+    "overridden",
+    "failed",
+    "unknown",
+  ],
+  OwnershipInferenceType: ["ownership_inference"],
+  OwnershipInferencesType: ["ownership_inferences"],
+  OwnershipOwnerType: ["user", "team", "service", "unknown"],
   PageAnnotationsType: ["page_annotations"],
   PageUrgency: ["low", "high"],
   PaginationMetaPageType: ["offset_limit"],
@@ -11298,6 +11334,27 @@ const typeMap: { [index: string]: any } = {
   OutputSchema: OutputSchema,
   OutputSchemaParameters: OutputSchemaParameters,
   OverwriteAllocationsRequest: OverwriteAllocationsRequest,
+  OwnershipEvidenceAttributes: OwnershipEvidenceAttributes,
+  OwnershipEvidenceData: OwnershipEvidenceData,
+  OwnershipEvidenceResponse: OwnershipEvidenceResponse,
+  OwnershipFeedbackRequest: OwnershipFeedbackRequest,
+  OwnershipFeedbackRequestAttributes: OwnershipFeedbackRequestAttributes,
+  OwnershipFeedbackRequestData: OwnershipFeedbackRequestData,
+  OwnershipFeedbackResponse: OwnershipFeedbackResponse,
+  OwnershipFeedbackResultAttributes: OwnershipFeedbackResultAttributes,
+  OwnershipFeedbackResultData: OwnershipFeedbackResultData,
+  OwnershipHistoryAttributes: OwnershipHistoryAttributes,
+  OwnershipHistoryData: OwnershipHistoryData,
+  OwnershipHistoryItem: OwnershipHistoryItem,
+  OwnershipHistoryPagination: OwnershipHistoryPagination,
+  OwnershipHistoryResponse: OwnershipHistoryResponse,
+  OwnershipInferenceAttributes: OwnershipInferenceAttributes,
+  OwnershipInferenceData: OwnershipInferenceData,
+  OwnershipInferenceItem: OwnershipInferenceItem,
+  OwnershipInferenceListAttributes: OwnershipInferenceListAttributes,
+  OwnershipInferenceListData: OwnershipInferenceListData,
+  OwnershipInferenceListResponse: OwnershipInferenceListResponse,
+  OwnershipInferenceResponse: OwnershipInferenceResponse,
   PageAnnotationsAttributes: PageAnnotationsAttributes,
   PageAnnotationsData: PageAnnotationsData,
   PageAnnotationsResponse: PageAnnotationsResponse,
