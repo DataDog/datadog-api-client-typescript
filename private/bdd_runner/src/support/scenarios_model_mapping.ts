@@ -13142,6 +13142,24 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "Snapshot",
   },
+  "ReportSchedulesApi.V2.CreateReportSchedule": {
+    body: {
+      type: "ReportScheduleCreateRequest",
+      format: "",
+    },
+    operationResponseType: "ReportScheduleResponse",
+  },
+  "ReportSchedulesApi.V2.PatchReportSchedule": {
+    scheduleUuid: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "ReportSchedulePatchRequest",
+      format: "",
+    },
+    operationResponseType: "ReportScheduleResponse",
+  },
   "RestrictionPoliciesApi.V2.GetRestrictionPolicy": {
     resourceId: {
       type: "string",

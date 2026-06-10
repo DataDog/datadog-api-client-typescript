@@ -441,6 +441,7 @@ apiInstance
 | Processes | @datadog/datadog-api-client-processes | [README.md](../../services/processes/README.md) |
 | Product Analytics | @datadog/datadog-api-client-product-analytics | [README.md](../../services/product-analytics/README.md) |
 | Reference Tables | @datadog/datadog-api-client-reference-tables | [README.md](../../services/reference-tables/README.md) |
+| Report Schedules | @datadog/datadog-api-client-report-schedules | [README.md](../../services/report-schedules/README.md) |
 | Restriction Policies | @datadog/datadog-api-client-restriction-policies | [README.md](../../services/restriction-policies/README.md) |
 | Roles | @datadog/datadog-api-client-roles | [README.md](../../services/roles/README.md) |
 | RUM | @datadog/datadog-api-client-rum | [README.md](../../services/rum/README.md) |
