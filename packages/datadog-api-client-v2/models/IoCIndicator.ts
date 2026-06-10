@@ -97,6 +97,18 @@ export class IoCIndicator {
    * Tags associated with the indicator.
    */
   "tags"?: Array<string>;
+  /**
+   * Current triage state of the indicator: not_reviewed or reviewed.
+   */
+  "triageState"?: string;
+  /**
+   * Timestamp when the indicator was last triaged.
+   */
+  "triagedAt"?: Date;
+  /**
+   * UUID of the user who last triaged the indicator.
+   */
+  "triagedBy"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -203,6 +215,19 @@ export class IoCIndicator {
     tags: {
       baseName: "tags",
       type: "Array<string>",
+    },
+    triageState: {
+      baseName: "triage_state",
+      type: "string",
+    },
+    triagedAt: {
+      baseName: "triaged_at",
+      type: "Date",
+      format: "date-time",
+    },
+    triagedBy: {
+      baseName: "triaged_by",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",

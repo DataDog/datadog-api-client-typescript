@@ -2037,6 +2037,13 @@ import { IoCIndicator } from "./IoCIndicator";
 import { IoCIndicatorDetailed } from "./IoCIndicatorDetailed";
 import { IoCSignalSeverityCount } from "./IoCSignalSeverityCount";
 import { IoCSource } from "./IoCSource";
+import { IoCTriageEvent } from "./IoCTriageEvent";
+import { IoCTriageWriteRequest } from "./IoCTriageWriteRequest";
+import { IoCTriageWriteRequestAttributes } from "./IoCTriageWriteRequestAttributes";
+import { IoCTriageWriteRequestData } from "./IoCTriageWriteRequestData";
+import { IoCTriageWriteResponse } from "./IoCTriageWriteResponse";
+import { IoCTriageWriteResponseAttributes } from "./IoCTriageWriteResponseAttributes";
+import { IoCTriageWriteResponseData } from "./IoCTriageWriteResponseData";
 import { Issue } from "./Issue";
 import { IssueAssigneeRelationship } from "./IssueAssigneeRelationship";
 import { IssueAttributes } from "./IssueAttributes";
@@ -9989,6 +9996,13 @@ const typeMap: { [index: string]: any } = {
   IoCIndicatorDetailed: IoCIndicatorDetailed,
   IoCSignalSeverityCount: IoCSignalSeverityCount,
   IoCSource: IoCSource,
+  IoCTriageEvent: IoCTriageEvent,
+  IoCTriageWriteRequest: IoCTriageWriteRequest,
+  IoCTriageWriteRequestAttributes: IoCTriageWriteRequestAttributes,
+  IoCTriageWriteRequestData: IoCTriageWriteRequestData,
+  IoCTriageWriteResponse: IoCTriageWriteResponse,
+  IoCTriageWriteResponseAttributes: IoCTriageWriteResponseAttributes,
+  IoCTriageWriteResponseData: IoCTriageWriteResponseData,
   Issue: Issue,
   IssueAssigneeRelationship: IssueAssigneeRelationship,
   IssueAttributes: IssueAttributes,

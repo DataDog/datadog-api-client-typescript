@@ -369,6 +369,7 @@ export function createConfiguration(
       "v2.cancelHistoricalJob": false,
       "v2.convertJobResultToSignal": false,
       "v2.convertSecurityMonitoringTerraformResource": false,
+      "v2.createIoCTriageState": false,
       "v2.createSampleLogGenerationSubscription": false,
       "v2.createSecurityMonitoringDataset": false,
       "v2.createSecurityMonitoringIntegrationConfig": false,

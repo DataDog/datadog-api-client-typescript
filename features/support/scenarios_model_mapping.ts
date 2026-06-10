@@ -5889,6 +5889,18 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "ocsf": {
+            "type": "boolean",
+            "format": "",
+            },
+        "workedBy": {
+            "type": "string",
+            "format": "",
+            },
+        "triageState": {
+            "type": "string",
+            "format": "",
+            },
         "operationResponseType": "IoCExplorerListResponse",
     },
     "v2.GetIndicatorOfCompromise": {
@@ -5896,7 +5908,30 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "ocsf": {
+            "type": "boolean",
+            "format": "",
+            },
+        "includeTriageHistory": {
+            "type": "boolean",
+            "format": "",
+            },
+        "triageHistoryLimit": {
+            "type": "number",
+            "format": "int32",
+            },
+        "triageHistoryOffset": {
+            "type": "number",
+            "format": "int32",
+            },
         "operationResponseType": "GetIoCIndicatorResponse",
+    },
+    "v2.CreateIoCTriageState": {
+        "body": {
+            "type": "IoCTriageWriteRequest",
+            "format": "",
+            },
+        "operationResponseType": "IoCTriageWriteResponse",
     },
     "v2.GetSignalNotificationRules": {
         "operationResponseType": "NotificationRulesListResponse",

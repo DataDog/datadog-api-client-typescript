@@ -59,6 +59,8 @@ import { GetSBOMResponse } from "../models/GetSBOMResponse";
 import { GetSuppressionVersionHistoryResponse } from "../models/GetSuppressionVersionHistoryResponse";
 import { HistoricalJobResponse } from "../models/HistoricalJobResponse";
 import { IoCExplorerListResponse } from "../models/IoCExplorerListResponse";
+import { IoCTriageWriteRequest } from "../models/IoCTriageWriteRequest";
+import { IoCTriageWriteResponse } from "../models/IoCTriageWriteResponse";
 import { JobCreateResponse } from "../models/JobCreateResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { ListAssetsSBOMsResponse } from "../models/ListAssetsSBOMsResponse";
@@ -1178,6 +1180,53 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateCustomFrameworkRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createIoCTriageState(
+    body: IoCTriageWriteRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'createIoCTriageState'");
+    if (!_config.unstableOperations["v2.createIoCTriageState"]) {
+      throw new Error("Unstable operation 'createIoCTriageState' is disabled");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createIoCTriageState");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/siem/ioc-explorer/triage";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.createIoCTriageState")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "IoCTriageWriteRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -2929,6 +2978,10 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
   public async getIndicatorOfCompromise(
     indicator: string,
+    ocsf?: boolean,
+    includeTriageHistory?: boolean,
+    triageHistoryLimit?: number,
+    triageHistoryOffset?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -2960,6 +3013,34 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "indicator",
         ObjectSerializer.serialize(indicator, "string", ""),
+        ""
+      );
+    }
+    if (ocsf !== undefined) {
+      requestContext.setQueryParam(
+        "ocsf",
+        ObjectSerializer.serialize(ocsf, "boolean", ""),
+        ""
+      );
+    }
+    if (includeTriageHistory !== undefined) {
+      requestContext.setQueryParam(
+        "include_triage_history",
+        ObjectSerializer.serialize(includeTriageHistory, "boolean", ""),
+        ""
+      );
+    }
+    if (triageHistoryLimit !== undefined) {
+      requestContext.setQueryParam(
+        "triage_history_limit",
+        ObjectSerializer.serialize(triageHistoryLimit, "number", "int32"),
+        ""
+      );
+    }
+    if (triageHistoryOffset !== undefined) {
+      requestContext.setQueryParam(
+        "triage_history_offset",
+        ObjectSerializer.serialize(triageHistoryOffset, "number", "int32"),
         ""
       );
     }
@@ -4610,6 +4691,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     query?: string,
     sortColumn?: string,
     sortOrder?: string,
+    ocsf?: boolean,
+    workedBy?: string,
+    triageState?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -4664,6 +4748,27 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "sort[order]",
         ObjectSerializer.serialize(sortOrder, "string", ""),
+        ""
+      );
+    }
+    if (ocsf !== undefined) {
+      requestContext.setQueryParam(
+        "ocsf",
+        ObjectSerializer.serialize(ocsf, "boolean", ""),
+        ""
+      );
+    }
+    if (workedBy !== undefined) {
+      requestContext.setQueryParam(
+        "worked_by",
+        ObjectSerializer.serialize(workedBy, "string", ""),
+        ""
+      );
+    }
+    if (triageState !== undefined) {
+      requestContext.setQueryParam(
+        "triage_state",
+        ObjectSerializer.serialize(triageState, "string", ""),
         ""
       );
     }
@@ -8554,6 +8659,68 @@ export class SecurityMonitoringApiResponseProcessor {
         "CreateCustomFrameworkResponse",
         ""
       ) as CreateCustomFrameworkResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createIoCTriageState
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createIoCTriageState(
+    response: ResponseContext
+  ): Promise<IoCTriageWriteResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: IoCTriageWriteResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IoCTriageWriteResponse"
+      ) as IoCTriageWriteResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IoCTriageWriteResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IoCTriageWriteResponse",
+        ""
+      ) as IoCTriageWriteResponse;
       return body;
     }
 
@@ -16022,6 +16189,14 @@ export interface SecurityMonitoringApiCreateCustomFrameworkRequest {
   body: CreateCustomFrameworkRequest;
 }
 
+export interface SecurityMonitoringApiCreateIoCTriageStateRequest {
+  /**
+   * The triage state to set for the indicator.
+   * @type IoCTriageWriteRequest
+   */
+  body: IoCTriageWriteRequest;
+}
+
 export interface SecurityMonitoringApiCreateJiraIssuesRequest {
   /**
    * @type CreateJiraIssueRequestArray
@@ -16380,6 +16555,26 @@ export interface SecurityMonitoringApiGetIndicatorOfCompromiseRequest {
    * @type string
    */
   indicator: string;
+  /**
+   * When true, return only OCSF field-based matches. When false, return regex/message-based matches.
+   * @type boolean
+   */
+  ocsf?: boolean;
+  /**
+   * Include full triage history for the indicator.
+   * @type boolean
+   */
+  includeTriageHistory?: boolean;
+  /**
+   * Maximum number of triage history events returned. Only applied when `include_triage_history` is true.
+   * @type number
+   */
+  triageHistoryLimit?: number;
+  /**
+   * Pagination offset into the triage history. Only applied when `include_triage_history` is true.
+   * @type number
+   */
+  triageHistoryOffset?: number;
 }
 
 export interface SecurityMonitoringApiGetInvestigationLogQueriesMatchingSignalRequest {
@@ -16864,6 +17059,21 @@ export interface SecurityMonitoringApiListIndicatorsOfCompromiseRequest {
    * @type string
    */
   sortOrder?: string;
+  /**
+   * When true, return only OCSF field-based matches. When false, return regex/message-based matches.
+   * @type boolean
+   */
+  ocsf?: boolean;
+  /**
+   * Filter indicators whose triage state was updated by a specific user UUID.
+   * @type string
+   */
+  workedBy?: string;
+  /**
+   * Filter by triage state: not_reviewed or reviewed.
+   * @type string
+   */
+  triageState?: string;
 }
 
 export interface SecurityMonitoringApiListMultipleRulesetsRequest {
@@ -18152,6 +18362,28 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Set the triage state of an indicator of compromise (IoC). This creates or
+   * updates the triage state for the indicator in your organization.
+   * @param param The request object
+   */
+  public createIoCTriageState(
+    param: SecurityMonitoringApiCreateIoCTriageStateRequest,
+    options?: Configuration
+  ): Promise<IoCTriageWriteResponse> {
+    const requestContextPromise = this.requestFactory.createIoCTriageState(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createIoCTriageState(responseContext);
+        });
+    });
+  }
+
+  /**
    * Create Jira issues for security findings.
    * This operation creates a case in Datadog and a Jira issue linked to that case for bidirectional sync between Datadog and Jira. To configure the Jira integration, see [Bidirectional ticket syncing with Jira](https://docs.datadoghq.com/security/ticketing_integrations/#bidirectional-ticket-syncing-with-jira). You can create up to 50 Jira issues per request and associate up to 50 security findings per Jira issue. Security findings that are already attached to another Jira issue will be detached from their previous Jira issue and attached to the newly created Jira issue.
    * @param param The request object
@@ -19032,6 +19264,10 @@ export class SecurityMonitoringApi {
   ): Promise<GetIoCIndicatorResponse> {
     const requestContextPromise = this.requestFactory.getIndicatorOfCompromise(
       param.indicator,
+      param.ocsf,
+      param.includeTriageHistory,
+      param.triageHistoryLimit,
+      param.triageHistoryOffset,
       options
     );
     return requestContextPromise.then((requestContext) => {
@@ -19941,6 +20177,9 @@ export class SecurityMonitoringApi {
         param.query,
         param.sortColumn,
         param.sortOrder,
+        param.ocsf,
+        param.workedBy,
+        param.triageState,
         options
       );
     return requestContextPromise.then((requestContext) => {
