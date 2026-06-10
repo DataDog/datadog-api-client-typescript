@@ -8162,6 +8162,92 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   "CSMCoverageAnalysisApi.V2.GetCSMServerlessCoverageAnalysis": {
     operationResponseType: "CsmServerlessCoverageAnalysisResponse",
   },
+  "CSMOwnershipApi.V2.ListOwnershipInferences": {
+    resourceId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "OwnershipInferenceListResponse",
+  },
+  "CSMOwnershipApi.V2.ListOwnershipHistory": {
+    resourceId: {
+      type: "string",
+      format: "",
+    },
+    cursor: {
+      type: "string",
+      format: "",
+    },
+    limit: {
+      type: "number",
+      format: "int32",
+    },
+    operationResponseType: "OwnershipHistoryResponse",
+  },
+  "CSMOwnershipApi.V2.GetOwnershipInference": {
+    resourceId: {
+      type: "string",
+      format: "",
+    },
+    ownerType: {
+      type: "OwnershipOwnerType",
+      format: "",
+    },
+    ifNoneMatch: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "OwnershipInferenceResponse",
+  },
+  "CSMOwnershipApi.V2.GetOwnershipEvidence": {
+    resourceId: {
+      type: "string",
+      format: "",
+    },
+    ownerType: {
+      type: "OwnershipOwnerType",
+      format: "",
+    },
+    ifNoneMatch: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "OwnershipEvidenceResponse",
+  },
+  "CSMOwnershipApi.V2.CreateOwnershipFeedback": {
+    resourceId: {
+      type: "string",
+      format: "",
+    },
+    ownerType: {
+      type: "OwnershipOwnerType",
+      format: "",
+    },
+    body: {
+      type: "OwnershipFeedbackRequest",
+      format: "",
+    },
+    operationResponseType: "OwnershipFeedbackResponse",
+  },
+  "CSMOwnershipApi.V2.ListOwnershipHistoryByOwnerType": {
+    resourceId: {
+      type: "string",
+      format: "",
+    },
+    ownerType: {
+      type: "OwnershipOwnerType",
+      format: "",
+    },
+    cursor: {
+      type: "string",
+      format: "",
+    },
+    limit: {
+      type: "number",
+      format: "int32",
+    },
+    operationResponseType: "OwnershipHistoryResponse",
+  },
   "CSMSettingsApi.V2.ListCSMAgentlessHosts": {
     page: {
       type: "number",

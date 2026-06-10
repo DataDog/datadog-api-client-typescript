@@ -380,6 +380,7 @@ apiInstance
 | Containers | @datadog/datadog-api-client-containers | [README.md](../../services/containers/README.md) |
 | CSM Agents | @datadog/datadog-api-client-csm-agents | [README.md](../../services/csm-agents/README.md) |
 | CSM Coverage Analysis | @datadog/datadog-api-client-csm-coverage-analysis | [README.md](../../services/csm-coverage-analysis/README.md) |
+| CSM Ownership | @datadog/datadog-api-client-csm-ownership | [README.md](../../services/csm-ownership/README.md) |
 | CSM Settings | @datadog/datadog-api-client-csm-settings | [README.md](../../services/csm-settings/README.md) |
 | CSM Threats | @datadog/datadog-api-client-csm-threats | [README.md](../../services/csm-threats/README.md) |
 | Customer Org | @datadog/datadog-api-client-customer-org | [README.md](../../services/customer-org/README.md) |
