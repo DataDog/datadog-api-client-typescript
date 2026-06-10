@@ -358,7 +358,7 @@ export { NodeTypesResponseDataType } from "./models/NodeTypesResponseDataType";
 export { NotificationRule } from "./models/NotificationRule";
 export { NotificationRuleAttributes } from "./models/NotificationRuleAttributes";
 export { NotificationRuleResponse } from "./models/NotificationRuleResponse";
-export { NotificationRulesList } from "./models/NotificationRulesList";
+export { NotificationRulesListResponse } from "./models/NotificationRulesListResponse";
 export { NotificationRulesType } from "./models/NotificationRulesType";
 export { Pagination } from "./models/Pagination";
 export { PatchNotificationRuleParameters } from "./models/PatchNotificationRuleParameters";

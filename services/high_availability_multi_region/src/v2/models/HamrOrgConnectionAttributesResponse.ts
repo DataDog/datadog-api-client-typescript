@@ -60,6 +60,7 @@ export class HamrOrgConnectionAttributesResponse {
       baseName: "hamr_status",
       type: "HamrOrgConnectionStatus",
       required: true,
+      format: "int64",
     },
     isPrimary: {
       baseName: "is_primary",

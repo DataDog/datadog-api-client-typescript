@@ -199,7 +199,7 @@ import { NodeTypesResponseDataAttributes } from "./NodeTypesResponseDataAttribut
 import { NotificationRule } from "./NotificationRule";
 import { NotificationRuleAttributes } from "./NotificationRuleAttributes";
 import { NotificationRuleResponse } from "./NotificationRuleResponse";
-import { NotificationRulesList } from "./NotificationRulesList";
+import { NotificationRulesListResponse } from "./NotificationRulesListResponse";
 import { Pagination } from "./Pagination";
 import { PatchNotificationRuleParameters } from "./PatchNotificationRuleParameters";
 import { PatchNotificationRuleParametersData } from "./PatchNotificationRuleParametersData";
@@ -1142,7 +1142,7 @@ export const TypingInfo: ModelTypingInfo = {
     NotificationRule: NotificationRule,
     NotificationRuleAttributes: NotificationRuleAttributes,
     NotificationRuleResponse: NotificationRuleResponse,
-    NotificationRulesList: NotificationRulesList,
+    NotificationRulesListResponse: NotificationRulesListResponse,
     Pagination: Pagination,
     PatchNotificationRuleParameters: PatchNotificationRuleParameters,
     PatchNotificationRuleParametersData: PatchNotificationRuleParametersData,

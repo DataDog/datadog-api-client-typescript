@@ -58,6 +58,7 @@ export class ProjectNotificationSettings {
     destinations: {
       baseName: "destinations",
       type: "Array<number>",
+      format: "int64",
     },
     enabled: {
       baseName: "enabled",

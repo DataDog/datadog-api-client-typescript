@@ -66,6 +66,7 @@ export class SourcemapFileAttributes {
       baseName: "minifiedLineLengths",
       type: "Array<number>",
       required: true,
+      format: "int64",
     },
     names: {
       baseName: "names",

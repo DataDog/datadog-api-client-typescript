@@ -133,7 +133,7 @@ export class SeatsApiRequestFactory extends BaseAPIRequestFactory {
     if (pageLimit !== undefined) {
       requestContext.setQueryParam(
         "page[limit]",
-        serialize(pageLimit, TypingInfo, "number", ""),
+        serialize(pageLimit, TypingInfo, "number", "int64"),
         "",
       );
     }

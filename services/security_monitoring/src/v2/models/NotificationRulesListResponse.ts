@@ -2,7 +2,10 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { NotificationRule } from "./NotificationRule";
 
-export class NotificationRulesList {
+/**
+ * The list of notification rules.
+ */
+export class NotificationRulesListResponse {
   "data"?: Array<NotificationRule>;
   /**
    * A container for additional, undeclared properties.
@@ -33,7 +36,7 @@ export class NotificationRulesList {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return NotificationRulesList.attributeTypeMap;
+    return NotificationRulesListResponse.attributeTypeMap;
   }
 
   public constructor() {}
