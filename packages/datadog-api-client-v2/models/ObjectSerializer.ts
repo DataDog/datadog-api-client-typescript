@@ -2765,7 +2765,7 @@ import { NotificationChannelPushConfig } from "./NotificationChannelPushConfig";
 import { NotificationRule } from "./NotificationRule";
 import { NotificationRuleAttributes } from "./NotificationRuleAttributes";
 import { NotificationRuleResponse } from "./NotificationRuleResponse";
-import { NotificationRulesList } from "./NotificationRulesList";
+import { NotificationRulesListResponse } from "./NotificationRulesListResponse";
 import { NotionAPIKey } from "./NotionAPIKey";
 import { NotionAPIKeyUpdate } from "./NotionAPIKeyUpdate";
 import { NotionIntegration } from "./NotionIntegration";
@@ -10841,7 +10841,7 @@ const typeMap: { [index: string]: any } = {
   NotificationRule: NotificationRule,
   NotificationRuleAttributes: NotificationRuleAttributes,
   NotificationRuleResponse: NotificationRuleResponse,
-  NotificationRulesList: NotificationRulesList,
+  NotificationRulesListResponse: NotificationRulesListResponse,
   NotionAPIKey: NotionAPIKey,
   NotionAPIKeyUpdate: NotionAPIKeyUpdate,
   NotionIntegration: NotionIntegration,

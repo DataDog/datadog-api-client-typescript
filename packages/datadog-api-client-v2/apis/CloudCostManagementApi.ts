@@ -1964,14 +1964,14 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     if (limit !== undefined) {
       requestContext.setQueryParam(
         "limit",
-        ObjectSerializer.serialize(limit, "number", ""),
+        ObjectSerializer.serialize(limit, "number", "int64"),
         ""
       );
     }
     if (offset !== undefined) {
       requestContext.setQueryParam(
         "offset",
-        ObjectSerializer.serialize(offset, "number", ""),
+        ObjectSerializer.serialize(offset, "number", "int64"),
         ""
       );
     }

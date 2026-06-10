@@ -98,7 +98,7 @@ export class SeatsApiRequestFactory extends BaseAPIRequestFactory {
     if (pageLimit !== undefined) {
       requestContext.setQueryParam(
         "page[limit]",
-        ObjectSerializer.serialize(pageLimit, "number", ""),
+        ObjectSerializer.serialize(pageLimit, "number", "int64"),
         ""
       );
     }

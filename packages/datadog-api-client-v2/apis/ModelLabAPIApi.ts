@@ -397,14 +397,14 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", ""),
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
         ""
       );
     }
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", ""),
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
         ""
       );
     }
@@ -709,14 +709,14 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", ""),
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
         ""
       );
     }
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", ""),
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
         ""
       );
     }

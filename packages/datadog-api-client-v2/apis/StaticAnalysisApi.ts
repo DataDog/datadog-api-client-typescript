@@ -1303,14 +1303,14 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     if (pageOffset !== undefined) {
       requestContext.setQueryParam(
         "page[offset]",
-        ObjectSerializer.serialize(pageOffset, "number", ""),
+        ObjectSerializer.serialize(pageOffset, "number", "int64"),
         ""
       );
     }
     if (pageLimit !== undefined) {
       requestContext.setQueryParam(
         "page[limit]",
-        ObjectSerializer.serialize(pageLimit, "number", ""),
+        ObjectSerializer.serialize(pageLimit, "number", "int64"),
         ""
       );
     }
