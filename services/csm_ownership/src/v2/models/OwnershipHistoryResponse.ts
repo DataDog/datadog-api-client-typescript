@@ -1,0 +1,47 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+import { OwnershipHistoryData } from "./OwnershipHistoryData";
+
+/**
+ * The response returned when listing the inference history for a resource.
+ */
+export class OwnershipHistoryResponse {
+  /**
+   * The data wrapper for an ownership history response.
+   */
+  "data": OwnershipHistoryData;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    data: {
+      baseName: "data",
+      type: "OwnershipHistoryData",
+      required: true,
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return OwnershipHistoryResponse.attributeTypeMap;
+  }
+
+  public constructor() {}
+}
