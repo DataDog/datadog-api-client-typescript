@@ -8150,6 +8150,92 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.GetCSMServerlessCoverageAnalysis": {
         "operationResponseType": "CsmServerlessCoverageAnalysisResponse",
     },
+    "v2.ListOwnershipInferences": {
+        "resourceId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "OwnershipInferenceListResponse",
+    },
+    "v2.ListOwnershipHistory": {
+        "resourceId": {
+            "type": "string",
+            "format": "",
+            },
+        "cursor": {
+            "type": "string",
+            "format": "",
+            },
+        "limit": {
+            "type": "number",
+            "format": "int32",
+            },
+        "operationResponseType": "OwnershipHistoryResponse",
+    },
+    "v2.GetOwnershipInference": {
+        "resourceId": {
+            "type": "string",
+            "format": "",
+            },
+        "ownerType": {
+            "type": "OwnershipOwnerType",
+            "format": "",
+            },
+        "ifNoneMatch": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "OwnershipInferenceResponse",
+    },
+    "v2.GetOwnershipEvidence": {
+        "resourceId": {
+            "type": "string",
+            "format": "",
+            },
+        "ownerType": {
+            "type": "OwnershipOwnerType",
+            "format": "",
+            },
+        "ifNoneMatch": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "OwnershipEvidenceResponse",
+    },
+    "v2.CreateOwnershipFeedback": {
+        "resourceId": {
+            "type": "string",
+            "format": "",
+            },
+        "ownerType": {
+            "type": "OwnershipOwnerType",
+            "format": "",
+            },
+        "body": {
+            "type": "OwnershipFeedbackRequest",
+            "format": "",
+            },
+        "operationResponseType": "OwnershipFeedbackResponse",
+    },
+    "v2.ListOwnershipHistoryByOwnerType": {
+        "resourceId": {
+            "type": "string",
+            "format": "",
+            },
+        "ownerType": {
+            "type": "OwnershipOwnerType",
+            "format": "",
+            },
+        "cursor": {
+            "type": "string",
+            "format": "",
+            },
+        "limit": {
+            "type": "number",
+            "format": "int32",
+            },
+        "operationResponseType": "OwnershipHistoryResponse",
+    },
     "v2.ListCSMAgentlessHosts": {
         "page": {
             "type": "number",
