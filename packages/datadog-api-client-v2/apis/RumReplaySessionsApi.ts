@@ -71,7 +71,7 @@ export class RumReplaySessionsApiRequestFactory extends BaseAPIRequestFactory {
     if (maxListSize !== undefined) {
       requestContext.setQueryParam(
         "max_list_size",
-        ObjectSerializer.serialize(maxListSize, "number", ""),
+        ObjectSerializer.serialize(maxListSize, "number", "int64"),
         ""
       );
     }
