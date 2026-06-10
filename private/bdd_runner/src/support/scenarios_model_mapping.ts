@@ -2414,40 +2414,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "FleetTracersResponse",
   },
-  "FleetAutomationApi.V2.ListFleetClusters": {
-    pageNumber: {
-      type: "number",
-      format: "int64",
-    },
-    pageSize: {
-      type: "number",
-      format: "int64",
-    },
-    sortAttribute: {
-      type: "string",
-      format: "",
-    },
-    sortDescending: {
-      type: "boolean",
-      format: "",
-    },
-    filter: {
-      type: "string",
-      format: "",
-    },
-    tags: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "FleetClustersResponse",
-  },
-  "FleetAutomationApi.V2.ListFleetInstrumentedPods": {
-    clusterName: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "FleetInstrumentedPodsResponse",
-  },
   "FleetAutomationApi.V2.ListFleetDeployments": {
     pageSize: {
       type: "number",
