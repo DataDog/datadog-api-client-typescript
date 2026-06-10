@@ -9012,6 +9012,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "FeatureFlagResponse",
     },
+    "v2.ListForms": {
+        "operationResponseType": "FormsResponse",
+    },
+    "v2.CreateForm": {
+        "body": {
+            "type": "CreateFormRequest",
+            "format": "",
+            },
+        "operationResponseType": "FormResponse",
+    },
+    "v2.CreateAndPublishForm": {
+        "body": {
+            "type": "CreateFormRequest",
+            "format": "",
+            },
+        "operationResponseType": "FormResponse",
+    },
+    "v2.GetForm": {
+        "formId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "version": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "FormResponse",
+    },
+    "v2.DeleteForm": {
+        "formId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "DeleteFormResponse",
+    },
     "v2.GetHamrOrgConnection": {
         "operationResponseType": "HamrOrgConnectionResponse",
     },

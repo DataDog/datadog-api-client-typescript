@@ -980,6 +980,9 @@ import { CreateEnvironmentRequest } from "./CreateEnvironmentRequest";
 import { CreateFeatureFlagAttributes } from "./CreateFeatureFlagAttributes";
 import { CreateFeatureFlagData } from "./CreateFeatureFlagData";
 import { CreateFeatureFlagRequest } from "./CreateFeatureFlagRequest";
+import { CreateFormData } from "./CreateFormData";
+import { CreateFormDataAttributes } from "./CreateFormDataAttributes";
+import { CreateFormRequest } from "./CreateFormRequest";
 import { CreateIncidentNotificationRuleRequest } from "./CreateIncidentNotificationRuleRequest";
 import { CreateIncidentNotificationTemplateRequest } from "./CreateIncidentNotificationTemplateRequest";
 import { CreateJiraIssueRequestArray } from "./CreateJiraIssueRequestArray";
@@ -1285,6 +1288,8 @@ import { DeleteAppsRequestDataItems } from "./DeleteAppsRequestDataItems";
 import { DeleteAppsResponse } from "./DeleteAppsResponse";
 import { DeleteAppsResponseDataItems } from "./DeleteAppsResponseDataItems";
 import { DeleteCustomFrameworkResponse } from "./DeleteCustomFrameworkResponse";
+import { DeleteFormData } from "./DeleteFormData";
+import { DeleteFormResponse } from "./DeleteFormResponse";
 import { DeletedSuiteResponseData } from "./DeletedSuiteResponseData";
 import { DeletedSuiteResponseDataAttributes } from "./DeletedSuiteResponseDataAttributes";
 import { DeletedSuitesRequestDelete } from "./DeletedSuitesRequestDelete";
@@ -1643,8 +1648,18 @@ import { FleetTracersResponseDataAttributes } from "./FleetTracersResponseDataAt
 import { FleetTracersResponseMeta } from "./FleetTracersResponseMeta";
 import { FlutterSourcemapAttributes } from "./FlutterSourcemapAttributes";
 import { FlutterSourcemapData } from "./FlutterSourcemapData";
+import { FormData } from "./FormData";
+import { FormDataAttributes } from "./FormDataAttributes";
+import { FormDataDefinition } from "./FormDataDefinition";
+import { FormDatastoreConfigAttributes } from "./FormDatastoreConfigAttributes";
+import { FormPublicationAttributes } from "./FormPublicationAttributes";
+import { FormResponse } from "./FormResponse";
 import { FormTrigger } from "./FormTrigger";
 import { FormTriggerWrapper } from "./FormTriggerWrapper";
+import { FormUiDefinition } from "./FormUiDefinition";
+import { FormUiDefinitionUiTheme } from "./FormUiDefinitionUiTheme";
+import { FormVersionAttributes } from "./FormVersionAttributes";
+import { FormsResponse } from "./FormsResponse";
 import { FormulaLimit } from "./FormulaLimit";
 import { FrameworkHandleAndVersionResponseData } from "./FrameworkHandleAndVersionResponseData";
 import { FreshserviceAPIKey } from "./FreshserviceAPIKey";
@@ -5746,6 +5761,20 @@ const enumsMap: { [key: string]: any[] } = {
   FleetDeploymentResourceType: ["deployment"],
   FleetScheduleResourceType: ["schedule"],
   FleetScheduleStatus: ["active", "inactive"],
+  FormDataDefinitionType: ["object"],
+  FormType: ["forms"],
+  FormUiDefinitionUiThemePrimaryColor: [
+    "gray",
+    "red",
+    "orange",
+    "yellow",
+    "green",
+    "light-blue",
+    "dark-blue",
+    "magenta",
+    "indigo",
+  ],
+  FormVersionState: ["draft", "frozen"],
   FreshserviceAPIKeyType: ["FreshserviceAPIKey"],
   FreshserviceIntegrationType: ["Freshservice"],
   GCPIntegrationType: ["GCP"],
@@ -8787,6 +8816,9 @@ const typeMap: { [index: string]: any } = {
   CreateFeatureFlagAttributes: CreateFeatureFlagAttributes,
   CreateFeatureFlagData: CreateFeatureFlagData,
   CreateFeatureFlagRequest: CreateFeatureFlagRequest,
+  CreateFormData: CreateFormData,
+  CreateFormDataAttributes: CreateFormDataAttributes,
+  CreateFormRequest: CreateFormRequest,
   CreateIncidentNotificationRuleRequest: CreateIncidentNotificationRuleRequest,
   CreateIncidentNotificationTemplateRequest:
     CreateIncidentNotificationTemplateRequest,
@@ -9156,6 +9188,8 @@ const typeMap: { [index: string]: any } = {
   DeleteAppsResponse: DeleteAppsResponse,
   DeleteAppsResponseDataItems: DeleteAppsResponseDataItems,
   DeleteCustomFrameworkResponse: DeleteCustomFrameworkResponse,
+  DeleteFormData: DeleteFormData,
+  DeleteFormResponse: DeleteFormResponse,
   DeletedSuiteResponseData: DeletedSuiteResponseData,
   DeletedSuiteResponseDataAttributes: DeletedSuiteResponseDataAttributes,
   DeletedSuitesRequestDelete: DeletedSuitesRequestDelete,
@@ -9563,8 +9597,18 @@ const typeMap: { [index: string]: any } = {
   FleetTracersResponseMeta: FleetTracersResponseMeta,
   FlutterSourcemapAttributes: FlutterSourcemapAttributes,
   FlutterSourcemapData: FlutterSourcemapData,
+  FormData: FormData,
+  FormDataAttributes: FormDataAttributes,
+  FormDataDefinition: FormDataDefinition,
+  FormDatastoreConfigAttributes: FormDatastoreConfigAttributes,
+  FormPublicationAttributes: FormPublicationAttributes,
+  FormResponse: FormResponse,
   FormTrigger: FormTrigger,
   FormTriggerWrapper: FormTriggerWrapper,
+  FormUiDefinition: FormUiDefinition,
+  FormUiDefinitionUiTheme: FormUiDefinitionUiTheme,
+  FormVersionAttributes: FormVersionAttributes,
+  FormsResponse: FormsResponse,
   FormulaLimit: FormulaLimit,
   FrameworkHandleAndVersionResponseData: FrameworkHandleAndVersionResponseData,
   FreshserviceAPIKey: FreshserviceAPIKey,
