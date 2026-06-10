@@ -70,6 +70,7 @@ import { ListVulnerableAssetsResponse } from "../models/ListVulnerableAssetsResp
 import { MuteFindingsRequest } from "../models/MuteFindingsRequest";
 import { MuteFindingsResponse } from "../models/MuteFindingsResponse";
 import { NodeTypesResponse } from "../models/NodeTypesResponse";
+import { NotificationRulePreviewResponse } from "../models/NotificationRulePreviewResponse";
 import { NotificationRuleResponse } from "../models/NotificationRuleResponse";
 import { NotificationRulesListResponse } from "../models/NotificationRulesListResponse";
 import { PatchNotificationRuleParameters } from "../models/PatchNotificationRuleParameters";
@@ -6405,6 +6406,54 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringSignalListRequest",
         ""
       ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async sendSecurityMonitoringNotificationPreview(
+    body: CreateNotificationRuleParameters,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "sendSecurityMonitoringNotificationPreview"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/notification_rules/send_notification_preview";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.sendSecurityMonitoringNotificationPreview"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "CreateNotificationRuleParameters", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -14926,6 +14975,89 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to sendSecurityMonitoringNotificationPreview
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async sendSecurityMonitoringNotificationPreview(
+    response: ResponseContext
+  ): Promise<NotificationRulePreviewResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: NotificationRulePreviewResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "NotificationRulePreviewResponse"
+        ) as NotificationRulePreviewResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: NotificationRulePreviewResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "NotificationRulePreviewResponse",
+          ""
+        ) as NotificationRulePreviewResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to testExistingSecurityMonitoringRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -17475,6 +17607,13 @@ export interface SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest {
    * @type SecurityMonitoringSignalListRequest
    */
   body?: SecurityMonitoringSignalListRequest;
+}
+
+export interface SecurityMonitoringApiSendSecurityMonitoringNotificationPreviewRequest {
+  /**
+   * @type CreateNotificationRuleParameters
+   */
+  body: CreateNotificationRuleParameters;
 }
 
 export interface SecurityMonitoringApiTestExistingSecurityMonitoringRuleRequest {
@@ -20981,6 +21120,30 @@ export class SecurityMonitoringApi {
 
       param.body.page.cursor = cursorMetaPageAfter;
     }
+  }
+
+  /**
+   * Send a notification preview to test that a notification rule's targets are properly configured.
+   * @param param The request object
+   */
+  public sendSecurityMonitoringNotificationPreview(
+    param: SecurityMonitoringApiSendSecurityMonitoringNotificationPreviewRequest,
+    options?: Configuration
+  ): Promise<NotificationRulePreviewResponse> {
+    const requestContextPromise =
+      this.requestFactory.sendSecurityMonitoringNotificationPreview(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.sendSecurityMonitoringNotificationPreview(
+            responseContext
+          );
+        });
+    });
   }
 
   /**

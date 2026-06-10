@@ -1357,6 +1357,7 @@ export {
   SecurityMonitoringApiSearchSecurityFindingsRequest,
   SecurityMonitoringApiSearchSecurityMonitoringHistsignalsRequest,
   SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest,
+  SecurityMonitoringApiSendSecurityMonitoringNotificationPreviewRequest,
   SecurityMonitoringApiTestExistingSecurityMonitoringRuleRequest,
   SecurityMonitoringApiTestSecurityMonitoringRuleRequest,
   SecurityMonitoringApiUpdateCustomFrameworkRequest,
@@ -5211,7 +5212,15 @@ export { NotificationChannelPushConfigType } from "./models/NotificationChannelP
 export { NotificationChannelType } from "./models/NotificationChannelType";
 export { NotificationRule } from "./models/NotificationRule";
 export { NotificationRuleAttributes } from "./models/NotificationRuleAttributes";
+export { NotificationRulePreviewNotificationStatus } from "./models/NotificationRulePreviewNotificationStatus";
+export { NotificationRulePreviewResponse } from "./models/NotificationRulePreviewResponse";
+export { NotificationRulePreviewResponseAttributes } from "./models/NotificationRulePreviewResponseAttributes";
+export { NotificationRulePreviewResponseData } from "./models/NotificationRulePreviewResponseData";
+export { NotificationRulePreviewResponseType } from "./models/NotificationRulePreviewResponseType";
+export { NotificationRulePreviewResult } from "./models/NotificationRulePreviewResult";
 export { NotificationRuleResponse } from "./models/NotificationRuleResponse";
+export { NotificationRuleRouting } from "./models/NotificationRuleRouting";
+export { NotificationRuleRoutingMode } from "./models/NotificationRuleRoutingMode";
 export { NotificationRulesListResponse } from "./models/NotificationRulesListResponse";
 export { NotificationRulesType } from "./models/NotificationRulesType";
 export { NotionAPIKey } from "./models/NotionAPIKey";
