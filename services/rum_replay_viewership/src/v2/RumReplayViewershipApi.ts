@@ -186,14 +186,14 @@ export class RumReplayViewershipApiRequestFactory extends BaseAPIRequestFactory 
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        serialize(pageSize, TypingInfo, "number", ""),
+        serialize(pageSize, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page[number]",
-        serialize(pageNumber, TypingInfo, "number", ""),
+        serialize(pageNumber, TypingInfo, "number", "int64"),
         "",
       );
     }
@@ -252,7 +252,7 @@ export class RumReplayViewershipApiRequestFactory extends BaseAPIRequestFactory 
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page[number]",
-        serialize(pageNumber, TypingInfo, "number", ""),
+        serialize(pageNumber, TypingInfo, "number", "int64"),
         "",
       );
     }
@@ -280,7 +280,7 @@ export class RumReplayViewershipApiRequestFactory extends BaseAPIRequestFactory 
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        serialize(pageSize, TypingInfo, "number", ""),
+        serialize(pageSize, TypingInfo, "number", "int64"),
         "",
       );
     }

@@ -4523,7 +4523,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     limit: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     operationResponseType: "CaseCountResponse",
   },
@@ -5028,11 +5028,11 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     pageSize: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     pageNumber: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     sortAscending: {
       type: "boolean",
@@ -5911,7 +5911,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     operationResponseType: "GetIoCIndicatorResponse",
   },
   "SecurityMonitoringApi.V2.GetSignalNotificationRules": {
-    operationResponseType: "NotificationRulesList",
+    operationResponseType: "NotificationRulesListResponse",
   },
   "SecurityMonitoringApi.V2.CreateSignalNotificationRule": {
     body: {
@@ -6121,7 +6121,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     operationResponseType: "ListVulnerabilitiesResponse",
   },
   "SecurityMonitoringApi.V2.GetVulnerabilityNotificationRules": {
-    operationResponseType: "NotificationRulesList",
+    operationResponseType: "NotificationRulesListResponse",
   },
   "SecurityMonitoringApi.V2.CreateVulnerabilityNotificationRule": {
     body: {
@@ -7229,11 +7229,11 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     limit: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     offset: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     providerIds: {
       type: "Array<string>",
@@ -8794,11 +8794,11 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     limit: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     offset: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     operationResponseType: "ListFeatureFlagsResponse",
   },
@@ -8820,11 +8820,11 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     limit: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     offset: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     operationResponseType: "ListEnvironmentsResponse",
   },
@@ -10895,11 +10895,11 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   "MetricsApi.V2.ListTagIndexingRules": {
     pageLimit: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     pageOffset: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     search: {
       type: "string",
@@ -11199,11 +11199,11 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     pageSize: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     pageNumber: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     operationResponseType: "ModelLabProjectsResponse",
   },
@@ -11286,11 +11286,11 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     pageSize: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     pageNumber: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     operationResponseType: "ModelLabRunsResponse",
   },
@@ -13022,7 +13022,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     pageLimit: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     filterApplicationId: {
       type: "string",
@@ -13265,11 +13265,11 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     pageSize: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     pageNumber: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     filterService: {
       type: "Array<string>",
@@ -13671,11 +13671,11 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     pageNumber: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     pageSize: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     operationResponseType: "PlaylistArray",
   },
@@ -13689,14 +13689,14 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   "RumReplayPlaylistsApi.V2.GetRumReplayPlaylist": {
     playlistId: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     operationResponseType: "Playlist",
   },
   "RumReplayPlaylistsApi.V2.UpdateRumReplayPlaylist": {
     playlistId: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     body: {
       type: "Playlist",
@@ -13707,29 +13707,29 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   "RumReplayPlaylistsApi.V2.DeleteRumReplayPlaylist": {
     playlistId: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     operationResponseType: "{}",
   },
   "RumReplayPlaylistsApi.V2.ListRumReplayPlaylistSessions": {
     playlistId: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     pageNumber: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     pageSize: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     operationResponseType: "PlaylistsSessionArray",
   },
   "RumReplayPlaylistsApi.V2.BulkRemoveRumReplayPlaylistSessions": {
     playlistId: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     body: {
       type: "SessionIdArray",
@@ -13748,7 +13748,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     playlistId: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     sessionId: {
       type: "string",
@@ -13759,7 +13759,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   "RumReplayPlaylistsApi.V2.RemoveRumReplaySessionFromPlaylist": {
     playlistId: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     sessionId: {
       type: "string",
@@ -13786,7 +13786,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     maxListSize: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     paging: {
       type: "string",
@@ -13797,11 +13797,11 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   "RumReplayViewershipApi.V2.ListRumReplaySessionWatchers": {
     pageSize: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     pageNumber: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     sessionId: {
       type: "string",
@@ -13834,7 +13834,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     pageNumber: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     filterCreatedBy: {
       type: "string",
@@ -13850,7 +13850,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     pageSize: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     filterApplicationId: {
       type: "string",
@@ -14104,11 +14104,11 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     pageOffset: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     pageLimit: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     operationResponseType: "ListScorecardScoresResponse",
   },
@@ -14119,7 +14119,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     pageLimit: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     pageCursor: {
       type: "string",
@@ -14152,11 +14152,11 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     pageSize: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     pageNumber: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     pageQueryId: {
       type: "string",
@@ -14868,11 +14868,11 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     pageOffset: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     pageLimit: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     operationResponseType: "CustomRuleRevisionsResponse",
   },
@@ -14924,11 +14924,11 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   "StatusPagesApi.V2.ListStatusPages": {
     pageOffset: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     pageLimit: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     filterDomainPrefix: {
       type: "string",
@@ -14958,11 +14958,11 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     pageOffset: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     pageLimit: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     include: {
       type: "string",
@@ -14985,11 +14985,11 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     pageOffset: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     pageLimit: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     include: {
       type: "string",
@@ -16170,11 +16170,11 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     pageNumber: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     pageSize: {
       type: "number",
-      format: "",
+      format: "int64",
     },
     operationResponseType: "WidgetListResponse",
   },

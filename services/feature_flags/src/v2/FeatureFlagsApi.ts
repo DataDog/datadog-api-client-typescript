@@ -548,14 +548,14 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
     if (limit !== undefined) {
       requestContext.setQueryParam(
         "limit",
-        serialize(limit, TypingInfo, "number", ""),
+        serialize(limit, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (offset !== undefined) {
       requestContext.setQueryParam(
         "offset",
-        serialize(offset, TypingInfo, "number", ""),
+        serialize(offset, TypingInfo, "number", "int64"),
         "",
       );
     }
@@ -617,14 +617,14 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
     if (limit !== undefined) {
       requestContext.setQueryParam(
         "limit",
-        serialize(limit, TypingInfo, "number", ""),
+        serialize(limit, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (offset !== undefined) {
       requestContext.setQueryParam(
         "offset",
-        serialize(offset, TypingInfo, "number", ""),
+        serialize(offset, TypingInfo, "number", "int64"),
         "",
       );
     }

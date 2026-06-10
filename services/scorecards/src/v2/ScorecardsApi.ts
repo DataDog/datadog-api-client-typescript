@@ -858,14 +858,14 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     if (pageOffset !== undefined) {
       requestContext.setQueryParam(
         "page[offset]",
-        serialize(pageOffset, TypingInfo, "number", ""),
+        serialize(pageOffset, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (pageLimit !== undefined) {
       requestContext.setQueryParam(
         "page[limit]",
-        serialize(pageLimit, TypingInfo, "number", ""),
+        serialize(pageLimit, TypingInfo, "number", "int64"),
         "",
       );
     }
