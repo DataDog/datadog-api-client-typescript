@@ -198,7 +198,12 @@ import { NodeTypesResponseData } from "./NodeTypesResponseData";
 import { NodeTypesResponseDataAttributes } from "./NodeTypesResponseDataAttributes";
 import { NotificationRule } from "./NotificationRule";
 import { NotificationRuleAttributes } from "./NotificationRuleAttributes";
+import { NotificationRulePreviewResponse } from "./NotificationRulePreviewResponse";
+import { NotificationRulePreviewResponseAttributes } from "./NotificationRulePreviewResponseAttributes";
+import { NotificationRulePreviewResponseData } from "./NotificationRulePreviewResponseData";
+import { NotificationRulePreviewResult } from "./NotificationRulePreviewResult";
 import { NotificationRuleResponse } from "./NotificationRuleResponse";
+import { NotificationRuleRouting } from "./NotificationRuleRouting";
 import { NotificationRulesListResponse } from "./NotificationRulesListResponse";
 import { Pagination } from "./Pagination";
 import { PatchNotificationRuleParameters } from "./PatchNotificationRuleParameters";
@@ -532,6 +537,9 @@ export const TypingInfo: ModelTypingInfo = {
       "NO_LONGER_ACCEPTED_RISK",
     ],
     NodeTypesResponseDataType: ["get_node_types_response"],
+    NotificationRulePreviewNotificationStatus: ["SUCCESS", "DEFAULT", "ERROR"],
+    NotificationRulePreviewResponseType: ["notification_preview_response"],
+    NotificationRuleRoutingMode: ["manual"],
     NotificationRulesType: ["notification_rules"],
     ResourceFilterRequestType: ["csm_resource_filter"],
     RuleSeverity: ["critical", "high", "medium", "low", "unknown", "info"],
@@ -1141,7 +1149,13 @@ export const TypingInfo: ModelTypingInfo = {
     NodeTypesResponseDataAttributes: NodeTypesResponseDataAttributes,
     NotificationRule: NotificationRule,
     NotificationRuleAttributes: NotificationRuleAttributes,
+    NotificationRulePreviewResponse: NotificationRulePreviewResponse,
+    NotificationRulePreviewResponseAttributes:
+      NotificationRulePreviewResponseAttributes,
+    NotificationRulePreviewResponseData: NotificationRulePreviewResponseData,
+    NotificationRulePreviewResult: NotificationRulePreviewResult,
     NotificationRuleResponse: NotificationRuleResponse,
+    NotificationRuleRouting: NotificationRuleRouting,
     NotificationRulesListResponse: NotificationRulesListResponse,
     Pagination: Pagination,
     PatchNotificationRuleParameters: PatchNotificationRuleParameters,
