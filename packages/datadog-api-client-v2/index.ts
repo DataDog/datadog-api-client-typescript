@@ -1330,6 +1330,7 @@ export {
   SecurityMonitoringApiGetSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiGetSignalEntitiesRequest,
   SecurityMonitoringApiGetSignalNotificationRuleRequest,
+  SecurityMonitoringApiGetSingleEntityContextRequest,
   SecurityMonitoringApiGetStaticAnalysisDefaultRulesetsRequest,
   SecurityMonitoringApiGetStaticAnalysisNodeTypesRequest,
   SecurityMonitoringApiGetStaticAnalysisRulesetRequest,
@@ -7089,6 +7090,7 @@ export { SingleAggregatedDnsResponseDataAttributes } from "./models/SingleAggreg
 export { SingleAggregatedDnsResponseDataAttributesGroupByItems } from "./models/SingleAggregatedDnsResponseDataAttributesGroupByItems";
 export { SingleAggregatedDnsResponseDataAttributesMetricsItems } from "./models/SingleAggregatedDnsResponseDataAttributesMetricsItems";
 export { SingleAggregatedDnsResponseDataType } from "./models/SingleAggregatedDnsResponseDataType";
+export { SingleEntityContextResponse } from "./models/SingleEntityContextResponse";
 export { SlackIntegrationMetadata } from "./models/SlackIntegrationMetadata";
 export { SlackIntegrationMetadataChannelItem } from "./models/SlackIntegrationMetadataChannelItem";
 export { SlackTriggerWrapper } from "./models/SlackTriggerWrapper";

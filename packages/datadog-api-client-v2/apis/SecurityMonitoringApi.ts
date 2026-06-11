@@ -158,6 +158,7 @@ import { SecurityMonitoringTerraformConvertRequest } from "../models/SecurityMon
 import { SecurityMonitoringTerraformExportResponse } from "../models/SecurityMonitoringTerraformExportResponse";
 import { SecurityMonitoringTerraformResourceType } from "../models/SecurityMonitoringTerraformResourceType";
 import { SignalEntitiesResponse } from "../models/SignalEntitiesResponse";
+import { SingleEntityContextResponse } from "../models/SingleEntityContextResponse";
 import { UpdateCustomFrameworkRequest } from "../models/UpdateCustomFrameworkRequest";
 import { UpdateCustomFrameworkResponse } from "../models/UpdateCustomFrameworkResponse";
 import { UpdateResourceEvaluationFiltersRequest } from "../models/UpdateResourceEvaluationFiltersRequest";
@@ -3869,6 +3870,74 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getSingleEntityContext(
+    id: string,
+    from?: string,
+    to?: string,
+    asOf?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getSingleEntityContext'");
+    if (!_config.unstableOperations["v2.getSingleEntityContext"]) {
+      throw new Error(
+        "Unstable operation 'getSingleEntityContext' is disabled"
+      );
+    }
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "getSingleEntityContext");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/entity_context/{id}".replace(
+        "{id}",
+        encodeURIComponent(String(id))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getSingleEntityContext")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (from !== undefined) {
+      requestContext.setQueryParam(
+        "from",
+        ObjectSerializer.serialize(from, "string", ""),
+        ""
+      );
+    }
+    if (to !== undefined) {
+      requestContext.setQueryParam(
+        "to",
+        ObjectSerializer.serialize(to, "string", ""),
+        ""
+      );
+    }
+    if (asOf !== undefined) {
+      requestContext.setQueryParam(
+        "as_of",
+        ObjectSerializer.serialize(asOf, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -12335,6 +12404,69 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getSingleEntityContext
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSingleEntityContext(
+    response: ResponseContext
+  ): Promise<SingleEntityContextResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SingleEntityContextResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SingleEntityContextResponse"
+      ) as SingleEntityContextResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SingleEntityContextResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SingleEntityContextResponse",
+        ""
+      ) as SingleEntityContextResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getStaticAnalysisDefaultRulesets
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -16735,6 +16867,33 @@ export interface SecurityMonitoringApiGetSignalNotificationRuleRequest {
   id: string;
 }
 
+export interface SecurityMonitoringApiGetSingleEntityContextRequest {
+  /**
+   * The unique identifier of the entity to retrieve.
+   * @type string
+   */
+  id: string;
+  /**
+   * The start of the time range to query, as an RFC3339 timestamp or a relative time (for example, `now-7d`).
+   * Defaults to `now-7d`. Ignored when `as_of` is set.
+   * @type string
+   */
+  from?: string;
+  /**
+   * The end of the time range to query, as an RFC3339 timestamp or a relative time (for example, `now`).
+   * Defaults to `now`. Ignored when `as_of` is set.
+   * @type string
+   */
+  to?: string;
+  /**
+   * A point in time at which to query the entity revisions, as an RFC3339 timestamp, a Unix timestamp
+   * (in seconds), or a relative time (for example, `now-1d`). When set, `from` and `to` are ignored.
+   * Cannot be combined with custom `from` / `to` values.
+   * @type string
+   */
+  asOf?: string;
+}
+
 export interface SecurityMonitoringApiGetStaticAnalysisDefaultRulesetsRequest {
   /**
    * The programming language for which to retrieve the default rulesets.
@@ -19626,6 +19785,33 @@ export class SecurityMonitoringApi {
           return this.responseProcessor.getSignalNotificationRules(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Get a single entity from the Cloud SIEM entity context store by its identifier, returning the historical
+   * revisions of the entity in the requested time range. The endpoint can either return revisions across an
+   * interval (`from` / `to`) or the snapshot of the entity at a single point in time (`as_of`); the two modes
+   * are mutually exclusive.
+   * @param param The request object
+   */
+  public getSingleEntityContext(
+    param: SecurityMonitoringApiGetSingleEntityContextRequest,
+    options?: Configuration
+  ): Promise<SingleEntityContextResponse> {
+    const requestContextPromise = this.requestFactory.getSingleEntityContext(
+      param.id,
+      param.from,
+      param.to,
+      param.asOf,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSingleEntityContext(responseContext);
         });
     });
   }

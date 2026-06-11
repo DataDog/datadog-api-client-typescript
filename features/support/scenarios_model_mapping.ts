@@ -6535,6 +6535,25 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "EntityContextResponse",
     },
+    "v2.GetSingleEntityContext": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "from": {
+            "type": "string",
+            "format": "",
+            },
+        "to": {
+            "type": "string",
+            "format": "",
+            },
+        "asOf": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SingleEntityContextResponse",
+    },
     "v2.ListSecurityMonitoringRules": {
         "pageSize": {
             "type": "number",

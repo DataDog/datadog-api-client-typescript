@@ -4142,6 +4142,7 @@ import { SingleAggregatedDnsResponseData } from "./SingleAggregatedDnsResponseDa
 import { SingleAggregatedDnsResponseDataAttributes } from "./SingleAggregatedDnsResponseDataAttributes";
 import { SingleAggregatedDnsResponseDataAttributesGroupByItems } from "./SingleAggregatedDnsResponseDataAttributesGroupByItems";
 import { SingleAggregatedDnsResponseDataAttributesMetricsItems } from "./SingleAggregatedDnsResponseDataAttributesMetricsItems";
+import { SingleEntityContextResponse } from "./SingleEntityContextResponse";
 import { SlackIntegrationMetadata } from "./SlackIntegrationMetadata";
 import { SlackIntegrationMetadataChannelItem } from "./SlackIntegrationMetadataChannelItem";
 import { SlackTriggerWrapper } from "./SlackTriggerWrapper";
@@ -12684,6 +12685,7 @@ const typeMap: { [index: string]: any } = {
     SingleAggregatedDnsResponseDataAttributesGroupByItems,
   SingleAggregatedDnsResponseDataAttributesMetricsItems:
     SingleAggregatedDnsResponseDataAttributesMetricsItems,
+  SingleEntityContextResponse: SingleEntityContextResponse,
   SlackIntegrationMetadata: SlackIntegrationMetadata,
   SlackIntegrationMetadataChannelItem: SlackIntegrationMetadataChannelItem,
   SlackTriggerWrapper: SlackTriggerWrapper,

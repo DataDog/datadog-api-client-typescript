@@ -393,6 +393,7 @@ export function createConfiguration(
       "v2.getSecurityMonitoringHistsignalsByJobId": false,
       "v2.getSecurityMonitoringIntegrationConfig": false,
       "v2.getSignalEntities": false,
+      "v2.getSingleEntityContext": false,
       "v2.getStaticAnalysisDefaultRulesets": false,
       "v2.getStaticAnalysisNodeTypes": false,
       "v2.getStaticAnalysisRuleset": false,
