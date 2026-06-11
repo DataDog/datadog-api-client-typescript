@@ -9085,6 +9085,61 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "DeleteFormResponse",
   },
+  "FormsApi.V2.UpdateForm": {
+    formId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "UpdateFormRequest",
+      format: "",
+    },
+    operationResponseType: "FormResponse",
+  },
+  "FormsApi.V2.CloneForm": {
+    formId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "CloneFormRequest",
+      format: "",
+    },
+    operationResponseType: "FormResponse",
+  },
+  "FormsApi.V2.PublishForm": {
+    formId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "PublishFormRequest",
+      format: "",
+    },
+    operationResponseType: "FormPublicationResponse",
+  },
+  "FormsApi.V2.UpsertFormVersion": {
+    formId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "UpsertFormVersionRequest",
+      format: "",
+    },
+    operationResponseType: "FormVersionResponse",
+  },
+  "FormsApi.V2.UpsertAndPublishFormVersion": {
+    formId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "UpsertAndPublishFormVersionRequest",
+      format: "",
+    },
+    operationResponseType: "FormResponse",
+  },
   "HighAvailabilityMultiRegionApi.V2.GetHamrOrgConnection": {
     operationResponseType: "HamrOrgConnectionResponse",
   },
