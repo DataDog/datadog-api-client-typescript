@@ -593,10 +593,15 @@ export {
 } from "./apis/FleetAutomationApi";
 
 export {
+  FormsApiCloneFormRequest,
   FormsApiCreateAndPublishFormRequest,
   FormsApiCreateFormRequest,
   FormsApiDeleteFormRequest,
   FormsApiGetFormRequest,
+  FormsApiPublishFormRequest,
+  FormsApiUpdateFormRequest,
+  FormsApiUpsertAndPublishFormVersionRequest,
+  FormsApiUpsertFormVersionRequest,
   FormsApi,
 } from "./apis/FormsApi";
 
@@ -2637,6 +2642,9 @@ export { ClickupCredentialsUpdate } from "./models/ClickupCredentialsUpdate";
 export { ClickupIntegration } from "./models/ClickupIntegration";
 export { ClickupIntegrationType } from "./models/ClickupIntegrationType";
 export { ClickupIntegrationUpdate } from "./models/ClickupIntegrationUpdate";
+export { CloneFormData } from "./models/CloneFormData";
+export { CloneFormDataAttributes } from "./models/CloneFormDataAttributes";
+export { CloneFormRequest } from "./models/CloneFormRequest";
 export { CloudAssetType } from "./models/CloudAssetType";
 export { CloudConfigurationComplianceRuleOptions } from "./models/CloudConfigurationComplianceRuleOptions";
 export { CloudConfigurationRegoRule } from "./models/CloudConfigurationRegoRule";
@@ -3823,6 +3831,9 @@ export { FormDataDefinition } from "./models/FormDataDefinition";
 export { FormDataDefinitionType } from "./models/FormDataDefinitionType";
 export { FormDatastoreConfigAttributes } from "./models/FormDatastoreConfigAttributes";
 export { FormPublicationAttributes } from "./models/FormPublicationAttributes";
+export { FormPublicationData } from "./models/FormPublicationData";
+export { FormPublicationResponse } from "./models/FormPublicationResponse";
+export { FormPublicationType } from "./models/FormPublicationType";
 export { FormResponse } from "./models/FormResponse";
 export { FormsResponse } from "./models/FormsResponse";
 export { FormTrigger } from "./models/FormTrigger";
@@ -3832,8 +3843,12 @@ export { FormUiDefinition } from "./models/FormUiDefinition";
 export { FormUiDefinitionUiTheme } from "./models/FormUiDefinitionUiTheme";
 export { FormUiDefinitionUiThemePrimaryColor } from "./models/FormUiDefinitionUiThemePrimaryColor";
 export { FormulaLimit } from "./models/FormulaLimit";
+export { FormUpdateAttributes } from "./models/FormUpdateAttributes";
 export { FormVersionAttributes } from "./models/FormVersionAttributes";
+export { FormVersionData } from "./models/FormVersionData";
+export { FormVersionResponse } from "./models/FormVersionResponse";
 export { FormVersionState } from "./models/FormVersionState";
+export { FormVersionType } from "./models/FormVersionType";
 export { FrameworkHandleAndVersionResponseData } from "./models/FrameworkHandleAndVersionResponseData";
 export { FreshserviceAPIKey } from "./models/FreshserviceAPIKey";
 export { FreshserviceAPIKeyType } from "./models/FreshserviceAPIKeyType";
@@ -4434,6 +4449,7 @@ export { KindMetadata } from "./models/KindMetadata";
 export { KindObj } from "./models/KindObj";
 export { KindResponseMeta } from "./models/KindResponseMeta";
 export { Language } from "./models/Language";
+export { LatestVersionMatchPolicy } from "./models/LatestVersionMatchPolicy";
 export { LaunchDarklyAPIKey } from "./models/LaunchDarklyAPIKey";
 export { LaunchDarklyAPIKeyType } from "./models/LaunchDarklyAPIKeyType";
 export { LaunchDarklyAPIKeyUpdate } from "./models/LaunchDarklyAPIKeyUpdate";
@@ -6009,6 +6025,9 @@ export { PrunedTraceData } from "./models/PrunedTraceData";
 export { PrunedTraceResponse } from "./models/PrunedTraceResponse";
 export { PrunedTraceType } from "./models/PrunedTraceType";
 export { PublishAppResponse } from "./models/PublishAppResponse";
+export { PublishFormData } from "./models/PublishFormData";
+export { PublishFormDataAttributes } from "./models/PublishFormDataAttributes";
+export { PublishFormRequest } from "./models/PublishFormRequest";
 export { PublishRequestType } from "./models/PublishRequestType";
 export { PutAppsDatastoreItemResponseArray } from "./models/PutAppsDatastoreItemResponseArray";
 export { PutAppsDatastoreItemResponseData } from "./models/PutAppsDatastoreItemResponseData";
@@ -7840,6 +7859,9 @@ export { UpdateFlakyTestsResponseAttributes } from "./models/UpdateFlakyTestsRes
 export { UpdateFlakyTestsResponseData } from "./models/UpdateFlakyTestsResponseData";
 export { UpdateFlakyTestsResponseDataType } from "./models/UpdateFlakyTestsResponseDataType";
 export { UpdateFlakyTestsResponseResult } from "./models/UpdateFlakyTestsResponseResult";
+export { UpdateFormData } from "./models/UpdateFormData";
+export { UpdateFormDataAttributes } from "./models/UpdateFormDataAttributes";
+export { UpdateFormRequest } from "./models/UpdateFormRequest";
 export { UpdateOnCallNotificationRuleRequest } from "./models/UpdateOnCallNotificationRuleRequest";
 export { UpdateOnCallNotificationRuleRequestAttributes } from "./models/UpdateOnCallNotificationRuleRequestAttributes";
 export { UpdateOnCallNotificationRuleRequestData } from "./models/UpdateOnCallNotificationRuleRequestData";
@@ -7879,6 +7901,10 @@ export { UpdateTenancyConfigRequest } from "./models/UpdateTenancyConfigRequest"
 export { UpdateWorkflowRequest } from "./models/UpdateWorkflowRequest";
 export { UpdateWorkflowResponse } from "./models/UpdateWorkflowResponse";
 export { UpsertAllocationRequest } from "./models/UpsertAllocationRequest";
+export { UpsertAndPublishFormVersionData } from "./models/UpsertAndPublishFormVersionData";
+export { UpsertAndPublishFormVersionDataAttributes } from "./models/UpsertAndPublishFormVersionDataAttributes";
+export { UpsertAndPublishFormVersionRequest } from "./models/UpsertAndPublishFormVersionRequest";
+export { UpsertAndPublishFormVersionUpsertParams } from "./models/UpsertAndPublishFormVersionUpsertParams";
 export { UpsertCatalogEntityRequest } from "./models/UpsertCatalogEntityRequest";
 export { UpsertCatalogEntityResponse } from "./models/UpsertCatalogEntityResponse";
 export { UpsertCatalogEntityResponseIncludedItem } from "./models/UpsertCatalogEntityResponseIncludedItem";
@@ -7887,6 +7913,10 @@ export { UpsertCatalogKindResponse } from "./models/UpsertCatalogKindResponse";
 export { UpsertCloudInventorySyncConfigRequest } from "./models/UpsertCloudInventorySyncConfigRequest";
 export { UpsertCloudInventorySyncConfigRequestAttributes } from "./models/UpsertCloudInventorySyncConfigRequestAttributes";
 export { UpsertCloudInventorySyncConfigRequestData } from "./models/UpsertCloudInventorySyncConfigRequestData";
+export { UpsertFormVersionData } from "./models/UpsertFormVersionData";
+export { UpsertFormVersionDataAttributes } from "./models/UpsertFormVersionDataAttributes";
+export { UpsertFormVersionRequest } from "./models/UpsertFormVersionRequest";
+export { UpsertFormVersionUpsertParams } from "./models/UpsertFormVersionUpsertParams";
 export { UpsertOAuthScopesRestrictionData } from "./models/UpsertOAuthScopesRestrictionData";
 export { UpsertOAuthScopesRestrictionDataAttributes } from "./models/UpsertOAuthScopesRestrictionDataAttributes";
 export { UpsertOAuthScopesRestrictionRequest } from "./models/UpsertOAuthScopesRestrictionRequest";

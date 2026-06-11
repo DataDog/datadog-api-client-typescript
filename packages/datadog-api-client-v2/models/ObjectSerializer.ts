@@ -709,6 +709,9 @@ import { ClickupAPIKey } from "./ClickupAPIKey";
 import { ClickupAPIKeyUpdate } from "./ClickupAPIKeyUpdate";
 import { ClickupIntegration } from "./ClickupIntegration";
 import { ClickupIntegrationUpdate } from "./ClickupIntegrationUpdate";
+import { CloneFormData } from "./CloneFormData";
+import { CloneFormDataAttributes } from "./CloneFormDataAttributes";
+import { CloneFormRequest } from "./CloneFormRequest";
 import { CloudConfigurationComplianceRuleOptions } from "./CloudConfigurationComplianceRuleOptions";
 import { CloudConfigurationRegoRule } from "./CloudConfigurationRegoRule";
 import { CloudConfigurationRuleCaseCreate } from "./CloudConfigurationRuleCaseCreate";
@@ -1653,12 +1656,17 @@ import { FormDataAttributes } from "./FormDataAttributes";
 import { FormDataDefinition } from "./FormDataDefinition";
 import { FormDatastoreConfigAttributes } from "./FormDatastoreConfigAttributes";
 import { FormPublicationAttributes } from "./FormPublicationAttributes";
+import { FormPublicationData } from "./FormPublicationData";
+import { FormPublicationResponse } from "./FormPublicationResponse";
 import { FormResponse } from "./FormResponse";
 import { FormTrigger } from "./FormTrigger";
 import { FormTriggerWrapper } from "./FormTriggerWrapper";
 import { FormUiDefinition } from "./FormUiDefinition";
 import { FormUiDefinitionUiTheme } from "./FormUiDefinitionUiTheme";
+import { FormUpdateAttributes } from "./FormUpdateAttributes";
 import { FormVersionAttributes } from "./FormVersionAttributes";
+import { FormVersionData } from "./FormVersionData";
+import { FormVersionResponse } from "./FormVersionResponse";
 import { FormsResponse } from "./FormsResponse";
 import { FormulaLimit } from "./FormulaLimit";
 import { FrameworkHandleAndVersionResponseData } from "./FrameworkHandleAndVersionResponseData";
@@ -3305,6 +3313,9 @@ import { PrunedTraceAttributes } from "./PrunedTraceAttributes";
 import { PrunedTraceData } from "./PrunedTraceData";
 import { PrunedTraceResponse } from "./PrunedTraceResponse";
 import { PublishAppResponse } from "./PublishAppResponse";
+import { PublishFormData } from "./PublishFormData";
+import { PublishFormDataAttributes } from "./PublishFormDataAttributes";
+import { PublishFormRequest } from "./PublishFormRequest";
 import { PutAppsDatastoreItemResponseArray } from "./PutAppsDatastoreItemResponseArray";
 import { PutAppsDatastoreItemResponseData } from "./PutAppsDatastoreItemResponseData";
 import { PutIncidentNotificationRuleRequest } from "./PutIncidentNotificationRuleRequest";
@@ -4731,6 +4742,9 @@ import { UpdateFlakyTestsResponse } from "./UpdateFlakyTestsResponse";
 import { UpdateFlakyTestsResponseAttributes } from "./UpdateFlakyTestsResponseAttributes";
 import { UpdateFlakyTestsResponseData } from "./UpdateFlakyTestsResponseData";
 import { UpdateFlakyTestsResponseResult } from "./UpdateFlakyTestsResponseResult";
+import { UpdateFormData } from "./UpdateFormData";
+import { UpdateFormDataAttributes } from "./UpdateFormDataAttributes";
+import { UpdateFormRequest } from "./UpdateFormRequest";
 import { UpdateOnCallNotificationRuleRequest } from "./UpdateOnCallNotificationRuleRequest";
 import { UpdateOnCallNotificationRuleRequestAttributes } from "./UpdateOnCallNotificationRuleRequestAttributes";
 import { UpdateOnCallNotificationRuleRequestData } from "./UpdateOnCallNotificationRuleRequestData";
@@ -4767,11 +4781,19 @@ import { UpdateTenancyConfigRequest } from "./UpdateTenancyConfigRequest";
 import { UpdateWorkflowRequest } from "./UpdateWorkflowRequest";
 import { UpdateWorkflowResponse } from "./UpdateWorkflowResponse";
 import { UpsertAllocationRequest } from "./UpsertAllocationRequest";
+import { UpsertAndPublishFormVersionData } from "./UpsertAndPublishFormVersionData";
+import { UpsertAndPublishFormVersionDataAttributes } from "./UpsertAndPublishFormVersionDataAttributes";
+import { UpsertAndPublishFormVersionRequest } from "./UpsertAndPublishFormVersionRequest";
+import { UpsertAndPublishFormVersionUpsertParams } from "./UpsertAndPublishFormVersionUpsertParams";
 import { UpsertCatalogEntityResponse } from "./UpsertCatalogEntityResponse";
 import { UpsertCatalogKindResponse } from "./UpsertCatalogKindResponse";
 import { UpsertCloudInventorySyncConfigRequest } from "./UpsertCloudInventorySyncConfigRequest";
 import { UpsertCloudInventorySyncConfigRequestAttributes } from "./UpsertCloudInventorySyncConfigRequestAttributes";
 import { UpsertCloudInventorySyncConfigRequestData } from "./UpsertCloudInventorySyncConfigRequestData";
+import { UpsertFormVersionData } from "./UpsertFormVersionData";
+import { UpsertFormVersionDataAttributes } from "./UpsertFormVersionDataAttributes";
+import { UpsertFormVersionRequest } from "./UpsertFormVersionRequest";
+import { UpsertFormVersionUpsertParams } from "./UpsertFormVersionUpsertParams";
 import { UpsertOAuthScopesRestrictionData } from "./UpsertOAuthScopesRestrictionData";
 import { UpsertOAuthScopesRestrictionDataAttributes } from "./UpsertOAuthScopesRestrictionDataAttributes";
 import { UpsertOAuthScopesRestrictionRequest } from "./UpsertOAuthScopesRestrictionRequest";
@@ -5783,6 +5805,7 @@ const enumsMap: { [key: string]: any[] } = {
   FleetScheduleResourceType: ["schedule"],
   FleetScheduleStatus: ["active", "inactive"],
   FormDataDefinitionType: ["object"],
+  FormPublicationType: ["form_publications"],
   FormType: ["forms"],
   FormUiDefinitionUiThemePrimaryColor: [
     "gray",
@@ -5796,6 +5819,7 @@ const enumsMap: { [key: string]: any[] } = {
     "indigo",
   ],
   FormVersionState: ["draft", "frozen"],
+  FormVersionType: ["form_versions"],
   FreshserviceAPIKeyType: ["FreshserviceAPIKey"],
   FreshserviceIntegrationType: ["Freshservice"],
   GCPIntegrationType: ["GCP"],
@@ -6090,6 +6114,7 @@ const enumsMap: { [key: string]: any[] } = {
     "KOTLIN",
     "SWIFT",
   ],
+  LatestVersionMatchPolicy: ["none", "if_etag_match"],
   LaunchDarklyAPIKeyType: ["LaunchDarklyAPIKey"],
   LaunchDarklyIntegrationType: ["LaunchDarkly"],
   LayerRelationshipsMembersDataItemsType: ["members"],
@@ -8515,6 +8540,9 @@ const typeMap: { [index: string]: any } = {
   ClickupAPIKeyUpdate: ClickupAPIKeyUpdate,
   ClickupIntegration: ClickupIntegration,
   ClickupIntegrationUpdate: ClickupIntegrationUpdate,
+  CloneFormData: CloneFormData,
+  CloneFormDataAttributes: CloneFormDataAttributes,
+  CloneFormRequest: CloneFormRequest,
   CloudConfigurationComplianceRuleOptions:
     CloudConfigurationComplianceRuleOptions,
   CloudConfigurationRegoRule: CloudConfigurationRegoRule,
@@ -9632,12 +9660,17 @@ const typeMap: { [index: string]: any } = {
   FormDataDefinition: FormDataDefinition,
   FormDatastoreConfigAttributes: FormDatastoreConfigAttributes,
   FormPublicationAttributes: FormPublicationAttributes,
+  FormPublicationData: FormPublicationData,
+  FormPublicationResponse: FormPublicationResponse,
   FormResponse: FormResponse,
   FormTrigger: FormTrigger,
   FormTriggerWrapper: FormTriggerWrapper,
   FormUiDefinition: FormUiDefinition,
   FormUiDefinitionUiTheme: FormUiDefinitionUiTheme,
+  FormUpdateAttributes: FormUpdateAttributes,
   FormVersionAttributes: FormVersionAttributes,
+  FormVersionData: FormVersionData,
+  FormVersionResponse: FormVersionResponse,
   FormsResponse: FormsResponse,
   FormulaLimit: FormulaLimit,
   FrameworkHandleAndVersionResponseData: FrameworkHandleAndVersionResponseData,
@@ -11627,6 +11660,9 @@ const typeMap: { [index: string]: any } = {
   PrunedTraceData: PrunedTraceData,
   PrunedTraceResponse: PrunedTraceResponse,
   PublishAppResponse: PublishAppResponse,
+  PublishFormData: PublishFormData,
+  PublishFormDataAttributes: PublishFormDataAttributes,
+  PublishFormRequest: PublishFormRequest,
   PutAppsDatastoreItemResponseArray: PutAppsDatastoreItemResponseArray,
   PutAppsDatastoreItemResponseData: PutAppsDatastoreItemResponseData,
   PutIncidentNotificationRuleRequest: PutIncidentNotificationRuleRequest,
@@ -13394,6 +13430,9 @@ const typeMap: { [index: string]: any } = {
   UpdateFlakyTestsResponseAttributes: UpdateFlakyTestsResponseAttributes,
   UpdateFlakyTestsResponseData: UpdateFlakyTestsResponseData,
   UpdateFlakyTestsResponseResult: UpdateFlakyTestsResponseResult,
+  UpdateFormData: UpdateFormData,
+  UpdateFormDataAttributes: UpdateFormDataAttributes,
+  UpdateFormRequest: UpdateFormRequest,
   UpdateOnCallNotificationRuleRequest: UpdateOnCallNotificationRuleRequest,
   UpdateOnCallNotificationRuleRequestAttributes:
     UpdateOnCallNotificationRuleRequestAttributes,
@@ -13445,6 +13484,12 @@ const typeMap: { [index: string]: any } = {
   UpdateWorkflowRequest: UpdateWorkflowRequest,
   UpdateWorkflowResponse: UpdateWorkflowResponse,
   UpsertAllocationRequest: UpsertAllocationRequest,
+  UpsertAndPublishFormVersionData: UpsertAndPublishFormVersionData,
+  UpsertAndPublishFormVersionDataAttributes:
+    UpsertAndPublishFormVersionDataAttributes,
+  UpsertAndPublishFormVersionRequest: UpsertAndPublishFormVersionRequest,
+  UpsertAndPublishFormVersionUpsertParams:
+    UpsertAndPublishFormVersionUpsertParams,
   UpsertCatalogEntityResponse: UpsertCatalogEntityResponse,
   UpsertCatalogKindResponse: UpsertCatalogKindResponse,
   UpsertCloudInventorySyncConfigRequest: UpsertCloudInventorySyncConfigRequest,
@@ -13452,6 +13497,10 @@ const typeMap: { [index: string]: any } = {
     UpsertCloudInventorySyncConfigRequestAttributes,
   UpsertCloudInventorySyncConfigRequestData:
     UpsertCloudInventorySyncConfigRequestData,
+  UpsertFormVersionData: UpsertFormVersionData,
+  UpsertFormVersionDataAttributes: UpsertFormVersionDataAttributes,
+  UpsertFormVersionRequest: UpsertFormVersionRequest,
+  UpsertFormVersionUpsertParams: UpsertFormVersionUpsertParams,
   UpsertOAuthScopesRestrictionData: UpsertOAuthScopesRestrictionData,
   UpsertOAuthScopesRestrictionDataAttributes:
     UpsertOAuthScopesRestrictionDataAttributes,

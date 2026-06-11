@@ -9073,6 +9073,61 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "DeleteFormResponse",
     },
+    "v2.UpdateForm": {
+        "formId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "UpdateFormRequest",
+            "format": "",
+            },
+        "operationResponseType": "FormResponse",
+    },
+    "v2.CloneForm": {
+        "formId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "CloneFormRequest",
+            "format": "",
+            },
+        "operationResponseType": "FormResponse",
+    },
+    "v2.PublishForm": {
+        "formId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "PublishFormRequest",
+            "format": "",
+            },
+        "operationResponseType": "FormPublicationResponse",
+    },
+    "v2.UpsertFormVersion": {
+        "formId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "UpsertFormVersionRequest",
+            "format": "",
+            },
+        "operationResponseType": "FormVersionResponse",
+    },
+    "v2.UpsertAndPublishFormVersion": {
+        "formId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "UpsertAndPublishFormVersionRequest",
+            "format": "",
+            },
+        "operationResponseType": "FormResponse",
+    },
     "v2.GetHamrOrgConnection": {
         "operationResponseType": "HamrOrgConnectionResponse",
     },
