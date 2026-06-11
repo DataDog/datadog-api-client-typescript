@@ -3648,6 +3648,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "UserResponse",
     },
+    "v2.GetUserIdentityProviders": {
+        "userId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "UserOverrideIdentityProvidersResponse",
+    },
     "v2.DeleteUserInvitations": {
         "userId": {
             "type": "string",
@@ -3668,6 +3675,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "PermissionsResponse",
+    },
+    "v2.UpdateUserIdentityProviders": {
+        "userId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "UpdateUserIdentityProvidersRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.ListAPIKeys": {
         "pageSize": {
@@ -9138,6 +9156,51 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "HamrOrgConnectionResponse",
     },
+    "v2.ListIdentityProviders": {
+        "operationResponseType": "IdentityProvidersResponse",
+    },
+    "v2.UpdateIdentityProvider": {
+        "idpId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IdentityProviderUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "IdentityProviderResponse",
+    },
+    "v2.ListIdentityProviderUsers": {
+        "idpId": {
+            "type": "string",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "sortDir": {
+            "type": "QuerySortOrder",
+            "format": "",
+            },
+        "filter": {
+            "type": "string",
+            "format": "",
+            },
+        "filterStatus": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "UsersResponse",
+    },
     "v2.GetEntityIntegrationConfig": {
         "integrationId": {
             "type": "string",
@@ -12207,6 +12270,131 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "CustomerOrgDisableResponse",
+    },
+    "v2.ListOrgAuthorizedClients": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "filter": {
+            "type": "string",
+            "format": "",
+            },
+        "filterOauth2ClientName": {
+            "type": "string",
+            "format": "",
+            },
+        "filterDisabled": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "OrgAuthorizedClientsResponse",
+    },
+    "v2.GetOrgAuthorizedClient": {
+        "orgAuthorizedClientId": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "filterUserAuthorizedClientsDisabled": {
+            "type": "string",
+            "format": "",
+            },
+        "filterUserAuthorizedClientsUserDisabled": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "OrgAuthorizedClientResponse",
+    },
+    "v2.DeleteOrgAuthorizedClient": {
+        "orgAuthorizedClientId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateOrgAuthorizedClient": {
+        "orgAuthorizedClientId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "OrgAuthorizedClientUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "OrgAuthorizedClientResponse",
+    },
+    "v2.DeleteOrgAuthorizedClientAllUserAuthorizations": {
+        "orgAuthorizedClientId": {
+            "type": "string",
+            "format": "",
+            },
+        "userId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListOrgAuthorizedClientUserAuthorizations": {
+        "orgAuthorizedClientId": {
+            "type": "string",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "OrgAuthorizedClientUserAuthorizationsSort",
+            "format": "",
+            },
+        "filterDisabled": {
+            "type": "string",
+            "format": "",
+            },
+        "filterUserName": {
+            "type": "string",
+            "format": "",
+            },
+        "filterUserEmail": {
+            "type": "string",
+            "format": "",
+            },
+        "filterUserDisabled": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "UserAuthorizedClientsResponse",
+    },
+    "v2.DeleteOrgAuthorizedClientUserAuthorization": {
+        "orgAuthorizedClientId": {
+            "type": "string",
+            "format": "",
+            },
+        "userAuthorizedClientId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.ListOrgConnections": {
         "sinkOrgId": {
@@ -16268,6 +16456,50 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "UserTeamsResponse",
+    },
+    "v2.ListUserAuthorizedClients": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filter": {
+            "type": "string",
+            "format": "",
+            },
+        "filterDisabled": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "UserAuthorizedClientsResponse",
+    },
+    "v2.DeleteUserAuthorizedClientsByClient": {
+        "clientId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.GetUserAuthorizedClient": {
+        "userAuthorizedClientId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "UserAuthorizedClientResponse",
+    },
+    "v2.DeleteUserAuthorizedClient": {
+        "userAuthorizedClientId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.ListWebIntegrationAccounts": {
         "integrationName": {
