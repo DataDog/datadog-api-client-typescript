@@ -17,22 +17,27 @@ export class UsageSummaryDate {
   "agentHostTop99p"?: number;
   /**
    * Shows the sum of all AI credits used by Agent Builder over all hours in the current date for all organizations.
+   * Values are returned in micro-credits. Divide by 1,000,000 to get AI credits.
    */
   "aiCreditsAgentBuilderAiCreditsSum"?: number;
   /**
    * Shows the sum of all AI credits used by Bits AI Assistant over all hours in the current date for all organizations.
+   * Values are returned in micro-credits. Divide by 1,000,000 to get AI credits.
    */
   "aiCreditsBitsAssistantAiCreditsSum"?: number;
   /**
    * Shows the sum of all AI credits used by Bits AI Dev over all hours in the current date for all organizations.
+   * Values are returned in micro-credits. Divide by 1,000,000 to get AI credits.
    */
   "aiCreditsBitsDevAiCreditsSum"?: number;
   /**
    * Shows the sum of all AI credits used by Bits AI SRE over all hours in the current date for all organizations.
+   * Values are returned in micro-credits. Divide by 1,000,000 to get AI credits.
    */
   "aiCreditsBitsSreAiCreditsSum"?: number;
   /**
    * Shows the sum of all AI credits over all hours in the current date for all organizations.
+   * Values are returned in micro-credits. Divide by 1,000,000 to get AI credits.
    */
   "aiCreditsSum"?: number;
   /**
@@ -389,6 +394,7 @@ export class UsageSummaryDate {
   "dbmQueriesCountAvg"?: number;
   /**
    * Shows the sum of all orchestrator job hours over all hours in the current date for all organizations.
+   * Values are returned in seconds. Divide by 3,600 to convert to hours.
    */
   "doJobsMonitoringOrchestratorsJobHoursSum"?: number;
   /**
@@ -573,122 +579,152 @@ export class UsageSummaryDate {
   "indexedPointsSum"?: number;
   /**
    * Shows the average of all Infrastructure vCPU cores over all hours in the current date for all organizations.
+   * Values are returned in millicores. Divide by 1,000 to convert to cores.
    */
   "infraCpuAvg"?: number;
   /**
    * Shows the average of all default Infrastructure host vCPU cores reported by the Datadog Agent over all hours in the current date for all organizations.
+   * Values are returned in millicores. Divide by 1,000 to convert to cores.
    */
   "infraCpuDefaultInfraHostVcpuAgentAvg"?: number;
   /**
    * Shows the average of all default basic Infrastructure host vCPU cores reported by the Datadog Agent over all hours in the current date for all organizations.
+   * Values are returned in millicores. Divide by 1,000 to convert to cores.
    */
   "infraCpuDefaultInfraHostVcpuAgentBasicAvg"?: number;
   /**
    * Shows the sum of all default basic Infrastructure host vCPU cores reported by the Datadog Agent over all hours in the current date for all organizations.
+   * Values are returned in millicores. Divide by 1,000 to convert to cores.
    */
   "infraCpuDefaultInfraHostVcpuAgentBasicSum"?: number;
   /**
    * Shows the sum of all default Infrastructure host vCPU cores reported by the Datadog Agent over all hours in the current date for all organizations.
+   * Values are returned in millicores. Divide by 1,000 to convert to cores.
    */
   "infraCpuDefaultInfraHostVcpuAgentSum"?: number;
   /**
    * Shows the average of all default Infrastructure host vCPU cores on AWS over all hours in the current date for all organizations.
+   * Values are returned in millicores. Divide by 1,000 to convert to cores.
    */
   "infraCpuDefaultInfraHostVcpuAwsAvg"?: number;
   /**
    * Shows the sum of all default Infrastructure host vCPU cores on AWS over all hours in the current date for all organizations.
+   * Values are returned in millicores. Divide by 1,000 to convert to cores.
    */
   "infraCpuDefaultInfraHostVcpuAwsSum"?: number;
   /**
    * Shows the average of all default Infrastructure host vCPU cores on Azure over all hours in the current date for all organizations.
+   * Values are returned in millicores. Divide by 1,000 to convert to cores.
    */
   "infraCpuDefaultInfraHostVcpuAzureAvg"?: number;
   /**
    * Shows the sum of all default Infrastructure host vCPU cores on Azure over all hours in the current date for all organizations.
+   * Values are returned in millicores. Divide by 1,000 to convert to cores.
    */
   "infraCpuDefaultInfraHostVcpuAzureSum"?: number;
   /**
    * Shows the average of all default Infrastructure host vCPU cores on GCP over all hours in the current date for all organizations.
+   * Values are returned in millicores. Divide by 1,000 to convert to cores.
    */
   "infraCpuDefaultInfraHostVcpuGcpAvg"?: number;
   /**
    * Shows the sum of all default Infrastructure host vCPU cores on GCP over all hours in the current date for all organizations.
+   * Values are returned in millicores. Divide by 1,000 to convert to cores.
    */
   "infraCpuDefaultInfraHostVcpuGcpSum"?: number;
   /**
    * Shows the average of all default Infrastructure host vCPU cores on Nutanix over all hours in the current date for all organizations.
+   * Values are returned in millicores. Divide by 1,000 to convert to cores.
    */
   "infraCpuDefaultInfraHostVcpuNutanixAvg"?: number;
   /**
    * Shows the average of all default basic Infrastructure host vCPU cores on Nutanix over all hours in the current date for all organizations.
+   * Values are returned in millicores. Divide by 1,000 to convert to cores.
    */
   "infraCpuDefaultInfraHostVcpuNutanixBasicAvg"?: number;
   /**
    * Shows the sum of all default basic Infrastructure host vCPU cores on Nutanix over all hours in the current date for all organizations.
+   * Values are returned in millicores. Divide by 1,000 to convert to cores.
    */
   "infraCpuDefaultInfraHostVcpuNutanixBasicSum"?: number;
   /**
    * Shows the sum of all default Infrastructure host vCPU cores on Nutanix over all hours in the current date for all organizations.
+   * Values are returned in millicores. Divide by 1,000 to convert to cores.
    */
   "infraCpuDefaultInfraHostVcpuNutanixSum"?: number;
   /**
    * Shows the average of all default Infrastructure host vCPU cores reported by OpenTelemetry over all hours in the current date for all organizations.
+   * Values are returned in millicores. Divide by 1,000 to convert to cores.
    */
   "infraCpuDefaultInfraHostVcpuOpentelemetryAvg"?: number;
   /**
    * Shows the sum of all default Infrastructure host vCPU cores reported by OpenTelemetry over all hours in the current date for all organizations.
+   * Values are returned in millicores. Divide by 1,000 to convert to cores.
    */
   "infraCpuDefaultInfraHostVcpuOpentelemetrySum"?: number;
   /**
    * Shows the average of all observed Infrastructure host vCPU cores reported by the Datadog Agent over all hours in the current date for all organizations.
+   * Values are returned in millicores. Divide by 1,000 to convert to cores.
    */
   "infraCpuObservedInfraHostVcpuAgentAvg"?: number;
   /**
    * Shows the sum of all observed Infrastructure host vCPU cores reported by the Datadog Agent over all hours in the current date for all organizations.
+   * Values are returned in millicores. Divide by 1,000 to convert to cores.
    */
   "infraCpuObservedInfraHostVcpuAgentSum"?: number;
   /**
    * Shows the average of all observed Infrastructure host vCPU cores on AWS over all hours in the current date for all organizations.
+   * Values are returned in millicores. Divide by 1,000 to convert to cores.
    */
   "infraCpuObservedInfraHostVcpuAwsAvg"?: number;
   /**
    * Shows the sum of all observed Infrastructure host vCPU cores on AWS over all hours in the current date for all organizations.
+   * Values are returned in millicores. Divide by 1,000 to convert to cores.
    */
   "infraCpuObservedInfraHostVcpuAwsSum"?: number;
   /**
    * Shows the average of all observed Infrastructure host vCPU cores on Azure over all hours in the current date for all organizations.
+   * Values are returned in millicores. Divide by 1,000 to convert to cores.
    */
   "infraCpuObservedInfraHostVcpuAzureAvg"?: number;
   /**
    * Shows the sum of all observed Infrastructure host vCPU cores on Azure over all hours in the current date for all organizations.
+   * Values are returned in millicores. Divide by 1,000 to convert to cores.
    */
   "infraCpuObservedInfraHostVcpuAzureSum"?: number;
   /**
    * Shows the average of all observed Infrastructure host vCPU cores on GCP over all hours in the current date for all organizations.
+   * Values are returned in millicores. Divide by 1,000 to convert to cores.
    */
   "infraCpuObservedInfraHostVcpuGcpAvg"?: number;
   /**
    * Shows the sum of all observed Infrastructure host vCPU cores on GCP over all hours in the current date for all organizations.
+   * Values are returned in millicores. Divide by 1,000 to convert to cores.
    */
   "infraCpuObservedInfraHostVcpuGcpSum"?: number;
   /**
    * Shows the average of all observed Infrastructure host vCPU cores on Nutanix over all hours in the current date for all organizations.
+   * Values are returned in millicores. Divide by 1,000 to convert to cores.
    */
   "infraCpuObservedInfraHostVcpuNutanixAvg"?: number;
   /**
    * Shows the sum of all observed Infrastructure host vCPU cores on Nutanix over all hours in the current date for all organizations.
+   * Values are returned in millicores. Divide by 1,000 to convert to cores.
    */
   "infraCpuObservedInfraHostVcpuNutanixSum"?: number;
   /**
    * Shows the average of all observed Infrastructure host vCPU cores reported by OpenTelemetry over all hours in the current date for all organizations.
+   * Values are returned in millicores. Divide by 1,000 to convert to cores.
    */
   "infraCpuObservedInfraHostVcpuOpentelemetryAvg"?: number;
   /**
    * Shows the sum of all observed Infrastructure host vCPU cores reported by OpenTelemetry over all hours in the current date for all organizations.
+   * Values are returned in millicores. Divide by 1,000 to convert to cores.
    */
   "infraCpuObservedInfraHostVcpuOpentelemetrySum"?: number;
   /**
    * Shows the sum of all Infrastructure vCPU cores over all hours in the current date for all organizations.
+   * Values are returned in millicores. Divide by 1,000 to convert to cores.
    */
   "infraCpuSum"?: number;
   /**
