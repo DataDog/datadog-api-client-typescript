@@ -11670,6 +11670,17 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ListInterfaceTagsResponse",
   },
+  "NetworkHealthInsightsApi.V2.ListNetworkHealthInsights": {
+    from: {
+      type: "string",
+      format: "",
+    },
+    to: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "NetworkHealthInsightsResponse",
+  },
   "CloudNetworkMonitoringApi.V2.GetAggregatedConnections": {
     from: {
       type: "number",

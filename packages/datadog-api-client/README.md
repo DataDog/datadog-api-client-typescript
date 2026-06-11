@@ -425,6 +425,7 @@ apiInstance
 | Model Lab API | @datadog/datadog-api-client-model-lab-api | [README.md](../../services/model-lab-api/README.md) |
 | Monitors | @datadog/datadog-api-client-monitors | [README.md](../../services/monitors/README.md) |
 | Network Device Monitoring | @datadog/datadog-api-client-network-device-monitoring | [README.md](../../services/network-device-monitoring/README.md) |
+| Network Health Insights | @datadog/datadog-api-client-network-health-insights | [README.md](../../services/network-health-insights/README.md) |
 | Notebooks | @datadog/datadog-api-client-notebooks | [README.md](../../services/notebooks/README.md) |
 | OAuth2 Client Public | @datadog/datadog-api-client-o-auth2-client-public | [README.md](../../services/o-auth2-client-public/README.md) |
 | Observability Pipelines | @datadog/datadog-api-client-observability-pipelines | [README.md](../../services/observability-pipelines/README.md) |

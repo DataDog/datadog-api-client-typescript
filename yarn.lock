@@ -991,6 +991,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@datadog/datadog-api-client-network-health-insights@workspace:services/network_health_insights":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-network-health-insights@workspace:services/network_health_insights"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@datadog/datadog-api-client-notebooks@workspace:services/notebooks":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-notebooks@workspace:services/notebooks"
