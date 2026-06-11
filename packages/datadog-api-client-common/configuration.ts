@@ -627,6 +627,7 @@ export function createConfiguration(
       "v2.updateConnection": false,
       "v2.getPrunedTraceByID": false,
       "v2.getTraceByID": false,
+      "v2.getAsmServiceByName": false,
       "v2.createReportSchedule": false,
       "v2.patchReportSchedule": false,
       "v2.deleteSourcemaps": false,
