@@ -13130,6 +13130,24 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "Snapshot",
     },
+    "v2.CreateReportSchedule": {
+        "body": {
+            "type": "ReportScheduleCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ReportScheduleResponse",
+    },
+    "v2.PatchReportSchedule": {
+        "scheduleUuid": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "ReportSchedulePatchRequest",
+            "format": "",
+            },
+        "operationResponseType": "ReportScheduleResponse",
+    },
     "v2.GetRestrictionPolicy": {
         "resourceId": {
             "type": "string",
