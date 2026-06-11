@@ -2770,7 +2770,12 @@ import { NotificationChannelPhoneConfig } from "./NotificationChannelPhoneConfig
 import { NotificationChannelPushConfig } from "./NotificationChannelPushConfig";
 import { NotificationRule } from "./NotificationRule";
 import { NotificationRuleAttributes } from "./NotificationRuleAttributes";
+import { NotificationRulePreviewResponse } from "./NotificationRulePreviewResponse";
+import { NotificationRulePreviewResponseAttributes } from "./NotificationRulePreviewResponseAttributes";
+import { NotificationRulePreviewResponseData } from "./NotificationRulePreviewResponseData";
+import { NotificationRulePreviewResult } from "./NotificationRulePreviewResult";
 import { NotificationRuleResponse } from "./NotificationRuleResponse";
+import { NotificationRuleRouting } from "./NotificationRuleRouting";
 import { NotificationRulesListResponse } from "./NotificationRulesListResponse";
 import { NotionAPIKey } from "./NotionAPIKey";
 import { NotionAPIKeyUpdate } from "./NotionAPIKeyUpdate";
@@ -6221,6 +6226,9 @@ const enumsMap: { [key: string]: any[] } = {
   NotificationChannelPhoneConfigType: ["phone"],
   NotificationChannelPushConfigType: ["push"],
   NotificationChannelType: ["notification_channels"],
+  NotificationRulePreviewNotificationStatus: ["SUCCESS", "DEFAULT", "ERROR"],
+  NotificationRulePreviewResponseType: ["notification_preview_response"],
+  NotificationRuleRoutingMode: ["manual"],
   NotificationRulesType: ["notification_rules"],
   NotionAPIKeyType: ["NotionAPIKey"],
   NotionIntegrationType: ["Notion"],
@@ -10922,7 +10930,13 @@ const typeMap: { [index: string]: any } = {
   NotificationChannelPushConfig: NotificationChannelPushConfig,
   NotificationRule: NotificationRule,
   NotificationRuleAttributes: NotificationRuleAttributes,
+  NotificationRulePreviewResponse: NotificationRulePreviewResponse,
+  NotificationRulePreviewResponseAttributes:
+    NotificationRulePreviewResponseAttributes,
+  NotificationRulePreviewResponseData: NotificationRulePreviewResponseData,
+  NotificationRulePreviewResult: NotificationRulePreviewResult,
   NotificationRuleResponse: NotificationRuleResponse,
+  NotificationRuleRouting: NotificationRuleRouting,
   NotificationRulesListResponse: NotificationRulesListResponse,
   NotionAPIKey: NotionAPIKey,
   NotionAPIKeyUpdate: NotionAPIKeyUpdate,
