@@ -405,6 +405,7 @@ apiInstance
 | Google Chat Integration | @datadog/datadog-api-client-google-chat-integration | [README.md](../../services/google-chat-integration/README.md) |
 | High Availability MultiRegion | @datadog/datadog-api-client-high-availability-multi-region | [README.md](../../services/high-availability-multi-region/README.md) |
 | Hosts | @datadog/datadog-api-client-hosts | [README.md](../../services/hosts/README.md) |
+| Identity Providers | @datadog/datadog-api-client-identity-providers | [README.md](../../services/identity-providers/README.md) |
 | Incident Services | @datadog/datadog-api-client-incident-services | [README.md](../../services/incident-services/README.md) |
 | Incidents | @datadog/datadog-api-client-incidents | [README.md](../../services/incidents/README.md) |
 | Integrations | @datadog/datadog-api-client-integrations | [README.md](../../services/integrations/README.md) |
@@ -434,6 +435,7 @@ apiInstance
 | On-Call | @datadog/datadog-api-client-on-call | [README.md](../../services/on-call/README.md) |
 | On-Call Paging | @datadog/datadog-api-client-on-call-paging | [README.md](../../services/on-call-paging/README.md) |
 | Opsgenie Integration | @datadog/datadog-api-client-opsgenie-integration | [README.md](../../services/opsgenie-integration/README.md) |
+| Org Authorized Clients | @datadog/datadog-api-client-org-authorized-clients | [README.md](../../services/org-authorized-clients/README.md) |
 | Org Connections | @datadog/datadog-api-client-org-connections | [README.md](../../services/org-connections/README.md) |
 | Org Groups | @datadog/datadog-api-client-org-groups | [README.md](../../services/org-groups/README.md) |
 | Organizations | @datadog/datadog-api-client-organizations | [README.md](../../services/organizations/README.md) |
@@ -483,6 +485,7 @@ apiInstance
 | Teams | @datadog/datadog-api-client-teams | [README.md](../../services/teams/README.md) |
 | Test Optimization | @datadog/datadog-api-client-test-optimization | [README.md](../../services/test-optimization/README.md) |
 | Usage Metering | @datadog/datadog-api-client-usage-metering | [README.md](../../services/usage-metering/README.md) |
+| User Authorized Clients | @datadog/datadog-api-client-user-authorized-clients | [README.md](../../services/user-authorized-clients/README.md) |
 | Users | @datadog/datadog-api-client-users | [README.md](../../services/users/README.md) |
 | Web Integrations | @datadog/datadog-api-client-web-integrations | [README.md](../../services/web-integrations/README.md) |
 | Webhooks Integration | @datadog/datadog-api-client-webhooks-integration | [README.md](../../services/webhooks-integration/README.md) |

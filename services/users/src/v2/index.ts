@@ -5,12 +5,14 @@ export {
   UsersApiDisableUserRequest,
   UsersApiGetInvitationRequest,
   UsersApiGetUserRequest,
+  UsersApiGetUserIdentityProvidersRequest,
   UsersApiListUserOrganizationsRequest,
   UsersApiListUserPermissionsRequest,
   UsersApiListUsersRequest,
   UsersApiSendInvitationsRequest,
   UsersApiUpdateCurrentUserRequest,
   UsersApiUpdateUserRequest,
+  UsersApiUpdateUserIdentityProvidersRequest,
   UsersApi,
 } from "./UsersApi";
 
@@ -48,6 +50,7 @@ export { Role } from "./models/Role";
 export { RoleAttributes } from "./models/RoleAttributes";
 export { RoleResponseRelationships } from "./models/RoleResponseRelationships";
 export { RolesType } from "./models/RolesType";
+export { UpdateUserIdentityProvidersRequest } from "./models/UpdateUserIdentityProvidersRequest";
 export { User } from "./models/User";
 export { UserAttributes } from "./models/UserAttributes";
 export { UserCreateAttributes } from "./models/UserCreateAttributes";
@@ -61,6 +64,12 @@ export { UserInvitationResponseData } from "./models/UserInvitationResponseData"
 export { UserInvitationsRequest } from "./models/UserInvitationsRequest";
 export { UserInvitationsResponse } from "./models/UserInvitationsResponse";
 export { UserInvitationsType } from "./models/UserInvitationsType";
+export { UserOverrideIdentityProviderAttributes } from "./models/UserOverrideIdentityProviderAttributes";
+export { UserOverrideIdentityProviderData } from "./models/UserOverrideIdentityProviderData";
+export { UserOverrideIdentityProviderDataType } from "./models/UserOverrideIdentityProviderDataType";
+export { UserOverrideIdentityProvidersResponse } from "./models/UserOverrideIdentityProvidersResponse";
+export { UserRelationshipIdentityProviderData } from "./models/UserRelationshipIdentityProviderData";
+export { UserRelationshipIdentityProviderDataType } from "./models/UserRelationshipIdentityProviderDataType";
 export { UserRelationships } from "./models/UserRelationships";
 export { UserResponse } from "./models/UserResponse";
 export { UserResponseIncludedItem } from "./models/UserResponseIncludedItem";

@@ -802,6 +802,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@datadog/datadog-api-client-identity-providers@workspace:services/identity_providers":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-identity-providers@workspace:services/identity_providers"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@datadog/datadog-api-client-incident-services@workspace:services/incident_services":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-incident-services@workspace:services/incident_services"
@@ -1066,6 +1075,15 @@ __metadata:
 "@datadog/datadog-api-client-opsgenie-integration@workspace:services/opsgenie_integration":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-opsgenie-integration@workspace:services/opsgenie_integration"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
+"@datadog/datadog-api-client-org-authorized-clients@workspace:services/org_authorized_clients":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-org-authorized-clients@workspace:services/org_authorized_clients"
   dependencies:
     "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
@@ -1525,6 +1543,15 @@ __metadata:
 "@datadog/datadog-api-client-usage-metering@workspace:services/usage_metering":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-usage-metering@workspace:services/usage_metering"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
+"@datadog/datadog-api-client-user-authorized-clients@workspace:services/user_authorized_clients":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-user-authorized-clients@workspace:services/user_authorized_clients"
   dependencies:
     "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
