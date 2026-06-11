@@ -1447,6 +1447,11 @@ export {
 } from "./apis/ServiceNowIntegrationApi";
 
 export {
+  SlackIntegrationApiListSlackUserBindingsRequest,
+  SlackIntegrationApi,
+} from "./apis/SlackIntegrationApi";
+
+export {
   SoftwareCatalogApiDeleteCatalogEntityRequest,
   SoftwareCatalogApiDeleteCatalogKindRequest,
   SoftwareCatalogApiListCatalogEntityRequest,
@@ -7125,6 +7130,9 @@ export { SingleEntityContextResponse } from "./models/SingleEntityContextRespons
 export { SlackIntegrationMetadata } from "./models/SlackIntegrationMetadata";
 export { SlackIntegrationMetadataChannelItem } from "./models/SlackIntegrationMetadataChannelItem";
 export { SlackTriggerWrapper } from "./models/SlackTriggerWrapper";
+export { SlackUserBindingData } from "./models/SlackUserBindingData";
+export { SlackUserBindingsResponse } from "./models/SlackUserBindingsResponse";
+export { SlackUserBindingType } from "./models/SlackUserBindingType";
 export { SloDataSource } from "./models/SloDataSource";
 export { SloQuery } from "./models/SloQuery";
 export { SloReportCreateRequest } from "./models/SloReportCreateRequest";
