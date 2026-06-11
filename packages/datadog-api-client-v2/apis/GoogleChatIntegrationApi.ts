@@ -19,11 +19,76 @@ import { ApiException } from "../../datadog-api-client-common/exception";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { GoogleChatAppNamedSpaceResponse } from "../models/GoogleChatAppNamedSpaceResponse";
 import { GoogleChatCreateOrganizationHandleRequest } from "../models/GoogleChatCreateOrganizationHandleRequest";
+import { GoogleChatDelegatedUserResponse } from "../models/GoogleChatDelegatedUserResponse";
 import { GoogleChatOrganizationHandleResponse } from "../models/GoogleChatOrganizationHandleResponse";
 import { GoogleChatOrganizationHandlesResponse } from "../models/GoogleChatOrganizationHandlesResponse";
+import { GoogleChatOrganizationResponse } from "../models/GoogleChatOrganizationResponse";
+import { GoogleChatOrganizationsResponse } from "../models/GoogleChatOrganizationsResponse";
+import { GoogleChatTargetAudienceCreateRequest } from "../models/GoogleChatTargetAudienceCreateRequest";
+import { GoogleChatTargetAudienceResponse } from "../models/GoogleChatTargetAudienceResponse";
+import { GoogleChatTargetAudiencesResponse } from "../models/GoogleChatTargetAudiencesResponse";
+import { GoogleChatTargetAudienceUpdateRequest } from "../models/GoogleChatTargetAudienceUpdateRequest";
 import { GoogleChatUpdateOrganizationHandleRequest } from "../models/GoogleChatUpdateOrganizationHandleRequest";
 
 export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactory {
+  public async createGoogleChatTargetAudience(
+    organizationBindingId: string,
+    body: GoogleChatTargetAudienceCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'organizationBindingId' is not null or undefined
+    if (organizationBindingId === null || organizationBindingId === undefined) {
+      throw new RequiredError(
+        "organizationBindingId",
+        "createGoogleChatTargetAudience"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createGoogleChatTargetAudience");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/integration/google-chat/organizations/{organization_binding_id}/target-audiences".replace(
+        "{organization_binding_id}",
+        encodeURIComponent(String(organizationBindingId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.GoogleChatIntegrationApi.createGoogleChatTargetAudience")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "GoogleChatTargetAudienceCreateRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async createOrganizationHandle(
     organizationBindingId: string,
     body: GoogleChatCreateOrganizationHandleRequest,
@@ -82,6 +147,131 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
     return requestContext;
   }
 
+  public async deleteGoogleChatDelegatedUser(
+    organizationBindingId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'organizationBindingId' is not null or undefined
+    if (organizationBindingId === null || organizationBindingId === undefined) {
+      throw new RequiredError(
+        "organizationBindingId",
+        "deleteGoogleChatDelegatedUser"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/integration/google-chat/organizations/{organization_binding_id}/delegated-user".replace(
+        "{organization_binding_id}",
+        encodeURIComponent(String(organizationBindingId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.GoogleChatIntegrationApi.deleteGoogleChatDelegatedUser")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteGoogleChatOrganization(
+    organizationBindingId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'organizationBindingId' is not null or undefined
+    if (organizationBindingId === null || organizationBindingId === undefined) {
+      throw new RequiredError(
+        "organizationBindingId",
+        "deleteGoogleChatOrganization"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/integration/google-chat/organizations/{organization_binding_id}".replace(
+        "{organization_binding_id}",
+        encodeURIComponent(String(organizationBindingId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.GoogleChatIntegrationApi.deleteGoogleChatOrganization")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteGoogleChatTargetAudience(
+    organizationBindingId: string,
+    targetAudienceId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'organizationBindingId' is not null or undefined
+    if (organizationBindingId === null || organizationBindingId === undefined) {
+      throw new RequiredError(
+        "organizationBindingId",
+        "deleteGoogleChatTargetAudience"
+      );
+    }
+
+    // verify required parameter 'targetAudienceId' is not null or undefined
+    if (targetAudienceId === null || targetAudienceId === undefined) {
+      throw new RequiredError(
+        "targetAudienceId",
+        "deleteGoogleChatTargetAudience"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/integration/google-chat/organizations/{organization_binding_id}/target-audiences/{target_audience_id}"
+        .replace(
+          "{organization_binding_id}",
+          encodeURIComponent(String(organizationBindingId))
+        )
+        .replace(
+          "{target_audience_id}",
+          encodeURIComponent(String(targetAudienceId))
+        );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.GoogleChatIntegrationApi.deleteGoogleChatTargetAudience")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteOrganizationHandle(
     organizationBindingId: string,
     handleId: string,
@@ -116,6 +306,131 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
       .getServer("v2.GoogleChatIntegrationApi.deleteOrganizationHandle")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getGoogleChatDelegatedUser(
+    organizationBindingId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'organizationBindingId' is not null or undefined
+    if (organizationBindingId === null || organizationBindingId === undefined) {
+      throw new RequiredError(
+        "organizationBindingId",
+        "getGoogleChatDelegatedUser"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/integration/google-chat/organizations/{organization_binding_id}/delegated-user".replace(
+        "{organization_binding_id}",
+        encodeURIComponent(String(organizationBindingId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.GoogleChatIntegrationApi.getGoogleChatDelegatedUser")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getGoogleChatOrganization(
+    organizationBindingId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'organizationBindingId' is not null or undefined
+    if (organizationBindingId === null || organizationBindingId === undefined) {
+      throw new RequiredError(
+        "organizationBindingId",
+        "getGoogleChatOrganization"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/integration/google-chat/organizations/{organization_binding_id}".replace(
+        "{organization_binding_id}",
+        encodeURIComponent(String(organizationBindingId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.GoogleChatIntegrationApi.getGoogleChatOrganization")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getGoogleChatTargetAudience(
+    organizationBindingId: string,
+    targetAudienceId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'organizationBindingId' is not null or undefined
+    if (organizationBindingId === null || organizationBindingId === undefined) {
+      throw new RequiredError(
+        "organizationBindingId",
+        "getGoogleChatTargetAudience"
+      );
+    }
+
+    // verify required parameter 'targetAudienceId' is not null or undefined
+    if (targetAudienceId === null || targetAudienceId === undefined) {
+      throw new RequiredError(
+        "targetAudienceId",
+        "getGoogleChatTargetAudience"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/integration/google-chat/organizations/{organization_binding_id}/target-audiences/{target_audience_id}"
+        .replace(
+          "{organization_binding_id}",
+          encodeURIComponent(String(organizationBindingId))
+        )
+        .replace(
+          "{target_audience_id}",
+          encodeURIComponent(String(targetAudienceId))
+        );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.GoogleChatIntegrationApi.getGoogleChatTargetAudience")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
@@ -211,6 +526,67 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
     return requestContext;
   }
 
+  public async listGoogleChatOrganizations(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/integration/google-chat/organizations";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.GoogleChatIntegrationApi.listGoogleChatOrganizations")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listGoogleChatTargetAudiences(
+    organizationBindingId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'organizationBindingId' is not null or undefined
+    if (organizationBindingId === null || organizationBindingId === undefined) {
+      throw new RequiredError(
+        "organizationBindingId",
+        "listGoogleChatTargetAudiences"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/integration/google-chat/organizations/{organization_binding_id}/target-audiences".replace(
+        "{organization_binding_id}",
+        encodeURIComponent(String(organizationBindingId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.GoogleChatIntegrationApi.listGoogleChatTargetAudiences")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listOrganizationHandles(
     organizationBindingId: string,
     _options?: Configuration
@@ -238,6 +614,78 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateGoogleChatTargetAudience(
+    organizationBindingId: string,
+    targetAudienceId: string,
+    body: GoogleChatTargetAudienceUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'organizationBindingId' is not null or undefined
+    if (organizationBindingId === null || organizationBindingId === undefined) {
+      throw new RequiredError(
+        "organizationBindingId",
+        "updateGoogleChatTargetAudience"
+      );
+    }
+
+    // verify required parameter 'targetAudienceId' is not null or undefined
+    if (targetAudienceId === null || targetAudienceId === undefined) {
+      throw new RequiredError(
+        "targetAudienceId",
+        "updateGoogleChatTargetAudience"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateGoogleChatTargetAudience");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/integration/google-chat/organizations/{organization_binding_id}/target-audiences/{target_audience_id}"
+        .replace(
+          "{organization_binding_id}",
+          encodeURIComponent(String(organizationBindingId))
+        )
+        .replace(
+          "{target_audience_id}",
+          encodeURIComponent(String(targetAudienceId))
+        );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.GoogleChatIntegrationApi.updateGoogleChatTargetAudience")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "GoogleChatTargetAudienceUpdateRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -320,6 +768,72 @@ export class GoogleChatIntegrationApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createGoogleChatTargetAudience
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createGoogleChatTargetAudience(
+    response: ResponseContext
+  ): Promise<GoogleChatTargetAudienceResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: GoogleChatTargetAudienceResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "GoogleChatTargetAudienceResponse"
+        ) as GoogleChatTargetAudienceResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: GoogleChatTargetAudienceResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "GoogleChatTargetAudienceResponse",
+          ""
+        ) as GoogleChatTargetAudienceResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createOrganizationHandle
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -386,6 +900,165 @@ export class GoogleChatIntegrationApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deleteGoogleChatDelegatedUser
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteGoogleChatDelegatedUser(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteGoogleChatOrganization
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteGoogleChatOrganization(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteGoogleChatTargetAudience
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteGoogleChatTargetAudience(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteOrganizationHandle
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -426,6 +1099,196 @@ export class GoogleChatIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getGoogleChatDelegatedUser
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getGoogleChatDelegatedUser(
+    response: ResponseContext
+  ): Promise<GoogleChatDelegatedUserResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: GoogleChatDelegatedUserResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "GoogleChatDelegatedUserResponse"
+        ) as GoogleChatDelegatedUserResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: GoogleChatDelegatedUserResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "GoogleChatDelegatedUserResponse",
+          ""
+        ) as GoogleChatDelegatedUserResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getGoogleChatOrganization
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getGoogleChatOrganization(
+    response: ResponseContext
+  ): Promise<GoogleChatOrganizationResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: GoogleChatOrganizationResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GoogleChatOrganizationResponse"
+      ) as GoogleChatOrganizationResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: GoogleChatOrganizationResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GoogleChatOrganizationResponse",
+        ""
+      ) as GoogleChatOrganizationResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getGoogleChatTargetAudience
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getGoogleChatTargetAudience(
+    response: ResponseContext
+  ): Promise<GoogleChatTargetAudienceResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: GoogleChatTargetAudienceResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "GoogleChatTargetAudienceResponse"
+        ) as GoogleChatTargetAudienceResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: GoogleChatTargetAudienceResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "GoogleChatTargetAudienceResponse",
+          ""
+        ) as GoogleChatTargetAudienceResponse;
+      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -569,6 +1432,130 @@ export class GoogleChatIntegrationApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listGoogleChatOrganizations
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listGoogleChatOrganizations(
+    response: ResponseContext
+  ): Promise<GoogleChatOrganizationsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: GoogleChatOrganizationsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "GoogleChatOrganizationsResponse"
+        ) as GoogleChatOrganizationsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: GoogleChatOrganizationsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "GoogleChatOrganizationsResponse",
+          ""
+        ) as GoogleChatOrganizationsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listGoogleChatTargetAudiences
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listGoogleChatTargetAudiences(
+    response: ResponseContext
+  ): Promise<GoogleChatTargetAudiencesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: GoogleChatTargetAudiencesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "GoogleChatTargetAudiencesResponse"
+        ) as GoogleChatTargetAudiencesResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: GoogleChatTargetAudiencesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "GoogleChatTargetAudiencesResponse",
+          ""
+        ) as GoogleChatTargetAudiencesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listOrganizationHandles
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -620,6 +1607,71 @@ export class GoogleChatIntegrationApiResponseProcessor {
           "GoogleChatOrganizationHandlesResponse",
           ""
         ) as GoogleChatOrganizationHandlesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateGoogleChatTargetAudience
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateGoogleChatTargetAudience(
+    response: ResponseContext
+  ): Promise<GoogleChatTargetAudienceResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: GoogleChatTargetAudienceResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "GoogleChatTargetAudienceResponse"
+        ) as GoogleChatTargetAudienceResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: GoogleChatTargetAudienceResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "GoogleChatTargetAudienceResponse",
+          ""
+        ) as GoogleChatTargetAudienceResponse;
       return body;
     }
 
@@ -697,6 +1749,19 @@ export class GoogleChatIntegrationApiResponseProcessor {
   }
 }
 
+export interface GoogleChatIntegrationApiCreateGoogleChatTargetAudienceRequest {
+  /**
+   * Your organization binding ID.
+   * @type string
+   */
+  organizationBindingId: string;
+  /**
+   * Target audience payload.
+   * @type GoogleChatTargetAudienceCreateRequest
+   */
+  body: GoogleChatTargetAudienceCreateRequest;
+}
+
 export interface GoogleChatIntegrationApiCreateOrganizationHandleRequest {
   /**
    * Your organization binding ID.
@@ -710,6 +1775,35 @@ export interface GoogleChatIntegrationApiCreateOrganizationHandleRequest {
   body: GoogleChatCreateOrganizationHandleRequest;
 }
 
+export interface GoogleChatIntegrationApiDeleteGoogleChatDelegatedUserRequest {
+  /**
+   * Your organization binding ID.
+   * @type string
+   */
+  organizationBindingId: string;
+}
+
+export interface GoogleChatIntegrationApiDeleteGoogleChatOrganizationRequest {
+  /**
+   * Your organization binding ID.
+   * @type string
+   */
+  organizationBindingId: string;
+}
+
+export interface GoogleChatIntegrationApiDeleteGoogleChatTargetAudienceRequest {
+  /**
+   * Your organization binding ID.
+   * @type string
+   */
+  organizationBindingId: string;
+  /**
+   * Your target audience ID.
+   * @type string
+   */
+  targetAudienceId: string;
+}
+
 export interface GoogleChatIntegrationApiDeleteOrganizationHandleRequest {
   /**
    * Your organization binding ID.
@@ -721,6 +1815,35 @@ export interface GoogleChatIntegrationApiDeleteOrganizationHandleRequest {
    * @type string
    */
   handleId: string;
+}
+
+export interface GoogleChatIntegrationApiGetGoogleChatDelegatedUserRequest {
+  /**
+   * Your organization binding ID.
+   * @type string
+   */
+  organizationBindingId: string;
+}
+
+export interface GoogleChatIntegrationApiGetGoogleChatOrganizationRequest {
+  /**
+   * Your organization binding ID.
+   * @type string
+   */
+  organizationBindingId: string;
+}
+
+export interface GoogleChatIntegrationApiGetGoogleChatTargetAudienceRequest {
+  /**
+   * Your organization binding ID.
+   * @type string
+   */
+  organizationBindingId: string;
+  /**
+   * Your target audience ID.
+   * @type string
+   */
+  targetAudienceId: string;
 }
 
 export interface GoogleChatIntegrationApiGetOrganizationHandleRequest {
@@ -749,12 +1872,38 @@ export interface GoogleChatIntegrationApiGetSpaceByDisplayNameRequest {
   spaceDisplayName: string;
 }
 
+export interface GoogleChatIntegrationApiListGoogleChatTargetAudiencesRequest {
+  /**
+   * Your organization binding ID.
+   * @type string
+   */
+  organizationBindingId: string;
+}
+
 export interface GoogleChatIntegrationApiListOrganizationHandlesRequest {
   /**
    * Your organization binding ID.
    * @type string
    */
   organizationBindingId: string;
+}
+
+export interface GoogleChatIntegrationApiUpdateGoogleChatTargetAudienceRequest {
+  /**
+   * Your organization binding ID.
+   * @type string
+   */
+  organizationBindingId: string;
+  /**
+   * Your target audience ID.
+   * @type string
+   */
+  targetAudienceId: string;
+  /**
+   * Target audience payload.
+   * @type GoogleChatTargetAudienceUpdateRequest
+   */
+  body: GoogleChatTargetAudienceUpdateRequest;
 }
 
 export interface GoogleChatIntegrationApiUpdateOrganizationHandleRequest {
@@ -794,6 +1943,31 @@ export class GoogleChatIntegrationApi {
   }
 
   /**
+   * Create a target audience for a Google Chat organization binding in the Datadog Google Chat integration.
+   * @param param The request object
+   */
+  public createGoogleChatTargetAudience(
+    param: GoogleChatIntegrationApiCreateGoogleChatTargetAudienceRequest,
+    options?: Configuration
+  ): Promise<GoogleChatTargetAudienceResponse> {
+    const requestContextPromise =
+      this.requestFactory.createGoogleChatTargetAudience(
+        param.organizationBindingId,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createGoogleChatTargetAudience(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Create an organization handle in the Datadog Google Chat integration.
    * @param param The request object
    */
@@ -818,6 +1992,79 @@ export class GoogleChatIntegrationApi {
   }
 
   /**
+   * Delete the delegated user for a Google Chat organization binding from the Datadog Google Chat integration.
+   * @param param The request object
+   */
+  public deleteGoogleChatDelegatedUser(
+    param: GoogleChatIntegrationApiDeleteGoogleChatDelegatedUserRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteGoogleChatDelegatedUser(
+        param.organizationBindingId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteGoogleChatDelegatedUser(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete a Google Chat organization binding from the Datadog Google Chat integration.
+   * @param param The request object
+   */
+  public deleteGoogleChatOrganization(
+    param: GoogleChatIntegrationApiDeleteGoogleChatOrganizationRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteGoogleChatOrganization(
+        param.organizationBindingId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteGoogleChatOrganization(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete a target audience from a Google Chat organization binding in the Datadog Google Chat integration.
+   * @param param The request object
+   */
+  public deleteGoogleChatTargetAudience(
+    param: GoogleChatIntegrationApiDeleteGoogleChatTargetAudienceRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteGoogleChatTargetAudience(
+        param.organizationBindingId,
+        param.targetAudienceId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteGoogleChatTargetAudience(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Delete an organization handle from the Datadog Google Chat integration.
    * @param param The request object
    */
@@ -835,6 +2082,78 @@ export class GoogleChatIntegrationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteOrganizationHandle(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get the delegated user for a Google Chat organization binding in the Datadog Google Chat integration.
+   * @param param The request object
+   */
+  public getGoogleChatDelegatedUser(
+    param: GoogleChatIntegrationApiGetGoogleChatDelegatedUserRequest,
+    options?: Configuration
+  ): Promise<GoogleChatDelegatedUserResponse> {
+    const requestContextPromise =
+      this.requestFactory.getGoogleChatDelegatedUser(
+        param.organizationBindingId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getGoogleChatDelegatedUser(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get a Google Chat organization binding from the Datadog Google Chat integration.
+   * @param param The request object
+   */
+  public getGoogleChatOrganization(
+    param: GoogleChatIntegrationApiGetGoogleChatOrganizationRequest,
+    options?: Configuration
+  ): Promise<GoogleChatOrganizationResponse> {
+    const requestContextPromise = this.requestFactory.getGoogleChatOrganization(
+      param.organizationBindingId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getGoogleChatOrganization(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get a target audience for a Google Chat organization binding in the Datadog Google Chat integration.
+   * @param param The request object
+   */
+  public getGoogleChatTargetAudience(
+    param: GoogleChatIntegrationApiGetGoogleChatTargetAudienceRequest,
+    options?: Configuration
+  ): Promise<GoogleChatTargetAudienceResponse> {
+    const requestContextPromise =
+      this.requestFactory.getGoogleChatTargetAudience(
+        param.organizationBindingId,
+        param.targetAudienceId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getGoogleChatTargetAudience(
             responseContext
           );
         });
@@ -886,6 +2205,50 @@ export class GoogleChatIntegrationApi {
   }
 
   /**
+   * Get a list of all Google Chat organization bindings in the Datadog Google Chat integration.
+   * @param param The request object
+   */
+  public listGoogleChatOrganizations(
+    options?: Configuration
+  ): Promise<GoogleChatOrganizationsResponse> {
+    const requestContextPromise =
+      this.requestFactory.listGoogleChatOrganizations(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listGoogleChatOrganizations(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get a list of all target audiences for a Google Chat organization binding in the Datadog Google Chat integration.
+   * @param param The request object
+   */
+  public listGoogleChatTargetAudiences(
+    param: GoogleChatIntegrationApiListGoogleChatTargetAudiencesRequest,
+    options?: Configuration
+  ): Promise<GoogleChatTargetAudiencesResponse> {
+    const requestContextPromise =
+      this.requestFactory.listGoogleChatTargetAudiences(
+        param.organizationBindingId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listGoogleChatTargetAudiences(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Get a list of all organization handles from the Datadog Google Chat integration.
    * @param param The request object
    */
@@ -902,6 +2265,32 @@ export class GoogleChatIntegrationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listOrganizationHandles(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Update a target audience for a Google Chat organization binding in the Datadog Google Chat integration.
+   * @param param The request object
+   */
+  public updateGoogleChatTargetAudience(
+    param: GoogleChatIntegrationApiUpdateGoogleChatTargetAudienceRequest,
+    options?: Configuration
+  ): Promise<GoogleChatTargetAudienceResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateGoogleChatTargetAudience(
+        param.organizationBindingId,
+        param.targetAudienceId,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateGoogleChatTargetAudience(
             responseContext
           );
         });
