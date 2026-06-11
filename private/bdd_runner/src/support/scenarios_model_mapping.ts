@@ -6287,6 +6287,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "SecurityMonitoringApi.V2.SendSecurityMonitoringNotificationPreview": {
+    body: {
+      type: "CreateNotificationRuleParameters",
+      format: "",
+    },
+    operationResponseType: "NotificationRulePreviewResponse",
+  },
   "SecurityMonitoringApi.V2.ListSecurityFilters": {
     operationResponseType: "SecurityFiltersResponse",
   },
