@@ -23,11 +23,18 @@ import {
 
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
+import { CloneFormRequest } from "./models/CloneFormRequest";
 import { CreateFormRequest } from "./models/CreateFormRequest";
 import { DeleteFormResponse } from "./models/DeleteFormResponse";
+import { FormPublicationResponse } from "./models/FormPublicationResponse";
 import { FormResponse } from "./models/FormResponse";
 import { FormsResponse } from "./models/FormsResponse";
+import { FormVersionResponse } from "./models/FormVersionResponse";
 import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
+import { PublishFormRequest } from "./models/PublishFormRequest";
+import { UpdateFormRequest } from "./models/UpdateFormRequest";
+import { UpsertAndPublishFormVersionRequest } from "./models/UpsertAndPublishFormVersionRequest";
+import { UpsertFormVersionRequest } from "./models/UpsertFormVersionRequest";
 import { version } from "../version";
 
 export class FormsApiRequestFactory extends BaseAPIRequestFactory {
@@ -39,6 +46,71 @@ export class FormsApiRequestFactory extends BaseAPIRequestFactory {
       this.userAgent = buildUserAgent("forms", version);
     }
   }
+  public async cloneForm(
+    formId: string,
+    body: CloneFormRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["FormsApi.v2.cloneForm"]) {
+      throw new Error(
+        "Unstable operation 'cloneForm' is disabled. Enable it by setting `configuration.unstableOperations['FormsApi.v2.cloneForm'] = true`",
+      );
+    }
+
+    // verify required parameter 'formId' is not null or undefined
+    if (formId === null || formId === undefined) {
+      throw new RequiredError("formId", "cloneForm");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "cloneForm");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/forms/{form_id}/clone".replace(
+      "{form_id}",
+      encodeURIComponent(String(formId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "FormsApi.v2.cloneForm",
+      FormsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "CloneFormRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async createAndPublishForm(
     body: CreateFormRequest,
     _options?: Configuration,
@@ -299,9 +371,351 @@ export class FormsApiRequestFactory extends BaseAPIRequestFactory {
 
     return requestContext;
   }
+
+  public async publishForm(
+    formId: string,
+    body: PublishFormRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["FormsApi.v2.publishForm"]) {
+      throw new Error(
+        "Unstable operation 'publishForm' is disabled. Enable it by setting `configuration.unstableOperations['FormsApi.v2.publishForm'] = true`",
+      );
+    }
+
+    // verify required parameter 'formId' is not null or undefined
+    if (formId === null || formId === undefined) {
+      throw new RequiredError("formId", "publishForm");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "publishForm");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/forms/{form_id}/publish".replace(
+      "{form_id}",
+      encodeURIComponent(String(formId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "FormsApi.v2.publishForm",
+      FormsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "PublishFormRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateForm(
+    formId: string,
+    body: UpdateFormRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["FormsApi.v2.updateForm"]) {
+      throw new Error(
+        "Unstable operation 'updateForm' is disabled. Enable it by setting `configuration.unstableOperations['FormsApi.v2.updateForm'] = true`",
+      );
+    }
+
+    // verify required parameter 'formId' is not null or undefined
+    if (formId === null || formId === undefined) {
+      throw new RequiredError("formId", "updateForm");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateForm");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/forms/{form_id}".replace(
+      "{form_id}",
+      encodeURIComponent(String(formId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "FormsApi.v2.updateForm",
+      FormsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "UpdateFormRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async upsertAndPublishFormVersion(
+    formId: string,
+    body: UpsertAndPublishFormVersionRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["FormsApi.v2.upsertAndPublishFormVersion"]
+    ) {
+      throw new Error(
+        "Unstable operation 'upsertAndPublishFormVersion' is disabled. Enable it by setting `configuration.unstableOperations['FormsApi.v2.upsertAndPublishFormVersion'] = true`",
+      );
+    }
+
+    // verify required parameter 'formId' is not null or undefined
+    if (formId === null || formId === undefined) {
+      throw new RequiredError("formId", "upsertAndPublishFormVersion");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "upsertAndPublishFormVersion");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/forms/{form_id}/versions/upsert_and_publish".replace(
+        "{form_id}",
+        encodeURIComponent(String(formId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "FormsApi.v2.upsertAndPublishFormVersion",
+      FormsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "UpsertAndPublishFormVersionRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async upsertFormVersion(
+    formId: string,
+    body: UpsertFormVersionRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["FormsApi.v2.upsertFormVersion"]) {
+      throw new Error(
+        "Unstable operation 'upsertFormVersion' is disabled. Enable it by setting `configuration.unstableOperations['FormsApi.v2.upsertFormVersion'] = true`",
+      );
+    }
+
+    // verify required parameter 'formId' is not null or undefined
+    if (formId === null || formId === undefined) {
+      throw new RequiredError("formId", "upsertFormVersion");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "upsertFormVersion");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/forms/{form_id}/versions".replace(
+      "{form_id}",
+      encodeURIComponent(String(formId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "FormsApi.v2.upsertFormVersion",
+      FormsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "UpsertFormVersionRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
 }
 
 export class FormsApiResponseProcessor {
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to cloneForm
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async cloneForm(response: ResponseContext): Promise<FormResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: FormResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FormResponse",
+      ) as FormResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: FormResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FormResponse",
+        "",
+      ) as FormResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -684,6 +1098,340 @@ export class FormsApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"',
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to publishForm
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async publishForm(
+    response: ResponseContext,
+  ): Promise<FormPublicationResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: FormPublicationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FormPublicationResponse",
+      ) as FormPublicationResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: FormPublicationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FormPublicationResponse",
+        "",
+      ) as FormPublicationResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateForm
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateForm(response: ResponseContext): Promise<FormResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: FormResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FormResponse",
+      ) as FormResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: FormResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FormResponse",
+        "",
+      ) as FormResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to upsertAndPublishFormVersion
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async upsertAndPublishFormVersion(
+    response: ResponseContext,
+  ): Promise<FormResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: FormResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FormResponse",
+      ) as FormResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: FormResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FormResponse",
+        "",
+      ) as FormResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to upsertFormVersion
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async upsertFormVersion(
+    response: ResponseContext,
+  ): Promise<FormVersionResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: FormVersionResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FormVersionResponse",
+      ) as FormVersionResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: FormVersionResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "FormVersionResponse",
+        "",
+      ) as FormVersionResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+}
+
+export interface FormsApiCloneFormRequest {
+  /**
+   * The ID of the form to clone.
+   * @type string
+   */
+  formId: string;
+  /**
+   * @type CloneFormRequest
+   */
+  body: CloneFormRequest;
 }
 
 export interface FormsApiCreateAndPublishFormRequest {
@@ -721,6 +1469,54 @@ export interface FormsApiGetFormRequest {
   version?: string;
 }
 
+export interface FormsApiPublishFormRequest {
+  /**
+   * The ID of the form.
+   * @type string
+   */
+  formId: string;
+  /**
+   * @type PublishFormRequest
+   */
+  body: PublishFormRequest;
+}
+
+export interface FormsApiUpdateFormRequest {
+  /**
+   * The ID of the form.
+   * @type string
+   */
+  formId: string;
+  /**
+   * @type UpdateFormRequest
+   */
+  body: UpdateFormRequest;
+}
+
+export interface FormsApiUpsertAndPublishFormVersionRequest {
+  /**
+   * The ID of the form.
+   * @type string
+   */
+  formId: string;
+  /**
+   * @type UpsertAndPublishFormVersionRequest
+   */
+  body: UpsertAndPublishFormVersionRequest;
+}
+
+export interface FormsApiUpsertFormVersionRequest {
+  /**
+   * The ID of the form.
+   * @type string
+   */
+  formId: string;
+  /**
+   * @type UpsertFormVersionRequest
+   */
+  body: UpsertFormVersionRequest;
+}
+
 export class FormsApi {
   private requestFactory: FormsApiRequestFactory;
   private responseProcessor: FormsApiResponseProcessor;
@@ -738,6 +1534,28 @@ export class FormsApi {
       requestFactory || new FormsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new FormsApiResponseProcessor();
+  }
+
+  /**
+   * Clone an existing form. The clone is created in draft mode using the source form's latest version.
+   * @param param The request object
+   */
+  public cloneForm(
+    param: FormsApiCloneFormRequest,
+    options?: Configuration,
+  ): Promise<FormResponse> {
+    const requestContextPromise = this.requestFactory.cloneForm(
+      param.formId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.cloneForm(responseContext);
+        });
+    });
   }
 
   /**
@@ -836,6 +1654,98 @@ export class FormsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listForms(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Publish a specific version of a form, making it available for submissions.
+   * @param param The request object
+   */
+  public publishForm(
+    param: FormsApiPublishFormRequest,
+    options?: Configuration,
+  ): Promise<FormPublicationResponse> {
+    const requestContextPromise = this.requestFactory.publishForm(
+      param.formId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.publishForm(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update a form's properties such as its name, description, or datastore configuration.
+   * @param param The request object
+   */
+  public updateForm(
+    param: FormsApiUpdateFormRequest,
+    options?: Configuration,
+  ): Promise<FormResponse> {
+    const requestContextPromise = this.requestFactory.updateForm(
+      param.formId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateForm(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Upsert the latest form version and publish it in a single atomic transaction.
+   * @param param The request object
+   */
+  public upsertAndPublishFormVersion(
+    param: FormsApiUpsertAndPublishFormVersionRequest,
+    options?: Configuration,
+  ): Promise<FormResponse> {
+    const requestContextPromise =
+      this.requestFactory.upsertAndPublishFormVersion(
+        param.formId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.upsertAndPublishFormVersion(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Create or update the latest draft version of a form. The `upsert_params` field controls
+   * optimistic concurrency behavior.
+   * @param param The request object
+   */
+  public upsertFormVersion(
+    param: FormsApiUpsertFormVersionRequest,
+    options?: Configuration,
+  ): Promise<FormVersionResponse> {
+    const requestContextPromise = this.requestFactory.upsertFormVersion(
+      param.formId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.upsertFormVersion(responseContext);
         });
     });
   }

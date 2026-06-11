@@ -2,7 +2,8 @@
 
 ## Description
 
-The Datadog Forms API lets you create and manage forms within the App Builder platform. You can configure form settings, manage versions, publish forms, and handle sharing configurations.
+The Datadog Forms API lets you create and manage forms within the App Builder platform.
+You can configure form settings, manage versions, and publish forms.
 
 ## Navigation
 
