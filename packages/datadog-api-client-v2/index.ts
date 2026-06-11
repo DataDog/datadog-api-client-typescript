@@ -931,6 +931,11 @@ export {
 } from "./apis/NetworkDeviceMonitoringApi";
 
 export {
+  NetworkHealthInsightsApiListNetworkHealthInsightsRequest,
+  NetworkHealthInsightsApi,
+} from "./apis/NetworkHealthInsightsApi";
+
+export {
   OAuth2ClientPublicApiDeleteScopesRestrictionRequest,
   OAuth2ClientPublicApiGetScopesRestrictionRequest,
   OAuth2ClientPublicApiRegisterOAuthClientRequest,
@@ -5197,6 +5202,13 @@ export { MuteFindingsResponse } from "./models/MuteFindingsResponse";
 export { MuteFindingsResponseData } from "./models/MuteFindingsResponseData";
 export { NDKSourcemapAttributes } from "./models/NDKSourcemapAttributes";
 export { NDKSourcemapData } from "./models/NDKSourcemapData";
+export { NetworkHealthInsight } from "./models/NetworkHealthInsight";
+export { NetworkHealthInsightAttributes } from "./models/NetworkHealthInsightAttributes";
+export { NetworkHealthInsightCategory } from "./models/NetworkHealthInsightCategory";
+export { NetworkHealthInsightFailureType } from "./models/NetworkHealthInsightFailureType";
+export { NetworkHealthInsightsResponse } from "./models/NetworkHealthInsightsResponse";
+export { NetworkHealthInsightsType } from "./models/NetworkHealthInsightsType";
+export { NetworkHealthInsightTrafficVolume } from "./models/NetworkHealthInsightTrafficVolume";
 export { NodeTypesResponse } from "./models/NodeTypesResponse";
 export { NodeTypesResponseData } from "./models/NodeTypesResponseData";
 export { NodeTypesResponseDataAttributes } from "./models/NodeTypesResponseDataAttributes";
