@@ -73,6 +73,7 @@ export {
   SecurityMonitoringApiGetSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiGetSignalEntitiesRequest,
   SecurityMonitoringApiGetSignalNotificationRuleRequest,
+  SecurityMonitoringApiGetSingleEntityContextRequest,
   SecurityMonitoringApiGetStaticAnalysisDefaultRulesetsRequest,
   SecurityMonitoringApiGetStaticAnalysisNodeTypesRequest,
   SecurityMonitoringApiGetStaticAnalysisRulesetRequest,
@@ -694,6 +695,7 @@ export { SignalEntitiesAttributes } from "./models/SignalEntitiesAttributes";
 export { SignalEntitiesData } from "./models/SignalEntitiesData";
 export { SignalEntitiesResponse } from "./models/SignalEntitiesResponse";
 export { SignalEntitiesType } from "./models/SignalEntitiesType";
+export { SingleEntityContextResponse } from "./models/SingleEntityContextResponse";
 export { SpecVersion } from "./models/SpecVersion";
 export { SuppressionVersionHistory } from "./models/SuppressionVersionHistory";
 export { SuppressionVersions } from "./models/SuppressionVersions";

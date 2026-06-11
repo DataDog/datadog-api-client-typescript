@@ -452,6 +452,7 @@ import { Selectors } from "./Selectors";
 import { SignalEntitiesAttributes } from "./SignalEntitiesAttributes";
 import { SignalEntitiesData } from "./SignalEntitiesData";
 import { SignalEntitiesResponse } from "./SignalEntitiesResponse";
+import { SingleEntityContextResponse } from "./SingleEntityContextResponse";
 import { SuppressionVersionHistory } from "./SuppressionVersionHistory";
 import { SuppressionVersions } from "./SuppressionVersions";
 import { UpdateCustomFrameworkRequest } from "./UpdateCustomFrameworkRequest";
@@ -1547,6 +1548,7 @@ export const TypingInfo: ModelTypingInfo = {
     SignalEntitiesAttributes: SignalEntitiesAttributes,
     SignalEntitiesData: SignalEntitiesData,
     SignalEntitiesResponse: SignalEntitiesResponse,
+    SingleEntityContextResponse: SingleEntityContextResponse,
     SuppressionVersionHistory: SuppressionVersionHistory,
     SuppressionVersions: SuppressionVersions,
     UpdateCustomFrameworkRequest: UpdateCustomFrameworkRequest,
