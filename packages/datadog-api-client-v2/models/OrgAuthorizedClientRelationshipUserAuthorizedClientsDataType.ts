@@ -1,0 +1,16 @@
+/**
+ * Unless explicitly stated otherwise all files in this repository are licensed under the Apache-2.0 License.
+ * This product includes software developed at Datadog (https://www.datadoghq.com/).
+ * Copyright 2020-Present Datadog, Inc.
+ */
+
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * User authorized client resource type.
+ */
+
+export type OrgAuthorizedClientRelationshipUserAuthorizedClientsDataType =
+  | typeof USER_AUTHORIZED_CLIENTS
+  | UnparsedObject;
+export const USER_AUTHORIZED_CLIENTS = "user_authorized_clients";

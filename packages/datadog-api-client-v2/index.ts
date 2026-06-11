@@ -634,6 +634,12 @@ export {
 } from "./apis/IPAllowlistApi";
 
 export {
+  IdentityProvidersApiListIdentityProviderUsersRequest,
+  IdentityProvidersApiUpdateIdentityProviderRequest,
+  IdentityProvidersApi,
+} from "./apis/IdentityProvidersApi";
+
+export {
   IncidentServicesApiCreateIncidentServiceRequest,
   IncidentServicesApiDeleteIncidentServiceRequest,
   IncidentServicesApiGetIncidentServiceRequest,
@@ -1018,6 +1024,17 @@ export {
   OpsgenieIntegrationApiUpdateOpsgenieServiceRequest,
   OpsgenieIntegrationApi,
 } from "./apis/OpsgenieIntegrationApi";
+
+export {
+  OrgAuthorizedClientsApiDeleteOrgAuthorizedClientRequest,
+  OrgAuthorizedClientsApiDeleteOrgAuthorizedClientAllUserAuthorizationsRequest,
+  OrgAuthorizedClientsApiDeleteOrgAuthorizedClientUserAuthorizationRequest,
+  OrgAuthorizedClientsApiGetOrgAuthorizedClientRequest,
+  OrgAuthorizedClientsApiListOrgAuthorizedClientUserAuthorizationsRequest,
+  OrgAuthorizedClientsApiListOrgAuthorizedClientsRequest,
+  OrgAuthorizedClientsApiUpdateOrgAuthorizedClientRequest,
+  OrgAuthorizedClientsApi,
+} from "./apis/OrgAuthorizedClientsApi";
 
 export {
   OrgConnectionsApiCreateOrgConnectionsRequest,
@@ -1659,18 +1676,28 @@ export {
 } from "./apis/UsageMeteringApi";
 
 export {
+  UserAuthorizedClientsApiDeleteUserAuthorizedClientRequest,
+  UserAuthorizedClientsApiDeleteUserAuthorizedClientsByClientRequest,
+  UserAuthorizedClientsApiGetUserAuthorizedClientRequest,
+  UserAuthorizedClientsApiListUserAuthorizedClientsRequest,
+  UserAuthorizedClientsApi,
+} from "./apis/UserAuthorizedClientsApi";
+
+export {
   UsersApiAnonymizeUsersRequest,
   UsersApiCreateUserRequest,
   UsersApiDeleteUserInvitationsRequest,
   UsersApiDisableUserRequest,
   UsersApiGetInvitationRequest,
   UsersApiGetUserRequest,
+  UsersApiGetUserIdentityProvidersRequest,
   UsersApiListUserOrganizationsRequest,
   UsersApiListUserPermissionsRequest,
   UsersApiListUsersRequest,
   UsersApiSendInvitationsRequest,
   UsersApiUpdateCurrentUserRequest,
   UsersApiUpdateUserRequest,
+  UsersApiUpdateUserIdentityProvidersRequest,
   UsersApi,
 } from "./apis/UsersApi";
 
@@ -4096,6 +4123,14 @@ export { HTTPTokenAuth } from "./models/HTTPTokenAuth";
 export { HTTPTokenAuthType } from "./models/HTTPTokenAuthType";
 export { HTTPTokenAuthUpdate } from "./models/HTTPTokenAuthUpdate";
 export { HTTPTokenUpdate } from "./models/HTTPTokenUpdate";
+export { IdentityProviderAttributes } from "./models/IdentityProviderAttributes";
+export { IdentityProviderData } from "./models/IdentityProviderData";
+export { IdentityProviderResponse } from "./models/IdentityProviderResponse";
+export { IdentityProvidersResponse } from "./models/IdentityProvidersResponse";
+export { IdentityProviderType } from "./models/IdentityProviderType";
+export { IdentityProviderUpdateAttributes } from "./models/IdentityProviderUpdateAttributes";
+export { IdentityProviderUpdateData } from "./models/IdentityProviderUpdateData";
+export { IdentityProviderUpdateRequest } from "./models/IdentityProviderUpdateRequest";
 export { IL2CPPSourcemapAttributes } from "./models/IL2CPPSourcemapAttributes";
 export { IL2CPPSourcemapData } from "./models/IL2CPPSourcemapData";
 export { IncidentAttachmentType } from "./models/IncidentAttachmentType";
@@ -5683,6 +5718,23 @@ export { Organization } from "./models/Organization";
 export { OrganizationAttributes } from "./models/OrganizationAttributes";
 export { OrganizationsType } from "./models/OrganizationsType";
 export { OrgAttributes } from "./models/OrgAttributes";
+export { OrgAuthorizedClientAttributes } from "./models/OrgAuthorizedClientAttributes";
+export { OrgAuthorizedClientData } from "./models/OrgAuthorizedClientData";
+export { OrgAuthorizedClientRelationshipOAuth2Client } from "./models/OrgAuthorizedClientRelationshipOAuth2Client";
+export { OrgAuthorizedClientRelationshipOAuth2ClientData } from "./models/OrgAuthorizedClientRelationshipOAuth2ClientData";
+export { OrgAuthorizedClientRelationshipOAuth2ClientDataType } from "./models/OrgAuthorizedClientRelationshipOAuth2ClientDataType";
+export { OrgAuthorizedClientRelationships } from "./models/OrgAuthorizedClientRelationships";
+export { OrgAuthorizedClientRelationshipUserAuthorizedClients } from "./models/OrgAuthorizedClientRelationshipUserAuthorizedClients";
+export { OrgAuthorizedClientRelationshipUserAuthorizedClientsData } from "./models/OrgAuthorizedClientRelationshipUserAuthorizedClientsData";
+export { OrgAuthorizedClientRelationshipUserAuthorizedClientsDataType } from "./models/OrgAuthorizedClientRelationshipUserAuthorizedClientsDataType";
+export { OrgAuthorizedClientRelationshipUserAuthorizedClientsLinks } from "./models/OrgAuthorizedClientRelationshipUserAuthorizedClientsLinks";
+export { OrgAuthorizedClientResponse } from "./models/OrgAuthorizedClientResponse";
+export { OrgAuthorizedClientsResponse } from "./models/OrgAuthorizedClientsResponse";
+export { OrgAuthorizedClientType } from "./models/OrgAuthorizedClientType";
+export { OrgAuthorizedClientUpdateAttributes } from "./models/OrgAuthorizedClientUpdateAttributes";
+export { OrgAuthorizedClientUpdateData } from "./models/OrgAuthorizedClientUpdateData";
+export { OrgAuthorizedClientUpdateRequest } from "./models/OrgAuthorizedClientUpdateRequest";
+export { OrgAuthorizedClientUserAuthorizationsSort } from "./models/OrgAuthorizedClientUserAuthorizationsSort";
 export { OrgConfigGetResponse } from "./models/OrgConfigGetResponse";
 export { OrgConfigListResponse } from "./models/OrgConfigListResponse";
 export { OrgConfigRead } from "./models/OrgConfigRead";
@@ -7910,6 +7962,7 @@ export { UpdateTenancyConfigDataAttributesMetricsConfig } from "./models/UpdateT
 export { UpdateTenancyConfigDataAttributesRegionsConfig } from "./models/UpdateTenancyConfigDataAttributesRegionsConfig";
 export { UpdateTenancyConfigDataType } from "./models/UpdateTenancyConfigDataType";
 export { UpdateTenancyConfigRequest } from "./models/UpdateTenancyConfigRequest";
+export { UpdateUserIdentityProvidersRequest } from "./models/UpdateUserIdentityProvidersRequest";
 export { UpdateWorkflowRequest } from "./models/UpdateWorkflowRequest";
 export { UpdateWorkflowResponse } from "./models/UpdateWorkflowResponse";
 export { UpsertAllocationRequest } from "./models/UpsertAllocationRequest";
@@ -7954,6 +8007,21 @@ export { UsageTimeSeriesType } from "./models/UsageTimeSeriesType";
 export { User } from "./models/User";
 export { UserAttributes } from "./models/UserAttributes";
 export { UserAttributesStatus } from "./models/UserAttributesStatus";
+export { UserAuthorizedClientAttributes } from "./models/UserAuthorizedClientAttributes";
+export { UserAuthorizedClientData } from "./models/UserAuthorizedClientData";
+export { UserAuthorizedClientRelationshipOAuth2Client } from "./models/UserAuthorizedClientRelationshipOAuth2Client";
+export { UserAuthorizedClientRelationshipOAuth2ClientData } from "./models/UserAuthorizedClientRelationshipOAuth2ClientData";
+export { UserAuthorizedClientRelationshipOAuth2ClientDataType } from "./models/UserAuthorizedClientRelationshipOAuth2ClientDataType";
+export { UserAuthorizedClientRelationships } from "./models/UserAuthorizedClientRelationships";
+export { UserAuthorizedClientRelationshipScopeData } from "./models/UserAuthorizedClientRelationshipScopeData";
+export { UserAuthorizedClientRelationshipScopeDataType } from "./models/UserAuthorizedClientRelationshipScopeDataType";
+export { UserAuthorizedClientRelationshipScopes } from "./models/UserAuthorizedClientRelationshipScopes";
+export { UserAuthorizedClientRelationshipUser } from "./models/UserAuthorizedClientRelationshipUser";
+export { UserAuthorizedClientRelationshipUserData } from "./models/UserAuthorizedClientRelationshipUserData";
+export { UserAuthorizedClientRelationshipUserDataType } from "./models/UserAuthorizedClientRelationshipUserDataType";
+export { UserAuthorizedClientResponse } from "./models/UserAuthorizedClientResponse";
+export { UserAuthorizedClientsResponse } from "./models/UserAuthorizedClientsResponse";
+export { UserAuthorizedClientType } from "./models/UserAuthorizedClientType";
 export { UserCreateAttributes } from "./models/UserCreateAttributes";
 export { UserCreateData } from "./models/UserCreateData";
 export { UserCreateRequest } from "./models/UserCreateRequest";
@@ -7965,7 +8033,13 @@ export { UserInvitationResponseData } from "./models/UserInvitationResponseData"
 export { UserInvitationsRequest } from "./models/UserInvitationsRequest";
 export { UserInvitationsResponse } from "./models/UserInvitationsResponse";
 export { UserInvitationsType } from "./models/UserInvitationsType";
+export { UserOverrideIdentityProviderAttributes } from "./models/UserOverrideIdentityProviderAttributes";
+export { UserOverrideIdentityProviderData } from "./models/UserOverrideIdentityProviderData";
+export { UserOverrideIdentityProviderDataType } from "./models/UserOverrideIdentityProviderDataType";
+export { UserOverrideIdentityProvidersResponse } from "./models/UserOverrideIdentityProvidersResponse";
 export { UserRelationshipData } from "./models/UserRelationshipData";
+export { UserRelationshipIdentityProviderData } from "./models/UserRelationshipIdentityProviderData";
+export { UserRelationshipIdentityProviderDataType } from "./models/UserRelationshipIdentityProviderDataType";
 export { UserRelationships } from "./models/UserRelationships";
 export { UserResourceType } from "./models/UserResourceType";
 export { UserResponse } from "./models/UserResponse";
