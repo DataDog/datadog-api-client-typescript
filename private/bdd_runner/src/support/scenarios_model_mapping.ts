@@ -13063,6 +13063,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "ApplicationSecurityApi.V2.GetAsmServiceByName": {
+    serviceFilter: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ApplicationSecurityServicesResponse",
+  },
   "CSMThreatsApi.V2.ListCSMThreatsAgentRules": {
     policyId: {
       type: "string",
