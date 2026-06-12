@@ -10102,6 +10102,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "MicrosoftTeamsTenantBasedHandleResponse",
   },
+  "MicrosoftTeamsIntegrationApi.V2.DeleteMSTeamsUserBinding": {
+    tenantId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "MicrosoftTeamsIntegrationApi.V2.ListWorkflowsWebhookHandles": {
     name: {
       type: "string",
