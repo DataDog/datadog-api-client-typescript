@@ -1,6 +1,7 @@
 export {
   OrganizationsApiGetOrgConfigRequest,
   OrganizationsApiGetSAMLConfigurationRequest,
+  OrganizationsApiListGlobalOrgsRequest,
   OrganizationsApiListOrgsRequest,
   OrganizationsApiUpdateOrgConfigRequest,
   OrganizationsApiUpdateOrgSamlConfigurationsRequest,
@@ -10,6 +11,16 @@ export {
 } from "./OrganizationsApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
+export { GlobalOrg } from "./models/GlobalOrg";
+export { GlobalOrgAttributes } from "./models/GlobalOrgAttributes";
+export { GlobalOrgData } from "./models/GlobalOrgData";
+export { GlobalOrgsLinks } from "./models/GlobalOrgsLinks";
+export { GlobalOrgsMeta } from "./models/GlobalOrgsMeta";
+export { GlobalOrgsMetaPage } from "./models/GlobalOrgsMetaPage";
+export { GlobalOrgsMetaPageType } from "./models/GlobalOrgsMetaPageType";
+export { GlobalOrgsResponse } from "./models/GlobalOrgsResponse";
+export { GlobalOrgType } from "./models/GlobalOrgType";
+export { GlobalOrgUser } from "./models/GlobalOrgUser";
 export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
 export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
 export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
