@@ -138,6 +138,8 @@ export { ObservabilityPipelineGeneratedMetricIncrementByOneStrategy } from "./mo
 export { ObservabilityPipelineGeneratedMetricMetricType } from "./models/ObservabilityPipelineGeneratedMetricMetricType";
 export { ObservabilityPipelineGenerateMetricsProcessor } from "./models/ObservabilityPipelineGenerateMetricsProcessor";
 export { ObservabilityPipelineGenerateMetricsProcessorType } from "./models/ObservabilityPipelineGenerateMetricsProcessorType";
+export { ObservabilityPipelineGenerateMetricsV2Processor } from "./models/ObservabilityPipelineGenerateMetricsV2Processor";
+export { ObservabilityPipelineGenerateMetricsV2ProcessorType } from "./models/ObservabilityPipelineGenerateMetricsV2ProcessorType";
 export { ObservabilityPipelineGoogleChronicleDestination } from "./models/ObservabilityPipelineGoogleChronicleDestination";
 export { ObservabilityPipelineGoogleChronicleDestinationEncoding } from "./models/ObservabilityPipelineGoogleChronicleDestinationEncoding";
 export { ObservabilityPipelineGoogleChronicleDestinationType } from "./models/ObservabilityPipelineGoogleChronicleDestinationType";
