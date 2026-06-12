@@ -11,6 +11,7 @@ import { ObservabilityPipelineDedupeProcessor } from "./ObservabilityPipelineDed
 import { ObservabilityPipelineEnrichmentTableProcessor } from "./ObservabilityPipelineEnrichmentTableProcessor";
 import { ObservabilityPipelineFilterProcessor } from "./ObservabilityPipelineFilterProcessor";
 import { ObservabilityPipelineGenerateMetricsProcessor } from "./ObservabilityPipelineGenerateMetricsProcessor";
+import { ObservabilityPipelineGenerateMetricsV2Processor } from "./ObservabilityPipelineGenerateMetricsV2Processor";
 import { ObservabilityPipelineMetricTagsProcessor } from "./ObservabilityPipelineMetricTagsProcessor";
 import { ObservabilityPipelineOcsfMapperProcessor } from "./ObservabilityPipelineOcsfMapperProcessor";
 import { ObservabilityPipelineParseGrokProcessor } from "./ObservabilityPipelineParseGrokProcessor";
@@ -40,6 +41,7 @@ export type ObservabilityPipelineConfigProcessorItem =
   | ObservabilityPipelineDedupeProcessor
   | ObservabilityPipelineEnrichmentTableProcessor
   | ObservabilityPipelineGenerateMetricsProcessor
+  | ObservabilityPipelineGenerateMetricsV2Processor
   | ObservabilityPipelineOcsfMapperProcessor
   | ObservabilityPipelineParseGrokProcessor
   | ObservabilityPipelineParseJSONProcessor
