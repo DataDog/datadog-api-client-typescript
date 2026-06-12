@@ -386,6 +386,7 @@ apiInstance
 | Customer Org | @datadog/datadog-api-client-customer-org | [README.md](../../services/customer-org/README.md) |
 | Dashboard Lists | @datadog/datadog-api-client-dashboard-lists | [README.md](../../services/dashboard-lists/README.md) |
 | Dashboard Secure Embed | @datadog/datadog-api-client-dashboard-secure-embed | [README.md](../../services/dashboard-secure-embed/README.md) |
+| Dashboard Sharing | @datadog/datadog-api-client-dashboard-sharing | [README.md](../../services/dashboard-sharing/README.md) |
 | Dashboards | @datadog/datadog-api-client-dashboards | [README.md](../../services/dashboards/README.md) |
 | Data Deletion | @datadog/datadog-api-client-data-deletion | [README.md](../../services/data-deletion/README.md) |
 | Datasets | @datadog/datadog-api-client-datasets | [README.md](../../services/datasets/README.md) |
