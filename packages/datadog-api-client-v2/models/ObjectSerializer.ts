@@ -487,14 +487,6 @@ import { BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems } from "./Bu
 import { BulkDeleteAppsDatastoreItemsRequest } from "./BulkDeleteAppsDatastoreItemsRequest";
 import { BulkDeleteAppsDatastoreItemsRequestData } from "./BulkDeleteAppsDatastoreItemsRequestData";
 import { BulkDeleteAppsDatastoreItemsRequestDataAttributes } from "./BulkDeleteAppsDatastoreItemsRequestDataAttributes";
-import { BulkMuteFindingsRequest } from "./BulkMuteFindingsRequest";
-import { BulkMuteFindingsRequestAttributes } from "./BulkMuteFindingsRequestAttributes";
-import { BulkMuteFindingsRequestData } from "./BulkMuteFindingsRequestData";
-import { BulkMuteFindingsRequestMeta } from "./BulkMuteFindingsRequestMeta";
-import { BulkMuteFindingsRequestMetaFindings } from "./BulkMuteFindingsRequestMetaFindings";
-import { BulkMuteFindingsRequestProperties } from "./BulkMuteFindingsRequestProperties";
-import { BulkMuteFindingsResponse } from "./BulkMuteFindingsResponse";
-import { BulkMuteFindingsResponseData } from "./BulkMuteFindingsResponseData";
 import { BulkPutAppsDatastoreItemsRequest } from "./BulkPutAppsDatastoreItemsRequest";
 import { BulkPutAppsDatastoreItemsRequestData } from "./BulkPutAppsDatastoreItemsRequestData";
 import { BulkPutAppsDatastoreItemsRequestDataAttributes } from "./BulkPutAppsDatastoreItemsRequestDataAttributes";
@@ -8366,14 +8358,6 @@ const typeMap: { [index: string]: any } = {
     BulkDeleteAppsDatastoreItemsRequestData,
   BulkDeleteAppsDatastoreItemsRequestDataAttributes:
     BulkDeleteAppsDatastoreItemsRequestDataAttributes,
-  BulkMuteFindingsRequest: BulkMuteFindingsRequest,
-  BulkMuteFindingsRequestAttributes: BulkMuteFindingsRequestAttributes,
-  BulkMuteFindingsRequestData: BulkMuteFindingsRequestData,
-  BulkMuteFindingsRequestMeta: BulkMuteFindingsRequestMeta,
-  BulkMuteFindingsRequestMetaFindings: BulkMuteFindingsRequestMetaFindings,
-  BulkMuteFindingsRequestProperties: BulkMuteFindingsRequestProperties,
-  BulkMuteFindingsResponse: BulkMuteFindingsResponse,
-  BulkMuteFindingsResponseData: BulkMuteFindingsResponseData,
   BulkPutAppsDatastoreItemsRequest: BulkPutAppsDatastoreItemsRequest,
   BulkPutAppsDatastoreItemsRequestData: BulkPutAppsDatastoreItemsRequestData,
   BulkPutAppsDatastoreItemsRequestDataAttributes:
