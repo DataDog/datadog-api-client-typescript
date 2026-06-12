@@ -406,7 +406,6 @@ apiInstance
 | Google Chat Integration | @datadog/datadog-api-client-google-chat-integration | [README.md](../../services/google-chat-integration/README.md) |
 | High Availability MultiRegion | @datadog/datadog-api-client-high-availability-multi-region | [README.md](../../services/high-availability-multi-region/README.md) |
 | Hosts | @datadog/datadog-api-client-hosts | [README.md](../../services/hosts/README.md) |
-| Incident Services | @datadog/datadog-api-client-incident-services | [README.md](../../services/incident-services/README.md) |
 | Incidents | @datadog/datadog-api-client-incidents | [README.md](../../services/incidents/README.md) |
 | Integrations | @datadog/datadog-api-client-integrations | [README.md](../../services/integrations/README.md) |
 | IP Allowlist | @datadog/datadog-api-client-ip-allowlist | [README.md](../../services/ip-allowlist/README.md) |
