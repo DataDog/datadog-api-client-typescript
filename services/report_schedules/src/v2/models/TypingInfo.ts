@@ -11,19 +11,36 @@ import { ReportScheduleAuthorRelationshipData } from "./ReportScheduleAuthorRela
 import { ReportScheduleCreateRequest } from "./ReportScheduleCreateRequest";
 import { ReportScheduleCreateRequestAttributes } from "./ReportScheduleCreateRequestAttributes";
 import { ReportScheduleCreateRequestData } from "./ReportScheduleCreateRequestData";
+import { ReportScheduleIndexTemplateVariable } from "./ReportScheduleIndexTemplateVariable";
+import { ReportScheduleListResourceRelationship } from "./ReportScheduleListResourceRelationship";
+import { ReportScheduleListResourceRelationshipData } from "./ReportScheduleListResourceRelationshipData";
+import { ReportScheduleListResponse } from "./ReportScheduleListResponse";
+import { ReportScheduleListResponseAttributes } from "./ReportScheduleListResponseAttributes";
+import { ReportScheduleListResponseData } from "./ReportScheduleListResponseData";
+import { ReportScheduleListResponseLinks } from "./ReportScheduleListResponseLinks";
+import { ReportScheduleListResponseMeta } from "./ReportScheduleListResponseMeta";
+import { ReportScheduleListResponsePagination } from "./ReportScheduleListResponsePagination";
+import { ReportScheduleListResponseRelationships } from "./ReportScheduleListResponseRelationships";
 import { ReportSchedulePatchRequest } from "./ReportSchedulePatchRequest";
 import { ReportSchedulePatchRequestAttributes } from "./ReportSchedulePatchRequestAttributes";
 import { ReportSchedulePatchRequestData } from "./ReportSchedulePatchRequestData";
+import { ReportScheduleResource } from "./ReportScheduleResource";
+import { ReportScheduleResourceAttributes } from "./ReportScheduleResourceAttributes";
 import { ReportScheduleResponse } from "./ReportScheduleResponse";
 import { ReportScheduleResponseAttributes } from "./ReportScheduleResponseAttributes";
 import { ReportScheduleResponseData } from "./ReportScheduleResponseData";
 import { ReportScheduleResponseRelationships } from "./ReportScheduleResponseRelationships";
 import { ReportScheduleTemplateVariable } from "./ReportScheduleTemplateVariable";
+import { ReportScheduleToggleRequest } from "./ReportScheduleToggleRequest";
+import { ReportScheduleToggleRequestAttributes } from "./ReportScheduleToggleRequestAttributes";
+import { ReportScheduleToggleRequestData } from "./ReportScheduleToggleRequestData";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     ReportScheduleAuthorType: ["users"],
     ReportScheduleDeliveryFormat: ["pdf", "png", "pdf_and_png"],
+    ReportScheduleIncludedResourceType: ["resource"],
+    ReportScheduleListResponsePaginationType: ["offset_limit"],
     ReportScheduleResourceType: ["dashboard", "integration_dashboard"],
     ReportScheduleResponseAttributesDeliveryFormat: [
       "pdf",
@@ -34,7 +51,11 @@ export const TypingInfo: ModelTypingInfo = {
     ReportScheduleType: ["schedule"],
   },
   oneOfMap: {
-    ReportScheduleIncludedResource: ["ReportScheduleAuthor"],
+    ReportScheduleIncludedResource: [
+      "ReportScheduleAuthor",
+      "ReportScheduleResource",
+    ],
+    ReportScheduleQueryParameterValue: ["string", "Array<string>"],
   },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
@@ -49,13 +70,32 @@ export const TypingInfo: ModelTypingInfo = {
     ReportScheduleCreateRequestAttributes:
       ReportScheduleCreateRequestAttributes,
     ReportScheduleCreateRequestData: ReportScheduleCreateRequestData,
+    ReportScheduleIndexTemplateVariable: ReportScheduleIndexTemplateVariable,
+    ReportScheduleListResourceRelationship:
+      ReportScheduleListResourceRelationship,
+    ReportScheduleListResourceRelationshipData:
+      ReportScheduleListResourceRelationshipData,
+    ReportScheduleListResponse: ReportScheduleListResponse,
+    ReportScheduleListResponseAttributes: ReportScheduleListResponseAttributes,
+    ReportScheduleListResponseData: ReportScheduleListResponseData,
+    ReportScheduleListResponseLinks: ReportScheduleListResponseLinks,
+    ReportScheduleListResponseMeta: ReportScheduleListResponseMeta,
+    ReportScheduleListResponsePagination: ReportScheduleListResponsePagination,
+    ReportScheduleListResponseRelationships:
+      ReportScheduleListResponseRelationships,
     ReportSchedulePatchRequest: ReportSchedulePatchRequest,
     ReportSchedulePatchRequestAttributes: ReportSchedulePatchRequestAttributes,
     ReportSchedulePatchRequestData: ReportSchedulePatchRequestData,
+    ReportScheduleResource: ReportScheduleResource,
+    ReportScheduleResourceAttributes: ReportScheduleResourceAttributes,
     ReportScheduleResponse: ReportScheduleResponse,
     ReportScheduleResponseAttributes: ReportScheduleResponseAttributes,
     ReportScheduleResponseData: ReportScheduleResponseData,
     ReportScheduleResponseRelationships: ReportScheduleResponseRelationships,
     ReportScheduleTemplateVariable: ReportScheduleTemplateVariable,
+    ReportScheduleToggleRequest: ReportScheduleToggleRequest,
+    ReportScheduleToggleRequestAttributes:
+      ReportScheduleToggleRequestAttributes,
+    ReportScheduleToggleRequestData: ReportScheduleToggleRequestData,
   },
 };
