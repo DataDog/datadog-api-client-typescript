@@ -3339,7 +3339,8 @@ export class ObjectSerializer {
 
       const instance = new typeMap[type]();
       const attributesMap = typeMap[type].getAttributeTypeMap();
-      const keepAllInAdditional = (typeMap[type] as any)._keepTypedInAdditionalProperties === true;
+      const keepAllInAdditional =
+        (typeMap[type] as any)._keepTypedInAdditionalProperties === true;
       // Single pass: build attributesBaseNames (for extra-key detection) and, when needed,
       // baseNameToAttr (for per-field typed deserialization preserving int64 precision).
       const attributesBaseNames: { [key: string]: string } = {};
@@ -3352,7 +3353,9 @@ export class ObjectSerializer {
         }
       }
       const extraAttributes = Object.keys(data).filter(
-        (key) => keepAllInAdditional || !Object.prototype.hasOwnProperty.call(attributesBaseNames, key)
+        (key) =>
+          keepAllInAdditional ||
+          !Object.prototype.hasOwnProperty.call(attributesBaseNames, key)
       );
 
       if (extraAttributes.length > 0) {
@@ -3363,7 +3366,11 @@ export class ObjectSerializer {
               const attrInfo = baseNameToAttr[key];
               // Use per-field type/format for typed attrs to preserve int64 precision.
               additionalProperties[key] = attrInfo
-                ? ObjectSerializer.deserialize(data[key], attrInfo.type, attrInfo.format)
+                ? ObjectSerializer.deserialize(
+                    data[key],
+                    attrInfo.type,
+                    attrInfo.format
+                  )
                 : data[key];
             }
             instance.additionalProperties = additionalProperties;
