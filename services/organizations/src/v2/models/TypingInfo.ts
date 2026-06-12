@@ -1,6 +1,14 @@
 import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
+import { GlobalOrg } from "./GlobalOrg";
+import { GlobalOrgAttributes } from "./GlobalOrgAttributes";
+import { GlobalOrgData } from "./GlobalOrgData";
+import { GlobalOrgUser } from "./GlobalOrgUser";
+import { GlobalOrgsLinks } from "./GlobalOrgsLinks";
+import { GlobalOrgsMeta } from "./GlobalOrgsMeta";
+import { GlobalOrgsMetaPage } from "./GlobalOrgsMetaPage";
+import { GlobalOrgsResponse } from "./GlobalOrgsResponse";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
@@ -40,6 +48,8 @@ import { SAMLConfigurationsResponse } from "./SAMLConfigurationsResponse";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
+    GlobalOrgType: ["global_user_orgs"],
+    GlobalOrgsMetaPageType: ["cursor"],
     ManagedOrgsType: ["managed_orgs"],
     OrgConfigType: ["org_configs"],
     OrgResourceType: ["orgs"],
@@ -51,6 +61,14 @@ export const TypingInfo: ModelTypingInfo = {
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,
+    GlobalOrg: GlobalOrg,
+    GlobalOrgAttributes: GlobalOrgAttributes,
+    GlobalOrgData: GlobalOrgData,
+    GlobalOrgUser: GlobalOrgUser,
+    GlobalOrgsLinks: GlobalOrgsLinks,
+    GlobalOrgsMeta: GlobalOrgsMeta,
+    GlobalOrgsMetaPage: GlobalOrgsMetaPage,
+    GlobalOrgsResponse: GlobalOrgsResponse,
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
     JSONAPIErrorResponse: JSONAPIErrorResponse,

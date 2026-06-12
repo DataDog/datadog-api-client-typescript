@@ -28,7 +28,7 @@ const configuration = createConfiguration();
 const apiInstance = new OrganizationsApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.listOrgs(params).then((data) => {
+apiInstance.listGlobalOrgs(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);
