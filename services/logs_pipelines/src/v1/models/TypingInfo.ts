@@ -4,6 +4,7 @@ import { APIErrorResponse } from "./APIErrorResponse";
 import { LogsAPIError } from "./LogsAPIError";
 import { LogsAPIErrorResponse } from "./LogsAPIErrorResponse";
 import { LogsArithmeticProcessor } from "./LogsArithmeticProcessor";
+import { LogsArrayMapProcessor } from "./LogsArrayMapProcessor";
 import { LogsArrayProcessor } from "./LogsArrayProcessor";
 import { LogsArrayProcessorOperationAppend } from "./LogsArrayProcessorOperationAppend";
 import { LogsArrayProcessorOperationLength } from "./LogsArrayProcessorOperationLength";
@@ -42,6 +43,7 @@ import { ReferenceTableLogsLookupProcessor } from "./ReferenceTableLogsLookupPro
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     LogsArithmeticProcessorType: ["arithmetic-processor"],
+    LogsArrayMapProcessorType: ["array-map-processor"],
     LogsArrayProcessorOperationAppendType: ["append"],
     LogsArrayProcessorOperationLengthType: ["length"],
     LogsArrayProcessorOperationSelectType: ["select"],
@@ -71,6 +73,12 @@ export const TypingInfo: ModelTypingInfo = {
     TargetFormatType: ["auto", "string", "integer", "double"],
   },
   oneOfMap: {
+    LogsArrayMapSubProcessor: [
+      "LogsAttributeRemapper",
+      "LogsStringBuilderProcessor",
+      "LogsArithmeticProcessor",
+      "LogsCategoryProcessor",
+    ],
     LogsArrayProcessorOperation: [
       "LogsArrayProcessorOperationAppend",
       "LogsArrayProcessorOperationLength",
@@ -98,6 +106,7 @@ export const TypingInfo: ModelTypingInfo = {
       "LogsDecoderProcessor",
       "LogsSchemaProcessor",
       "LogsExcludeAttributeProcessor",
+      "LogsArrayMapProcessor",
     ],
     LogsSchemaMapper: ["LogsSchemaRemapper", "LogsSchemaCategoryMapper"],
   },
@@ -106,6 +115,7 @@ export const TypingInfo: ModelTypingInfo = {
     LogsAPIError: LogsAPIError,
     LogsAPIErrorResponse: LogsAPIErrorResponse,
     LogsArithmeticProcessor: LogsArithmeticProcessor,
+    LogsArrayMapProcessor: LogsArrayMapProcessor,
     LogsArrayProcessor: LogsArrayProcessor,
     LogsArrayProcessorOperationAppend: LogsArrayProcessorOperationAppend,
     LogsArrayProcessorOperationLength: LogsArrayProcessorOperationLength,
