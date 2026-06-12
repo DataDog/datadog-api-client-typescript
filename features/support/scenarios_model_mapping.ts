@@ -9135,6 +9135,84 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "FormResponse",
     },
+    "v2.ListGlobalOrgs": {
+        "userHandle": {
+            "type": "string",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int32",
+            },
+        "pageCursor": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "GlobalOrgsResponse",
+    },
+    "v2.ListOrgs": {
+        "filterName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ManagedOrgsResponse",
+    },
+    "v2.UpdateOrgSamlConfigurations": {
+        "body": {
+            "type": "OrgSAMLPreferencesUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListOrgConfigs": {
+        "operationResponseType": "OrgConfigListResponse",
+    },
+    "v2.GetOrgConfig": {
+        "orgConfigName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "OrgConfigGetResponse",
+    },
+    "v2.UpdateOrgConfig": {
+        "orgConfigName": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "OrgConfigWriteRequest",
+            "format": "",
+            },
+        "operationResponseType": "OrgConfigGetResponse",
+    },
+    "v2.ListSAMLConfigurations": {
+        "operationResponseType": "SAMLConfigurationsResponse",
+    },
+    "v2.UploadIdPMetadata": {
+        "idpFile": {
+            "type": "HttpFile",
+            "format": "binary",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.GetSAMLConfiguration": {
+        "samlConfigUuid": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SAMLConfigurationResponse",
+    },
+    "v2.UpdateSAMLConfiguration": {
+        "samlConfigUuid": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SAMLConfigurationUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SAMLConfigurationResponse",
+    },
     "v2.GetHamrOrgConnection": {
         "operationResponseType": "HamrOrgConnectionResponse",
     },
@@ -12244,69 +12322,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "uuid",
             },
         "operationResponseType": "{}",
-    },
-    "v2.ListOrgs": {
-        "filterName": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "ManagedOrgsResponse",
-    },
-    "v2.UpdateOrgSamlConfigurations": {
-        "body": {
-            "type": "OrgSAMLPreferencesUpdateRequest",
-            "format": "",
-            },
-        "operationResponseType": "{}",
-    },
-    "v2.ListOrgConfigs": {
-        "operationResponseType": "OrgConfigListResponse",
-    },
-    "v2.GetOrgConfig": {
-        "orgConfigName": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "OrgConfigGetResponse",
-    },
-    "v2.UpdateOrgConfig": {
-        "orgConfigName": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "OrgConfigWriteRequest",
-            "format": "",
-            },
-        "operationResponseType": "OrgConfigGetResponse",
-    },
-    "v2.ListSAMLConfigurations": {
-        "operationResponseType": "SAMLConfigurationsResponse",
-    },
-    "v2.UploadIdPMetadata": {
-        "idpFile": {
-            "type": "HttpFile",
-            "format": "binary",
-            },
-        "operationResponseType": "{}",
-    },
-    "v2.GetSAMLConfiguration": {
-        "samlConfigUuid": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "SAMLConfigurationResponse",
-    },
-    "v2.UpdateSAMLConfiguration": {
-        "samlConfigUuid": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "SAMLConfigurationUpdateRequest",
-            "format": "",
-            },
-        "operationResponseType": "SAMLConfigurationResponse",
     },
     "v2.DisableCustomerOrg": {
         "body": {

@@ -1793,7 +1793,15 @@ import { GlobalIncidentSettingsDataRequest } from "./GlobalIncidentSettingsDataR
 import { GlobalIncidentSettingsDataResponse } from "./GlobalIncidentSettingsDataResponse";
 import { GlobalIncidentSettingsRequest } from "./GlobalIncidentSettingsRequest";
 import { GlobalIncidentSettingsResponse } from "./GlobalIncidentSettingsResponse";
+import { GlobalOrg } from "./GlobalOrg";
+import { GlobalOrgAttributes } from "./GlobalOrgAttributes";
+import { GlobalOrgData } from "./GlobalOrgData";
 import { GlobalOrgIdentifier } from "./GlobalOrgIdentifier";
+import { GlobalOrgUser } from "./GlobalOrgUser";
+import { GlobalOrgsLinks } from "./GlobalOrgsLinks";
+import { GlobalOrgsMeta } from "./GlobalOrgsMeta";
+import { GlobalOrgsMetaPage } from "./GlobalOrgsMetaPage";
+import { GlobalOrgsResponse } from "./GlobalOrgsResponse";
 import { GlobalVariableData } from "./GlobalVariableData";
 import { GlobalVariableJsonPatchRequest } from "./GlobalVariableJsonPatchRequest";
 import { GlobalVariableJsonPatchRequestData } from "./GlobalVariableJsonPatchRequestData";
@@ -5905,6 +5913,8 @@ const enumsMap: { [key: string]: any[] } = {
   GitlabAPIKeyType: ["GitlabAPIKey"],
   GitlabIntegrationType: ["Gitlab"],
   GlobalIncidentSettingsType: ["incidents_global_settings"],
+  GlobalOrgType: ["global_user_orgs"],
+  GlobalOrgsMetaPageType: ["cursor"],
   GlobalVariableJsonPatchType: ["global_variables_json_patch"],
   GlobalVariableType: ["global_variables"],
   GoogleChatAppNamedSpaceType: ["google-chat-app-named-space"],
@@ -9873,7 +9883,15 @@ const typeMap: { [index: string]: any } = {
   GlobalIncidentSettingsDataResponse: GlobalIncidentSettingsDataResponse,
   GlobalIncidentSettingsRequest: GlobalIncidentSettingsRequest,
   GlobalIncidentSettingsResponse: GlobalIncidentSettingsResponse,
+  GlobalOrg: GlobalOrg,
+  GlobalOrgAttributes: GlobalOrgAttributes,
+  GlobalOrgData: GlobalOrgData,
   GlobalOrgIdentifier: GlobalOrgIdentifier,
+  GlobalOrgUser: GlobalOrgUser,
+  GlobalOrgsLinks: GlobalOrgsLinks,
+  GlobalOrgsMeta: GlobalOrgsMeta,
+  GlobalOrgsMetaPage: GlobalOrgsMetaPage,
+  GlobalOrgsResponse: GlobalOrgsResponse,
   GlobalVariableData: GlobalVariableData,
   GlobalVariableJsonPatchRequest: GlobalVariableJsonPatchRequest,
   GlobalVariableJsonPatchRequestData: GlobalVariableJsonPatchRequestData,

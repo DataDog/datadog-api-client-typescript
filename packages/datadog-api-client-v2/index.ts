@@ -1068,6 +1068,7 @@ export {
 export {
   OrganizationsApiGetOrgConfigRequest,
   OrganizationsApiGetSAMLConfigurationRequest,
+  OrganizationsApiListGlobalOrgsRequest,
   OrganizationsApiListOrgsRequest,
   OrganizationsApiUpdateOrgConfigRequest,
   OrganizationsApiUpdateOrgSamlConfigurationsRequest,
@@ -4036,7 +4037,17 @@ export { GlobalIncidentSettingsDataResponse } from "./models/GlobalIncidentSetti
 export { GlobalIncidentSettingsRequest } from "./models/GlobalIncidentSettingsRequest";
 export { GlobalIncidentSettingsResponse } from "./models/GlobalIncidentSettingsResponse";
 export { GlobalIncidentSettingsType } from "./models/GlobalIncidentSettingsType";
+export { GlobalOrg } from "./models/GlobalOrg";
+export { GlobalOrgAttributes } from "./models/GlobalOrgAttributes";
+export { GlobalOrgData } from "./models/GlobalOrgData";
 export { GlobalOrgIdentifier } from "./models/GlobalOrgIdentifier";
+export { GlobalOrgsLinks } from "./models/GlobalOrgsLinks";
+export { GlobalOrgsMeta } from "./models/GlobalOrgsMeta";
+export { GlobalOrgsMetaPage } from "./models/GlobalOrgsMetaPage";
+export { GlobalOrgsMetaPageType } from "./models/GlobalOrgsMetaPageType";
+export { GlobalOrgsResponse } from "./models/GlobalOrgsResponse";
+export { GlobalOrgType } from "./models/GlobalOrgType";
+export { GlobalOrgUser } from "./models/GlobalOrgUser";
 export { GlobalVariableData } from "./models/GlobalVariableData";
 export { GlobalVariableJsonPatchRequest } from "./models/GlobalVariableJsonPatchRequest";
 export { GlobalVariableJsonPatchRequestData } from "./models/GlobalVariableJsonPatchRequestData";
