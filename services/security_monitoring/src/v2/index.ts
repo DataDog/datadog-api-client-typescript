@@ -99,7 +99,6 @@ export {
   SecurityMonitoringApiListSecurityMonitoringSuppressionsRequest,
   SecurityMonitoringApiListVulnerabilitiesRequest,
   SecurityMonitoringApiListVulnerableAssetsRequest,
-  SecurityMonitoringApiMuteFindingsRequest,
   SecurityMonitoringApiMuteSecurityFindingsRequest,
   SecurityMonitoringApiPatchSignalNotificationRuleRequest,
   SecurityMonitoringApiPatchVulnerabilityNotificationRuleRequest,
@@ -171,14 +170,6 @@ export { AttachServiceNowTicketRequest } from "./models/AttachServiceNowTicketRe
 export { AttachServiceNowTicketRequestData } from "./models/AttachServiceNowTicketRequestData";
 export { AttachServiceNowTicketRequestDataAttributes } from "./models/AttachServiceNowTicketRequestDataAttributes";
 export { AttachServiceNowTicketRequestDataRelationships } from "./models/AttachServiceNowTicketRequestDataRelationships";
-export { BulkMuteFindingsRequest } from "./models/BulkMuteFindingsRequest";
-export { BulkMuteFindingsRequestAttributes } from "./models/BulkMuteFindingsRequestAttributes";
-export { BulkMuteFindingsRequestData } from "./models/BulkMuteFindingsRequestData";
-export { BulkMuteFindingsRequestMeta } from "./models/BulkMuteFindingsRequestMeta";
-export { BulkMuteFindingsRequestMetaFindings } from "./models/BulkMuteFindingsRequestMetaFindings";
-export { BulkMuteFindingsRequestProperties } from "./models/BulkMuteFindingsRequestProperties";
-export { BulkMuteFindingsResponse } from "./models/BulkMuteFindingsResponse";
-export { BulkMuteFindingsResponseData } from "./models/BulkMuteFindingsResponseData";
 export { CalculatedField } from "./models/CalculatedField";
 export { CaseDataType } from "./models/CaseDataType";
 export { CaseInsightsItems } from "./models/CaseInsightsItems";

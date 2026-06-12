@@ -32,8 +32,6 @@ import { AssigneeResponse } from "./models/AssigneeResponse";
 import { AttachCaseRequest } from "./models/AttachCaseRequest";
 import { AttachJiraIssueRequest } from "./models/AttachJiraIssueRequest";
 import { AttachServiceNowTicketRequest } from "./models/AttachServiceNowTicketRequest";
-import { BulkMuteFindingsRequest } from "./models/BulkMuteFindingsRequest";
-import { BulkMuteFindingsResponse } from "./models/BulkMuteFindingsResponse";
 import { CloudAssetType } from "./models/CloudAssetType";
 import { ConvertJobResultsToSignalsRequest } from "./models/ConvertJobResultsToSignalsRequest";
 import { CreateCaseRequestArray } from "./models/CreateCaseRequestArray";
@@ -7251,63 +7249,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
-    ]);
-
-    return requestContext;
-  }
-
-  public async muteFindings(
-    body: BulkMuteFindingsRequest,
-    _options?: Configuration,
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    if (!_config.unstableOperations["SecurityMonitoringApi.v2.muteFindings"]) {
-      throw new Error(
-        "Unstable operation 'muteFindings' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.muteFindings'] = true`",
-      );
-    }
-
-    // verify required parameter 'body' is not null or undefined
-    if (body === null || body === undefined) {
-      throw new RequiredError("body", "muteFindings");
-    }
-
-    // Path Params
-    const localVarPath = "/api/v2/posture_management/findings";
-
-    // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SecurityMonitoringApi.v2.muteFindings",
-      SecurityMonitoringApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
-    requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Set User-Agent
-    if (this.userAgent) {
-      requestContext.setHeaderParam("User-Agent", this.userAgent);
-    }
-
-    // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
-    requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = stringify(
-      serialize(body, TypingInfo, "BulkMuteFindingsRequest", ""),
-      contentType,
-    );
-    requestContext.setBody(serializedBody);
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-      "AuthZ",
     ]);
 
     return requestContext;
@@ -15469,71 +15410,6 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to muteFindings
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async muteFindings(
-    response: ResponseContext,
-  ): Promise<BulkMuteFindingsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 200) {
-      const body: BulkMuteFindingsResponse = deserialize(
-        parse(await response.body.text(), contentType),
-        TypingInfo,
-        "BulkMuteFindingsResponse",
-      ) as BulkMuteFindingsResponse;
-      return body;
-    }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 422 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = parse(await response.body.text(), contentType);
-      let body: JSONAPIErrorResponse;
-      try {
-        body = deserialize(
-          bodyText,
-          TypingInfo,
-          "JSONAPIErrorResponse",
-        ) as JSONAPIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText,
-        );
-      }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: BulkMuteFindingsResponse = deserialize(
-        parse(await response.body.text(), contentType),
-        TypingInfo,
-        "BulkMuteFindingsResponse",
-        "",
-      ) as BulkMuteFindingsResponse;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"',
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
    * @params response Response returned by the server for a request to muteSecurityFindings
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -18546,23 +18422,6 @@ export interface SecurityMonitoringApiListVulnerableAssetsRequest {
    * @type string
    */
   filterOperatingSystemVersion?: string;
-}
-
-export interface SecurityMonitoringApiMuteFindingsRequest {
-  /**
-   * ### Attributes
-   *
-   * All findings are updated with the same attributes. The request body must include at least two attributes: `muted` and `reason`.
-   * The allowed reasons depend on whether the finding is being muted or unmuted:
-   *   - To mute a finding: `PENDING_FIX`, `FALSE_POSITIVE`, `ACCEPTED_RISK`, `OTHER`.
-   *   - To unmute a finding : `NO_PENDING_FIX`, `HUMAN_ERROR`, `NO_LONGER_ACCEPTED_RISK`, `OTHER`.
-   *
-   * ### Meta
-   *
-   * The request body must include a list of the finding IDs to be updated.
-   * @type BulkMuteFindingsRequest
-   */
-  body: BulkMuteFindingsRequest;
 }
 
 export interface SecurityMonitoringApiMuteSecurityFindingsRequest {
@@ -21845,27 +21704,6 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listVulnerableAssets(responseContext);
-        });
-    });
-  }
-
-  /**
-   * Mute or unmute findings.
-   * @param param The request object
-   */
-  public muteFindings(
-    param: SecurityMonitoringApiMuteFindingsRequest,
-    options?: Configuration,
-  ): Promise<BulkMuteFindingsResponse> {
-    const requestContextPromise = this.requestFactory.muteFindings(
-      param.body,
-      options,
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.muteFindings(responseContext);
         });
     });
   }
