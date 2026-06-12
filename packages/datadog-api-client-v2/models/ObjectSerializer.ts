@@ -1314,6 +1314,7 @@ import { DeploymentGateResponseDataAttributes } from "./DeploymentGateResponseDa
 import { DeploymentGateResponseDataAttributesCreatedBy } from "./DeploymentGateResponseDataAttributesCreatedBy";
 import { DeploymentGateResponseDataAttributesUpdatedBy } from "./DeploymentGateResponseDataAttributesUpdatedBy";
 import { DeploymentGateRulesResponse } from "./DeploymentGateRulesResponse";
+import { DeploymentGatesEvaluationConfiguration } from "./DeploymentGatesEvaluationConfiguration";
 import { DeploymentGatesEvaluationRequest } from "./DeploymentGatesEvaluationRequest";
 import { DeploymentGatesEvaluationRequestAttributes } from "./DeploymentGatesEvaluationRequestAttributes";
 import { DeploymentGatesEvaluationRequestData } from "./DeploymentGatesEvaluationRequestData";
@@ -1323,9 +1324,13 @@ import { DeploymentGatesEvaluationResponseData } from "./DeploymentGatesEvaluati
 import { DeploymentGatesEvaluationResultResponse } from "./DeploymentGatesEvaluationResultResponse";
 import { DeploymentGatesEvaluationResultResponseAttributes } from "./DeploymentGatesEvaluationResultResponseAttributes";
 import { DeploymentGatesEvaluationResultResponseData } from "./DeploymentGatesEvaluationResultResponseData";
+import { DeploymentGatesFDDRule } from "./DeploymentGatesFDDRule";
+import { DeploymentGatesFDDRuleOptions } from "./DeploymentGatesFDDRuleOptions";
 import { DeploymentGatesListResponse } from "./DeploymentGatesListResponse";
 import { DeploymentGatesListResponseMeta } from "./DeploymentGatesListResponseMeta";
 import { DeploymentGatesListResponseMetaPage } from "./DeploymentGatesListResponseMetaPage";
+import { DeploymentGatesMonitorRule } from "./DeploymentGatesMonitorRule";
+import { DeploymentGatesMonitorRuleOptions } from "./DeploymentGatesMonitorRuleOptions";
 import { DeploymentGatesRuleResponse } from "./DeploymentGatesRuleResponse";
 import { DeploymentMetadata } from "./DeploymentMetadata";
 import { DeploymentRelationship } from "./DeploymentRelationship";
@@ -5661,6 +5666,8 @@ const enumsMap: { [key: string]: any[] } = {
   DeploymentGatesEvaluationResultResponseDataType: [
     "deployment_gates_evaluation_result_response",
   ],
+  DeploymentGatesFDDRuleType: ["faulty_deployment_detection"],
+  DeploymentGatesMonitorRuleType: ["monitor"],
   DeploymentRuleDataType: ["deployment_rule"],
   DeploymentRuleResponseDataAttributesType: [
     "faulty_deployment_detection",
@@ -9308,6 +9315,8 @@ const typeMap: { [index: string]: any } = {
   DeploymentGateResponseDataAttributesUpdatedBy:
     DeploymentGateResponseDataAttributesUpdatedBy,
   DeploymentGateRulesResponse: DeploymentGateRulesResponse,
+  DeploymentGatesEvaluationConfiguration:
+    DeploymentGatesEvaluationConfiguration,
   DeploymentGatesEvaluationRequest: DeploymentGatesEvaluationRequest,
   DeploymentGatesEvaluationRequestAttributes:
     DeploymentGatesEvaluationRequestAttributes,
@@ -9322,9 +9331,13 @@ const typeMap: { [index: string]: any } = {
     DeploymentGatesEvaluationResultResponseAttributes,
   DeploymentGatesEvaluationResultResponseData:
     DeploymentGatesEvaluationResultResponseData,
+  DeploymentGatesFDDRule: DeploymentGatesFDDRule,
+  DeploymentGatesFDDRuleOptions: DeploymentGatesFDDRuleOptions,
   DeploymentGatesListResponse: DeploymentGatesListResponse,
   DeploymentGatesListResponseMeta: DeploymentGatesListResponseMeta,
   DeploymentGatesListResponseMetaPage: DeploymentGatesListResponseMetaPage,
+  DeploymentGatesMonitorRule: DeploymentGatesMonitorRule,
+  DeploymentGatesMonitorRuleOptions: DeploymentGatesMonitorRuleOptions,
   DeploymentGatesRuleResponse: DeploymentGatesRuleResponse,
   DeploymentMetadata: DeploymentMetadata,
   DeploymentRelationship: DeploymentRelationship,
@@ -13914,6 +13927,10 @@ const oneOfMap: { [index: string]: string[] } = {
   DatadogCredentials: ["DatadogAPIKey"],
   DatadogCredentialsUpdate: ["DatadogAPIKeyUpdate"],
   DegradationIncluded: ["StatusPagesUser", "StatusPageAsIncluded"],
+  DeploymentGatesEvaluationRule: [
+    "DeploymentGatesMonitorRule",
+    "DeploymentGatesFDDRule",
+  ],
   DeploymentRulesOptions: [
     "DeploymentRuleOptionsFaultyDeploymentDetection",
     "DeploymentRuleOptionsMonitor",

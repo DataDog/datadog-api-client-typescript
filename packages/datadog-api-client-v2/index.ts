@@ -3376,6 +3376,7 @@ export { DeploymentGateResponseDataAttributes } from "./models/DeploymentGateRes
 export { DeploymentGateResponseDataAttributesCreatedBy } from "./models/DeploymentGateResponseDataAttributesCreatedBy";
 export { DeploymentGateResponseDataAttributesUpdatedBy } from "./models/DeploymentGateResponseDataAttributesUpdatedBy";
 export { DeploymentGateRulesResponse } from "./models/DeploymentGateRulesResponse";
+export { DeploymentGatesEvaluationConfiguration } from "./models/DeploymentGatesEvaluationConfiguration";
 export { DeploymentGatesEvaluationRequest } from "./models/DeploymentGatesEvaluationRequest";
 export { DeploymentGatesEvaluationRequestAttributes } from "./models/DeploymentGatesEvaluationRequestAttributes";
 export { DeploymentGatesEvaluationRequestData } from "./models/DeploymentGatesEvaluationRequestData";
@@ -3389,9 +3390,16 @@ export { DeploymentGatesEvaluationResultResponseAttributes } from "./models/Depl
 export { DeploymentGatesEvaluationResultResponseAttributesGateStatus } from "./models/DeploymentGatesEvaluationResultResponseAttributesGateStatus";
 export { DeploymentGatesEvaluationResultResponseData } from "./models/DeploymentGatesEvaluationResultResponseData";
 export { DeploymentGatesEvaluationResultResponseDataType } from "./models/DeploymentGatesEvaluationResultResponseDataType";
+export { DeploymentGatesEvaluationRule } from "./models/DeploymentGatesEvaluationRule";
+export { DeploymentGatesFDDRule } from "./models/DeploymentGatesFDDRule";
+export { DeploymentGatesFDDRuleOptions } from "./models/DeploymentGatesFDDRuleOptions";
+export { DeploymentGatesFDDRuleType } from "./models/DeploymentGatesFDDRuleType";
 export { DeploymentGatesListResponse } from "./models/DeploymentGatesListResponse";
 export { DeploymentGatesListResponseMeta } from "./models/DeploymentGatesListResponseMeta";
 export { DeploymentGatesListResponseMetaPage } from "./models/DeploymentGatesListResponseMetaPage";
+export { DeploymentGatesMonitorRule } from "./models/DeploymentGatesMonitorRule";
+export { DeploymentGatesMonitorRuleOptions } from "./models/DeploymentGatesMonitorRuleOptions";
+export { DeploymentGatesMonitorRuleType } from "./models/DeploymentGatesMonitorRuleType";
 export { DeploymentGatesRuleResponse } from "./models/DeploymentGatesRuleResponse";
 export { DeploymentMetadata } from "./models/DeploymentMetadata";
 export { DeploymentRelationship } from "./models/DeploymentRelationship";
