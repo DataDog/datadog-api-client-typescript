@@ -2587,6 +2587,9 @@ import { ManagedOrgsRelationshipToOrg } from "./ManagedOrgsRelationshipToOrg";
 import { ManagedOrgsRelationshipToOrgs } from "./ManagedOrgsRelationshipToOrgs";
 import { ManagedOrgsRelationships } from "./ManagedOrgsRelationships";
 import { ManagedOrgsResponse } from "./ManagedOrgsResponse";
+import { MaxSessionDurationUpdateAttributes } from "./MaxSessionDurationUpdateAttributes";
+import { MaxSessionDurationUpdateData } from "./MaxSessionDurationUpdateData";
+import { MaxSessionDurationUpdateRequest } from "./MaxSessionDurationUpdateRequest";
 import { McpScanRequest } from "./McpScanRequest";
 import { McpScanRequestData } from "./McpScanRequestData";
 import { McpScanRequestDataAttributes } from "./McpScanRequestDataAttributes";
@@ -6209,6 +6212,7 @@ const enumsMap: { [key: string]: any[] } = {
   MaintenanceDataAttributesStatus: ["scheduled", "in_progress", "completed"],
   MaintenanceWindowResourceType: ["maintenance_window"],
   ManagedOrgsType: ["managed_orgs"],
+  MaxSessionDurationType: ["max_session_duration"],
   McpScanRequestDataType: ["mcpscanrequest"],
   McpScanRequestResponseDataType: ["mcpscanrequestresponse"],
   MemberTeamType: ["member_teams"],
@@ -10798,6 +10802,9 @@ const typeMap: { [index: string]: any } = {
   ManagedOrgsRelationshipToOrgs: ManagedOrgsRelationshipToOrgs,
   ManagedOrgsRelationships: ManagedOrgsRelationships,
   ManagedOrgsResponse: ManagedOrgsResponse,
+  MaxSessionDurationUpdateAttributes: MaxSessionDurationUpdateAttributes,
+  MaxSessionDurationUpdateData: MaxSessionDurationUpdateData,
+  MaxSessionDurationUpdateRequest: MaxSessionDurationUpdateRequest,
   McpScanRequest: McpScanRequest,
   McpScanRequestData: McpScanRequestData,
   McpScanRequestDataAttributes: McpScanRequestDataAttributes,

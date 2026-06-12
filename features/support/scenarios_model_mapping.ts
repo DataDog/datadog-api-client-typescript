@@ -9150,6 +9150,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "GlobalOrgsResponse",
     },
+    "v2.UpdateLoginOrgConfigsMaxSessionDuration": {
+        "body": {
+            "type": "MaxSessionDurationUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListOrgs": {
         "filterName": {
             "type": "string",
