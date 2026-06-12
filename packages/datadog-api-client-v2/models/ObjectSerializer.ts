@@ -3603,17 +3603,6 @@ import { RulesetStatusRespDataAttributes } from "./RulesetStatusRespDataAttribut
 import { RumCrossProductSampling } from "./RumCrossProductSampling";
 import { RumCrossProductSamplingCreate } from "./RumCrossProductSamplingCreate";
 import { RumCrossProductSamplingUpdate } from "./RumCrossProductSamplingUpdate";
-import { RumHardcodedCrossProductSampling } from "./RumHardcodedCrossProductSampling";
-import { RumHardcodedCrossProductSamplingEditability } from "./RumHardcodedCrossProductSamplingEditability";
-import { RumHardcodedCrossProductSamplingUpdate } from "./RumHardcodedCrossProductSamplingUpdate";
-import { RumHardcodedRetentionFilterAttributes } from "./RumHardcodedRetentionFilterAttributes";
-import { RumHardcodedRetentionFilterData } from "./RumHardcodedRetentionFilterData";
-import { RumHardcodedRetentionFilterMeta } from "./RumHardcodedRetentionFilterMeta";
-import { RumHardcodedRetentionFilterResponse } from "./RumHardcodedRetentionFilterResponse";
-import { RumHardcodedRetentionFilterUpdateAttributes } from "./RumHardcodedRetentionFilterUpdateAttributes";
-import { RumHardcodedRetentionFilterUpdateData } from "./RumHardcodedRetentionFilterUpdateData";
-import { RumHardcodedRetentionFilterUpdateRequest } from "./RumHardcodedRetentionFilterUpdateRequest";
-import { RumHardcodedRetentionFiltersResponse } from "./RumHardcodedRetentionFiltersResponse";
 import { RumMetricCompute } from "./RumMetricCompute";
 import { RumMetricCreateAttributes } from "./RumMetricCreateAttributes";
 import { RumMetricCreateData } from "./RumMetricCreateData";
@@ -6896,17 +6885,6 @@ const enumsMap: { [key: string]: any[] } = {
   RulesValidateQueryResponseDataType: ["validate_response"],
   RulesetRespDataType: ["ruleset"],
   RulesetStatusRespDataType: ["ruleset_status"],
-  RumHardcodedRetentionFilterEventType: [
-    "session",
-    "view",
-    "action",
-    "error",
-    "resource",
-    "long_task",
-    "vital",
-  ],
-  RumHardcodedRetentionFilterMetaSource: ["default", "ui", "terraform"],
-  RumHardcodedRetentionFilterType: ["hardcoded_retention_filters"],
   RumMetricComputeAggregationType: ["count", "distribution"],
   RumMetricEventType: [
     "session",
@@ -12043,21 +12021,6 @@ const typeMap: { [index: string]: any } = {
   RumCrossProductSampling: RumCrossProductSampling,
   RumCrossProductSamplingCreate: RumCrossProductSamplingCreate,
   RumCrossProductSamplingUpdate: RumCrossProductSamplingUpdate,
-  RumHardcodedCrossProductSampling: RumHardcodedCrossProductSampling,
-  RumHardcodedCrossProductSamplingEditability:
-    RumHardcodedCrossProductSamplingEditability,
-  RumHardcodedCrossProductSamplingUpdate:
-    RumHardcodedCrossProductSamplingUpdate,
-  RumHardcodedRetentionFilterAttributes: RumHardcodedRetentionFilterAttributes,
-  RumHardcodedRetentionFilterData: RumHardcodedRetentionFilterData,
-  RumHardcodedRetentionFilterMeta: RumHardcodedRetentionFilterMeta,
-  RumHardcodedRetentionFilterResponse: RumHardcodedRetentionFilterResponse,
-  RumHardcodedRetentionFilterUpdateAttributes:
-    RumHardcodedRetentionFilterUpdateAttributes,
-  RumHardcodedRetentionFilterUpdateData: RumHardcodedRetentionFilterUpdateData,
-  RumHardcodedRetentionFilterUpdateRequest:
-    RumHardcodedRetentionFilterUpdateRequest,
-  RumHardcodedRetentionFiltersResponse: RumHardcodedRetentionFiltersResponse,
   RumMetricCompute: RumMetricCompute,
   RumMetricCreateAttributes: RumMetricCreateAttributes,
   RumMetricCreateData: RumMetricCreateData,
