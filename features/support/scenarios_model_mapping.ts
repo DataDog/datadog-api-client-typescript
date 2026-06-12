@@ -13351,6 +13351,54 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ReportScheduleResponse",
     },
+    "v2.ListReportSchedules": {
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterTitle": {
+            "type": "string",
+            "format": "",
+            },
+        "filterAuthorUuid": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "filterRecipients": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ReportScheduleListResponse",
+    },
+    "v2.GetReportSchedulesForResource": {
+        "resourceType": {
+            "type": "ReportScheduleResourceType",
+            "format": "",
+            },
+        "resourceId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ReportScheduleListResponse",
+    },
+    "v2.GetReportSchedule": {
+        "scheduleUuid": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "ReportScheduleResponse",
+    },
+    "v2.DeleteReportSchedule": {
+        "scheduleUuid": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "ReportScheduleResponse",
+    },
     "v2.PatchReportSchedule": {
         "scheduleUuid": {
             "type": "string",
@@ -13358,6 +13406,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "body": {
             "type": "ReportSchedulePatchRequest",
+            "format": "",
+            },
+        "operationResponseType": "ReportScheduleResponse",
+    },
+    "v2.ToggleReportSchedule": {
+        "scheduleUuid": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "ReportScheduleToggleRequest",
             "format": "",
             },
         "operationResponseType": "ReportScheduleResponse",
