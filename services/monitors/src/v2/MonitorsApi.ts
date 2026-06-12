@@ -2344,7 +2344,7 @@ export class MonitorsApi {
   }
 
   /**
-   * Get all monitor configuration policies.
+   * Get all monitor configuration policies. Returns a list of all policies.
    * @param param The request object
    */
   public listMonitorConfigPolicies(
