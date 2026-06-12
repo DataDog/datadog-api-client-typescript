@@ -8346,6 +8346,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "DashboardListDeleteItemsResponse",
   },
+  "DashboardSharingApi.V2.ListSharedDashboardsByDashboardId": {
+    dashboardId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ListSharedDashboardsResponse",
+  },
   "DashboardSecureEmbedApi.V2.CreateDashboardSecureEmbed": {
     dashboardId: {
       type: "string",
