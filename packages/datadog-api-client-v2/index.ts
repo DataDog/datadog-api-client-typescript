@@ -457,6 +457,11 @@ export {
 } from "./apis/DashboardSecureEmbedApi";
 
 export {
+  DashboardSharingApiListSharedDashboardsByDashboardIdRequest,
+  DashboardSharingApi,
+} from "./apis/DashboardSharingApi";
+
+export {
   DashboardsApiGetDashboardUsageRequest,
   DashboardsApiListDashboardsUsageRequest,
   DashboardsApi,
@@ -4553,6 +4558,7 @@ export { ListScorecardScoresResponse } from "./models/ListScorecardScoresRespons
 export { ListScorecardsResponse } from "./models/ListScorecardsResponse";
 export { ListSecurityFindingsResponse } from "./models/ListSecurityFindingsResponse";
 export { ListServiceAccessTokensResponse } from "./models/ListServiceAccessTokensResponse";
+export { ListSharedDashboardsResponse } from "./models/ListSharedDashboardsResponse";
 export { ListSourcemapsResponse } from "./models/ListSourcemapsResponse";
 export { ListTagsResponse } from "./models/ListTagsResponse";
 export { ListTagsResponseData } from "./models/ListTagsResponseData";
@@ -7095,6 +7101,25 @@ export { ServiceRepositoryInfoResponseData } from "./models/ServiceRepositoryInf
 export { ServiceRepositoryInfoStatus } from "./models/ServiceRepositoryInfoStatus";
 export { SessionIdArray } from "./models/SessionIdArray";
 export { SessionIdData } from "./models/SessionIdData";
+export { SharedDashboardIncluded } from "./models/SharedDashboardIncluded";
+export { SharedDashboardIncludedDashboard } from "./models/SharedDashboardIncludedDashboard";
+export { SharedDashboardIncludedDashboardAttributes } from "./models/SharedDashboardIncludedDashboardAttributes";
+export { SharedDashboardIncludedDashboardType } from "./models/SharedDashboardIncludedDashboardType";
+export { SharedDashboardIncludedUser } from "./models/SharedDashboardIncludedUser";
+export { SharedDashboardIncludedUserAttributes } from "./models/SharedDashboardIncludedUserAttributes";
+export { SharedDashboardInvitee } from "./models/SharedDashboardInvitee";
+export { SharedDashboardRelationshipDashboard } from "./models/SharedDashboardRelationshipDashboard";
+export { SharedDashboardRelationshipDashboardData } from "./models/SharedDashboardRelationshipDashboardData";
+export { SharedDashboardRelationships } from "./models/SharedDashboardRelationships";
+export { SharedDashboardRelationshipSharer } from "./models/SharedDashboardRelationshipSharer";
+export { SharedDashboardResponse } from "./models/SharedDashboardResponse";
+export { SharedDashboardResponseAttributes } from "./models/SharedDashboardResponseAttributes";
+export { SharedDashboardSelectableTemplateVariable } from "./models/SharedDashboardSelectableTemplateVariable";
+export { SharedDashboardShareType } from "./models/SharedDashboardShareType";
+export { SharedDashboardStatus } from "./models/SharedDashboardStatus";
+export { SharedDashboardType } from "./models/SharedDashboardType";
+export { SharedDashboardViewingPreferences } from "./models/SharedDashboardViewingPreferences";
+export { SharedDashboardViewingPreferencesTheme } from "./models/SharedDashboardViewingPreferencesTheme";
 export { Shift } from "./models/Shift";
 export { ShiftData } from "./models/ShiftData";
 export { ShiftDataAttributes } from "./models/ShiftDataAttributes";

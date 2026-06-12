@@ -2475,6 +2475,7 @@ import { ListScorecardScoresResponse } from "./ListScorecardScoresResponse";
 import { ListScorecardsResponse } from "./ListScorecardsResponse";
 import { ListSecurityFindingsResponse } from "./ListSecurityFindingsResponse";
 import { ListServiceAccessTokensResponse } from "./ListServiceAccessTokensResponse";
+import { ListSharedDashboardsResponse } from "./ListSharedDashboardsResponse";
 import { ListSourcemapsResponse } from "./ListSourcemapsResponse";
 import { ListTagsResponse } from "./ListTagsResponse";
 import { ListTagsResponseData } from "./ListTagsResponseData";
@@ -4137,6 +4138,19 @@ import { ServiceRepositoryInfoResponseAttributes } from "./ServiceRepositoryInfo
 import { ServiceRepositoryInfoResponseData } from "./ServiceRepositoryInfoResponseData";
 import { SessionIdArray } from "./SessionIdArray";
 import { SessionIdData } from "./SessionIdData";
+import { SharedDashboardIncludedDashboard } from "./SharedDashboardIncludedDashboard";
+import { SharedDashboardIncludedDashboardAttributes } from "./SharedDashboardIncludedDashboardAttributes";
+import { SharedDashboardIncludedUser } from "./SharedDashboardIncludedUser";
+import { SharedDashboardIncludedUserAttributes } from "./SharedDashboardIncludedUserAttributes";
+import { SharedDashboardInvitee } from "./SharedDashboardInvitee";
+import { SharedDashboardRelationshipDashboard } from "./SharedDashboardRelationshipDashboard";
+import { SharedDashboardRelationshipDashboardData } from "./SharedDashboardRelationshipDashboardData";
+import { SharedDashboardRelationshipSharer } from "./SharedDashboardRelationshipSharer";
+import { SharedDashboardRelationships } from "./SharedDashboardRelationships";
+import { SharedDashboardResponse } from "./SharedDashboardResponse";
+import { SharedDashboardResponseAttributes } from "./SharedDashboardResponseAttributes";
+import { SharedDashboardSelectableTemplateVariable } from "./SharedDashboardSelectableTemplateVariable";
+import { SharedDashboardViewingPreferences } from "./SharedDashboardViewingPreferences";
 import { Shift } from "./Shift";
 import { ShiftData } from "./ShiftData";
 import { ShiftDataAttributes } from "./ShiftDataAttributes";
@@ -7298,6 +7312,11 @@ const enumsMap: { [key: string]: any[] } = {
     "internal_error",
     "unknown",
   ],
+  SharedDashboardIncludedDashboardType: ["dashboard"],
+  SharedDashboardShareType: ["open", "invite", "embed", "secure-embed"],
+  SharedDashboardStatus: ["active", "paused"],
+  SharedDashboardType: ["shared_dashboard"],
+  SharedDashboardViewingPreferencesTheme: ["system", "light", "dark"],
   ShiftDataRelationshipsUserDataType: ["users"],
   ShiftDataType: ["shifts"],
   SignalEntitiesType: ["entities"],
@@ -10626,6 +10645,7 @@ const typeMap: { [index: string]: any } = {
   ListScorecardsResponse: ListScorecardsResponse,
   ListSecurityFindingsResponse: ListSecurityFindingsResponse,
   ListServiceAccessTokensResponse: ListServiceAccessTokensResponse,
+  ListSharedDashboardsResponse: ListSharedDashboardsResponse,
   ListSourcemapsResponse: ListSourcemapsResponse,
   ListTagsResponse: ListTagsResponse,
   ListTagsResponseData: ListTagsResponseData,
@@ -12714,6 +12734,22 @@ const typeMap: { [index: string]: any } = {
   ServiceRepositoryInfoResponseData: ServiceRepositoryInfoResponseData,
   SessionIdArray: SessionIdArray,
   SessionIdData: SessionIdData,
+  SharedDashboardIncludedDashboard: SharedDashboardIncludedDashboard,
+  SharedDashboardIncludedDashboardAttributes:
+    SharedDashboardIncludedDashboardAttributes,
+  SharedDashboardIncludedUser: SharedDashboardIncludedUser,
+  SharedDashboardIncludedUserAttributes: SharedDashboardIncludedUserAttributes,
+  SharedDashboardInvitee: SharedDashboardInvitee,
+  SharedDashboardRelationshipDashboard: SharedDashboardRelationshipDashboard,
+  SharedDashboardRelationshipDashboardData:
+    SharedDashboardRelationshipDashboardData,
+  SharedDashboardRelationshipSharer: SharedDashboardRelationshipSharer,
+  SharedDashboardRelationships: SharedDashboardRelationships,
+  SharedDashboardResponse: SharedDashboardResponse,
+  SharedDashboardResponseAttributes: SharedDashboardResponseAttributes,
+  SharedDashboardSelectableTemplateVariable:
+    SharedDashboardSelectableTemplateVariable,
+  SharedDashboardViewingPreferences: SharedDashboardViewingPreferences,
   Shift: Shift,
   ShiftData: ShiftData,
   ShiftDataAttributes: ShiftDataAttributes,
@@ -14277,6 +14313,10 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   ServiceNowCredentials: ["ServiceNowBasicAuth"],
   ServiceNowCredentialsUpdate: ["ServiceNowBasicAuthUpdate"],
+  SharedDashboardIncluded: [
+    "SharedDashboardIncludedDashboard",
+    "SharedDashboardIncludedUser",
+  ],
   ShiftIncluded: ["ScheduleUser"],
   SourcemapItem: [
     "JSSourcemapData",

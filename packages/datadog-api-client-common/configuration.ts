@@ -450,6 +450,7 @@ export function createConfiguration(
       "v2.listCSMAgentlessHosts": false,
       "v2.listCSMUnifiedHostFacets": false,
       "v2.listCSMUnifiedHosts": false,
+      "v2.listSharedDashboardsByDashboardId": false,
       "v2.createDashboardSecureEmbed": false,
       "v2.deleteDashboardSecureEmbed": false,
       "v2.getDashboardSecureEmbed": false,
