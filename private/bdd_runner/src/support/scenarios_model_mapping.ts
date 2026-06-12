@@ -9933,6 +9933,9 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "GCPSTSDelegateAccountResponse",
   },
+  "GoogleChatIntegrationApi.V2.ListGoogleChatOrganizations": {
+    operationResponseType: "GoogleChatOrganizationsResponse",
+  },
   "GoogleChatIntegrationApi.V2.GetSpaceByDisplayName": {
     domainName: {
       type: "string",
@@ -9943,6 +9946,34 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "GoogleChatAppNamedSpaceResponse",
+  },
+  "GoogleChatIntegrationApi.V2.GetGoogleChatOrganization": {
+    organizationBindingId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "GoogleChatOrganizationResponse",
+  },
+  "GoogleChatIntegrationApi.V2.DeleteGoogleChatOrganization": {
+    organizationBindingId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "GoogleChatIntegrationApi.V2.GetGoogleChatDelegatedUser": {
+    organizationBindingId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "GoogleChatDelegatedUserResponse",
+  },
+  "GoogleChatIntegrationApi.V2.DeleteGoogleChatDelegatedUser": {
+    organizationBindingId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
   },
   "GoogleChatIntegrationApi.V2.ListOrganizationHandles": {
     organizationBindingId: {
@@ -9998,6 +10029,61 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "GoogleChatOrganizationHandleResponse",
+  },
+  "GoogleChatIntegrationApi.V2.ListGoogleChatTargetAudiences": {
+    organizationBindingId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "GoogleChatTargetAudiencesResponse",
+  },
+  "GoogleChatIntegrationApi.V2.CreateGoogleChatTargetAudience": {
+    organizationBindingId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "GoogleChatTargetAudienceCreateRequest",
+      format: "",
+    },
+    operationResponseType: "GoogleChatTargetAudienceResponse",
+  },
+  "GoogleChatIntegrationApi.V2.GetGoogleChatTargetAudience": {
+    organizationBindingId: {
+      type: "string",
+      format: "",
+    },
+    targetAudienceId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "GoogleChatTargetAudienceResponse",
+  },
+  "GoogleChatIntegrationApi.V2.DeleteGoogleChatTargetAudience": {
+    organizationBindingId: {
+      type: "string",
+      format: "",
+    },
+    targetAudienceId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "GoogleChatIntegrationApi.V2.UpdateGoogleChatTargetAudience": {
+    organizationBindingId: {
+      type: "string",
+      format: "",
+    },
+    targetAudienceId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "GoogleChatTargetAudienceUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "GoogleChatTargetAudienceResponse",
   },
   "JiraIntegrationApi.V2.ListJiraAccounts": {
     operationResponseType: "JiraAccountsResponse",
