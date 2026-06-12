@@ -1,6 +1,7 @@
 export {
   MicrosoftTeamsIntegrationApiCreateTenantBasedHandleRequest,
   MicrosoftTeamsIntegrationApiCreateWorkflowsWebhookHandleRequest,
+  MicrosoftTeamsIntegrationApiDeleteMSTeamsUserBindingRequest,
   MicrosoftTeamsIntegrationApiDeleteTenantBasedHandleRequest,
   MicrosoftTeamsIntegrationApiDeleteWorkflowsWebhookHandleRequest,
   MicrosoftTeamsIntegrationApiGetChannelByNameRequest,
