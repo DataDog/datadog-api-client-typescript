@@ -14715,61 +14715,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "PartialApplicationKeyResponse",
   },
-  "IncidentServicesApi.V2.ListIncidentServices": {
-    include: {
-      type: "IncidentRelatedObject",
-      format: "",
-    },
-    pageSize: {
-      type: "number",
-      format: "int64",
-    },
-    pageOffset: {
-      type: "number",
-      format: "int64",
-    },
-    filter: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "IncidentServicesResponse",
-  },
-  "IncidentServicesApi.V2.CreateIncidentService": {
-    body: {
-      type: "IncidentServiceCreateRequest",
-      format: "",
-    },
-    operationResponseType: "IncidentServiceResponse",
-  },
-  "IncidentServicesApi.V2.GetIncidentService": {
-    serviceId: {
-      type: "string",
-      format: "",
-    },
-    include: {
-      type: "IncidentRelatedObject",
-      format: "",
-    },
-    operationResponseType: "IncidentServiceResponse",
-  },
-  "IncidentServicesApi.V2.DeleteIncidentService": {
-    serviceId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "{}",
-  },
-  "IncidentServicesApi.V2.UpdateIncidentService": {
-    serviceId: {
-      type: "string",
-      format: "",
-    },
-    body: {
-      type: "IncidentServiceUpdateRequest",
-      format: "",
-    },
-    operationResponseType: "IncidentServiceResponse",
-  },
   "ServiceDefinitionApi.V2.ListServiceDefinitions": {
     pageSize: {
       type: "number",
