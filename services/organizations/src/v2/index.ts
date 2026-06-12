@@ -3,6 +3,7 @@ export {
   OrganizationsApiGetSAMLConfigurationRequest,
   OrganizationsApiListGlobalOrgsRequest,
   OrganizationsApiListOrgsRequest,
+  OrganizationsApiUpdateLoginOrgConfigsMaxSessionDurationRequest,
   OrganizationsApiUpdateOrgConfigRequest,
   OrganizationsApiUpdateOrgSamlConfigurationsRequest,
   OrganizationsApiUpdateSAMLConfigurationRequest,
@@ -30,6 +31,10 @@ export { ManagedOrgsRelationshipToOrg } from "./models/ManagedOrgsRelationshipTo
 export { ManagedOrgsRelationshipToOrgs } from "./models/ManagedOrgsRelationshipToOrgs";
 export { ManagedOrgsResponse } from "./models/ManagedOrgsResponse";
 export { ManagedOrgsType } from "./models/ManagedOrgsType";
+export { MaxSessionDurationType } from "./models/MaxSessionDurationType";
+export { MaxSessionDurationUpdateAttributes } from "./models/MaxSessionDurationUpdateAttributes";
+export { MaxSessionDurationUpdateData } from "./models/MaxSessionDurationUpdateData";
+export { MaxSessionDurationUpdateRequest } from "./models/MaxSessionDurationUpdateRequest";
 export { OrgAttributes } from "./models/OrgAttributes";
 export { OrgConfigGetResponse } from "./models/OrgConfigGetResponse";
 export { OrgConfigListResponse } from "./models/OrgConfigListResponse";

@@ -17,6 +17,9 @@ import { ManagedOrgsRelationshipToOrg } from "./ManagedOrgsRelationshipToOrg";
 import { ManagedOrgsRelationshipToOrgs } from "./ManagedOrgsRelationshipToOrgs";
 import { ManagedOrgsRelationships } from "./ManagedOrgsRelationships";
 import { ManagedOrgsResponse } from "./ManagedOrgsResponse";
+import { MaxSessionDurationUpdateAttributes } from "./MaxSessionDurationUpdateAttributes";
+import { MaxSessionDurationUpdateData } from "./MaxSessionDurationUpdateData";
+import { MaxSessionDurationUpdateRequest } from "./MaxSessionDurationUpdateRequest";
 import { OrgAttributes } from "./OrgAttributes";
 import { OrgConfigGetResponse } from "./OrgConfigGetResponse";
 import { OrgConfigListResponse } from "./OrgConfigListResponse";
@@ -51,6 +54,7 @@ export const TypingInfo: ModelTypingInfo = {
     GlobalOrgType: ["global_user_orgs"],
     GlobalOrgsMetaPageType: ["cursor"],
     ManagedOrgsType: ["managed_orgs"],
+    MaxSessionDurationType: ["max_session_duration"],
     OrgConfigType: ["org_configs"],
     OrgResourceType: ["orgs"],
     OrgSAMLPreferencesType: ["saml_preferences"],
@@ -77,6 +81,9 @@ export const TypingInfo: ModelTypingInfo = {
     ManagedOrgsRelationshipToOrgs: ManagedOrgsRelationshipToOrgs,
     ManagedOrgsRelationships: ManagedOrgsRelationships,
     ManagedOrgsResponse: ManagedOrgsResponse,
+    MaxSessionDurationUpdateAttributes: MaxSessionDurationUpdateAttributes,
+    MaxSessionDurationUpdateData: MaxSessionDurationUpdateData,
+    MaxSessionDurationUpdateRequest: MaxSessionDurationUpdateRequest,
     OrgAttributes: OrgAttributes,
     OrgConfigGetResponse: OrgConfigGetResponse,
     OrgConfigListResponse: OrgConfigListResponse,
