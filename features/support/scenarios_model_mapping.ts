@@ -14703,61 +14703,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "PartialApplicationKeyResponse",
     },
-    "v2.ListIncidentServices": {
-        "include": {
-            "type": "IncidentRelatedObject",
-            "format": "",
-            },
-        "pageSize": {
-            "type": "number",
-            "format": "int64",
-            },
-        "pageOffset": {
-            "type": "number",
-            "format": "int64",
-            },
-        "filter": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "IncidentServicesResponse",
-    },
-    "v2.CreateIncidentService": {
-        "body": {
-            "type": "IncidentServiceCreateRequest",
-            "format": "",
-            },
-        "operationResponseType": "IncidentServiceResponse",
-    },
-    "v2.GetIncidentService": {
-        "serviceId": {
-            "type": "string",
-            "format": "",
-            },
-        "include": {
-            "type": "IncidentRelatedObject",
-            "format": "",
-            },
-        "operationResponseType": "IncidentServiceResponse",
-    },
-    "v2.DeleteIncidentService": {
-        "serviceId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "{}",
-    },
-    "v2.UpdateIncidentService": {
-        "serviceId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "IncidentServiceUpdateRequest",
-            "format": "",
-            },
-        "operationResponseType": "IncidentServiceResponse",
-    },
     "v2.ListServiceDefinitions": {
         "pageSize": {
             "type": "number",
