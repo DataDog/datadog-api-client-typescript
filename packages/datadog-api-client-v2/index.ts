@@ -1,4 +1,9 @@
 export {
+  AIGuardApiEvaluateAIGuardRequestRequest,
+  AIGuardApi,
+} from "./apis/AIGuardApi";
+
+export {
   APIManagementApiCreateOpenAPIRequest,
   APIManagementApiDeleteOpenAPIRequest,
   APIManagementApiGetOpenAPIRequest,
@@ -1827,6 +1832,19 @@ export { AiCustomRulesetsResponse } from "./models/AiCustomRulesetsResponse";
 export { AiCustomRulesetUpdateAttributes } from "./models/AiCustomRulesetUpdateAttributes";
 export { AiCustomRulesetUpdateData } from "./models/AiCustomRulesetUpdateData";
 export { AiCustomRulesetUpdateRequest } from "./models/AiCustomRulesetUpdateRequest";
+export { AIGuardAction } from "./models/AIGuardAction";
+export { AIGuardContentPart } from "./models/AIGuardContentPart";
+export { AIGuardEvaluateRequest } from "./models/AIGuardEvaluateRequest";
+export { AIGuardEvaluateResponse } from "./models/AIGuardEvaluateResponse";
+export { AIGuardImageURL } from "./models/AIGuardImageURL";
+export { AIGuardMessage } from "./models/AIGuardMessage";
+export { AIGuardMessageContent } from "./models/AIGuardMessageContent";
+export { AIGuardMessageRole } from "./models/AIGuardMessageRole";
+export { AIGuardMeta } from "./models/AIGuardMeta";
+export { AIGuardSdsFinding } from "./models/AIGuardSdsFinding";
+export { AIGuardSdsFindingLocation } from "./models/AIGuardSdsFindingLocation";
+export { AIGuardToolCall } from "./models/AIGuardToolCall";
+export { AIGuardToolCallFunction } from "./models/AIGuardToolCallFunction";
 export { AiMemoryViolationResultDataType } from "./models/AiMemoryViolationResultDataType";
 export { AiMemoryViolationResultRequest } from "./models/AiMemoryViolationResultRequest";
 export { AiMemoryViolationResultRequestAttributes } from "./models/AiMemoryViolationResultRequestAttributes";

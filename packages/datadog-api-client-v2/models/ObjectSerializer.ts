@@ -1,3 +1,13 @@
+import { AIGuardContentPart } from "./AIGuardContentPart";
+import { AIGuardEvaluateRequest } from "./AIGuardEvaluateRequest";
+import { AIGuardEvaluateResponse } from "./AIGuardEvaluateResponse";
+import { AIGuardImageURL } from "./AIGuardImageURL";
+import { AIGuardMessage } from "./AIGuardMessage";
+import { AIGuardMeta } from "./AIGuardMeta";
+import { AIGuardSdsFinding } from "./AIGuardSdsFinding";
+import { AIGuardSdsFindingLocation } from "./AIGuardSdsFindingLocation";
+import { AIGuardToolCall } from "./AIGuardToolCall";
+import { AIGuardToolCallFunction } from "./AIGuardToolCallFunction";
 import { APIErrorResponse } from "./APIErrorResponse";
 import { APIKeyCreateAttributes } from "./APIKeyCreateAttributes";
 import { APIKeyCreateData } from "./APIKeyCreateData";
@@ -5009,6 +5019,8 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 };
 
 const enumsMap: { [key: string]: any[] } = {
+  AIGuardAction: ["ALLOW", "DENY", "ABORT"],
+  AIGuardMessageRole: ["user", "assistant", "system", "tool", "developer"],
   APIKeysSort: [
     "created_at",
     "-created_at",
@@ -7794,6 +7806,16 @@ const enumsMap: { [key: string]: any[] } = {
 };
 
 const typeMap: { [index: string]: any } = {
+  AIGuardContentPart: AIGuardContentPart,
+  AIGuardEvaluateRequest: AIGuardEvaluateRequest,
+  AIGuardEvaluateResponse: AIGuardEvaluateResponse,
+  AIGuardImageURL: AIGuardImageURL,
+  AIGuardMessage: AIGuardMessage,
+  AIGuardMeta: AIGuardMeta,
+  AIGuardSdsFinding: AIGuardSdsFinding,
+  AIGuardSdsFindingLocation: AIGuardSdsFindingLocation,
+  AIGuardToolCall: AIGuardToolCall,
+  AIGuardToolCallFunction: AIGuardToolCallFunction,
   APIErrorResponse: APIErrorResponse,
   APIKeyCreateAttributes: APIKeyCreateAttributes,
   APIKeyCreateData: APIKeyCreateData,
@@ -13780,6 +13802,7 @@ const typeMap: { [index: string]: any } = {
 };
 
 const oneOfMap: { [index: string]: string[] } = {
+  AIGuardMessageContent: ["string", "Array<AIGuardContentPart>"],
   APIKeyResponseIncludedItem: ["User", "LeakedKey"],
   AWSAuthConfig: ["AWSAuthConfigKeys", "AWSAuthConfigRole"],
   AWSCredentials: ["AWSAssumeRole"],
