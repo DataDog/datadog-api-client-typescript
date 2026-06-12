@@ -30,6 +30,7 @@ import { GlobalOrgData } from "./models/GlobalOrgData";
 import { GlobalOrgsResponse } from "./models/GlobalOrgsResponse";
 import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 import { ManagedOrgsResponse } from "./models/ManagedOrgsResponse";
+import { MaxSessionDurationUpdateRequest } from "./models/MaxSessionDurationUpdateRequest";
 import { OrgConfigGetResponse } from "./models/OrgConfigGetResponse";
 import { OrgConfigListResponse } from "./models/OrgConfigListResponse";
 import { OrgConfigWriteRequest } from "./models/OrgConfigWriteRequest";
@@ -315,6 +316,60 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateLoginOrgConfigsMaxSessionDuration(
+    body: MaxSessionDurationUpdateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "updateLoginOrgConfigsMaxSessionDuration",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/login/org_configs/max_session_duration";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "OrganizationsApi.v2.updateLoginOrgConfigsMaxSessionDuration",
+      OrganizationsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "MaxSessionDurationUpdateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -909,6 +964,56 @@ export class OrganizationsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateLoginOrgConfigsMaxSessionDuration
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateLoginOrgConfigsMaxSessionDuration(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateOrgConfig
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1190,6 +1295,13 @@ export interface OrganizationsApiListOrgsRequest {
   filterName?: string;
 }
 
+export interface OrganizationsApiUpdateLoginOrgConfigsMaxSessionDurationRequest {
+  /**
+   * @type MaxSessionDurationUpdateRequest
+   */
+  body: MaxSessionDurationUpdateRequest;
+}
+
 export interface OrganizationsApiUpdateOrgConfigRequest {
   /**
    * The name of an Org Config.
@@ -1417,6 +1529,31 @@ export class OrganizationsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listSAMLConfigurations(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update the maximum session duration for the current organization.
+   * The duration is specified in seconds.
+   * @param param The request object
+   */
+  public updateLoginOrgConfigsMaxSessionDuration(
+    param: OrganizationsApiUpdateLoginOrgConfigsMaxSessionDurationRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.updateLoginOrgConfigsMaxSessionDuration(
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateLoginOrgConfigsMaxSessionDuration(
+            responseContext,
+          );
         });
     });
   }
