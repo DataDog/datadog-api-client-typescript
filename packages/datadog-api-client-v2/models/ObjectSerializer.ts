@@ -2888,6 +2888,7 @@ import { ObservabilityPipelineFluentBitSource } from "./ObservabilityPipelineFlu
 import { ObservabilityPipelineFluentdSource } from "./ObservabilityPipelineFluentdSource";
 import { ObservabilityPipelineGcpAuth } from "./ObservabilityPipelineGcpAuth";
 import { ObservabilityPipelineGenerateMetricsProcessor } from "./ObservabilityPipelineGenerateMetricsProcessor";
+import { ObservabilityPipelineGenerateMetricsV2Processor } from "./ObservabilityPipelineGenerateMetricsV2Processor";
 import { ObservabilityPipelineGeneratedMetric } from "./ObservabilityPipelineGeneratedMetric";
 import { ObservabilityPipelineGeneratedMetricIncrementByField } from "./ObservabilityPipelineGeneratedMetricIncrementByField";
 import { ObservabilityPipelineGeneratedMetricIncrementByOne } from "./ObservabilityPipelineGeneratedMetricIncrementByOne";
@@ -6422,6 +6423,7 @@ const enumsMap: { [key: string]: any[] } = {
   ObservabilityPipelineGenerateMetricsProcessorType: [
     "generate_datadog_metrics",
   ],
+  ObservabilityPipelineGenerateMetricsV2ProcessorType: ["generate_metrics"],
   ObservabilityPipelineGeneratedMetricIncrementByFieldStrategy: [
     "increment_by_field",
   ],
@@ -11187,6 +11189,8 @@ const typeMap: { [index: string]: any } = {
   ObservabilityPipelineGcpAuth: ObservabilityPipelineGcpAuth,
   ObservabilityPipelineGenerateMetricsProcessor:
     ObservabilityPipelineGenerateMetricsProcessor,
+  ObservabilityPipelineGenerateMetricsV2Processor:
+    ObservabilityPipelineGenerateMetricsV2Processor,
   ObservabilityPipelineGeneratedMetric: ObservabilityPipelineGeneratedMetric,
   ObservabilityPipelineGeneratedMetricIncrementByField:
     ObservabilityPipelineGeneratedMetricIncrementByField,
@@ -14177,6 +14181,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineDedupeProcessor",
     "ObservabilityPipelineEnrichmentTableProcessor",
     "ObservabilityPipelineGenerateMetricsProcessor",
+    "ObservabilityPipelineGenerateMetricsV2Processor",
     "ObservabilityPipelineOcsfMapperProcessor",
     "ObservabilityPipelineParseGrokProcessor",
     "ObservabilityPipelineParseJSONProcessor",
