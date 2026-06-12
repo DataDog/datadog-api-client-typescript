@@ -1,9 +1,19 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { DeploymentGatesEvaluationConfiguration } from "./DeploymentGatesEvaluationConfiguration";
+
 /**
  * Attributes for a deployment gate evaluation request.
+ * When `configuration` is provided, rules are evaluated inline from that configuration.
+ * When omitted, rules are resolved from the preconfigured gate for the given service and environment.
  */
 export class DeploymentGatesEvaluationRequestAttributes {
+  /**
+   * Inline rule definitions for a deployment gate evaluation. When provided, rules are evaluated
+   * directly from this configuration instead of using the preconfigured gate rules.
+   * At least one rule is required.
+   */
+  "configuration"?: DeploymentGatesEvaluationConfiguration;
   /**
    * The environment of the deployment.
    */
@@ -39,6 +49,10 @@ export class DeploymentGatesEvaluationRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    configuration: {
+      baseName: "configuration",
+      type: "DeploymentGatesEvaluationConfiguration",
+    },
     env: {
       baseName: "env",
       type: "string",
