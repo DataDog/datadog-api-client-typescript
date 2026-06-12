@@ -1977,17 +1977,6 @@ import { IncidentSearchResponseNumericFacetData } from "./IncidentSearchResponse
 import { IncidentSearchResponseNumericFacetDataAggregates } from "./IncidentSearchResponseNumericFacetDataAggregates";
 import { IncidentSearchResponsePropertyFieldFacetData } from "./IncidentSearchResponsePropertyFieldFacetData";
 import { IncidentSearchResponseUserFacetData } from "./IncidentSearchResponseUserFacetData";
-import { IncidentServiceCreateAttributes } from "./IncidentServiceCreateAttributes";
-import { IncidentServiceCreateData } from "./IncidentServiceCreateData";
-import { IncidentServiceCreateRequest } from "./IncidentServiceCreateRequest";
-import { IncidentServiceRelationships } from "./IncidentServiceRelationships";
-import { IncidentServiceResponse } from "./IncidentServiceResponse";
-import { IncidentServiceResponseAttributes } from "./IncidentServiceResponseAttributes";
-import { IncidentServiceResponseData } from "./IncidentServiceResponseData";
-import { IncidentServiceUpdateAttributes } from "./IncidentServiceUpdateAttributes";
-import { IncidentServiceUpdateData } from "./IncidentServiceUpdateData";
-import { IncidentServiceUpdateRequest } from "./IncidentServiceUpdateRequest";
-import { IncidentServicesResponse } from "./IncidentServicesResponse";
 import { IncidentTimelineCellMarkdownCreateAttributes } from "./IncidentTimelineCellMarkdownCreateAttributes";
 import { IncidentTimelineCellMarkdownCreateAttributesContent } from "./IncidentTimelineCellMarkdownCreateAttributesContent";
 import { IncidentTodoAnonymousAssignee } from "./IncidentTodoAnonymousAssignee";
@@ -5970,7 +5959,6 @@ const enumsMap: { [key: string]: any[] } = {
   IncidentRespondersType: ["incident_responders"],
   IncidentSearchResultsType: ["incidents_search_results"],
   IncidentSearchSortOrder: ["created", "-created"],
-  IncidentServiceType: ["services"],
   IncidentSeverity: [
     "UNKNOWN",
     "SEV-0",
@@ -10094,17 +10082,6 @@ const typeMap: { [index: string]: any } = {
   IncidentSearchResponsePropertyFieldFacetData:
     IncidentSearchResponsePropertyFieldFacetData,
   IncidentSearchResponseUserFacetData: IncidentSearchResponseUserFacetData,
-  IncidentServiceCreateAttributes: IncidentServiceCreateAttributes,
-  IncidentServiceCreateData: IncidentServiceCreateData,
-  IncidentServiceCreateRequest: IncidentServiceCreateRequest,
-  IncidentServiceRelationships: IncidentServiceRelationships,
-  IncidentServiceResponse: IncidentServiceResponse,
-  IncidentServiceResponseAttributes: IncidentServiceResponseAttributes,
-  IncidentServiceResponseData: IncidentServiceResponseData,
-  IncidentServiceUpdateAttributes: IncidentServiceUpdateAttributes,
-  IncidentServiceUpdateData: IncidentServiceUpdateData,
-  IncidentServiceUpdateRequest: IncidentServiceUpdateRequest,
-  IncidentServicesResponse: IncidentServicesResponse,
   IncidentTimelineCellMarkdownCreateAttributes:
     IncidentTimelineCellMarkdownCreateAttributes,
   IncidentTimelineCellMarkdownCreateAttributesContent:
@@ -14055,7 +14032,6 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   IncidentNotificationTemplateIncludedItems: ["User", "IncidentTypeObject"],
   IncidentResponseIncludedItem: ["IncidentUserData", "AttachmentData"],
-  IncidentServiceIncludedItems: ["User"],
   IncidentTimelineCellCreateAttributes: [
     "IncidentTimelineCellMarkdownCreateAttributes",
   ],

@@ -648,15 +648,6 @@ export {
 } from "./apis/IPAllowlistApi";
 
 export {
-  IncidentServicesApiCreateIncidentServiceRequest,
-  IncidentServicesApiDeleteIncidentServiceRequest,
-  IncidentServicesApiGetIncidentServiceRequest,
-  IncidentServicesApiListIncidentServicesRequest,
-  IncidentServicesApiUpdateIncidentServiceRequest,
-  IncidentServicesApi,
-} from "./apis/IncidentServicesApi";
-
-export {
   IncidentsApiCreateGlobalIncidentHandleRequest,
   IncidentsApiCreateIncidentRequest,
   IncidentsApiCreateIncidentAttachmentRequest,
@@ -4260,19 +4251,6 @@ export { IncidentSearchResponsePropertyFieldFacetData } from "./models/IncidentS
 export { IncidentSearchResponseUserFacetData } from "./models/IncidentSearchResponseUserFacetData";
 export { IncidentSearchResultsType } from "./models/IncidentSearchResultsType";
 export { IncidentSearchSortOrder } from "./models/IncidentSearchSortOrder";
-export { IncidentServiceCreateAttributes } from "./models/IncidentServiceCreateAttributes";
-export { IncidentServiceCreateData } from "./models/IncidentServiceCreateData";
-export { IncidentServiceCreateRequest } from "./models/IncidentServiceCreateRequest";
-export { IncidentServiceIncludedItems } from "./models/IncidentServiceIncludedItems";
-export { IncidentServiceRelationships } from "./models/IncidentServiceRelationships";
-export { IncidentServiceResponse } from "./models/IncidentServiceResponse";
-export { IncidentServiceResponseAttributes } from "./models/IncidentServiceResponseAttributes";
-export { IncidentServiceResponseData } from "./models/IncidentServiceResponseData";
-export { IncidentServicesResponse } from "./models/IncidentServicesResponse";
-export { IncidentServiceType } from "./models/IncidentServiceType";
-export { IncidentServiceUpdateAttributes } from "./models/IncidentServiceUpdateAttributes";
-export { IncidentServiceUpdateData } from "./models/IncidentServiceUpdateData";
-export { IncidentServiceUpdateRequest } from "./models/IncidentServiceUpdateRequest";
 export { IncidentSeverity } from "./models/IncidentSeverity";
 export { IncidentsResponse } from "./models/IncidentsResponse";
 export { IncidentTimelineCellCreateAttributes } from "./models/IncidentTimelineCellCreateAttributes";
