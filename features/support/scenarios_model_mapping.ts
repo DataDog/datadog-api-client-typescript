@@ -6654,6 +6654,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SecurityMonitoringRuleConvertResponse",
     },
+    "v2.RestoreSecurityMonitoringRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "version": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "SecurityMonitoringRuleResponse",
+    },
     "v2.TestExistingSecurityMonitoringRule": {
         "ruleId": {
             "type": "string",
