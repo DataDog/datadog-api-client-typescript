@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { LogsArithmeticProcessor } from "./LogsArithmeticProcessor";
+import { LogsArrayMapProcessor } from "./LogsArrayMapProcessor";
 import { LogsArrayProcessor } from "./LogsArrayProcessor";
 import { LogsAttributeRemapper } from "./LogsAttributeRemapper";
 import { LogsCategoryProcessor } from "./LogsCategoryProcessor";
@@ -53,4 +54,5 @@ export type LogsProcessor =
   | LogsDecoderProcessor
   | LogsSchemaProcessor
   | LogsExcludeAttributeProcessor
+  | LogsArrayMapProcessor
   | UnparsedObject;

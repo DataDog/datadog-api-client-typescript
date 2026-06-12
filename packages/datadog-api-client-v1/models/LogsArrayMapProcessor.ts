@@ -1,0 +1,117 @@
+/**
+ * Unless explicitly stated otherwise all files in this repository are licensed under the Apache-2.0 License.
+ * This product includes software developed at Datadog (https://www.datadoghq.com/).
+ * Copyright 2020-Present Datadog, Inc.
+ */
+import { LogsArrayMapProcessorType } from "./LogsArrayMapProcessorType";
+import { LogsArrayMapSubProcessor } from "./LogsArrayMapSubProcessor";
+
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+/**
+ * The array-map processor transforms each element of a source array by running
+ * sub-processors against it and writing results to a target array.
+ * Sub-processors reference the current element via `$sourceElem` (read) and
+ * `$targetElem` (write). Parent log attributes are read via plain paths as usual.
+ * Supported sub-processor types: `attribute-remapper`, `string-builder-processor`,
+ * `arithmetic-processor`, `category-processor`.
+ * `is_enabled` on sub-processors is ignored; sub-processor execution is gated
+ * entirely by the parent array-map's `is_enabled` flag.
+ */
+export class LogsArrayMapProcessor {
+  /**
+   * Whether or not the processor is enabled.
+   */
+  "isEnabled"?: boolean;
+  /**
+   * Name of the processor.
+   */
+  "name"?: string;
+  /**
+   * When `false` and `source != target`, the source attribute is removed after
+   * processing. Cannot be `false` when `source == target`.
+   */
+  "preserveSource"?: boolean;
+  /**
+   * Sub-processors applied to each element. Allowed types: `attribute-remapper`,
+   * `string-builder-processor`, `arithmetic-processor`, `category-processor`.
+   */
+  "processors": Array<LogsArrayMapSubProcessor>;
+  /**
+   * Attribute path of the source array. Elements are read-only via `$sourceElem`
+   * inside sub-processors.
+   */
+  "source": string;
+  /**
+   * Attribute path of the output array. Sub-processors write to `$targetElem`
+   * (or `$targetElem.<field>`) to build each output element.
+   */
+  "target": string;
+  /**
+   * Type of logs array-map processor.
+   */
+  "type": LogsArrayMapProcessorType;
+
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    isEnabled: {
+      baseName: "is_enabled",
+      type: "boolean",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+    },
+    preserveSource: {
+      baseName: "preserve_source",
+      type: "boolean",
+    },
+    processors: {
+      baseName: "processors",
+      type: "Array<LogsArrayMapSubProcessor>",
+      required: true,
+    },
+    source: {
+      baseName: "source",
+      type: "string",
+      required: true,
+    },
+    target: {
+      baseName: "target",
+      type: "string",
+      required: true,
+    },
+    type: {
+      baseName: "type",
+      type: "LogsArrayMapProcessorType",
+      required: true,
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return LogsArrayMapProcessor.attributeTypeMap;
+  }
+
+  public constructor() {}
+}
