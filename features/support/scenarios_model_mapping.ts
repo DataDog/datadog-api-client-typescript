@@ -10331,6 +10331,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ServiceNowUsersResponse",
     },
+    "v2.ListSlackUserBindings": {
+        "userUuid": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "SlackUserBindingsResponse",
+    },
     "v2.GetStatuspageAccount": {
         "operationResponseType": "StatuspageAccountResponse",
     },

@@ -4175,6 +4175,8 @@ import { SingleEntityContextResponse } from "./SingleEntityContextResponse";
 import { SlackIntegrationMetadata } from "./SlackIntegrationMetadata";
 import { SlackIntegrationMetadataChannelItem } from "./SlackIntegrationMetadataChannelItem";
 import { SlackTriggerWrapper } from "./SlackTriggerWrapper";
+import { SlackUserBindingData } from "./SlackUserBindingData";
+import { SlackUserBindingsResponse } from "./SlackUserBindingsResponse";
 import { SloQuery } from "./SloQuery";
 import { SloReportCreateRequest } from "./SloReportCreateRequest";
 import { SloReportCreateRequestAttributes } from "./SloReportCreateRequestAttributes";
@@ -7322,6 +7324,7 @@ const enumsMap: { [key: string]: any[] } = {
   SignalEntitiesType: ["entities"],
   SingleAggregatedConnectionResponseDataType: ["aggregated_connection"],
   SingleAggregatedDnsResponseDataType: ["aggregated_dns"],
+  SlackUserBindingType: ["team_id"],
   SloDataSource: ["slo"],
   SloStatusType: ["slo_status"],
   SlosGroupMode: ["overall", "components"],
@@ -12780,6 +12783,8 @@ const typeMap: { [index: string]: any } = {
   SlackIntegrationMetadata: SlackIntegrationMetadata,
   SlackIntegrationMetadataChannelItem: SlackIntegrationMetadataChannelItem,
   SlackTriggerWrapper: SlackTriggerWrapper,
+  SlackUserBindingData: SlackUserBindingData,
+  SlackUserBindingsResponse: SlackUserBindingsResponse,
   SloQuery: SloQuery,
   SloReportCreateRequest: SloReportCreateRequest,
   SloReportCreateRequestAttributes: SloReportCreateRequestAttributes,
