@@ -2375,6 +2375,44 @@ import { LLMObsIntegrationModel } from "./LLMObsIntegrationModel";
 import { LLMObsInternalReasoning } from "./LLMObsInternalReasoning";
 import { LLMObsLabelSchema } from "./LLMObsLabelSchema";
 import { LLMObsOpenAIMetadata } from "./LLMObsOpenAIMetadata";
+import { LLMObsPatternsActivityProgress } from "./LLMObsPatternsActivityProgress";
+import { LLMObsPatternsClusteredPoint } from "./LLMObsPatternsClusteredPoint";
+import { LLMObsPatternsClusteredPointRef } from "./LLMObsPatternsClusteredPointRef";
+import { LLMObsPatternsClusteredPointsResponse } from "./LLMObsPatternsClusteredPointsResponse";
+import { LLMObsPatternsClusteredPointsResponseAttributes } from "./LLMObsPatternsClusteredPointsResponseAttributes";
+import { LLMObsPatternsClusteredPointsResponseData } from "./LLMObsPatternsClusteredPointsResponseData";
+import { LLMObsPatternsConfigAttributes } from "./LLMObsPatternsConfigAttributes";
+import { LLMObsPatternsConfigItem } from "./LLMObsPatternsConfigItem";
+import { LLMObsPatternsConfigResponse } from "./LLMObsPatternsConfigResponse";
+import { LLMObsPatternsConfigResponseData } from "./LLMObsPatternsConfigResponseData";
+import { LLMObsPatternsConfigSnapshot } from "./LLMObsPatternsConfigSnapshot";
+import { LLMObsPatternsConfigUpsertRequest } from "./LLMObsPatternsConfigUpsertRequest";
+import { LLMObsPatternsConfigUpsertRequestAttributes } from "./LLMObsPatternsConfigUpsertRequestAttributes";
+import { LLMObsPatternsConfigUpsertRequestData } from "./LLMObsPatternsConfigUpsertRequestData";
+import { LLMObsPatternsConfigsResponse } from "./LLMObsPatternsConfigsResponse";
+import { LLMObsPatternsConfigsResponseAttributes } from "./LLMObsPatternsConfigsResponseAttributes";
+import { LLMObsPatternsConfigsResponseData } from "./LLMObsPatternsConfigsResponseData";
+import { LLMObsPatternsRunStatusResponse } from "./LLMObsPatternsRunStatusResponse";
+import { LLMObsPatternsRunStatusResponseAttributes } from "./LLMObsPatternsRunStatusResponseAttributes";
+import { LLMObsPatternsRunStatusResponseData } from "./LLMObsPatternsRunStatusResponseData";
+import { LLMObsPatternsRunSummary } from "./LLMObsPatternsRunSummary";
+import { LLMObsPatternsRunsResponse } from "./LLMObsPatternsRunsResponse";
+import { LLMObsPatternsRunsResponseAttributes } from "./LLMObsPatternsRunsResponseAttributes";
+import { LLMObsPatternsRunsResponseData } from "./LLMObsPatternsRunsResponseData";
+import { LLMObsPatternsTopic } from "./LLMObsPatternsTopic";
+import { LLMObsPatternsTopicWithClusteredPoints } from "./LLMObsPatternsTopicWithClusteredPoints";
+import { LLMObsPatternsTopicsResponse } from "./LLMObsPatternsTopicsResponse";
+import { LLMObsPatternsTopicsResponseAttributes } from "./LLMObsPatternsTopicsResponseAttributes";
+import { LLMObsPatternsTopicsResponseData } from "./LLMObsPatternsTopicsResponseData";
+import { LLMObsPatternsTopicsWithClusteredPointsResponse } from "./LLMObsPatternsTopicsWithClusteredPointsResponse";
+import { LLMObsPatternsTopicsWithClusteredPointsResponseAttributes } from "./LLMObsPatternsTopicsWithClusteredPointsResponseAttributes";
+import { LLMObsPatternsTopicsWithClusteredPointsResponseData } from "./LLMObsPatternsTopicsWithClusteredPointsResponseData";
+import { LLMObsPatternsTriggerRequest } from "./LLMObsPatternsTriggerRequest";
+import { LLMObsPatternsTriggerRequestAttributes } from "./LLMObsPatternsTriggerRequestAttributes";
+import { LLMObsPatternsTriggerRequestData } from "./LLMObsPatternsTriggerRequestData";
+import { LLMObsPatternsTriggerResponse } from "./LLMObsPatternsTriggerResponse";
+import { LLMObsPatternsTriggerResponseAttributes } from "./LLMObsPatternsTriggerResponseAttributes";
+import { LLMObsPatternsTriggerResponseData } from "./LLMObsPatternsTriggerResponseData";
 import { LLMObsProjectDataAttributesRequest } from "./LLMObsProjectDataAttributesRequest";
 import { LLMObsProjectDataAttributesResponse } from "./LLMObsProjectDataAttributesResponse";
 import { LLMObsProjectDataRequest } from "./LLMObsProjectDataRequest";
@@ -6139,6 +6177,17 @@ const enumsMap: { [key: string]: any[] } = {
   LLMObsMetricScoreType: ["score", "categorical", "boolean", "json"],
   LLMObsOpenAIReasoningEffort: ["none", "low", "medium", "high", "xhigh"],
   LLMObsOpenAIReasoningSummary: ["auto", "concise", "detailed"],
+  LLMObsPatternsClusteredPointsType: ["clustered_points_response"],
+  LLMObsPatternsConfigType: ["topic_discovery_configs"],
+  LLMObsPatternsConfigsListType: ["list_topic_discovery_configs_response"],
+  LLMObsPatternsRequestType: ["topic_discovery"],
+  LLMObsPatternsRunStatusType: ["topic_discovery_run_status"],
+  LLMObsPatternsRunsListType: ["list_topic_discovery_runs_response"],
+  LLMObsPatternsTopicsType: ["get_topics_response"],
+  LLMObsPatternsTopicsWithClusteredPointsType: [
+    "get_topics_with_cluster_points_response",
+  ],
+  LLMObsPatternsTriggerResponseType: ["topic_discovery_run"],
   LLMObsProjectType: ["projects"],
   LLMObsRecordType: ["records"],
   LLMObsSearchSpansRequestType: ["spans"],
@@ -10570,6 +10619,56 @@ const typeMap: { [index: string]: any } = {
   LLMObsInternalReasoning: LLMObsInternalReasoning,
   LLMObsLabelSchema: LLMObsLabelSchema,
   LLMObsOpenAIMetadata: LLMObsOpenAIMetadata,
+  LLMObsPatternsActivityProgress: LLMObsPatternsActivityProgress,
+  LLMObsPatternsClusteredPoint: LLMObsPatternsClusteredPoint,
+  LLMObsPatternsClusteredPointRef: LLMObsPatternsClusteredPointRef,
+  LLMObsPatternsClusteredPointsResponse: LLMObsPatternsClusteredPointsResponse,
+  LLMObsPatternsClusteredPointsResponseAttributes:
+    LLMObsPatternsClusteredPointsResponseAttributes,
+  LLMObsPatternsClusteredPointsResponseData:
+    LLMObsPatternsClusteredPointsResponseData,
+  LLMObsPatternsConfigAttributes: LLMObsPatternsConfigAttributes,
+  LLMObsPatternsConfigItem: LLMObsPatternsConfigItem,
+  LLMObsPatternsConfigResponse: LLMObsPatternsConfigResponse,
+  LLMObsPatternsConfigResponseData: LLMObsPatternsConfigResponseData,
+  LLMObsPatternsConfigSnapshot: LLMObsPatternsConfigSnapshot,
+  LLMObsPatternsConfigUpsertRequest: LLMObsPatternsConfigUpsertRequest,
+  LLMObsPatternsConfigUpsertRequestAttributes:
+    LLMObsPatternsConfigUpsertRequestAttributes,
+  LLMObsPatternsConfigUpsertRequestData: LLMObsPatternsConfigUpsertRequestData,
+  LLMObsPatternsConfigsResponse: LLMObsPatternsConfigsResponse,
+  LLMObsPatternsConfigsResponseAttributes:
+    LLMObsPatternsConfigsResponseAttributes,
+  LLMObsPatternsConfigsResponseData: LLMObsPatternsConfigsResponseData,
+  LLMObsPatternsRunStatusResponse: LLMObsPatternsRunStatusResponse,
+  LLMObsPatternsRunStatusResponseAttributes:
+    LLMObsPatternsRunStatusResponseAttributes,
+  LLMObsPatternsRunStatusResponseData: LLMObsPatternsRunStatusResponseData,
+  LLMObsPatternsRunSummary: LLMObsPatternsRunSummary,
+  LLMObsPatternsRunsResponse: LLMObsPatternsRunsResponse,
+  LLMObsPatternsRunsResponseAttributes: LLMObsPatternsRunsResponseAttributes,
+  LLMObsPatternsRunsResponseData: LLMObsPatternsRunsResponseData,
+  LLMObsPatternsTopic: LLMObsPatternsTopic,
+  LLMObsPatternsTopicWithClusteredPoints:
+    LLMObsPatternsTopicWithClusteredPoints,
+  LLMObsPatternsTopicsResponse: LLMObsPatternsTopicsResponse,
+  LLMObsPatternsTopicsResponseAttributes:
+    LLMObsPatternsTopicsResponseAttributes,
+  LLMObsPatternsTopicsResponseData: LLMObsPatternsTopicsResponseData,
+  LLMObsPatternsTopicsWithClusteredPointsResponse:
+    LLMObsPatternsTopicsWithClusteredPointsResponse,
+  LLMObsPatternsTopicsWithClusteredPointsResponseAttributes:
+    LLMObsPatternsTopicsWithClusteredPointsResponseAttributes,
+  LLMObsPatternsTopicsWithClusteredPointsResponseData:
+    LLMObsPatternsTopicsWithClusteredPointsResponseData,
+  LLMObsPatternsTriggerRequest: LLMObsPatternsTriggerRequest,
+  LLMObsPatternsTriggerRequestAttributes:
+    LLMObsPatternsTriggerRequestAttributes,
+  LLMObsPatternsTriggerRequestData: LLMObsPatternsTriggerRequestData,
+  LLMObsPatternsTriggerResponse: LLMObsPatternsTriggerResponse,
+  LLMObsPatternsTriggerResponseAttributes:
+    LLMObsPatternsTriggerResponseAttributes,
+  LLMObsPatternsTriggerResponseData: LLMObsPatternsTriggerResponseData,
   LLMObsProjectDataAttributesRequest: LLMObsProjectDataAttributesRequest,
   LLMObsProjectDataAttributesResponse: LLMObsProjectDataAttributesResponse,
   LLMObsProjectDataRequest: LLMObsProjectDataRequest,

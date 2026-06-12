@@ -1,0 +1,17 @@
+/**
+ * Unless explicitly stated otherwise all files in this repository are licensed under the Apache-2.0 License.
+ * This product includes software developed at Datadog (https://www.datadoghq.com/).
+ * Copyright 2020-Present Datadog, Inc.
+ */
+
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Resource type of a list of LLM Observability patterns configurations.
+ */
+
+export type LLMObsPatternsConfigsListType =
+  | typeof LIST_TOPIC_DISCOVERY_CONFIGS_RESPONSE
+  | UnparsedObject;
+export const LIST_TOPIC_DISCOVERY_CONFIGS_RESPONSE =
+  "list_topic_discovery_configs_response";
