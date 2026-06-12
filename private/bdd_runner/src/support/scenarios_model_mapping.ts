@@ -13754,39 +13754,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ServiceRepositoryInfoResponse",
   },
-  "RUMRetentionFiltersHardcodedApi.V2.ListHardcodedRetentionFilters": {
-    appId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "RumHardcodedRetentionFiltersResponse",
-  },
-  "RUMRetentionFiltersHardcodedApi.V2.GetHardcodedRetentionFilter": {
-    appId: {
-      type: "string",
-      format: "",
-    },
-    rfId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "RumHardcodedRetentionFilterResponse",
-  },
-  "RUMRetentionFiltersHardcodedApi.V2.UpdateHardcodedRetentionFilter": {
-    appId: {
-      type: "string",
-      format: "",
-    },
-    rfId: {
-      type: "string",
-      format: "",
-    },
-    body: {
-      type: "RumHardcodedRetentionFilterUpdateRequest",
-      format: "",
-    },
-    operationResponseType: "RumHardcodedRetentionFilterResponse",
-  },
   "RumRetentionFiltersApi.V2.OrderRetentionFilters": {
     appId: {
       type: "string",
