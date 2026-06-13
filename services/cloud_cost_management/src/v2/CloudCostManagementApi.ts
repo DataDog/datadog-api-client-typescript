@@ -2641,6 +2641,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   public async listCostTagKeySources(
     filterMonth: string,
     filterProvider?: string,
+    filterMetric?: string,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -2693,6 +2694,13 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
       requestContext.setQueryParam(
         "filter[provider]",
         serialize(filterProvider, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterMetric !== undefined) {
+      requestContext.setQueryParam(
+        "filter[metric]",
+        serialize(filterMetric, TypingInfo, "string", ""),
         "",
       );
     }
@@ -8495,6 +8503,11 @@ export interface CloudCostManagementApiListCostTagKeySourcesRequest {
    * @type string
    */
   filterProvider?: string;
+  /**
+   * Filter results to tag keys that have data for a specific Cloud Cost Management metric (for example, `aws.cost.net.amortized`). When omitted, all tag keys for the requested period are returned.
+   * @type string
+   */
+  filterMetric?: string;
 }
 
 export interface CloudCostManagementApiListCostTagMetadataRequest {
@@ -9746,6 +9759,7 @@ export class CloudCostManagementApi {
     const requestContextPromise = this.requestFactory.listCostTagKeySources(
       param.filterMonth,
       param.filterProvider,
+      param.filterMetric,
       options,
     );
     return requestContextPromise.then((requestContext) => {

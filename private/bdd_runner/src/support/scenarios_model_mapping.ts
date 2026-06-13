@@ -7831,6 +7831,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
+    filterMetric: {
+      type: "string",
+      format: "",
+    },
     operationResponseType: "CostTagKeySourcesResponse",
   },
   "CloudCostManagementApi.V2.ListCostTags": {
