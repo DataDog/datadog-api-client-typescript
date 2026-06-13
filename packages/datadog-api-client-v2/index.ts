@@ -1378,6 +1378,7 @@ export {
   SecurityMonitoringApiMuteSecurityFindingsRequest,
   SecurityMonitoringApiPatchSignalNotificationRuleRequest,
   SecurityMonitoringApiPatchVulnerabilityNotificationRuleRequest,
+  SecurityMonitoringApiRestoreSecurityMonitoringRuleRequest,
   SecurityMonitoringApiRunHistoricalJobRequest,
   SecurityMonitoringApiSearchSecurityFindingsRequest,
   SecurityMonitoringApiSearchSecurityMonitoringHistsignalsRequest,

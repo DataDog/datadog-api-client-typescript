@@ -6308,6 +6308,53 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async restoreSecurityMonitoringRule(
+    ruleId: string,
+    version: number,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'restoreSecurityMonitoringRule'");
+    if (!_config.unstableOperations["v2.restoreSecurityMonitoringRule"]) {
+      throw new Error(
+        "Unstable operation 'restoreSecurityMonitoringRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError("ruleId", "restoreSecurityMonitoringRule");
+    }
+
+    // verify required parameter 'version' is not null or undefined
+    if (version === null || version === undefined) {
+      throw new RequiredError("version", "restoreSecurityMonitoringRule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/rules/{rule_id}/restore/{version}"
+        .replace("{rule_id}", encodeURIComponent(String(ruleId)))
+        .replace("{version}", encodeURIComponent(String(version)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.restoreSecurityMonitoringRule")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async runHistoricalJob(
     body: RunHistoricalJobRequest,
     _options?: Configuration
@@ -14852,6 +14899,70 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to restoreSecurityMonitoringRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async restoreSecurityMonitoringRule(
+    response: ResponseContext
+  ): Promise<SecurityMonitoringRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SecurityMonitoringRuleResponse"
+      ) as SecurityMonitoringRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SecurityMonitoringRuleResponse",
+        ""
+      ) as SecurityMonitoringRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to runHistoricalJob
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -17738,6 +17849,19 @@ export interface SecurityMonitoringApiPatchVulnerabilityNotificationRuleRequest 
    * @type PatchNotificationRuleParameters
    */
   body: PatchNotificationRuleParameters;
+}
+
+export interface SecurityMonitoringApiRestoreSecurityMonitoringRuleRequest {
+  /**
+   * The ID of the rule.
+   * @type string
+   */
+  ruleId: string;
+  /**
+   * The historical version number of the rule.
+   * @type number
+   */
+  version: number;
 }
 
 export interface SecurityMonitoringApiRunHistoricalJobRequest {
@@ -21084,6 +21208,33 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.patchVulnerabilityNotificationRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Restores a custom detection rule to a previously saved historical version.
+   * Only custom rules can be restored. Default and partner rules return 400.
+   * The restore creates a new version entry; it does not overwrite history.
+   * @param param The request object
+   */
+  public restoreSecurityMonitoringRule(
+    param: SecurityMonitoringApiRestoreSecurityMonitoringRuleRequest,
+    options?: Configuration
+  ): Promise<SecurityMonitoringRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.restoreSecurityMonitoringRule(
+        param.ruleId,
+        param.version,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.restoreSecurityMonitoringRule(
             responseContext
           );
         });
