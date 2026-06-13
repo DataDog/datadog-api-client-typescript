@@ -2928,6 +2928,88 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsSpansResponse",
   },
+  "LLMObservabilityApi.V2.ListLLMObsPatternsClusteredPoints": {
+    topicId: {
+      type: "string",
+      format: "",
+    },
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageToken: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "LLMObsPatternsClusteredPointsResponse",
+  },
+  "LLMObservabilityApi.V2.ListLLMObsPatternsConfigs": {
+    operationResponseType: "LLMObsPatternsConfigsResponse",
+  },
+  "LLMObservabilityApi.V2.UpsertLLMObsPatternsConfig": {
+    body: {
+      type: "LLMObsPatternsConfigUpsertRequest",
+      format: "",
+    },
+    operationResponseType: "LLMObsPatternsConfigResponse",
+  },
+  "LLMObservabilityApi.V2.GetLLMObsPatternsConfig": {
+    operationResponseType: "LLMObsPatternsConfigResponse",
+  },
+  "LLMObservabilityApi.V2.DeleteLLMObsPatternsConfig": {
+    configId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "LLMObservabilityApi.V2.ListLLMObsPatternsRuns": {
+    configId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "LLMObsPatternsRunsResponse",
+  },
+  "LLMObservabilityApi.V2.TriggerLLMObsPatterns": {
+    body: {
+      type: "LLMObsPatternsTriggerRequest",
+      format: "",
+    },
+    operationResponseType: "LLMObsPatternsTriggerResponse",
+  },
+  "LLMObservabilityApi.V2.GetLLMObsPatternsRunStatus": {
+    configId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "LLMObsPatternsRunStatusResponse",
+  },
+  "LLMObservabilityApi.V2.ListLLMObsPatternsTopics": {
+    configId: {
+      type: "string",
+      format: "",
+    },
+    runId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "LLMObsPatternsTopicsResponse",
+  },
+  "LLMObservabilityApi.V2.ListLLMObsPatternsTopicsWithClusteredPoints": {
+    configId: {
+      type: "string",
+      format: "",
+    },
+    runId: {
+      type: "string",
+      format: "",
+    },
+    includeMetrics: {
+      type: "boolean",
+      format: "",
+    },
+    operationResponseType: "LLMObsPatternsTopicsWithClusteredPointsResponse",
+  },
   "LLMObservabilityApi.V2.ListLLMObsDatasets": {
     projectId: {
       type: "string",
