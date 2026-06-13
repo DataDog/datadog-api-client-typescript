@@ -758,6 +758,7 @@ export {
   LLMObservabilityApiDeleteLLMObsDatasetRecordsRequest,
   LLMObservabilityApiDeleteLLMObsDatasetsRequest,
   LLMObservabilityApiDeleteLLMObsExperimentsRequest,
+  LLMObservabilityApiDeleteLLMObsPatternsConfigRequest,
   LLMObservabilityApiDeleteLLMObsProjectsRequest,
   LLMObservabilityApiExportLLMObsDatasetRequest,
   LLMObservabilityApiGetLLMObsAnnotatedInteractionsRequest,
@@ -765,6 +766,7 @@ export {
   LLMObservabilityApiGetLLMObsAnnotationQueueLabelSchemaRequest,
   LLMObservabilityApiGetLLMObsCustomEvalConfigRequest,
   LLMObservabilityApiGetLLMObsDatasetDraftStateRequest,
+  LLMObservabilityApiGetLLMObsPatternsRunStatusRequest,
   LLMObservabilityApiListLLMObsAnnotationQueuesRequest,
   LLMObservabilityApiListLLMObsDatasetRecordsRequest,
   LLMObservabilityApiListLLMObsDatasetVersionsRequest,
@@ -775,6 +777,10 @@ export {
   LLMObservabilityApiListLLMObsExperimentsRequest,
   LLMObservabilityApiListLLMObsIntegrationAccountsRequest,
   LLMObservabilityApiListLLMObsIntegrationModelsRequest,
+  LLMObservabilityApiListLLMObsPatternsClusteredPointsRequest,
+  LLMObservabilityApiListLLMObsPatternsRunsRequest,
+  LLMObservabilityApiListLLMObsPatternsTopicsRequest,
+  LLMObservabilityApiListLLMObsPatternsTopicsWithClusteredPointsRequest,
   LLMObservabilityApiListLLMObsProjectsRequest,
   LLMObservabilityApiListLLMObsSpansRequest,
   LLMObservabilityApiLockLLMObsDatasetDraftStateRequest,
@@ -782,6 +788,7 @@ export {
   LLMObservabilityApiSearchLLMObsExperimentationRequest,
   LLMObservabilityApiSearchLLMObsSpansRequest,
   LLMObservabilityApiSimpleSearchLLMObsExperimentationRequest,
+  LLMObservabilityApiTriggerLLMObsPatternsRequest,
   LLMObservabilityApiUnlockLLMObsDatasetDraftStateRequest,
   LLMObservabilityApiUpdateLLMObsAnnotationQueueRequest,
   LLMObservabilityApiUpdateLLMObsAnnotationQueueLabelSchemaRequest,
@@ -792,6 +799,7 @@ export {
   LLMObservabilityApiUpdateLLMObsProjectRequest,
   LLMObservabilityApiUploadLLMObsDatasetRecordsFileRequest,
   LLMObservabilityApiUpsertLLMObsAnnotationsRequest,
+  LLMObservabilityApiUpsertLLMObsPatternsConfigRequest,
   LLMObservabilityApi,
 } from "./apis/LLMObservabilityApi";
 
@@ -4851,6 +4859,53 @@ export { LLMObsMetricScoreType } from "./models/LLMObsMetricScoreType";
 export { LLMObsOpenAIMetadata } from "./models/LLMObsOpenAIMetadata";
 export { LLMObsOpenAIReasoningEffort } from "./models/LLMObsOpenAIReasoningEffort";
 export { LLMObsOpenAIReasoningSummary } from "./models/LLMObsOpenAIReasoningSummary";
+export { LLMObsPatternsActivityProgress } from "./models/LLMObsPatternsActivityProgress";
+export { LLMObsPatternsClusteredPoint } from "./models/LLMObsPatternsClusteredPoint";
+export { LLMObsPatternsClusteredPointRef } from "./models/LLMObsPatternsClusteredPointRef";
+export { LLMObsPatternsClusteredPointsResponse } from "./models/LLMObsPatternsClusteredPointsResponse";
+export { LLMObsPatternsClusteredPointsResponseAttributes } from "./models/LLMObsPatternsClusteredPointsResponseAttributes";
+export { LLMObsPatternsClusteredPointsResponseData } from "./models/LLMObsPatternsClusteredPointsResponseData";
+export { LLMObsPatternsClusteredPointsType } from "./models/LLMObsPatternsClusteredPointsType";
+export { LLMObsPatternsConfigAttributes } from "./models/LLMObsPatternsConfigAttributes";
+export { LLMObsPatternsConfigItem } from "./models/LLMObsPatternsConfigItem";
+export { LLMObsPatternsConfigResponse } from "./models/LLMObsPatternsConfigResponse";
+export { LLMObsPatternsConfigResponseData } from "./models/LLMObsPatternsConfigResponseData";
+export { LLMObsPatternsConfigsListType } from "./models/LLMObsPatternsConfigsListType";
+export { LLMObsPatternsConfigSnapshot } from "./models/LLMObsPatternsConfigSnapshot";
+export { LLMObsPatternsConfigsResponse } from "./models/LLMObsPatternsConfigsResponse";
+export { LLMObsPatternsConfigsResponseAttributes } from "./models/LLMObsPatternsConfigsResponseAttributes";
+export { LLMObsPatternsConfigsResponseData } from "./models/LLMObsPatternsConfigsResponseData";
+export { LLMObsPatternsConfigType } from "./models/LLMObsPatternsConfigType";
+export { LLMObsPatternsConfigUpsertRequest } from "./models/LLMObsPatternsConfigUpsertRequest";
+export { LLMObsPatternsConfigUpsertRequestAttributes } from "./models/LLMObsPatternsConfigUpsertRequestAttributes";
+export { LLMObsPatternsConfigUpsertRequestData } from "./models/LLMObsPatternsConfigUpsertRequestData";
+export { LLMObsPatternsRequestType } from "./models/LLMObsPatternsRequestType";
+export { LLMObsPatternsRunsListType } from "./models/LLMObsPatternsRunsListType";
+export { LLMObsPatternsRunsResponse } from "./models/LLMObsPatternsRunsResponse";
+export { LLMObsPatternsRunsResponseAttributes } from "./models/LLMObsPatternsRunsResponseAttributes";
+export { LLMObsPatternsRunsResponseData } from "./models/LLMObsPatternsRunsResponseData";
+export { LLMObsPatternsRunStatusResponse } from "./models/LLMObsPatternsRunStatusResponse";
+export { LLMObsPatternsRunStatusResponseAttributes } from "./models/LLMObsPatternsRunStatusResponseAttributes";
+export { LLMObsPatternsRunStatusResponseData } from "./models/LLMObsPatternsRunStatusResponseData";
+export { LLMObsPatternsRunStatusType } from "./models/LLMObsPatternsRunStatusType";
+export { LLMObsPatternsRunSummary } from "./models/LLMObsPatternsRunSummary";
+export { LLMObsPatternsTopic } from "./models/LLMObsPatternsTopic";
+export { LLMObsPatternsTopicsResponse } from "./models/LLMObsPatternsTopicsResponse";
+export { LLMObsPatternsTopicsResponseAttributes } from "./models/LLMObsPatternsTopicsResponseAttributes";
+export { LLMObsPatternsTopicsResponseData } from "./models/LLMObsPatternsTopicsResponseData";
+export { LLMObsPatternsTopicsType } from "./models/LLMObsPatternsTopicsType";
+export { LLMObsPatternsTopicsWithClusteredPointsResponse } from "./models/LLMObsPatternsTopicsWithClusteredPointsResponse";
+export { LLMObsPatternsTopicsWithClusteredPointsResponseAttributes } from "./models/LLMObsPatternsTopicsWithClusteredPointsResponseAttributes";
+export { LLMObsPatternsTopicsWithClusteredPointsResponseData } from "./models/LLMObsPatternsTopicsWithClusteredPointsResponseData";
+export { LLMObsPatternsTopicsWithClusteredPointsType } from "./models/LLMObsPatternsTopicsWithClusteredPointsType";
+export { LLMObsPatternsTopicWithClusteredPoints } from "./models/LLMObsPatternsTopicWithClusteredPoints";
+export { LLMObsPatternsTriggerRequest } from "./models/LLMObsPatternsTriggerRequest";
+export { LLMObsPatternsTriggerRequestAttributes } from "./models/LLMObsPatternsTriggerRequestAttributes";
+export { LLMObsPatternsTriggerRequestData } from "./models/LLMObsPatternsTriggerRequestData";
+export { LLMObsPatternsTriggerResponse } from "./models/LLMObsPatternsTriggerResponse";
+export { LLMObsPatternsTriggerResponseAttributes } from "./models/LLMObsPatternsTriggerResponseAttributes";
+export { LLMObsPatternsTriggerResponseData } from "./models/LLMObsPatternsTriggerResponseData";
+export { LLMObsPatternsTriggerResponseType } from "./models/LLMObsPatternsTriggerResponseType";
 export { LLMObsProjectDataAttributesRequest } from "./models/LLMObsProjectDataAttributesRequest";
 export { LLMObsProjectDataAttributesResponse } from "./models/LLMObsProjectDataAttributesResponse";
 export { LLMObsProjectDataRequest } from "./models/LLMObsProjectDataRequest";
