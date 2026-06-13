@@ -7819,6 +7819,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "filterMetric": {
+            "type": "string",
+            "format": "",
+            },
         "operationResponseType": "CostTagKeySourcesResponse",
     },
     "v2.ListCostTags": {
