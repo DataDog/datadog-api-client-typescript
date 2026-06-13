@@ -3,13 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { DeploymentGatesEvaluationConfiguration } from "./DeploymentGatesEvaluationConfiguration";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes for a deployment gate evaluation request.
+ * When `configuration` is provided, rules are evaluated inline from that configuration.
+ * When omitted, rules are resolved from the preconfigured gate for the given service and environment.
  */
 export class DeploymentGatesEvaluationRequestAttributes {
+  /**
+   * Inline rule definitions for a deployment gate evaluation. When provided, rules are evaluated
+   * directly from this configuration instead of using the preconfigured gate rules.
+   * At least one rule is required.
+   */
+  "configuration"?: DeploymentGatesEvaluationConfiguration;
   /**
    * The environment of the deployment.
    */
@@ -47,6 +56,10 @@ export class DeploymentGatesEvaluationRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    configuration: {
+      baseName: "configuration",
+      type: "DeploymentGatesEvaluationConfiguration",
+    },
     env: {
       baseName: "env",
       type: "string",
