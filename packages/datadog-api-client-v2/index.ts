@@ -475,6 +475,12 @@ export {
 } from "./apis/DataDeletionApi";
 
 export {
+  DataObservabilityApiGetDataObservabilityMonitorRunStatusRequest,
+  DataObservabilityApiRunDataObservabilityMonitorRequest,
+  DataObservabilityApi,
+} from "./apis/DataObservabilityApi";
+
+export {
   DatasetsApiCreateDatasetRequest,
   DatasetsApiDeleteDatasetRequest,
   DatasetsApiGetDatasetRequest,
@@ -1112,13 +1118,6 @@ export {
   RUMInsightsApiQueryAggregatedWaterfallRequest,
   RUMInsightsApi,
 } from "./apis/RUMInsightsApi";
-
-export {
-  RUMRetentionFiltersHardcodedApiGetHardcodedRetentionFilterRequest,
-  RUMRetentionFiltersHardcodedApiListHardcodedRetentionFiltersRequest,
-  RUMRetentionFiltersHardcodedApiUpdateHardcodedRetentionFilterRequest,
-  RUMRetentionFiltersHardcodedApi,
-} from "./apis/RUMRetentionFiltersHardcodedApi";
 
 export {
   ReferenceTablesApiBatchRowsQueryRequest,
@@ -3291,6 +3290,8 @@ export { DatadogIntegration } from "./models/DatadogIntegration";
 export { DatadogIntegrationType } from "./models/DatadogIntegrationType";
 export { DatadogIntegrationUpdate } from "./models/DatadogIntegrationUpdate";
 export { DataExportConfig } from "./models/DataExportConfig";
+export { DataObservabilityMonitorRunStatus } from "./models/DataObservabilityMonitorRunStatus";
+export { DataObservabilityMonitorRunType } from "./models/DataObservabilityMonitorRunType";
 export { DataRelationshipsTeams } from "./models/DataRelationshipsTeams";
 export { DataRelationshipsTeamsDataItems } from "./models/DataRelationshipsTeamsDataItems";
 export { DataRelationshipsTeamsDataItemsType } from "./models/DataRelationshipsTeamsDataItemsType";
@@ -3966,6 +3967,9 @@ export { GetBlueprintResponse } from "./models/GetBlueprintResponse";
 export { GetBlueprintsResponse } from "./models/GetBlueprintsResponse";
 export { GetCustomFrameworkResponse } from "./models/GetCustomFrameworkResponse";
 export { GetDataDeletionsResponseBody } from "./models/GetDataDeletionsResponseBody";
+export { GetDataObservabilityMonitorRunStatusResponse } from "./models/GetDataObservabilityMonitorRunStatusResponse";
+export { GetDataObservabilityMonitorRunStatusResponseAttributes } from "./models/GetDataObservabilityMonitorRunStatusResponseAttributes";
+export { GetDataObservabilityMonitorRunStatusResponseData } from "./models/GetDataObservabilityMonitorRunStatusResponseData";
 export { GetDeviceAttributes } from "./models/GetDeviceAttributes";
 export { GetDeviceData } from "./models/GetDeviceData";
 export { GetDeviceResponse } from "./models/GetDeviceResponse";
@@ -6397,20 +6401,6 @@ export { RUMGroupBy } from "./models/RUMGroupBy";
 export { RUMGroupByHistogram } from "./models/RUMGroupByHistogram";
 export { RUMGroupByMissing } from "./models/RUMGroupByMissing";
 export { RUMGroupByTotal } from "./models/RUMGroupByTotal";
-export { RumHardcodedCrossProductSampling } from "./models/RumHardcodedCrossProductSampling";
-export { RumHardcodedCrossProductSamplingEditability } from "./models/RumHardcodedCrossProductSamplingEditability";
-export { RumHardcodedCrossProductSamplingUpdate } from "./models/RumHardcodedCrossProductSamplingUpdate";
-export { RumHardcodedRetentionFilterAttributes } from "./models/RumHardcodedRetentionFilterAttributes";
-export { RumHardcodedRetentionFilterData } from "./models/RumHardcodedRetentionFilterData";
-export { RumHardcodedRetentionFilterEventType } from "./models/RumHardcodedRetentionFilterEventType";
-export { RumHardcodedRetentionFilterMeta } from "./models/RumHardcodedRetentionFilterMeta";
-export { RumHardcodedRetentionFilterMetaSource } from "./models/RumHardcodedRetentionFilterMetaSource";
-export { RumHardcodedRetentionFilterResponse } from "./models/RumHardcodedRetentionFilterResponse";
-export { RumHardcodedRetentionFiltersResponse } from "./models/RumHardcodedRetentionFiltersResponse";
-export { RumHardcodedRetentionFilterType } from "./models/RumHardcodedRetentionFilterType";
-export { RumHardcodedRetentionFilterUpdateAttributes } from "./models/RumHardcodedRetentionFilterUpdateAttributes";
-export { RumHardcodedRetentionFilterUpdateData } from "./models/RumHardcodedRetentionFilterUpdateData";
-export { RumHardcodedRetentionFilterUpdateRequest } from "./models/RumHardcodedRetentionFilterUpdateRequest";
 export { RumMetricCompute } from "./models/RumMetricCompute";
 export { RumMetricComputeAggregationType } from "./models/RumMetricComputeAggregationType";
 export { RumMetricCreateAttributes } from "./models/RumMetricCreateAttributes";
@@ -6486,6 +6476,8 @@ export { RUMSearchEventsRequest } from "./models/RUMSearchEventsRequest";
 export { RUMSort } from "./models/RUMSort";
 export { RUMSortOrder } from "./models/RUMSortOrder";
 export { RUMWarning } from "./models/RUMWarning";
+export { RunDataObservabilityMonitorResponse } from "./models/RunDataObservabilityMonitorResponse";
+export { RunDataObservabilityMonitorResponseData } from "./models/RunDataObservabilityMonitorResponseData";
 export { RunHistoricalJobRequest } from "./models/RunHistoricalJobRequest";
 export { RunHistoricalJobRequestAttributes } from "./models/RunHistoricalJobRequestAttributes";
 export { RunHistoricalJobRequestData } from "./models/RunHistoricalJobRequestData";
