@@ -479,6 +479,7 @@ apiInstance
 | Stegadography | @datadog/datadog-api-client-stegadography | [README.md](../../services/stegadography/README.md) |
 | Storage Management | @datadog/datadog-api-client-storage-management | [README.md](../../services/storage-management/README.md) |
 | Synthetics | @datadog/datadog-api-client-synthetics | [README.md](../../services/synthetics/README.md) |
+| Tag Policies | @datadog/datadog-api-client-tag-policies | [README.md](../../services/tag-policies/README.md) |
 | Tags | @datadog/datadog-api-client-tags | [README.md](../../services/tags/README.md) |
 | Teams | @datadog/datadog-api-client-teams | [README.md](../../services/teams/README.md) |
 | Test Optimization | @datadog/datadog-api-client-test-optimization | [README.md](../../services/test-optimization/README.md) |
