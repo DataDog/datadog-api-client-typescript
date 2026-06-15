@@ -16035,6 +16035,96 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "GlobalVariableResponse",
   },
+  "TagPoliciesApi.V2.ListTagPolicies": {
+    includeDisabled: {
+      type: "boolean",
+      format: "",
+    },
+    includeDeleted: {
+      type: "boolean",
+      format: "",
+    },
+    include: {
+      type: "TagPolicyInclude",
+      format: "",
+    },
+    filterSource: {
+      type: "TagPolicySource",
+      format: "",
+    },
+    tsStart: {
+      type: "number",
+      format: "int64",
+    },
+    tsEnd: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "TagPoliciesListResponse",
+  },
+  "TagPoliciesApi.V2.CreateTagPolicy": {
+    body: {
+      type: "TagPolicyCreateRequest",
+      format: "",
+    },
+    operationResponseType: "TagPolicyResponse",
+  },
+  "TagPoliciesApi.V2.GetTagPolicy": {
+    policyId: {
+      type: "string",
+      format: "",
+    },
+    include: {
+      type: "TagPolicyInclude",
+      format: "",
+    },
+    tsStart: {
+      type: "number",
+      format: "int64",
+    },
+    tsEnd: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "TagPolicyResponse",
+  },
+  "TagPoliciesApi.V2.DeleteTagPolicy": {
+    policyId: {
+      type: "string",
+      format: "",
+    },
+    hardDelete: {
+      type: "boolean",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "TagPoliciesApi.V2.UpdateTagPolicy": {
+    policyId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "TagPolicyUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "TagPolicyResponse",
+  },
+  "TagPoliciesApi.V2.GetTagPolicyScore": {
+    policyId: {
+      type: "string",
+      format: "",
+    },
+    tsStart: {
+      type: "number",
+      format: "int64",
+    },
+    tsEnd: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "TagPolicyScoreResponse",
+  },
   "TeamsApi.V2.ListTeams": {
     pageNumber: {
       type: "number",
