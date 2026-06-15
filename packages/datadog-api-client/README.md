@@ -389,6 +389,7 @@ apiInstance
 | Dashboard Sharing | @datadog/datadog-api-client-dashboard-sharing | [README.md](../../services/dashboard-sharing/README.md) |
 | Dashboards | @datadog/datadog-api-client-dashboards | [README.md](../../services/dashboards/README.md) |
 | Data Deletion | @datadog/datadog-api-client-data-deletion | [README.md](../../services/data-deletion/README.md) |
+| Data Observability | @datadog/datadog-api-client-data-observability | [README.md](../../services/data-observability/README.md) |
 | Datasets | @datadog/datadog-api-client-datasets | [README.md](../../services/datasets/README.md) |
 | Deployment Gates | @datadog/datadog-api-client-deployment-gates | [README.md](../../services/deployment-gates/README.md) |
 | Domain Allowlist | @datadog/datadog-api-client-domain-allowlist | [README.md](../../services/domain-allowlist/README.md) |
