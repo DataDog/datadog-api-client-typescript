@@ -1744,6 +1744,9 @@ import { GetBlueprintResponse } from "./GetBlueprintResponse";
 import { GetBlueprintsResponse } from "./GetBlueprintsResponse";
 import { GetCustomFrameworkResponse } from "./GetCustomFrameworkResponse";
 import { GetDataDeletionsResponseBody } from "./GetDataDeletionsResponseBody";
+import { GetDataObservabilityMonitorRunStatusResponse } from "./GetDataObservabilityMonitorRunStatusResponse";
+import { GetDataObservabilityMonitorRunStatusResponseAttributes } from "./GetDataObservabilityMonitorRunStatusResponseAttributes";
+import { GetDataObservabilityMonitorRunStatusResponseData } from "./GetDataObservabilityMonitorRunStatusResponseData";
 import { GetDeviceAttributes } from "./GetDeviceAttributes";
 import { GetDeviceData } from "./GetDeviceData";
 import { GetDeviceResponse } from "./GetDeviceResponse";
@@ -3606,17 +3609,6 @@ import { RulesetStatusRespDataAttributes } from "./RulesetStatusRespDataAttribut
 import { RumCrossProductSampling } from "./RumCrossProductSampling";
 import { RumCrossProductSamplingCreate } from "./RumCrossProductSamplingCreate";
 import { RumCrossProductSamplingUpdate } from "./RumCrossProductSamplingUpdate";
-import { RumHardcodedCrossProductSampling } from "./RumHardcodedCrossProductSampling";
-import { RumHardcodedCrossProductSamplingEditability } from "./RumHardcodedCrossProductSamplingEditability";
-import { RumHardcodedCrossProductSamplingUpdate } from "./RumHardcodedCrossProductSamplingUpdate";
-import { RumHardcodedRetentionFilterAttributes } from "./RumHardcodedRetentionFilterAttributes";
-import { RumHardcodedRetentionFilterData } from "./RumHardcodedRetentionFilterData";
-import { RumHardcodedRetentionFilterMeta } from "./RumHardcodedRetentionFilterMeta";
-import { RumHardcodedRetentionFilterResponse } from "./RumHardcodedRetentionFilterResponse";
-import { RumHardcodedRetentionFilterUpdateAttributes } from "./RumHardcodedRetentionFilterUpdateAttributes";
-import { RumHardcodedRetentionFilterUpdateData } from "./RumHardcodedRetentionFilterUpdateData";
-import { RumHardcodedRetentionFilterUpdateRequest } from "./RumHardcodedRetentionFilterUpdateRequest";
-import { RumHardcodedRetentionFiltersResponse } from "./RumHardcodedRetentionFiltersResponse";
 import { RumMetricCompute } from "./RumMetricCompute";
 import { RumMetricCreateAttributes } from "./RumMetricCreateAttributes";
 import { RumMetricCreateData } from "./RumMetricCreateData";
@@ -3665,6 +3657,8 @@ import { RumRetentionFiltersOrderData } from "./RumRetentionFiltersOrderData";
 import { RumRetentionFiltersOrderRequest } from "./RumRetentionFiltersOrderRequest";
 import { RumRetentionFiltersOrderResponse } from "./RumRetentionFiltersOrderResponse";
 import { RumRetentionFiltersResponse } from "./RumRetentionFiltersResponse";
+import { RunDataObservabilityMonitorResponse } from "./RunDataObservabilityMonitorResponse";
+import { RunDataObservabilityMonitorResponseData } from "./RunDataObservabilityMonitorResponseData";
 import { RunHistoricalJobRequest } from "./RunHistoricalJobRequest";
 import { RunHistoricalJobRequestAttributes } from "./RunHistoricalJobRequestAttributes";
 import { RunHistoricalJobRequestData } from "./RunHistoricalJobRequestData";
@@ -5653,6 +5647,14 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   DashboardUsageType: ["dashboards-usages"],
   DataAttributesRulesItemsIfTagExists: ["append", "do_not_apply", "replace"],
+  DataObservabilityMonitorRunStatus: [
+    "pending",
+    "ok",
+    "warn",
+    "alert",
+    "error",
+  ],
+  DataObservabilityMonitorRunType: ["monitor_run"],
   DataRelationshipsTeamsDataItemsType: ["teams"],
   DataTransformType: ["dataTransform"],
   DatadogAPIKeyType: ["DatadogAPIKey"],
@@ -6900,17 +6902,6 @@ const enumsMap: { [key: string]: any[] } = {
   RulesValidateQueryResponseDataType: ["validate_response"],
   RulesetRespDataType: ["ruleset"],
   RulesetStatusRespDataType: ["ruleset_status"],
-  RumHardcodedRetentionFilterEventType: [
-    "session",
-    "view",
-    "action",
-    "error",
-    "resource",
-    "long_task",
-    "vital",
-  ],
-  RumHardcodedRetentionFilterMetaSource: ["default", "ui", "terraform"],
-  RumHardcodedRetentionFilterType: ["hardcoded_retention_filters"],
   RumMetricComputeAggregationType: ["count", "distribution"],
   RumMetricEventType: [
     "session",
@@ -9815,6 +9806,12 @@ const typeMap: { [index: string]: any } = {
   GetBlueprintsResponse: GetBlueprintsResponse,
   GetCustomFrameworkResponse: GetCustomFrameworkResponse,
   GetDataDeletionsResponseBody: GetDataDeletionsResponseBody,
+  GetDataObservabilityMonitorRunStatusResponse:
+    GetDataObservabilityMonitorRunStatusResponse,
+  GetDataObservabilityMonitorRunStatusResponseAttributes:
+    GetDataObservabilityMonitorRunStatusResponseAttributes,
+  GetDataObservabilityMonitorRunStatusResponseData:
+    GetDataObservabilityMonitorRunStatusResponseData,
   GetDeviceAttributes: GetDeviceAttributes,
   GetDeviceData: GetDeviceData,
   GetDeviceResponse: GetDeviceResponse,
@@ -12050,21 +12047,6 @@ const typeMap: { [index: string]: any } = {
   RumCrossProductSampling: RumCrossProductSampling,
   RumCrossProductSamplingCreate: RumCrossProductSamplingCreate,
   RumCrossProductSamplingUpdate: RumCrossProductSamplingUpdate,
-  RumHardcodedCrossProductSampling: RumHardcodedCrossProductSampling,
-  RumHardcodedCrossProductSamplingEditability:
-    RumHardcodedCrossProductSamplingEditability,
-  RumHardcodedCrossProductSamplingUpdate:
-    RumHardcodedCrossProductSamplingUpdate,
-  RumHardcodedRetentionFilterAttributes: RumHardcodedRetentionFilterAttributes,
-  RumHardcodedRetentionFilterData: RumHardcodedRetentionFilterData,
-  RumHardcodedRetentionFilterMeta: RumHardcodedRetentionFilterMeta,
-  RumHardcodedRetentionFilterResponse: RumHardcodedRetentionFilterResponse,
-  RumHardcodedRetentionFilterUpdateAttributes:
-    RumHardcodedRetentionFilterUpdateAttributes,
-  RumHardcodedRetentionFilterUpdateData: RumHardcodedRetentionFilterUpdateData,
-  RumHardcodedRetentionFilterUpdateRequest:
-    RumHardcodedRetentionFilterUpdateRequest,
-  RumHardcodedRetentionFiltersResponse: RumHardcodedRetentionFiltersResponse,
   RumMetricCompute: RumMetricCompute,
   RumMetricCreateAttributes: RumMetricCreateAttributes,
   RumMetricCreateData: RumMetricCreateData,
@@ -12116,6 +12098,9 @@ const typeMap: { [index: string]: any } = {
   RumRetentionFiltersOrderRequest: RumRetentionFiltersOrderRequest,
   RumRetentionFiltersOrderResponse: RumRetentionFiltersOrderResponse,
   RumRetentionFiltersResponse: RumRetentionFiltersResponse,
+  RunDataObservabilityMonitorResponse: RunDataObservabilityMonitorResponse,
+  RunDataObservabilityMonitorResponseData:
+    RunDataObservabilityMonitorResponseData,
   RunHistoricalJobRequest: RunHistoricalJobRequest,
   RunHistoricalJobRequestAttributes: RunHistoricalJobRequestAttributes,
   RunHistoricalJobRequestData: RunHistoricalJobRequestData,
