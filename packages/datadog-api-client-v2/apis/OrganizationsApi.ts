@@ -20,8 +20,11 @@ import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { GlobalOrgData } from "../models/GlobalOrgData";
+import { GlobalOrgsResponse } from "../models/GlobalOrgsResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { ManagedOrgsResponse } from "../models/ManagedOrgsResponse";
+import { MaxSessionDurationUpdateRequest } from "../models/MaxSessionDurationUpdateRequest";
 import { OrgConfigGetResponse } from "../models/OrgConfigGetResponse";
 import { OrgConfigListResponse } from "../models/OrgConfigListResponse";
 import { OrgConfigWriteRequest } from "../models/OrgConfigWriteRequest";
@@ -93,6 +96,62 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listGlobalOrgs(
+    userHandle: string,
+    pageLimit?: number,
+    pageCursor?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'userHandle' is not null or undefined
+    if (userHandle === null || userHandle === undefined) {
+      throw new RequiredError("userHandle", "listGlobalOrgs");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/global_orgs";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OrganizationsApi.listGlobalOrgs")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (userHandle !== undefined) {
+      requestContext.setQueryParam(
+        "user_handle",
+        ObjectSerializer.serialize(userHandle, "string", ""),
+        ""
+      );
+    }
+    if (pageLimit !== undefined) {
+      requestContext.setQueryParam(
+        "page[limit]",
+        ObjectSerializer.serialize(pageLimit, "number", "int32"),
+        ""
+      );
+    }
+    if (pageCursor !== undefined) {
+      requestContext.setQueryParam(
+        "page[cursor]",
+        ObjectSerializer.serialize(pageCursor, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -176,6 +235,51 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateLoginOrgConfigsMaxSessionDuration(
+    body: MaxSessionDurationUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "updateLoginOrgConfigsMaxSessionDuration"
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/login/org_configs/max_session_duration";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OrganizationsApi.updateLoginOrgConfigsMaxSessionDuration")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "MaxSessionDurationUpdateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -495,6 +599,69 @@ export class OrganizationsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listGlobalOrgs
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listGlobalOrgs(
+    response: ResponseContext
+  ): Promise<GlobalOrgsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: GlobalOrgsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GlobalOrgsResponse"
+      ) as GlobalOrgsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: GlobalOrgsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GlobalOrgsResponse",
+        ""
+      ) as GlobalOrgsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listOrgConfigs
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -665,6 +832,60 @@ export class OrganizationsApiResponseProcessor {
         ""
       ) as SAMLConfigurationsResponse;
       return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateLoginOrgConfigsMaxSessionDuration
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateLoginOrgConfigsMaxSessionDuration(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
     }
 
     const body = (await response.body.text()) || "";
@@ -946,12 +1167,38 @@ export interface OrganizationsApiGetSAMLConfigurationRequest {
   samlConfigUuid: string;
 }
 
+export interface OrganizationsApiListGlobalOrgsRequest {
+  /**
+   * The handle of the authenticated user.
+   * @type string
+   */
+  userHandle: string;
+  /**
+   * Maximum number of results returned.
+   * @type number
+   */
+  pageLimit?: number;
+  /**
+   * String to query the next page of results.
+   * This key is provided with each valid response from the API in `meta.page.next_cursor`.
+   * @type string
+   */
+  pageCursor?: string;
+}
+
 export interface OrganizationsApiListOrgsRequest {
   /**
    * Filter managed organizations by name.
    * @type string
    */
   filterName?: string;
+}
+
+export interface OrganizationsApiUpdateLoginOrgConfigsMaxSessionDurationRequest {
+  /**
+   * @type MaxSessionDurationUpdateRequest
+   */
+  body: MaxSessionDurationUpdateRequest;
 }
 
 export interface OrganizationsApiUpdateOrgConfigRequest {
@@ -1053,6 +1300,83 @@ export class OrganizationsApi {
   }
 
   /**
+   * Returns organizations across regions for the authenticated user. The `user_handle` query parameter must match the authenticated user's handle.
+   * @param param The request object
+   */
+  public listGlobalOrgs(
+    param: OrganizationsApiListGlobalOrgsRequest,
+    options?: Configuration
+  ): Promise<GlobalOrgsResponse> {
+    const requestContextPromise = this.requestFactory.listGlobalOrgs(
+      param.userHandle,
+      param.pageLimit,
+      param.pageCursor,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listGlobalOrgs(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Provide a paginated version of listGlobalOrgs returning a generator with all the items.
+   */
+  public async *listGlobalOrgsWithPagination(
+    param: OrganizationsApiListGlobalOrgsRequest,
+    options?: Configuration
+  ): AsyncGenerator<GlobalOrgData> {
+    let pageSize = 100;
+    if (param.pageLimit !== undefined) {
+      pageSize = param.pageLimit;
+    }
+    param.pageLimit = pageSize;
+    while (true) {
+      const requestContext = await this.requestFactory.listGlobalOrgs(
+        param.userHandle,
+        param.pageLimit,
+        param.pageCursor,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listGlobalOrgs(
+        responseContext
+      );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length === 0) {
+        break;
+      }
+      const cursorMeta = response.meta;
+      if (cursorMeta === undefined) {
+        break;
+      }
+      const cursorMetaPage = cursorMeta.page;
+      if (cursorMetaPage === undefined) {
+        break;
+      }
+      const cursorMetaPageNextCursor = cursorMetaPage.nextCursor;
+      if (cursorMetaPageNextCursor === undefined) {
+        break;
+      }
+
+      param.pageCursor = cursorMetaPageNextCursor;
+    }
+  }
+
+  /**
    * Returns all Org Configs (name, description, and value).
    * @param param The request object
    */
@@ -1104,6 +1428,31 @@ export class OrganizationsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listSAMLConfigurations(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update the maximum session duration for the current organization.
+   * The duration is specified in seconds.
+   * @param param The request object
+   */
+  public updateLoginOrgConfigsMaxSessionDuration(
+    param: OrganizationsApiUpdateLoginOrgConfigsMaxSessionDurationRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.updateLoginOrgConfigsMaxSessionDuration(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateLoginOrgConfigsMaxSessionDuration(
+            responseContext
+          );
         });
     });
   }

@@ -1793,7 +1793,15 @@ import { GlobalIncidentSettingsDataRequest } from "./GlobalIncidentSettingsDataR
 import { GlobalIncidentSettingsDataResponse } from "./GlobalIncidentSettingsDataResponse";
 import { GlobalIncidentSettingsRequest } from "./GlobalIncidentSettingsRequest";
 import { GlobalIncidentSettingsResponse } from "./GlobalIncidentSettingsResponse";
+import { GlobalOrg } from "./GlobalOrg";
+import { GlobalOrgAttributes } from "./GlobalOrgAttributes";
+import { GlobalOrgData } from "./GlobalOrgData";
 import { GlobalOrgIdentifier } from "./GlobalOrgIdentifier";
+import { GlobalOrgUser } from "./GlobalOrgUser";
+import { GlobalOrgsLinks } from "./GlobalOrgsLinks";
+import { GlobalOrgsMeta } from "./GlobalOrgsMeta";
+import { GlobalOrgsMetaPage } from "./GlobalOrgsMetaPage";
+import { GlobalOrgsResponse } from "./GlobalOrgsResponse";
 import { GlobalVariableData } from "./GlobalVariableData";
 import { GlobalVariableJsonPatchRequest } from "./GlobalVariableJsonPatchRequest";
 import { GlobalVariableJsonPatchRequestData } from "./GlobalVariableJsonPatchRequestData";
@@ -1977,17 +1985,6 @@ import { IncidentSearchResponseNumericFacetData } from "./IncidentSearchResponse
 import { IncidentSearchResponseNumericFacetDataAggregates } from "./IncidentSearchResponseNumericFacetDataAggregates";
 import { IncidentSearchResponsePropertyFieldFacetData } from "./IncidentSearchResponsePropertyFieldFacetData";
 import { IncidentSearchResponseUserFacetData } from "./IncidentSearchResponseUserFacetData";
-import { IncidentServiceCreateAttributes } from "./IncidentServiceCreateAttributes";
-import { IncidentServiceCreateData } from "./IncidentServiceCreateData";
-import { IncidentServiceCreateRequest } from "./IncidentServiceCreateRequest";
-import { IncidentServiceRelationships } from "./IncidentServiceRelationships";
-import { IncidentServiceResponse } from "./IncidentServiceResponse";
-import { IncidentServiceResponseAttributes } from "./IncidentServiceResponseAttributes";
-import { IncidentServiceResponseData } from "./IncidentServiceResponseData";
-import { IncidentServiceUpdateAttributes } from "./IncidentServiceUpdateAttributes";
-import { IncidentServiceUpdateData } from "./IncidentServiceUpdateData";
-import { IncidentServiceUpdateRequest } from "./IncidentServiceUpdateRequest";
-import { IncidentServicesResponse } from "./IncidentServicesResponse";
 import { IncidentTimelineCellMarkdownCreateAttributes } from "./IncidentTimelineCellMarkdownCreateAttributes";
 import { IncidentTimelineCellMarkdownCreateAttributesContent } from "./IncidentTimelineCellMarkdownCreateAttributesContent";
 import { IncidentTodoAnonymousAssignee } from "./IncidentTodoAnonymousAssignee";
@@ -2590,6 +2587,9 @@ import { ManagedOrgsRelationshipToOrg } from "./ManagedOrgsRelationshipToOrg";
 import { ManagedOrgsRelationshipToOrgs } from "./ManagedOrgsRelationshipToOrgs";
 import { ManagedOrgsRelationships } from "./ManagedOrgsRelationships";
 import { ManagedOrgsResponse } from "./ManagedOrgsResponse";
+import { MaxSessionDurationUpdateAttributes } from "./MaxSessionDurationUpdateAttributes";
+import { MaxSessionDurationUpdateData } from "./MaxSessionDurationUpdateData";
+import { MaxSessionDurationUpdateRequest } from "./MaxSessionDurationUpdateRequest";
 import { McpScanRequest } from "./McpScanRequest";
 import { McpScanRequestData } from "./McpScanRequestData";
 import { McpScanRequestDataAttributes } from "./McpScanRequestDataAttributes";
@@ -2891,6 +2891,7 @@ import { ObservabilityPipelineFluentBitSource } from "./ObservabilityPipelineFlu
 import { ObservabilityPipelineFluentdSource } from "./ObservabilityPipelineFluentdSource";
 import { ObservabilityPipelineGcpAuth } from "./ObservabilityPipelineGcpAuth";
 import { ObservabilityPipelineGenerateMetricsProcessor } from "./ObservabilityPipelineGenerateMetricsProcessor";
+import { ObservabilityPipelineGenerateMetricsV2Processor } from "./ObservabilityPipelineGenerateMetricsV2Processor";
 import { ObservabilityPipelineGeneratedMetric } from "./ObservabilityPipelineGeneratedMetric";
 import { ObservabilityPipelineGeneratedMetricIncrementByField } from "./ObservabilityPipelineGeneratedMetricIncrementByField";
 import { ObservabilityPipelineGeneratedMetricIncrementByOne } from "./ObservabilityPipelineGeneratedMetricIncrementByOne";
@@ -5905,6 +5906,8 @@ const enumsMap: { [key: string]: any[] } = {
   GitlabAPIKeyType: ["GitlabAPIKey"],
   GitlabIntegrationType: ["Gitlab"],
   GlobalIncidentSettingsType: ["incidents_global_settings"],
+  GlobalOrgType: ["global_user_orgs"],
+  GlobalOrgsMetaPageType: ["cursor"],
   GlobalVariableJsonPatchType: ["global_variables_json_patch"],
   GlobalVariableType: ["global_variables"],
   GoogleChatAppNamedSpaceType: ["google-chat-app-named-space"],
@@ -5970,7 +5973,6 @@ const enumsMap: { [key: string]: any[] } = {
   IncidentRespondersType: ["incident_responders"],
   IncidentSearchResultsType: ["incidents_search_results"],
   IncidentSearchSortOrder: ["created", "-created"],
-  IncidentServiceType: ["services"],
   IncidentSeverity: [
     "UNKNOWN",
     "SEV-0",
@@ -6210,6 +6212,7 @@ const enumsMap: { [key: string]: any[] } = {
   MaintenanceDataAttributesStatus: ["scheduled", "in_progress", "completed"],
   MaintenanceWindowResourceType: ["maintenance_window"],
   ManagedOrgsType: ["managed_orgs"],
+  MaxSessionDurationType: ["max_session_duration"],
   McpScanRequestDataType: ["mcpscanrequest"],
   McpScanRequestResponseDataType: ["mcpscanrequestresponse"],
   MemberTeamType: ["member_teams"],
@@ -6424,6 +6427,7 @@ const enumsMap: { [key: string]: any[] } = {
   ObservabilityPipelineGenerateMetricsProcessorType: [
     "generate_datadog_metrics",
   ],
+  ObservabilityPipelineGenerateMetricsV2ProcessorType: ["generate_metrics"],
   ObservabilityPipelineGeneratedMetricIncrementByFieldStrategy: [
     "increment_by_field",
   ],
@@ -9873,7 +9877,15 @@ const typeMap: { [index: string]: any } = {
   GlobalIncidentSettingsDataResponse: GlobalIncidentSettingsDataResponse,
   GlobalIncidentSettingsRequest: GlobalIncidentSettingsRequest,
   GlobalIncidentSettingsResponse: GlobalIncidentSettingsResponse,
+  GlobalOrg: GlobalOrg,
+  GlobalOrgAttributes: GlobalOrgAttributes,
+  GlobalOrgData: GlobalOrgData,
   GlobalOrgIdentifier: GlobalOrgIdentifier,
+  GlobalOrgUser: GlobalOrgUser,
+  GlobalOrgsLinks: GlobalOrgsLinks,
+  GlobalOrgsMeta: GlobalOrgsMeta,
+  GlobalOrgsMetaPage: GlobalOrgsMetaPage,
+  GlobalOrgsResponse: GlobalOrgsResponse,
   GlobalVariableData: GlobalVariableData,
   GlobalVariableJsonPatchRequest: GlobalVariableJsonPatchRequest,
   GlobalVariableJsonPatchRequestData: GlobalVariableJsonPatchRequestData,
@@ -10094,17 +10106,6 @@ const typeMap: { [index: string]: any } = {
   IncidentSearchResponsePropertyFieldFacetData:
     IncidentSearchResponsePropertyFieldFacetData,
   IncidentSearchResponseUserFacetData: IncidentSearchResponseUserFacetData,
-  IncidentServiceCreateAttributes: IncidentServiceCreateAttributes,
-  IncidentServiceCreateData: IncidentServiceCreateData,
-  IncidentServiceCreateRequest: IncidentServiceCreateRequest,
-  IncidentServiceRelationships: IncidentServiceRelationships,
-  IncidentServiceResponse: IncidentServiceResponse,
-  IncidentServiceResponseAttributes: IncidentServiceResponseAttributes,
-  IncidentServiceResponseData: IncidentServiceResponseData,
-  IncidentServiceUpdateAttributes: IncidentServiceUpdateAttributes,
-  IncidentServiceUpdateData: IncidentServiceUpdateData,
-  IncidentServiceUpdateRequest: IncidentServiceUpdateRequest,
-  IncidentServicesResponse: IncidentServicesResponse,
   IncidentTimelineCellMarkdownCreateAttributes:
     IncidentTimelineCellMarkdownCreateAttributes,
   IncidentTimelineCellMarkdownCreateAttributesContent:
@@ -10801,6 +10802,9 @@ const typeMap: { [index: string]: any } = {
   ManagedOrgsRelationshipToOrgs: ManagedOrgsRelationshipToOrgs,
   ManagedOrgsRelationships: ManagedOrgsRelationships,
   ManagedOrgsResponse: ManagedOrgsResponse,
+  MaxSessionDurationUpdateAttributes: MaxSessionDurationUpdateAttributes,
+  MaxSessionDurationUpdateData: MaxSessionDurationUpdateData,
+  MaxSessionDurationUpdateRequest: MaxSessionDurationUpdateRequest,
   McpScanRequest: McpScanRequest,
   McpScanRequestData: McpScanRequestData,
   McpScanRequestDataAttributes: McpScanRequestDataAttributes,
@@ -11192,6 +11196,8 @@ const typeMap: { [index: string]: any } = {
   ObservabilityPipelineGcpAuth: ObservabilityPipelineGcpAuth,
   ObservabilityPipelineGenerateMetricsProcessor:
     ObservabilityPipelineGenerateMetricsProcessor,
+  ObservabilityPipelineGenerateMetricsV2Processor:
+    ObservabilityPipelineGenerateMetricsV2Processor,
   ObservabilityPipelineGeneratedMetric: ObservabilityPipelineGeneratedMetric,
   ObservabilityPipelineGeneratedMetricIncrementByField:
     ObservabilityPipelineGeneratedMetricIncrementByField,
@@ -14055,7 +14061,6 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   IncidentNotificationTemplateIncludedItems: ["User", "IncidentTypeObject"],
   IncidentResponseIncludedItem: ["IncidentUserData", "AttachmentData"],
-  IncidentServiceIncludedItems: ["User"],
   IncidentTimelineCellCreateAttributes: [
     "IncidentTimelineCellMarkdownCreateAttributes",
   ],
@@ -14183,6 +14188,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineDedupeProcessor",
     "ObservabilityPipelineEnrichmentTableProcessor",
     "ObservabilityPipelineGenerateMetricsProcessor",
+    "ObservabilityPipelineGenerateMetricsV2Processor",
     "ObservabilityPipelineOcsfMapperProcessor",
     "ObservabilityPipelineParseGrokProcessor",
     "ObservabilityPipelineParseJSONProcessor",
