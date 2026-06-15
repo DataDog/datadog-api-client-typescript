@@ -8431,6 +8431,20 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "DashboardUsageResponse",
   },
+  "DataObservabilityApi.V2.GetDataObservabilityMonitorRunStatus": {
+    runId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "GetDataObservabilityMonitorRunStatusResponse",
+  },
+  "DataObservabilityApi.V2.RunDataObservabilityMonitor": {
+    monitorId: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "RunDataObservabilityMonitorResponse",
+  },
   "DatasetsApi.V2.GetAllDatasets": {
     operationResponseType: "DatasetResponseMulti",
   },
