@@ -475,6 +475,12 @@ export {
 } from "./apis/DataDeletionApi";
 
 export {
+  DataObservabilityApiGetDataObservabilityMonitorRunStatusRequest,
+  DataObservabilityApiRunDataObservabilityMonitorRequest,
+  DataObservabilityApi,
+} from "./apis/DataObservabilityApi";
+
+export {
   DatasetsApiCreateDatasetRequest,
   DatasetsApiDeleteDatasetRequest,
   DatasetsApiGetDatasetRequest,
@@ -1378,6 +1384,7 @@ export {
   SecurityMonitoringApiMuteSecurityFindingsRequest,
   SecurityMonitoringApiPatchSignalNotificationRuleRequest,
   SecurityMonitoringApiPatchVulnerabilityNotificationRuleRequest,
+  SecurityMonitoringApiRestoreSecurityMonitoringRuleRequest,
   SecurityMonitoringApiRunHistoricalJobRequest,
   SecurityMonitoringApiSearchSecurityFindingsRequest,
   SecurityMonitoringApiSearchSecurityMonitoringHistsignalsRequest,
@@ -3291,6 +3298,8 @@ export { DatadogIntegration } from "./models/DatadogIntegration";
 export { DatadogIntegrationType } from "./models/DatadogIntegrationType";
 export { DatadogIntegrationUpdate } from "./models/DatadogIntegrationUpdate";
 export { DataExportConfig } from "./models/DataExportConfig";
+export { DataObservabilityMonitorRunStatus } from "./models/DataObservabilityMonitorRunStatus";
+export { DataObservabilityMonitorRunType } from "./models/DataObservabilityMonitorRunType";
 export { DataRelationshipsTeams } from "./models/DataRelationshipsTeams";
 export { DataRelationshipsTeamsDataItems } from "./models/DataRelationshipsTeamsDataItems";
 export { DataRelationshipsTeamsDataItemsType } from "./models/DataRelationshipsTeamsDataItemsType";
@@ -3966,6 +3975,9 @@ export { GetBlueprintResponse } from "./models/GetBlueprintResponse";
 export { GetBlueprintsResponse } from "./models/GetBlueprintsResponse";
 export { GetCustomFrameworkResponse } from "./models/GetCustomFrameworkResponse";
 export { GetDataDeletionsResponseBody } from "./models/GetDataDeletionsResponseBody";
+export { GetDataObservabilityMonitorRunStatusResponse } from "./models/GetDataObservabilityMonitorRunStatusResponse";
+export { GetDataObservabilityMonitorRunStatusResponseAttributes } from "./models/GetDataObservabilityMonitorRunStatusResponseAttributes";
+export { GetDataObservabilityMonitorRunStatusResponseData } from "./models/GetDataObservabilityMonitorRunStatusResponseData";
 export { GetDeviceAttributes } from "./models/GetDeviceAttributes";
 export { GetDeviceData } from "./models/GetDeviceData";
 export { GetDeviceResponse } from "./models/GetDeviceResponse";
@@ -6486,6 +6498,8 @@ export { RUMSearchEventsRequest } from "./models/RUMSearchEventsRequest";
 export { RUMSort } from "./models/RUMSort";
 export { RUMSortOrder } from "./models/RUMSortOrder";
 export { RUMWarning } from "./models/RUMWarning";
+export { RunDataObservabilityMonitorResponse } from "./models/RunDataObservabilityMonitorResponse";
+export { RunDataObservabilityMonitorResponseData } from "./models/RunDataObservabilityMonitorResponseData";
 export { RunHistoricalJobRequest } from "./models/RunHistoricalJobRequest";
 export { RunHistoricalJobRequestAttributes } from "./models/RunHistoricalJobRequestAttributes";
 export { RunHistoricalJobRequestData } from "./models/RunHistoricalJobRequestData";

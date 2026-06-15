@@ -1744,6 +1744,9 @@ import { GetBlueprintResponse } from "./GetBlueprintResponse";
 import { GetBlueprintsResponse } from "./GetBlueprintsResponse";
 import { GetCustomFrameworkResponse } from "./GetCustomFrameworkResponse";
 import { GetDataDeletionsResponseBody } from "./GetDataDeletionsResponseBody";
+import { GetDataObservabilityMonitorRunStatusResponse } from "./GetDataObservabilityMonitorRunStatusResponse";
+import { GetDataObservabilityMonitorRunStatusResponseAttributes } from "./GetDataObservabilityMonitorRunStatusResponseAttributes";
+import { GetDataObservabilityMonitorRunStatusResponseData } from "./GetDataObservabilityMonitorRunStatusResponseData";
 import { GetDeviceAttributes } from "./GetDeviceAttributes";
 import { GetDeviceData } from "./GetDeviceData";
 import { GetDeviceResponse } from "./GetDeviceResponse";
@@ -3665,6 +3668,8 @@ import { RumRetentionFiltersOrderData } from "./RumRetentionFiltersOrderData";
 import { RumRetentionFiltersOrderRequest } from "./RumRetentionFiltersOrderRequest";
 import { RumRetentionFiltersOrderResponse } from "./RumRetentionFiltersOrderResponse";
 import { RumRetentionFiltersResponse } from "./RumRetentionFiltersResponse";
+import { RunDataObservabilityMonitorResponse } from "./RunDataObservabilityMonitorResponse";
+import { RunDataObservabilityMonitorResponseData } from "./RunDataObservabilityMonitorResponseData";
 import { RunHistoricalJobRequest } from "./RunHistoricalJobRequest";
 import { RunHistoricalJobRequestAttributes } from "./RunHistoricalJobRequestAttributes";
 import { RunHistoricalJobRequestData } from "./RunHistoricalJobRequestData";
@@ -5653,6 +5658,14 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   DashboardUsageType: ["dashboards-usages"],
   DataAttributesRulesItemsIfTagExists: ["append", "do_not_apply", "replace"],
+  DataObservabilityMonitorRunStatus: [
+    "pending",
+    "ok",
+    "warn",
+    "alert",
+    "error",
+  ],
+  DataObservabilityMonitorRunType: ["monitor_run"],
   DataRelationshipsTeamsDataItemsType: ["teams"],
   DataTransformType: ["dataTransform"],
   DatadogAPIKeyType: ["DatadogAPIKey"],
@@ -9815,6 +9828,12 @@ const typeMap: { [index: string]: any } = {
   GetBlueprintsResponse: GetBlueprintsResponse,
   GetCustomFrameworkResponse: GetCustomFrameworkResponse,
   GetDataDeletionsResponseBody: GetDataDeletionsResponseBody,
+  GetDataObservabilityMonitorRunStatusResponse:
+    GetDataObservabilityMonitorRunStatusResponse,
+  GetDataObservabilityMonitorRunStatusResponseAttributes:
+    GetDataObservabilityMonitorRunStatusResponseAttributes,
+  GetDataObservabilityMonitorRunStatusResponseData:
+    GetDataObservabilityMonitorRunStatusResponseData,
   GetDeviceAttributes: GetDeviceAttributes,
   GetDeviceData: GetDeviceData,
   GetDeviceResponse: GetDeviceResponse,
@@ -12116,6 +12135,9 @@ const typeMap: { [index: string]: any } = {
   RumRetentionFiltersOrderRequest: RumRetentionFiltersOrderRequest,
   RumRetentionFiltersOrderResponse: RumRetentionFiltersOrderResponse,
   RumRetentionFiltersResponse: RumRetentionFiltersResponse,
+  RunDataObservabilityMonitorResponse: RunDataObservabilityMonitorResponse,
+  RunDataObservabilityMonitorResponseData:
+    RunDataObservabilityMonitorResponseData,
   RunHistoricalJobRequest: RunHistoricalJobRequest,
   RunHistoricalJobRequestAttributes: RunHistoricalJobRequestAttributes,
   RunHistoricalJobRequestData: RunHistoricalJobRequestData,
