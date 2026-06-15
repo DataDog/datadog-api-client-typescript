@@ -16023,6 +16023,96 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "GlobalVariableResponse",
     },
+    "v2.ListTagPolicies": {
+        "includeDisabled": {
+            "type": "boolean",
+            "format": "",
+            },
+        "includeDeleted": {
+            "type": "boolean",
+            "format": "",
+            },
+        "include": {
+            "type": "TagPolicyInclude",
+            "format": "",
+            },
+        "filterSource": {
+            "type": "TagPolicySource",
+            "format": "",
+            },
+        "tsStart": {
+            "type": "number",
+            "format": "int64",
+            },
+        "tsEnd": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "TagPoliciesListResponse",
+    },
+    "v2.CreateTagPolicy": {
+        "body": {
+            "type": "TagPolicyCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "TagPolicyResponse",
+    },
+    "v2.GetTagPolicy": {
+        "policyId": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "TagPolicyInclude",
+            "format": "",
+            },
+        "tsStart": {
+            "type": "number",
+            "format": "int64",
+            },
+        "tsEnd": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "TagPolicyResponse",
+    },
+    "v2.DeleteTagPolicy": {
+        "policyId": {
+            "type": "string",
+            "format": "",
+            },
+        "hardDelete": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateTagPolicy": {
+        "policyId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "TagPolicyUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "TagPolicyResponse",
+    },
+    "v2.GetTagPolicyScore": {
+        "policyId": {
+            "type": "string",
+            "format": "",
+            },
+        "tsStart": {
+            "type": "number",
+            "format": "int64",
+            },
+        "tsEnd": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "TagPolicyScoreResponse",
+    },
     "v2.ListTeams": {
         "pageNumber": {
             "type": "number",
