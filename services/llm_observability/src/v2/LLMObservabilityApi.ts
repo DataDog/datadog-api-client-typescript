@@ -82,6 +82,16 @@ import { LLMObsIntegrationInferenceRequest } from "./models/LLMObsIntegrationInf
 import { LLMObsIntegrationInferenceResponse } from "./models/LLMObsIntegrationInferenceResponse";
 import { LLMObsIntegrationModel } from "./models/LLMObsIntegrationModel";
 import { LLMObsIntegrationName } from "./models/LLMObsIntegrationName";
+import { LLMObsPatternsClusteredPointsResponse } from "./models/LLMObsPatternsClusteredPointsResponse";
+import { LLMObsPatternsConfigResponse } from "./models/LLMObsPatternsConfigResponse";
+import { LLMObsPatternsConfigsResponse } from "./models/LLMObsPatternsConfigsResponse";
+import { LLMObsPatternsConfigUpsertRequest } from "./models/LLMObsPatternsConfigUpsertRequest";
+import { LLMObsPatternsRunsResponse } from "./models/LLMObsPatternsRunsResponse";
+import { LLMObsPatternsRunStatusResponse } from "./models/LLMObsPatternsRunStatusResponse";
+import { LLMObsPatternsTopicsResponse } from "./models/LLMObsPatternsTopicsResponse";
+import { LLMObsPatternsTopicsWithClusteredPointsResponse } from "./models/LLMObsPatternsTopicsWithClusteredPointsResponse";
+import { LLMObsPatternsTriggerRequest } from "./models/LLMObsPatternsTriggerRequest";
+import { LLMObsPatternsTriggerResponse } from "./models/LLMObsPatternsTriggerResponse";
 import { LLMObsProjectRequest } from "./models/LLMObsProjectRequest";
 import { LLMObsProjectResponse } from "./models/LLMObsProjectResponse";
 import { LLMObsProjectsResponse } from "./models/LLMObsProjectsResponse";
@@ -1378,6 +1388,61 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deleteLLMObsPatternsConfig(
+    configId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.deleteLLMObsPatternsConfig"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteLLMObsPatternsConfig' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.deleteLLMObsPatternsConfig'] = true`",
+      );
+    }
+
+    // verify required parameter 'configId' is not null or undefined
+    if (configId === null || configId === undefined) {
+      throw new RequiredError("configId", "deleteLLMObsPatternsConfig");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/llm-obs/v1/topic-discovery-configs/{config_id}".replace(
+        "{config_id}",
+        encodeURIComponent(String(configId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.deleteLLMObsPatternsConfig",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteLLMObsProjects(
     body: LLMObsDeleteProjectsRequest,
     _options?: Configuration,
@@ -1805,6 +1870,111 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getLLMObsPatternsConfig(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.getLLMObsPatternsConfig"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getLLMObsPatternsConfig' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.getLLMObsPatternsConfig'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/llm-obs/v1/topic-discovery-configs/latest";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.getLLMObsPatternsConfig",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getLLMObsPatternsRunStatus(
+    configId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.getLLMObsPatternsRunStatus"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getLLMObsPatternsRunStatus' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.getLLMObsPatternsRunStatus'] = true`",
+      );
+    }
+
+    // verify required parameter 'configId' is not null or undefined
+    if (configId === null || configId === undefined) {
+      throw new RequiredError("configId", "getLLMObsPatternsRunStatus");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/llm-obs/v1/topic-discovery-runs/status";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.getLLMObsPatternsRunStatus",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (configId !== undefined) {
+      requestContext.setQueryParam(
+        "config_id",
+        serialize(configId, TypingInfo, "string", ""),
+        "",
+      );
     }
 
     // Apply auth methods
@@ -2552,6 +2722,335 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listLLMObsPatternsClusteredPoints(
+    topicId: string,
+    pageSize?: number,
+    pageToken?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.listLLMObsPatternsClusteredPoints"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listLLMObsPatternsClusteredPoints' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsPatternsClusteredPoints'] = true`",
+      );
+    }
+
+    // verify required parameter 'topicId' is not null or undefined
+    if (topicId === null || topicId === undefined) {
+      throw new RequiredError("topicId", "listLLMObsPatternsClusteredPoints");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/llm-obs/v1/topic-discovery-clustered-points";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.listLLMObsPatternsClusteredPoints",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (topicId !== undefined) {
+      requestContext.setQueryParam(
+        "topic_id",
+        serialize(topicId, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page_size",
+        serialize(pageSize, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageToken !== undefined) {
+      requestContext.setQueryParam(
+        "page_token",
+        serialize(pageToken, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listLLMObsPatternsConfigs(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.listLLMObsPatternsConfigs"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listLLMObsPatternsConfigs' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsPatternsConfigs'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/llm-obs/v1/topic-discovery-configs";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.listLLMObsPatternsConfigs",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listLLMObsPatternsRuns(
+    configId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.listLLMObsPatternsRuns"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listLLMObsPatternsRuns' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsPatternsRuns'] = true`",
+      );
+    }
+
+    // verify required parameter 'configId' is not null or undefined
+    if (configId === null || configId === undefined) {
+      throw new RequiredError("configId", "listLLMObsPatternsRuns");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/llm-obs/v1/topic-discovery-runs";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.listLLMObsPatternsRuns",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (configId !== undefined) {
+      requestContext.setQueryParam(
+        "config_id",
+        serialize(configId, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listLLMObsPatternsTopics(
+    configId: string,
+    runId?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.listLLMObsPatternsTopics"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listLLMObsPatternsTopics' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsPatternsTopics'] = true`",
+      );
+    }
+
+    // verify required parameter 'configId' is not null or undefined
+    if (configId === null || configId === undefined) {
+      throw new RequiredError("configId", "listLLMObsPatternsTopics");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/llm-obs/v1/topic-discovery-topics";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.listLLMObsPatternsTopics",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (configId !== undefined) {
+      requestContext.setQueryParam(
+        "config_id",
+        serialize(configId, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (runId !== undefined) {
+      requestContext.setQueryParam(
+        "run_id",
+        serialize(runId, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listLLMObsPatternsTopicsWithClusteredPoints(
+    configId: string,
+    runId?: string,
+    includeMetrics?: boolean,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.listLLMObsPatternsTopicsWithClusteredPoints"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listLLMObsPatternsTopicsWithClusteredPoints' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsPatternsTopicsWithClusteredPoints'] = true`",
+      );
+    }
+
+    // verify required parameter 'configId' is not null or undefined
+    if (configId === null || configId === undefined) {
+      throw new RequiredError(
+        "configId",
+        "listLLMObsPatternsTopicsWithClusteredPoints",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/llm-obs/v1/topic-discovery-topics/with-cluster-points";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.listLLMObsPatternsTopicsWithClusteredPoints",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (configId !== undefined) {
+      requestContext.setQueryParam(
+        "config_id",
+        serialize(configId, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (runId !== undefined) {
+      requestContext.setQueryParam(
+        "run_id",
+        serialize(runId, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (includeMetrics !== undefined) {
+      requestContext.setQueryParam(
+        "include_metrics",
+        serialize(includeMetrics, TypingInfo, "boolean", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listLLMObsProjects(
     filterId?: string,
     filterName?: string,
@@ -3073,6 +3572,66 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
         "LLMObsExperimentationSimpleSearchRequest",
         "",
       ),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async triggerLLMObsPatterns(
+    body: LLMObsPatternsTriggerRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.triggerLLMObsPatterns"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'triggerLLMObsPatterns' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.triggerLLMObsPatterns'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "triggerLLMObsPatterns");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/llm-obs/v1/topic-discovery-runs";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.triggerLLMObsPatterns",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "LLMObsPatternsTriggerRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -3808,6 +4367,66 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsAnnotationsRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async upsertLLMObsPatternsConfig(
+    body: LLMObsPatternsConfigUpsertRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.upsertLLMObsPatternsConfig"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'upsertLLMObsPatternsConfig' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.upsertLLMObsPatternsConfig'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "upsertLLMObsPatternsConfig");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/llm-obs/v1/topic-discovery-configs";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.upsertLLMObsPatternsConfig",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "LLMObsPatternsConfigUpsertRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -5303,6 +5922,78 @@ export class LLMObservabilityApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deleteLLMObsPatternsConfig
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteLLMObsPatternsConfig(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteLLMObsProjects
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -5849,6 +6540,172 @@ export class LLMObservabilityApiResponseProcessor {
         "LLMObsDatasetDraftStateResponse",
         "",
       ) as LLMObsDatasetDraftStateResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getLLMObsPatternsConfig
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getLLMObsPatternsConfig(
+    response: ResponseContext,
+  ): Promise<LLMObsPatternsConfigResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsPatternsConfigResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPatternsConfigResponse",
+      ) as LLMObsPatternsConfigResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsPatternsConfigResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPatternsConfigResponse",
+        "",
+      ) as LLMObsPatternsConfigResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getLLMObsPatternsRunStatus
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getLLMObsPatternsRunStatus(
+    response: ResponseContext,
+  ): Promise<LLMObsPatternsRunStatusResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsPatternsRunStatusResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPatternsRunStatusResponse",
+      ) as LLMObsPatternsRunStatusResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsPatternsRunStatusResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPatternsRunStatusResponse",
+        "",
+      ) as LLMObsPatternsRunStatusResponse;
       return body;
     }
 
@@ -6683,6 +7540,420 @@ export class LLMObservabilityApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listLLMObsPatternsClusteredPoints
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listLLMObsPatternsClusteredPoints(
+    response: ResponseContext,
+  ): Promise<LLMObsPatternsClusteredPointsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsPatternsClusteredPointsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPatternsClusteredPointsResponse",
+      ) as LLMObsPatternsClusteredPointsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsPatternsClusteredPointsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPatternsClusteredPointsResponse",
+        "",
+      ) as LLMObsPatternsClusteredPointsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listLLMObsPatternsConfigs
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listLLMObsPatternsConfigs(
+    response: ResponseContext,
+  ): Promise<LLMObsPatternsConfigsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsPatternsConfigsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPatternsConfigsResponse",
+      ) as LLMObsPatternsConfigsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsPatternsConfigsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPatternsConfigsResponse",
+        "",
+      ) as LLMObsPatternsConfigsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listLLMObsPatternsRuns
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listLLMObsPatternsRuns(
+    response: ResponseContext,
+  ): Promise<LLMObsPatternsRunsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsPatternsRunsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPatternsRunsResponse",
+      ) as LLMObsPatternsRunsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsPatternsRunsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPatternsRunsResponse",
+        "",
+      ) as LLMObsPatternsRunsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listLLMObsPatternsTopics
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listLLMObsPatternsTopics(
+    response: ResponseContext,
+  ): Promise<LLMObsPatternsTopicsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsPatternsTopicsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPatternsTopicsResponse",
+      ) as LLMObsPatternsTopicsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsPatternsTopicsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPatternsTopicsResponse",
+        "",
+      ) as LLMObsPatternsTopicsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listLLMObsPatternsTopicsWithClusteredPoints
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listLLMObsPatternsTopicsWithClusteredPoints(
+    response: ResponseContext,
+  ): Promise<LLMObsPatternsTopicsWithClusteredPointsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsPatternsTopicsWithClusteredPointsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPatternsTopicsWithClusteredPointsResponse",
+      ) as LLMObsPatternsTopicsWithClusteredPointsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsPatternsTopicsWithClusteredPointsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPatternsTopicsWithClusteredPointsResponse",
+        "",
+      ) as LLMObsPatternsTopicsWithClusteredPointsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listLLMObsProjects
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -7231,6 +8502,89 @@ export class LLMObservabilityApiResponseProcessor {
         "LLMObsExperimentationSimpleSearchResponse",
         "",
       ) as LLMObsExperimentationSimpleSearchResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to triggerLLMObsPatterns
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async triggerLLMObsPatterns(
+    response: ResponseContext,
+  ): Promise<LLMObsPatternsTriggerResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 202) {
+      const body: LLMObsPatternsTriggerResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPatternsTriggerResponse",
+      ) as LLMObsPatternsTriggerResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsPatternsTriggerResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPatternsTriggerResponse",
+        "",
+      ) as LLMObsPatternsTriggerResponse;
       return body;
     }
 
@@ -8031,6 +9385,89 @@ export class LLMObservabilityApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"',
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to upsertLLMObsPatternsConfig
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async upsertLLMObsPatternsConfig(
+    response: ResponseContext,
+  ): Promise<LLMObsPatternsConfigResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsPatternsConfigResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPatternsConfigResponse",
+      ) as LLMObsPatternsConfigResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsPatternsConfigResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPatternsConfigResponse",
+        "",
+      ) as LLMObsPatternsConfigResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
 }
 
 export interface LLMObservabilityApiAggregateLLMObsExperimentationRequest {
@@ -8265,6 +9702,14 @@ export interface LLMObservabilityApiDeleteLLMObsExperimentsRequest {
   body: LLMObsDeleteExperimentsRequest;
 }
 
+export interface LLMObservabilityApiDeleteLLMObsPatternsConfigRequest {
+  /**
+   * The ID of the patterns configuration.
+   * @type string
+   */
+  configId: string;
+}
+
 export interface LLMObservabilityApiDeleteLLMObsProjectsRequest {
   /**
    * Delete projects payload.
@@ -8349,6 +9794,14 @@ export interface LLMObservabilityApiGetLLMObsDatasetDraftStateRequest {
    * @type string
    */
   datasetId: string;
+}
+
+export interface LLMObservabilityApiGetLLMObsPatternsRunStatusRequest {
+  /**
+   * The ID of the patterns configuration.
+   * @type string
+   */
+  configId: string;
 }
 
 export interface LLMObservabilityApiListLLMObsAnnotationQueuesRequest {
@@ -8554,6 +10007,64 @@ export interface LLMObservabilityApiListLLMObsIntegrationModelsRequest {
   accountId: string;
 }
 
+export interface LLMObservabilityApiListLLMObsPatternsClusteredPointsRequest {
+  /**
+   * The ID of the topic to retrieve clustered points for.
+   * @type string
+   */
+  topicId: string;
+  /**
+   * Maximum number of clustered points to return per page.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Pagination token to retrieve the next page of clustered points.
+   * @type string
+   */
+  pageToken?: string;
+}
+
+export interface LLMObservabilityApiListLLMObsPatternsRunsRequest {
+  /**
+   * The ID of the patterns configuration.
+   * @type string
+   */
+  configId: string;
+}
+
+export interface LLMObservabilityApiListLLMObsPatternsTopicsRequest {
+  /**
+   * The ID of the patterns configuration.
+   * @type string
+   */
+  configId: string;
+  /**
+   * The ID of a specific patterns run. Defaults to the most recent completed run.
+   * @type string
+   */
+  runId?: string;
+}
+
+export interface LLMObservabilityApiListLLMObsPatternsTopicsWithClusteredPointsRequest {
+  /**
+   * The ID of the patterns configuration.
+   * @type string
+   */
+  configId: string;
+  /**
+   * The ID of a specific patterns run. Defaults to the most recent completed run.
+   * @type string
+   */
+  runId?: string;
+  /**
+   * When true, enrich each clustered point with span metrics such as status,
+   * duration, token counts, estimated cost, and evaluations.
+   * @type boolean
+   */
+  includeMetrics?: boolean;
+}
+
 export interface LLMObservabilityApiListLLMObsProjectsRequest {
   /**
    * Filter projects by project ID.
@@ -8693,6 +10204,14 @@ export interface LLMObservabilityApiSimpleSearchLLMObsExperimentationRequest {
    * @type LLMObsExperimentationSimpleSearchRequest
    */
   body: LLMObsExperimentationSimpleSearchRequest;
+}
+
+export interface LLMObservabilityApiTriggerLLMObsPatternsRequest {
+  /**
+   * Trigger patterns payload.
+   * @type LLMObsPatternsTriggerRequest
+   */
+  body: LLMObsPatternsTriggerRequest;
 }
 
 export interface LLMObservabilityApiUnlockLLMObsDatasetDraftStateRequest {
@@ -8858,6 +10377,14 @@ export interface LLMObservabilityApiUpsertLLMObsAnnotationsRequest {
    * @type LLMObsAnnotationsRequest
    */
   body: LLMObsAnnotationsRequest;
+}
+
+export interface LLMObservabilityApiUpsertLLMObsPatternsConfigRequest {
+  /**
+   * Patterns configuration payload.
+   * @type LLMObsPatternsConfigUpsertRequest
+   */
+  body: LLMObsPatternsConfigUpsertRequest;
 }
 
 export class LLMObservabilityApi {
@@ -9335,6 +10862,27 @@ export class LLMObservabilityApi {
   }
 
   /**
+   * Delete a patterns configuration by its ID.
+   * @param param The request object
+   */
+  public deleteLLMObsPatternsConfig(
+    param: LLMObservabilityApiDeleteLLMObsPatternsConfigRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteLLMObsPatternsConfig(param.configId, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteLLMObsPatternsConfig(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Delete one or more LLM Observability projects.
    * @param param The request object
    */
@@ -9496,6 +11044,48 @@ export class LLMObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getLLMObsDatasetDraftState(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Retrieve the patterns configuration for the organization.
+   * @param param The request object
+   */
+  public getLLMObsPatternsConfig(
+    options?: Configuration,
+  ): Promise<LLMObsPatternsConfigResponse> {
+    const requestContextPromise =
+      this.requestFactory.getLLMObsPatternsConfig(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getLLMObsPatternsConfig(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Retrieve the status and step-by-step progress of the current or most recent
+   * patterns run for a configuration.
+   * @param param The request object
+   */
+  public getLLMObsPatternsRunStatus(
+    param: LLMObservabilityApiGetLLMObsPatternsRunStatusRequest,
+    options?: Configuration,
+  ): Promise<LLMObsPatternsRunStatusResponse> {
+    const requestContextPromise =
+      this.requestFactory.getLLMObsPatternsRunStatus(param.configId, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getLLMObsPatternsRunStatus(
             responseContext,
           );
         });
@@ -9760,6 +11350,127 @@ export class LLMObservabilityApi {
   }
 
   /**
+   * List the data points grouped into a topic. For a parent topic, points from all
+   * of its leaf topics are returned.
+   * @param param The request object
+   */
+  public listLLMObsPatternsClusteredPoints(
+    param: LLMObservabilityApiListLLMObsPatternsClusteredPointsRequest,
+    options?: Configuration,
+  ): Promise<LLMObsPatternsClusteredPointsResponse> {
+    const requestContextPromise =
+      this.requestFactory.listLLMObsPatternsClusteredPoints(
+        param.topicId,
+        param.pageSize,
+        param.pageToken,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listLLMObsPatternsClusteredPoints(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * List all patterns configurations for the organization.
+   * @param param The request object
+   */
+  public listLLMObsPatternsConfigs(
+    options?: Configuration,
+  ): Promise<LLMObsPatternsConfigsResponse> {
+    const requestContextPromise =
+      this.requestFactory.listLLMObsPatternsConfigs(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listLLMObsPatternsConfigs(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * List the completed patterns runs for a configuration.
+   * @param param The request object
+   */
+  public listLLMObsPatternsRuns(
+    param: LLMObservabilityApiListLLMObsPatternsRunsRequest,
+    options?: Configuration,
+  ): Promise<LLMObsPatternsRunsResponse> {
+    const requestContextPromise = this.requestFactory.listLLMObsPatternsRuns(
+      param.configId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listLLMObsPatternsRuns(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List the topics discovered by a patterns run. When no run is specified,
+   * the most recent completed run is used.
+   * @param param The request object
+   */
+  public listLLMObsPatternsTopics(
+    param: LLMObservabilityApiListLLMObsPatternsTopicsRequest,
+    options?: Configuration,
+  ): Promise<LLMObsPatternsTopicsResponse> {
+    const requestContextPromise = this.requestFactory.listLLMObsPatternsTopics(
+      param.configId,
+      param.runId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listLLMObsPatternsTopics(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * List the topics discovered by a patterns run, with the clustered points attached
+   * inline to each leaf topic. When no run is specified, the most recent completed
+   * run is used.
+   * @param param The request object
+   */
+  public listLLMObsPatternsTopicsWithClusteredPoints(
+    param: LLMObservabilityApiListLLMObsPatternsTopicsWithClusteredPointsRequest,
+    options?: Configuration,
+  ): Promise<LLMObsPatternsTopicsWithClusteredPointsResponse> {
+    const requestContextPromise =
+      this.requestFactory.listLLMObsPatternsTopicsWithClusteredPoints(
+        param.configId,
+        param.runId,
+        param.includeMetrics,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listLLMObsPatternsTopicsWithClusteredPoints(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * List all LLM Observability projects sorted by creation date, newest first.
    * @param param The request object
    */
@@ -9935,6 +11646,27 @@ export class LLMObservabilityApi {
           return this.responseProcessor.simpleSearchLLMObsExperimentation(
             responseContext,
           );
+        });
+    });
+  }
+
+  /**
+   * Start a patterns run for a given configuration. The run executes asynchronously.
+   * @param param The request object
+   */
+  public triggerLLMObsPatterns(
+    param: LLMObservabilityApiTriggerLLMObsPatternsRequest,
+    options?: Configuration,
+  ): Promise<LLMObsPatternsTriggerResponse> {
+    const requestContextPromise = this.requestFactory.triggerLLMObsPatterns(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.triggerLLMObsPatterns(responseContext);
         });
     });
   }
@@ -10192,6 +11924,27 @@ export class LLMObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.upsertLLMObsAnnotations(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Create a new patterns configuration, or update an existing one when a configuration ID is provided.
+   * @param param The request object
+   */
+  public upsertLLMObsPatternsConfig(
+    param: LLMObservabilityApiUpsertLLMObsPatternsConfigRequest,
+    options?: Configuration,
+  ): Promise<LLMObsPatternsConfigResponse> {
+    const requestContextPromise =
+      this.requestFactory.upsertLLMObsPatternsConfig(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.upsertLLMObsPatternsConfig(
             responseContext,
           );
         });
