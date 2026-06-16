@@ -7,6 +7,8 @@ import { IoCGeoLocation } from "./IoCGeoLocation";
 import { IoCScoreEffect } from "./IoCScoreEffect";
 import { IoCSignalSeverityCount } from "./IoCSignalSeverityCount";
 import { IoCSource } from "./IoCSource";
+import { IoCTriageEvent } from "./IoCTriageEvent";
+import { IoCTriageState } from "./IoCTriageState";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -134,6 +136,22 @@ export class IoCIndicatorDetailed {
    * Tags associated with the indicator.
    */
   "tags"?: Array<string>;
+  /**
+   * Full triage history timeline. Returned only when `include_triage_history` is true.
+   */
+  "triageHistory"?: Array<IoCTriageEvent>;
+  /**
+   * Current triage state of the indicator.
+   */
+  "triageState"?: IoCTriageState;
+  /**
+   * Timestamp when the indicator was last triaged.
+   */
+  "triagedAt"?: Date;
+  /**
+   * UUID of the user who last triaged the indicator.
+   */
+  "triagedBy"?: string;
   /**
    * Users associated with this indicator, grouped by category.
    */
@@ -280,6 +298,23 @@ export class IoCIndicatorDetailed {
     tags: {
       baseName: "tags",
       type: "Array<string>",
+    },
+    triageHistory: {
+      baseName: "triage_history",
+      type: "Array<IoCTriageEvent>",
+    },
+    triageState: {
+      baseName: "triage_state",
+      type: "IoCTriageState",
+    },
+    triagedAt: {
+      baseName: "triaged_at",
+      type: "Date",
+      format: "date-time",
+    },
+    triagedBy: {
+      baseName: "triaged_by",
+      type: "string",
     },
     users: {
       baseName: "users",
