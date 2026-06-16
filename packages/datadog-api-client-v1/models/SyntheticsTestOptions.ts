@@ -30,6 +30,10 @@ export class SyntheticsTestOptions {
    */
   "blockedRequestPatterns"?: Array<string>;
   /**
+   * Capture HTTP request/response headers and bodies for Fetch/XHR calls made during browser tests.
+   */
+  "captureNetworkPayloads"?: boolean;
+  /**
    * For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
    */
   "checkCertificateRevocation"?: boolean;
@@ -161,6 +165,10 @@ export class SyntheticsTestOptions {
     blockedRequestPatterns: {
       baseName: "blockedRequestPatterns",
       type: "Array<string>",
+    },
+    captureNetworkPayloads: {
+      baseName: "captureNetworkPayloads",
+      type: "boolean",
     },
     checkCertificateRevocation: {
       baseName: "checkCertificateRevocation",
