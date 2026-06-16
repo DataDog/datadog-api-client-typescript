@@ -1272,6 +1272,11 @@ export class UsageSummaryDate {
   /**
    * @ignore
    */
+  static readonly _keepTypedInAdditionalProperties = true;
+
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     agentHostTop99p: {
       baseName: "agent_host_top99p",
