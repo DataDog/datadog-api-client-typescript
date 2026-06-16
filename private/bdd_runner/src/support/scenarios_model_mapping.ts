@@ -5736,13 +5736,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ListFindingsResponse",
   },
-  "SecurityMonitoringApi.V2.MuteFindings": {
-    body: {
-      type: "BulkMuteFindingsRequest",
-      format: "",
-    },
-    operationResponseType: "BulkMuteFindingsResponse",
-  },
   "SecurityMonitoringApi.V2.GetFinding": {
     findingId: {
       type: "string",
