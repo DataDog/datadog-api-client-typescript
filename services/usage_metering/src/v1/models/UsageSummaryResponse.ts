@@ -1311,6 +1311,11 @@ export class UsageSummaryResponse {
   /**
    * @ignore
    */
+  static readonly _keepTypedInAdditionalProperties = true;
+
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     agentHostTop99pSum: {
       baseName: "agent_host_top99p_sum",
