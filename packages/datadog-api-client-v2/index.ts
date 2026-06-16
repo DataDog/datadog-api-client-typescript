@@ -1381,7 +1381,6 @@ export {
   SecurityMonitoringApiListSecurityMonitoringSuppressionsRequest,
   SecurityMonitoringApiListVulnerabilitiesRequest,
   SecurityMonitoringApiListVulnerableAssetsRequest,
-  SecurityMonitoringApiMuteFindingsRequest,
   SecurityMonitoringApiMuteSecurityFindingsRequest,
   SecurityMonitoringApiPatchSignalNotificationRuleRequest,
   SecurityMonitoringApiPatchVulnerabilityNotificationRuleRequest,
@@ -2388,14 +2387,6 @@ export { BulkDeleteAppsDatastoreItemsRequest } from "./models/BulkDeleteAppsData
 export { BulkDeleteAppsDatastoreItemsRequestData } from "./models/BulkDeleteAppsDatastoreItemsRequestData";
 export { BulkDeleteAppsDatastoreItemsRequestDataAttributes } from "./models/BulkDeleteAppsDatastoreItemsRequestDataAttributes";
 export { BulkDeleteAppsDatastoreItemsRequestDataType } from "./models/BulkDeleteAppsDatastoreItemsRequestDataType";
-export { BulkMuteFindingsRequest } from "./models/BulkMuteFindingsRequest";
-export { BulkMuteFindingsRequestAttributes } from "./models/BulkMuteFindingsRequestAttributes";
-export { BulkMuteFindingsRequestData } from "./models/BulkMuteFindingsRequestData";
-export { BulkMuteFindingsRequestMeta } from "./models/BulkMuteFindingsRequestMeta";
-export { BulkMuteFindingsRequestMetaFindings } from "./models/BulkMuteFindingsRequestMetaFindings";
-export { BulkMuteFindingsRequestProperties } from "./models/BulkMuteFindingsRequestProperties";
-export { BulkMuteFindingsResponse } from "./models/BulkMuteFindingsResponse";
-export { BulkMuteFindingsResponseData } from "./models/BulkMuteFindingsResponseData";
 export { BulkPutAppsDatastoreItemsRequest } from "./models/BulkPutAppsDatastoreItemsRequest";
 export { BulkPutAppsDatastoreItemsRequestData } from "./models/BulkPutAppsDatastoreItemsRequestData";
 export { BulkPutAppsDatastoreItemsRequestDataAttributes } from "./models/BulkPutAppsDatastoreItemsRequestDataAttributes";

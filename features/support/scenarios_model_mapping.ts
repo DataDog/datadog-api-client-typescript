@@ -5724,13 +5724,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ListFindingsResponse",
     },
-    "v2.MuteFindings": {
-        "body": {
-            "type": "BulkMuteFindingsRequest",
-            "format": "",
-            },
-        "operationResponseType": "BulkMuteFindingsResponse",
-    },
     "v2.GetFinding": {
         "findingId": {
             "type": "string",
