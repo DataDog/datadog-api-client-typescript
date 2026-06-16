@@ -420,7 +420,6 @@ export function createConfiguration(
       "v2.listStaticAnalysisCodegenRulesets": false,
       "v2.listVulnerabilities": false,
       "v2.listVulnerableAssets": false,
-      "v2.muteFindings": false,
       "v2.restoreSecurityMonitoringRule": false,
       "v2.runHistoricalJob": false,
       "v2.searchSecurityMonitoringHistsignals": false,
