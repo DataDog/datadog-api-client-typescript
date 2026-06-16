@@ -16665,6 +16665,37 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "WorkflowAutomationApi.V2.ListWorkflows": {
+    limit: {
+      type: "number",
+      format: "int64",
+    },
+    page: {
+      type: "number",
+      format: "int64",
+    },
+    sort: {
+      type: "string",
+      format: "",
+    },
+    filterQuery: {
+      type: "string",
+      format: "",
+    },
+    filterTriggerIds: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterIncludeUnpublished: {
+      type: "boolean",
+      format: "",
+    },
+    filterIncludeSpecs: {
+      type: "boolean",
+      format: "",
+    },
+    operationResponseType: "ListWorkflowsResponse",
+  },
   "WorkflowAutomationApi.V2.CreateWorkflow": {
     body: {
       type: "CreateWorkflowRequest",
