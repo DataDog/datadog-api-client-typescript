@@ -709,6 +709,9 @@ import { ClickupAPIKey } from "./ClickupAPIKey";
 import { ClickupAPIKeyUpdate } from "./ClickupAPIKeyUpdate";
 import { ClickupIntegration } from "./ClickupIntegration";
 import { ClickupIntegrationUpdate } from "./ClickupIntegrationUpdate";
+import { CloneFormData } from "./CloneFormData";
+import { CloneFormDataAttributes } from "./CloneFormDataAttributes";
+import { CloneFormRequest } from "./CloneFormRequest";
 import { CloudConfigurationComplianceRuleOptions } from "./CloudConfigurationComplianceRuleOptions";
 import { CloudConfigurationRegoRule } from "./CloudConfigurationRegoRule";
 import { CloudConfigurationRuleCaseCreate } from "./CloudConfigurationRuleCaseCreate";
@@ -980,6 +983,9 @@ import { CreateEnvironmentRequest } from "./CreateEnvironmentRequest";
 import { CreateFeatureFlagAttributes } from "./CreateFeatureFlagAttributes";
 import { CreateFeatureFlagData } from "./CreateFeatureFlagData";
 import { CreateFeatureFlagRequest } from "./CreateFeatureFlagRequest";
+import { CreateFormData } from "./CreateFormData";
+import { CreateFormDataAttributes } from "./CreateFormDataAttributes";
+import { CreateFormRequest } from "./CreateFormRequest";
 import { CreateIncidentNotificationRuleRequest } from "./CreateIncidentNotificationRuleRequest";
 import { CreateIncidentNotificationTemplateRequest } from "./CreateIncidentNotificationTemplateRequest";
 import { CreateJiraIssueRequestArray } from "./CreateJiraIssueRequestArray";
@@ -1285,6 +1291,8 @@ import { DeleteAppsRequestDataItems } from "./DeleteAppsRequestDataItems";
 import { DeleteAppsResponse } from "./DeleteAppsResponse";
 import { DeleteAppsResponseDataItems } from "./DeleteAppsResponseDataItems";
 import { DeleteCustomFrameworkResponse } from "./DeleteCustomFrameworkResponse";
+import { DeleteFormData } from "./DeleteFormData";
+import { DeleteFormResponse } from "./DeleteFormResponse";
 import { DeletedSuiteResponseData } from "./DeletedSuiteResponseData";
 import { DeletedSuiteResponseDataAttributes } from "./DeletedSuiteResponseDataAttributes";
 import { DeletedSuitesRequestDelete } from "./DeletedSuitesRequestDelete";
@@ -1602,11 +1610,6 @@ import { FleetAgentsResponse } from "./FleetAgentsResponse";
 import { FleetAgentsResponseData } from "./FleetAgentsResponseData";
 import { FleetAgentsResponseDataAttributes } from "./FleetAgentsResponseDataAttributes";
 import { FleetAgentsResponseMeta } from "./FleetAgentsResponseMeta";
-import { FleetClusterAttributes } from "./FleetClusterAttributes";
-import { FleetClustersResponse } from "./FleetClustersResponse";
-import { FleetClustersResponseData } from "./FleetClustersResponseData";
-import { FleetClustersResponseDataAttributes } from "./FleetClustersResponseDataAttributes";
-import { FleetClustersResponseMeta } from "./FleetClustersResponseMeta";
 import { FleetConfigurationFile } from "./FleetConfigurationFile";
 import { FleetConfigurationLayer } from "./FleetConfigurationLayer";
 import { FleetDeployment } from "./FleetDeployment";
@@ -1628,10 +1631,6 @@ import { FleetDeploymentsPage } from "./FleetDeploymentsPage";
 import { FleetDeploymentsResponse } from "./FleetDeploymentsResponse";
 import { FleetDeploymentsResponseMeta } from "./FleetDeploymentsResponseMeta";
 import { FleetDetectedIntegration } from "./FleetDetectedIntegration";
-import { FleetInstrumentedPodGroupAttributes } from "./FleetInstrumentedPodGroupAttributes";
-import { FleetInstrumentedPodsResponse } from "./FleetInstrumentedPodsResponse";
-import { FleetInstrumentedPodsResponseData } from "./FleetInstrumentedPodsResponseData";
-import { FleetInstrumentedPodsResponseDataAttributes } from "./FleetInstrumentedPodsResponseDataAttributes";
 import { FleetIntegrationDetails } from "./FleetIntegrationDetails";
 import { FleetIntegrationsByStatus } from "./FleetIntegrationsByStatus";
 import { FleetSchedule } from "./FleetSchedule";
@@ -1652,8 +1651,23 @@ import { FleetTracersResponseDataAttributes } from "./FleetTracersResponseDataAt
 import { FleetTracersResponseMeta } from "./FleetTracersResponseMeta";
 import { FlutterSourcemapAttributes } from "./FlutterSourcemapAttributes";
 import { FlutterSourcemapData } from "./FlutterSourcemapData";
+import { FormData } from "./FormData";
+import { FormDataAttributes } from "./FormDataAttributes";
+import { FormDataDefinition } from "./FormDataDefinition";
+import { FormDatastoreConfigAttributes } from "./FormDatastoreConfigAttributes";
+import { FormPublicationAttributes } from "./FormPublicationAttributes";
+import { FormPublicationData } from "./FormPublicationData";
+import { FormPublicationResponse } from "./FormPublicationResponse";
+import { FormResponse } from "./FormResponse";
 import { FormTrigger } from "./FormTrigger";
 import { FormTriggerWrapper } from "./FormTriggerWrapper";
+import { FormUiDefinition } from "./FormUiDefinition";
+import { FormUiDefinitionUiTheme } from "./FormUiDefinitionUiTheme";
+import { FormUpdateAttributes } from "./FormUpdateAttributes";
+import { FormVersionAttributes } from "./FormVersionAttributes";
+import { FormVersionData } from "./FormVersionData";
+import { FormVersionResponse } from "./FormVersionResponse";
+import { FormsResponse } from "./FormsResponse";
 import { FormulaLimit } from "./FormulaLimit";
 import { FrameworkHandleAndVersionResponseData } from "./FrameworkHandleAndVersionResponseData";
 import { FreshserviceAPIKey } from "./FreshserviceAPIKey";
@@ -1730,6 +1744,9 @@ import { GetBlueprintResponse } from "./GetBlueprintResponse";
 import { GetBlueprintsResponse } from "./GetBlueprintsResponse";
 import { GetCustomFrameworkResponse } from "./GetCustomFrameworkResponse";
 import { GetDataDeletionsResponseBody } from "./GetDataDeletionsResponseBody";
+import { GetDataObservabilityMonitorRunStatusResponse } from "./GetDataObservabilityMonitorRunStatusResponse";
+import { GetDataObservabilityMonitorRunStatusResponseAttributes } from "./GetDataObservabilityMonitorRunStatusResponseAttributes";
+import { GetDataObservabilityMonitorRunStatusResponseData } from "./GetDataObservabilityMonitorRunStatusResponseData";
 import { GetDeviceAttributes } from "./GetDeviceAttributes";
 import { GetDeviceData } from "./GetDeviceData";
 import { GetDeviceResponse } from "./GetDeviceResponse";
@@ -1779,7 +1796,15 @@ import { GlobalIncidentSettingsDataRequest } from "./GlobalIncidentSettingsDataR
 import { GlobalIncidentSettingsDataResponse } from "./GlobalIncidentSettingsDataResponse";
 import { GlobalIncidentSettingsRequest } from "./GlobalIncidentSettingsRequest";
 import { GlobalIncidentSettingsResponse } from "./GlobalIncidentSettingsResponse";
+import { GlobalOrg } from "./GlobalOrg";
+import { GlobalOrgAttributes } from "./GlobalOrgAttributes";
+import { GlobalOrgData } from "./GlobalOrgData";
 import { GlobalOrgIdentifier } from "./GlobalOrgIdentifier";
+import { GlobalOrgUser } from "./GlobalOrgUser";
+import { GlobalOrgsLinks } from "./GlobalOrgsLinks";
+import { GlobalOrgsMeta } from "./GlobalOrgsMeta";
+import { GlobalOrgsMetaPage } from "./GlobalOrgsMetaPage";
+import { GlobalOrgsResponse } from "./GlobalOrgsResponse";
 import { GlobalVariableData } from "./GlobalVariableData";
 import { GlobalVariableJsonPatchRequest } from "./GlobalVariableJsonPatchRequest";
 import { GlobalVariableJsonPatchRequestData } from "./GlobalVariableJsonPatchRequestData";
@@ -1791,10 +1816,30 @@ import { GoogleChatAppNamedSpaceResponseData } from "./GoogleChatAppNamedSpaceRe
 import { GoogleChatCreateOrganizationHandleRequest } from "./GoogleChatCreateOrganizationHandleRequest";
 import { GoogleChatCreateOrganizationHandleRequestAttributes } from "./GoogleChatCreateOrganizationHandleRequestAttributes";
 import { GoogleChatCreateOrganizationHandleRequestData } from "./GoogleChatCreateOrganizationHandleRequestData";
+import { GoogleChatDelegatedUserAttributes } from "./GoogleChatDelegatedUserAttributes";
+import { GoogleChatDelegatedUserData } from "./GoogleChatDelegatedUserData";
+import { GoogleChatDelegatedUserResponse } from "./GoogleChatDelegatedUserResponse";
+import { GoogleChatOrganizationAttributes } from "./GoogleChatOrganizationAttributes";
+import { GoogleChatOrganizationData } from "./GoogleChatOrganizationData";
 import { GoogleChatOrganizationHandleResponse } from "./GoogleChatOrganizationHandleResponse";
 import { GoogleChatOrganizationHandleResponseAttributes } from "./GoogleChatOrganizationHandleResponseAttributes";
 import { GoogleChatOrganizationHandleResponseData } from "./GoogleChatOrganizationHandleResponseData";
 import { GoogleChatOrganizationHandlesResponse } from "./GoogleChatOrganizationHandlesResponse";
+import { GoogleChatOrganizationRelationships } from "./GoogleChatOrganizationRelationships";
+import { GoogleChatOrganizationRelationshipsDelegatedUser } from "./GoogleChatOrganizationRelationshipsDelegatedUser";
+import { GoogleChatOrganizationRelationshipsDelegatedUserData } from "./GoogleChatOrganizationRelationshipsDelegatedUserData";
+import { GoogleChatOrganizationResponse } from "./GoogleChatOrganizationResponse";
+import { GoogleChatOrganizationsResponse } from "./GoogleChatOrganizationsResponse";
+import { GoogleChatTargetAudienceAttributes } from "./GoogleChatTargetAudienceAttributes";
+import { GoogleChatTargetAudienceCreateRequest } from "./GoogleChatTargetAudienceCreateRequest";
+import { GoogleChatTargetAudienceCreateRequestAttributes } from "./GoogleChatTargetAudienceCreateRequestAttributes";
+import { GoogleChatTargetAudienceCreateRequestData } from "./GoogleChatTargetAudienceCreateRequestData";
+import { GoogleChatTargetAudienceData } from "./GoogleChatTargetAudienceData";
+import { GoogleChatTargetAudienceResponse } from "./GoogleChatTargetAudienceResponse";
+import { GoogleChatTargetAudienceUpdateRequest } from "./GoogleChatTargetAudienceUpdateRequest";
+import { GoogleChatTargetAudienceUpdateRequestAttributes } from "./GoogleChatTargetAudienceUpdateRequestAttributes";
+import { GoogleChatTargetAudienceUpdateRequestData } from "./GoogleChatTargetAudienceUpdateRequestData";
+import { GoogleChatTargetAudiencesResponse } from "./GoogleChatTargetAudiencesResponse";
 import { GoogleChatUpdateOrganizationHandleRequest } from "./GoogleChatUpdateOrganizationHandleRequest";
 import { GoogleChatUpdateOrganizationHandleRequestAttributes } from "./GoogleChatUpdateOrganizationHandleRequestAttributes";
 import { GoogleChatUpdateOrganizationHandleRequestData } from "./GoogleChatUpdateOrganizationHandleRequestData";
@@ -1943,17 +1988,6 @@ import { IncidentSearchResponseNumericFacetData } from "./IncidentSearchResponse
 import { IncidentSearchResponseNumericFacetDataAggregates } from "./IncidentSearchResponseNumericFacetDataAggregates";
 import { IncidentSearchResponsePropertyFieldFacetData } from "./IncidentSearchResponsePropertyFieldFacetData";
 import { IncidentSearchResponseUserFacetData } from "./IncidentSearchResponseUserFacetData";
-import { IncidentServiceCreateAttributes } from "./IncidentServiceCreateAttributes";
-import { IncidentServiceCreateData } from "./IncidentServiceCreateData";
-import { IncidentServiceCreateRequest } from "./IncidentServiceCreateRequest";
-import { IncidentServiceRelationships } from "./IncidentServiceRelationships";
-import { IncidentServiceResponse } from "./IncidentServiceResponse";
-import { IncidentServiceResponseAttributes } from "./IncidentServiceResponseAttributes";
-import { IncidentServiceResponseData } from "./IncidentServiceResponseData";
-import { IncidentServiceUpdateAttributes } from "./IncidentServiceUpdateAttributes";
-import { IncidentServiceUpdateData } from "./IncidentServiceUpdateData";
-import { IncidentServiceUpdateRequest } from "./IncidentServiceUpdateRequest";
-import { IncidentServicesResponse } from "./IncidentServicesResponse";
 import { IncidentTimelineCellMarkdownCreateAttributes } from "./IncidentTimelineCellMarkdownCreateAttributes";
 import { IncidentTimelineCellMarkdownCreateAttributesContent } from "./IncidentTimelineCellMarkdownCreateAttributesContent";
 import { IncidentTodoAnonymousAssignee } from "./IncidentTodoAnonymousAssignee";
@@ -2341,6 +2375,44 @@ import { LLMObsIntegrationModel } from "./LLMObsIntegrationModel";
 import { LLMObsInternalReasoning } from "./LLMObsInternalReasoning";
 import { LLMObsLabelSchema } from "./LLMObsLabelSchema";
 import { LLMObsOpenAIMetadata } from "./LLMObsOpenAIMetadata";
+import { LLMObsPatternsActivityProgress } from "./LLMObsPatternsActivityProgress";
+import { LLMObsPatternsClusteredPoint } from "./LLMObsPatternsClusteredPoint";
+import { LLMObsPatternsClusteredPointRef } from "./LLMObsPatternsClusteredPointRef";
+import { LLMObsPatternsClusteredPointsResponse } from "./LLMObsPatternsClusteredPointsResponse";
+import { LLMObsPatternsClusteredPointsResponseAttributes } from "./LLMObsPatternsClusteredPointsResponseAttributes";
+import { LLMObsPatternsClusteredPointsResponseData } from "./LLMObsPatternsClusteredPointsResponseData";
+import { LLMObsPatternsConfigAttributes } from "./LLMObsPatternsConfigAttributes";
+import { LLMObsPatternsConfigItem } from "./LLMObsPatternsConfigItem";
+import { LLMObsPatternsConfigResponse } from "./LLMObsPatternsConfigResponse";
+import { LLMObsPatternsConfigResponseData } from "./LLMObsPatternsConfigResponseData";
+import { LLMObsPatternsConfigSnapshot } from "./LLMObsPatternsConfigSnapshot";
+import { LLMObsPatternsConfigUpsertRequest } from "./LLMObsPatternsConfigUpsertRequest";
+import { LLMObsPatternsConfigUpsertRequestAttributes } from "./LLMObsPatternsConfigUpsertRequestAttributes";
+import { LLMObsPatternsConfigUpsertRequestData } from "./LLMObsPatternsConfigUpsertRequestData";
+import { LLMObsPatternsConfigsResponse } from "./LLMObsPatternsConfigsResponse";
+import { LLMObsPatternsConfigsResponseAttributes } from "./LLMObsPatternsConfigsResponseAttributes";
+import { LLMObsPatternsConfigsResponseData } from "./LLMObsPatternsConfigsResponseData";
+import { LLMObsPatternsRunStatusResponse } from "./LLMObsPatternsRunStatusResponse";
+import { LLMObsPatternsRunStatusResponseAttributes } from "./LLMObsPatternsRunStatusResponseAttributes";
+import { LLMObsPatternsRunStatusResponseData } from "./LLMObsPatternsRunStatusResponseData";
+import { LLMObsPatternsRunSummary } from "./LLMObsPatternsRunSummary";
+import { LLMObsPatternsRunsResponse } from "./LLMObsPatternsRunsResponse";
+import { LLMObsPatternsRunsResponseAttributes } from "./LLMObsPatternsRunsResponseAttributes";
+import { LLMObsPatternsRunsResponseData } from "./LLMObsPatternsRunsResponseData";
+import { LLMObsPatternsTopic } from "./LLMObsPatternsTopic";
+import { LLMObsPatternsTopicWithClusteredPoints } from "./LLMObsPatternsTopicWithClusteredPoints";
+import { LLMObsPatternsTopicsResponse } from "./LLMObsPatternsTopicsResponse";
+import { LLMObsPatternsTopicsResponseAttributes } from "./LLMObsPatternsTopicsResponseAttributes";
+import { LLMObsPatternsTopicsResponseData } from "./LLMObsPatternsTopicsResponseData";
+import { LLMObsPatternsTopicsWithClusteredPointsResponse } from "./LLMObsPatternsTopicsWithClusteredPointsResponse";
+import { LLMObsPatternsTopicsWithClusteredPointsResponseAttributes } from "./LLMObsPatternsTopicsWithClusteredPointsResponseAttributes";
+import { LLMObsPatternsTopicsWithClusteredPointsResponseData } from "./LLMObsPatternsTopicsWithClusteredPointsResponseData";
+import { LLMObsPatternsTriggerRequest } from "./LLMObsPatternsTriggerRequest";
+import { LLMObsPatternsTriggerRequestAttributes } from "./LLMObsPatternsTriggerRequestAttributes";
+import { LLMObsPatternsTriggerRequestData } from "./LLMObsPatternsTriggerRequestData";
+import { LLMObsPatternsTriggerResponse } from "./LLMObsPatternsTriggerResponse";
+import { LLMObsPatternsTriggerResponseAttributes } from "./LLMObsPatternsTriggerResponseAttributes";
+import { LLMObsPatternsTriggerResponseData } from "./LLMObsPatternsTriggerResponseData";
 import { LLMObsProjectDataAttributesRequest } from "./LLMObsProjectDataAttributesRequest";
 import { LLMObsProjectDataAttributesResponse } from "./LLMObsProjectDataAttributesResponse";
 import { LLMObsProjectDataRequest } from "./LLMObsProjectDataRequest";
@@ -2461,6 +2533,7 @@ import { ListScorecardScoresResponse } from "./ListScorecardScoresResponse";
 import { ListScorecardsResponse } from "./ListScorecardsResponse";
 import { ListSecurityFindingsResponse } from "./ListSecurityFindingsResponse";
 import { ListServiceAccessTokensResponse } from "./ListServiceAccessTokensResponse";
+import { ListSharedDashboardsResponse } from "./ListSharedDashboardsResponse";
 import { ListSourcemapsResponse } from "./ListSourcemapsResponse";
 import { ListTagsResponse } from "./ListTagsResponse";
 import { ListTagsResponseData } from "./ListTagsResponseData";
@@ -2555,6 +2628,9 @@ import { ManagedOrgsRelationshipToOrg } from "./ManagedOrgsRelationshipToOrg";
 import { ManagedOrgsRelationshipToOrgs } from "./ManagedOrgsRelationshipToOrgs";
 import { ManagedOrgsRelationships } from "./ManagedOrgsRelationships";
 import { ManagedOrgsResponse } from "./ManagedOrgsResponse";
+import { MaxSessionDurationUpdateAttributes } from "./MaxSessionDurationUpdateAttributes";
+import { MaxSessionDurationUpdateData } from "./MaxSessionDurationUpdateData";
+import { MaxSessionDurationUpdateRequest } from "./MaxSessionDurationUpdateRequest";
 import { McpScanRequest } from "./McpScanRequest";
 import { McpScanRequestData } from "./McpScanRequestData";
 import { McpScanRequestDataAttributes } from "./McpScanRequestDataAttributes";
@@ -2750,6 +2826,10 @@ import { MuteFindingsResponse } from "./MuteFindingsResponse";
 import { MuteFindingsResponseData } from "./MuteFindingsResponseData";
 import { NDKSourcemapAttributes } from "./NDKSourcemapAttributes";
 import { NDKSourcemapData } from "./NDKSourcemapData";
+import { NetworkHealthInsight } from "./NetworkHealthInsight";
+import { NetworkHealthInsightAttributes } from "./NetworkHealthInsightAttributes";
+import { NetworkHealthInsightTrafficVolume } from "./NetworkHealthInsightTrafficVolume";
+import { NetworkHealthInsightsResponse } from "./NetworkHealthInsightsResponse";
 import { NodeTypesResponse } from "./NodeTypesResponse";
 import { NodeTypesResponseData } from "./NodeTypesResponseData";
 import { NodeTypesResponseDataAttributes } from "./NodeTypesResponseDataAttributes";
@@ -2764,7 +2844,12 @@ import { NotificationChannelPhoneConfig } from "./NotificationChannelPhoneConfig
 import { NotificationChannelPushConfig } from "./NotificationChannelPushConfig";
 import { NotificationRule } from "./NotificationRule";
 import { NotificationRuleAttributes } from "./NotificationRuleAttributes";
+import { NotificationRulePreviewResponse } from "./NotificationRulePreviewResponse";
+import { NotificationRulePreviewResponseAttributes } from "./NotificationRulePreviewResponseAttributes";
+import { NotificationRulePreviewResponseData } from "./NotificationRulePreviewResponseData";
+import { NotificationRulePreviewResult } from "./NotificationRulePreviewResult";
 import { NotificationRuleResponse } from "./NotificationRuleResponse";
+import { NotificationRuleRouting } from "./NotificationRuleRouting";
 import { NotificationRulesListResponse } from "./NotificationRulesListResponse";
 import { NotionAPIKey } from "./NotionAPIKey";
 import { NotionAPIKeyUpdate } from "./NotionAPIKeyUpdate";
@@ -2847,6 +2932,7 @@ import { ObservabilityPipelineFluentBitSource } from "./ObservabilityPipelineFlu
 import { ObservabilityPipelineFluentdSource } from "./ObservabilityPipelineFluentdSource";
 import { ObservabilityPipelineGcpAuth } from "./ObservabilityPipelineGcpAuth";
 import { ObservabilityPipelineGenerateMetricsProcessor } from "./ObservabilityPipelineGenerateMetricsProcessor";
+import { ObservabilityPipelineGenerateMetricsV2Processor } from "./ObservabilityPipelineGenerateMetricsV2Processor";
 import { ObservabilityPipelineGeneratedMetric } from "./ObservabilityPipelineGeneratedMetric";
 import { ObservabilityPipelineGeneratedMetricIncrementByField } from "./ObservabilityPipelineGeneratedMetricIncrementByField";
 import { ObservabilityPipelineGeneratedMetricIncrementByOne } from "./ObservabilityPipelineGeneratedMetricIncrementByOne";
@@ -3104,6 +3190,27 @@ import { OutcomesResponseLinks } from "./OutcomesResponseLinks";
 import { OutputSchema } from "./OutputSchema";
 import { OutputSchemaParameters } from "./OutputSchemaParameters";
 import { OverwriteAllocationsRequest } from "./OverwriteAllocationsRequest";
+import { OwnershipEvidenceAttributes } from "./OwnershipEvidenceAttributes";
+import { OwnershipEvidenceData } from "./OwnershipEvidenceData";
+import { OwnershipEvidenceResponse } from "./OwnershipEvidenceResponse";
+import { OwnershipFeedbackRequest } from "./OwnershipFeedbackRequest";
+import { OwnershipFeedbackRequestAttributes } from "./OwnershipFeedbackRequestAttributes";
+import { OwnershipFeedbackRequestData } from "./OwnershipFeedbackRequestData";
+import { OwnershipFeedbackResponse } from "./OwnershipFeedbackResponse";
+import { OwnershipFeedbackResultAttributes } from "./OwnershipFeedbackResultAttributes";
+import { OwnershipFeedbackResultData } from "./OwnershipFeedbackResultData";
+import { OwnershipHistoryAttributes } from "./OwnershipHistoryAttributes";
+import { OwnershipHistoryData } from "./OwnershipHistoryData";
+import { OwnershipHistoryItem } from "./OwnershipHistoryItem";
+import { OwnershipHistoryPagination } from "./OwnershipHistoryPagination";
+import { OwnershipHistoryResponse } from "./OwnershipHistoryResponse";
+import { OwnershipInferenceAttributes } from "./OwnershipInferenceAttributes";
+import { OwnershipInferenceData } from "./OwnershipInferenceData";
+import { OwnershipInferenceItem } from "./OwnershipInferenceItem";
+import { OwnershipInferenceListAttributes } from "./OwnershipInferenceListAttributes";
+import { OwnershipInferenceListData } from "./OwnershipInferenceListData";
+import { OwnershipInferenceListResponse } from "./OwnershipInferenceListResponse";
+import { OwnershipInferenceResponse } from "./OwnershipInferenceResponse";
 import { PageAnnotationsAttributes } from "./PageAnnotationsAttributes";
 import { PageAnnotationsData } from "./PageAnnotationsData";
 import { PageAnnotationsResponse } from "./PageAnnotationsResponse";
@@ -3273,6 +3380,9 @@ import { PrunedTraceAttributes } from "./PrunedTraceAttributes";
 import { PrunedTraceData } from "./PrunedTraceData";
 import { PrunedTraceResponse } from "./PrunedTraceResponse";
 import { PublishAppResponse } from "./PublishAppResponse";
+import { PublishFormData } from "./PublishFormData";
+import { PublishFormDataAttributes } from "./PublishFormDataAttributes";
+import { PublishFormRequest } from "./PublishFormRequest";
 import { PutAppsDatastoreItemResponseArray } from "./PutAppsDatastoreItemResponseArray";
 import { PutAppsDatastoreItemResponseData } from "./PutAppsDatastoreItemResponseData";
 import { PutIncidentNotificationRuleRequest } from "./PutIncidentNotificationRuleRequest";
@@ -3406,6 +3516,21 @@ import { ReorderRuleResourceArray } from "./ReorderRuleResourceArray";
 import { ReorderRuleResourceData } from "./ReorderRuleResourceData";
 import { ReorderRulesetResourceArray } from "./ReorderRulesetResourceArray";
 import { ReorderRulesetResourceData } from "./ReorderRulesetResourceData";
+import { ReportScheduleAuthor } from "./ReportScheduleAuthor";
+import { ReportScheduleAuthorAttributes } from "./ReportScheduleAuthorAttributes";
+import { ReportScheduleAuthorRelationship } from "./ReportScheduleAuthorRelationship";
+import { ReportScheduleAuthorRelationshipData } from "./ReportScheduleAuthorRelationshipData";
+import { ReportScheduleCreateRequest } from "./ReportScheduleCreateRequest";
+import { ReportScheduleCreateRequestAttributes } from "./ReportScheduleCreateRequestAttributes";
+import { ReportScheduleCreateRequestData } from "./ReportScheduleCreateRequestData";
+import { ReportSchedulePatchRequest } from "./ReportSchedulePatchRequest";
+import { ReportSchedulePatchRequestAttributes } from "./ReportSchedulePatchRequestAttributes";
+import { ReportSchedulePatchRequestData } from "./ReportSchedulePatchRequestData";
+import { ReportScheduleResponse } from "./ReportScheduleResponse";
+import { ReportScheduleResponseAttributes } from "./ReportScheduleResponseAttributes";
+import { ReportScheduleResponseData } from "./ReportScheduleResponseData";
+import { ReportScheduleResponseRelationships } from "./ReportScheduleResponseRelationships";
+import { ReportScheduleTemplateVariable } from "./ReportScheduleTemplateVariable";
 import { ResolveVulnerableSymbolsRequest } from "./ResolveVulnerableSymbolsRequest";
 import { ResolveVulnerableSymbolsRequestData } from "./ResolveVulnerableSymbolsRequestData";
 import { ResolveVulnerableSymbolsRequestDataAttributes } from "./ResolveVulnerableSymbolsRequestDataAttributes";
@@ -3522,17 +3647,6 @@ import { RulesetStatusRespDataAttributes } from "./RulesetStatusRespDataAttribut
 import { RumCrossProductSampling } from "./RumCrossProductSampling";
 import { RumCrossProductSamplingCreate } from "./RumCrossProductSamplingCreate";
 import { RumCrossProductSamplingUpdate } from "./RumCrossProductSamplingUpdate";
-import { RumHardcodedCrossProductSampling } from "./RumHardcodedCrossProductSampling";
-import { RumHardcodedCrossProductSamplingEditability } from "./RumHardcodedCrossProductSamplingEditability";
-import { RumHardcodedCrossProductSamplingUpdate } from "./RumHardcodedCrossProductSamplingUpdate";
-import { RumHardcodedRetentionFilterAttributes } from "./RumHardcodedRetentionFilterAttributes";
-import { RumHardcodedRetentionFilterData } from "./RumHardcodedRetentionFilterData";
-import { RumHardcodedRetentionFilterMeta } from "./RumHardcodedRetentionFilterMeta";
-import { RumHardcodedRetentionFilterResponse } from "./RumHardcodedRetentionFilterResponse";
-import { RumHardcodedRetentionFilterUpdateAttributes } from "./RumHardcodedRetentionFilterUpdateAttributes";
-import { RumHardcodedRetentionFilterUpdateData } from "./RumHardcodedRetentionFilterUpdateData";
-import { RumHardcodedRetentionFilterUpdateRequest } from "./RumHardcodedRetentionFilterUpdateRequest";
-import { RumHardcodedRetentionFiltersResponse } from "./RumHardcodedRetentionFiltersResponse";
 import { RumMetricCompute } from "./RumMetricCompute";
 import { RumMetricCreateAttributes } from "./RumMetricCreateAttributes";
 import { RumMetricCreateData } from "./RumMetricCreateData";
@@ -3581,6 +3695,8 @@ import { RumRetentionFiltersOrderData } from "./RumRetentionFiltersOrderData";
 import { RumRetentionFiltersOrderRequest } from "./RumRetentionFiltersOrderRequest";
 import { RumRetentionFiltersOrderResponse } from "./RumRetentionFiltersOrderResponse";
 import { RumRetentionFiltersResponse } from "./RumRetentionFiltersResponse";
+import { RunDataObservabilityMonitorResponse } from "./RunDataObservabilityMonitorResponse";
+import { RunDataObservabilityMonitorResponseData } from "./RunDataObservabilityMonitorResponseData";
 import { RunHistoricalJobRequest } from "./RunHistoricalJobRequest";
 import { RunHistoricalJobRequestAttributes } from "./RunHistoricalJobRequestAttributes";
 import { RunHistoricalJobRequestData } from "./RunHistoricalJobRequestData";
@@ -4075,6 +4191,19 @@ import { ServiceRepositoryInfoResponseAttributes } from "./ServiceRepositoryInfo
 import { ServiceRepositoryInfoResponseData } from "./ServiceRepositoryInfoResponseData";
 import { SessionIdArray } from "./SessionIdArray";
 import { SessionIdData } from "./SessionIdData";
+import { SharedDashboardIncludedDashboard } from "./SharedDashboardIncludedDashboard";
+import { SharedDashboardIncludedDashboardAttributes } from "./SharedDashboardIncludedDashboardAttributes";
+import { SharedDashboardIncludedUser } from "./SharedDashboardIncludedUser";
+import { SharedDashboardIncludedUserAttributes } from "./SharedDashboardIncludedUserAttributes";
+import { SharedDashboardInvitee } from "./SharedDashboardInvitee";
+import { SharedDashboardRelationshipDashboard } from "./SharedDashboardRelationshipDashboard";
+import { SharedDashboardRelationshipDashboardData } from "./SharedDashboardRelationshipDashboardData";
+import { SharedDashboardRelationshipSharer } from "./SharedDashboardRelationshipSharer";
+import { SharedDashboardRelationships } from "./SharedDashboardRelationships";
+import { SharedDashboardResponse } from "./SharedDashboardResponse";
+import { SharedDashboardResponseAttributes } from "./SharedDashboardResponseAttributes";
+import { SharedDashboardSelectableTemplateVariable } from "./SharedDashboardSelectableTemplateVariable";
+import { SharedDashboardViewingPreferences } from "./SharedDashboardViewingPreferences";
 import { Shift } from "./Shift";
 import { ShiftData } from "./ShiftData";
 import { ShiftDataAttributes } from "./ShiftDataAttributes";
@@ -4095,9 +4224,12 @@ import { SingleAggregatedDnsResponseData } from "./SingleAggregatedDnsResponseDa
 import { SingleAggregatedDnsResponseDataAttributes } from "./SingleAggregatedDnsResponseDataAttributes";
 import { SingleAggregatedDnsResponseDataAttributesGroupByItems } from "./SingleAggregatedDnsResponseDataAttributesGroupByItems";
 import { SingleAggregatedDnsResponseDataAttributesMetricsItems } from "./SingleAggregatedDnsResponseDataAttributesMetricsItems";
+import { SingleEntityContextResponse } from "./SingleEntityContextResponse";
 import { SlackIntegrationMetadata } from "./SlackIntegrationMetadata";
 import { SlackIntegrationMetadataChannelItem } from "./SlackIntegrationMetadataChannelItem";
 import { SlackTriggerWrapper } from "./SlackTriggerWrapper";
+import { SlackUserBindingData } from "./SlackUserBindingData";
+import { SlackUserBindingsResponse } from "./SlackUserBindingsResponse";
 import { SloQuery } from "./SloQuery";
 import { SloReportCreateRequest } from "./SloReportCreateRequest";
 import { SloReportCreateRequestAttributes } from "./SloReportCreateRequestAttributes";
@@ -4453,6 +4585,22 @@ import { TagIndexingRuleUpdateData } from "./TagIndexingRuleUpdateData";
 import { TagIndexingRuleUpdateRequest } from "./TagIndexingRuleUpdateRequest";
 import { TagIndexingRulesResponse } from "./TagIndexingRulesResponse";
 import { TagIndexingRulesResponseMeta } from "./TagIndexingRulesResponseMeta";
+import { TagPoliciesListResponse } from "./TagPoliciesListResponse";
+import { TagPolicyAttributes } from "./TagPolicyAttributes";
+import { TagPolicyCreateAttributes } from "./TagPolicyCreateAttributes";
+import { TagPolicyCreateData } from "./TagPolicyCreateData";
+import { TagPolicyCreateRequest } from "./TagPolicyCreateRequest";
+import { TagPolicyData } from "./TagPolicyData";
+import { TagPolicyRelationships } from "./TagPolicyRelationships";
+import { TagPolicyResponse } from "./TagPolicyResponse";
+import { TagPolicyScoreAttributes } from "./TagPolicyScoreAttributes";
+import { TagPolicyScoreData } from "./TagPolicyScoreData";
+import { TagPolicyScoreRelationship } from "./TagPolicyScoreRelationship";
+import { TagPolicyScoreRelationshipData } from "./TagPolicyScoreRelationshipData";
+import { TagPolicyScoreResponse } from "./TagPolicyScoreResponse";
+import { TagPolicyUpdateAttributes } from "./TagPolicyUpdateAttributes";
+import { TagPolicyUpdateData } from "./TagPolicyUpdateData";
+import { TagPolicyUpdateRequest } from "./TagPolicyUpdateRequest";
 import { TargetingRule } from "./TargetingRule";
 import { TargetingRuleRequest } from "./TargetingRuleRequest";
 import { Team } from "./Team";
@@ -4683,6 +4831,9 @@ import { UpdateFlakyTestsResponse } from "./UpdateFlakyTestsResponse";
 import { UpdateFlakyTestsResponseAttributes } from "./UpdateFlakyTestsResponseAttributes";
 import { UpdateFlakyTestsResponseData } from "./UpdateFlakyTestsResponseData";
 import { UpdateFlakyTestsResponseResult } from "./UpdateFlakyTestsResponseResult";
+import { UpdateFormData } from "./UpdateFormData";
+import { UpdateFormDataAttributes } from "./UpdateFormDataAttributes";
+import { UpdateFormRequest } from "./UpdateFormRequest";
 import { UpdateOnCallNotificationRuleRequest } from "./UpdateOnCallNotificationRuleRequest";
 import { UpdateOnCallNotificationRuleRequestAttributes } from "./UpdateOnCallNotificationRuleRequestAttributes";
 import { UpdateOnCallNotificationRuleRequestData } from "./UpdateOnCallNotificationRuleRequestData";
@@ -4719,11 +4870,19 @@ import { UpdateTenancyConfigRequest } from "./UpdateTenancyConfigRequest";
 import { UpdateWorkflowRequest } from "./UpdateWorkflowRequest";
 import { UpdateWorkflowResponse } from "./UpdateWorkflowResponse";
 import { UpsertAllocationRequest } from "./UpsertAllocationRequest";
+import { UpsertAndPublishFormVersionData } from "./UpsertAndPublishFormVersionData";
+import { UpsertAndPublishFormVersionDataAttributes } from "./UpsertAndPublishFormVersionDataAttributes";
+import { UpsertAndPublishFormVersionRequest } from "./UpsertAndPublishFormVersionRequest";
+import { UpsertAndPublishFormVersionUpsertParams } from "./UpsertAndPublishFormVersionUpsertParams";
 import { UpsertCatalogEntityResponse } from "./UpsertCatalogEntityResponse";
 import { UpsertCatalogKindResponse } from "./UpsertCatalogKindResponse";
 import { UpsertCloudInventorySyncConfigRequest } from "./UpsertCloudInventorySyncConfigRequest";
 import { UpsertCloudInventorySyncConfigRequestAttributes } from "./UpsertCloudInventorySyncConfigRequestAttributes";
 import { UpsertCloudInventorySyncConfigRequestData } from "./UpsertCloudInventorySyncConfigRequestData";
+import { UpsertFormVersionData } from "./UpsertFormVersionData";
+import { UpsertFormVersionDataAttributes } from "./UpsertFormVersionDataAttributes";
+import { UpsertFormVersionRequest } from "./UpsertFormVersionRequest";
+import { UpsertFormVersionUpsertParams } from "./UpsertFormVersionUpsertParams";
 import { UpsertOAuthScopesRestrictionData } from "./UpsertOAuthScopesRestrictionData";
 import { UpsertOAuthScopesRestrictionDataAttributes } from "./UpsertOAuthScopesRestrictionDataAttributes";
 import { UpsertOAuthScopesRestrictionRequest } from "./UpsertOAuthScopesRestrictionRequest";
@@ -5542,6 +5701,14 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   DashboardUsageType: ["dashboards-usages"],
   DataAttributesRulesItemsIfTagExists: ["append", "do_not_apply", "replace"],
+  DataObservabilityMonitorRunStatus: [
+    "pending",
+    "ok",
+    "warn",
+    "alert",
+    "error",
+  ],
+  DataObservabilityMonitorRunType: ["monitor_run"],
   DataRelationshipsTeamsDataItemsType: ["teams"],
   DataTransformType: ["dataTransform"],
   DatadogAPIKeyType: ["DatadogAPIKey"],
@@ -5734,6 +5901,22 @@ const enumsMap: { [key: string]: any[] } = {
   FleetDeploymentResourceType: ["deployment"],
   FleetScheduleResourceType: ["schedule"],
   FleetScheduleStatus: ["active", "inactive"],
+  FormDataDefinitionType: ["object"],
+  FormPublicationType: ["form_publications"],
+  FormType: ["forms"],
+  FormUiDefinitionUiThemePrimaryColor: [
+    "gray",
+    "red",
+    "orange",
+    "yellow",
+    "green",
+    "light-blue",
+    "dark-blue",
+    "magenta",
+    "indigo",
+  ],
+  FormVersionState: ["draft", "frozen"],
+  FormVersionType: ["form_versions"],
   FreshserviceAPIKeyType: ["FreshserviceAPIKey"],
   FreshserviceIntegrationType: ["Freshservice"],
   GCPIntegrationType: ["GCP"],
@@ -5779,10 +5962,15 @@ const enumsMap: { [key: string]: any[] } = {
   GitlabAPIKeyType: ["GitlabAPIKey"],
   GitlabIntegrationType: ["Gitlab"],
   GlobalIncidentSettingsType: ["incidents_global_settings"],
+  GlobalOrgType: ["global_user_orgs"],
+  GlobalOrgsMetaPageType: ["cursor"],
   GlobalVariableJsonPatchType: ["global_variables_json_patch"],
   GlobalVariableType: ["global_variables"],
   GoogleChatAppNamedSpaceType: ["google-chat-app-named-space"],
+  GoogleChatDelegatedUserType: ["google-chat-delegated-user"],
   GoogleChatOrganizationHandleType: ["google-chat-organization-handle"],
+  GoogleChatOrganizationType: ["google-chat-organization"],
+  GoogleChatTargetAudienceType: ["google-chat-target-audience"],
   GreyNoiseAPIKeyType: ["GreyNoiseAPIKey"],
   GreyNoiseIntegrationType: ["GreyNoise"],
   GuardrailTriggerAction: ["PAUSE", "ABORT"],
@@ -5841,7 +6029,6 @@ const enumsMap: { [key: string]: any[] } = {
   IncidentRespondersType: ["incident_responders"],
   IncidentSearchResultsType: ["incidents_search_results"],
   IncidentSearchSortOrder: ["created", "-created"],
-  IncidentServiceType: ["services"],
   IncidentSeverity: [
     "UNKNOWN",
     "SEV-0",
@@ -6010,6 +6197,17 @@ const enumsMap: { [key: string]: any[] } = {
   LLMObsMetricScoreType: ["score", "categorical", "boolean", "json"],
   LLMObsOpenAIReasoningEffort: ["none", "low", "medium", "high", "xhigh"],
   LLMObsOpenAIReasoningSummary: ["auto", "concise", "detailed"],
+  LLMObsPatternsClusteredPointsType: ["clustered_points_response"],
+  LLMObsPatternsConfigType: ["topic_discovery_configs"],
+  LLMObsPatternsConfigsListType: ["list_topic_discovery_configs_response"],
+  LLMObsPatternsRequestType: ["topic_discovery"],
+  LLMObsPatternsRunStatusType: ["topic_discovery_run_status"],
+  LLMObsPatternsRunsListType: ["list_topic_discovery_runs_response"],
+  LLMObsPatternsTopicsType: ["get_topics_response"],
+  LLMObsPatternsTopicsWithClusteredPointsType: [
+    "get_topics_with_cluster_points_response",
+  ],
+  LLMObsPatternsTriggerResponseType: ["topic_discovery_run"],
   LLMObsProjectType: ["projects"],
   LLMObsRecordType: ["records"],
   LLMObsSearchSpansRequestType: ["spans"],
@@ -6028,6 +6226,7 @@ const enumsMap: { [key: string]: any[] } = {
     "KOTLIN",
     "SWIFT",
   ],
+  LatestVersionMatchPolicy: ["none", "if_etag_match"],
   LaunchDarklyAPIKeyType: ["LaunchDarklyAPIKey"],
   LaunchDarklyIntegrationType: ["LaunchDarkly"],
   LayerRelationshipsMembersDataItemsType: ["members"],
@@ -6080,6 +6279,7 @@ const enumsMap: { [key: string]: any[] } = {
   MaintenanceDataAttributesStatus: ["scheduled", "in_progress", "completed"],
   MaintenanceWindowResourceType: ["maintenance_window"],
   ManagedOrgsType: ["managed_orgs"],
+  MaxSessionDurationType: ["max_session_duration"],
   McpScanRequestDataType: ["mcpscanrequest"],
   McpScanRequestResponseDataType: ["mcpscanrequestresponse"],
   MemberTeamType: ["member_teams"],
@@ -6158,6 +6358,17 @@ const enumsMap: { [key: string]: any[] } = {
     "HUMAN_ERROR",
     "NO_LONGER_ACCEPTED_RISK",
   ],
+  NetworkHealthInsightCategory: ["dns", "tcp", "tls-cert", "security-group"],
+  NetworkHealthInsightFailureType: [
+    "timeout",
+    "nxdomain",
+    "servfail",
+    "general_failure",
+    "expired",
+    "expiring_soon",
+    "denied",
+  ],
+  NetworkHealthInsightsType: ["network-health-insights"],
   NodeTypesResponseDataType: ["get_node_types_response"],
   NotebookResourceType: ["notebook"],
   NotificationChannelEmailConfigType: ["email"],
@@ -6165,6 +6376,9 @@ const enumsMap: { [key: string]: any[] } = {
   NotificationChannelPhoneConfigType: ["phone"],
   NotificationChannelPushConfigType: ["push"],
   NotificationChannelType: ["notification_channels"],
+  NotificationRulePreviewNotificationStatus: ["SUCCESS", "DEFAULT", "ERROR"],
+  NotificationRulePreviewResponseType: ["notification_preview_response"],
+  NotificationRuleRoutingMode: ["manual"],
   NotificationRulesType: ["notification_rules"],
   NotionAPIKeyType: ["NotionAPIKey"],
   NotionIntegrationType: ["Notion"],
@@ -6280,6 +6494,7 @@ const enumsMap: { [key: string]: any[] } = {
   ObservabilityPipelineGenerateMetricsProcessorType: [
     "generate_datadog_metrics",
   ],
+  ObservabilityPipelineGenerateMetricsV2ProcessorType: ["generate_metrics"],
   ObservabilityPipelineGeneratedMetricIncrementByFieldStrategy: [
     "increment_by_field",
   ],
@@ -6547,6 +6762,21 @@ const enumsMap: { [key: string]: any[] } = {
     "ARRAY_BOOLEAN",
     "ARRAY_OBJECT",
   ],
+  OwnershipEvidenceType: ["ownership_evidence"],
+  OwnershipFeedbackAction: ["confirm", "reject", "correct", "persist"],
+  OwnershipFeedbackResultType: ["ownership_feedback_result"],
+  OwnershipFeedbackType: ["ownership_feedback"],
+  OwnershipHistoryType: ["ownership_history"],
+  OwnershipInferenceStatus: [
+    "suggested",
+    "persisted",
+    "overridden",
+    "failed",
+    "unknown",
+  ],
+  OwnershipInferenceType: ["ownership_inference"],
+  OwnershipInferencesType: ["ownership_inferences"],
+  OwnershipOwnerType: ["user", "team", "service", "unknown"],
   PageAnnotationsType: ["page_annotations"],
   PageUrgency: ["low", "high"],
   PaginationMetaPageType: ["offset_limit"],
@@ -6670,6 +6900,12 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   ReorderRuleResourceDataType: ["arbitrary_rule"],
   ReorderRulesetResourceDataType: ["ruleset"],
+  ReportScheduleAuthorType: ["users"],
+  ReportScheduleDeliveryFormat: ["pdf", "png", "pdf_and_png"],
+  ReportScheduleResourceType: ["dashboard", "integration_dashboard"],
+  ReportScheduleResponseAttributesDeliveryFormat: ["pdf", "png", "pdf_and_png"],
+  ReportScheduleStatus: ["active", "inactive"],
+  ReportScheduleType: ["schedule"],
   ResolveVulnerableSymbolsRequestDataType: [
     "resolve-vulnerable-symbols-request",
   ],
@@ -6731,17 +6967,6 @@ const enumsMap: { [key: string]: any[] } = {
   RulesValidateQueryResponseDataType: ["validate_response"],
   RulesetRespDataType: ["ruleset"],
   RulesetStatusRespDataType: ["ruleset_status"],
-  RumHardcodedRetentionFilterEventType: [
-    "session",
-    "view",
-    "action",
-    "error",
-    "resource",
-    "long_task",
-    "vital",
-  ],
-  RumHardcodedRetentionFilterMetaSource: ["default", "ui", "terraform"],
-  RumHardcodedRetentionFilterType: ["hardcoded_retention_filters"],
   RumMetricComputeAggregationType: ["count", "distribution"],
   RumMetricEventType: [
     "session",
@@ -7172,11 +7397,17 @@ const enumsMap: { [key: string]: any[] } = {
     "internal_error",
     "unknown",
   ],
+  SharedDashboardIncludedDashboardType: ["dashboard"],
+  SharedDashboardShareType: ["open", "invite", "embed", "secure-embed"],
+  SharedDashboardStatus: ["active", "paused"],
+  SharedDashboardType: ["shared_dashboard"],
+  SharedDashboardViewingPreferencesTheme: ["system", "light", "dark"],
   ShiftDataRelationshipsUserDataType: ["users"],
   ShiftDataType: ["shifts"],
   SignalEntitiesType: ["entities"],
   SingleAggregatedConnectionResponseDataType: ["aggregated_connection"],
   SingleAggregatedDnsResponseDataType: ["aggregated_dns"],
+  SlackUserBindingType: ["team_id"],
   SloDataSource: ["slo"],
   SloStatusType: ["slo_status"],
   SlosGroupMode: ["overall", "components"],
@@ -7359,6 +7590,12 @@ const enumsMap: { [key: string]: any[] } = {
   TagDataType: ["tag"],
   TagIndexingRuleExemptionType: ["tag_indexing_rule_exemptions"],
   TagIndexingRuleType: ["tag_indexing_rules"],
+  TagPolicyCreateType: ["surfacing"],
+  TagPolicyInclude: ["score"],
+  TagPolicyResourceType: ["tag_policy"],
+  TagPolicyScoreResourceType: ["tag_policy_score"],
+  TagPolicySource: ["logs", "spans", "metrics", "rum", "feed"],
+  TagPolicyType: ["blocking", "surfacing"],
   TeamConnectionType: ["team_connection"],
   TeamHierarchyLinkType: ["team_hierarchy_links"],
   TeamLinkType: ["team_links"],
@@ -8429,6 +8666,9 @@ const typeMap: { [index: string]: any } = {
   ClickupAPIKeyUpdate: ClickupAPIKeyUpdate,
   ClickupIntegration: ClickupIntegration,
   ClickupIntegrationUpdate: ClickupIntegrationUpdate,
+  CloneFormData: CloneFormData,
+  CloneFormDataAttributes: CloneFormDataAttributes,
+  CloneFormRequest: CloneFormRequest,
   CloudConfigurationComplianceRuleOptions:
     CloudConfigurationComplianceRuleOptions,
   CloudConfigurationRegoRule: CloudConfigurationRegoRule,
@@ -8760,6 +9000,9 @@ const typeMap: { [index: string]: any } = {
   CreateFeatureFlagAttributes: CreateFeatureFlagAttributes,
   CreateFeatureFlagData: CreateFeatureFlagData,
   CreateFeatureFlagRequest: CreateFeatureFlagRequest,
+  CreateFormData: CreateFormData,
+  CreateFormDataAttributes: CreateFormDataAttributes,
+  CreateFormRequest: CreateFormRequest,
   CreateIncidentNotificationRuleRequest: CreateIncidentNotificationRuleRequest,
   CreateIncidentNotificationTemplateRequest:
     CreateIncidentNotificationTemplateRequest,
@@ -9129,6 +9372,8 @@ const typeMap: { [index: string]: any } = {
   DeleteAppsResponse: DeleteAppsResponse,
   DeleteAppsResponseDataItems: DeleteAppsResponseDataItems,
   DeleteCustomFrameworkResponse: DeleteCustomFrameworkResponse,
+  DeleteFormData: DeleteFormData,
+  DeleteFormResponse: DeleteFormResponse,
   DeletedSuiteResponseData: DeletedSuiteResponseData,
   DeletedSuiteResponseDataAttributes: DeletedSuiteResponseDataAttributes,
   DeletedSuitesRequestDelete: DeletedSuitesRequestDelete,
@@ -9493,11 +9738,6 @@ const typeMap: { [index: string]: any } = {
   FleetAgentsResponseData: FleetAgentsResponseData,
   FleetAgentsResponseDataAttributes: FleetAgentsResponseDataAttributes,
   FleetAgentsResponseMeta: FleetAgentsResponseMeta,
-  FleetClusterAttributes: FleetClusterAttributes,
-  FleetClustersResponse: FleetClustersResponse,
-  FleetClustersResponseData: FleetClustersResponseData,
-  FleetClustersResponseDataAttributes: FleetClustersResponseDataAttributes,
-  FleetClustersResponseMeta: FleetClustersResponseMeta,
   FleetConfigurationFile: FleetConfigurationFile,
   FleetConfigurationLayer: FleetConfigurationLayer,
   FleetDeployment: FleetDeployment,
@@ -9521,11 +9761,6 @@ const typeMap: { [index: string]: any } = {
   FleetDeploymentsResponse: FleetDeploymentsResponse,
   FleetDeploymentsResponseMeta: FleetDeploymentsResponseMeta,
   FleetDetectedIntegration: FleetDetectedIntegration,
-  FleetInstrumentedPodGroupAttributes: FleetInstrumentedPodGroupAttributes,
-  FleetInstrumentedPodsResponse: FleetInstrumentedPodsResponse,
-  FleetInstrumentedPodsResponseData: FleetInstrumentedPodsResponseData,
-  FleetInstrumentedPodsResponseDataAttributes:
-    FleetInstrumentedPodsResponseDataAttributes,
   FleetIntegrationDetails: FleetIntegrationDetails,
   FleetIntegrationsByStatus: FleetIntegrationsByStatus,
   FleetSchedule: FleetSchedule,
@@ -9546,8 +9781,23 @@ const typeMap: { [index: string]: any } = {
   FleetTracersResponseMeta: FleetTracersResponseMeta,
   FlutterSourcemapAttributes: FlutterSourcemapAttributes,
   FlutterSourcemapData: FlutterSourcemapData,
+  FormData: FormData,
+  FormDataAttributes: FormDataAttributes,
+  FormDataDefinition: FormDataDefinition,
+  FormDatastoreConfigAttributes: FormDatastoreConfigAttributes,
+  FormPublicationAttributes: FormPublicationAttributes,
+  FormPublicationData: FormPublicationData,
+  FormPublicationResponse: FormPublicationResponse,
+  FormResponse: FormResponse,
   FormTrigger: FormTrigger,
   FormTriggerWrapper: FormTriggerWrapper,
+  FormUiDefinition: FormUiDefinition,
+  FormUiDefinitionUiTheme: FormUiDefinitionUiTheme,
+  FormUpdateAttributes: FormUpdateAttributes,
+  FormVersionAttributes: FormVersionAttributes,
+  FormVersionData: FormVersionData,
+  FormVersionResponse: FormVersionResponse,
+  FormsResponse: FormsResponse,
   FormulaLimit: FormulaLimit,
   FrameworkHandleAndVersionResponseData: FrameworkHandleAndVersionResponseData,
   FreshserviceAPIKey: FreshserviceAPIKey,
@@ -9627,6 +9877,12 @@ const typeMap: { [index: string]: any } = {
   GetBlueprintsResponse: GetBlueprintsResponse,
   GetCustomFrameworkResponse: GetCustomFrameworkResponse,
   GetDataDeletionsResponseBody: GetDataDeletionsResponseBody,
+  GetDataObservabilityMonitorRunStatusResponse:
+    GetDataObservabilityMonitorRunStatusResponse,
+  GetDataObservabilityMonitorRunStatusResponseAttributes:
+    GetDataObservabilityMonitorRunStatusResponseAttributes,
+  GetDataObservabilityMonitorRunStatusResponseData:
+    GetDataObservabilityMonitorRunStatusResponseData,
   GetDeviceAttributes: GetDeviceAttributes,
   GetDeviceData: GetDeviceData,
   GetDeviceResponse: GetDeviceResponse,
@@ -9689,7 +9945,15 @@ const typeMap: { [index: string]: any } = {
   GlobalIncidentSettingsDataResponse: GlobalIncidentSettingsDataResponse,
   GlobalIncidentSettingsRequest: GlobalIncidentSettingsRequest,
   GlobalIncidentSettingsResponse: GlobalIncidentSettingsResponse,
+  GlobalOrg: GlobalOrg,
+  GlobalOrgAttributes: GlobalOrgAttributes,
+  GlobalOrgData: GlobalOrgData,
   GlobalOrgIdentifier: GlobalOrgIdentifier,
+  GlobalOrgUser: GlobalOrgUser,
+  GlobalOrgsLinks: GlobalOrgsLinks,
+  GlobalOrgsMeta: GlobalOrgsMeta,
+  GlobalOrgsMetaPage: GlobalOrgsMetaPage,
+  GlobalOrgsResponse: GlobalOrgsResponse,
   GlobalVariableData: GlobalVariableData,
   GlobalVariableJsonPatchRequest: GlobalVariableJsonPatchRequest,
   GlobalVariableJsonPatchRequestData: GlobalVariableJsonPatchRequestData,
@@ -9706,12 +9970,38 @@ const typeMap: { [index: string]: any } = {
     GoogleChatCreateOrganizationHandleRequestAttributes,
   GoogleChatCreateOrganizationHandleRequestData:
     GoogleChatCreateOrganizationHandleRequestData,
+  GoogleChatDelegatedUserAttributes: GoogleChatDelegatedUserAttributes,
+  GoogleChatDelegatedUserData: GoogleChatDelegatedUserData,
+  GoogleChatDelegatedUserResponse: GoogleChatDelegatedUserResponse,
+  GoogleChatOrganizationAttributes: GoogleChatOrganizationAttributes,
+  GoogleChatOrganizationData: GoogleChatOrganizationData,
   GoogleChatOrganizationHandleResponse: GoogleChatOrganizationHandleResponse,
   GoogleChatOrganizationHandleResponseAttributes:
     GoogleChatOrganizationHandleResponseAttributes,
   GoogleChatOrganizationHandleResponseData:
     GoogleChatOrganizationHandleResponseData,
   GoogleChatOrganizationHandlesResponse: GoogleChatOrganizationHandlesResponse,
+  GoogleChatOrganizationRelationships: GoogleChatOrganizationRelationships,
+  GoogleChatOrganizationRelationshipsDelegatedUser:
+    GoogleChatOrganizationRelationshipsDelegatedUser,
+  GoogleChatOrganizationRelationshipsDelegatedUserData:
+    GoogleChatOrganizationRelationshipsDelegatedUserData,
+  GoogleChatOrganizationResponse: GoogleChatOrganizationResponse,
+  GoogleChatOrganizationsResponse: GoogleChatOrganizationsResponse,
+  GoogleChatTargetAudienceAttributes: GoogleChatTargetAudienceAttributes,
+  GoogleChatTargetAudienceCreateRequest: GoogleChatTargetAudienceCreateRequest,
+  GoogleChatTargetAudienceCreateRequestAttributes:
+    GoogleChatTargetAudienceCreateRequestAttributes,
+  GoogleChatTargetAudienceCreateRequestData:
+    GoogleChatTargetAudienceCreateRequestData,
+  GoogleChatTargetAudienceData: GoogleChatTargetAudienceData,
+  GoogleChatTargetAudienceResponse: GoogleChatTargetAudienceResponse,
+  GoogleChatTargetAudienceUpdateRequest: GoogleChatTargetAudienceUpdateRequest,
+  GoogleChatTargetAudienceUpdateRequestAttributes:
+    GoogleChatTargetAudienceUpdateRequestAttributes,
+  GoogleChatTargetAudienceUpdateRequestData:
+    GoogleChatTargetAudienceUpdateRequestData,
+  GoogleChatTargetAudiencesResponse: GoogleChatTargetAudiencesResponse,
   GoogleChatUpdateOrganizationHandleRequest:
     GoogleChatUpdateOrganizationHandleRequest,
   GoogleChatUpdateOrganizationHandleRequestAttributes:
@@ -9884,17 +10174,6 @@ const typeMap: { [index: string]: any } = {
   IncidentSearchResponsePropertyFieldFacetData:
     IncidentSearchResponsePropertyFieldFacetData,
   IncidentSearchResponseUserFacetData: IncidentSearchResponseUserFacetData,
-  IncidentServiceCreateAttributes: IncidentServiceCreateAttributes,
-  IncidentServiceCreateData: IncidentServiceCreateData,
-  IncidentServiceCreateRequest: IncidentServiceCreateRequest,
-  IncidentServiceRelationships: IncidentServiceRelationships,
-  IncidentServiceResponse: IncidentServiceResponse,
-  IncidentServiceResponseAttributes: IncidentServiceResponseAttributes,
-  IncidentServiceResponseData: IncidentServiceResponseData,
-  IncidentServiceUpdateAttributes: IncidentServiceUpdateAttributes,
-  IncidentServiceUpdateData: IncidentServiceUpdateData,
-  IncidentServiceUpdateRequest: IncidentServiceUpdateRequest,
-  IncidentServicesResponse: IncidentServicesResponse,
   IncidentTimelineCellMarkdownCreateAttributes:
     IncidentTimelineCellMarkdownCreateAttributes,
   IncidentTimelineCellMarkdownCreateAttributesContent:
@@ -10360,6 +10639,56 @@ const typeMap: { [index: string]: any } = {
   LLMObsInternalReasoning: LLMObsInternalReasoning,
   LLMObsLabelSchema: LLMObsLabelSchema,
   LLMObsOpenAIMetadata: LLMObsOpenAIMetadata,
+  LLMObsPatternsActivityProgress: LLMObsPatternsActivityProgress,
+  LLMObsPatternsClusteredPoint: LLMObsPatternsClusteredPoint,
+  LLMObsPatternsClusteredPointRef: LLMObsPatternsClusteredPointRef,
+  LLMObsPatternsClusteredPointsResponse: LLMObsPatternsClusteredPointsResponse,
+  LLMObsPatternsClusteredPointsResponseAttributes:
+    LLMObsPatternsClusteredPointsResponseAttributes,
+  LLMObsPatternsClusteredPointsResponseData:
+    LLMObsPatternsClusteredPointsResponseData,
+  LLMObsPatternsConfigAttributes: LLMObsPatternsConfigAttributes,
+  LLMObsPatternsConfigItem: LLMObsPatternsConfigItem,
+  LLMObsPatternsConfigResponse: LLMObsPatternsConfigResponse,
+  LLMObsPatternsConfigResponseData: LLMObsPatternsConfigResponseData,
+  LLMObsPatternsConfigSnapshot: LLMObsPatternsConfigSnapshot,
+  LLMObsPatternsConfigUpsertRequest: LLMObsPatternsConfigUpsertRequest,
+  LLMObsPatternsConfigUpsertRequestAttributes:
+    LLMObsPatternsConfigUpsertRequestAttributes,
+  LLMObsPatternsConfigUpsertRequestData: LLMObsPatternsConfigUpsertRequestData,
+  LLMObsPatternsConfigsResponse: LLMObsPatternsConfigsResponse,
+  LLMObsPatternsConfigsResponseAttributes:
+    LLMObsPatternsConfigsResponseAttributes,
+  LLMObsPatternsConfigsResponseData: LLMObsPatternsConfigsResponseData,
+  LLMObsPatternsRunStatusResponse: LLMObsPatternsRunStatusResponse,
+  LLMObsPatternsRunStatusResponseAttributes:
+    LLMObsPatternsRunStatusResponseAttributes,
+  LLMObsPatternsRunStatusResponseData: LLMObsPatternsRunStatusResponseData,
+  LLMObsPatternsRunSummary: LLMObsPatternsRunSummary,
+  LLMObsPatternsRunsResponse: LLMObsPatternsRunsResponse,
+  LLMObsPatternsRunsResponseAttributes: LLMObsPatternsRunsResponseAttributes,
+  LLMObsPatternsRunsResponseData: LLMObsPatternsRunsResponseData,
+  LLMObsPatternsTopic: LLMObsPatternsTopic,
+  LLMObsPatternsTopicWithClusteredPoints:
+    LLMObsPatternsTopicWithClusteredPoints,
+  LLMObsPatternsTopicsResponse: LLMObsPatternsTopicsResponse,
+  LLMObsPatternsTopicsResponseAttributes:
+    LLMObsPatternsTopicsResponseAttributes,
+  LLMObsPatternsTopicsResponseData: LLMObsPatternsTopicsResponseData,
+  LLMObsPatternsTopicsWithClusteredPointsResponse:
+    LLMObsPatternsTopicsWithClusteredPointsResponse,
+  LLMObsPatternsTopicsWithClusteredPointsResponseAttributes:
+    LLMObsPatternsTopicsWithClusteredPointsResponseAttributes,
+  LLMObsPatternsTopicsWithClusteredPointsResponseData:
+    LLMObsPatternsTopicsWithClusteredPointsResponseData,
+  LLMObsPatternsTriggerRequest: LLMObsPatternsTriggerRequest,
+  LLMObsPatternsTriggerRequestAttributes:
+    LLMObsPatternsTriggerRequestAttributes,
+  LLMObsPatternsTriggerRequestData: LLMObsPatternsTriggerRequestData,
+  LLMObsPatternsTriggerResponse: LLMObsPatternsTriggerResponse,
+  LLMObsPatternsTriggerResponseAttributes:
+    LLMObsPatternsTriggerResponseAttributes,
+  LLMObsPatternsTriggerResponseData: LLMObsPatternsTriggerResponseData,
   LLMObsProjectDataAttributesRequest: LLMObsProjectDataAttributesRequest,
   LLMObsProjectDataAttributesResponse: LLMObsProjectDataAttributesResponse,
   LLMObsProjectDataRequest: LLMObsProjectDataRequest,
@@ -10487,6 +10816,7 @@ const typeMap: { [index: string]: any } = {
   ListScorecardsResponse: ListScorecardsResponse,
   ListSecurityFindingsResponse: ListSecurityFindingsResponse,
   ListServiceAccessTokensResponse: ListServiceAccessTokensResponse,
+  ListSharedDashboardsResponse: ListSharedDashboardsResponse,
   ListSourcemapsResponse: ListSourcemapsResponse,
   ListTagsResponse: ListTagsResponse,
   ListTagsResponseData: ListTagsResponseData,
@@ -10590,6 +10920,9 @@ const typeMap: { [index: string]: any } = {
   ManagedOrgsRelationshipToOrgs: ManagedOrgsRelationshipToOrgs,
   ManagedOrgsRelationships: ManagedOrgsRelationships,
   ManagedOrgsResponse: ManagedOrgsResponse,
+  MaxSessionDurationUpdateAttributes: MaxSessionDurationUpdateAttributes,
+  MaxSessionDurationUpdateData: MaxSessionDurationUpdateData,
+  MaxSessionDurationUpdateRequest: MaxSessionDurationUpdateRequest,
   McpScanRequest: McpScanRequest,
   McpScanRequestData: McpScanRequestData,
   McpScanRequestDataAttributes: McpScanRequestDataAttributes,
@@ -10826,6 +11159,10 @@ const typeMap: { [index: string]: any } = {
   MuteFindingsResponseData: MuteFindingsResponseData,
   NDKSourcemapAttributes: NDKSourcemapAttributes,
   NDKSourcemapData: NDKSourcemapData,
+  NetworkHealthInsight: NetworkHealthInsight,
+  NetworkHealthInsightAttributes: NetworkHealthInsightAttributes,
+  NetworkHealthInsightTrafficVolume: NetworkHealthInsightTrafficVolume,
+  NetworkHealthInsightsResponse: NetworkHealthInsightsResponse,
   NodeTypesResponse: NodeTypesResponse,
   NodeTypesResponseData: NodeTypesResponseData,
   NodeTypesResponseDataAttributes: NodeTypesResponseDataAttributes,
@@ -10840,7 +11177,13 @@ const typeMap: { [index: string]: any } = {
   NotificationChannelPushConfig: NotificationChannelPushConfig,
   NotificationRule: NotificationRule,
   NotificationRuleAttributes: NotificationRuleAttributes,
+  NotificationRulePreviewResponse: NotificationRulePreviewResponse,
+  NotificationRulePreviewResponseAttributes:
+    NotificationRulePreviewResponseAttributes,
+  NotificationRulePreviewResponseData: NotificationRulePreviewResponseData,
+  NotificationRulePreviewResult: NotificationRulePreviewResult,
   NotificationRuleResponse: NotificationRuleResponse,
+  NotificationRuleRouting: NotificationRuleRouting,
   NotificationRulesListResponse: NotificationRulesListResponse,
   NotionAPIKey: NotionAPIKey,
   NotionAPIKeyUpdate: NotionAPIKeyUpdate,
@@ -10971,6 +11314,8 @@ const typeMap: { [index: string]: any } = {
   ObservabilityPipelineGcpAuth: ObservabilityPipelineGcpAuth,
   ObservabilityPipelineGenerateMetricsProcessor:
     ObservabilityPipelineGenerateMetricsProcessor,
+  ObservabilityPipelineGenerateMetricsV2Processor:
+    ObservabilityPipelineGenerateMetricsV2Processor,
   ObservabilityPipelineGeneratedMetric: ObservabilityPipelineGeneratedMetric,
   ObservabilityPipelineGeneratedMetricIncrementByField:
     ObservabilityPipelineGeneratedMetricIncrementByField,
@@ -11317,6 +11662,27 @@ const typeMap: { [index: string]: any } = {
   OutputSchema: OutputSchema,
   OutputSchemaParameters: OutputSchemaParameters,
   OverwriteAllocationsRequest: OverwriteAllocationsRequest,
+  OwnershipEvidenceAttributes: OwnershipEvidenceAttributes,
+  OwnershipEvidenceData: OwnershipEvidenceData,
+  OwnershipEvidenceResponse: OwnershipEvidenceResponse,
+  OwnershipFeedbackRequest: OwnershipFeedbackRequest,
+  OwnershipFeedbackRequestAttributes: OwnershipFeedbackRequestAttributes,
+  OwnershipFeedbackRequestData: OwnershipFeedbackRequestData,
+  OwnershipFeedbackResponse: OwnershipFeedbackResponse,
+  OwnershipFeedbackResultAttributes: OwnershipFeedbackResultAttributes,
+  OwnershipFeedbackResultData: OwnershipFeedbackResultData,
+  OwnershipHistoryAttributes: OwnershipHistoryAttributes,
+  OwnershipHistoryData: OwnershipHistoryData,
+  OwnershipHistoryItem: OwnershipHistoryItem,
+  OwnershipHistoryPagination: OwnershipHistoryPagination,
+  OwnershipHistoryResponse: OwnershipHistoryResponse,
+  OwnershipInferenceAttributes: OwnershipInferenceAttributes,
+  OwnershipInferenceData: OwnershipInferenceData,
+  OwnershipInferenceItem: OwnershipInferenceItem,
+  OwnershipInferenceListAttributes: OwnershipInferenceListAttributes,
+  OwnershipInferenceListData: OwnershipInferenceListData,
+  OwnershipInferenceListResponse: OwnershipInferenceListResponse,
+  OwnershipInferenceResponse: OwnershipInferenceResponse,
   PageAnnotationsAttributes: PageAnnotationsAttributes,
   PageAnnotationsData: PageAnnotationsData,
   PageAnnotationsResponse: PageAnnotationsResponse,
@@ -11509,6 +11875,9 @@ const typeMap: { [index: string]: any } = {
   PrunedTraceData: PrunedTraceData,
   PrunedTraceResponse: PrunedTraceResponse,
   PublishAppResponse: PublishAppResponse,
+  PublishFormData: PublishFormData,
+  PublishFormDataAttributes: PublishFormDataAttributes,
+  PublishFormRequest: PublishFormRequest,
   PutAppsDatastoreItemResponseArray: PutAppsDatastoreItemResponseArray,
   PutAppsDatastoreItemResponseData: PutAppsDatastoreItemResponseData,
   PutIncidentNotificationRuleRequest: PutIncidentNotificationRuleRequest,
@@ -11653,6 +12022,21 @@ const typeMap: { [index: string]: any } = {
   ReorderRuleResourceData: ReorderRuleResourceData,
   ReorderRulesetResourceArray: ReorderRulesetResourceArray,
   ReorderRulesetResourceData: ReorderRulesetResourceData,
+  ReportScheduleAuthor: ReportScheduleAuthor,
+  ReportScheduleAuthorAttributes: ReportScheduleAuthorAttributes,
+  ReportScheduleAuthorRelationship: ReportScheduleAuthorRelationship,
+  ReportScheduleAuthorRelationshipData: ReportScheduleAuthorRelationshipData,
+  ReportScheduleCreateRequest: ReportScheduleCreateRequest,
+  ReportScheduleCreateRequestAttributes: ReportScheduleCreateRequestAttributes,
+  ReportScheduleCreateRequestData: ReportScheduleCreateRequestData,
+  ReportSchedulePatchRequest: ReportSchedulePatchRequest,
+  ReportSchedulePatchRequestAttributes: ReportSchedulePatchRequestAttributes,
+  ReportSchedulePatchRequestData: ReportSchedulePatchRequestData,
+  ReportScheduleResponse: ReportScheduleResponse,
+  ReportScheduleResponseAttributes: ReportScheduleResponseAttributes,
+  ReportScheduleResponseData: ReportScheduleResponseData,
+  ReportScheduleResponseRelationships: ReportScheduleResponseRelationships,
+  ReportScheduleTemplateVariable: ReportScheduleTemplateVariable,
   ResolveVulnerableSymbolsRequest: ResolveVulnerableSymbolsRequest,
   ResolveVulnerableSymbolsRequestData: ResolveVulnerableSymbolsRequestData,
   ResolveVulnerableSymbolsRequestDataAttributes:
@@ -11784,21 +12168,6 @@ const typeMap: { [index: string]: any } = {
   RumCrossProductSampling: RumCrossProductSampling,
   RumCrossProductSamplingCreate: RumCrossProductSamplingCreate,
   RumCrossProductSamplingUpdate: RumCrossProductSamplingUpdate,
-  RumHardcodedCrossProductSampling: RumHardcodedCrossProductSampling,
-  RumHardcodedCrossProductSamplingEditability:
-    RumHardcodedCrossProductSamplingEditability,
-  RumHardcodedCrossProductSamplingUpdate:
-    RumHardcodedCrossProductSamplingUpdate,
-  RumHardcodedRetentionFilterAttributes: RumHardcodedRetentionFilterAttributes,
-  RumHardcodedRetentionFilterData: RumHardcodedRetentionFilterData,
-  RumHardcodedRetentionFilterMeta: RumHardcodedRetentionFilterMeta,
-  RumHardcodedRetentionFilterResponse: RumHardcodedRetentionFilterResponse,
-  RumHardcodedRetentionFilterUpdateAttributes:
-    RumHardcodedRetentionFilterUpdateAttributes,
-  RumHardcodedRetentionFilterUpdateData: RumHardcodedRetentionFilterUpdateData,
-  RumHardcodedRetentionFilterUpdateRequest:
-    RumHardcodedRetentionFilterUpdateRequest,
-  RumHardcodedRetentionFiltersResponse: RumHardcodedRetentionFiltersResponse,
   RumMetricCompute: RumMetricCompute,
   RumMetricCreateAttributes: RumMetricCreateAttributes,
   RumMetricCreateData: RumMetricCreateData,
@@ -11850,6 +12219,9 @@ const typeMap: { [index: string]: any } = {
   RumRetentionFiltersOrderRequest: RumRetentionFiltersOrderRequest,
   RumRetentionFiltersOrderResponse: RumRetentionFiltersOrderResponse,
   RumRetentionFiltersResponse: RumRetentionFiltersResponse,
+  RunDataObservabilityMonitorResponse: RunDataObservabilityMonitorResponse,
+  RunDataObservabilityMonitorResponseData:
+    RunDataObservabilityMonitorResponseData,
   RunHistoricalJobRequest: RunHistoricalJobRequest,
   RunHistoricalJobRequestAttributes: RunHistoricalJobRequestAttributes,
   RunHistoricalJobRequestData: RunHistoricalJobRequestData,
@@ -12526,6 +12898,22 @@ const typeMap: { [index: string]: any } = {
   ServiceRepositoryInfoResponseData: ServiceRepositoryInfoResponseData,
   SessionIdArray: SessionIdArray,
   SessionIdData: SessionIdData,
+  SharedDashboardIncludedDashboard: SharedDashboardIncludedDashboard,
+  SharedDashboardIncludedDashboardAttributes:
+    SharedDashboardIncludedDashboardAttributes,
+  SharedDashboardIncludedUser: SharedDashboardIncludedUser,
+  SharedDashboardIncludedUserAttributes: SharedDashboardIncludedUserAttributes,
+  SharedDashboardInvitee: SharedDashboardInvitee,
+  SharedDashboardRelationshipDashboard: SharedDashboardRelationshipDashboard,
+  SharedDashboardRelationshipDashboardData:
+    SharedDashboardRelationshipDashboardData,
+  SharedDashboardRelationshipSharer: SharedDashboardRelationshipSharer,
+  SharedDashboardRelationships: SharedDashboardRelationships,
+  SharedDashboardResponse: SharedDashboardResponse,
+  SharedDashboardResponseAttributes: SharedDashboardResponseAttributes,
+  SharedDashboardSelectableTemplateVariable:
+    SharedDashboardSelectableTemplateVariable,
+  SharedDashboardViewingPreferences: SharedDashboardViewingPreferences,
   Shift: Shift,
   ShiftData: ShiftData,
   ShiftDataAttributes: ShiftDataAttributes,
@@ -12552,9 +12940,12 @@ const typeMap: { [index: string]: any } = {
     SingleAggregatedDnsResponseDataAttributesGroupByItems,
   SingleAggregatedDnsResponseDataAttributesMetricsItems:
     SingleAggregatedDnsResponseDataAttributesMetricsItems,
+  SingleEntityContextResponse: SingleEntityContextResponse,
   SlackIntegrationMetadata: SlackIntegrationMetadata,
   SlackIntegrationMetadataChannelItem: SlackIntegrationMetadataChannelItem,
   SlackTriggerWrapper: SlackTriggerWrapper,
+  SlackUserBindingData: SlackUserBindingData,
+  SlackUserBindingsResponse: SlackUserBindingsResponse,
   SloQuery: SloQuery,
   SloReportCreateRequest: SloReportCreateRequest,
   SloReportCreateRequestAttributes: SloReportCreateRequestAttributes,
@@ -12977,6 +13368,22 @@ const typeMap: { [index: string]: any } = {
   TagIndexingRuleUpdateRequest: TagIndexingRuleUpdateRequest,
   TagIndexingRulesResponse: TagIndexingRulesResponse,
   TagIndexingRulesResponseMeta: TagIndexingRulesResponseMeta,
+  TagPoliciesListResponse: TagPoliciesListResponse,
+  TagPolicyAttributes: TagPolicyAttributes,
+  TagPolicyCreateAttributes: TagPolicyCreateAttributes,
+  TagPolicyCreateData: TagPolicyCreateData,
+  TagPolicyCreateRequest: TagPolicyCreateRequest,
+  TagPolicyData: TagPolicyData,
+  TagPolicyRelationships: TagPolicyRelationships,
+  TagPolicyResponse: TagPolicyResponse,
+  TagPolicyScoreAttributes: TagPolicyScoreAttributes,
+  TagPolicyScoreData: TagPolicyScoreData,
+  TagPolicyScoreRelationship: TagPolicyScoreRelationship,
+  TagPolicyScoreRelationshipData: TagPolicyScoreRelationshipData,
+  TagPolicyScoreResponse: TagPolicyScoreResponse,
+  TagPolicyUpdateAttributes: TagPolicyUpdateAttributes,
+  TagPolicyUpdateData: TagPolicyUpdateData,
+  TagPolicyUpdateRequest: TagPolicyUpdateRequest,
   TargetingRule: TargetingRule,
   TargetingRuleRequest: TargetingRuleRequest,
   Team: Team,
@@ -13260,6 +13667,9 @@ const typeMap: { [index: string]: any } = {
   UpdateFlakyTestsResponseAttributes: UpdateFlakyTestsResponseAttributes,
   UpdateFlakyTestsResponseData: UpdateFlakyTestsResponseData,
   UpdateFlakyTestsResponseResult: UpdateFlakyTestsResponseResult,
+  UpdateFormData: UpdateFormData,
+  UpdateFormDataAttributes: UpdateFormDataAttributes,
+  UpdateFormRequest: UpdateFormRequest,
   UpdateOnCallNotificationRuleRequest: UpdateOnCallNotificationRuleRequest,
   UpdateOnCallNotificationRuleRequestAttributes:
     UpdateOnCallNotificationRuleRequestAttributes,
@@ -13311,6 +13721,12 @@ const typeMap: { [index: string]: any } = {
   UpdateWorkflowRequest: UpdateWorkflowRequest,
   UpdateWorkflowResponse: UpdateWorkflowResponse,
   UpsertAllocationRequest: UpsertAllocationRequest,
+  UpsertAndPublishFormVersionData: UpsertAndPublishFormVersionData,
+  UpsertAndPublishFormVersionDataAttributes:
+    UpsertAndPublishFormVersionDataAttributes,
+  UpsertAndPublishFormVersionRequest: UpsertAndPublishFormVersionRequest,
+  UpsertAndPublishFormVersionUpsertParams:
+    UpsertAndPublishFormVersionUpsertParams,
   UpsertCatalogEntityResponse: UpsertCatalogEntityResponse,
   UpsertCatalogKindResponse: UpsertCatalogKindResponse,
   UpsertCloudInventorySyncConfigRequest: UpsertCloudInventorySyncConfigRequest,
@@ -13318,6 +13734,10 @@ const typeMap: { [index: string]: any } = {
     UpsertCloudInventorySyncConfigRequestAttributes,
   UpsertCloudInventorySyncConfigRequestData:
     UpsertCloudInventorySyncConfigRequestData,
+  UpsertFormVersionData: UpsertFormVersionData,
+  UpsertFormVersionDataAttributes: UpsertFormVersionDataAttributes,
+  UpsertFormVersionRequest: UpsertFormVersionRequest,
+  UpsertFormVersionUpsertParams: UpsertFormVersionUpsertParams,
   UpsertOAuthScopesRestrictionData: UpsertOAuthScopesRestrictionData,
   UpsertOAuthScopesRestrictionDataAttributes:
     UpsertOAuthScopesRestrictionDataAttributes,
@@ -13763,7 +14183,6 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   IncidentNotificationTemplateIncludedItems: ["User", "IncidentTypeObject"],
   IncidentResponseIncludedItem: ["IncidentUserData", "AttachmentData"],
-  IncidentServiceIncludedItems: ["User"],
   IncidentTimelineCellCreateAttributes: [
     "IncidentTimelineCellMarkdownCreateAttributes",
   ],
@@ -13891,6 +14310,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineDedupeProcessor",
     "ObservabilityPipelineEnrichmentTableProcessor",
     "ObservabilityPipelineGenerateMetricsProcessor",
+    "ObservabilityPipelineGenerateMetricsV2Processor",
     "ObservabilityPipelineOcsfMapperProcessor",
     "ObservabilityPipelineParseGrokProcessor",
     "ObservabilityPipelineParseJSONProcessor",
@@ -13996,6 +14416,7 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   RUMGroupByMissing: ["string", "number"],
   RUMGroupByTotal: ["boolean", "string", "number"],
+  ReportScheduleIncludedResource: ["ReportScheduleAuthor"],
   RestrictionQueryResponseIncludedItem: ["RestrictionQueryRole"],
   RoutingRuleAction: [
     "SendSlackMessageAction",
@@ -14074,6 +14495,10 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   ServiceNowCredentials: ["ServiceNowBasicAuth"],
   ServiceNowCredentialsUpdate: ["ServiceNowBasicAuthUpdate"],
+  SharedDashboardIncluded: [
+    "SharedDashboardIncludedDashboard",
+    "SharedDashboardIncludedUser",
+  ],
   ShiftIncluded: ["ScheduleUser"],
   SourcemapItem: [
     "JSSourcemapData",

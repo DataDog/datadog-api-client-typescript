@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { NotificationRuleRouting } from "./NotificationRuleRouting";
 import { Selectors } from "./Selectors";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -19,6 +20,10 @@ export class PatchNotificationRuleParametersDataAttributes {
    * Name of the notification rule.
    */
   "name"?: string;
+  /**
+   * Routing configuration for the notification rule.
+   */
+  "routing"?: NotificationRuleRouting;
   /**
    * Selectors are used to filter security issues for which notifications should be generated.
    * Users can specify rule severities, rule types, a query to filter security issues on tags and attributes, and the trigger source.
@@ -67,6 +72,10 @@ export class PatchNotificationRuleParametersDataAttributes {
     name: {
       baseName: "name",
       type: "string",
+    },
+    routing: {
+      baseName: "routing",
+      type: "NotificationRuleRouting",
     },
     selectors: {
       baseName: "selectors",

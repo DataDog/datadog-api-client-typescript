@@ -1,0 +1,21 @@
+/**
+ * Unless explicitly stated otherwise all files in this repository are licensed under the Apache-2.0 License.
+ * This product includes software developed at Datadog (https://www.datadoghq.com/).
+ * Copyright 2020-Present Datadog, Inc.
+ */
+
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * How a PDF-export report is delivered. `pdf` attaches a PDF file, `png` embeds
+ * an inline PNG image, and `pdf_and_png` delivers both.
+ */
+
+export type ReportScheduleDeliveryFormat =
+  | typeof PDF
+  | typeof PNG
+  | typeof PDF_AND_PNG
+  | UnparsedObject;
+export const PDF = "pdf";
+export const PNG = "png";
+export const PDF_AND_PNG = "pdf_and_png";

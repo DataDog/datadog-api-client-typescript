@@ -2404,40 +2404,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "FleetTracersResponse",
     },
-    "v2.ListFleetClusters": {
-        "pageNumber": {
-            "type": "number",
-            "format": "int64",
-            },
-        "pageSize": {
-            "type": "number",
-            "format": "int64",
-            },
-        "sortAttribute": {
-            "type": "string",
-            "format": "",
-            },
-        "sortDescending": {
-            "type": "boolean",
-            "format": "",
-            },
-        "filter": {
-            "type": "string",
-            "format": "",
-            },
-        "tags": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "FleetClustersResponse",
-    },
-    "v2.ListFleetInstrumentedPods": {
-        "clusterName": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "FleetInstrumentedPodsResponse",
-    },
     "v2.ListFleetDeployments": {
         "pageSize": {
             "type": "number",
@@ -2951,6 +2917,88 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "LLMObsSpansResponse",
+    },
+    "v2.ListLLMObsPatternsClusteredPoints": {
+        "topicId": {
+            "type": "string",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageToken": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsPatternsClusteredPointsResponse",
+    },
+    "v2.ListLLMObsPatternsConfigs": {
+        "operationResponseType": "LLMObsPatternsConfigsResponse",
+    },
+    "v2.UpsertLLMObsPatternsConfig": {
+        "body": {
+            "type": "LLMObsPatternsConfigUpsertRequest",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsPatternsConfigResponse",
+    },
+    "v2.GetLLMObsPatternsConfig": {
+        "operationResponseType": "LLMObsPatternsConfigResponse",
+    },
+    "v2.DeleteLLMObsPatternsConfig": {
+        "configId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListLLMObsPatternsRuns": {
+        "configId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsPatternsRunsResponse",
+    },
+    "v2.TriggerLLMObsPatterns": {
+        "body": {
+            "type": "LLMObsPatternsTriggerRequest",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsPatternsTriggerResponse",
+    },
+    "v2.GetLLMObsPatternsRunStatus": {
+        "configId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsPatternsRunStatusResponse",
+    },
+    "v2.ListLLMObsPatternsTopics": {
+        "configId": {
+            "type": "string",
+            "format": "",
+            },
+        "runId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsPatternsTopicsResponse",
+    },
+    "v2.ListLLMObsPatternsTopicsWithClusteredPoints": {
+        "configId": {
+            "type": "string",
+            "format": "",
+            },
+        "runId": {
+            "type": "string",
+            "format": "",
+            },
+        "includeMetrics": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsPatternsTopicsWithClusteredPointsResponse",
     },
     "v2.ListLLMObsDatasets": {
         "projectId": {
@@ -6309,6 +6357,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.SendSecurityMonitoringNotificationPreview": {
+        "body": {
+            "type": "CreateNotificationRuleParameters",
+            "format": "",
+            },
+        "operationResponseType": "NotificationRulePreviewResponse",
+    },
     "v2.ListSecurityFilters": {
         "operationResponseType": "SecurityFiltersResponse",
     },
@@ -6562,6 +6617,25 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "EntityContextResponse",
     },
+    "v2.GetSingleEntityContext": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "from": {
+            "type": "string",
+            "format": "",
+            },
+        "to": {
+            "type": "string",
+            "format": "",
+            },
+        "asOf": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SingleEntityContextResponse",
+    },
     "v2.ListSecurityMonitoringRules": {
         "pageSize": {
             "type": "number",
@@ -6661,6 +6735,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "SecurityMonitoringRuleConvertResponse",
+    },
+    "v2.RestoreSecurityMonitoringRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "version": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "SecurityMonitoringRuleResponse",
     },
     "v2.TestExistingSecurityMonitoringRule": {
         "ruleId": {
@@ -7827,6 +7912,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "filterMetric": {
+            "type": "string",
+            "format": "",
+            },
         "operationResponseType": "CostTagKeySourcesResponse",
     },
     "v2.ListCostTags": {
@@ -8150,6 +8239,92 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.GetCSMServerlessCoverageAnalysis": {
         "operationResponseType": "CsmServerlessCoverageAnalysisResponse",
     },
+    "v2.ListOwnershipInferences": {
+        "resourceId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "OwnershipInferenceListResponse",
+    },
+    "v2.ListOwnershipHistory": {
+        "resourceId": {
+            "type": "string",
+            "format": "",
+            },
+        "cursor": {
+            "type": "string",
+            "format": "",
+            },
+        "limit": {
+            "type": "number",
+            "format": "int32",
+            },
+        "operationResponseType": "OwnershipHistoryResponse",
+    },
+    "v2.GetOwnershipInference": {
+        "resourceId": {
+            "type": "string",
+            "format": "",
+            },
+        "ownerType": {
+            "type": "OwnershipOwnerType",
+            "format": "",
+            },
+        "ifNoneMatch": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "OwnershipInferenceResponse",
+    },
+    "v2.GetOwnershipEvidence": {
+        "resourceId": {
+            "type": "string",
+            "format": "",
+            },
+        "ownerType": {
+            "type": "OwnershipOwnerType",
+            "format": "",
+            },
+        "ifNoneMatch": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "OwnershipEvidenceResponse",
+    },
+    "v2.CreateOwnershipFeedback": {
+        "resourceId": {
+            "type": "string",
+            "format": "",
+            },
+        "ownerType": {
+            "type": "OwnershipOwnerType",
+            "format": "",
+            },
+        "body": {
+            "type": "OwnershipFeedbackRequest",
+            "format": "",
+            },
+        "operationResponseType": "OwnershipFeedbackResponse",
+    },
+    "v2.ListOwnershipHistoryByOwnerType": {
+        "resourceId": {
+            "type": "string",
+            "format": "",
+            },
+        "ownerType": {
+            "type": "OwnershipOwnerType",
+            "format": "",
+            },
+        "cursor": {
+            "type": "string",
+            "format": "",
+            },
+        "limit": {
+            "type": "number",
+            "format": "int32",
+            },
+        "operationResponseType": "OwnershipHistoryResponse",
+    },
     "v2.ListCSMAgentlessHosts": {
         "page": {
             "type": "number",
@@ -8256,6 +8431,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "DashboardListDeleteItemsResponse",
     },
+    "v2.ListSharedDashboardsByDashboardId": {
+        "dashboardId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ListSharedDashboardsResponse",
+    },
     "v2.CreateDashboardSecureEmbed": {
         "dashboardId": {
             "type": "string",
@@ -8329,6 +8511,20 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "DashboardUsageResponse",
+    },
+    "v2.GetDataObservabilityMonitorRunStatus": {
+        "runId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "GetDataObservabilityMonitorRunStatusResponse",
+    },
+    "v2.RunDataObservabilityMonitor": {
+        "monitorId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "RunDataObservabilityMonitorResponse",
     },
     "v2.GetAllDatasets": {
         "operationResponseType": "DatasetResponseMulti",
@@ -8959,6 +9155,181 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "uuid",
             },
         "operationResponseType": "FeatureFlagResponse",
+    },
+    "v2.ListForms": {
+        "operationResponseType": "FormsResponse",
+    },
+    "v2.CreateForm": {
+        "body": {
+            "type": "CreateFormRequest",
+            "format": "",
+            },
+        "operationResponseType": "FormResponse",
+    },
+    "v2.CreateAndPublishForm": {
+        "body": {
+            "type": "CreateFormRequest",
+            "format": "",
+            },
+        "operationResponseType": "FormResponse",
+    },
+    "v2.GetForm": {
+        "formId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "version": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "FormResponse",
+    },
+    "v2.DeleteForm": {
+        "formId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "DeleteFormResponse",
+    },
+    "v2.UpdateForm": {
+        "formId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "UpdateFormRequest",
+            "format": "",
+            },
+        "operationResponseType": "FormResponse",
+    },
+    "v2.CloneForm": {
+        "formId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "CloneFormRequest",
+            "format": "",
+            },
+        "operationResponseType": "FormResponse",
+    },
+    "v2.PublishForm": {
+        "formId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "PublishFormRequest",
+            "format": "",
+            },
+        "operationResponseType": "FormPublicationResponse",
+    },
+    "v2.UpsertFormVersion": {
+        "formId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "UpsertFormVersionRequest",
+            "format": "",
+            },
+        "operationResponseType": "FormVersionResponse",
+    },
+    "v2.UpsertAndPublishFormVersion": {
+        "formId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "UpsertAndPublishFormVersionRequest",
+            "format": "",
+            },
+        "operationResponseType": "FormResponse",
+    },
+    "v2.ListGlobalOrgs": {
+        "userHandle": {
+            "type": "string",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int32",
+            },
+        "pageCursor": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "GlobalOrgsResponse",
+    },
+    "v2.UpdateLoginOrgConfigsMaxSessionDuration": {
+        "body": {
+            "type": "MaxSessionDurationUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListOrgs": {
+        "filterName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ManagedOrgsResponse",
+    },
+    "v2.UpdateOrgSamlConfigurations": {
+        "body": {
+            "type": "OrgSAMLPreferencesUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListOrgConfigs": {
+        "operationResponseType": "OrgConfigListResponse",
+    },
+    "v2.GetOrgConfig": {
+        "orgConfigName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "OrgConfigGetResponse",
+    },
+    "v2.UpdateOrgConfig": {
+        "orgConfigName": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "OrgConfigWriteRequest",
+            "format": "",
+            },
+        "operationResponseType": "OrgConfigGetResponse",
+    },
+    "v2.ListSAMLConfigurations": {
+        "operationResponseType": "SAMLConfigurationsResponse",
+    },
+    "v2.UploadIdPMetadata": {
+        "idpFile": {
+            "type": "HttpFile",
+            "format": "binary",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.GetSAMLConfiguration": {
+        "samlConfigUuid": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SAMLConfigurationResponse",
+    },
+    "v2.UpdateSAMLConfiguration": {
+        "samlConfigUuid": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SAMLConfigurationUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SAMLConfigurationResponse",
     },
     "v2.GetHamrOrgConnection": {
         "operationResponseType": "HamrOrgConnectionResponse",
@@ -9746,6 +10117,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "GCPSTSDelegateAccountResponse",
     },
+    "v2.ListGoogleChatOrganizations": {
+        "operationResponseType": "GoogleChatOrganizationsResponse",
+    },
     "v2.GetSpaceByDisplayName": {
         "domainName": {
             "type": "string",
@@ -9756,6 +10130,34 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "GoogleChatAppNamedSpaceResponse",
+    },
+    "v2.GetGoogleChatOrganization": {
+        "organizationBindingId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "GoogleChatOrganizationResponse",
+    },
+    "v2.DeleteGoogleChatOrganization": {
+        "organizationBindingId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.GetGoogleChatDelegatedUser": {
+        "organizationBindingId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "GoogleChatDelegatedUserResponse",
+    },
+    "v2.DeleteGoogleChatDelegatedUser": {
+        "organizationBindingId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.ListOrganizationHandles": {
         "organizationBindingId": {
@@ -9811,6 +10213,61 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "GoogleChatOrganizationHandleResponse",
+    },
+    "v2.ListGoogleChatTargetAudiences": {
+        "organizationBindingId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "GoogleChatTargetAudiencesResponse",
+    },
+    "v2.CreateGoogleChatTargetAudience": {
+        "organizationBindingId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "GoogleChatTargetAudienceCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "GoogleChatTargetAudienceResponse",
+    },
+    "v2.GetGoogleChatTargetAudience": {
+        "organizationBindingId": {
+            "type": "string",
+            "format": "",
+            },
+        "targetAudienceId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "GoogleChatTargetAudienceResponse",
+    },
+    "v2.DeleteGoogleChatTargetAudience": {
+        "organizationBindingId": {
+            "type": "string",
+            "format": "",
+            },
+        "targetAudienceId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateGoogleChatTargetAudience": {
+        "organizationBindingId": {
+            "type": "string",
+            "format": "",
+            },
+        "targetAudienceId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "GoogleChatTargetAudienceUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "GoogleChatTargetAudienceResponse",
     },
     "v2.ListJiraAccounts": {
         "operationResponseType": "JiraAccountsResponse",
@@ -9914,6 +10371,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "MicrosoftTeamsTenantBasedHandleResponse",
+    },
+    "v2.DeleteMSTeamsUserBinding": {
+        "tenantId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.ListWorkflowsWebhookHandles": {
         "name": {
@@ -10155,6 +10619,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "uuid",
             },
         "operationResponseType": "ServiceNowUsersResponse",
+    },
+    "v2.ListSlackUserBindings": {
+        "userUuid": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "SlackUserBindingsResponse",
     },
     "v2.GetStatuspageAccount": {
         "operationResponseType": "StatuspageAccountResponse",
@@ -11545,6 +12016,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ListInterfaceTagsResponse",
     },
+    "v2.ListNetworkHealthInsights": {
+        "from": {
+            "type": "string",
+            "format": "",
+            },
+        "to": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "NetworkHealthInsightsResponse",
+    },
     "v2.GetAggregatedConnections": {
         "from": {
             "type": "number",
@@ -11958,69 +12440,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "uuid",
             },
         "operationResponseType": "{}",
-    },
-    "v2.ListOrgs": {
-        "filterName": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "ManagedOrgsResponse",
-    },
-    "v2.UpdateOrgSamlConfigurations": {
-        "body": {
-            "type": "OrgSAMLPreferencesUpdateRequest",
-            "format": "",
-            },
-        "operationResponseType": "{}",
-    },
-    "v2.ListOrgConfigs": {
-        "operationResponseType": "OrgConfigListResponse",
-    },
-    "v2.GetOrgConfig": {
-        "orgConfigName": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "OrgConfigGetResponse",
-    },
-    "v2.UpdateOrgConfig": {
-        "orgConfigName": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "OrgConfigWriteRequest",
-            "format": "",
-            },
-        "operationResponseType": "OrgConfigGetResponse",
-    },
-    "v2.ListSAMLConfigurations": {
-        "operationResponseType": "SAMLConfigurationsResponse",
-    },
-    "v2.UploadIdPMetadata": {
-        "idpFile": {
-            "type": "HttpFile",
-            "format": "binary",
-            },
-        "operationResponseType": "{}",
-    },
-    "v2.GetSAMLConfiguration": {
-        "samlConfigUuid": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "SAMLConfigurationResponse",
-    },
-    "v2.UpdateSAMLConfiguration": {
-        "samlConfigUuid": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "SAMLConfigurationUpdateRequest",
-            "format": "",
-            },
-        "operationResponseType": "SAMLConfigurationResponse",
     },
     "v2.DisableCustomerOrg": {
         "body": {
@@ -13043,6 +13462,24 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "Snapshot",
     },
+    "v2.CreateReportSchedule": {
+        "body": {
+            "type": "ReportScheduleCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ReportScheduleResponse",
+    },
+    "v2.PatchReportSchedule": {
+        "scheduleUuid": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "ReportSchedulePatchRequest",
+            "format": "",
+            },
+        "operationResponseType": "ReportScheduleResponse",
+    },
     "v2.GetRestrictionPolicy": {
         "resourceId": {
             "type": "string",
@@ -13422,39 +13859,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "ServiceRepositoryInfoResponse",
-    },
-    "v2.ListHardcodedRetentionFilters": {
-        "appId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "RumHardcodedRetentionFiltersResponse",
-    },
-    "v2.GetHardcodedRetentionFilter": {
-        "appId": {
-            "type": "string",
-            "format": "",
-            },
-        "rfId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "RumHardcodedRetentionFilterResponse",
-    },
-    "v2.UpdateHardcodedRetentionFilter": {
-        "appId": {
-            "type": "string",
-            "format": "",
-            },
-        "rfId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "RumHardcodedRetentionFilterUpdateRequest",
-            "format": "",
-            },
-        "operationResponseType": "RumHardcodedRetentionFilterResponse",
     },
     "v2.OrderRetentionFilters": {
         "appId": {
@@ -14398,61 +14802,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "PartialApplicationKeyResponse",
-    },
-    "v2.ListIncidentServices": {
-        "include": {
-            "type": "IncidentRelatedObject",
-            "format": "",
-            },
-        "pageSize": {
-            "type": "number",
-            "format": "int64",
-            },
-        "pageOffset": {
-            "type": "number",
-            "format": "int64",
-            },
-        "filter": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "IncidentServicesResponse",
-    },
-    "v2.CreateIncidentService": {
-        "body": {
-            "type": "IncidentServiceCreateRequest",
-            "format": "",
-            },
-        "operationResponseType": "IncidentServiceResponse",
-    },
-    "v2.GetIncidentService": {
-        "serviceId": {
-            "type": "string",
-            "format": "",
-            },
-        "include": {
-            "type": "IncidentRelatedObject",
-            "format": "",
-            },
-        "operationResponseType": "IncidentServiceResponse",
-    },
-    "v2.DeleteIncidentService": {
-        "serviceId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "{}",
-    },
-    "v2.UpdateIncidentService": {
-        "serviceId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "IncidentServiceUpdateRequest",
-            "format": "",
-            },
-        "operationResponseType": "IncidentServiceResponse",
     },
     "v2.ListServiceDefinitions": {
         "pageSize": {
@@ -15673,6 +16022,96 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "GlobalVariableResponse",
+    },
+    "v2.ListTagPolicies": {
+        "includeDisabled": {
+            "type": "boolean",
+            "format": "",
+            },
+        "includeDeleted": {
+            "type": "boolean",
+            "format": "",
+            },
+        "include": {
+            "type": "TagPolicyInclude",
+            "format": "",
+            },
+        "filterSource": {
+            "type": "TagPolicySource",
+            "format": "",
+            },
+        "tsStart": {
+            "type": "number",
+            "format": "int64",
+            },
+        "tsEnd": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "TagPoliciesListResponse",
+    },
+    "v2.CreateTagPolicy": {
+        "body": {
+            "type": "TagPolicyCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "TagPolicyResponse",
+    },
+    "v2.GetTagPolicy": {
+        "policyId": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "TagPolicyInclude",
+            "format": "",
+            },
+        "tsStart": {
+            "type": "number",
+            "format": "int64",
+            },
+        "tsEnd": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "TagPolicyResponse",
+    },
+    "v2.DeleteTagPolicy": {
+        "policyId": {
+            "type": "string",
+            "format": "",
+            },
+        "hardDelete": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateTagPolicy": {
+        "policyId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "TagPolicyUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "TagPolicyResponse",
+    },
+    "v2.GetTagPolicyScore": {
+        "policyId": {
+            "type": "string",
+            "format": "",
+            },
+        "tsStart": {
+            "type": "number",
+            "format": "int64",
+            },
+        "tsEnd": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "TagPolicyScoreResponse",
     },
     "v2.ListTeams": {
         "pageNumber": {

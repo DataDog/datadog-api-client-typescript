@@ -120,6 +120,40 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     return requestContext;
   }
 
+  public async deleteMSTeamsUserBinding(
+    tenantId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'tenantId' is not null or undefined
+    if (tenantId === null || tenantId === undefined) {
+      throw new RequiredError("tenantId", "deleteMSTeamsUserBinding");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/integration/ms-teams/configuration/user-binding/{tenant_id}".replace(
+        "{tenant_id}",
+        encodeURIComponent(String(tenantId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.MicrosoftTeamsIntegrationApi.deleteMSTeamsUserBinding")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteTenantBasedHandle(
     handleId: string,
     _options?: Configuration
@@ -617,6 +651,60 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
           ""
         ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
       return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteMSTeamsUserBinding
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteMSTeamsUserBinding(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 412 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
     }
 
     const body = (await response.body.text()) || "";
@@ -1214,6 +1302,14 @@ export interface MicrosoftTeamsIntegrationApiCreateWorkflowsWebhookHandleRequest
   body: MicrosoftTeamsCreateWorkflowsWebhookHandleRequest;
 }
 
+export interface MicrosoftTeamsIntegrationApiDeleteMSTeamsUserBindingRequest {
+  /**
+   * Your tenant id.
+   * @type string
+   */
+  tenantId: string;
+}
+
 export interface MicrosoftTeamsIntegrationApiDeleteTenantBasedHandleRequest {
   /**
    * Your tenant-based handle id.
@@ -1367,6 +1463,29 @@ export class MicrosoftTeamsIntegrationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createWorkflowsWebhookHandle(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete the user binding for a given tenant from the Datadog Microsoft Teams integration.
+   * @param param The request object
+   */
+  public deleteMSTeamsUserBinding(
+    param: MicrosoftTeamsIntegrationApiDeleteMSTeamsUserBindingRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteMSTeamsUserBinding(
+      param.tenantId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteMSTeamsUserBinding(
             responseContext
           );
         });
