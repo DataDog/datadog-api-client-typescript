@@ -2541,6 +2541,9 @@ import { ListTagsResponseData } from "./ListTagsResponseData";
 import { ListTagsResponseDataAttributes } from "./ListTagsResponseDataAttributes";
 import { ListVulnerabilitiesResponse } from "./ListVulnerabilitiesResponse";
 import { ListVulnerableAssetsResponse } from "./ListVulnerableAssetsResponse";
+import { ListWorkflowsResponse } from "./ListWorkflowsResponse";
+import { ListWorkflowsResponseMeta } from "./ListWorkflowsResponseMeta";
+import { ListWorkflowsResponseMetaPage } from "./ListWorkflowsResponseMetaPage";
 import { Log } from "./Log";
 import { LogAttributes } from "./LogAttributes";
 import { LogsAggregateBucket } from "./LogsAggregateBucket";
@@ -5019,6 +5022,8 @@ import { WorkflowInstanceListItem } from "./WorkflowInstanceListItem";
 import { WorkflowListInstancesResponse } from "./WorkflowListInstancesResponse";
 import { WorkflowListInstancesResponseMeta } from "./WorkflowListInstancesResponseMeta";
 import { WorkflowListInstancesResponseMetaPage } from "./WorkflowListInstancesResponseMetaPage";
+import { WorkflowListItem } from "./WorkflowListItem";
+import { WorkflowListItemAttributes } from "./WorkflowListItemAttributes";
 import { WorkflowTriggerWrapper } from "./WorkflowTriggerWrapper";
 import { WorkflowUserRelationship } from "./WorkflowUserRelationship";
 import { WorkflowUserRelationshipData } from "./WorkflowUserRelationshipData";
@@ -10829,6 +10834,9 @@ const typeMap: { [index: string]: any } = {
   ListTagsResponseDataAttributes: ListTagsResponseDataAttributes,
   ListVulnerabilitiesResponse: ListVulnerabilitiesResponse,
   ListVulnerableAssetsResponse: ListVulnerableAssetsResponse,
+  ListWorkflowsResponse: ListWorkflowsResponse,
+  ListWorkflowsResponseMeta: ListWorkflowsResponseMeta,
+  ListWorkflowsResponseMetaPage: ListWorkflowsResponseMetaPage,
   Log: Log,
   LogAttributes: LogAttributes,
   LogsAggregateBucket: LogsAggregateBucket,
@@ -13898,6 +13906,8 @@ const typeMap: { [index: string]: any } = {
   WorkflowListInstancesResponse: WorkflowListInstancesResponse,
   WorkflowListInstancesResponseMeta: WorkflowListInstancesResponseMeta,
   WorkflowListInstancesResponseMetaPage: WorkflowListInstancesResponseMetaPage,
+  WorkflowListItem: WorkflowListItem,
+  WorkflowListItemAttributes: WorkflowListItemAttributes,
   WorkflowTriggerWrapper: WorkflowTriggerWrapper,
   WorkflowUserRelationship: WorkflowUserRelationship,
   WorkflowUserRelationshipData: WorkflowUserRelationshipData,
