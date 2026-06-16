@@ -39,14 +39,6 @@ import { AttachServiceNowTicketRequest } from "./AttachServiceNowTicketRequest";
 import { AttachServiceNowTicketRequestData } from "./AttachServiceNowTicketRequestData";
 import { AttachServiceNowTicketRequestDataAttributes } from "./AttachServiceNowTicketRequestDataAttributes";
 import { AttachServiceNowTicketRequestDataRelationships } from "./AttachServiceNowTicketRequestDataRelationships";
-import { BulkMuteFindingsRequest } from "./BulkMuteFindingsRequest";
-import { BulkMuteFindingsRequestAttributes } from "./BulkMuteFindingsRequestAttributes";
-import { BulkMuteFindingsRequestData } from "./BulkMuteFindingsRequestData";
-import { BulkMuteFindingsRequestMeta } from "./BulkMuteFindingsRequestMeta";
-import { BulkMuteFindingsRequestMetaFindings } from "./BulkMuteFindingsRequestMetaFindings";
-import { BulkMuteFindingsRequestProperties } from "./BulkMuteFindingsRequestProperties";
-import { BulkMuteFindingsResponse } from "./BulkMuteFindingsResponse";
-import { BulkMuteFindingsResponseData } from "./BulkMuteFindingsResponseData";
 import { CVSS } from "./CVSS";
 import { CalculatedField } from "./CalculatedField";
 import { CaseInsightsItems } from "./CaseInsightsItems";
@@ -974,14 +966,6 @@ export const TypingInfo: ModelTypingInfo = {
       AttachServiceNowTicketRequestDataAttributes,
     AttachServiceNowTicketRequestDataRelationships:
       AttachServiceNowTicketRequestDataRelationships,
-    BulkMuteFindingsRequest: BulkMuteFindingsRequest,
-    BulkMuteFindingsRequestAttributes: BulkMuteFindingsRequestAttributes,
-    BulkMuteFindingsRequestData: BulkMuteFindingsRequestData,
-    BulkMuteFindingsRequestMeta: BulkMuteFindingsRequestMeta,
-    BulkMuteFindingsRequestMetaFindings: BulkMuteFindingsRequestMetaFindings,
-    BulkMuteFindingsRequestProperties: BulkMuteFindingsRequestProperties,
-    BulkMuteFindingsResponse: BulkMuteFindingsResponse,
-    BulkMuteFindingsResponseData: BulkMuteFindingsResponseData,
     CVSS: CVSS,
     CalculatedField: CalculatedField,
     CaseInsightsItems: CaseInsightsItems,

@@ -27,6 +27,7 @@ import { ApplicationSecurityPolicyCreateRequest } from "./models/ApplicationSecu
 import { ApplicationSecurityPolicyListResponse } from "./models/ApplicationSecurityPolicyListResponse";
 import { ApplicationSecurityPolicyResponse } from "./models/ApplicationSecurityPolicyResponse";
 import { ApplicationSecurityPolicyUpdateRequest } from "./models/ApplicationSecurityPolicyUpdateRequest";
+import { ApplicationSecurityServicesResponse } from "./models/ApplicationSecurityServicesResponse";
 import { ApplicationSecurityWafCustomRuleCreateRequest } from "./models/ApplicationSecurityWafCustomRuleCreateRequest";
 import { ApplicationSecurityWafCustomRuleListResponse } from "./models/ApplicationSecurityWafCustomRuleListResponse";
 import { ApplicationSecurityWafCustomRuleResponse } from "./models/ApplicationSecurityWafCustomRuleResponse";
@@ -468,6 +469,61 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ApplicationSecurityApi.v2.getApplicationSecurityWafPolicy",
+      ApplicationSecurityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getAsmServiceByName(
+    serviceFilter: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "ApplicationSecurityApi.v2.getAsmServiceByName"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getAsmServiceByName' is disabled. Enable it by setting `configuration.unstableOperations['ApplicationSecurityApi.v2.getAsmServiceByName'] = true`",
+      );
+    }
+
+    // verify required parameter 'serviceFilter' is not null or undefined
+    if (serviceFilter === null || serviceFilter === undefined) {
+      throw new RequiredError("serviceFilter", "getAsmServiceByName");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/asm/services/{service_filter}".replace(
+        "{service_filter}",
+        encodeURIComponent(String(serviceFilter)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ApplicationSecurityApi.v2.getAsmServiceByName",
       ApplicationSecurityApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -1308,6 +1364,62 @@ export class ApplicationSecurityApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getAsmServiceByName
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getAsmServiceByName(
+    response: ResponseContext,
+  ): Promise<ApplicationSecurityServicesResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ApplicationSecurityServicesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ApplicationSecurityServicesResponse",
+      ) as ApplicationSecurityServicesResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ApplicationSecurityServicesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ApplicationSecurityServicesResponse",
+        "",
+      ) as ApplicationSecurityServicesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listApplicationSecurityWAFCustomRules
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1731,6 +1843,15 @@ export interface ApplicationSecurityApiGetApplicationSecurityWafPolicyRequest {
   policyId: string;
 }
 
+export interface ApplicationSecurityApiGetAsmServiceByNameRequest {
+  /**
+   * The name of the service to retrieve Application Security details for.
+   * Returns all matching services across environments.
+   * @type string
+   */
+  serviceFilter: string;
+}
+
 export interface ApplicationSecurityApiUpdateApplicationSecurityWafCustomRuleRequest {
   /**
    * The ID of the custom rule.
@@ -2005,6 +2126,30 @@ export class ApplicationSecurityApi {
           return this.responseProcessor.getApplicationSecurityWafPolicy(
             responseContext,
           );
+        });
+    });
+  }
+
+  /**
+   * Retrieve Application Security details for services matching the given name.
+   * Returns Application Security activation, compatibility, and product enablement
+   * information for each matching `(service, environment)` pair, along with a count
+   * of services that have Application Security Management (Threats) enabled.
+   * @param param The request object
+   */
+  public getAsmServiceByName(
+    param: ApplicationSecurityApiGetAsmServiceByNameRequest,
+    options?: Configuration,
+  ): Promise<ApplicationSecurityServicesResponse> {
+    const requestContextPromise = this.requestFactory.getAsmServiceByName(
+      param.serviceFilter,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getAsmServiceByName(responseContext);
         });
     });
   }

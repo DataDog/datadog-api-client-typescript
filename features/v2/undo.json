@@ -5864,12 +5864,6 @@
       "type": "safe"
     }
   },
-  "MuteFindings": {
-    "tag": "Security Monitoring",
-    "undo": {
-      "type": "safe"
-    }
-  },
   "GetFinding": {
     "tag": "Security Monitoring",
     "undo": {
@@ -6885,6 +6879,12 @@
   },
   "GetEntityRiskScore": {
     "tag": "Entity Risk Scores",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "GetAsmServiceByName": {
+    "tag": "Application Security",
     "undo": {
       "type": "safe"
     }

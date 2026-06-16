@@ -5736,13 +5736,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ListFindingsResponse",
   },
-  "SecurityMonitoringApi.V2.MuteFindings": {
-    body: {
-      type: "BulkMuteFindingsRequest",
-      format: "",
-    },
-    operationResponseType: "BulkMuteFindingsResponse",
-  },
   "SecurityMonitoringApi.V2.GetFinding": {
     findingId: {
       type: "string",
@@ -13302,6 +13295,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "{}",
+  },
+  "ApplicationSecurityApi.V2.GetAsmServiceByName": {
+    serviceFilter: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ApplicationSecurityServicesResponse",
   },
   "CSMThreatsApi.V2.ListCSMThreatsAgentRules": {
     policyId: {
