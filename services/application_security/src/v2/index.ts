@@ -8,6 +8,7 @@ export {
   ApplicationSecurityApiGetApplicationSecurityWafCustomRuleRequest,
   ApplicationSecurityApiGetApplicationSecurityWafExclusionFilterRequest,
   ApplicationSecurityApiGetApplicationSecurityWafPolicyRequest,
+  ApplicationSecurityApiGetAsmServiceByNameRequest,
   ApplicationSecurityApiUpdateApplicationSecurityWafCustomRuleRequest,
   ApplicationSecurityApiUpdateApplicationSecurityWafExclusionFilterRequest,
   ApplicationSecurityApiUpdateApplicationSecurityWafPolicyRequest,
@@ -30,6 +31,11 @@ export { ApplicationSecurityPolicyType } from "./models/ApplicationSecurityPolic
 export { ApplicationSecurityPolicyUpdateAttributes } from "./models/ApplicationSecurityPolicyUpdateAttributes";
 export { ApplicationSecurityPolicyUpdateData } from "./models/ApplicationSecurityPolicyUpdateData";
 export { ApplicationSecurityPolicyUpdateRequest } from "./models/ApplicationSecurityPolicyUpdateRequest";
+export { ApplicationSecurityServiceAttributes } from "./models/ApplicationSecurityServiceAttributes";
+export { ApplicationSecurityServiceResource } from "./models/ApplicationSecurityServiceResource";
+export { ApplicationSecurityServicesMetadata } from "./models/ApplicationSecurityServicesMetadata";
+export { ApplicationSecurityServicesResponse } from "./models/ApplicationSecurityServicesResponse";
+export { ApplicationSecurityServiceType } from "./models/ApplicationSecurityServiceType";
 export { ApplicationSecurityWafCustomRuleAction } from "./models/ApplicationSecurityWafCustomRuleAction";
 export { ApplicationSecurityWafCustomRuleActionAction } from "./models/ApplicationSecurityWafCustomRuleActionAction";
 export { ApplicationSecurityWafCustomRuleActionParameters } from "./models/ApplicationSecurityWafCustomRuleActionParameters";

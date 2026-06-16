@@ -15,6 +15,10 @@ import { ApplicationSecurityPolicyScope } from "./ApplicationSecurityPolicyScope
 import { ApplicationSecurityPolicyUpdateAttributes } from "./ApplicationSecurityPolicyUpdateAttributes";
 import { ApplicationSecurityPolicyUpdateData } from "./ApplicationSecurityPolicyUpdateData";
 import { ApplicationSecurityPolicyUpdateRequest } from "./ApplicationSecurityPolicyUpdateRequest";
+import { ApplicationSecurityServiceAttributes } from "./ApplicationSecurityServiceAttributes";
+import { ApplicationSecurityServiceResource } from "./ApplicationSecurityServiceResource";
+import { ApplicationSecurityServicesMetadata } from "./ApplicationSecurityServicesMetadata";
+import { ApplicationSecurityServicesResponse } from "./ApplicationSecurityServicesResponse";
 import { ApplicationSecurityWafCustomRuleAction } from "./ApplicationSecurityWafCustomRuleAction";
 import { ApplicationSecurityWafCustomRuleActionParameters } from "./ApplicationSecurityWafCustomRuleActionParameters";
 import { ApplicationSecurityWafCustomRuleAttributes } from "./ApplicationSecurityWafCustomRuleAttributes";
@@ -52,6 +56,7 @@ import { ApplicationSecurityWafExclusionFiltersResponse } from "./ApplicationSec
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     ApplicationSecurityPolicyType: ["policy"],
+    ApplicationSecurityServiceType: ["service_env"],
     ApplicationSecurityWafCustomRuleActionAction: [
       "redirect_request",
       "block_request",
@@ -146,6 +151,10 @@ export const TypingInfo: ModelTypingInfo = {
     ApplicationSecurityPolicyUpdateData: ApplicationSecurityPolicyUpdateData,
     ApplicationSecurityPolicyUpdateRequest:
       ApplicationSecurityPolicyUpdateRequest,
+    ApplicationSecurityServiceAttributes: ApplicationSecurityServiceAttributes,
+    ApplicationSecurityServiceResource: ApplicationSecurityServiceResource,
+    ApplicationSecurityServicesMetadata: ApplicationSecurityServicesMetadata,
+    ApplicationSecurityServicesResponse: ApplicationSecurityServicesResponse,
     ApplicationSecurityWafCustomRuleAction:
       ApplicationSecurityWafCustomRuleAction,
     ApplicationSecurityWafCustomRuleActionParameters:
