@@ -14,6 +14,8 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 export class DeploymentGatesEvaluationRequestData {
   /**
    * Attributes for a deployment gate evaluation request.
+   * When `configuration` is provided, rules are evaluated inline from that configuration.
+   * When omitted, rules are resolved from the preconfigured gate for the given service and environment.
    */
   "attributes": DeploymentGatesEvaluationRequestAttributes;
   /**

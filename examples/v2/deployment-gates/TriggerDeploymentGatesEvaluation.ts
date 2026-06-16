@@ -12,6 +12,20 @@ const params: v2.DeploymentGatesApiTriggerDeploymentGatesEvaluationRequest = {
   body: {
     data: {
       attributes: {
+        configuration: {
+          dryRun: false,
+          rules: [
+            {
+              dryRun: false,
+              name: "error rate monitors",
+              options: {
+                duration: 300,
+                query: "service:transaction-backend env:production",
+              },
+              type: "monitor",
+            },
+          ],
+        },
         env: "staging",
         identifier: "pre-deploy",
         primaryTag: "region:us-east-1",
