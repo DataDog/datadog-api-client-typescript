@@ -1302,6 +1302,7 @@ export {
   SecurityMonitoringApiConvertSecurityMonitoringTerraformResourceRequest,
   SecurityMonitoringApiCreateCasesRequest,
   SecurityMonitoringApiCreateCustomFrameworkRequest,
+  SecurityMonitoringApiCreateIoCTriageStateRequest,
   SecurityMonitoringApiCreateJiraIssuesRequest,
   SecurityMonitoringApiCreateSampleLogGenerationSubscriptionRequest,
   SecurityMonitoringApiCreateSecurityFilterRequest,
@@ -4394,6 +4395,14 @@ export { IoCIndicatorDetailed } from "./models/IoCIndicatorDetailed";
 export { IoCScoreEffect } from "./models/IoCScoreEffect";
 export { IoCSignalSeverityCount } from "./models/IoCSignalSeverityCount";
 export { IoCSource } from "./models/IoCSource";
+export { IoCTriageEvent } from "./models/IoCTriageEvent";
+export { IoCTriageState } from "./models/IoCTriageState";
+export { IoCTriageWriteRequest } from "./models/IoCTriageWriteRequest";
+export { IoCTriageWriteRequestAttributes } from "./models/IoCTriageWriteRequestAttributes";
+export { IoCTriageWriteRequestData } from "./models/IoCTriageWriteRequestData";
+export { IoCTriageWriteResponse } from "./models/IoCTriageWriteResponse";
+export { IoCTriageWriteResponseAttributes } from "./models/IoCTriageWriteResponseAttributes";
+export { IoCTriageWriteResponseData } from "./models/IoCTriageWriteResponseData";
 export { IOSSourcemapAttributes } from "./models/IOSSourcemapAttributes";
 export { IOSSourcemapData } from "./models/IOSSourcemapData";
 export { IPAllowlistAttributes } from "./models/IPAllowlistAttributes";
