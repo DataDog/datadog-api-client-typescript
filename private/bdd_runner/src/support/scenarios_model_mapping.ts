@@ -8601,6 +8601,9 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "DelegatedTokenApi.V2.GetDelegatedToken": {
+    operationResponseType: "DelegatedTokenResponse",
+  },
   "DataDeletionApi.V2.CreateDataDeletionRequest": {
     product: {
       type: "string",
@@ -10016,6 +10019,9 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "IncidentTodoResponse",
+  },
+  "IntakeKeyApi.V2.GetIntakeKey": {
+    operationResponseType: "IntakeAPIKeyResponse",
   },
   "AWSIntegrationApi.V2.ListAWSAccounts": {
     awsAccountId: {
@@ -16710,6 +16716,54 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     uuid: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "AWSWIFApi.V2.ListAwsWifIntakeMappings": {
+    operationResponseType: "AwsWifIntakeMappingsResponse",
+  },
+  "AWSWIFApi.V2.CreateAwsWifIntakeMapping": {
+    body: {
+      type: "AwsWifIntakeMappingCreateRequest",
+      format: "",
+    },
+    operationResponseType: "AwsWifIntakeMappingResponse",
+  },
+  "AWSWIFApi.V2.GetAwsWifIntakeMapping": {
+    configUuid: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "AwsWifIntakeMappingResponse",
+  },
+  "AWSWIFApi.V2.DeleteAwsWifIntakeMapping": {
+    configUuid: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "AWSWIFApi.V2.ListAwsWifPersonaMappings": {
+    operationResponseType: "AwsWifPersonaMappingsResponse",
+  },
+  "AWSWIFApi.V2.CreateAwsWifPersonaMapping": {
+    body: {
+      type: "AwsWifPersonaMappingCreateRequest",
+      format: "",
+    },
+    operationResponseType: "AwsWifPersonaMappingResponse",
+  },
+  "AWSWIFApi.V2.GetAwsWifPersonaMapping": {
+    configUuid: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "AwsWifPersonaMappingResponse",
+  },
+  "AWSWIFApi.V2.DeleteAwsWifPersonaMapping": {
+    configUuid: {
       type: "string",
       format: "uuid",
     },
