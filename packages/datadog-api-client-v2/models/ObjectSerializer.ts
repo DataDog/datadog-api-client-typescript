@@ -1846,6 +1846,18 @@ import { GoogleChatUpdateOrganizationHandleRequestAttributes } from "./GoogleCha
 import { GoogleChatUpdateOrganizationHandleRequestData } from "./GoogleChatUpdateOrganizationHandleRequestData";
 import { GoogleMeetConfigurationReference } from "./GoogleMeetConfigurationReference";
 import { GoogleMeetConfigurationReferenceData } from "./GoogleMeetConfigurationReferenceData";
+import { GovernanceBestPracticeDefinition } from "./GovernanceBestPracticeDefinition";
+import { GovernanceInsightAttributes } from "./GovernanceInsightAttributes";
+import { GovernanceInsightAuditCompute } from "./GovernanceInsightAuditCompute";
+import { GovernanceInsightAuditQuery } from "./GovernanceInsightAuditQuery";
+import { GovernanceInsightData } from "./GovernanceInsightData";
+import { GovernanceInsightEventCompute } from "./GovernanceInsightEventCompute";
+import { GovernanceInsightEventQuery } from "./GovernanceInsightEventQuery";
+import { GovernanceInsightMetricQuery } from "./GovernanceInsightMetricQuery";
+import { GovernanceInsightPercentageQuery } from "./GovernanceInsightPercentageQuery";
+import { GovernanceInsightQueryConfig } from "./GovernanceInsightQueryConfig";
+import { GovernanceInsightUsageQuery } from "./GovernanceInsightUsageQuery";
+import { GovernanceInsightsResponse } from "./GovernanceInsightsResponse";
 import { GreyNoiseAPIKey } from "./GreyNoiseAPIKey";
 import { GreyNoiseAPIKeyUpdate } from "./GreyNoiseAPIKeyUpdate";
 import { GreyNoiseIntegration } from "./GreyNoiseIntegration";
@@ -5987,6 +5999,7 @@ const enumsMap: { [key: string]: any[] } = {
   GoogleChatOrganizationHandleType: ["google-chat-organization-handle"],
   GoogleChatOrganizationType: ["google-chat-organization"],
   GoogleChatTargetAudienceType: ["google-chat-target-audience"],
+  GovernanceInsightResourceType: ["insight"],
   GreyNoiseAPIKeyType: ["GreyNoiseAPIKey"],
   GreyNoiseIntegrationType: ["GreyNoise"],
   GuardrailTriggerAction: ["PAUSE", "ABORT"],
@@ -10029,6 +10042,18 @@ const typeMap: { [index: string]: any } = {
     GoogleChatUpdateOrganizationHandleRequestData,
   GoogleMeetConfigurationReference: GoogleMeetConfigurationReference,
   GoogleMeetConfigurationReferenceData: GoogleMeetConfigurationReferenceData,
+  GovernanceBestPracticeDefinition: GovernanceBestPracticeDefinition,
+  GovernanceInsightAttributes: GovernanceInsightAttributes,
+  GovernanceInsightAuditCompute: GovernanceInsightAuditCompute,
+  GovernanceInsightAuditQuery: GovernanceInsightAuditQuery,
+  GovernanceInsightData: GovernanceInsightData,
+  GovernanceInsightEventCompute: GovernanceInsightEventCompute,
+  GovernanceInsightEventQuery: GovernanceInsightEventQuery,
+  GovernanceInsightMetricQuery: GovernanceInsightMetricQuery,
+  GovernanceInsightPercentageQuery: GovernanceInsightPercentageQuery,
+  GovernanceInsightQueryConfig: GovernanceInsightQueryConfig,
+  GovernanceInsightUsageQuery: GovernanceInsightUsageQuery,
+  GovernanceInsightsResponse: GovernanceInsightsResponse,
   GreyNoiseAPIKey: GreyNoiseAPIKey,
   GreyNoiseAPIKeyUpdate: GreyNoiseAPIKeyUpdate,
   GreyNoiseIntegration: GreyNoiseIntegration,

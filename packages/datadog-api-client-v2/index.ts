@@ -645,6 +645,11 @@ export {
 } from "./apis/GoogleChatIntegrationApi";
 
 export {
+  GovernanceInsightsApiListGovernanceInsightsRequest,
+  GovernanceInsightsApi,
+} from "./apis/GovernanceInsightsApi";
+
+export {
   HighAvailabilityMultiRegionApiCreateHamrOrgConnectionRequest,
   HighAvailabilityMultiRegionApi,
 } from "./apis/HighAvailabilityMultiRegionApi";
@@ -4117,6 +4122,19 @@ export { GoogleChatUpdateOrganizationHandleRequestAttributes } from "./models/Go
 export { GoogleChatUpdateOrganizationHandleRequestData } from "./models/GoogleChatUpdateOrganizationHandleRequestData";
 export { GoogleMeetConfigurationReference } from "./models/GoogleMeetConfigurationReference";
 export { GoogleMeetConfigurationReferenceData } from "./models/GoogleMeetConfigurationReferenceData";
+export { GovernanceBestPracticeDefinition } from "./models/GovernanceBestPracticeDefinition";
+export { GovernanceInsightAttributes } from "./models/GovernanceInsightAttributes";
+export { GovernanceInsightAuditCompute } from "./models/GovernanceInsightAuditCompute";
+export { GovernanceInsightAuditQuery } from "./models/GovernanceInsightAuditQuery";
+export { GovernanceInsightData } from "./models/GovernanceInsightData";
+export { GovernanceInsightEventCompute } from "./models/GovernanceInsightEventCompute";
+export { GovernanceInsightEventQuery } from "./models/GovernanceInsightEventQuery";
+export { GovernanceInsightMetricQuery } from "./models/GovernanceInsightMetricQuery";
+export { GovernanceInsightPercentageQuery } from "./models/GovernanceInsightPercentageQuery";
+export { GovernanceInsightQueryConfig } from "./models/GovernanceInsightQueryConfig";
+export { GovernanceInsightResourceType } from "./models/GovernanceInsightResourceType";
+export { GovernanceInsightsResponse } from "./models/GovernanceInsightsResponse";
+export { GovernanceInsightUsageQuery } from "./models/GovernanceInsightUsageQuery";
 export { GreyNoiseAPIKey } from "./models/GreyNoiseAPIKey";
 export { GreyNoiseAPIKeyType } from "./models/GreyNoiseAPIKeyType";
 export { GreyNoiseAPIKeyUpdate } from "./models/GreyNoiseAPIKeyUpdate";
