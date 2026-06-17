@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.3/2026-06-17
+
+### Added
+* Add int64 format and extract inline schemas [#4417](https://github.com/DataDog/datadog-api-client-typescript/pull/4417)
+
 ## 0.0.1-beta.2/2026-05-15
 
 ### Fixed

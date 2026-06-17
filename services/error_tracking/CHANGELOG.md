@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.6/2026-06-17
+
+### Added
+* [error-tracking] Add Linear issue to API endpoints response schemas [#4383](https://github.com/DataDog/datadog-api-client-typescript/pull/4383)
+
 ## 0.0.1-beta.5/2026-05-15
 
 ### Added

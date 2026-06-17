@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 0.0.1-beta.10/2026-06-17
+
+### Added
+* add issue_stream to public spec  [#4365](https://github.com/DataDog/datadog-api-client-typescript/pull/4365)
+* Add edited_before and viewed_before filters to ListDashboardsUsage [#4352](https://github.com/DataDog/datadog-api-client-typescript/pull/4352)
+* Add new Host Map widget infrastructure request type [#4309](https://github.com/DataDog/datadog-api-client-typescript/pull/4309)
+*  Allow llm-observability data source in formula event queries [#4303](https://github.com/DataDog/datadog-api-client-typescript/pull/4303)
+* Allow apm metrics data source for distribution histogram request [#4285](https://github.com/DataDog/datadog-api-client-typescript/pull/4285)
+* Add comparison to QueryValueWidgetRequest for surfacing the change indicator feature  [#4249](https://github.com/DataDog/datadog-api-client-typescript/pull/4249)
+* Add Dashboards Usage v2 endpoints [#4175](https://github.com/DataDog/datadog-api-client-typescript/pull/4175)
+
 ## 0.0.1-beta.9/2026-05-15
 
 ### Added

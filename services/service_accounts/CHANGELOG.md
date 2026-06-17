@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.9/2026-06-17
+
+### Changed
+* Update PAT and SAT api spec [#4300](https://github.com/DataDog/datadog-api-client-typescript/pull/4300)
+
 ## 0.0.1-beta.8/2026-05-15
 
 ### Added
