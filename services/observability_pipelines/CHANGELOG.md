@@ -1,5 +1,20 @@
 # CHANGELOG
 
+## 0.0.1-beta.11/2026-06-17
+
+### Added
+* Add observability pipelines Generate metrics processor [#4441](https://github.com/DataDog/datadog-api-client-typescript/pull/4441)
+* Add DeleteSyncConfig OpenAPI endpoint for Storage Management [#4294](https://github.com/DataDog/datadog-api-client-typescript/pull/4294)
+* Add observability pipelines splunk HEC metrics destination [#4251](https://github.com/DataDog/datadog-api-client-typescript/pull/4251)
+* Add buffer support to remaining Observability Pipelines destinations [#4231](https://github.com/DataDog/datadog-api-client-typescript/pull/4231)
+* Add new metrics processors in Observability Pipelines [#4183](https://github.com/DataDog/datadog-api-client-typescript/pull/4183)
+* Update observability pipelines databricks_zerobus destination endpoint fields to be secret [#4179](https://github.com/DataDog/datadog-api-client-typescript/pull/4179)
+* observability pipelines add tls.verify_certificate field to multiple push sources [#4173](https://github.com/DataDog/datadog-api-client-typescript/pull/4173)
+* Adding valid tokens to Splunk and HTTP server source [#4111](https://github.com/DataDog/datadog-api-client-typescript/pull/4111)
+
+### Fixed
+* security-monitoring - Change histsignals/search method from GET to POST [#4267](https://github.com/DataDog/datadog-api-client-typescript/pull/4267)
+
 ## 0.0.1-beta.10/2026-05-15
 
 ### Added

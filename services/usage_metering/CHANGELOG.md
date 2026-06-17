@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 0.0.1-beta.11/2026-06-17
+
+### Added
+* Set x-keep-typed-in-additional-properties on UsageSummary schemas [#4481](https://github.com/DataDog/datadog-api-client-typescript/pull/4481)
+* Expose usage summary keys for June SKUs [#4393](https://github.com/DataDog/datadog-api-client-typescript/pull/4393)
+* Add available_fields endpoint to usage summary [#4369](https://github.com/DataDog/datadog-api-client-typescript/pull/4369)
+* Add siem_12mo_retention and siem_6mo_retention to usage API [#4257](https://github.com/DataDog/datadog-api-client-typescript/pull/4257)
+* Add serverless_apps_dsm_fargate_tasks fields to usage metering API [#4255](https://github.com/DataDog/datadog-api-client-typescript/pull/4255)
+* Add API fields for jobs_monitoring_orchestrators [#4190](https://github.com/DataDog/datadog-api-client-typescript/pull/4190)
+* Add csm_host_pro hosts agentless scanners to usage metering API [#4177](https://github.com/DataDog/datadog-api-client-typescript/pull/4177)
+
 ## 0.0.1-beta.10/2026-05-15
 
 ### Added

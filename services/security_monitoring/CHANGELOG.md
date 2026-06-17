@@ -1,5 +1,29 @@
 # CHANGELOG
 
+## 0.0.1-beta.13/2026-06-17
+
+### Added
+* Set x-keep-typed-in-additional-properties on UsageSummary schemas [#4481](https://github.com/DataDog/datadog-api-client-typescript/pull/4481)
+* Mark ServiceNow triage endpoints as stable [#4470](https://github.com/DataDog/datadog-api-client-typescript/pull/4470)
+* Add restore rule version endpoint in detection rules [#4457](https://github.com/DataDog/datadog-api-client-typescript/pull/4457)
+* Add triage endpoint and fields to IoC Explorer API docs [#4423](https://github.com/DataDog/datadog-api-client-typescript/pull/4423)
+* Add GetSingleEntityContext endpoint to security monitoring spec [#4419](https://github.com/DataDog/datadog-api-client-typescript/pull/4419)
+* Add int64 format and extract inline schemas [#4417](https://github.com/DataDog/datadog-api-client-typescript/pull/4417)
+* Document SendSecurityMonitoringNotificationPreview endpoint [#4409](https://github.com/DataDog/datadog-api-client-typescript/pull/4409)
+* Add OpenAPI spec for security monitoring bulk convert rules endpoint [#4316](https://github.com/DataDog/datadog-api-client-typescript/pull/4316)
+* Add OpenAPI specs for secmon-public-api datasets endpoints [#4269](https://github.com/DataDog/datadog-api-client-typescript/pull/4269)
+* Add OpenAPI specs for static-analysis-api missing endpoints [#4265](https://github.com/DataDog/datadog-api-client-typescript/pull/4265)
+* Adjust TS generated clients to query extra pages unless an empty set was returned [#4243](https://github.com/DataDog/datadog-api-client-typescript/pull/4243)
+* Add baselineUserLocationsDuration to Impossible Travel rule options [#4215](https://github.com/DataDog/datadog-api-client-typescript/pull/4215)
+* Document Cloud SIEM Growth and Content owned endpoints [#4196](https://github.com/DataDog/datadog-api-client-typescript/pull/4196)
+
+### Deprecated
+* Move MuteFindings operation to private spec [#4421](https://github.com/DataDog/datadog-api-client-typescript/pull/4421)
+
+### Fixed
+* Reconcile SIEM historical detections OpenAPI with current schema [#4275](https://github.com/DataDog/datadog-api-client-typescript/pull/4275)
+* security-monitoring - Change histsignals/search method from GET to POST [#4267](https://github.com/DataDog/datadog-api-client-typescript/pull/4267)
+
 ## 0.0.1-beta.12/2026-05-15
 
 ### Added

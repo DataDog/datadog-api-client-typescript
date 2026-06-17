@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.0.1-beta.12/2026-06-17
+
+### Added
+* Add captureNetworkPayloads for Synthetics Browser tests [#4483](https://github.com/DataDog/datadog-api-client-typescript/pull/4483)
+* Add JWT authentication type for Synthetics HTTP API tests [#4401](https://github.com/DataDog/datadog-api-client-typescript/pull/4401)
+* Add mcp step subtype to synthetics multi-step api tests [#4201](https://github.com/DataDog/datadog-api-client-typescript/pull/4201)
+* Update Synthetics downtime spec: gate write ops on default-settings and add monthly weekday positions [#4171](https://github.com/DataDog/datadog-api-client-typescript/pull/4171)
+
 ## 0.0.1-beta.11/2026-05-15
 
 ### Added

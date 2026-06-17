@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.1-beta.10/2026-06-17
+
+### Added
+*  Allow llm-observability data source in formula event queries [#4303](https://github.com/DataDog/datadog-api-client-typescript/pull/4303)
+* Allow apm metrics data source for distribution histogram request [#4285](https://github.com/DataDog/datadog-api-client-typescript/pull/4285)
+
 ## 0.0.1-beta.9/2026-05-15
 
 ### Added
