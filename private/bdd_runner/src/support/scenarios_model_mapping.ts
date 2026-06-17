@@ -9371,6 +9371,21 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "SAMLConfigurationResponse",
   },
+  "GovernanceInsightsApi.V2.ListGovernanceInsights": {
+    withValues: {
+      type: "boolean",
+      format: "",
+    },
+    orgUuid: {
+      type: "string",
+      format: "",
+    },
+    filterProduct: {
+      type: "Array<string>",
+      format: "",
+    },
+    operationResponseType: "GovernanceInsightsResponse",
+  },
   "HighAvailabilityMultiRegionApi.V2.GetHamrOrgConnection": {
     operationResponseType: "HamrOrgConnectionResponse",
   },
