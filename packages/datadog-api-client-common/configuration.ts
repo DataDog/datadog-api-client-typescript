@@ -501,6 +501,7 @@ export function createConfiguration(
       "v2.upsertAndPublishFormVersion": false,
       "v2.upsertFormVersion": false,
       "v2.updateOrgSamlConfigurations": false,
+      "v2.listGovernanceInsights": false,
       "v2.createHamrOrgConnection": false,
       "v2.getHamrOrgConnection": false,
       "v2.deleteEntityIntegrationConfig": false,
