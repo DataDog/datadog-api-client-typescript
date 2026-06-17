@@ -8589,6 +8589,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.GetDelegatedToken": {
+        "operationResponseType": "DelegatedTokenResponse",
+    },
     "v2.CreateDataDeletionRequest": {
         "product": {
             "type": "string",
@@ -10004,6 +10007,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "IncidentTodoResponse",
+    },
+    "v2.GetIntakeKey": {
+        "operationResponseType": "IntakeAPIKeyResponse",
     },
     "v2.ListAWSAccounts": {
         "awsAccountId": {
@@ -16698,6 +16704,54 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "uuid": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListAwsWifIntakeMappings": {
+        "operationResponseType": "AwsWifIntakeMappingsResponse",
+    },
+    "v2.CreateAwsWifIntakeMapping": {
+        "body": {
+            "type": "AwsWifIntakeMappingCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AwsWifIntakeMappingResponse",
+    },
+    "v2.GetAwsWifIntakeMapping": {
+        "configUuid": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "AwsWifIntakeMappingResponse",
+    },
+    "v2.DeleteAwsWifIntakeMapping": {
+        "configUuid": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListAwsWifPersonaMappings": {
+        "operationResponseType": "AwsWifPersonaMappingsResponse",
+    },
+    "v2.CreateAwsWifPersonaMapping": {
+        "body": {
+            "type": "AwsWifPersonaMappingCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AwsWifPersonaMappingResponse",
+    },
+    "v2.GetAwsWifPersonaMapping": {
+        "configUuid": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "AwsWifPersonaMappingResponse",
+    },
+    "v2.DeleteAwsWifPersonaMapping": {
+        "configUuid": {
             "type": "string",
             "format": "uuid",
             },

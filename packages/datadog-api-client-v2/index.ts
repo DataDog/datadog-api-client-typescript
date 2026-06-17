@@ -43,6 +43,16 @@ export {
 export { AWSLogsIntegrationApi } from "./apis/AWSLogsIntegrationApi";
 
 export {
+  AWSWIFApiCreateAwsWifIntakeMappingRequest,
+  AWSWIFApiCreateAwsWifPersonaMappingRequest,
+  AWSWIFApiDeleteAwsWifIntakeMappingRequest,
+  AWSWIFApiDeleteAwsWifPersonaMappingRequest,
+  AWSWIFApiGetAwsWifIntakeMappingRequest,
+  AWSWIFApiGetAwsWifPersonaMappingRequest,
+  AWSWIFApi,
+} from "./apis/AWSWIFApi";
+
+export {
   ActionConnectionApiCreateActionConnectionRequest,
   ActionConnectionApiDeleteActionConnectionRequest,
   ActionConnectionApiGetActionConnectionRequest,
@@ -489,6 +499,8 @@ export {
   DatasetsApi,
 } from "./apis/DatasetsApi";
 
+export { DelegatedTokenApi } from "./apis/DelegatedTokenApi";
+
 export {
   DeploymentGatesApiCreateDeploymentGateRequest,
   DeploymentGatesApiCreateDeploymentRuleRequest,
@@ -715,6 +727,8 @@ export {
   IncidentsApiUpdateIncidentUserDefinedFieldRequest,
   IncidentsApi,
 } from "./apis/IncidentsApi";
+
+export { IntakeKeyApi } from "./apis/IntakeKeyApi";
 
 export { IntegrationsApi } from "./apis/IntegrationsApi";
 
@@ -2320,6 +2334,21 @@ export { AwsScanOptionsUpdateAttributes } from "./models/AwsScanOptionsUpdateAtt
 export { AwsScanOptionsUpdateData } from "./models/AwsScanOptionsUpdateData";
 export { AwsScanOptionsUpdateRequest } from "./models/AwsScanOptionsUpdateRequest";
 export { AWSTracesConfig } from "./models/AWSTracesConfig";
+export { AwsWifIntakeMappingAttributes } from "./models/AwsWifIntakeMappingAttributes";
+export { AwsWifIntakeMappingCreateData } from "./models/AwsWifIntakeMappingCreateData";
+export { AwsWifIntakeMappingCreateRequest } from "./models/AwsWifIntakeMappingCreateRequest";
+export { AwsWifIntakeMappingData } from "./models/AwsWifIntakeMappingData";
+export { AwsWifIntakeMappingResponse } from "./models/AwsWifIntakeMappingResponse";
+export { AwsWifIntakeMappingsResponse } from "./models/AwsWifIntakeMappingsResponse";
+export { AwsWifIntakeMappingType } from "./models/AwsWifIntakeMappingType";
+export { AwsWifPersonaMappingAttributes } from "./models/AwsWifPersonaMappingAttributes";
+export { AwsWifPersonaMappingCreateAttributes } from "./models/AwsWifPersonaMappingCreateAttributes";
+export { AwsWifPersonaMappingCreateData } from "./models/AwsWifPersonaMappingCreateData";
+export { AwsWifPersonaMappingCreateRequest } from "./models/AwsWifPersonaMappingCreateRequest";
+export { AwsWifPersonaMappingData } from "./models/AwsWifPersonaMappingData";
+export { AwsWifPersonaMappingResponse } from "./models/AwsWifPersonaMappingResponse";
+export { AwsWifPersonaMappingsResponse } from "./models/AwsWifPersonaMappingsResponse";
+export { AwsWifPersonaMappingType } from "./models/AwsWifPersonaMappingType";
 export { AzureCredentials } from "./models/AzureCredentials";
 export { AzureCredentialsUpdate } from "./models/AzureCredentialsUpdate";
 export { AzureIntegration } from "./models/AzureIntegration";
@@ -3362,6 +3391,10 @@ export { DegradationDataRelationshipsLastModifiedByUserData } from "./models/Deg
 export { DegradationDataRelationshipsStatusPage } from "./models/DegradationDataRelationshipsStatusPage";
 export { DegradationDataRelationshipsStatusPageData } from "./models/DegradationDataRelationshipsStatusPageData";
 export { DegradationIncluded } from "./models/DegradationIncluded";
+export { DelegatedTokenAttributes } from "./models/DelegatedTokenAttributes";
+export { DelegatedTokenData } from "./models/DelegatedTokenData";
+export { DelegatedTokenResponse } from "./models/DelegatedTokenResponse";
+export { DelegatedTokenType } from "./models/DelegatedTokenType";
 export { DeleteAppResponse } from "./models/DeleteAppResponse";
 export { DeleteAppResponseData } from "./models/DeleteAppResponseData";
 export { DeleteAppsDatastoreItemRequest } from "./models/DeleteAppsDatastoreItemRequest";
@@ -4374,6 +4407,10 @@ export { IncludeType } from "./models/IncludeType";
 export { InputSchema } from "./models/InputSchema";
 export { InputSchemaParameters } from "./models/InputSchemaParameters";
 export { InputSchemaParametersType } from "./models/InputSchemaParametersType";
+export { IntakeAPIKeyAttributes } from "./models/IntakeAPIKeyAttributes";
+export { IntakeAPIKeyData } from "./models/IntakeAPIKeyData";
+export { IntakeAPIKeyResponse } from "./models/IntakeAPIKeyResponse";
+export { IntakeAPIKeyType } from "./models/IntakeAPIKeyType";
 export { IntakePayloadAccepted } from "./models/IntakePayloadAccepted";
 export { Integration } from "./models/Integration";
 export { IntegrationAttributes } from "./models/IntegrationAttributes";
