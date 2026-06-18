@@ -3744,6 +3744,20 @@ import { RumRetentionFiltersOrderData } from "./RumRetentionFiltersOrderData";
 import { RumRetentionFiltersOrderRequest } from "./RumRetentionFiltersOrderRequest";
 import { RumRetentionFiltersOrderResponse } from "./RumRetentionFiltersOrderResponse";
 import { RumRetentionFiltersResponse } from "./RumRetentionFiltersResponse";
+import { RumSdkConfigAttributes } from "./RumSdkConfigAttributes";
+import { RumSdkConfigData } from "./RumSdkConfigData";
+import { RumSdkConfigDynamicOption } from "./RumSdkConfigDynamicOption";
+import { RumSdkConfigDynamicOptionPair } from "./RumSdkConfigDynamicOptionPair";
+import { RumSdkConfigMatchOption } from "./RumSdkConfigMatchOption";
+import { RumSdkConfigMeta } from "./RumSdkConfigMeta";
+import { RumSdkConfigResponse } from "./RumSdkConfigResponse";
+import { RumSdkConfigRumAttributes } from "./RumSdkConfigRumAttributes";
+import { RumSdkConfigRumUpdateAttributes } from "./RumSdkConfigRumUpdateAttributes";
+import { RumSdkConfigSerializedRegex } from "./RumSdkConfigSerializedRegex";
+import { RumSdkConfigTracingUrlConfig } from "./RumSdkConfigTracingUrlConfig";
+import { RumSdkConfigUpdateAttributes } from "./RumSdkConfigUpdateAttributes";
+import { RumSdkConfigUpdateData } from "./RumSdkConfigUpdateData";
+import { RumSdkConfigUpdateRequest } from "./RumSdkConfigUpdateRequest";
 import { RunDataObservabilityMonitorResponse } from "./RunDataObservabilityMonitorResponse";
 import { RunDataObservabilityMonitorResponseData } from "./RunDataObservabilityMonitorResponseData";
 import { RunHistoricalJobRequest } from "./RunHistoricalJobRequest";
@@ -7092,6 +7106,17 @@ const enumsMap: { [key: string]: any[] } = {
     "vital",
   ],
   RumRetentionFilterType: ["retention_filters"],
+  RumSdkConfigDynamicOptionSerializedType: ["dynamic"],
+  RumSdkConfigDynamicOptionStrategy: ["js", "cookie", "dom", "localStorage"],
+  RumSdkConfigMatchOptionSerializedType: ["string", "regex"],
+  RumSdkConfigSerializedRegexType: ["regex"],
+  RumSdkConfigTracingUrlPropagatorType: [
+    "datadog",
+    "b3",
+    "b3multi",
+    "tracecontext",
+  ],
+  RumSdkConfigType: ["rum_sdk_config"],
   RunHistoricalJobRequestDataType: ["historicalDetectionsJobCreate"],
   SAMLAssertionAttributesType: ["saml_assertion_attributes"],
   SAMLConfigurationsType: ["saml_configurations"],
@@ -12376,6 +12401,20 @@ const typeMap: { [index: string]: any } = {
   RumRetentionFiltersOrderRequest: RumRetentionFiltersOrderRequest,
   RumRetentionFiltersOrderResponse: RumRetentionFiltersOrderResponse,
   RumRetentionFiltersResponse: RumRetentionFiltersResponse,
+  RumSdkConfigAttributes: RumSdkConfigAttributes,
+  RumSdkConfigData: RumSdkConfigData,
+  RumSdkConfigDynamicOption: RumSdkConfigDynamicOption,
+  RumSdkConfigDynamicOptionPair: RumSdkConfigDynamicOptionPair,
+  RumSdkConfigMatchOption: RumSdkConfigMatchOption,
+  RumSdkConfigMeta: RumSdkConfigMeta,
+  RumSdkConfigResponse: RumSdkConfigResponse,
+  RumSdkConfigRumAttributes: RumSdkConfigRumAttributes,
+  RumSdkConfigRumUpdateAttributes: RumSdkConfigRumUpdateAttributes,
+  RumSdkConfigSerializedRegex: RumSdkConfigSerializedRegex,
+  RumSdkConfigTracingUrlConfig: RumSdkConfigTracingUrlConfig,
+  RumSdkConfigUpdateAttributes: RumSdkConfigUpdateAttributes,
+  RumSdkConfigUpdateData: RumSdkConfigUpdateData,
+  RumSdkConfigUpdateRequest: RumSdkConfigUpdateRequest,
   RunDataObservabilityMonitorResponse: RunDataObservabilityMonitorResponse,
   RunDataObservabilityMonitorResponseData:
     RunDataObservabilityMonitorResponseData,
