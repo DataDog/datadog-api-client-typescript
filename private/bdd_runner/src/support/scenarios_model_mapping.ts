@@ -15768,6 +15768,44 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "Degradation",
   },
+  "StatusPagesApi.V2.SoftDeleteDegradationUpdate": {
+    degradationId: {
+      type: "string",
+      format: "uuid",
+    },
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    updateId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "StatusPagesApi.V2.EditDegradationUpdate": {
+    degradationId: {
+      type: "string",
+      format: "uuid",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    updateId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "PatchDegradationUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "DegradationUpdate",
+  },
   "StatusPagesApi.V2.CreateMaintenance": {
     pageId: {
       type: "string",
