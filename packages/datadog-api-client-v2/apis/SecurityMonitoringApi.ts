@@ -37,6 +37,11 @@ import { CreateServiceNowTicketRequestArray } from "../models/CreateServiceNowTi
 import { DefaultRulesetsPerLanguageResponse } from "../models/DefaultRulesetsPerLanguageResponse";
 import { DeleteCustomFrameworkResponse } from "../models/DeleteCustomFrameworkResponse";
 import { DetachCaseRequest } from "../models/DetachCaseRequest";
+import { DueDateRuleCreateRequest } from "../models/DueDateRuleCreateRequest";
+import { DueDateRuleReorderRequest } from "../models/DueDateRuleReorderRequest";
+import { DueDateRuleResponse } from "../models/DueDateRuleResponse";
+import { DueDateRulesResponse } from "../models/DueDateRulesResponse";
+import { DueDateRuleUpdateRequest } from "../models/DueDateRuleUpdateRequest";
 import { EntityContextResponse } from "../models/EntityContextResponse";
 import { Finding } from "../models/Finding";
 import { FindingCaseResponse } from "../models/FindingCaseResponse";
@@ -70,6 +75,11 @@ import { ListVulnerabilitiesResponse } from "../models/ListVulnerabilitiesRespon
 import { ListVulnerableAssetsResponse } from "../models/ListVulnerableAssetsResponse";
 import { MuteFindingsRequest } from "../models/MuteFindingsRequest";
 import { MuteFindingsResponse } from "../models/MuteFindingsResponse";
+import { MuteRuleCreateRequest } from "../models/MuteRuleCreateRequest";
+import { MuteRuleReorderRequest } from "../models/MuteRuleReorderRequest";
+import { MuteRuleResponse } from "../models/MuteRuleResponse";
+import { MuteRulesResponse } from "../models/MuteRulesResponse";
+import { MuteRuleUpdateRequest } from "../models/MuteRuleUpdateRequest";
 import { NodeTypesResponse } from "../models/NodeTypesResponse";
 import { NotificationRulePreviewResponse } from "../models/NotificationRulePreviewResponse";
 import { NotificationRuleResponse } from "../models/NotificationRuleResponse";
@@ -160,6 +170,11 @@ import { SecurityMonitoringTerraformExportResponse } from "../models/SecurityMon
 import { SecurityMonitoringTerraformResourceType } from "../models/SecurityMonitoringTerraformResourceType";
 import { SignalEntitiesResponse } from "../models/SignalEntitiesResponse";
 import { SingleEntityContextResponse } from "../models/SingleEntityContextResponse";
+import { TicketCreationRuleCreateRequest } from "../models/TicketCreationRuleCreateRequest";
+import { TicketCreationRuleReorderRequest } from "../models/TicketCreationRuleReorderRequest";
+import { TicketCreationRuleResponse } from "../models/TicketCreationRuleResponse";
+import { TicketCreationRulesResponse } from "../models/TicketCreationRulesResponse";
+import { TicketCreationRuleUpdateRequest } from "../models/TicketCreationRuleUpdateRequest";
 import { UpdateCustomFrameworkRequest } from "../models/UpdateCustomFrameworkRequest";
 import { UpdateCustomFrameworkResponse } from "../models/UpdateCustomFrameworkResponse";
 import { UpdateResourceEvaluationFiltersRequest } from "../models/UpdateResourceEvaluationFiltersRequest";
@@ -1387,6 +1402,182 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async createSecurityFindingsAutomationDueDateRule(
+    body: DueDateRuleCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'createSecurityFindingsAutomationDueDateRule'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.createSecurityFindingsAutomationDueDateRule"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createSecurityFindingsAutomationDueDateRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "createSecurityFindingsAutomationDueDateRule"
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/findings/automation/due_date_rules";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.createSecurityFindingsAutomationDueDateRule"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "DueDateRuleCreateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createSecurityFindingsAutomationMuteRule(
+    body: MuteRuleCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'createSecurityFindingsAutomationMuteRule'"
+    );
+    if (
+      !_config.unstableOperations["v2.createSecurityFindingsAutomationMuteRule"]
+    ) {
+      throw new Error(
+        "Unstable operation 'createSecurityFindingsAutomationMuteRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "createSecurityFindingsAutomationMuteRule"
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/findings/automation/mute_rules";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.createSecurityFindingsAutomationMuteRule"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "MuteRuleCreateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createSecurityFindingsAutomationTicketCreationRule(
+    body: TicketCreationRuleCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'createSecurityFindingsAutomationTicketCreationRule'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.createSecurityFindingsAutomationTicketCreationRule"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createSecurityFindingsAutomationTicketCreationRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "createSecurityFindingsAutomationTicketCreationRule"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/findings/automation/ticket_creation_rules";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.createSecurityFindingsAutomationTicketCreationRule"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "TicketCreationRuleCreateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async createSecurityMonitoringCriticalAsset(
     body: SecurityMonitoringCriticalAssetCreateRequest,
     _options?: Configuration
@@ -2085,6 +2276,160 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteSecurityFindingsAutomationDueDateRule(
+    ruleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'deleteSecurityFindingsAutomationDueDateRule'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.deleteSecurityFindingsAutomationDueDateRule"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteSecurityFindingsAutomationDueDateRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError(
+        "ruleId",
+        "deleteSecurityFindingsAutomationDueDateRule"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/findings/automation/due_date_rules/{rule_id}".replace(
+        "{rule_id}",
+        encodeURIComponent(String(ruleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.deleteSecurityFindingsAutomationDueDateRule"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteSecurityFindingsAutomationMuteRule(
+    ruleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'deleteSecurityFindingsAutomationMuteRule'"
+    );
+    if (
+      !_config.unstableOperations["v2.deleteSecurityFindingsAutomationMuteRule"]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteSecurityFindingsAutomationMuteRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError(
+        "ruleId",
+        "deleteSecurityFindingsAutomationMuteRule"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/findings/automation/mute_rules/{rule_id}".replace(
+        "{rule_id}",
+        encodeURIComponent(String(ruleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.deleteSecurityFindingsAutomationMuteRule"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteSecurityFindingsAutomationTicketCreationRule(
+    ruleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'deleteSecurityFindingsAutomationTicketCreationRule'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.deleteSecurityFindingsAutomationTicketCreationRule"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteSecurityFindingsAutomationTicketCreationRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError(
+        "ruleId",
+        "deleteSecurityFindingsAutomationTicketCreationRule"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/findings/automation/ticket_creation_rules/{rule_id}".replace(
+        "{rule_id}",
+        encodeURIComponent(String(ruleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.deleteSecurityFindingsAutomationTicketCreationRule"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
     ]);
 
     return requestContext;
@@ -3328,6 +3673,158 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getSecurityFindingsAutomationDueDateRule(
+    ruleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'getSecurityFindingsAutomationDueDateRule'"
+    );
+    if (
+      !_config.unstableOperations["v2.getSecurityFindingsAutomationDueDateRule"]
+    ) {
+      throw new Error(
+        "Unstable operation 'getSecurityFindingsAutomationDueDateRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError(
+        "ruleId",
+        "getSecurityFindingsAutomationDueDateRule"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/findings/automation/due_date_rules/{rule_id}".replace(
+        "{rule_id}",
+        encodeURIComponent(String(ruleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.getSecurityFindingsAutomationDueDateRule"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getSecurityFindingsAutomationMuteRule(
+    ruleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'getSecurityFindingsAutomationMuteRule'"
+    );
+    if (
+      !_config.unstableOperations["v2.getSecurityFindingsAutomationMuteRule"]
+    ) {
+      throw new Error(
+        "Unstable operation 'getSecurityFindingsAutomationMuteRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError(
+        "ruleId",
+        "getSecurityFindingsAutomationMuteRule"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/findings/automation/mute_rules/{rule_id}".replace(
+        "{rule_id}",
+        encodeURIComponent(String(ruleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.getSecurityFindingsAutomationMuteRule"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getSecurityFindingsAutomationTicketCreationRule(
+    ruleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'getSecurityFindingsAutomationTicketCreationRule'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.getSecurityFindingsAutomationTicketCreationRule"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getSecurityFindingsAutomationTicketCreationRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError(
+        "ruleId",
+        "getSecurityFindingsAutomationTicketCreationRule"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/findings/automation/ticket_creation_rules/{rule_id}".replace(
+        "{rule_id}",
+        encodeURIComponent(String(ruleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.getSecurityFindingsAutomationTicketCreationRule"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
     ]);
 
     return requestContext;
@@ -5160,6 +5657,176 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listSecurityFindingsAutomationDueDateRules(
+    pageSize?: number,
+    pageNumber?: number,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'listSecurityFindingsAutomationDueDateRules'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.listSecurityFindingsAutomationDueDateRules"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listSecurityFindingsAutomationDueDateRules' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/findings/automation/due_date_rules";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.listSecurityFindingsAutomationDueDateRules"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listSecurityFindingsAutomationMuteRules(
+    pageSize?: number,
+    pageNumber?: number,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'listSecurityFindingsAutomationMuteRules'"
+    );
+    if (
+      !_config.unstableOperations["v2.listSecurityFindingsAutomationMuteRules"]
+    ) {
+      throw new Error(
+        "Unstable operation 'listSecurityFindingsAutomationMuteRules' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/findings/automation/mute_rules";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.listSecurityFindingsAutomationMuteRules"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listSecurityFindingsAutomationTicketCreationRules(
+    pageSize?: number,
+    pageNumber?: number,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'listSecurityFindingsAutomationTicketCreationRules'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.listSecurityFindingsAutomationTicketCreationRules"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listSecurityFindingsAutomationTicketCreationRules' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/findings/automation/ticket_creation_rules";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.listSecurityFindingsAutomationTicketCreationRules"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listSecurityMonitoringCriticalAssets(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -6365,6 +7032,186 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async reorderSecurityFindingsAutomationDueDateRules(
+    body: DueDateRuleReorderRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'reorderSecurityFindingsAutomationDueDateRules'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.reorderSecurityFindingsAutomationDueDateRules"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'reorderSecurityFindingsAutomationDueDateRules' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "reorderSecurityFindingsAutomationDueDateRules"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/findings/automation/due_date_rules/reorder";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.reorderSecurityFindingsAutomationDueDateRules"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "DueDateRuleReorderRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async reorderSecurityFindingsAutomationMuteRules(
+    body: MuteRuleReorderRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'reorderSecurityFindingsAutomationMuteRules'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.reorderSecurityFindingsAutomationMuteRules"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'reorderSecurityFindingsAutomationMuteRules' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "reorderSecurityFindingsAutomationMuteRules"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/findings/automation/mute_rules/reorder";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.reorderSecurityFindingsAutomationMuteRules"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "MuteRuleReorderRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async reorderSecurityFindingsAutomationTicketCreationRules(
+    body: TicketCreationRuleReorderRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'reorderSecurityFindingsAutomationTicketCreationRules'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.reorderSecurityFindingsAutomationTicketCreationRules"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'reorderSecurityFindingsAutomationTicketCreationRules' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "reorderSecurityFindingsAutomationTicketCreationRules"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/findings/automation/ticket_creation_rules/reorder";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.reorderSecurityFindingsAutomationTicketCreationRules"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "TicketCreationRuleReorderRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async restoreSecurityMonitoringRule(
     ruleId: string,
     version: number,
@@ -6934,6 +7781,220 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateSecurityFindingsAutomationDueDateRule(
+    ruleId: string,
+    body: DueDateRuleUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'updateSecurityFindingsAutomationDueDateRule'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.updateSecurityFindingsAutomationDueDateRule"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateSecurityFindingsAutomationDueDateRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError(
+        "ruleId",
+        "updateSecurityFindingsAutomationDueDateRule"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "updateSecurityFindingsAutomationDueDateRule"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/findings/automation/due_date_rules/{rule_id}".replace(
+        "{rule_id}",
+        encodeURIComponent(String(ruleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.updateSecurityFindingsAutomationDueDateRule"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "DueDateRuleUpdateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateSecurityFindingsAutomationMuteRule(
+    ruleId: string,
+    body: MuteRuleUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'updateSecurityFindingsAutomationMuteRule'"
+    );
+    if (
+      !_config.unstableOperations["v2.updateSecurityFindingsAutomationMuteRule"]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateSecurityFindingsAutomationMuteRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError(
+        "ruleId",
+        "updateSecurityFindingsAutomationMuteRule"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "updateSecurityFindingsAutomationMuteRule"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/findings/automation/mute_rules/{rule_id}".replace(
+        "{rule_id}",
+        encodeURIComponent(String(ruleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.updateSecurityFindingsAutomationMuteRule"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "MuteRuleUpdateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateSecurityFindingsAutomationTicketCreationRule(
+    ruleId: string,
+    body: TicketCreationRuleUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'updateSecurityFindingsAutomationTicketCreationRule'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.updateSecurityFindingsAutomationTicketCreationRule"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateSecurityFindingsAutomationTicketCreationRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError(
+        "ruleId",
+        "updateSecurityFindingsAutomationTicketCreationRule"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "updateSecurityFindingsAutomationTicketCreationRule"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/findings/automation/ticket_creation_rules/{rule_id}".replace(
+        "{rule_id}",
+        encodeURIComponent(String(ruleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.updateSecurityFindingsAutomationTicketCreationRule"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "TicketCreationRuleUpdateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
     ]);
 
     return requestContext;
@@ -9041,6 +10102,249 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createSecurityFindingsAutomationDueDateRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createSecurityFindingsAutomationDueDateRule(
+    response: ResponseContext
+  ): Promise<DueDateRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: DueDateRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DueDateRuleResponse"
+      ) as DueDateRuleResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: DueDateRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DueDateRuleResponse",
+        ""
+      ) as DueDateRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createSecurityFindingsAutomationMuteRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createSecurityFindingsAutomationMuteRule(
+    response: ResponseContext
+  ): Promise<MuteRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: MuteRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MuteRuleResponse"
+      ) as MuteRuleResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MuteRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MuteRuleResponse",
+        ""
+      ) as MuteRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createSecurityFindingsAutomationTicketCreationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createSecurityFindingsAutomationTicketCreationRule(
+    response: ResponseContext
+  ): Promise<TicketCreationRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: TicketCreationRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TicketCreationRuleResponse"
+      ) as TicketCreationRuleResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TicketCreationRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TicketCreationRuleResponse",
+        ""
+      ) as TicketCreationRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createSecurityMonitoringCriticalAsset
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -9986,6 +11290,165 @@ export class SecurityMonitoringApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteSecurityFilter(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteSecurityFindingsAutomationDueDateRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteSecurityFindingsAutomationDueDateRule(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteSecurityFindingsAutomationMuteRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteSecurityFindingsAutomationMuteRule(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteSecurityFindingsAutomationTicketCreationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteSecurityFindingsAutomationTicketCreationRule(
+    response: ResponseContext
+  ): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -11667,6 +13130,192 @@ export class SecurityMonitoringApiResponseProcessor {
         "SecurityFilterResponse",
         ""
       ) as SecurityFilterResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getSecurityFindingsAutomationDueDateRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSecurityFindingsAutomationDueDateRule(
+    response: ResponseContext
+  ): Promise<DueDateRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: DueDateRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DueDateRuleResponse"
+      ) as DueDateRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: DueDateRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DueDateRuleResponse",
+        ""
+      ) as DueDateRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getSecurityFindingsAutomationMuteRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSecurityFindingsAutomationMuteRule(
+    response: ResponseContext
+  ): Promise<MuteRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: MuteRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MuteRuleResponse"
+      ) as MuteRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MuteRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MuteRuleResponse",
+        ""
+      ) as MuteRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getSecurityFindingsAutomationTicketCreationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSecurityFindingsAutomationTicketCreationRule(
+    response: ResponseContext
+  ): Promise<TicketCreationRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: TicketCreationRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TicketCreationRuleResponse"
+      ) as TicketCreationRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TicketCreationRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TicketCreationRuleResponse",
+        ""
+      ) as TicketCreationRuleResponse;
       return body;
     }
 
@@ -13990,6 +15639,180 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listSecurityFindingsAutomationDueDateRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listSecurityFindingsAutomationDueDateRules(
+    response: ResponseContext
+  ): Promise<DueDateRulesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: DueDateRulesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DueDateRulesResponse"
+      ) as DueDateRulesResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: DueDateRulesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DueDateRulesResponse",
+        ""
+      ) as DueDateRulesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listSecurityFindingsAutomationMuteRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listSecurityFindingsAutomationMuteRules(
+    response: ResponseContext
+  ): Promise<MuteRulesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: MuteRulesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MuteRulesResponse"
+      ) as MuteRulesResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MuteRulesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MuteRulesResponse",
+        ""
+      ) as MuteRulesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listSecurityFindingsAutomationTicketCreationRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listSecurityFindingsAutomationTicketCreationRules(
+    response: ResponseContext
+  ): Promise<TicketCreationRulesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: TicketCreationRulesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TicketCreationRulesResponse"
+      ) as TicketCreationRulesResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TicketCreationRulesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TicketCreationRulesResponse",
+        ""
+      ) as TicketCreationRulesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listSecurityMonitoringCriticalAssets
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -14951,6 +16774,251 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to reorderSecurityFindingsAutomationDueDateRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async reorderSecurityFindingsAutomationDueDateRules(
+    response: ResponseContext
+  ): Promise<DueDateRuleReorderRequest> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: DueDateRuleReorderRequest = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DueDateRuleReorderRequest"
+      ) as DueDateRuleReorderRequest;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: DueDateRuleReorderRequest = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DueDateRuleReorderRequest",
+        ""
+      ) as DueDateRuleReorderRequest;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to reorderSecurityFindingsAutomationMuteRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async reorderSecurityFindingsAutomationMuteRules(
+    response: ResponseContext
+  ): Promise<MuteRuleReorderRequest> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: MuteRuleReorderRequest = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MuteRuleReorderRequest"
+      ) as MuteRuleReorderRequest;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MuteRuleReorderRequest = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MuteRuleReorderRequest",
+        ""
+      ) as MuteRuleReorderRequest;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to reorderSecurityFindingsAutomationTicketCreationRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async reorderSecurityFindingsAutomationTicketCreationRules(
+    response: ResponseContext
+  ): Promise<TicketCreationRuleReorderRequest> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: TicketCreationRuleReorderRequest =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "TicketCreationRuleReorderRequest"
+        ) as TicketCreationRuleReorderRequest;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TicketCreationRuleReorderRequest =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "TicketCreationRuleReorderRequest",
+          ""
+        ) as TicketCreationRuleReorderRequest;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to restoreSecurityMonitoringRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -15737,6 +17805,261 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateSecurityFindingsAutomationDueDateRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateSecurityFindingsAutomationDueDateRule(
+    response: ResponseContext
+  ): Promise<DueDateRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: DueDateRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DueDateRuleResponse"
+      ) as DueDateRuleResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: DueDateRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DueDateRuleResponse",
+        ""
+      ) as DueDateRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateSecurityFindingsAutomationMuteRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateSecurityFindingsAutomationMuteRule(
+    response: ResponseContext
+  ): Promise<MuteRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: MuteRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MuteRuleResponse"
+      ) as MuteRuleResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MuteRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MuteRuleResponse",
+        ""
+      ) as MuteRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateSecurityFindingsAutomationTicketCreationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateSecurityFindingsAutomationTicketCreationRule(
+    response: ResponseContext
+  ): Promise<TicketCreationRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: TicketCreationRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TicketCreationRuleResponse"
+      ) as TicketCreationRuleResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TicketCreationRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TicketCreationRuleResponse",
+        ""
+      ) as TicketCreationRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateSecurityMonitoringCriticalAsset
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -16480,6 +18803,27 @@ export interface SecurityMonitoringApiCreateSecurityFilterRequest {
   body: SecurityFilterCreateRequest;
 }
 
+export interface SecurityMonitoringApiCreateSecurityFindingsAutomationDueDateRuleRequest {
+  /**
+   * @type DueDateRuleCreateRequest
+   */
+  body: DueDateRuleCreateRequest;
+}
+
+export interface SecurityMonitoringApiCreateSecurityFindingsAutomationMuteRuleRequest {
+  /**
+   * @type MuteRuleCreateRequest
+   */
+  body: MuteRuleCreateRequest;
+}
+
+export interface SecurityMonitoringApiCreateSecurityFindingsAutomationTicketCreationRuleRequest {
+  /**
+   * @type TicketCreationRuleCreateRequest
+   */
+  body: TicketCreationRuleCreateRequest;
+}
+
 export interface SecurityMonitoringApiCreateSecurityMonitoringCriticalAssetRequest {
   /**
    * The definition of the new critical asset.
@@ -16600,6 +18944,30 @@ export interface SecurityMonitoringApiDeleteSecurityFilterRequest {
    * @type string
    */
   securityFilterId: string;
+}
+
+export interface SecurityMonitoringApiDeleteSecurityFindingsAutomationDueDateRuleRequest {
+  /**
+   * The ID of the due date rule.
+   * @type string
+   */
+  ruleId: string;
+}
+
+export interface SecurityMonitoringApiDeleteSecurityFindingsAutomationMuteRuleRequest {
+  /**
+   * The ID of the mute rule.
+   * @type string
+   */
+  ruleId: string;
+}
+
+export interface SecurityMonitoringApiDeleteSecurityFindingsAutomationTicketCreationRuleRequest {
+  /**
+   * The ID of the ticket creation rule.
+   * @type string
+   */
+  ruleId: string;
 }
 
 export interface SecurityMonitoringApiDeleteSecurityMonitoringCriticalAssetRequest {
@@ -16910,6 +19278,30 @@ export interface SecurityMonitoringApiGetSecurityFilterRequest {
    * @type string
    */
   securityFilterId: string;
+}
+
+export interface SecurityMonitoringApiGetSecurityFindingsAutomationDueDateRuleRequest {
+  /**
+   * The ID of the due date rule.
+   * @type string
+   */
+  ruleId: string;
+}
+
+export interface SecurityMonitoringApiGetSecurityFindingsAutomationMuteRuleRequest {
+  /**
+   * The ID of the mute rule.
+   * @type string
+   */
+  ruleId: string;
+}
+
+export interface SecurityMonitoringApiGetSecurityFindingsAutomationTicketCreationRuleRequest {
+  /**
+   * The ID of the ticket creation rule.
+   * @type string
+   */
+  ruleId: string;
 }
 
 export interface SecurityMonitoringApiGetSecurityMonitoringCriticalAssetRequest {
@@ -17449,6 +19841,45 @@ export interface SecurityMonitoringApiListSecurityFindingsRequest {
   sort?: SecurityFindingsSort;
 }
 
+export interface SecurityMonitoringApiListSecurityFindingsAutomationDueDateRulesRequest {
+  /**
+   * The number of rules per page. Maximum is 1000.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * The page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+}
+
+export interface SecurityMonitoringApiListSecurityFindingsAutomationMuteRulesRequest {
+  /**
+   * The number of rules per page. Maximum is 1000.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * The page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+}
+
+export interface SecurityMonitoringApiListSecurityFindingsAutomationTicketCreationRulesRequest {
+  /**
+   * The number of rules per page. Maximum is 1000.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * The page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+}
+
 export interface SecurityMonitoringApiListSecurityMonitoringDatasetsRequest {
   /**
    * Size for a given page. The maximum allowed value is 100.
@@ -17929,6 +20360,27 @@ export interface SecurityMonitoringApiPatchVulnerabilityNotificationRuleRequest 
   body: PatchNotificationRuleParameters;
 }
 
+export interface SecurityMonitoringApiReorderSecurityFindingsAutomationDueDateRulesRequest {
+  /**
+   * @type DueDateRuleReorderRequest
+   */
+  body: DueDateRuleReorderRequest;
+}
+
+export interface SecurityMonitoringApiReorderSecurityFindingsAutomationMuteRulesRequest {
+  /**
+   * @type MuteRuleReorderRequest
+   */
+  body: MuteRuleReorderRequest;
+}
+
+export interface SecurityMonitoringApiReorderSecurityFindingsAutomationTicketCreationRulesRequest {
+  /**
+   * @type TicketCreationRuleReorderRequest
+   */
+  body: TicketCreationRuleReorderRequest;
+}
+
 export interface SecurityMonitoringApiRestoreSecurityMonitoringRuleRequest {
   /**
    * The ID of the rule.
@@ -18038,6 +20490,42 @@ export interface SecurityMonitoringApiUpdateSecurityFilterRequest {
    * @type SecurityFilterUpdateRequest
    */
   body: SecurityFilterUpdateRequest;
+}
+
+export interface SecurityMonitoringApiUpdateSecurityFindingsAutomationDueDateRuleRequest {
+  /**
+   * The ID of the due date rule.
+   * @type string
+   */
+  ruleId: string;
+  /**
+   * @type DueDateRuleUpdateRequest
+   */
+  body: DueDateRuleUpdateRequest;
+}
+
+export interface SecurityMonitoringApiUpdateSecurityFindingsAutomationMuteRuleRequest {
+  /**
+   * The ID of the mute rule.
+   * @type string
+   */
+  ruleId: string;
+  /**
+   * @type MuteRuleUpdateRequest
+   */
+  body: MuteRuleUpdateRequest;
+}
+
+export interface SecurityMonitoringApiUpdateSecurityFindingsAutomationTicketCreationRuleRequest {
+  /**
+   * The ID of the ticket creation rule.
+   * @type string
+   */
+  ruleId: string;
+  /**
+   * @type TicketCreationRuleUpdateRequest
+   */
+  body: TicketCreationRuleUpdateRequest;
 }
 
 export interface SecurityMonitoringApiUpdateSecurityMonitoringCriticalAssetRequest {
@@ -18750,6 +21238,78 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Create a new due date rule for the current organization.
+   * @param param The request object
+   */
+  public createSecurityFindingsAutomationDueDateRule(
+    param: SecurityMonitoringApiCreateSecurityFindingsAutomationDueDateRuleRequest,
+    options?: Configuration
+  ): Promise<DueDateRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.createSecurityFindingsAutomationDueDateRule(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createSecurityFindingsAutomationDueDateRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Create a new mute rule for the current organization.
+   * @param param The request object
+   */
+  public createSecurityFindingsAutomationMuteRule(
+    param: SecurityMonitoringApiCreateSecurityFindingsAutomationMuteRuleRequest,
+    options?: Configuration
+  ): Promise<MuteRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.createSecurityFindingsAutomationMuteRule(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createSecurityFindingsAutomationMuteRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Create a new ticket creation rule for the current organization.
+   * @param param The request object
+   */
+  public createSecurityFindingsAutomationTicketCreationRule(
+    param: SecurityMonitoringApiCreateSecurityFindingsAutomationTicketCreationRuleRequest,
+    options?: Configuration
+  ): Promise<TicketCreationRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.createSecurityFindingsAutomationTicketCreationRule(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createSecurityFindingsAutomationTicketCreationRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Create a new critical asset.
    * @param param The request object
    */
@@ -19093,6 +21653,78 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteSecurityFilter(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete an existing due date rule by ID.
+   * @param param The request object
+   */
+  public deleteSecurityFindingsAutomationDueDateRule(
+    param: SecurityMonitoringApiDeleteSecurityFindingsAutomationDueDateRuleRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteSecurityFindingsAutomationDueDateRule(
+        param.ruleId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteSecurityFindingsAutomationDueDateRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete an existing mute rule by ID.
+   * @param param The request object
+   */
+  public deleteSecurityFindingsAutomationMuteRule(
+    param: SecurityMonitoringApiDeleteSecurityFindingsAutomationMuteRuleRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteSecurityFindingsAutomationMuteRule(
+        param.ruleId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteSecurityFindingsAutomationMuteRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete an existing ticket creation rule by ID.
+   * @param param The request object
+   */
+  public deleteSecurityFindingsAutomationTicketCreationRule(
+    param: SecurityMonitoringApiDeleteSecurityFindingsAutomationTicketCreationRuleRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteSecurityFindingsAutomationTicketCreationRule(
+        param.ruleId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteSecurityFindingsAutomationTicketCreationRule(
+            responseContext
+          );
         });
     });
   }
@@ -19703,6 +22335,78 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getSecurityFilter(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get the details of a due date rule by ID.
+   * @param param The request object
+   */
+  public getSecurityFindingsAutomationDueDateRule(
+    param: SecurityMonitoringApiGetSecurityFindingsAutomationDueDateRuleRequest,
+    options?: Configuration
+  ): Promise<DueDateRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.getSecurityFindingsAutomationDueDateRule(
+        param.ruleId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSecurityFindingsAutomationDueDateRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get the details of a mute rule by ID.
+   * @param param The request object
+   */
+  public getSecurityFindingsAutomationMuteRule(
+    param: SecurityMonitoringApiGetSecurityFindingsAutomationMuteRuleRequest,
+    options?: Configuration
+  ): Promise<MuteRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.getSecurityFindingsAutomationMuteRule(
+        param.ruleId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSecurityFindingsAutomationMuteRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get the details of a ticket creation rule by ID.
+   * @param param The request object
+   */
+  public getSecurityFindingsAutomationTicketCreationRule(
+    param: SecurityMonitoringApiGetSecurityFindingsAutomationTicketCreationRuleRequest,
+    options?: Configuration
+  ): Promise<TicketCreationRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.getSecurityFindingsAutomationTicketCreationRule(
+        param.ruleId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSecurityFindingsAutomationTicketCreationRule(
+            responseContext
+          );
         });
     });
   }
@@ -20760,6 +23464,81 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Get all due date rules for the current organization.
+   * @param param The request object
+   */
+  public listSecurityFindingsAutomationDueDateRules(
+    param: SecurityMonitoringApiListSecurityFindingsAutomationDueDateRulesRequest = {},
+    options?: Configuration
+  ): Promise<DueDateRulesResponse> {
+    const requestContextPromise =
+      this.requestFactory.listSecurityFindingsAutomationDueDateRules(
+        param.pageSize,
+        param.pageNumber,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listSecurityFindingsAutomationDueDateRules(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get all mute rules for the current organization.
+   * @param param The request object
+   */
+  public listSecurityFindingsAutomationMuteRules(
+    param: SecurityMonitoringApiListSecurityFindingsAutomationMuteRulesRequest = {},
+    options?: Configuration
+  ): Promise<MuteRulesResponse> {
+    const requestContextPromise =
+      this.requestFactory.listSecurityFindingsAutomationMuteRules(
+        param.pageSize,
+        param.pageNumber,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listSecurityFindingsAutomationMuteRules(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get all ticket creation rules for the current organization.
+   * @param param The request object
+   */
+  public listSecurityFindingsAutomationTicketCreationRules(
+    param: SecurityMonitoringApiListSecurityFindingsAutomationTicketCreationRulesRequest = {},
+    options?: Configuration
+  ): Promise<TicketCreationRulesResponse> {
+    const requestContextPromise =
+      this.requestFactory.listSecurityFindingsAutomationTicketCreationRules(
+        param.pageSize,
+        param.pageNumber,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listSecurityFindingsAutomationTicketCreationRules(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Get the list of all critical assets.
    * @param param The request object
    */
@@ -21301,6 +24080,78 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Reorder the list of due date rules for the current organization.
+   * @param param The request object
+   */
+  public reorderSecurityFindingsAutomationDueDateRules(
+    param: SecurityMonitoringApiReorderSecurityFindingsAutomationDueDateRulesRequest,
+    options?: Configuration
+  ): Promise<DueDateRuleReorderRequest> {
+    const requestContextPromise =
+      this.requestFactory.reorderSecurityFindingsAutomationDueDateRules(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.reorderSecurityFindingsAutomationDueDateRules(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Reorder the list of mute rules for the current organization.
+   * @param param The request object
+   */
+  public reorderSecurityFindingsAutomationMuteRules(
+    param: SecurityMonitoringApiReorderSecurityFindingsAutomationMuteRulesRequest,
+    options?: Configuration
+  ): Promise<MuteRuleReorderRequest> {
+    const requestContextPromise =
+      this.requestFactory.reorderSecurityFindingsAutomationMuteRules(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.reorderSecurityFindingsAutomationMuteRules(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Reorder the list of ticket creation rules for the current organization.
+   * @param param The request object
+   */
+  public reorderSecurityFindingsAutomationTicketCreationRules(
+    param: SecurityMonitoringApiReorderSecurityFindingsAutomationTicketCreationRulesRequest,
+    options?: Configuration
+  ): Promise<TicketCreationRuleReorderRequest> {
+    const requestContextPromise =
+      this.requestFactory.reorderSecurityFindingsAutomationTicketCreationRules(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.reorderSecurityFindingsAutomationTicketCreationRules(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Restores a custom detection rule to a previously saved historical version.
    * Only custom rules can be restored. Default and partner rules return 400.
    * The restore creates a new version entry; it does not overwrite history.
@@ -21700,6 +24551,81 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateSecurityFilter(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update an existing due date rule by ID.
+   * @param param The request object
+   */
+  public updateSecurityFindingsAutomationDueDateRule(
+    param: SecurityMonitoringApiUpdateSecurityFindingsAutomationDueDateRuleRequest,
+    options?: Configuration
+  ): Promise<DueDateRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateSecurityFindingsAutomationDueDateRule(
+        param.ruleId,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateSecurityFindingsAutomationDueDateRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Update an existing mute rule by ID.
+   * @param param The request object
+   */
+  public updateSecurityFindingsAutomationMuteRule(
+    param: SecurityMonitoringApiUpdateSecurityFindingsAutomationMuteRuleRequest,
+    options?: Configuration
+  ): Promise<MuteRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateSecurityFindingsAutomationMuteRule(
+        param.ruleId,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateSecurityFindingsAutomationMuteRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Update an existing ticket creation rule by ID.
+   * @param param The request object
+   */
+  public updateSecurityFindingsAutomationTicketCreationRule(
+    param: SecurityMonitoringApiUpdateSecurityFindingsAutomationTicketCreationRuleRequest,
+    options?: Configuration
+  ): Promise<TicketCreationRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateSecurityFindingsAutomationTicketCreationRule(
+        param.ruleId,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateSecurityFindingsAutomationTicketCreationRule(
+            responseContext
+          );
         });
     });
   }

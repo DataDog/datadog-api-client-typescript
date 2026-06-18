@@ -392,8 +392,11 @@ import { AutomationRuleAttributes } from "./AutomationRuleAttributes";
 import { AutomationRuleCreate } from "./AutomationRuleCreate";
 import { AutomationRuleCreateAttributes } from "./AutomationRuleCreateAttributes";
 import { AutomationRuleCreateRequest } from "./AutomationRuleCreateRequest";
+import { AutomationRuleCreatedBy } from "./AutomationRuleCreatedBy";
+import { AutomationRuleModifiedBy } from "./AutomationRuleModifiedBy";
 import { AutomationRuleRelationships } from "./AutomationRuleRelationships";
 import { AutomationRuleResponse } from "./AutomationRuleResponse";
+import { AutomationRuleScope } from "./AutomationRuleScope";
 import { AutomationRuleTrigger } from "./AutomationRuleTrigger";
 import { AutomationRuleTriggerData } from "./AutomationRuleTriggerData";
 import { AutomationRuleUpdate } from "./AutomationRuleUpdate";
@@ -1380,6 +1383,18 @@ import { DowntimeScheduleRecurrencesUpdateRequest } from "./DowntimeScheduleRecu
 import { DowntimeUpdateRequest } from "./DowntimeUpdateRequest";
 import { DowntimeUpdateRequestAttributes } from "./DowntimeUpdateRequestAttributes";
 import { DowntimeUpdateRequestData } from "./DowntimeUpdateRequestData";
+import { DueDatePerSeverityItem } from "./DueDatePerSeverityItem";
+import { DueDateRuleAction } from "./DueDateRuleAction";
+import { DueDateRuleAttributesCreate } from "./DueDateRuleAttributesCreate";
+import { DueDateRuleAttributesResponse } from "./DueDateRuleAttributesResponse";
+import { DueDateRuleCreateRequest } from "./DueDateRuleCreateRequest";
+import { DueDateRuleDataCreate } from "./DueDateRuleDataCreate";
+import { DueDateRuleDataResponse } from "./DueDateRuleDataResponse";
+import { DueDateRuleReorderItem } from "./DueDateRuleReorderItem";
+import { DueDateRuleReorderRequest } from "./DueDateRuleReorderRequest";
+import { DueDateRuleResponse } from "./DueDateRuleResponse";
+import { DueDateRuleUpdateRequest } from "./DueDateRuleUpdateRequest";
+import { DueDateRulesResponse } from "./DueDateRulesResponse";
 import { ELFSourcemapAttributes } from "./ELFSourcemapAttributes";
 import { ELFSourcemapData } from "./ELFSourcemapData";
 import { EPSS } from "./EPSS";
@@ -2847,6 +2862,17 @@ import { MuteFindingsRequestDataAttributes } from "./MuteFindingsRequestDataAttr
 import { MuteFindingsRequestDataRelationships } from "./MuteFindingsRequestDataRelationships";
 import { MuteFindingsResponse } from "./MuteFindingsResponse";
 import { MuteFindingsResponseData } from "./MuteFindingsResponseData";
+import { MuteRuleAction } from "./MuteRuleAction";
+import { MuteRuleAttributesCreate } from "./MuteRuleAttributesCreate";
+import { MuteRuleAttributesResponse } from "./MuteRuleAttributesResponse";
+import { MuteRuleCreateRequest } from "./MuteRuleCreateRequest";
+import { MuteRuleDataCreate } from "./MuteRuleDataCreate";
+import { MuteRuleDataResponse } from "./MuteRuleDataResponse";
+import { MuteRuleReorderItem } from "./MuteRuleReorderItem";
+import { MuteRuleReorderRequest } from "./MuteRuleReorderRequest";
+import { MuteRuleResponse } from "./MuteRuleResponse";
+import { MuteRuleUpdateRequest } from "./MuteRuleUpdateRequest";
+import { MuteRulesResponse } from "./MuteRulesResponse";
 import { NDKSourcemapAttributes } from "./NDKSourcemapAttributes";
 import { NDKSourcemapData } from "./NDKSourcemapData";
 import { NetworkHealthInsight } from "./NetworkHealthInsight";
@@ -3868,6 +3894,9 @@ import { SecureEmbedUpdateResponse } from "./SecureEmbedUpdateResponse";
 import { SecureEmbedUpdateResponseAttributes } from "./SecureEmbedUpdateResponseAttributes";
 import { SecureEmbedUpdateResponseData } from "./SecureEmbedUpdateResponseData";
 import { SecureEmbedViewingPreferences } from "./SecureEmbedViewingPreferences";
+import { SecurityAutomationRulesLinks } from "./SecurityAutomationRulesLinks";
+import { SecurityAutomationRulesMeta } from "./SecurityAutomationRulesMeta";
+import { SecurityAutomationRulesPageInfo } from "./SecurityAutomationRulesPageInfo";
 import { SecurityEntityConfigRisks } from "./SecurityEntityConfigRisks";
 import { SecurityEntityMetadata } from "./SecurityEntityMetadata";
 import { SecurityEntityRiskScore } from "./SecurityEntityRiskScore";
@@ -4758,6 +4787,18 @@ import { TestOptimizationServiceSettingsResponse } from "./TestOptimizationServi
 import { TestOptimizationUpdateServiceSettingsRequest } from "./TestOptimizationUpdateServiceSettingsRequest";
 import { TestOptimizationUpdateServiceSettingsRequestAttributes } from "./TestOptimizationUpdateServiceSettingsRequestAttributes";
 import { TestOptimizationUpdateServiceSettingsRequestData } from "./TestOptimizationUpdateServiceSettingsRequestData";
+import { TicketCreationRuleAction } from "./TicketCreationRuleAction";
+import { TicketCreationRuleActionResponse } from "./TicketCreationRuleActionResponse";
+import { TicketCreationRuleAttributesCreate } from "./TicketCreationRuleAttributesCreate";
+import { TicketCreationRuleAttributesResponse } from "./TicketCreationRuleAttributesResponse";
+import { TicketCreationRuleCreateRequest } from "./TicketCreationRuleCreateRequest";
+import { TicketCreationRuleDataCreate } from "./TicketCreationRuleDataCreate";
+import { TicketCreationRuleDataResponse } from "./TicketCreationRuleDataResponse";
+import { TicketCreationRuleReorderItem } from "./TicketCreationRuleReorderItem";
+import { TicketCreationRuleReorderRequest } from "./TicketCreationRuleReorderRequest";
+import { TicketCreationRuleResponse } from "./TicketCreationRuleResponse";
+import { TicketCreationRuleUpdateRequest } from "./TicketCreationRuleUpdateRequest";
+import { TicketCreationRulesResponse } from "./TicketCreationRulesResponse";
 import { TimeRestriction } from "./TimeRestriction";
 import { TimeRestrictions } from "./TimeRestrictions";
 import { TimelineCell } from "./TimelineCell";
@@ -5374,6 +5415,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   AuthNMappingsType: ["authn_mappings"],
   AutomationRuleActionType: ["execute_workflow", "assign_agent"],
+  AutomationRuleActorType: ["user", "system"],
   AutomationRuleTriggerType: [
     "case_created",
     "status_transitioned",
@@ -5790,6 +5832,17 @@ const enumsMap: { [key: string]: any[] } = {
   DowntimeNotifyEndStateTypes: ["alert", "no data", "warn"],
   DowntimeResourceType: ["downtime"],
   DowntimeStatus: ["active", "canceled", "ended", "scheduled"],
+  DueDateFrom: ["first_seen", "fix_available"],
+  DueDateRuleType: ["due_date_rules"],
+  DueDateSeverity: [
+    "critical",
+    "high",
+    "medium",
+    "low",
+    "info",
+    "none",
+    "unknown",
+  ],
   EntityIntegrationConfigRequestType: ["entity_integration_config_requests"],
   EntityIntegrationConfigType: ["entity_integration_configs"],
   EntityResponseDataRelationshipsIncidentsDataItemsType: ["incident"],
@@ -6388,6 +6441,15 @@ const enumsMap: { [key: string]: any[] } = {
     "HUMAN_ERROR",
     "NO_LONGER_ACCEPTED_RISK",
   ],
+  MuteReason: [
+    "duplicate",
+    "false_positive",
+    "no_fix",
+    "other",
+    "pending_fix",
+    "risk_accepted",
+  ],
+  MuteRuleType: ["mute_rules"],
   NetworkHealthInsightCategory: ["dns", "tcp", "tls-cert", "security-group"],
   NetworkHealthInsightFailureType: [
     "timeout",
@@ -7147,6 +7209,19 @@ const enumsMap: { [key: string]: any[] } = {
   SecurityFilterFilteredDataType: ["logs"],
   SecurityFilterType: ["security_filters"],
   SecurityFilterVersionType: ["security_filters_configuration"],
+  SecurityFindingType: [
+    "api_security",
+    "attack_path",
+    "host_and_container_vulnerability",
+    "iac_misconfiguration",
+    "identity_risk",
+    "library_vulnerability",
+    "misconfiguration",
+    "runtime_code_vulnerability",
+    "secret",
+    "static_code_vulnerability",
+    "workload_activity",
+  ],
   SecurityFindingsDataType: ["finding"],
   SecurityFindingsSort: ["@detection_changed_at", "-@detection_changed_at"],
   SecurityFindingsStatus: ["done", "timeout"],
@@ -7699,6 +7774,8 @@ const enumsMap: { [key: string]: any[] } = {
   TestOptimizationUpdateServiceSettingsRequestDataType: [
     "test_optimization_update_service_settings_request",
   ],
+  TicketCreationRuleType: ["ticket_creation_rules"],
+  TicketCreationTarget: ["jira", "case_management"],
   TimelineCellAuthorUserType: ["USER"],
   TimelineCellResourceType: ["timeline_cell"],
   TimelineCellType: ["COMMENT"],
@@ -8355,8 +8432,11 @@ const typeMap: { [index: string]: any } = {
   AutomationRuleCreate: AutomationRuleCreate,
   AutomationRuleCreateAttributes: AutomationRuleCreateAttributes,
   AutomationRuleCreateRequest: AutomationRuleCreateRequest,
+  AutomationRuleCreatedBy: AutomationRuleCreatedBy,
+  AutomationRuleModifiedBy: AutomationRuleModifiedBy,
   AutomationRuleRelationships: AutomationRuleRelationships,
   AutomationRuleResponse: AutomationRuleResponse,
+  AutomationRuleScope: AutomationRuleScope,
   AutomationRuleTrigger: AutomationRuleTrigger,
   AutomationRuleTriggerData: AutomationRuleTriggerData,
   AutomationRuleUpdate: AutomationRuleUpdate,
@@ -9507,6 +9587,18 @@ const typeMap: { [index: string]: any } = {
   DowntimeUpdateRequest: DowntimeUpdateRequest,
   DowntimeUpdateRequestAttributes: DowntimeUpdateRequestAttributes,
   DowntimeUpdateRequestData: DowntimeUpdateRequestData,
+  DueDatePerSeverityItem: DueDatePerSeverityItem,
+  DueDateRuleAction: DueDateRuleAction,
+  DueDateRuleAttributesCreate: DueDateRuleAttributesCreate,
+  DueDateRuleAttributesResponse: DueDateRuleAttributesResponse,
+  DueDateRuleCreateRequest: DueDateRuleCreateRequest,
+  DueDateRuleDataCreate: DueDateRuleDataCreate,
+  DueDateRuleDataResponse: DueDateRuleDataResponse,
+  DueDateRuleReorderItem: DueDateRuleReorderItem,
+  DueDateRuleReorderRequest: DueDateRuleReorderRequest,
+  DueDateRuleResponse: DueDateRuleResponse,
+  DueDateRuleUpdateRequest: DueDateRuleUpdateRequest,
+  DueDateRulesResponse: DueDateRulesResponse,
   ELFSourcemapAttributes: ELFSourcemapAttributes,
   ELFSourcemapData: ELFSourcemapData,
   EPSS: EPSS,
@@ -11211,6 +11303,17 @@ const typeMap: { [index: string]: any } = {
   MuteFindingsRequestDataRelationships: MuteFindingsRequestDataRelationships,
   MuteFindingsResponse: MuteFindingsResponse,
   MuteFindingsResponseData: MuteFindingsResponseData,
+  MuteRuleAction: MuteRuleAction,
+  MuteRuleAttributesCreate: MuteRuleAttributesCreate,
+  MuteRuleAttributesResponse: MuteRuleAttributesResponse,
+  MuteRuleCreateRequest: MuteRuleCreateRequest,
+  MuteRuleDataCreate: MuteRuleDataCreate,
+  MuteRuleDataResponse: MuteRuleDataResponse,
+  MuteRuleReorderItem: MuteRuleReorderItem,
+  MuteRuleReorderRequest: MuteRuleReorderRequest,
+  MuteRuleResponse: MuteRuleResponse,
+  MuteRuleUpdateRequest: MuteRuleUpdateRequest,
+  MuteRulesResponse: MuteRulesResponse,
   NDKSourcemapAttributes: NDKSourcemapAttributes,
   NDKSourcemapData: NDKSourcemapData,
   NetworkHealthInsight: NetworkHealthInsight,
@@ -12464,6 +12567,9 @@ const typeMap: { [index: string]: any } = {
   SecureEmbedUpdateResponseAttributes: SecureEmbedUpdateResponseAttributes,
   SecureEmbedUpdateResponseData: SecureEmbedUpdateResponseData,
   SecureEmbedViewingPreferences: SecureEmbedViewingPreferences,
+  SecurityAutomationRulesLinks: SecurityAutomationRulesLinks,
+  SecurityAutomationRulesMeta: SecurityAutomationRulesMeta,
+  SecurityAutomationRulesPageInfo: SecurityAutomationRulesPageInfo,
   SecurityEntityConfigRisks: SecurityEntityConfigRisks,
   SecurityEntityMetadata: SecurityEntityMetadata,
   SecurityEntityRiskScore: SecurityEntityRiskScore,
@@ -13611,6 +13717,18 @@ const typeMap: { [index: string]: any } = {
     TestOptimizationUpdateServiceSettingsRequestAttributes,
   TestOptimizationUpdateServiceSettingsRequestData:
     TestOptimizationUpdateServiceSettingsRequestData,
+  TicketCreationRuleAction: TicketCreationRuleAction,
+  TicketCreationRuleActionResponse: TicketCreationRuleActionResponse,
+  TicketCreationRuleAttributesCreate: TicketCreationRuleAttributesCreate,
+  TicketCreationRuleAttributesResponse: TicketCreationRuleAttributesResponse,
+  TicketCreationRuleCreateRequest: TicketCreationRuleCreateRequest,
+  TicketCreationRuleDataCreate: TicketCreationRuleDataCreate,
+  TicketCreationRuleDataResponse: TicketCreationRuleDataResponse,
+  TicketCreationRuleReorderItem: TicketCreationRuleReorderItem,
+  TicketCreationRuleReorderRequest: TicketCreationRuleReorderRequest,
+  TicketCreationRuleResponse: TicketCreationRuleResponse,
+  TicketCreationRuleUpdateRequest: TicketCreationRuleUpdateRequest,
+  TicketCreationRulesResponse: TicketCreationRulesResponse,
   TimeRestriction: TimeRestriction,
   TimeRestrictions: TimeRestrictions,
   TimelineCell: TimelineCell,
