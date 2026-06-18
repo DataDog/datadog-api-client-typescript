@@ -388,6 +388,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@datadog/datadog-api-client-aws-wif@workspace:services/aws_wif":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-aws-wif@workspace:services/aws_wif"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@datadog/datadog-api-client-azure-integration@workspace:services/azure_integration":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-azure-integration@workspace:services/azure_integration"
@@ -667,6 +676,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@datadog/datadog-api-client-delegated-token@workspace:services/delegated_token":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-delegated-token@workspace:services/delegated_token"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@datadog/datadog-api-client-deployment-gates@workspace:services/deployment_gates":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-deployment-gates@workspace:services/deployment_gates"
@@ -850,6 +868,15 @@ __metadata:
 "@datadog/datadog-api-client-incidents@workspace:services/incidents":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-incidents@workspace:services/incidents"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
+"@datadog/datadog-api-client-intake-key@workspace:services/intake_key":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-intake-key@workspace:services/intake_key"
   dependencies:
     "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"

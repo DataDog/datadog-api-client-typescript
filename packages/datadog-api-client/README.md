@@ -361,6 +361,7 @@ apiInstance
 | AuthN Mappings | @datadog/datadog-api-client-auth-n-mappings | [README.md](../../services/auth-n-mappings/README.md) |
 | AWS Integration | @datadog/datadog-api-client-aws-integration | [README.md](../../services/aws-integration/README.md) |
 | AWS Logs Integration | @datadog/datadog-api-client-aws-logs-integration | [README.md](../../services/aws-logs-integration/README.md) |
+| AWS WIF | @datadog/datadog-api-client-aws-wif | [README.md](../../services/aws-wif/README.md) |
 | Azure Integration | @datadog/datadog-api-client-azure-integration | [README.md](../../services/azure-integration/README.md) |
 | Bits AI | @datadog/datadog-api-client-bits-ai | [README.md](../../services/bits-ai/README.md) |
 | Case Management | @datadog/datadog-api-client-case-management | [README.md](../../services/case-management/README.md) |
@@ -391,6 +392,7 @@ apiInstance
 | Data Deletion | @datadog/datadog-api-client-data-deletion | [README.md](../../services/data-deletion/README.md) |
 | Data Observability | @datadog/datadog-api-client-data-observability | [README.md](../../services/data-observability/README.md) |
 | Datasets | @datadog/datadog-api-client-datasets | [README.md](../../services/datasets/README.md) |
+| Delegated Token | @datadog/datadog-api-client-delegated-token | [README.md](../../services/delegated-token/README.md) |
 | Deployment Gates | @datadog/datadog-api-client-deployment-gates | [README.md](../../services/deployment-gates/README.md) |
 | Domain Allowlist | @datadog/datadog-api-client-domain-allowlist | [README.md](../../services/domain-allowlist/README.md) |
 | DORA Metrics | @datadog/datadog-api-client-dora-metrics | [README.md](../../services/dora-metrics/README.md) |
@@ -409,6 +411,7 @@ apiInstance
 | High Availability MultiRegion | @datadog/datadog-api-client-high-availability-multi-region | [README.md](../../services/high-availability-multi-region/README.md) |
 | Hosts | @datadog/datadog-api-client-hosts | [README.md](../../services/hosts/README.md) |
 | Incidents | @datadog/datadog-api-client-incidents | [README.md](../../services/incidents/README.md) |
+| Intake Key | @datadog/datadog-api-client-intake-key | [README.md](../../services/intake-key/README.md) |
 | Integrations | @datadog/datadog-api-client-integrations | [README.md](../../services/integrations/README.md) |
 | IP Allowlist | @datadog/datadog-api-client-ip-allowlist | [README.md](../../services/ip-allowlist/README.md) |
 | IP Ranges | @datadog/datadog-api-client-ip-ranges | [README.md](../../services/ip-ranges/README.md) |
