@@ -47,6 +47,10 @@ export class RUMApplicationAttributes {
    */
   "productScales"?: RUMProductScales;
   /**
+   * ID of the RUM SDK remote configuration for the application, if one exists.
+   */
+  "remoteConfigId"?: string;
+  /**
    * Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`.
    */
   "type": string;
@@ -121,6 +125,10 @@ export class RUMApplicationAttributes {
     productScales: {
       baseName: "product_scales",
       type: "RUMProductScales",
+    },
+    remoteConfigId: {
+      baseName: "remote_config_id",
+      type: "string",
     },
     type: {
       baseName: "type",

@@ -13635,6 +13635,24 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "CloudWorkloadSecurityAgentRuleResponse",
   },
+  "RUMRemoteConfigApi.V2.GetRumSdkConfig": {
+    configId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "RumSdkConfigResponse",
+  },
+  "RUMRemoteConfigApi.V2.UpdateRumSdkConfig": {
+    configId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "RumSdkConfigUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "RumSdkConfigResponse",
+  },
   "RumReplayHeatmapsApi.V2.ListReplayHeatmapSnapshots": {
     filterDeviceType: {
       type: "string",
