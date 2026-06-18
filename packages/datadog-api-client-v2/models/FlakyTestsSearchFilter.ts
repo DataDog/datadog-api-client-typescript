@@ -28,6 +28,8 @@ export class FlakyTestsSearchFilter {
    * - `@git.branch`
    * - `@test.codeowners`
    * - `env`
+   * - `failure_rate`
+   * - `pipelines_failed`
    */
   "query"?: string;
 
