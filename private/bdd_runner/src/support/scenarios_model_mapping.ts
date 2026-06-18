@@ -5773,6 +5773,161 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "AssigneeResponse",
   },
+  "SecurityMonitoringApi.V2.ListSecurityFindingsAutomationDueDateRules": {
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "DueDateRulesResponse",
+  },
+  "SecurityMonitoringApi.V2.CreateSecurityFindingsAutomationDueDateRule": {
+    body: {
+      type: "DueDateRuleCreateRequest",
+      format: "",
+    },
+    operationResponseType: "DueDateRuleResponse",
+  },
+  "SecurityMonitoringApi.V2.ReorderSecurityFindingsAutomationDueDateRules": {
+    body: {
+      type: "DueDateRuleReorderRequest",
+      format: "",
+    },
+    operationResponseType: "DueDateRuleReorderRequest",
+  },
+  "SecurityMonitoringApi.V2.GetSecurityFindingsAutomationDueDateRule": {
+    ruleId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "DueDateRuleResponse",
+  },
+  "SecurityMonitoringApi.V2.UpdateSecurityFindingsAutomationDueDateRule": {
+    ruleId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "DueDateRuleUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "DueDateRuleResponse",
+  },
+  "SecurityMonitoringApi.V2.DeleteSecurityFindingsAutomationDueDateRule": {
+    ruleId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "SecurityMonitoringApi.V2.ListSecurityFindingsAutomationMuteRules": {
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "MuteRulesResponse",
+  },
+  "SecurityMonitoringApi.V2.CreateSecurityFindingsAutomationMuteRule": {
+    body: {
+      type: "MuteRuleCreateRequest",
+      format: "",
+    },
+    operationResponseType: "MuteRuleResponse",
+  },
+  "SecurityMonitoringApi.V2.ReorderSecurityFindingsAutomationMuteRules": {
+    body: {
+      type: "MuteRuleReorderRequest",
+      format: "",
+    },
+    operationResponseType: "MuteRuleReorderRequest",
+  },
+  "SecurityMonitoringApi.V2.GetSecurityFindingsAutomationMuteRule": {
+    ruleId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "MuteRuleResponse",
+  },
+  "SecurityMonitoringApi.V2.UpdateSecurityFindingsAutomationMuteRule": {
+    ruleId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "MuteRuleUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "MuteRuleResponse",
+  },
+  "SecurityMonitoringApi.V2.DeleteSecurityFindingsAutomationMuteRule": {
+    ruleId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "SecurityMonitoringApi.V2.ListSecurityFindingsAutomationTicketCreationRules":
+    {
+      pageSize: {
+        type: "number",
+        format: "int64",
+      },
+      pageNumber: {
+        type: "number",
+        format: "int64",
+      },
+      operationResponseType: "TicketCreationRulesResponse",
+    },
+  "SecurityMonitoringApi.V2.CreateSecurityFindingsAutomationTicketCreationRule":
+    {
+      body: {
+        type: "TicketCreationRuleCreateRequest",
+        format: "",
+      },
+      operationResponseType: "TicketCreationRuleResponse",
+    },
+  "SecurityMonitoringApi.V2.ReorderSecurityFindingsAutomationTicketCreationRules":
+    {
+      body: {
+        type: "TicketCreationRuleReorderRequest",
+        format: "",
+      },
+      operationResponseType: "TicketCreationRuleReorderRequest",
+    },
+  "SecurityMonitoringApi.V2.GetSecurityFindingsAutomationTicketCreationRule": {
+    ruleId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "TicketCreationRuleResponse",
+  },
+  "SecurityMonitoringApi.V2.UpdateSecurityFindingsAutomationTicketCreationRule":
+    {
+      ruleId: {
+        type: "string",
+        format: "uuid",
+      },
+      body: {
+        type: "TicketCreationRuleUpdateRequest",
+        format: "",
+      },
+      operationResponseType: "TicketCreationRuleResponse",
+    },
+  "SecurityMonitoringApi.V2.DeleteSecurityFindingsAutomationTicketCreationRule":
+    {
+      ruleId: {
+        type: "string",
+        format: "uuid",
+      },
+      operationResponseType: "{}",
+    },
   "SecurityMonitoringApi.V2.CreateCases": {
     body: {
       type: "CreateCaseRequestArray",

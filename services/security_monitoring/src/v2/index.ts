@@ -23,6 +23,9 @@ export {
   SecurityMonitoringApiCreateJiraIssuesRequest,
   SecurityMonitoringApiCreateSampleLogGenerationSubscriptionRequest,
   SecurityMonitoringApiCreateSecurityFilterRequest,
+  SecurityMonitoringApiCreateSecurityFindingsAutomationDueDateRuleRequest,
+  SecurityMonitoringApiCreateSecurityFindingsAutomationMuteRuleRequest,
+  SecurityMonitoringApiCreateSecurityFindingsAutomationTicketCreationRuleRequest,
   SecurityMonitoringApiCreateSecurityMonitoringCriticalAssetRequest,
   SecurityMonitoringApiCreateSecurityMonitoringDatasetRequest,
   SecurityMonitoringApiCreateSecurityMonitoringIntegrationConfigRequest,
@@ -38,6 +41,9 @@ export {
   SecurityMonitoringApiDeleteHistoricalJobRequest,
   SecurityMonitoringApiDeleteSampleLogGenerationSubscriptionRequest,
   SecurityMonitoringApiDeleteSecurityFilterRequest,
+  SecurityMonitoringApiDeleteSecurityFindingsAutomationDueDateRuleRequest,
+  SecurityMonitoringApiDeleteSecurityFindingsAutomationMuteRuleRequest,
+  SecurityMonitoringApiDeleteSecurityFindingsAutomationTicketCreationRuleRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringCriticalAssetRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringDatasetRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringIntegrationConfigRequest,
@@ -62,6 +68,9 @@ export {
   SecurityMonitoringApiGetRuleVersionHistoryRequest,
   SecurityMonitoringApiGetSBOMRequest,
   SecurityMonitoringApiGetSecurityFilterRequest,
+  SecurityMonitoringApiGetSecurityFindingsAutomationDueDateRuleRequest,
+  SecurityMonitoringApiGetSecurityFindingsAutomationMuteRuleRequest,
+  SecurityMonitoringApiGetSecurityFindingsAutomationTicketCreationRuleRequest,
   SecurityMonitoringApiGetSecurityMonitoringCriticalAssetRequest,
   SecurityMonitoringApiGetSecurityMonitoringDatasetRequest,
   SecurityMonitoringApiGetSecurityMonitoringDatasetByVersionRequest,
@@ -92,6 +101,9 @@ export {
   SecurityMonitoringApiListSampleLogGenerationSubscriptionsRequest,
   SecurityMonitoringApiListScannedAssetsMetadataRequest,
   SecurityMonitoringApiListSecurityFindingsRequest,
+  SecurityMonitoringApiListSecurityFindingsAutomationDueDateRulesRequest,
+  SecurityMonitoringApiListSecurityFindingsAutomationMuteRulesRequest,
+  SecurityMonitoringApiListSecurityFindingsAutomationTicketCreationRulesRequest,
   SecurityMonitoringApiListSecurityMonitoringDatasetsRequest,
   SecurityMonitoringApiListSecurityMonitoringHistsignalsRequest,
   SecurityMonitoringApiListSecurityMonitoringIntegrationConfigsRequest,
@@ -103,6 +115,9 @@ export {
   SecurityMonitoringApiMuteSecurityFindingsRequest,
   SecurityMonitoringApiPatchSignalNotificationRuleRequest,
   SecurityMonitoringApiPatchVulnerabilityNotificationRuleRequest,
+  SecurityMonitoringApiReorderSecurityFindingsAutomationDueDateRulesRequest,
+  SecurityMonitoringApiReorderSecurityFindingsAutomationMuteRulesRequest,
+  SecurityMonitoringApiReorderSecurityFindingsAutomationTicketCreationRulesRequest,
   SecurityMonitoringApiRestoreSecurityMonitoringRuleRequest,
   SecurityMonitoringApiRunHistoricalJobRequest,
   SecurityMonitoringApiSearchSecurityFindingsRequest,
@@ -115,6 +130,9 @@ export {
   SecurityMonitoringApiUpdateFindingsAssigneeRequest,
   SecurityMonitoringApiUpdateResourceEvaluationFiltersRequest,
   SecurityMonitoringApiUpdateSecurityFilterRequest,
+  SecurityMonitoringApiUpdateSecurityFindingsAutomationDueDateRuleRequest,
+  SecurityMonitoringApiUpdateSecurityFindingsAutomationMuteRuleRequest,
+  SecurityMonitoringApiUpdateSecurityFindingsAutomationTicketCreationRuleRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringCriticalAssetRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringDatasetRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringIntegrationConfigRequest,
@@ -172,6 +190,10 @@ export { AttachServiceNowTicketRequest } from "./models/AttachServiceNowTicketRe
 export { AttachServiceNowTicketRequestData } from "./models/AttachServiceNowTicketRequestData";
 export { AttachServiceNowTicketRequestDataAttributes } from "./models/AttachServiceNowTicketRequestDataAttributes";
 export { AttachServiceNowTicketRequestDataRelationships } from "./models/AttachServiceNowTicketRequestDataRelationships";
+export { AutomationRuleActorType } from "./models/AutomationRuleActorType";
+export { AutomationRuleCreatedBy } from "./models/AutomationRuleCreatedBy";
+export { AutomationRuleModifiedBy } from "./models/AutomationRuleModifiedBy";
+export { AutomationRuleScope } from "./models/AutomationRuleScope";
 export { CalculatedField } from "./models/CalculatedField";
 export { CaseDataType } from "./models/CaseDataType";
 export { CaseInsightsItems } from "./models/CaseInsightsItems";
@@ -231,6 +253,21 @@ export { DetachCaseRequestDataRelationships } from "./models/DetachCaseRequestDa
 export { DetailedFinding } from "./models/DetailedFinding";
 export { DetailedFindingAttributes } from "./models/DetailedFindingAttributes";
 export { DetailedFindingType } from "./models/DetailedFindingType";
+export { DueDateFrom } from "./models/DueDateFrom";
+export { DueDatePerSeverityItem } from "./models/DueDatePerSeverityItem";
+export { DueDateRuleAction } from "./models/DueDateRuleAction";
+export { DueDateRuleAttributesCreate } from "./models/DueDateRuleAttributesCreate";
+export { DueDateRuleAttributesResponse } from "./models/DueDateRuleAttributesResponse";
+export { DueDateRuleCreateRequest } from "./models/DueDateRuleCreateRequest";
+export { DueDateRuleDataCreate } from "./models/DueDateRuleDataCreate";
+export { DueDateRuleDataResponse } from "./models/DueDateRuleDataResponse";
+export { DueDateRuleReorderItem } from "./models/DueDateRuleReorderItem";
+export { DueDateRuleReorderRequest } from "./models/DueDateRuleReorderRequest";
+export { DueDateRuleResponse } from "./models/DueDateRuleResponse";
+export { DueDateRulesResponse } from "./models/DueDateRulesResponse";
+export { DueDateRuleType } from "./models/DueDateRuleType";
+export { DueDateRuleUpdateRequest } from "./models/DueDateRuleUpdateRequest";
+export { DueDateSeverity } from "./models/DueDateSeverity";
 export { EntityContextEntity } from "./models/EntityContextEntity";
 export { EntityContextEntityAttributes } from "./models/EntityContextEntityAttributes";
 export { EntityContextPage } from "./models/EntityContextPage";
@@ -354,6 +391,19 @@ export { MuteFindingsRequestDataAttributes } from "./models/MuteFindingsRequestD
 export { MuteFindingsRequestDataRelationships } from "./models/MuteFindingsRequestDataRelationships";
 export { MuteFindingsResponse } from "./models/MuteFindingsResponse";
 export { MuteFindingsResponseData } from "./models/MuteFindingsResponseData";
+export { MuteReason } from "./models/MuteReason";
+export { MuteRuleAction } from "./models/MuteRuleAction";
+export { MuteRuleAttributesCreate } from "./models/MuteRuleAttributesCreate";
+export { MuteRuleAttributesResponse } from "./models/MuteRuleAttributesResponse";
+export { MuteRuleCreateRequest } from "./models/MuteRuleCreateRequest";
+export { MuteRuleDataCreate } from "./models/MuteRuleDataCreate";
+export { MuteRuleDataResponse } from "./models/MuteRuleDataResponse";
+export { MuteRuleReorderItem } from "./models/MuteRuleReorderItem";
+export { MuteRuleReorderRequest } from "./models/MuteRuleReorderRequest";
+export { MuteRuleResponse } from "./models/MuteRuleResponse";
+export { MuteRulesResponse } from "./models/MuteRulesResponse";
+export { MuteRuleType } from "./models/MuteRuleType";
+export { MuteRuleUpdateRequest } from "./models/MuteRuleUpdateRequest";
 export { NodeTypesResponse } from "./models/NodeTypesResponse";
 export { NodeTypesResponseData } from "./models/NodeTypesResponseData";
 export { NodeTypesResponseDataAttributes } from "./models/NodeTypesResponseDataAttributes";
@@ -441,6 +491,9 @@ export { SecretRuleDataAttributesMatchValidation } from "./models/SecretRuleData
 export { SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems } from "./models/SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems";
 export { SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems } from "./models/SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems";
 export { SecretRuleDataType } from "./models/SecretRuleDataType";
+export { SecurityAutomationRulesLinks } from "./models/SecurityAutomationRulesLinks";
+export { SecurityAutomationRulesMeta } from "./models/SecurityAutomationRulesMeta";
+export { SecurityAutomationRulesPageInfo } from "./models/SecurityAutomationRulesPageInfo";
 export { SecurityFilter } from "./models/SecurityFilter";
 export { SecurityFilterAttributes } from "./models/SecurityFilterAttributes";
 export { SecurityFilterCreateAttributes } from "./models/SecurityFilterCreateAttributes";
@@ -473,6 +526,7 @@ export { SecurityFindingsSearchRequestDataAttributes } from "./models/SecurityFi
 export { SecurityFindingsSearchRequestPage } from "./models/SecurityFindingsSearchRequestPage";
 export { SecurityFindingsSort } from "./models/SecurityFindingsSort";
 export { SecurityFindingsStatus } from "./models/SecurityFindingsStatus";
+export { SecurityFindingType } from "./models/SecurityFindingType";
 export { SecurityMonitoringContentPackActivation } from "./models/SecurityMonitoringContentPackActivation";
 export { SecurityMonitoringContentPackIntegrationStatus } from "./models/SecurityMonitoringContentPackIntegrationStatus";
 export { SecurityMonitoringContentPackStateAttributes } from "./models/SecurityMonitoringContentPackStateAttributes";
@@ -700,6 +754,20 @@ export { SingleEntityContextResponse } from "./models/SingleEntityContextRespons
 export { SpecVersion } from "./models/SpecVersion";
 export { SuppressionVersionHistory } from "./models/SuppressionVersionHistory";
 export { SuppressionVersions } from "./models/SuppressionVersions";
+export { TicketCreationRuleAction } from "./models/TicketCreationRuleAction";
+export { TicketCreationRuleActionResponse } from "./models/TicketCreationRuleActionResponse";
+export { TicketCreationRuleAttributesCreate } from "./models/TicketCreationRuleAttributesCreate";
+export { TicketCreationRuleAttributesResponse } from "./models/TicketCreationRuleAttributesResponse";
+export { TicketCreationRuleCreateRequest } from "./models/TicketCreationRuleCreateRequest";
+export { TicketCreationRuleDataCreate } from "./models/TicketCreationRuleDataCreate";
+export { TicketCreationRuleDataResponse } from "./models/TicketCreationRuleDataResponse";
+export { TicketCreationRuleReorderItem } from "./models/TicketCreationRuleReorderItem";
+export { TicketCreationRuleReorderRequest } from "./models/TicketCreationRuleReorderRequest";
+export { TicketCreationRuleResponse } from "./models/TicketCreationRuleResponse";
+export { TicketCreationRulesResponse } from "./models/TicketCreationRulesResponse";
+export { TicketCreationRuleType } from "./models/TicketCreationRuleType";
+export { TicketCreationRuleUpdateRequest } from "./models/TicketCreationRuleUpdateRequest";
+export { TicketCreationTarget } from "./models/TicketCreationTarget";
 export { TriggerSource } from "./models/TriggerSource";
 export { UpdateCustomFrameworkRequest } from "./models/UpdateCustomFrameworkRequest";
 export { UpdateCustomFrameworkResponse } from "./models/UpdateCustomFrameworkResponse";
