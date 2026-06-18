@@ -16729,6 +16729,31 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "UserTeamsResponse",
     },
+    "v2.GetVercelConfig": {
+        "configurationId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "VercelConfigResponse",
+    },
+    "v2.UpdateVercelConfig": {
+        "configurationId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "VercelConfigAttributes",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.CreateVercelToken": {
+        "body": {
+            "type": "VercelTokenCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListWebIntegrationAccounts": {
         "integrationName": {
             "type": "string",

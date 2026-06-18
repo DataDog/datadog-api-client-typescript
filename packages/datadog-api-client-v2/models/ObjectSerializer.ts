@@ -5024,6 +5024,13 @@ import { ValidationResponse } from "./ValidationResponse";
 import { Variant } from "./Variant";
 import { VariantWeight } from "./VariantWeight";
 import { VariantWeightRequest } from "./VariantWeightRequest";
+import { VercelApiKey } from "./VercelApiKey";
+import { VercelConfigAttributes } from "./VercelConfigAttributes";
+import { VercelConfigDataResponse } from "./VercelConfigDataResponse";
+import { VercelConfigResponse } from "./VercelConfigResponse";
+import { VercelLogsConfig } from "./VercelLogsConfig";
+import { VercelTokenCreateRequest } from "./VercelTokenCreateRequest";
+import { VercelTraceConfig } from "./VercelTraceConfig";
 import { VersionHistoryUpdate } from "./VersionHistoryUpdate";
 import { ViewershipHistorySessionArray } from "./ViewershipHistorySessionArray";
 import { ViewershipHistorySessionData } from "./ViewershipHistorySessionData";
@@ -7847,6 +7854,16 @@ const enumsMap: { [key: string]: any[] } = {
   ValidateAPIKeyStatus: ["ok"],
   ValidateV2Type: ["validate_v2"],
   ValueType: ["BOOLEAN", "INTEGER", "NUMERIC", "STRING", "JSON"],
+  VercelConfigDataResponseType: ["vercelConfiguration"],
+  VercelEnvironment: ["production", "preview"],
+  VercelLogSource: [
+    "static",
+    "lambda",
+    "edge",
+    "build",
+    "external",
+    "firewall",
+  ],
   VersionHistoryUpdateType: ["create", "update", "delete"],
   ViewershipHistorySessionDataType: ["rum_replay_session"],
   VirusTotalAPIKeyType: ["VirusTotalAPIKey"],
@@ -14014,6 +14031,13 @@ const typeMap: { [index: string]: any } = {
   Variant: Variant,
   VariantWeight: VariantWeight,
   VariantWeightRequest: VariantWeightRequest,
+  VercelApiKey: VercelApiKey,
+  VercelConfigAttributes: VercelConfigAttributes,
+  VercelConfigDataResponse: VercelConfigDataResponse,
+  VercelConfigResponse: VercelConfigResponse,
+  VercelLogsConfig: VercelLogsConfig,
+  VercelTokenCreateRequest: VercelTokenCreateRequest,
+  VercelTraceConfig: VercelTraceConfig,
   VersionHistoryUpdate: VersionHistoryUpdate,
   ViewershipHistorySessionArray: ViewershipHistorySessionArray,
   ViewershipHistorySessionData: ViewershipHistorySessionData,

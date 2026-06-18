@@ -1736,6 +1736,13 @@ export {
 } from "./apis/UsersApi";
 
 export {
+  VercelApiCreateVercelTokenRequest,
+  VercelApiGetVercelConfigRequest,
+  VercelApiUpdateVercelConfigRequest,
+  VercelApi,
+} from "./apis/VercelApi";
+
+export {
   WebIntegrationsApiCreateWebIntegrationAccountRequest,
   WebIntegrationsApiDeleteWebIntegrationAccountRequest,
   WebIntegrationsApiGetWebIntegrationAccountRequest,
@@ -8285,6 +8292,16 @@ export { ValueType } from "./models/ValueType";
 export { Variant } from "./models/Variant";
 export { VariantWeight } from "./models/VariantWeight";
 export { VariantWeightRequest } from "./models/VariantWeightRequest";
+export { VercelApiKey } from "./models/VercelApiKey";
+export { VercelConfigAttributes } from "./models/VercelConfigAttributes";
+export { VercelConfigDataResponse } from "./models/VercelConfigDataResponse";
+export { VercelConfigDataResponseType } from "./models/VercelConfigDataResponseType";
+export { VercelConfigResponse } from "./models/VercelConfigResponse";
+export { VercelEnvironment } from "./models/VercelEnvironment";
+export { VercelLogsConfig } from "./models/VercelLogsConfig";
+export { VercelLogSource } from "./models/VercelLogSource";
+export { VercelTokenCreateRequest } from "./models/VercelTokenCreateRequest";
+export { VercelTraceConfig } from "./models/VercelTraceConfig";
 export { VersionHistoryUpdate } from "./models/VersionHistoryUpdate";
 export { VersionHistoryUpdateType } from "./models/VersionHistoryUpdateType";
 export { ViewershipHistorySessionArray } from "./models/ViewershipHistorySessionArray";
