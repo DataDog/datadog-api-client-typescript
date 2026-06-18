@@ -39,6 +39,9 @@ import { AttachServiceNowTicketRequest } from "./AttachServiceNowTicketRequest";
 import { AttachServiceNowTicketRequestData } from "./AttachServiceNowTicketRequestData";
 import { AttachServiceNowTicketRequestDataAttributes } from "./AttachServiceNowTicketRequestDataAttributes";
 import { AttachServiceNowTicketRequestDataRelationships } from "./AttachServiceNowTicketRequestDataRelationships";
+import { AutomationRuleCreatedBy } from "./AutomationRuleCreatedBy";
+import { AutomationRuleModifiedBy } from "./AutomationRuleModifiedBy";
+import { AutomationRuleScope } from "./AutomationRuleScope";
 import { CVSS } from "./CVSS";
 import { CalculatedField } from "./CalculatedField";
 import { CaseInsightsItems } from "./CaseInsightsItems";
@@ -89,6 +92,18 @@ import { DetachCaseRequestData } from "./DetachCaseRequestData";
 import { DetachCaseRequestDataRelationships } from "./DetachCaseRequestDataRelationships";
 import { DetailedFinding } from "./DetailedFinding";
 import { DetailedFindingAttributes } from "./DetailedFindingAttributes";
+import { DueDatePerSeverityItem } from "./DueDatePerSeverityItem";
+import { DueDateRuleAction } from "./DueDateRuleAction";
+import { DueDateRuleAttributesCreate } from "./DueDateRuleAttributesCreate";
+import { DueDateRuleAttributesResponse } from "./DueDateRuleAttributesResponse";
+import { DueDateRuleCreateRequest } from "./DueDateRuleCreateRequest";
+import { DueDateRuleDataCreate } from "./DueDateRuleDataCreate";
+import { DueDateRuleDataResponse } from "./DueDateRuleDataResponse";
+import { DueDateRuleReorderItem } from "./DueDateRuleReorderItem";
+import { DueDateRuleReorderRequest } from "./DueDateRuleReorderRequest";
+import { DueDateRuleResponse } from "./DueDateRuleResponse";
+import { DueDateRuleUpdateRequest } from "./DueDateRuleUpdateRequest";
+import { DueDateRulesResponse } from "./DueDateRulesResponse";
 import { EPSS } from "./EPSS";
 import { EntityContextEntity } from "./EntityContextEntity";
 import { EntityContextEntityAttributes } from "./EntityContextEntityAttributes";
@@ -192,6 +207,17 @@ import { MuteFindingsRequestDataAttributes } from "./MuteFindingsRequestDataAttr
 import { MuteFindingsRequestDataRelationships } from "./MuteFindingsRequestDataRelationships";
 import { MuteFindingsResponse } from "./MuteFindingsResponse";
 import { MuteFindingsResponseData } from "./MuteFindingsResponseData";
+import { MuteRuleAction } from "./MuteRuleAction";
+import { MuteRuleAttributesCreate } from "./MuteRuleAttributesCreate";
+import { MuteRuleAttributesResponse } from "./MuteRuleAttributesResponse";
+import { MuteRuleCreateRequest } from "./MuteRuleCreateRequest";
+import { MuteRuleDataCreate } from "./MuteRuleDataCreate";
+import { MuteRuleDataResponse } from "./MuteRuleDataResponse";
+import { MuteRuleReorderItem } from "./MuteRuleReorderItem";
+import { MuteRuleReorderRequest } from "./MuteRuleReorderRequest";
+import { MuteRuleResponse } from "./MuteRuleResponse";
+import { MuteRuleUpdateRequest } from "./MuteRuleUpdateRequest";
+import { MuteRulesResponse } from "./MuteRulesResponse";
 import { NodeTypesResponse } from "./NodeTypesResponse";
 import { NodeTypesResponseData } from "./NodeTypesResponseData";
 import { NodeTypesResponseDataAttributes } from "./NodeTypesResponseDataAttributes";
@@ -259,6 +285,9 @@ import { SecretRuleDataAttributes } from "./SecretRuleDataAttributes";
 import { SecretRuleDataAttributesMatchValidation } from "./SecretRuleDataAttributesMatchValidation";
 import { SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems } from "./SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems";
 import { SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems } from "./SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems";
+import { SecurityAutomationRulesLinks } from "./SecurityAutomationRulesLinks";
+import { SecurityAutomationRulesMeta } from "./SecurityAutomationRulesMeta";
+import { SecurityAutomationRulesPageInfo } from "./SecurityAutomationRulesPageInfo";
 import { SecurityFilter } from "./SecurityFilter";
 import { SecurityFilterAttributes } from "./SecurityFilterAttributes";
 import { SecurityFilterCreateAttributes } from "./SecurityFilterCreateAttributes";
@@ -454,6 +483,18 @@ import { SignalEntitiesResponse } from "./SignalEntitiesResponse";
 import { SingleEntityContextResponse } from "./SingleEntityContextResponse";
 import { SuppressionVersionHistory } from "./SuppressionVersionHistory";
 import { SuppressionVersions } from "./SuppressionVersions";
+import { TicketCreationRuleAction } from "./TicketCreationRuleAction";
+import { TicketCreationRuleActionResponse } from "./TicketCreationRuleActionResponse";
+import { TicketCreationRuleAttributesCreate } from "./TicketCreationRuleAttributesCreate";
+import { TicketCreationRuleAttributesResponse } from "./TicketCreationRuleAttributesResponse";
+import { TicketCreationRuleCreateRequest } from "./TicketCreationRuleCreateRequest";
+import { TicketCreationRuleDataCreate } from "./TicketCreationRuleDataCreate";
+import { TicketCreationRuleDataResponse } from "./TicketCreationRuleDataResponse";
+import { TicketCreationRuleReorderItem } from "./TicketCreationRuleReorderItem";
+import { TicketCreationRuleReorderRequest } from "./TicketCreationRuleReorderRequest";
+import { TicketCreationRuleResponse } from "./TicketCreationRuleResponse";
+import { TicketCreationRuleUpdateRequest } from "./TicketCreationRuleUpdateRequest";
+import { TicketCreationRulesResponse } from "./TicketCreationRulesResponse";
 import { UpdateCustomFrameworkRequest } from "./UpdateCustomFrameworkRequest";
 import { UpdateCustomFrameworkResponse } from "./UpdateCustomFrameworkResponse";
 import { UpdateResourceEvaluationFiltersRequest } from "./UpdateResourceEvaluationFiltersRequest";
@@ -479,6 +520,7 @@ export const TypingInfo: ModelTypingInfo = {
     AssetEntityType: ["assets"],
     AssetType: ["Repository", "Service", "Host", "HostImage", "Image"],
     AssigneeDataType: ["assignee"],
+    AutomationRuleActorType: ["user", "system"],
     CaseDataType: ["cases"],
     CaseManagementProjectDataType: ["projects"],
     CasePriority: ["NOT_DEFINED", "P1", "P2", "P3", "P4", "P5"],
@@ -490,6 +532,17 @@ export const TypingInfo: ModelTypingInfo = {
     CustomFrameworkType: ["custom_framework"],
     DefaultRulesetsPerLanguageDataType: ["defaultRulesetsPerLanguage"],
     DetailedFindingType: ["detailed_finding"],
+    DueDateFrom: ["first_seen", "fix_available"],
+    DueDateRuleType: ["due_date_rules"],
+    DueDateSeverity: [
+      "critical",
+      "high",
+      "medium",
+      "low",
+      "info",
+      "none",
+      "unknown",
+    ],
     FindingDataType: ["findings"],
     FindingEvaluation: ["pass", "fail"],
     FindingMuteReason: [
@@ -537,6 +590,15 @@ export const TypingInfo: ModelTypingInfo = {
       "HUMAN_ERROR",
       "NO_LONGER_ACCEPTED_RISK",
     ],
+    MuteReason: [
+      "duplicate",
+      "false_positive",
+      "no_fix",
+      "other",
+      "pending_fix",
+      "risk_accepted",
+    ],
+    MuteRuleType: ["mute_rules"],
     NodeTypesResponseDataType: ["get_node_types_response"],
     NotificationRulePreviewNotificationStatus: ["SUCCESS", "DEFAULT", "ERROR"],
     NotificationRulePreviewResponseType: ["notification_preview_response"],
@@ -610,6 +672,19 @@ export const TypingInfo: ModelTypingInfo = {
     SecurityFilterFilteredDataType: ["logs"],
     SecurityFilterType: ["security_filters"],
     SecurityFilterVersionType: ["security_filters_configuration"],
+    SecurityFindingType: [
+      "api_security",
+      "attack_path",
+      "host_and_container_vulnerability",
+      "iac_misconfiguration",
+      "identity_risk",
+      "library_vulnerability",
+      "misconfiguration",
+      "runtime_code_vulnerability",
+      "secret",
+      "static_code_vulnerability",
+      "workload_activity",
+    ],
     SecurityFindingsDataType: ["finding"],
     SecurityFindingsSort: ["@detection_changed_at", "-@detection_changed_at"],
     SecurityFindingsStatus: ["done", "timeout"],
@@ -821,6 +896,8 @@ export const TypingInfo: ModelTypingInfo = {
     ServiceNowTicketsDataType: ["servicenow_tickets"],
     SignalEntitiesType: ["entities"],
     SpecVersion: ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5"],
+    TicketCreationRuleType: ["ticket_creation_rules"],
+    TicketCreationTarget: ["jira", "case_management"],
     TriggerSource: ["security_findings", "security_signals"],
     UsersType: ["users"],
     VersionHistoryUpdateType: ["create", "update", "delete"],
@@ -974,6 +1051,9 @@ export const TypingInfo: ModelTypingInfo = {
       AttachServiceNowTicketRequestDataAttributes,
     AttachServiceNowTicketRequestDataRelationships:
       AttachServiceNowTicketRequestDataRelationships,
+    AutomationRuleCreatedBy: AutomationRuleCreatedBy,
+    AutomationRuleModifiedBy: AutomationRuleModifiedBy,
+    AutomationRuleScope: AutomationRuleScope,
     CVSS: CVSS,
     CalculatedField: CalculatedField,
     CaseInsightsItems: CaseInsightsItems,
@@ -1031,6 +1111,18 @@ export const TypingInfo: ModelTypingInfo = {
     DetachCaseRequestDataRelationships: DetachCaseRequestDataRelationships,
     DetailedFinding: DetailedFinding,
     DetailedFindingAttributes: DetailedFindingAttributes,
+    DueDatePerSeverityItem: DueDatePerSeverityItem,
+    DueDateRuleAction: DueDateRuleAction,
+    DueDateRuleAttributesCreate: DueDateRuleAttributesCreate,
+    DueDateRuleAttributesResponse: DueDateRuleAttributesResponse,
+    DueDateRuleCreateRequest: DueDateRuleCreateRequest,
+    DueDateRuleDataCreate: DueDateRuleDataCreate,
+    DueDateRuleDataResponse: DueDateRuleDataResponse,
+    DueDateRuleReorderItem: DueDateRuleReorderItem,
+    DueDateRuleReorderRequest: DueDateRuleReorderRequest,
+    DueDateRuleResponse: DueDateRuleResponse,
+    DueDateRuleUpdateRequest: DueDateRuleUpdateRequest,
+    DueDateRulesResponse: DueDateRulesResponse,
     EPSS: EPSS,
     EntityContextEntity: EntityContextEntity,
     EntityContextEntityAttributes: EntityContextEntityAttributes,
@@ -1144,6 +1236,17 @@ export const TypingInfo: ModelTypingInfo = {
     MuteFindingsRequestDataRelationships: MuteFindingsRequestDataRelationships,
     MuteFindingsResponse: MuteFindingsResponse,
     MuteFindingsResponseData: MuteFindingsResponseData,
+    MuteRuleAction: MuteRuleAction,
+    MuteRuleAttributesCreate: MuteRuleAttributesCreate,
+    MuteRuleAttributesResponse: MuteRuleAttributesResponse,
+    MuteRuleCreateRequest: MuteRuleCreateRequest,
+    MuteRuleDataCreate: MuteRuleDataCreate,
+    MuteRuleDataResponse: MuteRuleDataResponse,
+    MuteRuleReorderItem: MuteRuleReorderItem,
+    MuteRuleReorderRequest: MuteRuleReorderRequest,
+    MuteRuleResponse: MuteRuleResponse,
+    MuteRuleUpdateRequest: MuteRuleUpdateRequest,
+    MuteRulesResponse: MuteRulesResponse,
     NodeTypesResponse: NodeTypesResponse,
     NodeTypesResponseData: NodeTypesResponseData,
     NodeTypesResponseDataAttributes: NodeTypesResponseDataAttributes,
@@ -1229,6 +1332,9 @@ export const TypingInfo: ModelTypingInfo = {
       SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems,
     SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems:
       SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems,
+    SecurityAutomationRulesLinks: SecurityAutomationRulesLinks,
+    SecurityAutomationRulesMeta: SecurityAutomationRulesMeta,
+    SecurityAutomationRulesPageInfo: SecurityAutomationRulesPageInfo,
     SecurityFilter: SecurityFilter,
     SecurityFilterAttributes: SecurityFilterAttributes,
     SecurityFilterCreateAttributes: SecurityFilterCreateAttributes,
@@ -1550,6 +1656,18 @@ export const TypingInfo: ModelTypingInfo = {
     SingleEntityContextResponse: SingleEntityContextResponse,
     SuppressionVersionHistory: SuppressionVersionHistory,
     SuppressionVersions: SuppressionVersions,
+    TicketCreationRuleAction: TicketCreationRuleAction,
+    TicketCreationRuleActionResponse: TicketCreationRuleActionResponse,
+    TicketCreationRuleAttributesCreate: TicketCreationRuleAttributesCreate,
+    TicketCreationRuleAttributesResponse: TicketCreationRuleAttributesResponse,
+    TicketCreationRuleCreateRequest: TicketCreationRuleCreateRequest,
+    TicketCreationRuleDataCreate: TicketCreationRuleDataCreate,
+    TicketCreationRuleDataResponse: TicketCreationRuleDataResponse,
+    TicketCreationRuleReorderItem: TicketCreationRuleReorderItem,
+    TicketCreationRuleReorderRequest: TicketCreationRuleReorderRequest,
+    TicketCreationRuleResponse: TicketCreationRuleResponse,
+    TicketCreationRuleUpdateRequest: TicketCreationRuleUpdateRequest,
+    TicketCreationRulesResponse: TicketCreationRulesResponse,
     UpdateCustomFrameworkRequest: UpdateCustomFrameworkRequest,
     UpdateCustomFrameworkResponse: UpdateCustomFrameworkResponse,
     UpdateResourceEvaluationFiltersRequest:
