@@ -25,10 +25,12 @@ import { CreateMaintenanceRequest } from "../models/CreateMaintenanceRequest";
 import { CreateStatusPageRequest } from "../models/CreateStatusPageRequest";
 import { Degradation } from "../models/Degradation";
 import { DegradationArray } from "../models/DegradationArray";
+import { DegradationUpdate } from "../models/DegradationUpdate";
 import { Maintenance } from "../models/Maintenance";
 import { MaintenanceArray } from "../models/MaintenanceArray";
 import { PatchComponentRequest } from "../models/PatchComponentRequest";
 import { PatchDegradationRequest } from "../models/PatchDegradationRequest";
+import { PatchDegradationUpdateRequest } from "../models/PatchDegradationUpdateRequest";
 import { PatchMaintenanceRequest } from "../models/PatchMaintenanceRequest";
 import { PatchStatusPageRequest } from "../models/PatchStatusPageRequest";
 import { StatusPage } from "../models/StatusPage";
@@ -534,6 +536,80 @@ export class StatusPagesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async editDegradationUpdate(
+    degradationId: string,
+    pageId: string,
+    updateId: string,
+    body: PatchDegradationUpdateRequest,
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'degradationId' is not null or undefined
+    if (degradationId === null || degradationId === undefined) {
+      throw new RequiredError("degradationId", "editDegradationUpdate");
+    }
+
+    // verify required parameter 'pageId' is not null or undefined
+    if (pageId === null || pageId === undefined) {
+      throw new RequiredError("pageId", "editDegradationUpdate");
+    }
+
+    // verify required parameter 'updateId' is not null or undefined
+    if (updateId === null || updateId === undefined) {
+      throw new RequiredError("updateId", "editDegradationUpdate");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "editDegradationUpdate");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/statuspages/{page_id}/degradations/{degradation_id}/updates/{update_id}"
+        .replace("{degradation_id}", encodeURIComponent(String(degradationId)))
+        .replace("{page_id}", encodeURIComponent(String(pageId)))
+        .replace("{update_id}", encodeURIComponent(String(updateId)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.StatusPagesApi.editDegradationUpdate")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "PatchDegradationUpdateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getComponent(
     pageId: string,
     componentId: string,
@@ -1002,6 +1078,53 @@ export class StatusPagesApiRequestFactory extends BaseAPIRequestFactory {
     const requestContext = _config
       .getServer("v2.StatusPagesApi.publishStatusPage")
       .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async softDeleteDegradationUpdate(
+    degradationId: string,
+    pageId: string,
+    updateId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'degradationId' is not null or undefined
+    if (degradationId === null || degradationId === undefined) {
+      throw new RequiredError("degradationId", "softDeleteDegradationUpdate");
+    }
+
+    // verify required parameter 'pageId' is not null or undefined
+    if (pageId === null || pageId === undefined) {
+      throw new RequiredError("pageId", "softDeleteDegradationUpdate");
+    }
+
+    // verify required parameter 'updateId' is not null or undefined
+    if (updateId === null || updateId === undefined) {
+      throw new RequiredError("updateId", "softDeleteDegradationUpdate");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/statuspages/{page_id}/degradations/{degradation_id}/updates/{update_id}"
+        .replace("{degradation_id}", encodeURIComponent(String(degradationId)))
+        .replace("{page_id}", encodeURIComponent(String(pageId)))
+        .replace("{update_id}", encodeURIComponent(String(updateId)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.StatusPagesApi.softDeleteDegradationUpdate")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1830,6 +1953,64 @@ export class StatusPagesApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to editDegradationUpdate
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async editDegradationUpdate(
+    response: ResponseContext
+  ): Promise<DegradationUpdate> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: DegradationUpdate = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DegradationUpdate"
+      ) as DegradationUpdate;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: DegradationUpdate = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DegradationUpdate",
+        ""
+      ) as DegradationUpdate;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getComponent
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2335,6 +2516,55 @@ export class StatusPagesApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to softDeleteDegradationUpdate
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async softDeleteDegradationUpdate(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to unpublishStatusPage
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2752,6 +2982,33 @@ export interface StatusPagesApiDeleteStatusPageRequest {
   pageId: string;
 }
 
+export interface StatusPagesApiEditDegradationUpdateRequest {
+  /**
+   * The ID of the degradation.
+   * @type string
+   */
+  degradationId: string;
+  /**
+   * The ID of the status page.
+   * @type string
+   */
+  pageId: string;
+  /**
+   * The ID of the degradation update.
+   * @type string
+   */
+  updateId: string;
+  /**
+   * @type PatchDegradationUpdateRequest
+   */
+  body: PatchDegradationUpdateRequest;
+  /**
+   * Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user, degradation, status_page.
+   * @type string
+   */
+  include?: string;
+}
+
 export interface StatusPagesApiGetComponentRequest {
   /**
    * The ID of the status page.
@@ -2927,6 +3184,24 @@ export interface StatusPagesApiPublishStatusPageRequest {
    * @type string
    */
   pageId: string;
+}
+
+export interface StatusPagesApiSoftDeleteDegradationUpdateRequest {
+  /**
+   * The ID of the degradation.
+   * @type string
+   */
+  degradationId: string;
+  /**
+   * The ID of the status page.
+   * @type string
+   */
+  pageId: string;
+  /**
+   * The ID of the degradation update.
+   * @type string
+   */
+  updateId: string;
 }
 
 export interface StatusPagesApiUnpublishStatusPageRequest {
@@ -3263,6 +3538,31 @@ export class StatusPagesApi {
   }
 
   /**
+   * Edits a specific degradation update.
+   * @param param The request object
+   */
+  public editDegradationUpdate(
+    param: StatusPagesApiEditDegradationUpdateRequest,
+    options?: Configuration
+  ): Promise<DegradationUpdate> {
+    const requestContextPromise = this.requestFactory.editDegradationUpdate(
+      param.degradationId,
+      param.pageId,
+      param.updateId,
+      param.body,
+      param.include,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.editDegradationUpdate(responseContext);
+        });
+    });
+  }
+
+  /**
    * Retrieves a specific component by its ID.
    * @param param The request object
    */
@@ -3468,6 +3768,32 @@ export class StatusPagesApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.publishStatusPage(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Soft-deletes a degradation update.
+   * @param param The request object
+   */
+  public softDeleteDegradationUpdate(
+    param: StatusPagesApiSoftDeleteDegradationUpdateRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.softDeleteDegradationUpdate(
+        param.degradationId,
+        param.pageId,
+        param.updateId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.softDeleteDegradationUpdate(
+            responseContext
+          );
         });
     });
   }

@@ -15,7 +15,7 @@ export class CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems {
   /**
    * The components affected.
    */
-  "componentsAffected": Array<CreateMaintenanceRequestDataAttributesComponentsAffectedItems>;
+  "componentsAffected"?: Array<CreateMaintenanceRequestDataAttributesComponentsAffectedItems>;
   /**
    * A description of the update.
    */
@@ -48,7 +48,6 @@ export class CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems {
     componentsAffected: {
       baseName: "components_affected",
       type: "Array<CreateMaintenanceRequestDataAttributesComponentsAffectedItems>",
-      required: true,
     },
     description: {
       baseName: "description",

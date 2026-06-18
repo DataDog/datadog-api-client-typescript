@@ -1571,6 +1571,7 @@ export {
   StatusPagesApiDeleteComponentRequest,
   StatusPagesApiDeleteDegradationRequest,
   StatusPagesApiDeleteStatusPageRequest,
+  StatusPagesApiEditDegradationUpdateRequest,
   StatusPagesApiGetComponentRequest,
   StatusPagesApiGetDegradationRequest,
   StatusPagesApiGetMaintenanceRequest,
@@ -1580,6 +1581,7 @@ export {
   StatusPagesApiListMaintenancesRequest,
   StatusPagesApiListStatusPagesRequest,
   StatusPagesApiPublishStatusPageRequest,
+  StatusPagesApiSoftDeleteDegradationUpdateRequest,
   StatusPagesApiUnpublishStatusPageRequest,
   StatusPagesApiUpdateComponentRequest,
   StatusPagesApiUpdateDegradationRequest,
@@ -3390,6 +3392,18 @@ export { DegradationDataRelationshipsLastModifiedByUserData } from "./models/Deg
 export { DegradationDataRelationshipsStatusPage } from "./models/DegradationDataRelationshipsStatusPage";
 export { DegradationDataRelationshipsStatusPageData } from "./models/DegradationDataRelationshipsStatusPageData";
 export { DegradationIncluded } from "./models/DegradationIncluded";
+export { DegradationUpdate } from "./models/DegradationUpdate";
+export { DegradationUpdateData } from "./models/DegradationUpdateData";
+export { DegradationUpdateDataAttributes } from "./models/DegradationUpdateDataAttributes";
+export { DegradationUpdateDataAttributesComponentsAffectedItems } from "./models/DegradationUpdateDataAttributesComponentsAffectedItems";
+export { DegradationUpdateDataRelationships } from "./models/DegradationUpdateDataRelationships";
+export { DegradationUpdateDataRelationshipsDegradation } from "./models/DegradationUpdateDataRelationshipsDegradation";
+export { DegradationUpdateDataRelationshipsDegradationData } from "./models/DegradationUpdateDataRelationshipsDegradationData";
+export { DegradationUpdateDataRelationshipsStatusPage } from "./models/DegradationUpdateDataRelationshipsStatusPage";
+export { DegradationUpdateDataRelationshipsStatusPageData } from "./models/DegradationUpdateDataRelationshipsStatusPageData";
+export { DegradationUpdateDataRelationshipsUser } from "./models/DegradationUpdateDataRelationshipsUser";
+export { DegradationUpdateDataRelationshipsUserData } from "./models/DegradationUpdateDataRelationshipsUserData";
+export { DegradationUpdateIncluded } from "./models/DegradationUpdateIncluded";
 export { DeleteAppResponse } from "./models/DeleteAppResponse";
 export { DeleteAppResponseData } from "./models/DeleteAppResponseData";
 export { DeleteAppsDatastoreItemRequest } from "./models/DeleteAppsDatastoreItemRequest";
@@ -6068,6 +6082,11 @@ export { PatchDegradationRequestDataAttributes } from "./models/PatchDegradation
 export { PatchDegradationRequestDataAttributesComponentsAffectedItems } from "./models/PatchDegradationRequestDataAttributesComponentsAffectedItems";
 export { PatchDegradationRequestDataAttributesStatus } from "./models/PatchDegradationRequestDataAttributesStatus";
 export { PatchDegradationRequestDataType } from "./models/PatchDegradationRequestDataType";
+export { PatchDegradationUpdateRequest } from "./models/PatchDegradationUpdateRequest";
+export { PatchDegradationUpdateRequestData } from "./models/PatchDegradationUpdateRequestData";
+export { PatchDegradationUpdateRequestDataAttributes } from "./models/PatchDegradationUpdateRequestDataAttributes";
+export { PatchDegradationUpdateRequestDataAttributesStatus } from "./models/PatchDegradationUpdateRequestDataAttributesStatus";
+export { PatchDegradationUpdateRequestDataType } from "./models/PatchDegradationUpdateRequestDataType";
 export { PatchIncidentNotificationTemplateRequest } from "./models/PatchIncidentNotificationTemplateRequest";
 export { PatchMaintenanceRequest } from "./models/PatchMaintenanceRequest";
 export { PatchMaintenanceRequestData } from "./models/PatchMaintenanceRequestData";

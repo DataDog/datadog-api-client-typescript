@@ -30,6 +30,10 @@ export class CreateStatusPageRequestDataAttributes {
    */
   "emailHeaderImage"?: string;
   /**
+   * Whether the status page is enabled.
+   */
+  "enabled"?: boolean;
+  /**
    * Base64-encoded image data displayed in the browser tab.
    */
   "favicon"?: string;
@@ -37,6 +41,14 @@ export class CreateStatusPageRequestDataAttributes {
    * The name of the status page.
    */
   "name": string;
+  /**
+   * The Slack app icon URL for the status page.
+   */
+  "slackAppIcon"?: string;
+  /**
+   * Whether Slack subscriptions are enabled for the status page.
+   */
+  "slackSubscriptionsEnabled"?: boolean;
   /**
    * Whether users can subscribe to the status page.
    */
@@ -83,6 +95,10 @@ export class CreateStatusPageRequestDataAttributes {
       baseName: "email_header_image",
       type: "string",
     },
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+    },
     favicon: {
       baseName: "favicon",
       type: "string",
@@ -91,6 +107,14 @@ export class CreateStatusPageRequestDataAttributes {
       baseName: "name",
       type: "string",
       required: true,
+    },
+    slackAppIcon: {
+      baseName: "slack_app_icon",
+      type: "string",
+    },
+    slackSubscriptionsEnabled: {
+      baseName: "slack_subscriptions_enabled",
+      type: "boolean",
     },
     subscriptionsEnabled: {
       baseName: "subscriptions_enabled",

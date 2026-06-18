@@ -1277,6 +1277,17 @@ import { DegradationDataRelationshipsLastModifiedByUser } from "./DegradationDat
 import { DegradationDataRelationshipsLastModifiedByUserData } from "./DegradationDataRelationshipsLastModifiedByUserData";
 import { DegradationDataRelationshipsStatusPage } from "./DegradationDataRelationshipsStatusPage";
 import { DegradationDataRelationshipsStatusPageData } from "./DegradationDataRelationshipsStatusPageData";
+import { DegradationUpdate } from "./DegradationUpdate";
+import { DegradationUpdateData } from "./DegradationUpdateData";
+import { DegradationUpdateDataAttributes } from "./DegradationUpdateDataAttributes";
+import { DegradationUpdateDataAttributesComponentsAffectedItems } from "./DegradationUpdateDataAttributesComponentsAffectedItems";
+import { DegradationUpdateDataRelationships } from "./DegradationUpdateDataRelationships";
+import { DegradationUpdateDataRelationshipsDegradation } from "./DegradationUpdateDataRelationshipsDegradation";
+import { DegradationUpdateDataRelationshipsDegradationData } from "./DegradationUpdateDataRelationshipsDegradationData";
+import { DegradationUpdateDataRelationshipsStatusPage } from "./DegradationUpdateDataRelationshipsStatusPage";
+import { DegradationUpdateDataRelationshipsStatusPageData } from "./DegradationUpdateDataRelationshipsStatusPageData";
+import { DegradationUpdateDataRelationshipsUser } from "./DegradationUpdateDataRelationshipsUser";
+import { DegradationUpdateDataRelationshipsUserData } from "./DegradationUpdateDataRelationshipsUserData";
 import { DeleteAppResponse } from "./DeleteAppResponse";
 import { DeleteAppResponseData } from "./DeleteAppResponseData";
 import { DeleteAppsDatastoreItemRequest } from "./DeleteAppsDatastoreItemRequest";
@@ -3284,6 +3295,9 @@ import { PatchDegradationRequest } from "./PatchDegradationRequest";
 import { PatchDegradationRequestData } from "./PatchDegradationRequestData";
 import { PatchDegradationRequestDataAttributes } from "./PatchDegradationRequestDataAttributes";
 import { PatchDegradationRequestDataAttributesComponentsAffectedItems } from "./PatchDegradationRequestDataAttributesComponentsAffectedItems";
+import { PatchDegradationUpdateRequest } from "./PatchDegradationUpdateRequest";
+import { PatchDegradationUpdateRequestData } from "./PatchDegradationUpdateRequestData";
+import { PatchDegradationUpdateRequestDataAttributes } from "./PatchDegradationUpdateRequestDataAttributes";
 import { PatchIncidentNotificationTemplateRequest } from "./PatchIncidentNotificationTemplateRequest";
 import { PatchMaintenanceRequest } from "./PatchMaintenanceRequest";
 import { PatchMaintenanceRequestData } from "./PatchMaintenanceRequestData";
@@ -6893,6 +6907,12 @@ const enumsMap: { [key: string]: any[] } = {
     "resolved",
   ],
   PatchDegradationRequestDataType: ["degradations"],
+  PatchDegradationUpdateRequestDataAttributesStatus: [
+    "investigating",
+    "identified",
+    "monitoring",
+  ],
+  PatchDegradationUpdateRequestDataType: ["degradation_updates"],
   PatchMaintenanceRequestDataAttributesComponentsAffectedItemsStatus: [
     "operational",
     "maintenance",
@@ -9489,6 +9509,24 @@ const typeMap: { [index: string]: any } = {
     DegradationDataRelationshipsStatusPage,
   DegradationDataRelationshipsStatusPageData:
     DegradationDataRelationshipsStatusPageData,
+  DegradationUpdate: DegradationUpdate,
+  DegradationUpdateData: DegradationUpdateData,
+  DegradationUpdateDataAttributes: DegradationUpdateDataAttributes,
+  DegradationUpdateDataAttributesComponentsAffectedItems:
+    DegradationUpdateDataAttributesComponentsAffectedItems,
+  DegradationUpdateDataRelationships: DegradationUpdateDataRelationships,
+  DegradationUpdateDataRelationshipsDegradation:
+    DegradationUpdateDataRelationshipsDegradation,
+  DegradationUpdateDataRelationshipsDegradationData:
+    DegradationUpdateDataRelationshipsDegradationData,
+  DegradationUpdateDataRelationshipsStatusPage:
+    DegradationUpdateDataRelationshipsStatusPage,
+  DegradationUpdateDataRelationshipsStatusPageData:
+    DegradationUpdateDataRelationshipsStatusPageData,
+  DegradationUpdateDataRelationshipsUser:
+    DegradationUpdateDataRelationshipsUser,
+  DegradationUpdateDataRelationshipsUserData:
+    DegradationUpdateDataRelationshipsUserData,
   DeleteAppResponse: DeleteAppResponse,
   DeleteAppResponseData: DeleteAppResponseData,
   DeleteAppsDatastoreItemRequest: DeleteAppsDatastoreItemRequest,
@@ -11891,6 +11929,10 @@ const typeMap: { [index: string]: any } = {
   PatchDegradationRequestDataAttributes: PatchDegradationRequestDataAttributes,
   PatchDegradationRequestDataAttributesComponentsAffectedItems:
     PatchDegradationRequestDataAttributesComponentsAffectedItems,
+  PatchDegradationUpdateRequest: PatchDegradationUpdateRequest,
+  PatchDegradationUpdateRequestData: PatchDegradationUpdateRequestData,
+  PatchDegradationUpdateRequestDataAttributes:
+    PatchDegradationUpdateRequestDataAttributes,
   PatchIncidentNotificationTemplateRequest:
     PatchIncidentNotificationTemplateRequest,
   PatchMaintenanceRequest: PatchMaintenanceRequest,
@@ -14304,6 +14346,11 @@ const oneOfMap: { [index: string]: string[] } = {
   DatadogCredentials: ["DatadogAPIKey"],
   DatadogCredentialsUpdate: ["DatadogAPIKeyUpdate"],
   DegradationIncluded: ["StatusPagesUser", "StatusPageAsIncluded"],
+  DegradationUpdateIncluded: [
+    "StatusPagesUser",
+    "Degradation",
+    "StatusPageAsIncluded",
+  ],
   DeploymentGatesEvaluationRule: [
     "DeploymentGatesMonitorRule",
     "DeploymentGatesFDDRule",

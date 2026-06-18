@@ -22,7 +22,7 @@ export class CreateMaintenanceRequestDataAttributes {
   /**
    * The components affected by the maintenance.
    */
-  "componentsAffected": Array<CreateMaintenanceRequestDataAttributesComponentsAffectedItems>;
+  "componentsAffected"?: Array<CreateMaintenanceRequestDataAttributesComponentsAffectedItems>;
   /**
    * The description shown while the maintenance is in progress.
    */
@@ -70,7 +70,6 @@ export class CreateMaintenanceRequestDataAttributes {
     componentsAffected: {
       baseName: "components_affected",
       type: "Array<CreateMaintenanceRequestDataAttributesComponentsAffectedItems>",
-      required: true,
     },
     inProgressDescription: {
       baseName: "in_progress_description",
