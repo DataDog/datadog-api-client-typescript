@@ -5761,6 +5761,156 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "AssigneeResponse",
     },
+    "v2.ListSecurityFindingsAutomationDueDateRules": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "DueDateRulesResponse",
+    },
+    "v2.CreateSecurityFindingsAutomationDueDateRule": {
+        "body": {
+            "type": "DueDateRuleCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "DueDateRuleResponse",
+    },
+    "v2.ReorderSecurityFindingsAutomationDueDateRules": {
+        "body": {
+            "type": "DueDateRuleReorderRequest",
+            "format": "",
+            },
+        "operationResponseType": "DueDateRuleReorderRequest",
+    },
+    "v2.GetSecurityFindingsAutomationDueDateRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "DueDateRuleResponse",
+    },
+    "v2.UpdateSecurityFindingsAutomationDueDateRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "DueDateRuleUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "DueDateRuleResponse",
+    },
+    "v2.DeleteSecurityFindingsAutomationDueDateRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListSecurityFindingsAutomationMuteRules": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "MuteRulesResponse",
+    },
+    "v2.CreateSecurityFindingsAutomationMuteRule": {
+        "body": {
+            "type": "MuteRuleCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "MuteRuleResponse",
+    },
+    "v2.ReorderSecurityFindingsAutomationMuteRules": {
+        "body": {
+            "type": "MuteRuleReorderRequest",
+            "format": "",
+            },
+        "operationResponseType": "MuteRuleReorderRequest",
+    },
+    "v2.GetSecurityFindingsAutomationMuteRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "MuteRuleResponse",
+    },
+    "v2.UpdateSecurityFindingsAutomationMuteRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "MuteRuleUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "MuteRuleResponse",
+    },
+    "v2.DeleteSecurityFindingsAutomationMuteRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListSecurityFindingsAutomationTicketCreationRules": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "TicketCreationRulesResponse",
+    },
+    "v2.CreateSecurityFindingsAutomationTicketCreationRule": {
+        "body": {
+            "type": "TicketCreationRuleCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "TicketCreationRuleResponse",
+    },
+    "v2.ReorderSecurityFindingsAutomationTicketCreationRules": {
+        "body": {
+            "type": "TicketCreationRuleReorderRequest",
+            "format": "",
+            },
+        "operationResponseType": "TicketCreationRuleReorderRequest",
+    },
+    "v2.GetSecurityFindingsAutomationTicketCreationRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "TicketCreationRuleResponse",
+    },
+    "v2.UpdateSecurityFindingsAutomationTicketCreationRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "TicketCreationRuleUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "TicketCreationRuleResponse",
+    },
+    "v2.DeleteSecurityFindingsAutomationTicketCreationRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.CreateCases": {
         "body": {
             "type": "CreateCaseRequestArray",
