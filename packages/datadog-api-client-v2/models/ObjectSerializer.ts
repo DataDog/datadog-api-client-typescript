@@ -432,6 +432,19 @@ import { AwsScanOptionsResponse } from "./AwsScanOptionsResponse";
 import { AwsScanOptionsUpdateAttributes } from "./AwsScanOptionsUpdateAttributes";
 import { AwsScanOptionsUpdateData } from "./AwsScanOptionsUpdateData";
 import { AwsScanOptionsUpdateRequest } from "./AwsScanOptionsUpdateRequest";
+import { AwsWifIntakeMappingAttributes } from "./AwsWifIntakeMappingAttributes";
+import { AwsWifIntakeMappingCreateData } from "./AwsWifIntakeMappingCreateData";
+import { AwsWifIntakeMappingCreateRequest } from "./AwsWifIntakeMappingCreateRequest";
+import { AwsWifIntakeMappingData } from "./AwsWifIntakeMappingData";
+import { AwsWifIntakeMappingResponse } from "./AwsWifIntakeMappingResponse";
+import { AwsWifIntakeMappingsResponse } from "./AwsWifIntakeMappingsResponse";
+import { AwsWifPersonaMappingAttributes } from "./AwsWifPersonaMappingAttributes";
+import { AwsWifPersonaMappingCreateAttributes } from "./AwsWifPersonaMappingCreateAttributes";
+import { AwsWifPersonaMappingCreateData } from "./AwsWifPersonaMappingCreateData";
+import { AwsWifPersonaMappingCreateRequest } from "./AwsWifPersonaMappingCreateRequest";
+import { AwsWifPersonaMappingData } from "./AwsWifPersonaMappingData";
+import { AwsWifPersonaMappingResponse } from "./AwsWifPersonaMappingResponse";
+import { AwsWifPersonaMappingsResponse } from "./AwsWifPersonaMappingsResponse";
 import { AzureIntegration } from "./AzureIntegration";
 import { AzureIntegrationUpdate } from "./AzureIntegrationUpdate";
 import { AzureScanOptions } from "./AzureScanOptions";
@@ -1277,6 +1290,9 @@ import { DegradationDataRelationshipsLastModifiedByUser } from "./DegradationDat
 import { DegradationDataRelationshipsLastModifiedByUserData } from "./DegradationDataRelationshipsLastModifiedByUserData";
 import { DegradationDataRelationshipsStatusPage } from "./DegradationDataRelationshipsStatusPage";
 import { DegradationDataRelationshipsStatusPageData } from "./DegradationDataRelationshipsStatusPageData";
+import { DelegatedTokenAttributes } from "./DelegatedTokenAttributes";
+import { DelegatedTokenData } from "./DelegatedTokenData";
+import { DelegatedTokenResponse } from "./DelegatedTokenResponse";
 import { DeleteAppResponse } from "./DeleteAppResponse";
 import { DeleteAppResponseData } from "./DeleteAppResponseData";
 import { DeleteAppsDatastoreItemRequest } from "./DeleteAppsDatastoreItemRequest";
@@ -2064,6 +2080,9 @@ import { IncidentUserDefinedFieldValidValue } from "./IncidentUserDefinedFieldVa
 import { IncidentsResponse } from "./IncidentsResponse";
 import { InputSchema } from "./InputSchema";
 import { InputSchemaParameters } from "./InputSchemaParameters";
+import { IntakeAPIKeyAttributes } from "./IntakeAPIKeyAttributes";
+import { IntakeAPIKeyData } from "./IntakeAPIKeyData";
+import { IntakeAPIKeyResponse } from "./IntakeAPIKeyResponse";
 import { IntakePayloadAccepted } from "./IntakePayloadAccepted";
 import { Integration } from "./Integration";
 import { IntegrationAttributes } from "./IntegrationAttributes";
@@ -5444,6 +5463,8 @@ const enumsMap: { [key: string]: any[] } = {
   AwsCurConfigResponseDataType: ["aws_cur_config"],
   AwsOnDemandType: ["aws_resource"],
   AwsScanOptionsType: ["aws_scan_options"],
+  AwsWifIntakeMappingType: ["aws_wif_intake_mapping"],
+  AwsWifPersonaMappingType: ["aws_wif_config"],
   AzureIntegrationType: ["Azure"],
   AzureScanOptionsDataType: ["azure_scan_options"],
   AzureScanOptionsInputUpdateDataType: ["azure_scan_options"],
@@ -5802,6 +5823,7 @@ const enumsMap: { [key: string]: any[] } = {
   DatastorePrimaryKeyGenerationStrategy: ["none", "uuid"],
   DefaultRulesetsPerLanguageDataType: ["defaultRulesetsPerLanguage"],
   DegradationDataAttributesSourceType: ["incident"],
+  DelegatedTokenType: ["token"],
   DeletedSuitesRequestType: ["delete_suites_request"],
   DeletedTestsRequestType: ["delete_tests_request"],
   DeletedTestsResponseType: ["delete_tests"],
@@ -6159,6 +6181,7 @@ const enumsMap: { [key: string]: any[] } = {
     "ARRAY_BOOLEAN",
     "ARRAY_OBJECT",
   ],
+  IntakeAPIKeyType: ["intake_api_key"],
   IntegrationType: ["integration"],
   InterfaceAttributesStatus: ["up", "down", "warning", "off"],
   InvestigationType: ["investigation"],
@@ -8498,6 +8521,19 @@ const typeMap: { [index: string]: any } = {
   AwsScanOptionsUpdateAttributes: AwsScanOptionsUpdateAttributes,
   AwsScanOptionsUpdateData: AwsScanOptionsUpdateData,
   AwsScanOptionsUpdateRequest: AwsScanOptionsUpdateRequest,
+  AwsWifIntakeMappingAttributes: AwsWifIntakeMappingAttributes,
+  AwsWifIntakeMappingCreateData: AwsWifIntakeMappingCreateData,
+  AwsWifIntakeMappingCreateRequest: AwsWifIntakeMappingCreateRequest,
+  AwsWifIntakeMappingData: AwsWifIntakeMappingData,
+  AwsWifIntakeMappingResponse: AwsWifIntakeMappingResponse,
+  AwsWifIntakeMappingsResponse: AwsWifIntakeMappingsResponse,
+  AwsWifPersonaMappingAttributes: AwsWifPersonaMappingAttributes,
+  AwsWifPersonaMappingCreateAttributes: AwsWifPersonaMappingCreateAttributes,
+  AwsWifPersonaMappingCreateData: AwsWifPersonaMappingCreateData,
+  AwsWifPersonaMappingCreateRequest: AwsWifPersonaMappingCreateRequest,
+  AwsWifPersonaMappingData: AwsWifPersonaMappingData,
+  AwsWifPersonaMappingResponse: AwsWifPersonaMappingResponse,
+  AwsWifPersonaMappingsResponse: AwsWifPersonaMappingsResponse,
   AzureIntegration: AzureIntegration,
   AzureIntegrationUpdate: AzureIntegrationUpdate,
   AzureScanOptions: AzureScanOptions,
@@ -9489,6 +9525,9 @@ const typeMap: { [index: string]: any } = {
     DegradationDataRelationshipsStatusPage,
   DegradationDataRelationshipsStatusPageData:
     DegradationDataRelationshipsStatusPageData,
+  DelegatedTokenAttributes: DelegatedTokenAttributes,
+  DelegatedTokenData: DelegatedTokenData,
+  DelegatedTokenResponse: DelegatedTokenResponse,
   DeleteAppResponse: DeleteAppResponse,
   DeleteAppResponseData: DeleteAppResponseData,
   DeleteAppsDatastoreItemRequest: DeleteAppsDatastoreItemRequest,
@@ -10389,6 +10428,9 @@ const typeMap: { [index: string]: any } = {
   IncidentsResponse: IncidentsResponse,
   InputSchema: InputSchema,
   InputSchemaParameters: InputSchemaParameters,
+  IntakeAPIKeyAttributes: IntakeAPIKeyAttributes,
+  IntakeAPIKeyData: IntakeAPIKeyData,
+  IntakeAPIKeyResponse: IntakeAPIKeyResponse,
   IntakePayloadAccepted: IntakePayloadAccepted,
   Integration: Integration,
   IntegrationAttributes: IntegrationAttributes,
