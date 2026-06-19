@@ -16,6 +16,14 @@ export class DegradationDataAttributesUpdatesItems {
    */
   "createdAt"?: Date;
   /**
+   * The date and time the resource was deleted.
+   */
+  "deletedAt"?: string;
+  /**
+   * UUID of the user who deleted the resource.
+   */
+  "deletedByUserUuid"?: string;
+  /**
    * Description of the update.
    */
   "description"?: string;
@@ -62,6 +70,14 @@ export class DegradationDataAttributesUpdatesItems {
       baseName: "created_at",
       type: "Date",
       format: "date-time",
+    },
+    deletedAt: {
+      baseName: "deleted_at",
+      type: "string",
+    },
+    deletedByUserUuid: {
+      baseName: "deleted_by_user_uuid",
+      type: "string",
     },
     description: {
       baseName: "description",
