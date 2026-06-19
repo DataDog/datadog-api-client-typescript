@@ -9,13 +9,25 @@ export class TestOptimizationServiceSettingsAttributes {
    */
   "autoTestRetriesEnabled"?: boolean;
   /**
+   * Whether the Auto Test Retries setting is overridden at the service level.
+   */
+  "autoTestRetriesEnabledIsOverridden"?: boolean;
+  /**
    * Whether Code Coverage is enabled for this service.
    */
   "codeCoverageEnabled"?: boolean;
   /**
+   * Whether the Code Coverage setting is overridden at the service level.
+   */
+  "codeCoverageEnabledIsOverridden"?: boolean;
+  /**
    * Whether Early Flake Detection is enabled for this service.
    */
   "earlyFlakeDetectionEnabled"?: boolean;
+  /**
+   * Whether the Early Flake Detection setting is overridden at the service level.
+   */
+  "earlyFlakeDetectionEnabledIsOverridden"?: boolean;
   /**
    * The environment name.
    */
@@ -25,7 +37,11 @@ export class TestOptimizationServiceSettingsAttributes {
    */
   "failedTestReplayEnabled"?: boolean;
   /**
-   * Whether PR Comments are enabled for this service.
+   * Whether the Failed Test Replay setting is overridden at the service level.
+   */
+  "failedTestReplayEnabledIsOverridden"?: boolean;
+  /**
+   * Whether PR Comments are enabled. This value reflects the repository-level setting and cannot be overridden at the service level.
    */
   "prCommentsEnabled"?: boolean;
   /**
@@ -40,6 +56,10 @@ export class TestOptimizationServiceSettingsAttributes {
    * Whether Test Impact Analysis is enabled for this service.
    */
   "testImpactAnalysisEnabled"?: boolean;
+  /**
+   * Whether the Test Impact Analysis setting is overridden at the service level.
+   */
+  "testImpactAnalysisEnabledIsOverridden"?: boolean;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -59,12 +79,24 @@ export class TestOptimizationServiceSettingsAttributes {
       baseName: "auto_test_retries_enabled",
       type: "boolean",
     },
+    autoTestRetriesEnabledIsOverridden: {
+      baseName: "auto_test_retries_enabled_is_overridden",
+      type: "boolean",
+    },
     codeCoverageEnabled: {
       baseName: "code_coverage_enabled",
       type: "boolean",
     },
+    codeCoverageEnabledIsOverridden: {
+      baseName: "code_coverage_enabled_is_overridden",
+      type: "boolean",
+    },
     earlyFlakeDetectionEnabled: {
       baseName: "early_flake_detection_enabled",
+      type: "boolean",
+    },
+    earlyFlakeDetectionEnabledIsOverridden: {
+      baseName: "early_flake_detection_enabled_is_overridden",
       type: "boolean",
     },
     env: {
@@ -73,6 +105,10 @@ export class TestOptimizationServiceSettingsAttributes {
     },
     failedTestReplayEnabled: {
       baseName: "failed_test_replay_enabled",
+      type: "boolean",
+    },
+    failedTestReplayEnabledIsOverridden: {
+      baseName: "failed_test_replay_enabled_is_overridden",
       type: "boolean",
     },
     prCommentsEnabled: {
@@ -89,6 +125,10 @@ export class TestOptimizationServiceSettingsAttributes {
     },
     testImpactAnalysisEnabled: {
       baseName: "test_impact_analysis_enabled",
+      type: "boolean",
+    },
+    testImpactAnalysisEnabledIsOverridden: {
+      baseName: "test_impact_analysis_enabled_is_overridden",
       type: "boolean",
     },
     additionalProperties: {
