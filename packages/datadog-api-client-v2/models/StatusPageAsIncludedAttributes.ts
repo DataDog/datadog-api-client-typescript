@@ -62,6 +62,14 @@ export class StatusPageAsIncludedAttributes {
    */
   "pageUrl"?: string;
   /**
+   * The Slack app icon URL for the status page.
+   */
+  "slackAppIcon"?: string;
+  /**
+   * Whether Slack subscriptions are enabled for the status page.
+   */
+  "slackSubscriptionsEnabled"?: boolean;
+  /**
    * Whether users can subscribe to the status page.
    */
   "subscriptionsEnabled"?: boolean;
@@ -139,6 +147,14 @@ export class StatusPageAsIncludedAttributes {
     pageUrl: {
       baseName: "page_url",
       type: "string",
+    },
+    slackAppIcon: {
+      baseName: "slack_app_icon",
+      type: "string",
+    },
+    slackSubscriptionsEnabled: {
+      baseName: "slack_subscriptions_enabled",
+      type: "boolean",
     },
     subscriptionsEnabled: {
       baseName: "subscriptions_enabled",

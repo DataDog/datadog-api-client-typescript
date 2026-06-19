@@ -15751,6 +15751,44 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "Degradation",
     },
+    "v2.SoftDeleteDegradationUpdate": {
+        "degradationId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "updateId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.EditDegradationUpdate": {
+        "degradationId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "updateId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "PatchDegradationUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "DegradationUpdate",
+    },
     "v2.CreateMaintenance": {
         "pageId": {
             "type": "string",
