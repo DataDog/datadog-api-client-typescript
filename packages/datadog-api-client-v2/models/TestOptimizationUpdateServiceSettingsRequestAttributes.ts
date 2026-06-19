@@ -9,30 +9,47 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 /**
  * Attributes for updating Test Optimization service settings.
  * All non-required fields are optional; only provided fields will be updated.
+ * Setting a field to `null` is a no-op. To reset a setting to inherit from the repository level, use the corresponding `<setting>_inherit` field.
  */
 export class TestOptimizationUpdateServiceSettingsRequestAttributes {
   /**
-   * Whether Auto Test Retries are enabled for this service.
+   * Whether Auto Test Retries are enabled for this service. Setting to `null` is a no-op; use `auto_test_retries_enabled_inherit` to reset to repository-level inheritance.
    */
   "autoTestRetriesEnabled"?: boolean;
   /**
-   * Whether Code Coverage is enabled for this service.
+   * When `true`, resets the Auto Test Retries setting to inherit from the repository level.
+   */
+  "autoTestRetriesEnabledInherit"?: boolean;
+  /**
+   * Whether Code Coverage is enabled for this service. Setting to `null` is a no-op; use `code_coverage_enabled_inherit` to reset to repository-level inheritance.
    */
   "codeCoverageEnabled"?: boolean;
   /**
-   * Whether Early Flake Detection is enabled for this service.
+   * When `true`, resets the Code Coverage setting to inherit from the repository level.
+   */
+  "codeCoverageEnabledInherit"?: boolean;
+  /**
+   * Whether Early Flake Detection is enabled for this service. Setting to `null` is a no-op; use `early_flake_detection_enabled_inherit` to reset to repository-level inheritance.
    */
   "earlyFlakeDetectionEnabled"?: boolean;
+  /**
+   * When `true`, resets the Early Flake Detection setting to inherit from the repository level.
+   */
+  "earlyFlakeDetectionEnabledInherit"?: boolean;
   /**
    * The environment name. If omitted, defaults to `none`.
    */
   "env"?: string;
   /**
-   * Whether Failed Test Replay is enabled for this service.
+   * Whether Failed Test Replay is enabled for this service. Setting to `null` is a no-op; use `failed_test_replay_enabled_inherit` to reset to repository-level inheritance.
    */
   "failedTestReplayEnabled"?: boolean;
   /**
-   * Whether PR Comments are enabled for this service.
+   * When `true`, resets the Failed Test Replay setting to inherit from the repository level.
+   */
+  "failedTestReplayEnabledInherit"?: boolean;
+  /**
+   * This field is ignored. PR Comments cannot be overridden at the service level.
    */
   "prCommentsEnabled"?: boolean;
   /**
@@ -44,9 +61,13 @@ export class TestOptimizationUpdateServiceSettingsRequestAttributes {
    */
   "serviceName": string;
   /**
-   * Whether Test Impact Analysis is enabled for this service.
+   * Whether Test Impact Analysis is enabled for this service. Setting to `null` is a no-op; use `test_impact_analysis_enabled_inherit` to reset to repository-level inheritance.
    */
   "testImpactAnalysisEnabled"?: boolean;
+  /**
+   * When `true`, resets the Test Impact Analysis setting to inherit from the repository level.
+   */
+  "testImpactAnalysisEnabledInherit"?: boolean;
 
   /**
    * A container for additional, undeclared properties.
@@ -68,12 +89,24 @@ export class TestOptimizationUpdateServiceSettingsRequestAttributes {
       baseName: "auto_test_retries_enabled",
       type: "boolean",
     },
+    autoTestRetriesEnabledInherit: {
+      baseName: "auto_test_retries_enabled_inherit",
+      type: "boolean",
+    },
     codeCoverageEnabled: {
       baseName: "code_coverage_enabled",
       type: "boolean",
     },
+    codeCoverageEnabledInherit: {
+      baseName: "code_coverage_enabled_inherit",
+      type: "boolean",
+    },
     earlyFlakeDetectionEnabled: {
       baseName: "early_flake_detection_enabled",
+      type: "boolean",
+    },
+    earlyFlakeDetectionEnabledInherit: {
+      baseName: "early_flake_detection_enabled_inherit",
       type: "boolean",
     },
     env: {
@@ -82,6 +115,10 @@ export class TestOptimizationUpdateServiceSettingsRequestAttributes {
     },
     failedTestReplayEnabled: {
       baseName: "failed_test_replay_enabled",
+      type: "boolean",
+    },
+    failedTestReplayEnabledInherit: {
+      baseName: "failed_test_replay_enabled_inherit",
       type: "boolean",
     },
     prCommentsEnabled: {
@@ -100,6 +137,10 @@ export class TestOptimizationUpdateServiceSettingsRequestAttributes {
     },
     testImpactAnalysisEnabled: {
       baseName: "test_impact_analysis_enabled",
+      type: "boolean",
+    },
+    testImpactAnalysisEnabledInherit: {
+      baseName: "test_impact_analysis_enabled_inherit",
       type: "boolean",
     },
     additionalProperties: {
