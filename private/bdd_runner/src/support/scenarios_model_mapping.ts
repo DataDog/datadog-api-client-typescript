@@ -2354,6 +2354,67 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   "AuthenticationApi.V1.Validate": {
     operationResponseType: "AuthenticationValidationResponse",
   },
+  "ECSRemediationApi.V2.ExecuteRemediation": {
+    body: {
+      type: "RemediationExecuteRequest",
+      format: "",
+    },
+    operationResponseType: "RemediationExecuteResponse",
+  },
+  "ECSRemediationApi.V2.GetEcsRemediationInvestigation": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "RemediationGetInvestigationResponse",
+  },
+  "ECSRemediationApi.V2.ListEcsRemediationInvestigations": {
+    clusterArn: {
+      type: "string",
+      format: "",
+    },
+    clusterName: {
+      type: "string",
+      format: "",
+    },
+    serviceArn: {
+      type: "string",
+      format: "",
+    },
+    taskArn: {
+      type: "string",
+      format: "",
+    },
+    resourceArn: {
+      type: "string",
+      format: "",
+    },
+    status: {
+      type: "Array<string>",
+      format: "",
+    },
+    issueType: {
+      type: "string",
+      format: "",
+    },
+    sinceMs: {
+      type: "number",
+      format: "int64",
+    },
+    untilMs: {
+      type: "number",
+      format: "int64",
+    },
+    pageSize: {
+      type: "number",
+      format: "int32",
+    },
+    pageToken: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "RemediationListInvestigationsResponse",
+  },
   "FleetAutomationApi.V2.ListFleetAgentVersions": {
     operationResponseType: "FleetAgentVersionsResponse",
   },
