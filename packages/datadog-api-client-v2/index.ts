@@ -327,6 +327,7 @@ export {
   CloudCostManagementApiDeleteCostTagDescriptionByKeyRequest,
   CloudCostManagementApiDeleteCustomAllocationRuleRequest,
   CloudCostManagementApiDeleteCustomCostsFileRequest,
+  CloudCostManagementApiDeleteCustomForecastRequest,
   CloudCostManagementApiDeleteTagPipelinesRulesetRequest,
   CloudCostManagementApiGenerateCostTagDescriptionByKeyRequest,
   CloudCostManagementApiGetBudgetRequest,
@@ -369,6 +370,7 @@ export {
   CloudCostManagementApiUploadCustomCostsFileRequest,
   CloudCostManagementApiUpsertBudgetRequest,
   CloudCostManagementApiUpsertCostTagDescriptionByKeyRequest,
+  CloudCostManagementApiUpsertCustomForecastRequest,
   CloudCostManagementApiValidateBudgetRequest,
   CloudCostManagementApiValidateQueryRequest,
   CloudCostManagementApi,
@@ -3276,6 +3278,15 @@ export { CustomerOrgDisableResponseData } from "./models/CustomerOrgDisableRespo
 export { CustomerOrgDisableResponseType } from "./models/CustomerOrgDisableResponseType";
 export { CustomerOrgDisableStatus } from "./models/CustomerOrgDisableStatus";
 export { CustomerOrgDisableType } from "./models/CustomerOrgDisableType";
+export { CustomForecastEntry } from "./models/CustomForecastEntry";
+export { CustomForecastEntryTagFilter } from "./models/CustomForecastEntryTagFilter";
+export { CustomForecastResponse } from "./models/CustomForecastResponse";
+export { CustomForecastResponseData } from "./models/CustomForecastResponseData";
+export { CustomForecastResponseDataAttributes } from "./models/CustomForecastResponseDataAttributes";
+export { CustomForecastType } from "./models/CustomForecastType";
+export { CustomForecastUpsertRequest } from "./models/CustomForecastUpsertRequest";
+export { CustomForecastUpsertRequestData } from "./models/CustomForecastUpsertRequestData";
+export { CustomForecastUpsertRequestDataAttributes } from "./models/CustomForecastUpsertRequestDataAttributes";
 export { CustomFrameworkControl } from "./models/CustomFrameworkControl";
 export { CustomFrameworkData } from "./models/CustomFrameworkData";
 export { CustomFrameworkDataAttributes } from "./models/CustomFrameworkDataAttributes";

@@ -64,6 +64,8 @@ import { CustomCostsFileGetResponse } from "../models/CustomCostsFileGetResponse
 import { CustomCostsFileLineItem } from "../models/CustomCostsFileLineItem";
 import { CustomCostsFileListResponse } from "../models/CustomCostsFileListResponse";
 import { CustomCostsFileUploadResponse } from "../models/CustomCostsFileUploadResponse";
+import { CustomForecastResponse } from "../models/CustomForecastResponse";
+import { CustomForecastUpsertRequest } from "../models/CustomForecastUpsertRequest";
 import { GcpUcConfigResponse } from "../models/GcpUcConfigResponse";
 import { GCPUsageCostConfigPatchRequest } from "../models/GCPUsageCostConfigPatchRequest";
 import { GCPUsageCostConfigPostRequest } from "../models/GCPUsageCostConfigPostRequest";
@@ -540,6 +542,45 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteCustomForecast(
+    budgetId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'deleteCustomForecast'");
+    if (!_config.unstableOperations["v2.deleteCustomForecast"]) {
+      throw new Error("Unstable operation 'deleteCustomForecast' is disabled");
+    }
+
+    // verify required parameter 'budgetId' is not null or undefined
+    if (budgetId === null || budgetId === undefined) {
+      throw new RequiredError("budgetId", "deleteCustomForecast");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/cost/budget/{budget_id}/custom-forecast".replace(
+        "{budget_id}",
+        encodeURIComponent(String(budgetId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CloudCostManagementApi.deleteCustomForecast")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
     ]);
 
     return requestContext;
@@ -3258,6 +3299,52 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
+  public async upsertCustomForecast(
+    body: CustomForecastUpsertRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'upsertCustomForecast'");
+    if (!_config.unstableOperations["v2.upsertCustomForecast"]) {
+      throw new Error("Unstable operation 'upsertCustomForecast' is disabled");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "upsertCustomForecast");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/budget/custom-forecast";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CloudCostManagementApi.upsertCustomForecast")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "CustomForecastUpsertRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async validateBudget(
     body: BudgetValidationRequest,
     _options?: Configuration
@@ -3987,6 +4074,57 @@ export class CloudCostManagementApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteCustomForecast
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteCustomForecast(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
@@ -7237,6 +7375,68 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to upsertCustomForecast
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async upsertCustomForecast(
+    response: ResponseContext
+  ): Promise<CustomForecastResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: CustomForecastResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CustomForecastResponse"
+      ) as CustomForecastResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CustomForecastResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CustomForecastResponse",
+        ""
+      ) as CustomForecastResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to validateBudget
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -7502,6 +7702,14 @@ export interface CloudCostManagementApiDeleteCustomCostsFileRequest {
    * @type string
    */
   fileId: string;
+}
+
+export interface CloudCostManagementApiDeleteCustomForecastRequest {
+  /**
+   * Budget id.
+   * @type string
+   */
+  budgetId: string;
 }
 
 export interface CloudCostManagementApiDeleteTagPipelinesRulesetRequest {
@@ -8207,6 +8415,13 @@ export interface CloudCostManagementApiUpsertCostTagDescriptionByKeyRequest {
   body: CostTagDescriptionUpsertRequest;
 }
 
+export interface CloudCostManagementApiUpsertCustomForecastRequest {
+  /**
+   * @type CustomForecastUpsertRequest
+   */
+  body: CustomForecastUpsertRequest;
+}
+
 export interface CloudCostManagementApiValidateBudgetRequest {
   /**
    * @type BudgetValidationRequest
@@ -8511,6 +8726,27 @@ export class CloudCostManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteCustomCostsFile(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete the custom forecast for a budget.
+   * @param param The request object
+   */
+  public deleteCustomForecast(
+    param: CloudCostManagementApiDeleteCustomForecastRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteCustomForecast(
+      param.budgetId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteCustomForecast(responseContext);
         });
     });
   }
@@ -9721,6 +9957,28 @@ export class CloudCostManagementApi {
           return this.responseProcessor.upsertCostTagDescriptionByKey(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Create or replace the custom forecast for an existing budget.
+   * Pass an empty `entries` list to delete the custom forecast for the budget.
+   * @param param The request object
+   */
+  public upsertCustomForecast(
+    param: CloudCostManagementApiUpsertCustomForecastRequest,
+    options?: Configuration
+  ): Promise<CustomForecastResponse> {
+    const requestContextPromise = this.requestFactory.upsertCustomForecast(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.upsertCustomForecast(responseContext);
         });
     });
   }
