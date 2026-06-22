@@ -9,9 +9,13 @@ export class CommitCoverageSummaryRequestAttributes {
    */
   "commitSha": string;
   /**
-   * The repository identifier.
+   * Deprecated: use `repository_url` instead. The repository URL.
    */
-  "repositoryId": string;
+  "repositoryId"?: string;
+  /**
+   * The repository URL. Accepts a full URL with or without a scheme (for example, `https://github.com/org/repo` or `github.com/org/repo`).
+   */
+  "repositoryUrl"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -35,7 +39,10 @@ export class CommitCoverageSummaryRequestAttributes {
     repositoryId: {
       baseName: "repository_id",
       type: "string",
-      required: true,
+    },
+    repositoryUrl: {
+      baseName: "repository_url",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
