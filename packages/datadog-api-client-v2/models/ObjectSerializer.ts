@@ -7465,7 +7465,12 @@ const enumsMap: { [key: string]: any[] } = {
     "-enabled",
   ],
   SecurityMonitoringSuppressionType: ["suppressions"],
-  SecurityMonitoringTerraformResourceType: ["suppressions", "critical_assets"],
+  SecurityMonitoringTerraformResourceType: [
+    "suppressions",
+    "critical_assets",
+    "security_filters",
+    "rules",
+  ],
   SendSlackMessageActionType: ["send_slack_message"],
   SendTeamsMessageActionType: ["send_teams_message"],
   SensitiveDataScannerConfigurationType: [
