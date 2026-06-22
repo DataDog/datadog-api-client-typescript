@@ -14,6 +14,7 @@ const params: v2.CodeCoverageApiGetCodeCoverageBranchSummaryRequest = {
       attributes: {
         branch: "prod",
         repositoryId: "github.com/datadog/shopist",
+        repositoryUrl: "https://github.com/datadog/shopist",
       },
       type: "ci_app_coverage_branch_summary_request",
     },

@@ -14,6 +14,7 @@ const params: v2.CodeCoverageApiGetCodeCoverageCommitSummaryRequest = {
       attributes: {
         commitSha: "66adc9350f2cc9b250b69abddab733dd55e1a588",
         repositoryId: "github.com/datadog/shopist",
+        repositoryUrl: "https://github.com/datadog/shopist",
       },
       type: "ci_app_coverage_commit_summary_request",
     },
