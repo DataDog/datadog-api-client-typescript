@@ -22,7 +22,7 @@ const params: v2.WorkflowAutomationApiUpdateWorkflowRequest = {
             {
               connections: [
                 {
-                  connectionId: "11111111-1111-1111-1111-111111111111",
+                  connectionId: "e1e64943-c7c5-4487-aece-25aaec7d3aad",
                   label: "INTEGRATION_DATADOG",
                 },
               ],
