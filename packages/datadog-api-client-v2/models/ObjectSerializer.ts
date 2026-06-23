@@ -4959,6 +4959,7 @@ import { UpdateTenancyConfigDataAttributesLogsConfig } from "./UpdateTenancyConf
 import { UpdateTenancyConfigDataAttributesMetricsConfig } from "./UpdateTenancyConfigDataAttributesMetricsConfig";
 import { UpdateTenancyConfigDataAttributesRegionsConfig } from "./UpdateTenancyConfigDataAttributesRegionsConfig";
 import { UpdateTenancyConfigRequest } from "./UpdateTenancyConfigRequest";
+import { UpdateVariantRequest } from "./UpdateVariantRequest";
 import { UpdateWorkflowRequest } from "./UpdateWorkflowRequest";
 import { UpdateWorkflowResponse } from "./UpdateWorkflowResponse";
 import { UpsertAllocationRequest } from "./UpsertAllocationRequest";
@@ -13971,6 +13972,7 @@ const typeMap: { [index: string]: any } = {
   UpdateTenancyConfigDataAttributesRegionsConfig:
     UpdateTenancyConfigDataAttributesRegionsConfig,
   UpdateTenancyConfigRequest: UpdateTenancyConfigRequest,
+  UpdateVariantRequest: UpdateVariantRequest,
   UpdateWorkflowRequest: UpdateWorkflowRequest,
   UpdateWorkflowResponse: UpdateWorkflowResponse,
   UpsertAllocationRequest: UpsertAllocationRequest,
