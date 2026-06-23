@@ -9351,6 +9351,43 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "FeatureFlagResponse",
   },
+  "FeatureFlagsApi.V2.CreateVariantForFeatureFlag": {
+    featureFlagId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "CreateVariant",
+      format: "",
+    },
+    operationResponseType: "Variant",
+  },
+  "FeatureFlagsApi.V2.UpdateVariantForFeatureFlag": {
+    featureFlagId: {
+      type: "string",
+      format: "uuid",
+    },
+    variantId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "UpdateVariantRequest",
+      format: "",
+    },
+    operationResponseType: "Variant",
+  },
+  "FeatureFlagsApi.V2.DeleteVariantFromFeatureFlag": {
+    featureFlagId: {
+      type: "string",
+      format: "uuid",
+    },
+    variantId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
   "FormsApi.V2.ListForms": {
     operationResponseType: "FormsResponse",
   },

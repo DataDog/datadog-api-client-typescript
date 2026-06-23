@@ -28,6 +28,7 @@ import { APIErrorResponse } from "./models/APIErrorResponse";
 import { CreateAllocationsRequest } from "./models/CreateAllocationsRequest";
 import { CreateEnvironmentRequest } from "./models/CreateEnvironmentRequest";
 import { CreateFeatureFlagRequest } from "./models/CreateFeatureFlagRequest";
+import { CreateVariant } from "./models/CreateVariant";
 import { EnvironmentResponse } from "./models/EnvironmentResponse";
 import { FeatureFlagResponse } from "./models/FeatureFlagResponse";
 import { ListAllocationsResponse } from "./models/ListAllocationsResponse";
@@ -36,6 +37,8 @@ import { ListFeatureFlagsResponse } from "./models/ListFeatureFlagsResponse";
 import { OverwriteAllocationsRequest } from "./models/OverwriteAllocationsRequest";
 import { UpdateEnvironmentRequest } from "./models/UpdateEnvironmentRequest";
 import { UpdateFeatureFlagRequest } from "./models/UpdateFeatureFlagRequest";
+import { UpdateVariantRequest } from "./models/UpdateVariantRequest";
+import { Variant } from "./models/Variant";
 import { version } from "../version";
 
 export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
@@ -266,6 +269,66 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async createVariantForFeatureFlag(
+    featureFlagId: string,
+    body: CreateVariant,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'featureFlagId' is not null or undefined
+    if (featureFlagId === null || featureFlagId === undefined) {
+      throw new RequiredError("featureFlagId", "createVariantForFeatureFlag");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createVariantForFeatureFlag");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/feature-flags/{feature_flag_id}/variants".replace(
+        "{feature_flag_id}",
+        encodeURIComponent(String(featureFlagId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "FeatureFlagsApi.v2.createVariantForFeatureFlag",
+      FeatureFlagsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "CreateVariant", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteFeatureFlagsEnvironment(
     environmentId: string,
     _options?: Configuration,
@@ -287,6 +350,56 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "FeatureFlagsApi.v2.deleteFeatureFlagsEnvironment",
+      FeatureFlagsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteVariantFromFeatureFlag(
+    featureFlagId: string,
+    variantId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'featureFlagId' is not null or undefined
+    if (featureFlagId === null || featureFlagId === undefined) {
+      throw new RequiredError("featureFlagId", "deleteVariantFromFeatureFlag");
+    }
+
+    // verify required parameter 'variantId' is not null or undefined
+    if (variantId === null || variantId === undefined) {
+      throw new RequiredError("variantId", "deleteVariantFromFeatureFlag");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/feature-flags/{feature_flag_id}/variants/{variant_id}"
+        .replace("{feature_flag_id}", encodeURIComponent(String(featureFlagId)))
+        .replace("{variant_id}", encodeURIComponent(String(variantId)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "FeatureFlagsApi.v2.deleteVariantFromFeatureFlag",
       FeatureFlagsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -1055,6 +1168,71 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
 
     return requestContext;
   }
+
+  public async updateVariantForFeatureFlag(
+    featureFlagId: string,
+    variantId: string,
+    body: UpdateVariantRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'featureFlagId' is not null or undefined
+    if (featureFlagId === null || featureFlagId === undefined) {
+      throw new RequiredError("featureFlagId", "updateVariantForFeatureFlag");
+    }
+
+    // verify required parameter 'variantId' is not null or undefined
+    if (variantId === null || variantId === undefined) {
+      throw new RequiredError("variantId", "updateVariantForFeatureFlag");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateVariantForFeatureFlag");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/feature-flags/{feature_flag_id}/variants/{variant_id}"
+        .replace("{feature_flag_id}", encodeURIComponent(String(featureFlagId)))
+        .replace("{variant_id}", encodeURIComponent(String(variantId)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "FeatureFlagsApi.v2.updateVariantForFeatureFlag",
+      FeatureFlagsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "UpdateVariantRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
 }
 
 export class FeatureFlagsApiResponseProcessor {
@@ -1307,6 +1485,68 @@ export class FeatureFlagsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createVariantForFeatureFlag
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createVariantForFeatureFlag(
+    response: ResponseContext,
+  ): Promise<Variant> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: Variant = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "Variant",
+      ) as Variant;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: Variant = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "Variant",
+        "",
+      ) as Variant;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteFeatureFlagsEnvironment
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1320,6 +1560,57 @@ export class FeatureFlagsApiResponseProcessor {
     if (
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteVariantFromFeatureFlag
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteVariantFromFeatureFlag(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
       const bodyText = parse(await response.body.text(), contentType);
@@ -2174,6 +2465,68 @@ export class FeatureFlagsApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"',
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateVariantForFeatureFlag
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateVariantForFeatureFlag(
+    response: ResponseContext,
+  ): Promise<Variant> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: Variant = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "Variant",
+      ) as Variant;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: Variant = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "Variant",
+        "",
+      ) as Variant;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
 }
 
 export interface FeatureFlagsApiArchiveFeatureFlagRequest {
@@ -2215,12 +2568,37 @@ export interface FeatureFlagsApiCreateFeatureFlagsEnvironmentRequest {
   body: CreateEnvironmentRequest;
 }
 
+export interface FeatureFlagsApiCreateVariantForFeatureFlagRequest {
+  /**
+   * The ID of the feature flag.
+   * @type string
+   */
+  featureFlagId: string;
+  /**
+   * @type CreateVariant
+   */
+  body: CreateVariant;
+}
+
 export interface FeatureFlagsApiDeleteFeatureFlagsEnvironmentRequest {
   /**
    * The ID of the environment.
    * @type string
    */
   environmentId: string;
+}
+
+export interface FeatureFlagsApiDeleteVariantFromFeatureFlagRequest {
+  /**
+   * The ID of the feature flag.
+   * @type string
+   */
+  featureFlagId: string;
+  /**
+   * The ID of the variant.
+   * @type string
+   */
+  variantId: string;
 }
 
 export interface FeatureFlagsApiDisableFeatureFlagEnvironmentRequest {
@@ -2392,6 +2770,23 @@ export interface FeatureFlagsApiUpdateFeatureFlagsEnvironmentRequest {
   body: UpdateEnvironmentRequest;
 }
 
+export interface FeatureFlagsApiUpdateVariantForFeatureFlagRequest {
+  /**
+   * The ID of the feature flag.
+   * @type string
+   */
+  featureFlagId: string;
+  /**
+   * The ID of the variant.
+   * @type string
+   */
+  variantId: string;
+  /**
+   * @type UpdateVariantRequest
+   */
+  body: UpdateVariantRequest;
+}
+
 export class FeatureFlagsApi {
   private requestFactory: FeatureFlagsApiRequestFactory;
   private responseProcessor: FeatureFlagsApiResponseProcessor;
@@ -2502,6 +2897,37 @@ export class FeatureFlagsApi {
   }
 
   /**
+   * Adds a single new variant to an existing feature flag. This endpoint is
+   * additive-only: it never modifies existing variants. A request whose `key`
+   * already exists on the flag is rejected with `409 Conflict`; a `value`
+   * whose type does not match the flag's `value_type` is rejected with `400`.
+   * The server generates the variant UUID and returns it in the response body;
+   * callers (for example, the flag-migration tool) need this UUID to reference
+   * the new variant in subsequent allocation syncs.
+   * @param param The request object
+   */
+  public createVariantForFeatureFlag(
+    param: FeatureFlagsApiCreateVariantForFeatureFlagRequest,
+    options?: Configuration,
+  ): Promise<Variant> {
+    const requestContextPromise =
+      this.requestFactory.createVariantForFeatureFlag(
+        param.featureFlagId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createVariantForFeatureFlag(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Deletes an environment. This operation cannot be undone.
    * @param param The request object
    */
@@ -2519,6 +2945,33 @@ export class FeatureFlagsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteFeatureFlagsEnvironment(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Deletes a variant from a feature flag.
+   *
+   * When backend approvals are enabled and the flag requires approval, this endpoint creates and returns a `FlagSuggestion` with `201 Created` instead of deleting the variant immediately. If a pending suggestion already exists for this flag's variant property, the endpoint returns `409 Conflict`.
+   * @param param The request object
+   */
+  public deleteVariantFromFeatureFlag(
+    param: FeatureFlagsApiDeleteVariantFromFeatureFlagRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteVariantFromFeatureFlag(
+        param.featureFlagId,
+        param.variantId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteVariantFromFeatureFlag(
             responseContext,
           );
         });
@@ -2850,6 +3303,34 @@ export class FeatureFlagsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateFeatureFlagsEnvironment(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Updates the name and value of an existing variant on a feature flag.
+   *
+   * When backend approvals are enabled and the flag requires approval, this endpoint creates and returns a `FlagSuggestion` with `201 Created` instead of applying the change immediately. Use the returned suggestion `id` to approve or reject the change. If a pending suggestion already exists for this flag's variant property, the endpoint returns `409 Conflict`.
+   * @param param The request object
+   */
+  public updateVariantForFeatureFlag(
+    param: FeatureFlagsApiUpdateVariantForFeatureFlagRequest,
+    options?: Configuration,
+  ): Promise<Variant> {
+    const requestContextPromise =
+      this.requestFactory.updateVariantForFeatureFlag(
+        param.featureFlagId,
+        param.variantId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateVariantForFeatureFlag(
             responseContext,
           );
         });

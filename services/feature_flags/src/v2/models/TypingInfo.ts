@@ -52,6 +52,7 @@ import { UpdateEnvironmentRequest } from "./UpdateEnvironmentRequest";
 import { UpdateFeatureFlagAttributes } from "./UpdateFeatureFlagAttributes";
 import { UpdateFeatureFlagData } from "./UpdateFeatureFlagData";
 import { UpdateFeatureFlagRequest } from "./UpdateFeatureFlagRequest";
+import { UpdateVariantRequest } from "./UpdateVariantRequest";
 import { UpsertAllocationRequest } from "./UpsertAllocationRequest";
 import { Variant } from "./Variant";
 import { VariantWeight } from "./VariantWeight";
@@ -137,6 +138,7 @@ export const TypingInfo: ModelTypingInfo = {
     UpdateFeatureFlagAttributes: UpdateFeatureFlagAttributes,
     UpdateFeatureFlagData: UpdateFeatureFlagData,
     UpdateFeatureFlagRequest: UpdateFeatureFlagRequest,
+    UpdateVariantRequest: UpdateVariantRequest,
     UpsertAllocationRequest: UpsertAllocationRequest,
     Variant: Variant,
     VariantWeight: VariantWeight,
