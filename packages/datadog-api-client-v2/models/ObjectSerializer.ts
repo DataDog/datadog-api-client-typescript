@@ -2953,6 +2953,11 @@ import { ObservabilityPipelineAmazonS3GenericEncodingParquet } from "./Observabi
 import { ObservabilityPipelineAmazonS3Source } from "./ObservabilityPipelineAmazonS3Source";
 import { ObservabilityPipelineAmazonSecurityLakeDestination } from "./ObservabilityPipelineAmazonSecurityLakeDestination";
 import { ObservabilityPipelineAwsAuth } from "./ObservabilityPipelineAwsAuth";
+import { ObservabilityPipelineClickhouseDestination } from "./ObservabilityPipelineClickhouseDestination";
+import { ObservabilityPipelineClickhouseDestinationAuth } from "./ObservabilityPipelineClickhouseDestinationAuth";
+import { ObservabilityPipelineClickhouseDestinationBatch } from "./ObservabilityPipelineClickhouseDestinationBatch";
+import { ObservabilityPipelineClickhouseDestinationBatchEncoding } from "./ObservabilityPipelineClickhouseDestinationBatchEncoding";
+import { ObservabilityPipelineClickhouseDestinationCompressionObject } from "./ObservabilityPipelineClickhouseDestinationCompressionObject";
 import { ObservabilityPipelineCloudPremDestination } from "./ObservabilityPipelineCloudPremDestination";
 import { ObservabilityPipelineConfig } from "./ObservabilityPipelineConfig";
 import { ObservabilityPipelineConfigProcessorGroup } from "./ObservabilityPipelineConfigProcessorGroup";
@@ -6560,6 +6565,21 @@ const enumsMap: { [key: string]: any[] } = {
   ObservabilityPipelineBufferOptionsDiskType: ["disk"],
   ObservabilityPipelineBufferOptionsMemoryType: ["memory"],
   ObservabilityPipelineBufferOptionsWhenFull: ["block", "drop_newest"],
+  ObservabilityPipelineClickhouseDestinationAuthStrategy: ["basic"],
+  ObservabilityPipelineClickhouseDestinationBatchEncodingCodec: [
+    "arrow_stream",
+  ],
+  ObservabilityPipelineClickhouseDestinationCompressionAlgorithm: [
+    "gzip",
+    "none",
+  ],
+  ObservabilityPipelineClickhouseDestinationFormat: [
+    "json_each_row",
+    "json_as_object",
+    "json_as_string",
+    "arrow_stream",
+  ],
+  ObservabilityPipelineClickhouseDestinationType: ["clickhouse"],
   ObservabilityPipelineCloudPremDestinationType: ["cloud_prem"],
   ObservabilityPipelineConfigPipelineType: ["logs", "metrics"],
   ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompressionAlgorithm: [
@@ -11467,6 +11487,16 @@ const typeMap: { [index: string]: any } = {
   ObservabilityPipelineAmazonSecurityLakeDestination:
     ObservabilityPipelineAmazonSecurityLakeDestination,
   ObservabilityPipelineAwsAuth: ObservabilityPipelineAwsAuth,
+  ObservabilityPipelineClickhouseDestination:
+    ObservabilityPipelineClickhouseDestination,
+  ObservabilityPipelineClickhouseDestinationAuth:
+    ObservabilityPipelineClickhouseDestinationAuth,
+  ObservabilityPipelineClickhouseDestinationBatch:
+    ObservabilityPipelineClickhouseDestinationBatch,
+  ObservabilityPipelineClickhouseDestinationBatchEncoding:
+    ObservabilityPipelineClickhouseDestinationBatchEncoding,
+  ObservabilityPipelineClickhouseDestinationCompressionObject:
+    ObservabilityPipelineClickhouseDestinationCompressionObject,
   ObservabilityPipelineCloudPremDestination:
     ObservabilityPipelineCloudPremDestination,
   ObservabilityPipelineConfig: ObservabilityPipelineConfig,
@@ -14538,6 +14568,10 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineMemoryBufferOptions",
     "ObservabilityPipelineMemoryBufferSizeOptions",
   ],
+  ObservabilityPipelineClickhouseDestinationCompression: [
+    "ObservabilityPipelineClickhouseDestinationCompressionAlgorithm",
+    "ObservabilityPipelineClickhouseDestinationCompressionObject",
+  ],
   ObservabilityPipelineConfigDestinationItem: [
     "ObservabilityPipelineElasticsearchDestination",
     "ObservabilityPipelineHttpClientDestination",
@@ -14546,6 +14580,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineAmazonS3GenericDestination",
     "ObservabilityPipelineAmazonSecurityLakeDestination",
     "AzureStorageDestination",
+    "ObservabilityPipelineClickhouseDestination",
     "ObservabilityPipelineCloudPremDestination",
     "ObservabilityPipelineCrowdStrikeNextGenSiemDestination",
     "ObservabilityPipelineDatadogLogsDestination",

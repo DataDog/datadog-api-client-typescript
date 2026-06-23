@@ -5549,6 +5549,17 @@ export { ObservabilityPipelineBufferOptions } from "./models/ObservabilityPipeli
 export { ObservabilityPipelineBufferOptionsDiskType } from "./models/ObservabilityPipelineBufferOptionsDiskType";
 export { ObservabilityPipelineBufferOptionsMemoryType } from "./models/ObservabilityPipelineBufferOptionsMemoryType";
 export { ObservabilityPipelineBufferOptionsWhenFull } from "./models/ObservabilityPipelineBufferOptionsWhenFull";
+export { ObservabilityPipelineClickhouseDestination } from "./models/ObservabilityPipelineClickhouseDestination";
+export { ObservabilityPipelineClickhouseDestinationAuth } from "./models/ObservabilityPipelineClickhouseDestinationAuth";
+export { ObservabilityPipelineClickhouseDestinationAuthStrategy } from "./models/ObservabilityPipelineClickhouseDestinationAuthStrategy";
+export { ObservabilityPipelineClickhouseDestinationBatch } from "./models/ObservabilityPipelineClickhouseDestinationBatch";
+export { ObservabilityPipelineClickhouseDestinationBatchEncoding } from "./models/ObservabilityPipelineClickhouseDestinationBatchEncoding";
+export { ObservabilityPipelineClickhouseDestinationBatchEncodingCodec } from "./models/ObservabilityPipelineClickhouseDestinationBatchEncodingCodec";
+export { ObservabilityPipelineClickhouseDestinationCompression } from "./models/ObservabilityPipelineClickhouseDestinationCompression";
+export { ObservabilityPipelineClickhouseDestinationCompressionAlgorithm } from "./models/ObservabilityPipelineClickhouseDestinationCompressionAlgorithm";
+export { ObservabilityPipelineClickhouseDestinationCompressionObject } from "./models/ObservabilityPipelineClickhouseDestinationCompressionObject";
+export { ObservabilityPipelineClickhouseDestinationFormat } from "./models/ObservabilityPipelineClickhouseDestinationFormat";
+export { ObservabilityPipelineClickhouseDestinationType } from "./models/ObservabilityPipelineClickhouseDestinationType";
 export { ObservabilityPipelineCloudPremDestination } from "./models/ObservabilityPipelineCloudPremDestination";
 export { ObservabilityPipelineCloudPremDestinationType } from "./models/ObservabilityPipelineCloudPremDestinationType";
 export { ObservabilityPipelineConfig } from "./models/ObservabilityPipelineConfig";
