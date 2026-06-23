@@ -181,6 +181,11 @@ import { LogsAPIError } from "./LogsAPIError";
 import { LogsAPIErrorResponse } from "./LogsAPIErrorResponse";
 import { LogsAPILimitReachedResponse } from "./LogsAPILimitReachedResponse";
 import { LogsArithmeticProcessor } from "./LogsArithmeticProcessor";
+import { LogsArrayMapArithmeticSubProcessor } from "./LogsArrayMapArithmeticSubProcessor";
+import { LogsArrayMapAttributeRemapper } from "./LogsArrayMapAttributeRemapper";
+import { LogsArrayMapCategorySubProcessor } from "./LogsArrayMapCategorySubProcessor";
+import { LogsArrayMapProcessor } from "./LogsArrayMapProcessor";
+import { LogsArrayMapStringBuilderSubProcessor } from "./LogsArrayMapStringBuilderSubProcessor";
 import { LogsArrayProcessor } from "./LogsArrayProcessor";
 import { LogsArrayProcessorOperationAppend } from "./LogsArrayProcessorOperationAppend";
 import { LogsArrayProcessorOperationLength } from "./LogsArrayProcessorOperationLength";
@@ -1135,6 +1140,7 @@ const enumsMap: { [key: string]: any[] } = {
   ListStreamWidgetDefinitionType: ["list_stream"],
   LogStreamWidgetDefinitionType: ["log_stream"],
   LogsArithmeticProcessorType: ["arithmetic-processor"],
+  LogsArrayMapProcessorType: ["array-map-processor"],
   LogsArrayProcessorOperationAppendType: ["append"],
   LogsArrayProcessorOperationLengthType: ["length"],
   LogsArrayProcessorOperationSelectType: ["select"],
@@ -2244,6 +2250,11 @@ const typeMap: { [index: string]: any } = {
   LogsAPIErrorResponse: LogsAPIErrorResponse,
   LogsAPILimitReachedResponse: LogsAPILimitReachedResponse,
   LogsArithmeticProcessor: LogsArithmeticProcessor,
+  LogsArrayMapArithmeticSubProcessor: LogsArrayMapArithmeticSubProcessor,
+  LogsArrayMapAttributeRemapper: LogsArrayMapAttributeRemapper,
+  LogsArrayMapCategorySubProcessor: LogsArrayMapCategorySubProcessor,
+  LogsArrayMapProcessor: LogsArrayMapProcessor,
+  LogsArrayMapStringBuilderSubProcessor: LogsArrayMapStringBuilderSubProcessor,
   LogsArrayProcessor: LogsArrayProcessor,
   LogsArrayProcessorOperationAppend: LogsArrayProcessorOperationAppend,
   LogsArrayProcessorOperationLength: LogsArrayProcessorOperationLength,
@@ -2896,6 +2907,12 @@ const oneOfMap: { [index: string]: string[] } = {
     "FormulaAndFunctionUserJourneyQueryDefinition",
     "FormulaAndFunctionRetentionQueryDefinition",
   ],
+  LogsArrayMapSubProcessor: [
+    "LogsArrayMapAttributeRemapper",
+    "LogsArrayMapArithmeticSubProcessor",
+    "LogsArrayMapStringBuilderSubProcessor",
+    "LogsArrayMapCategorySubProcessor",
+  ],
   LogsArrayProcessorOperation: [
     "LogsArrayProcessorOperationAppend",
     "LogsArrayProcessorOperationLength",
@@ -2923,6 +2940,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "LogsDecoderProcessor",
     "LogsSchemaProcessor",
     "LogsExcludeAttributeProcessor",
+    "LogsArrayMapProcessor",
   ],
   LogsSchemaMapper: ["LogsSchemaRemapper", "LogsSchemaCategoryMapper"],
   MonitorFormulaAndFunctionAggregateAugmentQuery: [
