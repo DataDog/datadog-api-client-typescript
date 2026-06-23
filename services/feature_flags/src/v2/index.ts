@@ -3,7 +3,9 @@ export {
   FeatureFlagsApiCreateAllocationsForFeatureFlagInEnvironmentRequest,
   FeatureFlagsApiCreateFeatureFlagRequest,
   FeatureFlagsApiCreateFeatureFlagsEnvironmentRequest,
+  FeatureFlagsApiCreateVariantForFeatureFlagRequest,
   FeatureFlagsApiDeleteFeatureFlagsEnvironmentRequest,
+  FeatureFlagsApiDeleteVariantFromFeatureFlagRequest,
   FeatureFlagsApiDisableFeatureFlagEnvironmentRequest,
   FeatureFlagsApiEnableFeatureFlagEnvironmentRequest,
   FeatureFlagsApiGetFeatureFlagRequest,
@@ -18,6 +20,7 @@ export {
   FeatureFlagsApiUpdateAllocationsForFeatureFlagInEnvironmentRequest,
   FeatureFlagsApiUpdateFeatureFlagRequest,
   FeatureFlagsApiUpdateFeatureFlagsEnvironmentRequest,
+  FeatureFlagsApiUpdateVariantForFeatureFlagRequest,
   FeatureFlagsApi,
 } from "./FeatureFlagsApi";
 
@@ -84,6 +87,7 @@ export { UpdateFeatureFlagAttributes } from "./models/UpdateFeatureFlagAttribute
 export { UpdateFeatureFlagData } from "./models/UpdateFeatureFlagData";
 export { UpdateFeatureFlagDataType } from "./models/UpdateFeatureFlagDataType";
 export { UpdateFeatureFlagRequest } from "./models/UpdateFeatureFlagRequest";
+export { UpdateVariantRequest } from "./models/UpdateVariantRequest";
 export { UpsertAllocationRequest } from "./models/UpsertAllocationRequest";
 export { ValueType } from "./models/ValueType";
 export { Variant } from "./models/Variant";
