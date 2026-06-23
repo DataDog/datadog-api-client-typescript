@@ -1,6 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 import { LogsArithmeticProcessor } from "./LogsArithmeticProcessor";
+import { LogsArrayMapProcessor } from "./LogsArrayMapProcessor";
 import { LogsArrayProcessor } from "./LogsArrayProcessor";
 import { LogsAttributeRemapper } from "./LogsAttributeRemapper";
 import { LogsCategoryProcessor } from "./LogsCategoryProcessor";
@@ -47,4 +48,5 @@ export type LogsProcessor =
   | LogsDecoderProcessor
   | LogsSchemaProcessor
   | LogsExcludeAttributeProcessor
+  | LogsArrayMapProcessor
   | UnparsedObject;
