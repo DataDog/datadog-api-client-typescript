@@ -568,7 +568,9 @@ export {
   FeatureFlagsApiCreateAllocationsForFeatureFlagInEnvironmentRequest,
   FeatureFlagsApiCreateFeatureFlagRequest,
   FeatureFlagsApiCreateFeatureFlagsEnvironmentRequest,
+  FeatureFlagsApiCreateVariantForFeatureFlagRequest,
   FeatureFlagsApiDeleteFeatureFlagsEnvironmentRequest,
+  FeatureFlagsApiDeleteVariantFromFeatureFlagRequest,
   FeatureFlagsApiDisableFeatureFlagEnvironmentRequest,
   FeatureFlagsApiEnableFeatureFlagEnvironmentRequest,
   FeatureFlagsApiGetFeatureFlagRequest,
@@ -583,6 +585,7 @@ export {
   FeatureFlagsApiUpdateAllocationsForFeatureFlagInEnvironmentRequest,
   FeatureFlagsApiUpdateFeatureFlagRequest,
   FeatureFlagsApiUpdateFeatureFlagsEnvironmentRequest,
+  FeatureFlagsApiUpdateVariantForFeatureFlagRequest,
   FeatureFlagsApi,
 } from "./apis/FeatureFlagsApi";
 
@@ -8201,6 +8204,7 @@ export { UpdateTenancyConfigDataAttributesMetricsConfig } from "./models/UpdateT
 export { UpdateTenancyConfigDataAttributesRegionsConfig } from "./models/UpdateTenancyConfigDataAttributesRegionsConfig";
 export { UpdateTenancyConfigDataType } from "./models/UpdateTenancyConfigDataType";
 export { UpdateTenancyConfigRequest } from "./models/UpdateTenancyConfigRequest";
+export { UpdateVariantRequest } from "./models/UpdateVariantRequest";
 export { UpdateWorkflowRequest } from "./models/UpdateWorkflowRequest";
 export { UpdateWorkflowResponse } from "./models/UpdateWorkflowResponse";
 export { UpsertAllocationRequest } from "./models/UpsertAllocationRequest";
