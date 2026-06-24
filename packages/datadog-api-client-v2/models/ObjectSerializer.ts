@@ -481,6 +481,8 @@ import { BranchCoverageSummaryRequestData } from "./BranchCoverageSummaryRequest
 import { Budget } from "./Budget";
 import { BudgetArray } from "./BudgetArray";
 import { BudgetAttributes } from "./BudgetAttributes";
+import { BudgetAttributesCosts } from "./BudgetAttributesCosts";
+import { BudgetAttributesCostsUnit } from "./BudgetAttributesCostsUnit";
 import { BudgetValidationRequest } from "./BudgetValidationRequest";
 import { BudgetValidationRequestData } from "./BudgetValidationRequestData";
 import { BudgetValidationResponse } from "./BudgetValidationResponse";
@@ -490,6 +492,7 @@ import { BudgetWithEntries } from "./BudgetWithEntries";
 import { BudgetWithEntriesData } from "./BudgetWithEntriesData";
 import { BudgetWithEntriesDataAttributes } from "./BudgetWithEntriesDataAttributes";
 import { BudgetWithEntriesDataAttributesEntriesItems } from "./BudgetWithEntriesDataAttributesEntriesItems";
+import { BudgetWithEntriesDataAttributesEntriesItemsCosts } from "./BudgetWithEntriesDataAttributesEntriesItemsCosts";
 import { BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems } from "./BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems";
 import { BulkDeleteAppsDatastoreItemsRequest } from "./BulkDeleteAppsDatastoreItemsRequest";
 import { BulkDeleteAppsDatastoreItemsRequestData } from "./BulkDeleteAppsDatastoreItemsRequestData";
@@ -8622,6 +8625,8 @@ const typeMap: { [index: string]: any } = {
   Budget: Budget,
   BudgetArray: BudgetArray,
   BudgetAttributes: BudgetAttributes,
+  BudgetAttributesCosts: BudgetAttributesCosts,
+  BudgetAttributesCostsUnit: BudgetAttributesCostsUnit,
   BudgetValidationRequest: BudgetValidationRequest,
   BudgetValidationRequestData: BudgetValidationRequestData,
   BudgetValidationResponse: BudgetValidationResponse,
@@ -8633,6 +8638,8 @@ const typeMap: { [index: string]: any } = {
   BudgetWithEntriesDataAttributes: BudgetWithEntriesDataAttributes,
   BudgetWithEntriesDataAttributesEntriesItems:
     BudgetWithEntriesDataAttributesEntriesItems,
+  BudgetWithEntriesDataAttributesEntriesItemsCosts:
+    BudgetWithEntriesDataAttributesEntriesItemsCosts,
   BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems:
     BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems,
   BulkDeleteAppsDatastoreItemsRequest: BulkDeleteAppsDatastoreItemsRequest,

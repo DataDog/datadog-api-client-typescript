@@ -7643,6 +7643,22 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "actual": {
+            "type": "boolean",
+            "format": "",
+            },
+        "forecast": {
+            "type": "boolean",
+            "format": "",
+            },
+        "start": {
+            "type": "number",
+            "format": "int64",
+            },
+        "end": {
+            "type": "number",
+            "format": "int64",
+            },
         "operationResponseType": "BudgetWithEntries",
     },
     "v2.DeleteBudget": {
