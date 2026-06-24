@@ -1151,6 +1151,14 @@ import { CustomDestinationUpdateRequest } from "./CustomDestinationUpdateRequest
 import { CustomDestinationUpdateRequestAttributes } from "./CustomDestinationUpdateRequestAttributes";
 import { CustomDestinationUpdateRequestDefinition } from "./CustomDestinationUpdateRequestDefinition";
 import { CustomDestinationsResponse } from "./CustomDestinationsResponse";
+import { CustomForecastEntry } from "./CustomForecastEntry";
+import { CustomForecastEntryTagFilter } from "./CustomForecastEntryTagFilter";
+import { CustomForecastResponse } from "./CustomForecastResponse";
+import { CustomForecastResponseData } from "./CustomForecastResponseData";
+import { CustomForecastResponseDataAttributes } from "./CustomForecastResponseDataAttributes";
+import { CustomForecastUpsertRequest } from "./CustomForecastUpsertRequest";
+import { CustomForecastUpsertRequestData } from "./CustomForecastUpsertRequestData";
+import { CustomForecastUpsertRequestDataAttributes } from "./CustomForecastUpsertRequestDataAttributes";
 import { CustomFrameworkControl } from "./CustomFrameworkControl";
 import { CustomFrameworkData } from "./CustomFrameworkData";
 import { CustomFrameworkDataAttributes } from "./CustomFrameworkDataAttributes";
@@ -5776,6 +5784,7 @@ const enumsMap: { [key: string]: any[] } = {
     "custom_header",
   ],
   CustomDestinationType: ["custom_destination"],
+  CustomForecastType: ["custom_forecast"],
   CustomFrameworkType: ["custom_framework"],
   CustomRuleDataType: ["custom_rule"],
   CustomRuleRevisionAttributesCategory: [
@@ -9414,6 +9423,15 @@ const typeMap: { [index: string]: any } = {
   CustomDestinationUpdateRequestDefinition:
     CustomDestinationUpdateRequestDefinition,
   CustomDestinationsResponse: CustomDestinationsResponse,
+  CustomForecastEntry: CustomForecastEntry,
+  CustomForecastEntryTagFilter: CustomForecastEntryTagFilter,
+  CustomForecastResponse: CustomForecastResponse,
+  CustomForecastResponseData: CustomForecastResponseData,
+  CustomForecastResponseDataAttributes: CustomForecastResponseDataAttributes,
+  CustomForecastUpsertRequest: CustomForecastUpsertRequest,
+  CustomForecastUpsertRequestData: CustomForecastUpsertRequestData,
+  CustomForecastUpsertRequestDataAttributes:
+    CustomForecastUpsertRequestDataAttributes,
   CustomFrameworkControl: CustomFrameworkControl,
   CustomFrameworkData: CustomFrameworkData,
   CustomFrameworkDataAttributes: CustomFrameworkDataAttributes,

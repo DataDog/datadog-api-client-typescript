@@ -7624,6 +7624,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.ValidateCsvBudget": {
         "operationResponseType": "ValidationResponse",
     },
+    "v2.UpsertCustomForecast": {
+        "body": {
+            "type": "CustomForecastUpsertRequest",
+            "format": "",
+            },
+        "operationResponseType": "CustomForecastResponse",
+    },
     "v2.ValidateBudget": {
         "body": {
             "type": "BudgetValidationRequest",
@@ -7639,6 +7646,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "BudgetWithEntries",
     },
     "v2.DeleteBudget": {
+        "budgetId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.DeleteCustomForecast": {
         "budgetId": {
             "type": "string",
             "format": "",
