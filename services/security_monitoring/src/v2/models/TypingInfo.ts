@@ -892,6 +892,8 @@ export const TypingInfo: ModelTypingInfo = {
     SecurityMonitoringTerraformResourceType: [
       "suppressions",
       "critical_assets",
+      "security_filters",
+      "rules",
     ],
     ServiceNowTicketsDataType: ["servicenow_tickets"],
     SignalEntitiesType: ["entities"],
