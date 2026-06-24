@@ -9576,6 +9576,27 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SAMLConfigurationResponse",
     },
+    "v2.ListGovernanceControls": {
+        "operationResponseType": "GovernanceControlsResponse",
+    },
+    "v2.GetGovernanceControl": {
+        "detectionType": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "GovernanceControlResponse",
+    },
+    "v2.UpdateGovernanceControl": {
+        "detectionType": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "GovernanceControlUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "GovernanceControlResponse",
+    },
     "v2.ListGovernanceInsights": {
         "withValues": {
             "type": "boolean",

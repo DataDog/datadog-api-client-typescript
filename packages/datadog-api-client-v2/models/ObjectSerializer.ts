@@ -1884,6 +1884,16 @@ import { GoogleChatUpdateOrganizationHandleRequestData } from "./GoogleChatUpdat
 import { GoogleMeetConfigurationReference } from "./GoogleMeetConfigurationReference";
 import { GoogleMeetConfigurationReferenceData } from "./GoogleMeetConfigurationReferenceData";
 import { GovernanceBestPracticeDefinition } from "./GovernanceBestPracticeDefinition";
+import { GovernanceControlAttributes } from "./GovernanceControlAttributes";
+import { GovernanceControlData } from "./GovernanceControlData";
+import { GovernanceControlMitigationDefinition } from "./GovernanceControlMitigationDefinition";
+import { GovernanceControlParameterDefinition } from "./GovernanceControlParameterDefinition";
+import { GovernanceControlResponse } from "./GovernanceControlResponse";
+import { GovernanceControlSupportedValue } from "./GovernanceControlSupportedValue";
+import { GovernanceControlUpdateAttributes } from "./GovernanceControlUpdateAttributes";
+import { GovernanceControlUpdateData } from "./GovernanceControlUpdateData";
+import { GovernanceControlUpdateRequest } from "./GovernanceControlUpdateRequest";
+import { GovernanceControlsResponse } from "./GovernanceControlsResponse";
 import { GovernanceInsightAttributes } from "./GovernanceInsightAttributes";
 import { GovernanceInsightAuditCompute } from "./GovernanceInsightAuditCompute";
 import { GovernanceInsightAuditQuery } from "./GovernanceInsightAuditQuery";
@@ -6101,6 +6111,7 @@ const enumsMap: { [key: string]: any[] } = {
   GoogleChatOrganizationHandleType: ["google-chat-organization-handle"],
   GoogleChatOrganizationType: ["google-chat-organization"],
   GoogleChatTargetAudienceType: ["google-chat-target-audience"],
+  GovernanceControlResourceType: ["governance_control"],
   GovernanceInsightResourceType: ["insight"],
   GreyNoiseAPIKeyType: ["GreyNoiseAPIKey"],
   GreyNoiseIntegrationType: ["GreyNoise"],
@@ -10263,6 +10274,16 @@ const typeMap: { [index: string]: any } = {
   GoogleMeetConfigurationReference: GoogleMeetConfigurationReference,
   GoogleMeetConfigurationReferenceData: GoogleMeetConfigurationReferenceData,
   GovernanceBestPracticeDefinition: GovernanceBestPracticeDefinition,
+  GovernanceControlAttributes: GovernanceControlAttributes,
+  GovernanceControlData: GovernanceControlData,
+  GovernanceControlMitigationDefinition: GovernanceControlMitigationDefinition,
+  GovernanceControlParameterDefinition: GovernanceControlParameterDefinition,
+  GovernanceControlResponse: GovernanceControlResponse,
+  GovernanceControlSupportedValue: GovernanceControlSupportedValue,
+  GovernanceControlUpdateAttributes: GovernanceControlUpdateAttributes,
+  GovernanceControlUpdateData: GovernanceControlUpdateData,
+  GovernanceControlUpdateRequest: GovernanceControlUpdateRequest,
+  GovernanceControlsResponse: GovernanceControlsResponse,
   GovernanceInsightAttributes: GovernanceInsightAttributes,
   GovernanceInsightAuditCompute: GovernanceInsightAuditCompute,
   GovernanceInsightAuditQuery: GovernanceInsightAuditQuery,

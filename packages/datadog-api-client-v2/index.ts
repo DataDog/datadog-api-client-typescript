@@ -650,6 +650,12 @@ export {
 } from "./apis/GoogleChatIntegrationApi";
 
 export {
+  GovernanceControlsApiGetGovernanceControlRequest,
+  GovernanceControlsApiUpdateGovernanceControlRequest,
+  GovernanceControlsApi,
+} from "./apis/GovernanceControlsApi";
+
+export {
   GovernanceInsightsApiListGovernanceInsightsRequest,
   GovernanceInsightsApi,
 } from "./apis/GovernanceInsightsApi";
@@ -4197,6 +4203,17 @@ export { GoogleChatUpdateOrganizationHandleRequestData } from "./models/GoogleCh
 export { GoogleMeetConfigurationReference } from "./models/GoogleMeetConfigurationReference";
 export { GoogleMeetConfigurationReferenceData } from "./models/GoogleMeetConfigurationReferenceData";
 export { GovernanceBestPracticeDefinition } from "./models/GovernanceBestPracticeDefinition";
+export { GovernanceControlAttributes } from "./models/GovernanceControlAttributes";
+export { GovernanceControlData } from "./models/GovernanceControlData";
+export { GovernanceControlMitigationDefinition } from "./models/GovernanceControlMitigationDefinition";
+export { GovernanceControlParameterDefinition } from "./models/GovernanceControlParameterDefinition";
+export { GovernanceControlResourceType } from "./models/GovernanceControlResourceType";
+export { GovernanceControlResponse } from "./models/GovernanceControlResponse";
+export { GovernanceControlsResponse } from "./models/GovernanceControlsResponse";
+export { GovernanceControlSupportedValue } from "./models/GovernanceControlSupportedValue";
+export { GovernanceControlUpdateAttributes } from "./models/GovernanceControlUpdateAttributes";
+export { GovernanceControlUpdateData } from "./models/GovernanceControlUpdateData";
+export { GovernanceControlUpdateRequest } from "./models/GovernanceControlUpdateRequest";
 export { GovernanceInsightAttributes } from "./models/GovernanceInsightAttributes";
 export { GovernanceInsightAuditCompute } from "./models/GovernanceInsightAuditCompute";
 export { GovernanceInsightAuditQuery } from "./models/GovernanceInsightAuditQuery";
