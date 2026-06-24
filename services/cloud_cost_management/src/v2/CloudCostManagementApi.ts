@@ -832,6 +832,10 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
 
   public async getBudget(
     budgetId: string,
+    actual?: boolean,
+    forecast?: boolean,
+    start?: number,
+    end?: number,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -863,6 +867,36 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (actual !== undefined) {
+      requestContext.setQueryParam(
+        "actual",
+        serialize(actual, TypingInfo, "boolean", ""),
+        "",
+      );
+    }
+    if (forecast !== undefined) {
+      requestContext.setQueryParam(
+        "forecast",
+        serialize(forecast, TypingInfo, "boolean", ""),
+        "",
+      );
+    }
+    if (start !== undefined) {
+      requestContext.setQueryParam(
+        "start",
+        serialize(start, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (end !== undefined) {
+      requestContext.setQueryParam(
+        "end",
+        serialize(end, TypingInfo, "number", "int64"),
+        "",
+      );
     }
 
     // Apply auth methods
@@ -5006,7 +5040,11 @@ export class CloudCostManagementApiResponseProcessor {
       ) as BudgetWithEntries;
       return body;
     }
-    if (response.httpStatusCode === 429) {
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
       const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
@@ -8304,6 +8342,26 @@ export interface CloudCostManagementApiGetBudgetRequest {
    * @type string
    */
   budgetId: string;
+  /**
+   * When `true`, includes actual cost data in the response.
+   * @type boolean
+   */
+  actual?: boolean;
+  /**
+   * When `true`, includes forecast cost data in the response, including `ootb_forecast` and `custom_forecast` per entry.
+   * @type boolean
+   */
+  forecast?: boolean;
+  /**
+   * Start of the cost window in milliseconds since epoch. Must be used together with `end`.
+   * @type number
+   */
+  start?: number;
+  /**
+   * End of the cost window in milliseconds since epoch. Must be used together with `start`.
+   * @type number
+   */
+  end?: number;
 }
 
 export interface CloudCostManagementApiGetCommitmentsCommitmentListRequest {
@@ -9372,7 +9430,7 @@ export class CloudCostManagementApi {
   }
 
   /**
-   * Get a budget
+   * Get a budget by ID. Pass `actual=true` or `forecast=true` to include cost data in the response. Use `start` and `end` (millisecond epochs, both required) to set the cost window. When `forecast=true`, each entry also includes `ootb_forecast` (the ML forecast before overrides) and `custom_forecast` (`null` if no override is set, a number if one is).
    * @param param The request object
    */
   public getBudget(
@@ -9381,6 +9439,10 @@ export class CloudCostManagementApi {
   ): Promise<BudgetWithEntries> {
     const requestContextPromise = this.requestFactory.getBudget(
       param.budgetId,
+      param.actual,
+      param.forecast,
+      param.start,
+      param.end,
       options,
     );
     return requestContextPromise.then((requestContext) => {
