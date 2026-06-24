@@ -6,6 +6,7 @@ import { ObservabilityPipelineAmazonOpenSearchDestination } from "./Observabilit
 import { ObservabilityPipelineAmazonS3Destination } from "./ObservabilityPipelineAmazonS3Destination";
 import { ObservabilityPipelineAmazonS3GenericDestination } from "./ObservabilityPipelineAmazonS3GenericDestination";
 import { ObservabilityPipelineAmazonSecurityLakeDestination } from "./ObservabilityPipelineAmazonSecurityLakeDestination";
+import { ObservabilityPipelineClickhouseDestination } from "./ObservabilityPipelineClickhouseDestination";
 import { ObservabilityPipelineCloudPremDestination } from "./ObservabilityPipelineCloudPremDestination";
 import { ObservabilityPipelineCrowdStrikeNextGenSiemDestination } from "./ObservabilityPipelineCrowdStrikeNextGenSiemDestination";
 import { ObservabilityPipelineDatabricksZerobusDestination } from "./ObservabilityPipelineDatabricksZerobusDestination";
@@ -38,6 +39,7 @@ export type ObservabilityPipelineConfigDestinationItem =
   | ObservabilityPipelineAmazonS3GenericDestination
   | ObservabilityPipelineAmazonSecurityLakeDestination
   | AzureStorageDestination
+  | ObservabilityPipelineClickhouseDestination
   | ObservabilityPipelineCloudPremDestination
   | ObservabilityPipelineCrowdStrikeNextGenSiemDestination
   | ObservabilityPipelineDatadogLogsDestination
