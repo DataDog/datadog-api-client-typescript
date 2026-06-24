@@ -3,6 +3,8 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { BudgetAttributesCosts } from "./BudgetAttributesCosts";
+import { BudgetAttributesCostsUnit } from "./BudgetAttributesCostsUnit";
 import { BudgetWithEntriesDataAttributesEntriesItems } from "./BudgetWithEntriesDataAttributesEntriesItems";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -11,6 +13,22 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * The attributes of a budget.
  */
 export class BudgetAttributes {
+  /**
+   * Aggregated cost data for the budget over the requested period.
+   */
+  "costs"?: BudgetAttributesCosts;
+  /**
+   * The end of the period used to compute cost data, in milliseconds since epoch.
+   */
+  "costsPeriodEnd"?: number;
+  /**
+   * The start of the period used to compute cost data, in milliseconds since epoch.
+   */
+  "costsPeriodStart"?: number;
+  /**
+   * The unit used for all cost values in the response.
+   */
+  "costsUnit"?: BudgetAttributesCostsUnit;
   /**
    * The timestamp when the budget was created.
    */
@@ -72,6 +90,24 @@ export class BudgetAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    costs: {
+      baseName: "costs",
+      type: "BudgetAttributesCosts",
+    },
+    costsPeriodEnd: {
+      baseName: "costs_period_end",
+      type: "number",
+      format: "int64",
+    },
+    costsPeriodStart: {
+      baseName: "costs_period_start",
+      type: "number",
+      format: "int64",
+    },
+    costsUnit: {
+      baseName: "costs_unit",
+      type: "BudgetAttributesCostsUnit",
+    },
     createdAt: {
       baseName: "created_at",
       type: "number",
