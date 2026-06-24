@@ -17,6 +17,7 @@ import { ObservabilityPipelineSplunkHecSource } from "./ObservabilityPipelineSpl
 import { ObservabilityPipelineSplunkTcpSource } from "./ObservabilityPipelineSplunkTcpSource";
 import { ObservabilityPipelineSumoLogicSource } from "./ObservabilityPipelineSumoLogicSource";
 import { ObservabilityPipelineSyslogNgSource } from "./ObservabilityPipelineSyslogNgSource";
+import { ObservabilityPipelineWebsocketSource } from "./ObservabilityPipelineWebsocketSource";
 
 /**
  * A data source for the pipeline.
@@ -38,5 +39,6 @@ export type ObservabilityPipelineConfigSourceItem =
   | ObservabilityPipelineSplunkTcpSource
   | ObservabilityPipelineSumoLogicSource
   | ObservabilityPipelineSyslogNgSource
+  | ObservabilityPipelineWebsocketSource
   | ObservabilityPipelineOpentelemetrySource
   | UnparsedObject;

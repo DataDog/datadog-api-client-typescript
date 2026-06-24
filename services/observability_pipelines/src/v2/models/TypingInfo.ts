@@ -172,6 +172,9 @@ import { ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit } from 
 import { ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit } from "./ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit";
 import { ObservabilityPipelineThrottleProcessor } from "./ObservabilityPipelineThrottleProcessor";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
+import { ObservabilityPipelineWebsocketSource } from "./ObservabilityPipelineWebsocketSource";
+import { ObservabilityPipelineWebsocketSourceTlsEnabled } from "./ObservabilityPipelineWebsocketSourceTlsEnabled";
+import { ObservabilityPipelineWebsocketSourceTlsWithClientCert } from "./ObservabilityPipelineWebsocketSourceTlsWithClientCert";
 import { ValidationError } from "./ValidationError";
 import { ValidationErrorMeta } from "./ValidationErrorMeta";
 import { ValidationResponse } from "./ValidationResponse";
@@ -528,6 +531,17 @@ export const TypingInfo: ModelTypingInfo = {
       "tag_cardinality_limit",
     ],
     ObservabilityPipelineThrottleProcessorType: ["throttle"],
+    ObservabilityPipelineWebsocketSourceAuthStrategy: [
+      "none",
+      "basic",
+      "bearer",
+      "custom",
+    ],
+    ObservabilityPipelineWebsocketSourceTlsEnabledMode: ["enabled"],
+    ObservabilityPipelineWebsocketSourceTlsWithClientCertMode: [
+      "with_client_cert",
+    ],
+    ObservabilityPipelineWebsocketSourceType: ["websocket"],
   },
   oneOfMap: {
     ObservabilityPipelineAmazonS3GenericCompression: [
@@ -623,6 +637,7 @@ export const TypingInfo: ModelTypingInfo = {
       "ObservabilityPipelineSplunkTcpSource",
       "ObservabilityPipelineSumoLogicSource",
       "ObservabilityPipelineSyslogNgSource",
+      "ObservabilityPipelineWebsocketSource",
       "ObservabilityPipelineOpentelemetrySource",
     ],
     ObservabilityPipelineEnrichmentTableFileKeyItemField: [
@@ -668,6 +683,10 @@ export const TypingInfo: ModelTypingInfo = {
       "ObservabilityPipelineSocketSourceFramingCharacterDelimited",
       "ObservabilityPipelineSocketSourceFramingOctetCounting",
       "ObservabilityPipelineSocketSourceFramingChunkedGelf",
+    ],
+    ObservabilityPipelineWebsocketSourceTls: [
+      "ObservabilityPipelineWebsocketSourceTlsEnabled",
+      "ObservabilityPipelineWebsocketSourceTlsWithClientCert",
     ],
   },
   typeMap: {
@@ -979,6 +998,11 @@ export const TypingInfo: ModelTypingInfo = {
     ObservabilityPipelineThrottleProcessor:
       ObservabilityPipelineThrottleProcessor,
     ObservabilityPipelineTls: ObservabilityPipelineTls,
+    ObservabilityPipelineWebsocketSource: ObservabilityPipelineWebsocketSource,
+    ObservabilityPipelineWebsocketSourceTlsEnabled:
+      ObservabilityPipelineWebsocketSourceTlsEnabled,
+    ObservabilityPipelineWebsocketSourceTlsWithClientCert:
+      ObservabilityPipelineWebsocketSourceTlsWithClientCert,
     ValidationError: ValidationError,
     ValidationErrorMeta: ValidationErrorMeta,
     ValidationResponse: ValidationResponse,
