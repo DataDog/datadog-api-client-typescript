@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { BudgetWithEntriesDataAttributesEntriesItemsCosts } from "./BudgetWithEntriesDataAttributesEntriesItemsCosts";
 import { BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems } from "./BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems";
 
 /**
@@ -10,6 +11,10 @@ export class BudgetWithEntriesDataAttributesEntriesItems {
    * The budgeted amount for this entry.
    */
   "amount"?: number;
+  /**
+   * Cost data for a single budget entry.
+   */
+  "costs"?: BudgetWithEntriesDataAttributesEntriesItemsCosts;
   /**
    * The month this budget entry applies to, in YYYYMM format.
    */
@@ -37,6 +42,10 @@ export class BudgetWithEntriesDataAttributesEntriesItems {
       baseName: "amount",
       type: "number",
       format: "double",
+    },
+    costs: {
+      baseName: "costs",
+      type: "BudgetWithEntriesDataAttributesEntriesItemsCosts",
     },
     month: {
       baseName: "month",
