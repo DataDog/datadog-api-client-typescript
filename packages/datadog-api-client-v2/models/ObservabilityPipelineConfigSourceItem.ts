@@ -20,6 +20,7 @@ import { ObservabilityPipelineSplunkHecSource } from "./ObservabilityPipelineSpl
 import { ObservabilityPipelineSplunkTcpSource } from "./ObservabilityPipelineSplunkTcpSource";
 import { ObservabilityPipelineSumoLogicSource } from "./ObservabilityPipelineSumoLogicSource";
 import { ObservabilityPipelineSyslogNgSource } from "./ObservabilityPipelineSyslogNgSource";
+import { ObservabilityPipelineWebsocketSource } from "./ObservabilityPipelineWebsocketSource";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
@@ -44,5 +45,6 @@ export type ObservabilityPipelineConfigSourceItem =
   | ObservabilityPipelineSplunkTcpSource
   | ObservabilityPipelineSumoLogicSource
   | ObservabilityPipelineSyslogNgSource
+  | ObservabilityPipelineWebsocketSource
   | ObservabilityPipelineOpentelemetrySource
   | UnparsedObject;

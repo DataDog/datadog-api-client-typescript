@@ -3099,6 +3099,9 @@ import { ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit } from 
 import { ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit } from "./ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit";
 import { ObservabilityPipelineThrottleProcessor } from "./ObservabilityPipelineThrottleProcessor";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
+import { ObservabilityPipelineWebsocketSource } from "./ObservabilityPipelineWebsocketSource";
+import { ObservabilityPipelineWebsocketSourceTlsEnabled } from "./ObservabilityPipelineWebsocketSourceTlsEnabled";
+import { ObservabilityPipelineWebsocketSourceTlsWithClientCert } from "./ObservabilityPipelineWebsocketSourceTlsWithClientCert";
 import { OktaAPIToken } from "./OktaAPIToken";
 import { OktaAPITokenUpdate } from "./OktaAPITokenUpdate";
 import { OktaAccount } from "./OktaAccount";
@@ -6853,6 +6856,17 @@ const enumsMap: { [key: string]: any[] } = {
     "tag_cardinality_limit",
   ],
   ObservabilityPipelineThrottleProcessorType: ["throttle"],
+  ObservabilityPipelineWebsocketSourceAuthStrategy: [
+    "none",
+    "basic",
+    "bearer",
+    "custom",
+  ],
+  ObservabilityPipelineWebsocketSourceTlsEnabledMode: ["enabled"],
+  ObservabilityPipelineWebsocketSourceTlsWithClientCertMode: [
+    "with_client_cert",
+  ],
+  ObservabilityPipelineWebsocketSourceType: ["websocket"],
   OktaAPITokenType: ["OktaAPIToken"],
   OktaAccountType: ["okta-accounts"],
   OktaIntegrationType: ["Okta"],
@@ -11753,6 +11767,11 @@ const typeMap: { [index: string]: any } = {
   ObservabilityPipelineThrottleProcessor:
     ObservabilityPipelineThrottleProcessor,
   ObservabilityPipelineTls: ObservabilityPipelineTls,
+  ObservabilityPipelineWebsocketSource: ObservabilityPipelineWebsocketSource,
+  ObservabilityPipelineWebsocketSourceTlsEnabled:
+    ObservabilityPipelineWebsocketSourceTlsEnabled,
+  ObservabilityPipelineWebsocketSourceTlsWithClientCert:
+    ObservabilityPipelineWebsocketSourceTlsWithClientCert,
   OktaAPIToken: OktaAPIToken,
   OktaAPITokenUpdate: OktaAPITokenUpdate,
   OktaAccount: OktaAccount,
@@ -14652,6 +14671,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineSplunkTcpSource",
     "ObservabilityPipelineSumoLogicSource",
     "ObservabilityPipelineSyslogNgSource",
+    "ObservabilityPipelineWebsocketSource",
     "ObservabilityPipelineOpentelemetrySource",
   ],
   ObservabilityPipelineEnrichmentTableFileKeyItemField: [
@@ -14697,6 +14717,10 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineSocketSourceFramingCharacterDelimited",
     "ObservabilityPipelineSocketSourceFramingOctetCounting",
     "ObservabilityPipelineSocketSourceFramingChunkedGelf",
+  ],
+  ObservabilityPipelineWebsocketSourceTls: [
+    "ObservabilityPipelineWebsocketSourceTlsEnabled",
+    "ObservabilityPipelineWebsocketSourceTlsWithClientCert",
   ],
   OktaCredentials: ["OktaAPIToken"],
   OktaCredentialsUpdate: ["OktaAPITokenUpdate"],
