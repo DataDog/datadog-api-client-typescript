@@ -4815,6 +4815,8 @@ import { TenancyProductsData } from "./TenancyProductsData";
 import { TenancyProductsDataAttributes } from "./TenancyProductsDataAttributes";
 import { TenancyProductsDataAttributesProductsItems } from "./TenancyProductsDataAttributesProductsItems";
 import { TenancyProductsList } from "./TenancyProductsList";
+import { TestExample } from "./TestExample";
+import { TestExamplesResponse } from "./TestExamplesResponse";
 import { TestOptimizationDeleteServiceSettingsRequest } from "./TestOptimizationDeleteServiceSettingsRequest";
 import { TestOptimizationDeleteServiceSettingsRequestAttributes } from "./TestOptimizationDeleteServiceSettingsRequestAttributes";
 import { TestOptimizationDeleteServiceSettingsRequestData } from "./TestOptimizationDeleteServiceSettingsRequestData";
@@ -13842,6 +13844,8 @@ const typeMap: { [index: string]: any } = {
   TenancyProductsDataAttributesProductsItems:
     TenancyProductsDataAttributesProductsItems,
   TenancyProductsList: TenancyProductsList,
+  TestExample: TestExample,
+  TestExamplesResponse: TestExamplesResponse,
   TestOptimizationDeleteServiceSettingsRequest:
     TestOptimizationDeleteServiceSettingsRequest,
   TestOptimizationDeleteServiceSettingsRequestAttributes:

@@ -1707,6 +1707,8 @@ export {
   TeamsApi,
 } from "./apis/TeamsApi";
 
+export { TestExamplesApi } from "./apis/TestExamplesApi";
+
 export {
   TestOptimizationApiDeleteTestOptimizationServiceSettingsRequest,
   TestOptimizationApiGetFlakyTestsManagementPoliciesRequest,
@@ -8044,6 +8046,8 @@ export { TenancyProductsDataAttributes } from "./models/TenancyProductsDataAttri
 export { TenancyProductsDataAttributesProductsItems } from "./models/TenancyProductsDataAttributesProductsItems";
 export { TenancyProductsDataType } from "./models/TenancyProductsDataType";
 export { TenancyProductsList } from "./models/TenancyProductsList";
+export { TestExample } from "./models/TestExample";
+export { TestExamplesResponse } from "./models/TestExamplesResponse";
 export { TestOptimizationDeleteServiceSettingsRequest } from "./models/TestOptimizationDeleteServiceSettingsRequest";
 export { TestOptimizationDeleteServiceSettingsRequestAttributes } from "./models/TestOptimizationDeleteServiceSettingsRequestAttributes";
 export { TestOptimizationDeleteServiceSettingsRequestData } from "./models/TestOptimizationDeleteServiceSettingsRequestData";
