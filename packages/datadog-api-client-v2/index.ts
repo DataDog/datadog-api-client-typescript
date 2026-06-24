@@ -5834,6 +5834,14 @@ export { ObservabilityPipelineTagCardinalityLimitProcessorType } from "./models/
 export { ObservabilityPipelineThrottleProcessor } from "./models/ObservabilityPipelineThrottleProcessor";
 export { ObservabilityPipelineThrottleProcessorType } from "./models/ObservabilityPipelineThrottleProcessorType";
 export { ObservabilityPipelineTls } from "./models/ObservabilityPipelineTls";
+export { ObservabilityPipelineWebsocketSource } from "./models/ObservabilityPipelineWebsocketSource";
+export { ObservabilityPipelineWebsocketSourceAuthStrategy } from "./models/ObservabilityPipelineWebsocketSourceAuthStrategy";
+export { ObservabilityPipelineWebsocketSourceTls } from "./models/ObservabilityPipelineWebsocketSourceTls";
+export { ObservabilityPipelineWebsocketSourceTlsEnabled } from "./models/ObservabilityPipelineWebsocketSourceTlsEnabled";
+export { ObservabilityPipelineWebsocketSourceTlsEnabledMode } from "./models/ObservabilityPipelineWebsocketSourceTlsEnabledMode";
+export { ObservabilityPipelineWebsocketSourceTlsWithClientCert } from "./models/ObservabilityPipelineWebsocketSourceTlsWithClientCert";
+export { ObservabilityPipelineWebsocketSourceTlsWithClientCertMode } from "./models/ObservabilityPipelineWebsocketSourceTlsWithClientCertMode";
+export { ObservabilityPipelineWebsocketSourceType } from "./models/ObservabilityPipelineWebsocketSourceType";
 export { OCIConfig } from "./models/OCIConfig";
 export { OCIConfigAttributes } from "./models/OCIConfigAttributes";
 export { OCIConfigsResponse } from "./models/OCIConfigsResponse";
