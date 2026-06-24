@@ -11,6 +11,7 @@ export {
   CloudCostManagementApiDeleteCostTagDescriptionByKeyRequest,
   CloudCostManagementApiDeleteCustomAllocationRuleRequest,
   CloudCostManagementApiDeleteCustomCostsFileRequest,
+  CloudCostManagementApiDeleteCustomForecastRequest,
   CloudCostManagementApiDeleteTagPipelinesRulesetRequest,
   CloudCostManagementApiGenerateCostTagDescriptionByKeyRequest,
   CloudCostManagementApiGetBudgetRequest,
@@ -53,6 +54,7 @@ export {
   CloudCostManagementApiUploadCustomCostsFileRequest,
   CloudCostManagementApiUpsertBudgetRequest,
   CloudCostManagementApiUpsertCostTagDescriptionByKeyRequest,
+  CloudCostManagementApiUpsertCustomForecastRequest,
   CloudCostManagementApiValidateBudgetRequest,
   CloudCostManagementApiValidateQueryRequest,
   CloudCostManagementApi,
@@ -236,6 +238,15 @@ export { CustomCostsFileUploadResponse } from "./models/CustomCostsFileUploadRes
 export { CustomCostsFileUsageChargePeriod } from "./models/CustomCostsFileUsageChargePeriod";
 export { CustomCostsUser } from "./models/CustomCostsUser";
 export { CustomCostUploadResponseMeta } from "./models/CustomCostUploadResponseMeta";
+export { CustomForecastEntry } from "./models/CustomForecastEntry";
+export { CustomForecastEntryTagFilter } from "./models/CustomForecastEntryTagFilter";
+export { CustomForecastResponse } from "./models/CustomForecastResponse";
+export { CustomForecastResponseData } from "./models/CustomForecastResponseData";
+export { CustomForecastResponseDataAttributes } from "./models/CustomForecastResponseDataAttributes";
+export { CustomForecastType } from "./models/CustomForecastType";
+export { CustomForecastUpsertRequest } from "./models/CustomForecastUpsertRequest";
+export { CustomForecastUpsertRequestData } from "./models/CustomForecastUpsertRequestData";
+export { CustomForecastUpsertRequestDataAttributes } from "./models/CustomForecastUpsertRequestDataAttributes";
 export { DataAttributesRulesItemsIfTagExists } from "./models/DataAttributesRulesItemsIfTagExists";
 export { DataAttributesRulesItemsMapping } from "./models/DataAttributesRulesItemsMapping";
 export { GcpUcConfigResponse } from "./models/GcpUcConfigResponse";

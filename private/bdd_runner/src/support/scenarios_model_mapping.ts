@@ -7641,6 +7641,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   "CloudCostManagementApi.V2.ValidateCsvBudget": {
     operationResponseType: "ValidationResponse",
   },
+  "CloudCostManagementApi.V2.UpsertCustomForecast": {
+    body: {
+      type: "CustomForecastUpsertRequest",
+      format: "",
+    },
+    operationResponseType: "CustomForecastResponse",
+  },
   "CloudCostManagementApi.V2.ValidateBudget": {
     body: {
       type: "BudgetValidationRequest",
@@ -7656,6 +7663,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     operationResponseType: "BudgetWithEntries",
   },
   "CloudCostManagementApi.V2.DeleteBudget": {
+    budgetId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "CloudCostManagementApi.V2.DeleteCustomForecast": {
     budgetId: {
       type: "string",
       format: "",

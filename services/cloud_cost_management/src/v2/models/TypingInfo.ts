@@ -147,6 +147,14 @@ import { CustomCostsFileMetadataWithContentHighLevel } from "./CustomCostsFileMe
 import { CustomCostsFileUploadResponse } from "./CustomCostsFileUploadResponse";
 import { CustomCostsFileUsageChargePeriod } from "./CustomCostsFileUsageChargePeriod";
 import { CustomCostsUser } from "./CustomCostsUser";
+import { CustomForecastEntry } from "./CustomForecastEntry";
+import { CustomForecastEntryTagFilter } from "./CustomForecastEntryTagFilter";
+import { CustomForecastResponse } from "./CustomForecastResponse";
+import { CustomForecastResponseData } from "./CustomForecastResponseData";
+import { CustomForecastResponseDataAttributes } from "./CustomForecastResponseDataAttributes";
+import { CustomForecastUpsertRequest } from "./CustomForecastUpsertRequest";
+import { CustomForecastUpsertRequestData } from "./CustomForecastUpsertRequestData";
+import { CustomForecastUpsertRequestDataAttributes } from "./CustomForecastUpsertRequestDataAttributes";
 import { DataAttributesRulesItemsMapping } from "./DataAttributesRulesItemsMapping";
 import { GCPUsageCostConfig } from "./GCPUsageCostConfig";
 import { GCPUsageCostConfigAttributes } from "./GCPUsageCostConfigAttributes";
@@ -246,6 +254,7 @@ export const TypingInfo: ModelTypingInfo = {
     CostTagMetadataMonthType: ["cost_tag_metadata_month"],
     CostTagType: ["cost_tag"],
     CreateRulesetRequestDataType: ["create_ruleset"],
+    CustomForecastType: ["custom_forecast"],
     DataAttributesRulesItemsIfTagExists: ["append", "do_not_apply", "replace"],
     GCPUsageCostConfigPatchRequestType: ["gcp_uc_config_patch_request"],
     GCPUsageCostConfigPostRequestType: ["gcp_uc_config_post_request"],
@@ -454,6 +463,15 @@ export const TypingInfo: ModelTypingInfo = {
     CustomCostsFileUploadResponse: CustomCostsFileUploadResponse,
     CustomCostsFileUsageChargePeriod: CustomCostsFileUsageChargePeriod,
     CustomCostsUser: CustomCostsUser,
+    CustomForecastEntry: CustomForecastEntry,
+    CustomForecastEntryTagFilter: CustomForecastEntryTagFilter,
+    CustomForecastResponse: CustomForecastResponse,
+    CustomForecastResponseData: CustomForecastResponseData,
+    CustomForecastResponseDataAttributes: CustomForecastResponseDataAttributes,
+    CustomForecastUpsertRequest: CustomForecastUpsertRequest,
+    CustomForecastUpsertRequestData: CustomForecastUpsertRequestData,
+    CustomForecastUpsertRequestDataAttributes:
+      CustomForecastUpsertRequestDataAttributes,
     DataAttributesRulesItemsMapping: DataAttributesRulesItemsMapping,
     GCPUsageCostConfig: GCPUsageCostConfig,
     GCPUsageCostConfigAttributes: GCPUsageCostConfigAttributes,
