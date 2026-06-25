@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { ReportScheduleAuthor } from "./ReportScheduleAuthor";
+import { ReportScheduleResource } from "./ReportScheduleResource";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
@@ -13,4 +14,5 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 export type ReportScheduleIncludedResource =
   | ReportScheduleAuthor
+  | ReportScheduleResource
   | UnparsedObject;
