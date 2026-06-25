@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 import { ObservabilityPipelineClickhouseDestinationAuth } from "./ObservabilityPipelineClickhouseDestinationAuth";
 import { ObservabilityPipelineClickhouseDestinationBatch } from "./ObservabilityPipelineClickhouseDestinationBatch";
 import { ObservabilityPipelineClickhouseDestinationBatchEncoding } from "./ObservabilityPipelineClickhouseDestinationBatchEncoding";
@@ -28,6 +29,10 @@ export class ObservabilityPipelineClickhouseDestination {
    * Required when `format` is `arrow_stream`. The `codec` field must be set to `arrow_stream`.
    */
   "batchEncoding"?: ObservabilityPipelineClickhouseDestinationBatchEncoding;
+  /**
+   * Configuration for buffer settings on destination components.
+   */
+  "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * Compression setting for outbound HTTP requests to ClickHouse.
    * Can be specified as a shorthand string (`"gzip"` or `"none"`) or as an object
@@ -106,6 +111,10 @@ export class ObservabilityPipelineClickhouseDestination {
     batchEncoding: {
       baseName: "batch_encoding",
       type: "ObservabilityPipelineClickhouseDestinationBatchEncoding",
+    },
+    buffer: {
+      baseName: "buffer",
+      type: "ObservabilityPipelineBufferOptions",
     },
     compression: {
       baseName: "compression",
