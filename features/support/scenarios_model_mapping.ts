@@ -11576,6 +11576,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "boolean",
             "format": "",
             },
+        "filterIsConfigurable": {
+            "type": "boolean",
+            "format": "",
+            },
         "filterTagsConfigured": {
             "type": "string",
             "format": "",
@@ -11602,6 +11606,14 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "filterRelatedAssets": {
             "type": "boolean",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "sort": {
+            "type": "string",
             "format": "",
             },
         "windowSeconds": {

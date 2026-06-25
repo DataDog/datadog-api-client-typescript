@@ -677,6 +677,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 
   public async listTagConfigurations(
     filterConfigured?: boolean,
+    filterIsConfigurable?: boolean,
     filterTagsConfigured?: string,
     filterMetricType?: MetricTagConfigurationMetricTypeCategory,
     filterIncludePercentiles?: boolean,
@@ -684,6 +685,8 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     filterQueriedWindowSeconds?: number,
     filterTags?: string,
     filterRelatedAssets?: boolean,
+    include?: string,
+    sort?: string,
     windowSeconds?: number,
     pageSize?: number,
     pageCursor?: string,
@@ -706,6 +709,13 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter[configured]",
         ObjectSerializer.serialize(filterConfigured, "boolean", ""),
+        ""
+      );
+    }
+    if (filterIsConfigurable !== undefined) {
+      requestContext.setQueryParam(
+        "filter[is_configurable]",
+        ObjectSerializer.serialize(filterIsConfigurable, "boolean", ""),
         ""
       );
     }
@@ -763,6 +773,20 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter[related_assets]",
         ObjectSerializer.serialize(filterRelatedAssets, "boolean", ""),
+        ""
+      );
+    }
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        ObjectSerializer.serialize(sort, "string", ""),
         ""
       );
     }
@@ -3084,10 +3108,15 @@ export interface MetricsApiListTagConfigurationByNameRequest {
 
 export interface MetricsApiListTagConfigurationsRequest {
   /**
-   * Only return custom metrics that have been configured with Metrics Without Limits.
+   * Only return custom metrics that have been configured (`true`) or not configured (`false`) with Metrics Without Limits.
    * @type boolean
    */
   filterConfigured?: boolean;
+  /**
+   * Only return metrics that are eligible (`true`) or ineligible (`false`) for configuration with Metrics Without Limits.
+   * @type boolean
+   */
+  filterIsConfigurable?: boolean;
   /**
    * Only return metrics that have the given tag key(s) in their Metrics Without Limits configuration (included or excluded).
    * @type string
@@ -3123,6 +3152,16 @@ export interface MetricsApiListTagConfigurationsRequest {
    * @type boolean
    */
   filterRelatedAssets?: boolean;
+  /**
+   * Include related resources in the response. Set to `metric_volumes` to include indexed and ingested volume counts for each metric.
+   * @type string
+   */
+  include?: string;
+  /**
+   * Sort results by metric volume. Prefix a key with `-` for descending order. Supported keys: `metric_volumes.indexed_volume`, `metric_volumes.ingested_volume`, `metric_volumes.indexed_volume_delta`, `metric_volumes.ingested_volume_delta`. Requires a paginated request (`page[size]` or `page[cursor]`).
+   * @type string
+   */
+  sort?: string;
   /**
    * Only return metrics that have been actively reporting in the specified window. The default value is 3600 seconds (1 hour), the maximum value is 2,592,000 seconds (30 days), and the minimum value is 1 second.
    * @type number
@@ -3685,6 +3724,7 @@ export class MetricsApi {
   ): Promise<MetricsAndMetricTagConfigurationsResponse> {
     const requestContextPromise = this.requestFactory.listTagConfigurations(
       param.filterConfigured,
+      param.filterIsConfigurable,
       param.filterTagsConfigured,
       param.filterMetricType,
       param.filterIncludePercentiles,
@@ -3692,6 +3732,8 @@ export class MetricsApi {
       param.filterQueriedWindowSeconds,
       param.filterTags,
       param.filterRelatedAssets,
+      param.include,
+      param.sort,
       param.windowSeconds,
       param.pageSize,
       param.pageCursor,
@@ -3721,6 +3763,7 @@ export class MetricsApi {
     while (true) {
       const requestContext = await this.requestFactory.listTagConfigurations(
         param.filterConfigured,
+        param.filterIsConfigurable,
         param.filterTagsConfigured,
         param.filterMetricType,
         param.filterIncludePercentiles,
@@ -3728,6 +3771,8 @@ export class MetricsApi {
         param.filterQueriedWindowSeconds,
         param.filterTags,
         param.filterRelatedAssets,
+        param.include,
+        param.sort,
         param.windowSeconds,
         param.pageSize,
         param.pageCursor,
