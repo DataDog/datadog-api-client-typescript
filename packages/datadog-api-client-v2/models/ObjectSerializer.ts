@@ -3615,14 +3615,29 @@ import { ReportScheduleAuthorRelationshipData } from "./ReportScheduleAuthorRela
 import { ReportScheduleCreateRequest } from "./ReportScheduleCreateRequest";
 import { ReportScheduleCreateRequestAttributes } from "./ReportScheduleCreateRequestAttributes";
 import { ReportScheduleCreateRequestData } from "./ReportScheduleCreateRequestData";
+import { ReportScheduleIndexTemplateVariable } from "./ReportScheduleIndexTemplateVariable";
+import { ReportScheduleListResourceRelationship } from "./ReportScheduleListResourceRelationship";
+import { ReportScheduleListResourceRelationshipData } from "./ReportScheduleListResourceRelationshipData";
+import { ReportScheduleListResponse } from "./ReportScheduleListResponse";
+import { ReportScheduleListResponseAttributes } from "./ReportScheduleListResponseAttributes";
+import { ReportScheduleListResponseData } from "./ReportScheduleListResponseData";
+import { ReportScheduleListResponseLinks } from "./ReportScheduleListResponseLinks";
+import { ReportScheduleListResponseMeta } from "./ReportScheduleListResponseMeta";
+import { ReportScheduleListResponsePagination } from "./ReportScheduleListResponsePagination";
+import { ReportScheduleListResponseRelationships } from "./ReportScheduleListResponseRelationships";
 import { ReportSchedulePatchRequest } from "./ReportSchedulePatchRequest";
 import { ReportSchedulePatchRequestAttributes } from "./ReportSchedulePatchRequestAttributes";
 import { ReportSchedulePatchRequestData } from "./ReportSchedulePatchRequestData";
+import { ReportScheduleResource } from "./ReportScheduleResource";
+import { ReportScheduleResourceAttributes } from "./ReportScheduleResourceAttributes";
 import { ReportScheduleResponse } from "./ReportScheduleResponse";
 import { ReportScheduleResponseAttributes } from "./ReportScheduleResponseAttributes";
 import { ReportScheduleResponseData } from "./ReportScheduleResponseData";
 import { ReportScheduleResponseRelationships } from "./ReportScheduleResponseRelationships";
 import { ReportScheduleTemplateVariable } from "./ReportScheduleTemplateVariable";
+import { ReportScheduleToggleRequest } from "./ReportScheduleToggleRequest";
+import { ReportScheduleToggleRequestAttributes } from "./ReportScheduleToggleRequestAttributes";
+import { ReportScheduleToggleRequestData } from "./ReportScheduleToggleRequestData";
 import { ResolveVulnerableSymbolsRequest } from "./ResolveVulnerableSymbolsRequest";
 import { ResolveVulnerableSymbolsRequestData } from "./ResolveVulnerableSymbolsRequestData";
 import { ResolveVulnerableSymbolsRequestDataAttributes } from "./ResolveVulnerableSymbolsRequestDataAttributes";
@@ -7086,6 +7101,8 @@ const enumsMap: { [key: string]: any[] } = {
   ReorderRulesetResourceDataType: ["ruleset"],
   ReportScheduleAuthorType: ["users"],
   ReportScheduleDeliveryFormat: ["pdf", "png", "pdf_and_png"],
+  ReportScheduleIncludedResourceType: ["resource"],
+  ReportScheduleListResponsePaginationType: ["offset_limit"],
   ReportScheduleResourceType: ["dashboard", "integration_dashboard"],
   ReportScheduleResponseAttributesDeliveryFormat: ["pdf", "png", "pdf_and_png"],
   ReportScheduleStatus: ["active", "inactive"],
@@ -12354,14 +12371,32 @@ const typeMap: { [index: string]: any } = {
   ReportScheduleCreateRequest: ReportScheduleCreateRequest,
   ReportScheduleCreateRequestAttributes: ReportScheduleCreateRequestAttributes,
   ReportScheduleCreateRequestData: ReportScheduleCreateRequestData,
+  ReportScheduleIndexTemplateVariable: ReportScheduleIndexTemplateVariable,
+  ReportScheduleListResourceRelationship:
+    ReportScheduleListResourceRelationship,
+  ReportScheduleListResourceRelationshipData:
+    ReportScheduleListResourceRelationshipData,
+  ReportScheduleListResponse: ReportScheduleListResponse,
+  ReportScheduleListResponseAttributes: ReportScheduleListResponseAttributes,
+  ReportScheduleListResponseData: ReportScheduleListResponseData,
+  ReportScheduleListResponseLinks: ReportScheduleListResponseLinks,
+  ReportScheduleListResponseMeta: ReportScheduleListResponseMeta,
+  ReportScheduleListResponsePagination: ReportScheduleListResponsePagination,
+  ReportScheduleListResponseRelationships:
+    ReportScheduleListResponseRelationships,
   ReportSchedulePatchRequest: ReportSchedulePatchRequest,
   ReportSchedulePatchRequestAttributes: ReportSchedulePatchRequestAttributes,
   ReportSchedulePatchRequestData: ReportSchedulePatchRequestData,
+  ReportScheduleResource: ReportScheduleResource,
+  ReportScheduleResourceAttributes: ReportScheduleResourceAttributes,
   ReportScheduleResponse: ReportScheduleResponse,
   ReportScheduleResponseAttributes: ReportScheduleResponseAttributes,
   ReportScheduleResponseData: ReportScheduleResponseData,
   ReportScheduleResponseRelationships: ReportScheduleResponseRelationships,
   ReportScheduleTemplateVariable: ReportScheduleTemplateVariable,
+  ReportScheduleToggleRequest: ReportScheduleToggleRequest,
+  ReportScheduleToggleRequestAttributes: ReportScheduleToggleRequestAttributes,
+  ReportScheduleToggleRequestData: ReportScheduleToggleRequestData,
   ResolveVulnerableSymbolsRequest: ResolveVulnerableSymbolsRequest,
   ResolveVulnerableSymbolsRequestData: ResolveVulnerableSymbolsRequestData,
   ResolveVulnerableSymbolsRequestDataAttributes:
@@ -14792,7 +14827,10 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   RUMGroupByMissing: ["string", "number"],
   RUMGroupByTotal: ["boolean", "string", "number"],
-  ReportScheduleIncludedResource: ["ReportScheduleAuthor"],
+  ReportScheduleIncludedResource: [
+    "ReportScheduleAuthor",
+    "ReportScheduleResource",
+  ],
   RestrictionQueryResponseIncludedItem: ["RestrictionQueryRole"],
   RoutingRuleAction: [
     "SendSlackMessageAction",
