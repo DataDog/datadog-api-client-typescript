@@ -25,8 +25,11 @@ import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 import { ReportScheduleCreateRequest } from "./models/ReportScheduleCreateRequest";
+import { ReportScheduleListResponse } from "./models/ReportScheduleListResponse";
 import { ReportSchedulePatchRequest } from "./models/ReportSchedulePatchRequest";
+import { ReportScheduleResourceType } from "./models/ReportScheduleResourceType";
 import { ReportScheduleResponse } from "./models/ReportScheduleResponse";
+import { ReportScheduleToggleRequest } from "./models/ReportScheduleToggleRequest";
 import { version } from "../version";
 
 export class ReportSchedulesApiRequestFactory extends BaseAPIRequestFactory {
@@ -96,6 +99,221 @@ export class ReportSchedulesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deleteReportSchedule(
+    scheduleUuid: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'scheduleUuid' is not null or undefined
+    if (scheduleUuid === null || scheduleUuid === undefined) {
+      throw new RequiredError("scheduleUuid", "deleteReportSchedule");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/reporting/schedule/{schedule_uuid}".replace(
+      "{schedule_uuid}",
+      encodeURIComponent(String(scheduleUuid)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ReportSchedulesApi.v2.deleteReportSchedule",
+      ReportSchedulesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getReportSchedule(
+    scheduleUuid: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'scheduleUuid' is not null or undefined
+    if (scheduleUuid === null || scheduleUuid === undefined) {
+      throw new RequiredError("scheduleUuid", "getReportSchedule");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/reporting/schedule/{schedule_uuid}".replace(
+      "{schedule_uuid}",
+      encodeURIComponent(String(scheduleUuid)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ReportSchedulesApi.v2.getReportSchedule",
+      ReportSchedulesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getReportSchedulesForResource(
+    resourceType: ReportScheduleResourceType,
+    resourceId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'resourceType' is not null or undefined
+    if (resourceType === null || resourceType === undefined) {
+      throw new RequiredError("resourceType", "getReportSchedulesForResource");
+    }
+
+    // verify required parameter 'resourceId' is not null or undefined
+    if (resourceId === null || resourceId === undefined) {
+      throw new RequiredError("resourceId", "getReportSchedulesForResource");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/reporting/schedule/{resource_type}/{resource_id}"
+        .replace("{resource_type}", encodeURIComponent(String(resourceType)))
+        .replace("{resource_id}", encodeURIComponent(String(resourceId)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ReportSchedulesApi.v2.getReportSchedulesForResource",
+      ReportSchedulesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listReportSchedules(
+    pageLimit?: number,
+    pageOffset?: number,
+    filterTitle?: string,
+    filterAuthorUuid?: string,
+    filterRecipients?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/reporting/schedule/list";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ReportSchedulesApi.v2.listReportSchedules",
+      ReportSchedulesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (pageLimit !== undefined) {
+      requestContext.setQueryParam(
+        "page[limit]",
+        serialize(pageLimit, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageOffset !== undefined) {
+      requestContext.setQueryParam(
+        "page[offset]",
+        serialize(pageOffset, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (filterTitle !== undefined) {
+      requestContext.setQueryParam(
+        "filter[title]",
+        serialize(filterTitle, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterAuthorUuid !== undefined) {
+      requestContext.setQueryParam(
+        "filter[author_uuid]",
+        serialize(filterAuthorUuid, TypingInfo, "string", "uuid"),
+        "",
+      );
+    }
+    if (filterRecipients !== undefined) {
+      requestContext.setQueryParam(
+        "filter[recipients]",
+        serialize(filterRecipients, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async patchReportSchedule(
     scheduleUuid: string,
     body: ReportSchedulePatchRequest,
@@ -150,6 +368,66 @@ export class ReportSchedulesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ReportSchedulePatchRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async toggleReportSchedule(
+    scheduleUuid: string,
+    body: ReportScheduleToggleRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'scheduleUuid' is not null or undefined
+    if (scheduleUuid === null || scheduleUuid === undefined) {
+      throw new RequiredError("scheduleUuid", "toggleReportSchedule");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "toggleReportSchedule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/reporting/schedule/{schedule_uuid}/toggle".replace(
+        "{schedule_uuid}",
+        encodeURIComponent(String(scheduleUuid)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ReportSchedulesApi.v2.toggleReportSchedule",
+      ReportSchedulesApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ReportScheduleToggleRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -250,10 +528,415 @@ export class ReportSchedulesApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deleteReportSchedule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteReportSchedule(
+    response: ResponseContext,
+  ): Promise<ReportScheduleResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ReportScheduleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ReportScheduleResponse",
+      ) as ReportScheduleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ReportScheduleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ReportScheduleResponse",
+        "",
+      ) as ReportScheduleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getReportSchedule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getReportSchedule(
+    response: ResponseContext,
+  ): Promise<ReportScheduleResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ReportScheduleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ReportScheduleResponse",
+      ) as ReportScheduleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ReportScheduleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ReportScheduleResponse",
+        "",
+      ) as ReportScheduleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getReportSchedulesForResource
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getReportSchedulesForResource(
+    response: ResponseContext,
+  ): Promise<ReportScheduleListResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ReportScheduleListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ReportScheduleListResponse",
+      ) as ReportScheduleListResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ReportScheduleListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ReportScheduleListResponse",
+        "",
+      ) as ReportScheduleListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listReportSchedules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listReportSchedules(
+    response: ResponseContext,
+  ): Promise<ReportScheduleListResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ReportScheduleListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ReportScheduleListResponse",
+      ) as ReportScheduleListResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ReportScheduleListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ReportScheduleListResponse",
+        "",
+      ) as ReportScheduleListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to patchReportSchedule
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async patchReportSchedule(
+    response: ResponseContext,
+  ): Promise<ReportScheduleResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ReportScheduleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ReportScheduleResponse",
+      ) as ReportScheduleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ReportScheduleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ReportScheduleResponse",
+        "",
+      ) as ReportScheduleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to toggleReportSchedule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async toggleReportSchedule(
     response: ResponseContext,
   ): Promise<ReportScheduleResponse> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
@@ -335,6 +1018,63 @@ export interface ReportSchedulesApiCreateReportScheduleRequest {
   body: ReportScheduleCreateRequest;
 }
 
+export interface ReportSchedulesApiDeleteReportScheduleRequest {
+  /**
+   * The unique identifier of the report schedule to delete.
+   * @type string
+   */
+  scheduleUuid: string;
+}
+
+export interface ReportSchedulesApiGetReportScheduleRequest {
+  /**
+   * The unique identifier of the report schedule to fetch.
+   * @type string
+   */
+  scheduleUuid: string;
+}
+
+export interface ReportSchedulesApiGetReportSchedulesForResourceRequest {
+  /**
+   * The type of resource to fetch report schedules for.
+   * @type ReportScheduleResourceType
+   */
+  resourceType: ReportScheduleResourceType;
+  /**
+   * The identifier of the resource to fetch report schedules for.
+   * @type string
+   */
+  resourceId: string;
+}
+
+export interface ReportSchedulesApiListReportSchedulesRequest {
+  /**
+   * The maximum number of schedules to return. The maximum value is 50.
+   * @type number
+   */
+  pageLimit?: number;
+  /**
+   * The offset from which to start returning schedules.
+   * @type number
+   */
+  pageOffset?: number;
+  /**
+   * Filter schedules by report title.
+   * @type string
+   */
+  filterTitle?: string;
+  /**
+   * Filter schedules by author UUID.
+   * @type string
+   */
+  filterAuthorUuid?: string;
+  /**
+   * Filter schedules by a comma-separated list of recipients.
+   * @type string
+   */
+  filterRecipients?: string;
+}
+
 export interface ReportSchedulesApiPatchReportScheduleRequest {
   /**
    * The unique identifier of the report schedule to update.
@@ -345,6 +1085,18 @@ export interface ReportSchedulesApiPatchReportScheduleRequest {
    * @type ReportSchedulePatchRequest
    */
   body: ReportSchedulePatchRequest;
+}
+
+export interface ReportSchedulesApiToggleReportScheduleRequest {
+  /**
+   * The unique identifier of the report schedule to toggle.
+   * @type string
+   */
+  scheduleUuid: string;
+  /**
+   * @type ReportScheduleToggleRequest
+   */
+  body: ReportScheduleToggleRequest;
 }
 
 export class ReportSchedulesApi {
@@ -392,6 +1144,103 @@ export class ReportSchedulesApi {
   }
 
   /**
+   * Delete a report schedule by its unique identifier. The response returns the deleted schedule.
+   * Requires a reporting write permission appropriate to the targeted resource type and schedule ownership.
+   * @param param The request object
+   */
+  public deleteReportSchedule(
+    param: ReportSchedulesApiDeleteReportScheduleRequest,
+    options?: Configuration,
+  ): Promise<ReportScheduleResponse> {
+    const requestContextPromise = this.requestFactory.deleteReportSchedule(
+      param.scheduleUuid,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteReportSchedule(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a report schedule by its unique identifier.
+   * Requires a reporting read permission appropriate to the targeted resource type.
+   * @param param The request object
+   */
+  public getReportSchedule(
+    param: ReportSchedulesApiGetReportScheduleRequest,
+    options?: Configuration,
+  ): Promise<ReportScheduleResponse> {
+    const requestContextPromise = this.requestFactory.getReportSchedule(
+      param.scheduleUuid,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getReportSchedule(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get all report schedules that target a dashboard or integration dashboard resource.
+   * Requires a reporting read permission appropriate to the targeted resource type.
+   * @param param The request object
+   */
+  public getReportSchedulesForResource(
+    param: ReportSchedulesApiGetReportSchedulesForResourceRequest,
+    options?: Configuration,
+  ): Promise<ReportScheduleListResponse> {
+    const requestContextPromise =
+      this.requestFactory.getReportSchedulesForResource(
+        param.resourceType,
+        param.resourceId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getReportSchedulesForResource(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * List dashboard and integration dashboard report schedules for the organization.
+   * The response is paginated and can be filtered by title, author UUID, or recipients.
+   * Requires the `generate_dashboard_reports` permission.
+   * @param param The request object
+   */
+  public listReportSchedules(
+    param: ReportSchedulesApiListReportSchedulesRequest = {},
+    options?: Configuration,
+  ): Promise<ReportScheduleListResponse> {
+    const requestContextPromise = this.requestFactory.listReportSchedules(
+      param.pageLimit,
+      param.pageOffset,
+      param.filterTitle,
+      param.filterAuthorUuid,
+      param.filterRecipients,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listReportSchedules(responseContext);
+        });
+    });
+  }
+
+  /**
    * Update an existing scheduled report by its identifier. The editable attributes
    * are replaced with the supplied values; the targeted resource (`resource_id` and
    * `resource_type`) cannot be changed after creation.
@@ -412,6 +1261,29 @@ export class ReportSchedulesApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.patchReportSchedule(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Activate or pause a report schedule by setting its status to `active` or `inactive`.
+   * Requires a reporting write permission appropriate to the targeted resource type and schedule ownership.
+   * @param param The request object
+   */
+  public toggleReportSchedule(
+    param: ReportSchedulesApiToggleReportScheduleRequest,
+    options?: Configuration,
+  ): Promise<ReportScheduleResponse> {
+    const requestContextPromise = this.requestFactory.toggleReportSchedule(
+      param.scheduleUuid,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.toggleReportSchedule(responseContext);
         });
     });
   }
