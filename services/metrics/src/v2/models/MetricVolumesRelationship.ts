@@ -1,24 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { MetricRelationships } from "./MetricRelationships";
-import { MetricType } from "./MetricType";
+import { MetricVolumesRelationshipData } from "./MetricVolumesRelationshipData";
 
 /**
- * Object for a single metric.
+ * Relationship to a metric volume included in the response.
  */
-export class Metric {
+export class MetricVolumesRelationship {
   /**
-   * The metric name for this resource.
+   * Relationship data for a metric volume.
    */
-  "id"?: string;
-  /**
-   * Relationships for a metric.
-   */
-  "relationships"?: MetricRelationships;
-  /**
-   * The metric resource type.
-   */
-  "type"?: MetricType;
+  "data"?: MetricVolumesRelationshipData;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -34,17 +25,9 @@ export class Metric {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    relationships: {
-      baseName: "relationships",
-      type: "MetricRelationships",
-    },
-    type: {
-      baseName: "type",
-      type: "MetricType",
+    data: {
+      baseName: "data",
+      type: "MetricVolumesRelationshipData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,7 +39,7 @@ export class Metric {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return Metric.attributeTypeMap;
+    return MetricVolumesRelationship.attributeTypeMap;
   }
 
   public constructor() {}

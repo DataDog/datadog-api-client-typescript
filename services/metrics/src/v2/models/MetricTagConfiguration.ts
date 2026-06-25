@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { MetricRelationships } from "./MetricRelationships";
 import { MetricTagConfigurationAttributes } from "./MetricTagConfigurationAttributes";
 import { MetricTagConfigurationType } from "./MetricTagConfigurationType";
 
@@ -15,6 +16,10 @@ export class MetricTagConfiguration {
    * The metric name for this resource.
    */
   "id"?: string;
+  /**
+   * Relationships for a metric.
+   */
+  "relationships"?: MetricRelationships;
   /**
    * The metric tag configuration resource type.
    */
@@ -41,6 +46,10 @@ export class MetricTagConfiguration {
     id: {
       baseName: "id",
       type: "string",
+    },
+    relationships: {
+      baseName: "relationships",
+      type: "MetricRelationships",
     },
     type: {
       baseName: "type",
