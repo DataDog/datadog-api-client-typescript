@@ -13792,6 +13792,54 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ReportScheduleResponse",
   },
+  "ReportSchedulesApi.V2.ListReportSchedules": {
+    pageLimit: {
+      type: "number",
+      format: "int64",
+    },
+    pageOffset: {
+      type: "number",
+      format: "int64",
+    },
+    filterTitle: {
+      type: "string",
+      format: "",
+    },
+    filterAuthorUuid: {
+      type: "string",
+      format: "uuid",
+    },
+    filterRecipients: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ReportScheduleListResponse",
+  },
+  "ReportSchedulesApi.V2.GetReportSchedulesForResource": {
+    resourceType: {
+      type: "ReportScheduleResourceType",
+      format: "",
+    },
+    resourceId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ReportScheduleListResponse",
+  },
+  "ReportSchedulesApi.V2.GetReportSchedule": {
+    scheduleUuid: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "ReportScheduleResponse",
+  },
+  "ReportSchedulesApi.V2.DeleteReportSchedule": {
+    scheduleUuid: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "ReportScheduleResponse",
+  },
   "ReportSchedulesApi.V2.PatchReportSchedule": {
     scheduleUuid: {
       type: "string",
@@ -13799,6 +13847,17 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     body: {
       type: "ReportSchedulePatchRequest",
+      format: "",
+    },
+    operationResponseType: "ReportScheduleResponse",
+  },
+  "ReportSchedulesApi.V2.ToggleReportSchedule": {
+    scheduleUuid: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "ReportScheduleToggleRequest",
       format: "",
     },
     operationResponseType: "ReportScheduleResponse",
