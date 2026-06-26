@@ -93,6 +93,7 @@ export {
   SecurityMonitoringApiGetSuppressionsAffectingFutureRuleRequest,
   SecurityMonitoringApiGetSuppressionsAffectingRuleRequest,
   SecurityMonitoringApiGetVulnerabilityNotificationRuleRequest,
+  SecurityMonitoringApiImportSecurityVulnerabilitiesRequest,
   SecurityMonitoringApiListAssetsSBOMsRequest,
   SecurityMonitoringApiListFindingsRequest,
   SecurityMonitoringApiListHistoricalJobsRequest,
@@ -241,6 +242,20 @@ export { CustomFrameworkRequirement } from "./models/CustomFrameworkRequirement"
 export { CustomFrameworkType } from "./models/CustomFrameworkType";
 export { CustomFrameworkWithoutRequirements } from "./models/CustomFrameworkWithoutRequirements";
 export { CVSS } from "./models/CVSS";
+export { CycloneDXBom } from "./models/CycloneDXBom";
+export { CycloneDXComponent } from "./models/CycloneDXComponent";
+export { CycloneDXComponentType } from "./models/CycloneDXComponentType";
+export { CycloneDXMetadata } from "./models/CycloneDXMetadata";
+export { CycloneDXMetadataComponent } from "./models/CycloneDXMetadataComponent";
+export { CycloneDXMetadataTools } from "./models/CycloneDXMetadataTools";
+export { CycloneDXToolComponent } from "./models/CycloneDXToolComponent";
+export { CycloneDXVulnerability } from "./models/CycloneDXVulnerability";
+export { CycloneDXVulnerabilityAdvisory } from "./models/CycloneDXVulnerabilityAdvisory";
+export { CycloneDXVulnerabilityAffects } from "./models/CycloneDXVulnerabilityAffects";
+export { CycloneDXVulnerabilityAnalysis } from "./models/CycloneDXVulnerabilityAnalysis";
+export { CycloneDXVulnerabilityRating } from "./models/CycloneDXVulnerabilityRating";
+export { CycloneDXVulnerabilityReference } from "./models/CycloneDXVulnerabilityReference";
+export { CycloneDXVulnerabilityReferenceSource } from "./models/CycloneDXVulnerabilityReferenceSource";
 export { DefaultRulesetsPerLanguageData } from "./models/DefaultRulesetsPerLanguageData";
 export { DefaultRulesetsPerLanguageDataAttributes } from "./models/DefaultRulesetsPerLanguageDataAttributes";
 export { DefaultRulesetsPerLanguageDataType } from "./models/DefaultRulesetsPerLanguageDataType";

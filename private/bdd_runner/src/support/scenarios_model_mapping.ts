@@ -6351,6 +6351,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ListVulnerabilitiesResponse",
   },
+  "SecurityMonitoringApi.V2.ImportSecurityVulnerabilities": {
+    body: {
+      type: "CycloneDXBom",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "SecurityMonitoringApi.V2.GetVulnerabilityNotificationRules": {
     operationResponseType: "NotificationRulesListResponse",
   },
