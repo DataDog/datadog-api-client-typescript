@@ -19,6 +19,7 @@ const params: v1.MonitorsApiCreateMonitorRequest = {
       },
       notifyAudit: false,
       includeTags: false,
+      onMissingData: "default",
       schedulingOptions: {
         evaluationWindow: {
           dayStarts: "04:00",
