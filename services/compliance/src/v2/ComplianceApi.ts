@@ -284,6 +284,8 @@ export class ComplianceApi {
   }
 
   /**
+   * **This endpoint is deprecated.** Use the [Security Monitoring - Search Security Findings](https://docs.datadoghq.com/api/latest/security-monitoring/search-security-findings/) endpoint instead.
+   *
    * Get an aggregated view of compliance rules with their pass, fail, and muted finding counts.
    * Supports filtering by compliance framework, framework version, and additional query filters.
    * @param param The request object
