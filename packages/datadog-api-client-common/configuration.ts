@@ -418,6 +418,7 @@ export function createConfiguration(
       "v2.getStaticAnalysisNodeTypes": false,
       "v2.getStaticAnalysisRuleset": false,
       "v2.getStaticAnalysisTreeSitterWasm": false,
+      "v2.importSecurityVulnerabilities": false,
       "v2.listFindings": false,
       "v2.listHistoricalJobs": false,
       "v2.listIndicatorsOfCompromise": false,

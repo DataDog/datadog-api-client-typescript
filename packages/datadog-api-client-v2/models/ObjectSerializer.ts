@@ -1196,6 +1196,19 @@ import { CustomerOrgDisableRequestData } from "./CustomerOrgDisableRequestData";
 import { CustomerOrgDisableResponse } from "./CustomerOrgDisableResponse";
 import { CustomerOrgDisableResponseAttributes } from "./CustomerOrgDisableResponseAttributes";
 import { CustomerOrgDisableResponseData } from "./CustomerOrgDisableResponseData";
+import { CycloneDXBom } from "./CycloneDXBom";
+import { CycloneDXComponent } from "./CycloneDXComponent";
+import { CycloneDXMetadata } from "./CycloneDXMetadata";
+import { CycloneDXMetadataComponent } from "./CycloneDXMetadataComponent";
+import { CycloneDXMetadataTools } from "./CycloneDXMetadataTools";
+import { CycloneDXToolComponent } from "./CycloneDXToolComponent";
+import { CycloneDXVulnerability } from "./CycloneDXVulnerability";
+import { CycloneDXVulnerabilityAdvisory } from "./CycloneDXVulnerabilityAdvisory";
+import { CycloneDXVulnerabilityAffects } from "./CycloneDXVulnerabilityAffects";
+import { CycloneDXVulnerabilityAnalysis } from "./CycloneDXVulnerabilityAnalysis";
+import { CycloneDXVulnerabilityRating } from "./CycloneDXVulnerabilityRating";
+import { CycloneDXVulnerabilityReference } from "./CycloneDXVulnerabilityReference";
+import { CycloneDXVulnerabilityReferenceSource } from "./CycloneDXVulnerabilityReferenceSource";
 import { DORADeploymentFetchResponse } from "./DORADeploymentFetchResponse";
 import { DORADeploymentObject } from "./DORADeploymentObject";
 import { DORADeploymentObjectAttributes } from "./DORADeploymentObjectAttributes";
@@ -5831,6 +5844,7 @@ const enumsMap: { [key: string]: any[] } = {
   CustomerOrgDisableResponseType: ["org_disable"],
   CustomerOrgDisableStatus: ["disabled", "pending_disable"],
   CustomerOrgDisableType: ["customer_org_disable"],
+  CycloneDXComponentType: ["library", "application", "operating-system"],
   DORADeploymentPatchRemediationType: ["rollback", "rollforward"],
   DORADeploymentPatchRequestDataType: ["dora_deployment_patch_request"],
   DORADeploymentType: ["dora_deployment"],
@@ -9504,6 +9518,19 @@ const typeMap: { [index: string]: any } = {
   CustomerOrgDisableResponse: CustomerOrgDisableResponse,
   CustomerOrgDisableResponseAttributes: CustomerOrgDisableResponseAttributes,
   CustomerOrgDisableResponseData: CustomerOrgDisableResponseData,
+  CycloneDXBom: CycloneDXBom,
+  CycloneDXComponent: CycloneDXComponent,
+  CycloneDXMetadata: CycloneDXMetadata,
+  CycloneDXMetadataComponent: CycloneDXMetadataComponent,
+  CycloneDXMetadataTools: CycloneDXMetadataTools,
+  CycloneDXToolComponent: CycloneDXToolComponent,
+  CycloneDXVulnerability: CycloneDXVulnerability,
+  CycloneDXVulnerabilityAdvisory: CycloneDXVulnerabilityAdvisory,
+  CycloneDXVulnerabilityAffects: CycloneDXVulnerabilityAffects,
+  CycloneDXVulnerabilityAnalysis: CycloneDXVulnerabilityAnalysis,
+  CycloneDXVulnerabilityRating: CycloneDXVulnerabilityRating,
+  CycloneDXVulnerabilityReference: CycloneDXVulnerabilityReference,
+  CycloneDXVulnerabilityReferenceSource: CycloneDXVulnerabilityReferenceSource,
   DORADeploymentFetchResponse: DORADeploymentFetchResponse,
   DORADeploymentObject: DORADeploymentObject,
   DORADeploymentObjectAttributes: DORADeploymentObjectAttributes,
