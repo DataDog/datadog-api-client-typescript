@@ -9593,6 +9593,25 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "SAMLConfigurationResponse",
   },
+  "GovernanceSettingsApi.V2.GetGovernanceConfig": {
+    operationResponseType: "GovernanceConfigResponse",
+  },
+  "GovernanceSettingsApi.V2.ListGovernanceLimits": {
+    operationResponseType: "GovernanceLimitsResponse",
+  },
+  "GovernanceSettingsApi.V2.GetGovernanceNotificationSettings": {
+    operationResponseType: "GovernanceNotificationSettingsResponse",
+  },
+  "GovernanceSettingsApi.V2.UpdateGovernanceNotificationSettings": {
+    body: {
+      type: "GovernanceNotificationSettingsUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "GovernanceNotificationSettingsResponse",
+  },
+  "GovernanceSettingsApi.V2.ListGovernanceResourceLimits": {
+    operationResponseType: "GovernanceResourceLimitsResponse",
+  },
   "GovernanceControlsApi.V2.ListGovernanceControls": {
     operationResponseType: "GovernanceControlsResponse",
   },
@@ -9613,6 +9632,84 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "GovernanceControlResponse",
+  },
+  "GovernanceControlsApi.V2.ListGovernanceControlDetections": {
+    detectionType: {
+      type: "string",
+      format: "",
+    },
+    filterState: {
+      type: "string",
+      format: "",
+    },
+    filterQuery: {
+      type: "string",
+      format: "",
+    },
+    sort: {
+      type: "string",
+      format: "",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "GovernanceControlDetectionsResponse",
+  },
+  "GovernanceControlsApi.V2.GetGovernanceControlDetection": {
+    detectionType: {
+      type: "string",
+      format: "",
+    },
+    detectionId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "GovernanceControlDetectionResponse",
+  },
+  "GovernanceControlsApi.V2.UpdateGovernanceControlDetection": {
+    detectionType: {
+      type: "string",
+      format: "",
+    },
+    detectionId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "GovernanceControlDetectionUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "GovernanceControlDetectionResponse",
+  },
+  "GovernanceControlsApi.V2.GetGovernanceControlNotificationSettings": {
+    detectionType: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ControlNotificationSettingsResponse",
+  },
+  "GovernanceControlsApi.V2.UpdateGovernanceControlNotificationSettings": {
+    detectionType: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "ControlNotificationSettingsUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "ControlNotificationSettingsResponse",
+  },
+  "GovernanceControlsApi.V2.CreateGovernanceMitigation": {
+    body: {
+      type: "GovernanceMitigationRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
   },
   "GovernanceInsightsApi.V2.ListGovernanceInsights": {
     withValues: {

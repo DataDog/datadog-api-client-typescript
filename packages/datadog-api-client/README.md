@@ -407,6 +407,7 @@ apiInstance
 | Google Chat Integration | @datadog/datadog-api-client-google-chat-integration | [README.md](../../services/google-chat-integration/README.md) |
 | Governance Controls | @datadog/datadog-api-client-governance-controls | [README.md](../../services/governance-controls/README.md) |
 | Governance Insights | @datadog/datadog-api-client-governance-insights | [README.md](../../services/governance-insights/README.md) |
+| Governance Settings | @datadog/datadog-api-client-governance-settings | [README.md](../../services/governance-settings/README.md) |
 | High Availability MultiRegion | @datadog/datadog-api-client-high-availability-multi-region | [README.md](../../services/high-availability-multi-region/README.md) |
 | Hosts | @datadog/datadog-api-client-hosts | [README.md](../../services/hosts/README.md) |
 | Incidents | @datadog/datadog-api-client-incidents | [README.md](../../services/incidents/README.md) |
