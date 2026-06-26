@@ -34,6 +34,7 @@ import { CreateCustomFrameworkResponse } from "../models/CreateCustomFrameworkRe
 import { CreateJiraIssueRequestArray } from "../models/CreateJiraIssueRequestArray";
 import { CreateNotificationRuleParameters } from "../models/CreateNotificationRuleParameters";
 import { CreateServiceNowTicketRequestArray } from "../models/CreateServiceNowTicketRequestArray";
+import { CycloneDXBom } from "../models/CycloneDXBom";
 import { DefaultRulesetsPerLanguageResponse } from "../models/DefaultRulesetsPerLanguageResponse";
 import { DeleteCustomFrameworkResponse } from "../models/DeleteCustomFrameworkResponse";
 import { DetachCaseRequest } from "../models/DetachCaseRequest";
@@ -4932,6 +4933,55 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async importSecurityVulnerabilities(
+    body: CycloneDXBom,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'importSecurityVulnerabilities'");
+    if (!_config.unstableOperations["v2.importSecurityVulnerabilities"]) {
+      throw new Error(
+        "Unstable operation 'importSecurityVulnerabilities' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "importSecurityVulnerabilities");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/vulnerabilities";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.importSecurityVulnerabilities")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "CycloneDXBom", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -14979,6 +15029,60 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to importSecurityVulnerabilities
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async importSecurityVulnerabilities(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listAssetsSBOMs
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -19568,6 +19672,13 @@ export interface SecurityMonitoringApiGetVulnerabilityNotificationRuleRequest {
   id: string;
 }
 
+export interface SecurityMonitoringApiImportSecurityVulnerabilitiesRequest {
+  /**
+   * @type CycloneDXBom
+   */
+  body: CycloneDXBom;
+}
+
 export interface SecurityMonitoringApiListAssetsSBOMsRequest {
   /**
    * Its value must come from the `links` section of the response of the first request. Do not manually edit it.
@@ -22971,6 +23082,42 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getVulnerabilityNotificationRules(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Import security vulnerabilities from an external scanner in CycloneDX 1.5 format.
+   *
+   * The payload is validated against the CycloneDX 1.5 JSON schema and the following
+   * additional constraints:
+   *
+   * - `metadata`, `metadata.component`, and `metadata.component.name` are required.
+   * - `metadata.tools.components` must contain exactly one element with a `name` field.
+   * - `components` cannot be empty. Each component requires `bom-ref`, `type`, `name`, and `version`.
+   * - When `type` is `library`, `purl` is required and must be a valid PURL.
+   * - When `type` is `operating-system`, `name` must be one of the supported OS values:
+   *   `alma`, `alpine`, `amazon`, `azurelinux`, `bottlerocket`, `cbl-mariner`, `chainguard`,
+   *   `centos`, `debian`, `fedora`, `opensuse`, `opensuse-leap`, `opensuse-tumbleweed`,
+   *   `oracle`, `photon`, `redhat`, `rocky`, `slem`, `sles`, `ubuntu`, `wolfi`, `windows`, `macos`.
+   * - `vulnerabilities` cannot be empty. Each vulnerability requires `id`, exactly one `ratings` entry,
+   *   and at least one `affects` entry.
+   * - Each `affects[].ref` must match a `bom-ref` value in `components`.
+   * @param param The request object
+   */
+  public importSecurityVulnerabilities(
+    param: SecurityMonitoringApiImportSecurityVulnerabilitiesRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.importSecurityVulnerabilities(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.importSecurityVulnerabilities(
             responseContext
           );
         });

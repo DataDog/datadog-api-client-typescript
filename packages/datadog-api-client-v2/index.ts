@@ -1403,6 +1403,7 @@ export {
   SecurityMonitoringApiGetSuppressionsAffectingFutureRuleRequest,
   SecurityMonitoringApiGetSuppressionsAffectingRuleRequest,
   SecurityMonitoringApiGetVulnerabilityNotificationRuleRequest,
+  SecurityMonitoringApiImportSecurityVulnerabilitiesRequest,
   SecurityMonitoringApiListAssetsSBOMsRequest,
   SecurityMonitoringApiListFindingsRequest,
   SecurityMonitoringApiListHistoricalJobsRequest,
@@ -3339,6 +3340,20 @@ export { CustomRulesetRequestData } from "./models/CustomRulesetRequestData";
 export { CustomRulesetRequestDataAttributes } from "./models/CustomRulesetRequestDataAttributes";
 export { CustomRulesetResponse } from "./models/CustomRulesetResponse";
 export { CVSS } from "./models/CVSS";
+export { CycloneDXBom } from "./models/CycloneDXBom";
+export { CycloneDXComponent } from "./models/CycloneDXComponent";
+export { CycloneDXComponentType } from "./models/CycloneDXComponentType";
+export { CycloneDXMetadata } from "./models/CycloneDXMetadata";
+export { CycloneDXMetadataComponent } from "./models/CycloneDXMetadataComponent";
+export { CycloneDXMetadataTools } from "./models/CycloneDXMetadataTools";
+export { CycloneDXToolComponent } from "./models/CycloneDXToolComponent";
+export { CycloneDXVulnerability } from "./models/CycloneDXVulnerability";
+export { CycloneDXVulnerabilityAdvisory } from "./models/CycloneDXVulnerabilityAdvisory";
+export { CycloneDXVulnerabilityAffects } from "./models/CycloneDXVulnerabilityAffects";
+export { CycloneDXVulnerabilityAnalysis } from "./models/CycloneDXVulnerabilityAnalysis";
+export { CycloneDXVulnerabilityRating } from "./models/CycloneDXVulnerabilityRating";
+export { CycloneDXVulnerabilityReference } from "./models/CycloneDXVulnerabilityReference";
+export { CycloneDXVulnerabilityReferenceSource } from "./models/CycloneDXVulnerabilityReferenceSource";
 export { DashboardListAddItemsRequest } from "./models/DashboardListAddItemsRequest";
 export { DashboardListAddItemsResponse } from "./models/DashboardListAddItemsResponse";
 export { DashboardListDeleteItemsRequest } from "./models/DashboardListDeleteItemsRequest";
