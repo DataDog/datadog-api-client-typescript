@@ -82,6 +82,19 @@ import { CustomFrameworkDataHandleAndVersion } from "./CustomFrameworkDataHandle
 import { CustomFrameworkMetadata } from "./CustomFrameworkMetadata";
 import { CustomFrameworkRequirement } from "./CustomFrameworkRequirement";
 import { CustomFrameworkWithoutRequirements } from "./CustomFrameworkWithoutRequirements";
+import { CycloneDXBom } from "./CycloneDXBom";
+import { CycloneDXComponent } from "./CycloneDXComponent";
+import { CycloneDXMetadata } from "./CycloneDXMetadata";
+import { CycloneDXMetadataComponent } from "./CycloneDXMetadataComponent";
+import { CycloneDXMetadataTools } from "./CycloneDXMetadataTools";
+import { CycloneDXToolComponent } from "./CycloneDXToolComponent";
+import { CycloneDXVulnerability } from "./CycloneDXVulnerability";
+import { CycloneDXVulnerabilityAdvisory } from "./CycloneDXVulnerabilityAdvisory";
+import { CycloneDXVulnerabilityAffects } from "./CycloneDXVulnerabilityAffects";
+import { CycloneDXVulnerabilityAnalysis } from "./CycloneDXVulnerabilityAnalysis";
+import { CycloneDXVulnerabilityRating } from "./CycloneDXVulnerabilityRating";
+import { CycloneDXVulnerabilityReference } from "./CycloneDXVulnerabilityReference";
+import { CycloneDXVulnerabilityReferenceSource } from "./CycloneDXVulnerabilityReferenceSource";
 import { DefaultRulesetsPerLanguageData } from "./DefaultRulesetsPerLanguageData";
 import { DefaultRulesetsPerLanguageDataAttributes } from "./DefaultRulesetsPerLanguageDataAttributes";
 import { DefaultRulesetsPerLanguageResponse } from "./DefaultRulesetsPerLanguageResponse";
@@ -530,6 +543,7 @@ export const TypingInfo: ModelTypingInfo = {
       "historicalDetectionsJobResultSignalConversion",
     ],
     CustomFrameworkType: ["custom_framework"],
+    CycloneDXComponentType: ["library", "application", "operating-system"],
     DefaultRulesetsPerLanguageDataType: ["defaultRulesetsPerLanguage"],
     DetailedFindingType: ["detailed_finding"],
     DueDateFrom: ["first_seen", "fix_available"],
@@ -1102,6 +1116,20 @@ export const TypingInfo: ModelTypingInfo = {
     CustomFrameworkMetadata: CustomFrameworkMetadata,
     CustomFrameworkRequirement: CustomFrameworkRequirement,
     CustomFrameworkWithoutRequirements: CustomFrameworkWithoutRequirements,
+    CycloneDXBom: CycloneDXBom,
+    CycloneDXComponent: CycloneDXComponent,
+    CycloneDXMetadata: CycloneDXMetadata,
+    CycloneDXMetadataComponent: CycloneDXMetadataComponent,
+    CycloneDXMetadataTools: CycloneDXMetadataTools,
+    CycloneDXToolComponent: CycloneDXToolComponent,
+    CycloneDXVulnerability: CycloneDXVulnerability,
+    CycloneDXVulnerabilityAdvisory: CycloneDXVulnerabilityAdvisory,
+    CycloneDXVulnerabilityAffects: CycloneDXVulnerabilityAffects,
+    CycloneDXVulnerabilityAnalysis: CycloneDXVulnerabilityAnalysis,
+    CycloneDXVulnerabilityRating: CycloneDXVulnerabilityRating,
+    CycloneDXVulnerabilityReference: CycloneDXVulnerabilityReference,
+    CycloneDXVulnerabilityReferenceSource:
+      CycloneDXVulnerabilityReferenceSource,
     DefaultRulesetsPerLanguageData: DefaultRulesetsPerLanguageData,
     DefaultRulesetsPerLanguageDataAttributes:
       DefaultRulesetsPerLanguageDataAttributes,
