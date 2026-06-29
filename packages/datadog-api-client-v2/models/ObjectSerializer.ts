@@ -513,9 +513,10 @@ import { CIAppGroupByHistogram } from "./CIAppGroupByHistogram";
 import { CIAppHostInfo } from "./CIAppHostInfo";
 import { CIAppPipelineEvent } from "./CIAppPipelineEvent";
 import { CIAppPipelineEventAttributes } from "./CIAppPipelineEventAttributes";
+import { CIAppPipelineEventFinishedJob } from "./CIAppPipelineEventFinishedJob";
 import { CIAppPipelineEventFinishedPipeline } from "./CIAppPipelineEventFinishedPipeline";
+import { CIAppPipelineEventInProgressJob } from "./CIAppPipelineEventInProgressJob";
 import { CIAppPipelineEventInProgressPipeline } from "./CIAppPipelineEventInProgressPipeline";
-import { CIAppPipelineEventJob } from "./CIAppPipelineEventJob";
 import { CIAppPipelineEventParentPipeline } from "./CIAppPipelineEventParentPipeline";
 import { CIAppPipelineEventPreviousPipeline } from "./CIAppPipelineEventPreviousPipeline";
 import { CIAppPipelineEventStage } from "./CIAppPipelineEventStage";
@@ -5559,6 +5560,7 @@ const enumsMap: { [key: string]: any[] } = {
   CIAppCIErrorDomain: ["provider", "user", "unknown"],
   CIAppComputeType: ["timeseries", "total"],
   CIAppCreatePipelineEventRequestDataType: ["cipipeline_resource_request"],
+  CIAppPipelineEventJobInProgressStatus: ["running"],
   CIAppPipelineEventJobLevel: ["job"],
   CIAppPipelineEventJobStatus: ["success", "error", "canceled", "skipped"],
   CIAppPipelineEventPipelineInProgressStatus: ["running"],
@@ -8711,9 +8713,10 @@ const typeMap: { [index: string]: any } = {
   CIAppHostInfo: CIAppHostInfo,
   CIAppPipelineEvent: CIAppPipelineEvent,
   CIAppPipelineEventAttributes: CIAppPipelineEventAttributes,
+  CIAppPipelineEventFinishedJob: CIAppPipelineEventFinishedJob,
   CIAppPipelineEventFinishedPipeline: CIAppPipelineEventFinishedPipeline,
+  CIAppPipelineEventInProgressJob: CIAppPipelineEventInProgressJob,
   CIAppPipelineEventInProgressPipeline: CIAppPipelineEventInProgressPipeline,
-  CIAppPipelineEventJob: CIAppPipelineEventJob,
   CIAppPipelineEventParentPipeline: CIAppPipelineEventParentPipeline,
   CIAppPipelineEventPreviousPipeline: CIAppPipelineEventPreviousPipeline,
   CIAppPipelineEventStage: CIAppPipelineEventStage,
@@ -14447,6 +14450,10 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   CIAppGroupByMissing: ["string", "number"],
   CIAppGroupByTotal: ["boolean", "string", "number"],
+  CIAppPipelineEventJob: [
+    "CIAppPipelineEventFinishedJob",
+    "CIAppPipelineEventInProgressJob",
+  ],
   CIAppPipelineEventPipeline: [
     "CIAppPipelineEventFinishedPipeline",
     "CIAppPipelineEventInProgressPipeline",
