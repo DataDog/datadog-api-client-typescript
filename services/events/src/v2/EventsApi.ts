@@ -599,6 +599,7 @@ export class EventsApi {
           | "us5.datadoghq.com"
           | "ap1.datadoghq.com"
           | "ap2.datadoghq.com"
+          | "uk1.datadoghq.com"
           | "datadoghq.eu"
           | "ddog-gov.com"
           | "us2.ddog-gov.com";
