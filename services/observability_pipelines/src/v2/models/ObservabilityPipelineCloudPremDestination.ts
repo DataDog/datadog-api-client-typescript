@@ -2,6 +2,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 import { ObservabilityPipelineCloudPremDestinationType } from "./ObservabilityPipelineCloudPremDestinationType";
+import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
  * The `cloud_prem` destination sends logs to Datadog CloudPrem.
@@ -25,6 +26,10 @@ export class ObservabilityPipelineCloudPremDestination {
    * A list of component IDs whose output is used as the `input` for this component.
    */
   "inputs": Array<string>;
+  /**
+   * Configuration for enabling TLS encryption between the pipeline component and external services.
+   */
+  "tls"?: ObservabilityPipelineTls;
   /**
    * The destination type. The value should always be `cloud_prem`.
    */
@@ -61,6 +66,10 @@ export class ObservabilityPipelineCloudPremDestination {
       baseName: "inputs",
       type: "Array<string>",
       required: true,
+    },
+    tls: {
+      baseName: "tls",
+      type: "ObservabilityPipelineTls",
     },
     type: {
       baseName: "type",
