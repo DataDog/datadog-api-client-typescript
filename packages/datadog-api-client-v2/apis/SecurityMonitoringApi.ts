@@ -19855,7 +19855,7 @@ export interface SecurityMonitoringApiListIndicatorsOfCompromiseRequest {
    */
   ocsf?: boolean;
   /**
-   * Filter indicators whose triage state was updated by a specific user UUID.
+   * Filter indicators whose triage state was updated by a specific user identified by their handle.
    * @type string
    */
   workedBy?: string;
