@@ -179,6 +179,12 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+    if (!_config.unstableOperations["MetricsApi.v2.createTagIndexingRule"]) {
+      throw new Error(
+        "Unstable operation 'createTagIndexingRule' is disabled. Enable it by setting `configuration.unstableOperations['MetricsApi.v2.createTagIndexingRule'] = true`",
+      );
+    }
+
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "createTagIndexingRule");
@@ -230,6 +236,16 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "MetricsApi.v2.createTagIndexingRuleExemption"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createTagIndexingRuleExemption' is disabled. Enable it by setting `configuration.unstableOperations['MetricsApi.v2.createTagIndexingRuleExemption'] = true`",
+      );
+    }
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
@@ -385,6 +401,12 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+    if (!_config.unstableOperations["MetricsApi.v2.deleteTagIndexingRule"]) {
+      throw new Error(
+        "Unstable operation 'deleteTagIndexingRule' is disabled. Enable it by setting `configuration.unstableOperations['MetricsApi.v2.deleteTagIndexingRule'] = true`",
+      );
+    }
+
     // verify required parameter 'id' is not null or undefined
     if (id === null || id === undefined) {
       throw new RequiredError("id", "deleteTagIndexingRule");
@@ -429,6 +451,16 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "MetricsApi.v2.deleteTagIndexingRuleExemption"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteTagIndexingRuleExemption' is disabled. Enable it by setting `configuration.unstableOperations['MetricsApi.v2.deleteTagIndexingRuleExemption'] = true`",
+      );
+    }
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
@@ -607,6 +639,12 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+    if (!_config.unstableOperations["MetricsApi.v2.getTagIndexingRule"]) {
+      throw new Error(
+        "Unstable operation 'getTagIndexingRule' is disabled. Enable it by setting `configuration.unstableOperations['MetricsApi.v2.getTagIndexingRule'] = true`",
+      );
+    }
+
     // verify required parameter 'id' is not null or undefined
     if (id === null || id === undefined) {
       throw new RequiredError("id", "getTagIndexingRule");
@@ -651,6 +689,14 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["MetricsApi.v2.getTagIndexingRuleExemption"]
+    ) {
+      throw new Error(
+        "Unstable operation 'getTagIndexingRuleExemption' is disabled. Enable it by setting `configuration.unstableOperations['MetricsApi.v2.getTagIndexingRuleExemption'] = true`",
+      );
+    }
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
@@ -1000,6 +1046,12 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+    if (!_config.unstableOperations["MetricsApi.v2.listTagIndexingRules"]) {
+      throw new Error(
+        "Unstable operation 'listTagIndexingRules' is disabled. Enable it by setting `configuration.unstableOperations['MetricsApi.v2.listTagIndexingRules'] = true`",
+      );
+    }
+
     // Path Params
     const localVarPath = "/api/v2/metrics/tag-indexing-rules";
 
@@ -1059,6 +1111,14 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["MetricsApi.v2.listTagIndexingRulesForMetric"]
+    ) {
+      throw new Error(
+        "Unstable operation 'listTagIndexingRulesForMetric' is disabled. Enable it by setting `configuration.unstableOperations['MetricsApi.v2.listTagIndexingRulesForMetric'] = true`",
+      );
+    }
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
@@ -1357,6 +1417,12 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+    if (!_config.unstableOperations["MetricsApi.v2.reorderTagIndexingRules"]) {
+      throw new Error(
+        "Unstable operation 'reorderTagIndexingRules' is disabled. Enable it by setting `configuration.unstableOperations['MetricsApi.v2.reorderTagIndexingRules'] = true`",
+      );
+    }
+
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "reorderTagIndexingRules");
@@ -1523,6 +1589,12 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["MetricsApi.v2.updateTagIndexingRule"]) {
+      throw new Error(
+        "Unstable operation 'updateTagIndexingRule' is disabled. Enable it by setting `configuration.unstableOperations['MetricsApi.v2.updateTagIndexingRule'] = true`",
+      );
+    }
 
     // verify required parameter 'id' is not null or undefined
     if (id === null || id === undefined) {
