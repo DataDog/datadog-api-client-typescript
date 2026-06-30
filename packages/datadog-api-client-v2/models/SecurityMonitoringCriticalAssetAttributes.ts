@@ -25,6 +25,10 @@ export class SecurityMonitoringCriticalAssetAttributes {
    */
   "creator"?: SecurityMonitoringUser;
   /**
+   * A description of the critical asset.
+   */
+  "description"?: string;
+  /**
    * Whether the critical asset is enabled.
    */
   "enabled"?: boolean;
@@ -90,6 +94,10 @@ export class SecurityMonitoringCriticalAssetAttributes {
     creator: {
       baseName: "creator",
       type: "SecurityMonitoringUser",
+    },
+    description: {
+      baseName: "description",
+      type: "string",
     },
     enabled: {
       baseName: "enabled",
