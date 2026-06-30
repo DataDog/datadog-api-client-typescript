@@ -454,6 +454,7 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     ListStreamIssuePersona: ["all", "browser", "mobile", "backend"],
     ListStreamIssueState: ["OPEN", "IGNORED", "ACKNOWLEDGED", "RESOLVED"],
+    ListStreamQueryVersion: ["sequential_query"],
     ListStreamResponseFormat: ["event_list"],
     ListStreamSource: [
       "logs_stream",

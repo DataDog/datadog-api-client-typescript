@@ -4,6 +4,7 @@ import { ListStreamComputeItems } from "./ListStreamComputeItems";
 import { ListStreamGroupByItems } from "./ListStreamGroupByItems";
 import { ListStreamIssuePersona } from "./ListStreamIssuePersona";
 import { ListStreamIssueState } from "./ListStreamIssueState";
+import { ListStreamQueryVersion } from "./ListStreamQueryVersion";
 import { ListStreamSource } from "./ListStreamSource";
 import { WidgetEventSize } from "./WidgetEventSize";
 import { WidgetFieldSort } from "./WidgetFieldSort";
@@ -68,6 +69,11 @@ export class ListStreamQuery {
    * Filter by team handles. Usable only with `issue_stream`.
    */
   "teamHandles"?: Array<string>;
+  /**
+   * Version of the query for the logs transaction stream widget. When omitted, v1 query behavior is
+   * preserved. Set to `sequential_query` to use v2 behavior. **This feature is in Preview.**
+   */
+  "version"?: ListStreamQueryVersion;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -140,6 +146,10 @@ export class ListStreamQuery {
     teamHandles: {
       baseName: "team_handles",
       type: "Array<string>",
+    },
+    version: {
+      baseName: "version",
+      type: "ListStreamQueryVersion",
     },
     additionalProperties: {
       baseName: "additionalProperties",
