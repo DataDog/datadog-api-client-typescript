@@ -1,5 +1,40 @@
 # CHANGELOG
 
+## 1.60.0/2026-06-30
+
+### Added
+* Add the uk1 data center. [#4554](https://github.com/DataDog/datadog-api-client-typescript/pull/4554)
+* [obs-pipelines] Add TLS support to cloud_prem destination [#4542](https://github.com/DataDog/datadog-api-client-typescript/pull/4542)
+* Add OpenAPI spec for k9-integration-api security findings and vulnerabilities [#4536](https://github.com/DataDog/datadog-api-client-typescript/pull/4536)
+* Document metrics volume includes [#4532](https://github.com/DataDog/datadog-api-client-typescript/pull/4532)
+* Add buffer configuration to ClickHouse destination [#4530](https://github.com/DataDog/datadog-api-client-typescript/pull/4530)
+* Add public API endpoints for feature flag variant create, update, and delete [#4526](https://github.com/DataDog/datadog-api-client-typescript/pull/4526)
+* Add public v2 OpenAPI operations for governance controls [#4522](https://github.com/DataDog/datadog-api-client-typescript/pull/4522)
+* Add ObservabilityPipelineClickhouseDestination to OpenAPI spec [#4520](https://github.com/DataDog/datadog-api-client-typescript/pull/4520)
+* Add ObservabilityPipelineWebsocketSource to schema [#4516](https://github.com/DataDog/datadog-api-client-typescript/pull/4516)
+* Add security_filters and rules resource types to terraform export endpoints [#4512](https://github.com/DataDog/datadog-api-client-typescript/pull/4512)
+* Add OpenAPI for Cloud Cost Management custom forecast endpoints [#4510](https://github.com/DataDog/datadog-api-client-typescript/pull/4510)
+* Add Edit and Delete Notice Update and Slack icon support in API spec [#4500](https://github.com/DataDog/datadog-api-client-typescript/pull/4500)
+* Add OpenAPI spec for RUM Remote Config endpoints [#4494](https://github.com/DataDog/datadog-api-client-typescript/pull/4494)
+* Add OpenAPI spec for code-coverage PR summary and files endpoints [#4492](https://github.com/DataDog/datadog-api-client-typescript/pull/4492)
+* feat(test-optimization): update service settings API with override and inherit fields [#4490](https://github.com/DataDog/datadog-api-client-typescript/pull/4490)
+* Add public API for security findings automation rules [#4486](https://github.com/DataDog/datadog-api-client-typescript/pull/4486)
+* Add OpenAPI spec for governance insights [#4476](https://github.com/DataDog/datadog-api-client-typescript/pull/4476)
+* Add OpenAPI specs for reporting schedule endpoints [#4465](https://github.com/DataDog/datadog-api-client-typescript/pull/4465)
+* Add LogsArrayMapProcessor to OpenAPI v1 spec [#4414](https://github.com/DataDog/datadog-api-client-typescript/pull/4414)
+* Update GetBudget API spec with cost query parameters and custom forecast fields [#4412](https://github.com/DataDog/datadog-api-client-typescript/pull/4412)
+
+### Changed
+* Update worked_by param to accept handle instead of UUID [#4551](https://github.com/DataDog/datadog-api-client-typescript/pull/4551)
+* Add support for running CI jobs [#4524](https://github.com/DataDog/datadog-api-client-typescript/pull/4524)
+* Mark tag indexing rule endpoints as Preview in API spec [#4488](https://github.com/DataDog/datadog-api-client-typescript/pull/4488)
+
+### Deprecated
+* Remove Compliance Findings rule-based view endpoint from OpenAPI v2 [#4544](https://github.com/DataDog/datadog-api-client-typescript/pull/4544)
+
+### Fixed
+* Fix test by adding on_missing_data options to the req payload [#4540](https://github.com/DataDog/datadog-api-client-typescript/pull/4540)
+
 ## 1.59.0/2026-06-17
 
 ### Added
