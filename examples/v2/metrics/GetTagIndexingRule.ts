@@ -5,6 +5,7 @@
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
+configuration.unstableOperations["v2.getTagIndexingRule"] = true;
 const apiInstance = new v2.MetricsApi(configuration);
 
 // there is a valid "tag_indexing_rule" in the system
