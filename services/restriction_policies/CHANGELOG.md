@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.7/2026-06-30
+
+### Added
+* Add status-page resource to restriction policy API docs [#4326](https://github.com/DataDog/datadog-api-client-typescript/pull/4326)
+
 ## 0.0.1-beta.6/2026-04-16
 
 ### Added

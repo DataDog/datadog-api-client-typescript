@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.5/2026-06-30
+
+### Added
+* Add slo_query to SLO Correction API for global correction support [#4390](https://github.com/DataDog/datadog-api-client-typescript/pull/4390)
+
 ## 0.0.1-beta.4/2026-04-01
 
 ### Added

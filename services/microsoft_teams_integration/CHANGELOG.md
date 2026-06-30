@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.3/2026-06-30
+
+### Changed
+* Add DELETE user-binding endpoint to Microsoft Teams Integration spec [#4450](https://github.com/DataDog/datadog-api-client-typescript/pull/4450)
+
 ## 0.0.1-beta.2/2025-12-17
 
 ### Security

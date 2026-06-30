@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.5/2026-06-30
+
+### Added
+* Add partitioning_attributes and lookup_attributes to Log Archives spec [#4319](https://github.com/DataDog/datadog-api-client-typescript/pull/4319)
+
 ## 0.0.1-beta.4/2026-05-15
 
 ### Added

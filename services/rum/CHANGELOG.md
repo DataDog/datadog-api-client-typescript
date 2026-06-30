@@ -1,5 +1,20 @@
 # CHANGELOG
 
+## 0.0.1-beta.5/2026-06-30
+
+### Added
+* Add OpenAPI spec for RUM Remote Config endpoints [#4493](https://github.com/DataDog/datadog-api-client-typescript/pull/4493)
+* Add int64 format and extract inline schemas [#4417](https://github.com/DataDog/datadog-api-client-typescript/pull/4417)
+* Add OpenAPI spec for sourcemap-admin public endpoints [#4339](https://github.com/DataDog/datadog-api-client-typescript/pull/4339)
+* RUM - Add OpenAPI spec for hardcoded retention filters [#4336](https://github.com/DataDog/datadog-api-client-typescript/pull/4336)
+* Add RUM rate limit configuration v2 endpoints [#4332](https://github.com/DataDog/datadog-api-client-typescript/pull/4332)
+* RUM - add API endpoints for permanent retention filters [#4263](https://github.com/DataDog/datadog-api-client-typescript/pull/4263)
+* Adjust TS generated clients to query extra pages unless an empty set was returned [#4243](https://github.com/DataDog/datadog-api-client-typescript/pull/4243)
+* Add OpenAPI spec for RUM insight aggregation endpoints [#4214](https://github.com/DataDog/datadog-api-client-typescript/pull/4214)
+
+### Fixed
+* Fix RUM casing in descriptions and summaries [#4367](https://github.com/DataDog/datadog-api-client-typescript/pull/4367)
+
 ## 0.0.1-beta.4/2026-04-01
 
 ### Added

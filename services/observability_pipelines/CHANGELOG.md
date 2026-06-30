@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 0.0.1-beta.12/2026-06-30
+
+### Added
+* Add the uk1 data center. [#4553](https://github.com/DataDog/datadog-api-client-typescript/pull/4553)
+* [obs-pipelines] Add TLS support to cloud_prem destination [#4541](https://github.com/DataDog/datadog-api-client-typescript/pull/4541)
+* Add buffer configuration to ClickHouse destination [#4529](https://github.com/DataDog/datadog-api-client-typescript/pull/4529)
+* Add ObservabilityPipelineClickhouseDestination to OpenAPI spec [#4519](https://github.com/DataDog/datadog-api-client-typescript/pull/4519)
+* Add ObservabilityPipelineWebsocketSource to schema [#4515](https://github.com/DataDog/datadog-api-client-typescript/pull/4515)
+
+### Changed
+* Mark tag indexing rule endpoints as Preview in API spec [#4487](https://github.com/DataDog/datadog-api-client-typescript/pull/4487)
+
 ## 0.0.1-beta.11/2026-06-17
 
 ### Added

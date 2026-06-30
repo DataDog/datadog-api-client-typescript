@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.0.1-beta.6/2026-06-30
+
+### Added
+* Add Edit and Delete Notice Update and Slack icon support in API spec [#4499](https://github.com/DataDog/datadog-api-client-typescript/pull/4499)
+* Add int64 format and extract inline schemas [#4417](https://github.com/DataDog/datadog-api-client-typescript/pull/4417)
+* Add is_backfilled to our Status Pages degradations and maintenances API responses.  [#4276](https://github.com/DataDog/datadog-api-client-typescript/pull/4276)
+* Sync 'status_pages.yaml' files with backend [#4227](https://github.com/DataDog/datadog-api-client-typescript/pull/4227)
+
 ## 0.0.1-beta.5/2026-05-15
 
 ### Added

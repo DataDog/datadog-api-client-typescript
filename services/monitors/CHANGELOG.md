@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 0.0.1-beta.9/2026-06-30
+
+### Added
+* Add critical_query / critical_recovery_query to MonitorThresholds [#4229](https://github.com/DataDog/datadog-api-client-typescript/pull/4229)
+* Monitors Augmented Query Add Group By Source [#4203](https://github.com/DataDog/datadog-api-client-typescript/pull/4203)
+* feat - Add data-jobs alert monitor type support [#4146](https://github.com/DataDog/datadog-api-client-typescript/pull/4146)
+
 ## 0.0.1-beta.8/2026-05-15
 
 ### Added

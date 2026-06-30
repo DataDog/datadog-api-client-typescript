@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 0.0.1-beta.6/2026-06-30
+
+### Changed
+* feat(test-optimization): update service settings API with override and inherit fields [#4489](https://github.com/DataDog/datadog-api-client-typescript/pull/4489)
+* Mark Test Optimization endpoints as stable [#4028](https://github.com/DataDog/datadog-api-client-typescript/pull/4028)
+
+### Added
+* Adjust TS generated clients to query extra pages unless an empty set was returned [#4243](https://github.com/DataDog/datadog-api-client-typescript/pull/4243)
+
 ## 0.0.1-beta.5/2026-04-16
 
 ### Added

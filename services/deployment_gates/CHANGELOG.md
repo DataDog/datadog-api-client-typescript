@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.1-beta.3/2026-06-30
+
+### Added
+* Set x-keep-typed-in-additional-properties on UsageSummary schemas [#4481](https://github.com/DataDog/datadog-api-client-typescript/pull/4481)
+* Add configuration field to deployment gates evaluation API [#4425](https://github.com/DataDog/datadog-api-client-typescript/pull/4425)
+
 ## 0.0.1-beta.2/2026-04-01
 
 ### Added
