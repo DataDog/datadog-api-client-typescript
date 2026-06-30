@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## 0.0.1-beta.7/2026-06-30
+
+### Added
+* Add OpenAPI for Cloud Cost Management custom forecast endpoints [#4509](https://github.com/DataDog/datadog-api-client-typescript/pull/4509)
+* Add int64 format and extract inline schemas [#4417](https://github.com/DataDog/datadog-api-client-typescript/pull/4417)
+* Add metric filter query parameter to Cloud Cost Management tag metadata tag sources endpoint [#4415](https://github.com/DataDog/datadog-api-client-typescript/pull/4415)
+* Update GetBudget API spec with cost query parameters and custom forecast fields [#4411](https://github.com/DataDog/datadog-api-client-typescript/pull/4411)
+* Add OpenAPI spec for OAuth2 client endpoints [#4292](https://github.com/DataDog/datadog-api-client-typescript/pull/4292)
+* Add OpenAPI specs for secmon-public-api datasets endpoints [#4269](https://github.com/DataDog/datadog-api-client-typescript/pull/4269)
+* Add siem_12mo_retention and siem_6mo_retention to usage API [#4257](https://github.com/DataDog/datadog-api-client-typescript/pull/4257)
+* Add serverless_apps_dsm_fargate_tasks fields to usage metering API [#4255](https://github.com/DataDog/datadog-api-client-typescript/pull/4255)
+* Add Cloud Cost Management tag_metadata months endpoint [#4253](https://github.com/DataDog/datadog-api-client-typescript/pull/4253)
+* Add observability pipelines splunk HEC metrics destination [#4251](https://github.com/DataDog/datadog-api-client-typescript/pull/4251)
+* Add comparison to QueryValueWidgetRequest for surfacing the change indicator feature  [#4249](https://github.com/DataDog/datadog-api-client-typescript/pull/4249)
+* Add OpenAPI definitions for path-param tag_description endpoints [#4205](https://github.com/DataDog/datadog-api-client-typescript/pull/4205)
+* Cloud Cost Recommendations Search API [#4155](https://github.com/DataDog/datadog-api-client-typescript/pull/4155)
+* Add Cloud Cost Management tag_metadata endpoints [#4153](https://github.com/DataDog/datadog-api-client-typescript/pull/4153)
+
 ## 0.0.1-beta.6/2026-05-15
 
 ### Added

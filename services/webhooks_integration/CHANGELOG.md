@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.5/2026-06-30
+
+### Added
+* Add public OpenAPI ops for Webhooks OAuth2 client credentials [#4315](https://github.com/DataDog/datadog-api-client-typescript/pull/4315)
+
 ## 0.0.1-beta.4/2026-04-16
 
 ### Added

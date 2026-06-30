@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.0.1-beta.7/2026-06-30
+
+### Added
+* Add int64 format and extract inline schemas [#4417](https://github.com/DataDog/datadog-api-client-typescript/pull/4417)
+* Add OpenAPI specs for 36 undocumented case-rapid-api v2 endpoints [#4189](https://github.com/DataDog/datadog-api-client-typescript/pull/4189)
+* Document LLM Observability Experiments search endpoints [#4187](https://github.com/DataDog/datadog-api-client-typescript/pull/4187)
+* Add OpenAPI spec for Model Lab API v2 endpoints [#4181](https://github.com/DataDog/datadog-api-client-typescript/pull/4181)
+
 ## 0.0.1-beta.6/2026-04-01
 
 ### Fixed

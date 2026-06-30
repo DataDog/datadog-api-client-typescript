@@ -1,5 +1,20 @@
 # CHANGELOG
 
+## 0.0.1-beta.8/2026-06-30
+
+### Added
+* Document metrics volume includes [#4531](https://github.com/DataDog/datadog-api-client-typescript/pull/4531)
+* Add int64 format and extract inline schemas [#4417](https://github.com/DataDog/datadog-api-client-typescript/pull/4417)
+* Add tag indexing rule APIs to v2 metrics spec [#4350](https://github.com/DataDog/datadog-api-client-typescript/pull/4350)
+* Update ListVolumesByMetricName description for Metric Name Pricing [#4330](https://github.com/DataDog/datadog-api-client-typescript/pull/4330)
+* Adjust TS generated clients to query extra pages unless an empty set was returned [#4243](https://github.com/DataDog/datadog-api-client-typescript/pull/4243)
+
+### Changed
+* Mark tag indexing rule endpoints as Preview in API spec [#4487](https://github.com/DataDog/datadog-api-client-typescript/pull/4487)
+
+### Deprecated
+* Deprecate bulk tag config API endpoints [#4439](https://github.com/DataDog/datadog-api-client-typescript/pull/4439)
+
 ## 0.0.1-beta.7/2026-05-15
 
 ### Added

@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-06-30
+
+### Added
+* Add LogsArrayMapProcessor to OpenAPI v1 spec [#4413](https://github.com/DataDog/datadog-api-client-typescript/pull/4413)
+* Add exclude-attribute processor to logs pipelines [#4120](https://github.com/DataDog/datadog-api-client-typescript/pull/4120)
+
 ## 0.0.1-beta.3/2026-04-01
 
 ### Changed

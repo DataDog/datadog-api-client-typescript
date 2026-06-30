@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-06-30
+
+### Removed
+* Make fleet-automation clusters and instrumented_pods specs private [#4436](https://github.com/DataDog/datadog-api-client-typescript/pull/4436)
+
 ## 0.0.1-beta.3/2026-04-16
 
 ### Added

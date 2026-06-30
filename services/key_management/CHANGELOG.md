@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.0.1-beta.8/2026-06-30
+
+### Added
+* Add filter[owned_by] parameter to GET /api/v2/application_keys [#4407](https://github.com/DataDog/datadog-api-client-typescript/pull/4407)
+
+### Changed
+* Update PAT and SAT api spec [#4300](https://github.com/DataDog/datadog-api-client-typescript/pull/4300)
+
 ## 0.0.1-beta.7/2026-05-15
 
 ### Added

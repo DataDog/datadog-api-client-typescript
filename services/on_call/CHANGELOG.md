@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.6/2026-06-30
+
+### Added
+* Add escalation policy routing action with support hours and acknowledgment timeout to On-Call routing rules [#4076](https://github.com/DataDog/datadog-api-client-typescript/pull/4076)
+
 ## 0.0.1-beta.5/2026-05-15
 
 ### Added

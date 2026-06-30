@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.0.1-beta.10/2026-06-30
+
+### Added
+* Add LogsArrayMapProcessor to OpenAPI v1 spec [#4413](https://github.com/DataDog/datadog-api-client-typescript/pull/4413)
+* Add partitioning_attributes and lookup_attributes to Log Archives spec [#4319](https://github.com/DataDog/datadog-api-client-typescript/pull/4319)
+* Adjust TS generated clients to query extra pages unless an empty set was returned [#4243](https://github.com/DataDog/datadog-api-client-typescript/pull/4243)
+* Add exclude-attribute processor to logs pipelines [#4120](https://github.com/DataDog/datadog-api-client-typescript/pull/4120)
+
 ## 0.0.1-beta.9/2026-05-15
 
 ### Added

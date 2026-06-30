@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.5/2026-06-30
+
+### Added
+* Add ListWorkflows endpoint to Workflow Automation [#4360](https://github.com/DataDog/datadog-api-client-typescript/pull/4360)
+
 ## 0.0.1-beta.4/2026-03-06
 
 ### Added

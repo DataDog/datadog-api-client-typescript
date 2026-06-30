@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.3/2026-06-30
+
+### Added
+* Add compliance_host to Agentless Scanning scan options [#4007](https://github.com/DataDog/datadog-api-client-typescript/pull/4007)
+
 ## 0.0.1-beta.2/2025-12-17
 
 ### Security

@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 0.0.1-beta.14/2026-06-30
+
+### Changed
+* Update worked_by param to accept handle instead of UUID [#4549](https://github.com/DataDog/datadog-api-client-typescript/pull/4549)
+
+### Added
+* Add OpenAPI spec for k9-integration-api security findings and vulnerabilities [#4535](https://github.com/DataDog/datadog-api-client-typescript/pull/4535)
+* Add security_filters and rules resource types to terraform export endpoints [#4511](https://github.com/DataDog/datadog-api-client-typescript/pull/4511)
+* Add public API for security findings automation rules [#4485](https://github.com/DataDog/datadog-api-client-typescript/pull/4485)
+
 ## 0.0.1-beta.13/2026-06-17
 
 ### Added
