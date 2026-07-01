@@ -2645,7 +2645,8 @@ import { LogsArchiveDestinationS3 } from "./LogsArchiveDestinationS3";
 import { LogsArchiveEncryptionS3 } from "./LogsArchiveEncryptionS3";
 import { LogsArchiveIntegrationAzure } from "./LogsArchiveIntegrationAzure";
 import { LogsArchiveIntegrationGCS } from "./LogsArchiveIntegrationGCS";
-import { LogsArchiveIntegrationS3 } from "./LogsArchiveIntegrationS3";
+import { LogsArchiveIntegrationS3AccessKey } from "./LogsArchiveIntegrationS3AccessKey";
+import { LogsArchiveIntegrationS3Role } from "./LogsArchiveIntegrationS3Role";
 import { LogsArchiveOrder } from "./LogsArchiveOrder";
 import { LogsArchiveOrderAttributes } from "./LogsArchiveOrderAttributes";
 import { LogsArchiveOrderDefinition } from "./LogsArchiveOrderDefinition";
@@ -11190,7 +11191,8 @@ const typeMap: { [index: string]: any } = {
   LogsArchiveEncryptionS3: LogsArchiveEncryptionS3,
   LogsArchiveIntegrationAzure: LogsArchiveIntegrationAzure,
   LogsArchiveIntegrationGCS: LogsArchiveIntegrationGCS,
-  LogsArchiveIntegrationS3: LogsArchiveIntegrationS3,
+  LogsArchiveIntegrationS3AccessKey: LogsArchiveIntegrationS3AccessKey,
+  LogsArchiveIntegrationS3Role: LogsArchiveIntegrationS3Role,
   LogsArchiveOrder: LogsArchiveOrder,
   LogsArchiveOrderAttributes: LogsArchiveOrderAttributes,
   LogsArchiveOrderDefinition: LogsArchiveOrderDefinition,
@@ -14672,6 +14674,10 @@ const oneOfMap: { [index: string]: string[] } = {
     "LogsArchiveDestinationAzure",
     "LogsArchiveDestinationGCS",
     "LogsArchiveDestinationS3",
+  ],
+  LogsArchiveIntegrationS3: [
+    "LogsArchiveIntegrationS3AccessKey",
+    "LogsArchiveIntegrationS3Role",
   ],
   LogsGroupByMissing: ["string", "number"],
   LogsGroupByTotal: ["boolean", "string", "number"],
