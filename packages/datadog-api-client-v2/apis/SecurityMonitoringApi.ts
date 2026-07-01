@@ -326,13 +326,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'attachServiceNowTicket'");
-    if (!_config.unstableOperations["v2.attachServiceNowTicket"]) {
-      throw new Error(
-        "Unstable operation 'attachServiceNowTicket' is disabled"
-      );
-    }
-
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "attachServiceNowTicket");
@@ -1844,13 +1837,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'createServiceNowTickets'");
-    if (!_config.unstableOperations["v2.createServiceNowTickets"]) {
-      throw new Error(
-        "Unstable operation 'createServiceNowTickets' is disabled"
-      );
-    }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
