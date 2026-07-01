@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ObservabilityPipelineParseGrokProcessorRule } from "./ObservabilityPipelineParseGrokProcessorRule";
+import { ObservabilityPipelineParseGrokProcessorRuleItem } from "./ObservabilityPipelineParseGrokProcessorRuleItem";
 import { ObservabilityPipelineParseGrokProcessorType } from "./ObservabilityPipelineParseGrokProcessorType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -27,6 +27,10 @@ export class ObservabilityPipelineParseGrokProcessor {
    */
   "enabled": boolean;
   /**
+   * The log field to parse with the Grok rules.
+   */
+  "field"?: string;
+  /**
    * A unique identifier for this processor.
    */
   "id": string;
@@ -35,9 +39,9 @@ export class ObservabilityPipelineParseGrokProcessor {
    */
   "include": string;
   /**
-   * The list of Grok parsing rules. If multiple matching rules are provided, they are evaluated in order. The first successful match is applied.
+   * The list of Grok parsing rules selected by either source field or include query.
    */
-  "rules": Array<ObservabilityPipelineParseGrokProcessorRule>;
+  "rules": Array<ObservabilityPipelineParseGrokProcessorRuleItem>;
   /**
    * The processor type. The value should always be `parse_grok`.
    */
@@ -72,6 +76,10 @@ export class ObservabilityPipelineParseGrokProcessor {
       type: "boolean",
       required: true,
     },
+    field: {
+      baseName: "field",
+      type: "string",
+    },
     id: {
       baseName: "id",
       type: "string",
@@ -84,7 +92,7 @@ export class ObservabilityPipelineParseGrokProcessor {
     },
     rules: {
       baseName: "rules",
-      type: "Array<ObservabilityPipelineParseGrokProcessorRule>",
+      type: "Array<ObservabilityPipelineParseGrokProcessorRuleItem>",
       required: true,
     },
     type: {
