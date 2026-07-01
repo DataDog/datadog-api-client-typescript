@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ListRowsResponseLinks } from "./ListRowsResponseLinks";
+import { ListRowsResponseMeta } from "./ListRowsResponseMeta";
 import { TableRowResourceData } from "./TableRowResourceData";
 
 /**
@@ -15,6 +16,10 @@ export class ListRowsResponse {
    * Pagination links for the list rows response.
    */
   "links": ListRowsResponseLinks;
+  /**
+   * Contains pagination details, including the continuation token for fetching additional rows.
+   */
+  "meta"?: ListRowsResponseMeta;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -39,6 +44,10 @@ export class ListRowsResponse {
       baseName: "links",
       type: "ListRowsResponseLinks",
       required: true,
+    },
+    meta: {
+      baseName: "meta",
+      type: "ListRowsResponseMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",

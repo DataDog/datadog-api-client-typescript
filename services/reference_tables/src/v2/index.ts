@@ -50,6 +50,8 @@ export { CreateUploadResponseDataAttributes } from "./models/CreateUploadRespons
 export { CreateUploadResponseDataType } from "./models/CreateUploadResponseDataType";
 export { ListRowsResponse } from "./models/ListRowsResponse";
 export { ListRowsResponseLinks } from "./models/ListRowsResponseLinks";
+export { ListRowsResponseMeta } from "./models/ListRowsResponseMeta";
+export { ListRowsResponseMetaPage } from "./models/ListRowsResponseMetaPage";
 export { PatchTableRequest } from "./models/PatchTableRequest";
 export { PatchTableRequestData } from "./models/PatchTableRequestData";
 export { PatchTableRequestDataAttributes } from "./models/PatchTableRequestDataAttributes";
