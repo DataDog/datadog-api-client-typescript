@@ -31,6 +31,8 @@ export { LogsArchiveEncryptionS3Type } from "./models/LogsArchiveEncryptionS3Typ
 export { LogsArchiveIntegrationAzure } from "./models/LogsArchiveIntegrationAzure";
 export { LogsArchiveIntegrationGCS } from "./models/LogsArchiveIntegrationGCS";
 export { LogsArchiveIntegrationS3 } from "./models/LogsArchiveIntegrationS3";
+export { LogsArchiveIntegrationS3AccessKey } from "./models/LogsArchiveIntegrationS3AccessKey";
+export { LogsArchiveIntegrationS3Role } from "./models/LogsArchiveIntegrationS3Role";
 export { LogsArchiveOrder } from "./models/LogsArchiveOrder";
 export { LogsArchiveOrderAttributes } from "./models/LogsArchiveOrderAttributes";
 export { LogsArchiveOrderDefinition } from "./models/LogsArchiveOrderDefinition";

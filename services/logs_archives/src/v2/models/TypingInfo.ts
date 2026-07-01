@@ -13,7 +13,8 @@ import { LogsArchiveDestinationS3 } from "./LogsArchiveDestinationS3";
 import { LogsArchiveEncryptionS3 } from "./LogsArchiveEncryptionS3";
 import { LogsArchiveIntegrationAzure } from "./LogsArchiveIntegrationAzure";
 import { LogsArchiveIntegrationGCS } from "./LogsArchiveIntegrationGCS";
-import { LogsArchiveIntegrationS3 } from "./LogsArchiveIntegrationS3";
+import { LogsArchiveIntegrationS3AccessKey } from "./LogsArchiveIntegrationS3AccessKey";
+import { LogsArchiveIntegrationS3Role } from "./LogsArchiveIntegrationS3Role";
 import { LogsArchiveOrder } from "./LogsArchiveOrder";
 import { LogsArchiveOrderAttributes } from "./LogsArchiveOrderAttributes";
 import { LogsArchiveOrderDefinition } from "./LogsArchiveOrderDefinition";
@@ -59,6 +60,10 @@ export const TypingInfo: ModelTypingInfo = {
       "LogsArchiveDestinationGCS",
       "LogsArchiveDestinationS3",
     ],
+    LogsArchiveIntegrationS3: [
+      "LogsArchiveIntegrationS3AccessKey",
+      "LogsArchiveIntegrationS3Role",
+    ],
   },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
@@ -74,7 +79,8 @@ export const TypingInfo: ModelTypingInfo = {
     LogsArchiveEncryptionS3: LogsArchiveEncryptionS3,
     LogsArchiveIntegrationAzure: LogsArchiveIntegrationAzure,
     LogsArchiveIntegrationGCS: LogsArchiveIntegrationGCS,
-    LogsArchiveIntegrationS3: LogsArchiveIntegrationS3,
+    LogsArchiveIntegrationS3AccessKey: LogsArchiveIntegrationS3AccessKey,
+    LogsArchiveIntegrationS3Role: LogsArchiveIntegrationS3Role,
     LogsArchiveOrder: LogsArchiveOrder,
     LogsArchiveOrderAttributes: LogsArchiveOrderAttributes,
     LogsArchiveOrderDefinition: LogsArchiveOrderDefinition,
