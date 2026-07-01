@@ -219,7 +219,9 @@ export { ObservabilityPipelineOpenSearchDestinationType } from "./models/Observa
 export { ObservabilityPipelineOpentelemetrySource } from "./models/ObservabilityPipelineOpentelemetrySource";
 export { ObservabilityPipelineOpentelemetrySourceType } from "./models/ObservabilityPipelineOpentelemetrySourceType";
 export { ObservabilityPipelineParseGrokProcessor } from "./models/ObservabilityPipelineParseGrokProcessor";
+export { ObservabilityPipelineParseGrokProcessorIncludeRule } from "./models/ObservabilityPipelineParseGrokProcessorIncludeRule";
 export { ObservabilityPipelineParseGrokProcessorRule } from "./models/ObservabilityPipelineParseGrokProcessorRule";
+export { ObservabilityPipelineParseGrokProcessorRuleItem } from "./models/ObservabilityPipelineParseGrokProcessorRuleItem";
 export { ObservabilityPipelineParseGrokProcessorRuleMatchRule } from "./models/ObservabilityPipelineParseGrokProcessorRuleMatchRule";
 export { ObservabilityPipelineParseGrokProcessorRuleSupportRule } from "./models/ObservabilityPipelineParseGrokProcessorRuleSupportRule";
 export { ObservabilityPipelineParseGrokProcessorType } from "./models/ObservabilityPipelineParseGrokProcessorType";
