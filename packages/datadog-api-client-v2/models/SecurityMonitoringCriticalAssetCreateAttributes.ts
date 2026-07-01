@@ -12,6 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SecurityMonitoringCriticalAssetCreateAttributes {
   /**
+   * A description of the critical asset.
+   */
+  "description"?: string;
+  /**
    * Whether the critical asset is enabled. Defaults to `true` if not specified.
    */
   "enabled"?: boolean;
@@ -48,6 +52,10 @@ export class SecurityMonitoringCriticalAssetCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    description: {
+      baseName: "description",
+      type: "string",
+    },
     enabled: {
       baseName: "enabled",
       type: "boolean",
