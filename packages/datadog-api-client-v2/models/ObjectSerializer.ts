@@ -3073,6 +3073,7 @@ import { ObservabilityPipelineOpenSearchDestination } from "./ObservabilityPipel
 import { ObservabilityPipelineOpenSearchDestinationDataStream } from "./ObservabilityPipelineOpenSearchDestinationDataStream";
 import { ObservabilityPipelineOpentelemetrySource } from "./ObservabilityPipelineOpentelemetrySource";
 import { ObservabilityPipelineParseGrokProcessor } from "./ObservabilityPipelineParseGrokProcessor";
+import { ObservabilityPipelineParseGrokProcessorIncludeRule } from "./ObservabilityPipelineParseGrokProcessorIncludeRule";
 import { ObservabilityPipelineParseGrokProcessorRule } from "./ObservabilityPipelineParseGrokProcessorRule";
 import { ObservabilityPipelineParseGrokProcessorRuleMatchRule } from "./ObservabilityPipelineParseGrokProcessorRuleMatchRule";
 import { ObservabilityPipelineParseGrokProcessorRuleSupportRule } from "./ObservabilityPipelineParseGrokProcessorRuleSupportRule";
@@ -11750,6 +11751,8 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineOpentelemetrySource,
   ObservabilityPipelineParseGrokProcessor:
     ObservabilityPipelineParseGrokProcessor,
+  ObservabilityPipelineParseGrokProcessorIncludeRule:
+    ObservabilityPipelineParseGrokProcessorIncludeRule,
   ObservabilityPipelineParseGrokProcessorRule:
     ObservabilityPipelineParseGrokProcessorRule,
   ObservabilityPipelineParseGrokProcessorRuleMatchRule:
@@ -14818,6 +14821,10 @@ const oneOfMap: { [index: string]: string[] } = {
   ObservabilityPipelineOcsfMapperProcessorMappingMapping: [
     "ObservabilityPipelineOcsfMappingLibrary",
     "ObservabilityPipelineOcsfMappingCustom",
+  ],
+  ObservabilityPipelineParseGrokProcessorRuleItem: [
+    "ObservabilityPipelineParseGrokProcessorRule",
+    "ObservabilityPipelineParseGrokProcessorIncludeRule",
   ],
   ObservabilityPipelineSensitiveDataScannerProcessorAction: [
     "ObservabilityPipelineSensitiveDataScannerProcessorActionRedact",
