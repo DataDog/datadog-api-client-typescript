@@ -7,6 +7,10 @@ import { SecurityMonitoringCriticalAssetSeverity } from "./SecurityMonitoringCri
  */
 export class SecurityMonitoringCriticalAssetUpdateAttributes {
   /**
+   * A description of the critical asset.
+   */
+  "description"?: string;
+  /**
    * Whether the critical asset is enabled.
    */
   "enabled"?: boolean;
@@ -45,6 +49,10 @@ export class SecurityMonitoringCriticalAssetUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    description: {
+      baseName: "description",
+      type: "string",
+    },
     enabled: {
       baseName: "enabled",
       type: "boolean",
