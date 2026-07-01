@@ -107,6 +107,7 @@ import { ObservabilityPipelineOpenSearchDestination } from "./ObservabilityPipel
 import { ObservabilityPipelineOpenSearchDestinationDataStream } from "./ObservabilityPipelineOpenSearchDestinationDataStream";
 import { ObservabilityPipelineOpentelemetrySource } from "./ObservabilityPipelineOpentelemetrySource";
 import { ObservabilityPipelineParseGrokProcessor } from "./ObservabilityPipelineParseGrokProcessor";
+import { ObservabilityPipelineParseGrokProcessorIncludeRule } from "./ObservabilityPipelineParseGrokProcessorIncludeRule";
 import { ObservabilityPipelineParseGrokProcessorRule } from "./ObservabilityPipelineParseGrokProcessorRule";
 import { ObservabilityPipelineParseGrokProcessorRuleMatchRule } from "./ObservabilityPipelineParseGrokProcessorRuleMatchRule";
 import { ObservabilityPipelineParseGrokProcessorRuleSupportRule } from "./ObservabilityPipelineParseGrokProcessorRuleSupportRule";
@@ -658,6 +659,10 @@ export const TypingInfo: ModelTypingInfo = {
       "ObservabilityPipelineOcsfMappingLibrary",
       "ObservabilityPipelineOcsfMappingCustom",
     ],
+    ObservabilityPipelineParseGrokProcessorRuleItem: [
+      "ObservabilityPipelineParseGrokProcessorRule",
+      "ObservabilityPipelineParseGrokProcessorIncludeRule",
+    ],
     ObservabilityPipelineSensitiveDataScannerProcessorAction: [
       "ObservabilityPipelineSensitiveDataScannerProcessorActionRedact",
       "ObservabilityPipelineSensitiveDataScannerProcessorActionHash",
@@ -880,6 +885,8 @@ export const TypingInfo: ModelTypingInfo = {
       ObservabilityPipelineOpentelemetrySource,
     ObservabilityPipelineParseGrokProcessor:
       ObservabilityPipelineParseGrokProcessor,
+    ObservabilityPipelineParseGrokProcessorIncludeRule:
+      ObservabilityPipelineParseGrokProcessorIncludeRule,
     ObservabilityPipelineParseGrokProcessorRule:
       ObservabilityPipelineParseGrokProcessorRule,
     ObservabilityPipelineParseGrokProcessorRuleMatchRule:
