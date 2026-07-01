@@ -490,8 +490,8 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
   public async listFeatureFlags(
     key?: string,
     isArchived?: boolean,
-    limit?: number,
-    offset?: number,
+    pageLimit?: number,
+    pageOffset?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -521,17 +521,17 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
         ""
       );
     }
-    if (limit !== undefined) {
+    if (pageLimit !== undefined) {
       requestContext.setQueryParam(
-        "limit",
-        ObjectSerializer.serialize(limit, "number", "int64"),
+        "page[limit]",
+        ObjectSerializer.serialize(pageLimit, "number", "int64"),
         ""
       );
     }
-    if (offset !== undefined) {
+    if (pageOffset !== undefined) {
       requestContext.setQueryParam(
-        "offset",
-        ObjectSerializer.serialize(offset, "number", "int64"),
+        "page[offset]",
+        ObjectSerializer.serialize(pageOffset, "number", "int64"),
         ""
       );
     }
@@ -2478,15 +2478,15 @@ export interface FeatureFlagsApiListFeatureFlagsRequest {
    */
   isArchived?: boolean;
   /**
-   * Maximum number of results to return.
+   * Maximum number of feature flags to return.
    * @type number
    */
-  limit?: number;
+  pageLimit?: number;
   /**
-   * Number of results to skip.
+   * Number of feature flags to skip for pagination.
    * @type number
    */
-  offset?: number;
+  pageOffset?: number;
 }
 
 export interface FeatureFlagsApiListFeatureFlagsEnvironmentsRequest {
@@ -2907,8 +2907,8 @@ export class FeatureFlagsApi {
     const requestContextPromise = this.requestFactory.listFeatureFlags(
       param.key,
       param.isArchived,
-      param.limit,
-      param.offset,
+      param.pageLimit,
+      param.pageOffset,
       options
     );
     return requestContextPromise.then((requestContext) => {

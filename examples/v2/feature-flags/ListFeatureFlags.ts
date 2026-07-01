@@ -8,7 +8,7 @@ const configuration = client.createConfiguration();
 const apiInstance = new v2.FeatureFlagsApi(configuration);
 
 const params: v2.FeatureFlagsApiListFeatureFlagsRequest = {
-  limit: 10,
+  pageLimit: 10,
 };
 
 apiInstance
