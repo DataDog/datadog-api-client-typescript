@@ -9208,11 +9208,11 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "boolean",
       format: "",
     },
-    limit: {
+    pageLimit: {
       type: "number",
       format: "int64",
     },
-    offset: {
+    pageOffset: {
       type: "number",
       format: "int64",
     },
