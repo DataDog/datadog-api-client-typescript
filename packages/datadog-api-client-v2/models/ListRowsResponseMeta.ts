@@ -3,28 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ListRowsResponseLinks } from "./ListRowsResponseLinks";
-import { ListRowsResponseMeta } from "./ListRowsResponseMeta";
-import { TableRowResourceData } from "./TableRowResourceData";
+import { ListRowsResponseMetaPage } from "./ListRowsResponseMetaPage";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Paginated list of reference table rows.
+ * Contains pagination details, including the continuation token for fetching additional rows.
  */
-export class ListRowsResponse {
+export class ListRowsResponseMeta {
   /**
-   * The rows.
+   * Contains the continuation token for navigating to the next page of rows.
    */
-  "data": Array<TableRowResourceData>;
-  /**
-   * Pagination links for the list rows response.
-   */
-  "links": ListRowsResponseLinks;
-  /**
-   * Contains pagination details, including the continuation token for fetching additional rows.
-   */
-  "meta"?: ListRowsResponseMeta;
+  "page"?: ListRowsResponseMetaPage;
 
   /**
    * A container for additional, undeclared properties.
@@ -42,19 +32,9 @@ export class ListRowsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<TableRowResourceData>",
-      required: true,
-    },
-    links: {
-      baseName: "links",
-      type: "ListRowsResponseLinks",
-      required: true,
-    },
-    meta: {
-      baseName: "meta",
-      type: "ListRowsResponseMeta",
+    page: {
+      baseName: "page",
+      type: "ListRowsResponseMetaPage",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,7 +46,7 @@ export class ListRowsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ListRowsResponse.attributeTypeMap;
+    return ListRowsResponseMeta.attributeTypeMap;
   }
 
   public constructor() {}

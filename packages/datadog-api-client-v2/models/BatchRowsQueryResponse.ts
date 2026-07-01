@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { BatchRowsQueryResponseData } from "./BatchRowsQueryResponseData";
+import { TableRowResourceData } from "./TableRowResourceData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -15,6 +16,10 @@ export class BatchRowsQueryResponse {
    * Data object for a batch rows query response.
    */
   "data"?: BatchRowsQueryResponseData;
+  /**
+   * Full row resources matching the query, included alongside the relationship references in `data`.
+   */
+  "included"?: Array<TableRowResourceData>;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,6 +40,10 @@ export class BatchRowsQueryResponse {
     data: {
       baseName: "data",
       type: "BatchRowsQueryResponseData",
+    },
+    included: {
+      baseName: "included",
+      type: "Array<TableRowResourceData>",
     },
     additionalProperties: {
       baseName: "additionalProperties",

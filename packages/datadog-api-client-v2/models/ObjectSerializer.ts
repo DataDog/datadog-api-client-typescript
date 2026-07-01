@@ -2606,6 +2606,8 @@ import { ListRelationCatalogResponse } from "./ListRelationCatalogResponse";
 import { ListRelationCatalogResponseLinks } from "./ListRelationCatalogResponseLinks";
 import { ListRowsResponse } from "./ListRowsResponse";
 import { ListRowsResponseLinks } from "./ListRowsResponseLinks";
+import { ListRowsResponseMeta } from "./ListRowsResponseMeta";
+import { ListRowsResponseMetaPage } from "./ListRowsResponseMetaPage";
 import { ListRulesResponse } from "./ListRulesResponse";
 import { ListRulesResponseDataItem } from "./ListRulesResponseDataItem";
 import { ListRulesResponseLinks } from "./ListRulesResponseLinks";
@@ -11152,6 +11154,8 @@ const typeMap: { [index: string]: any } = {
   ListRelationCatalogResponseLinks: ListRelationCatalogResponseLinks,
   ListRowsResponse: ListRowsResponse,
   ListRowsResponseLinks: ListRowsResponseLinks,
+  ListRowsResponseMeta: ListRowsResponseMeta,
+  ListRowsResponseMetaPage: ListRowsResponseMetaPage,
   ListRulesResponse: ListRulesResponse,
   ListRulesResponseDataItem: ListRulesResponseDataItem,
   ListRulesResponseLinks: ListRulesResponseLinks,

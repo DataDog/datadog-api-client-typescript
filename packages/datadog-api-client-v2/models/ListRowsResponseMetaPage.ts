@@ -3,28 +3,17 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ListRowsResponseLinks } from "./ListRowsResponseLinks";
-import { ListRowsResponseMeta } from "./ListRowsResponseMeta";
-import { TableRowResourceData } from "./TableRowResourceData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Paginated list of reference table rows.
+ * Contains the continuation token for navigating to the next page of rows.
  */
-export class ListRowsResponse {
+export class ListRowsResponseMetaPage {
   /**
-   * The rows.
+   * Opaque token to pass as the `page[continuation_token]` query parameter to fetch the next page of results. Only present when more rows are available.
    */
-  "data": Array<TableRowResourceData>;
-  /**
-   * Pagination links for the list rows response.
-   */
-  "links": ListRowsResponseLinks;
-  /**
-   * Contains pagination details, including the continuation token for fetching additional rows.
-   */
-  "meta"?: ListRowsResponseMeta;
+  "nextContinuationToken"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -42,19 +31,9 @@ export class ListRowsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<TableRowResourceData>",
-      required: true,
-    },
-    links: {
-      baseName: "links",
-      type: "ListRowsResponseLinks",
-      required: true,
-    },
-    meta: {
-      baseName: "meta",
-      type: "ListRowsResponseMeta",
+    nextContinuationToken: {
+      baseName: "next_continuation_token",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,7 +45,7 @@ export class ListRowsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ListRowsResponse.attributeTypeMap;
+    return ListRowsResponseMetaPage.attributeTypeMap;
   }
 
   public constructor() {}
