@@ -4748,6 +4748,8 @@ export { ListRelationCatalogResponse } from "./models/ListRelationCatalogRespons
 export { ListRelationCatalogResponseLinks } from "./models/ListRelationCatalogResponseLinks";
 export { ListRowsResponse } from "./models/ListRowsResponse";
 export { ListRowsResponseLinks } from "./models/ListRowsResponseLinks";
+export { ListRowsResponseMeta } from "./models/ListRowsResponseMeta";
+export { ListRowsResponseMetaPage } from "./models/ListRowsResponseMetaPage";
 export { ListRulesResponse } from "./models/ListRulesResponse";
 export { ListRulesResponseDataItem } from "./models/ListRulesResponseDataItem";
 export { ListRulesResponseLinks } from "./models/ListRulesResponseLinks";
