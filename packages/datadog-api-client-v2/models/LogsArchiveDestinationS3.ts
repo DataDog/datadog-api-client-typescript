@@ -23,7 +23,7 @@ export class LogsArchiveDestinationS3 {
    */
   "encryption"?: LogsArchiveEncryptionS3;
   /**
-   * The S3 Archive's integration destination.
+   * The S3 Archive's integration destination. You must provide one of the following: `access_key_id` alone, or both `account_id` and `role_name` together.
    */
   "integration": LogsArchiveIntegrationS3;
   /**
