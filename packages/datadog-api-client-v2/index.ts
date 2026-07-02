@@ -5583,6 +5583,7 @@ export { ObservabilityPipelineAmazonOpenSearchDestinationAuth } from "./models/O
 export { ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy } from "./models/ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy";
 export { ObservabilityPipelineAmazonOpenSearchDestinationType } from "./models/ObservabilityPipelineAmazonOpenSearchDestinationType";
 export { ObservabilityPipelineAmazonS3Destination } from "./models/ObservabilityPipelineAmazonS3Destination";
+export { ObservabilityPipelineAmazonS3DestinationServerSideEncryption } from "./models/ObservabilityPipelineAmazonS3DestinationServerSideEncryption";
 export { ObservabilityPipelineAmazonS3DestinationStorageClass } from "./models/ObservabilityPipelineAmazonS3DestinationStorageClass";
 export { ObservabilityPipelineAmazonS3DestinationType } from "./models/ObservabilityPipelineAmazonS3DestinationType";
 export { ObservabilityPipelineAmazonS3GenericBatchSettings } from "./models/ObservabilityPipelineAmazonS3GenericBatchSettings";
