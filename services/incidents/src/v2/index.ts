@@ -218,6 +218,7 @@ export { IncidentTodoResponseIncludedItem } from "./models/IncidentTodoResponseI
 export { IncidentTodoType } from "./models/IncidentTodoType";
 export { IncidentType } from "./models/IncidentType";
 export { IncidentTypeAttributes } from "./models/IncidentTypeAttributes";
+export { IncidentTypeConfiguration } from "./models/IncidentTypeConfiguration";
 export { IncidentTypeCreateData } from "./models/IncidentTypeCreateData";
 export { IncidentTypeCreateRequest } from "./models/IncidentTypeCreateRequest";
 export { IncidentTypeListResponse } from "./models/IncidentTypeListResponse";
@@ -226,6 +227,7 @@ export { IncidentTypePatchData } from "./models/IncidentTypePatchData";
 export { IncidentTypePatchRequest } from "./models/IncidentTypePatchRequest";
 export { IncidentTypeRelationships } from "./models/IncidentTypeRelationships";
 export { IncidentTypeResponse } from "./models/IncidentTypeResponse";
+export { IncidentTypeSlugSource } from "./models/IncidentTypeSlugSource";
 export { IncidentTypeType } from "./models/IncidentTypeType";
 export { IncidentTypeUpdateAttributes } from "./models/IncidentTypeUpdateAttributes";
 export { IncidentUpdateAttributes } from "./models/IncidentUpdateAttributes";
