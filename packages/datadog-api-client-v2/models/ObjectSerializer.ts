@@ -2085,6 +2085,7 @@ import { IncidentTodoResponseData } from "./IncidentTodoResponseData";
 import { IncidentTrigger } from "./IncidentTrigger";
 import { IncidentTriggerWrapper } from "./IncidentTriggerWrapper";
 import { IncidentTypeAttributes } from "./IncidentTypeAttributes";
+import { IncidentTypeConfiguration } from "./IncidentTypeConfiguration";
 import { IncidentTypeCreateData } from "./IncidentTypeCreateData";
 import { IncidentTypeCreateRequest } from "./IncidentTypeCreateRequest";
 import { IncidentTypeListResponse } from "./IncidentTypeListResponse";
@@ -6233,6 +6234,7 @@ const enumsMap: { [key: string]: any[] } = {
   IncidentTodoAnonymousAssigneeSource: ["slack", "microsoft_teams"],
   IncidentTodoType: ["incident_todos"],
   IncidentType: ["incidents"],
+  IncidentTypeSlugSource: ["default", "servicenow"],
   IncidentTypeType: ["incident_types"],
   IncidentUserDefinedFieldCategory: ["what_happened", "why_it_happened"],
   IncidentUserDefinedFieldCollected: [
@@ -10553,6 +10555,7 @@ const typeMap: { [index: string]: any } = {
   IncidentTrigger: IncidentTrigger,
   IncidentTriggerWrapper: IncidentTriggerWrapper,
   IncidentTypeAttributes: IncidentTypeAttributes,
+  IncidentTypeConfiguration: IncidentTypeConfiguration,
   IncidentTypeCreateData: IncidentTypeCreateData,
   IncidentTypeCreateRequest: IncidentTypeCreateRequest,
   IncidentTypeListResponse: IncidentTypeListResponse,
