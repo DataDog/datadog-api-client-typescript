@@ -15267,6 +15267,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SloStatusResponse",
     },
+    "v2.CreateSnapshot": {
+        "body": {
+            "type": "CreateSnapshotRequest",
+            "format": "",
+            },
+        "operationResponseType": "CreateSnapshotResponse",
+    },
     "v2.GetSPARecommendations": {
         "bypassCache": {
             "type": "string",
