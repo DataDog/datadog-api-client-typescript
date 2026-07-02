@@ -1038,6 +1038,14 @@ import { CreateServiceNowTicketRequestArray } from "./CreateServiceNowTicketRequ
 import { CreateServiceNowTicketRequestData } from "./CreateServiceNowTicketRequestData";
 import { CreateServiceNowTicketRequestDataAttributes } from "./CreateServiceNowTicketRequestDataAttributes";
 import { CreateServiceNowTicketRequestDataRelationships } from "./CreateServiceNowTicketRequestDataRelationships";
+import { CreateSnapshotAdditionalConfig } from "./CreateSnapshotAdditionalConfig";
+import { CreateSnapshotDataAttributesRequest } from "./CreateSnapshotDataAttributesRequest";
+import { CreateSnapshotDataAttributesResponse } from "./CreateSnapshotDataAttributesResponse";
+import { CreateSnapshotDataRequest } from "./CreateSnapshotDataRequest";
+import { CreateSnapshotDataResponse } from "./CreateSnapshotDataResponse";
+import { CreateSnapshotRequest } from "./CreateSnapshotRequest";
+import { CreateSnapshotResponse } from "./CreateSnapshotResponse";
+import { CreateSnapshotTemplateVariable } from "./CreateSnapshotTemplateVariable";
 import { CreateStatusPageRequest } from "./CreateStatusPageRequest";
 import { CreateStatusPageRequestData } from "./CreateStatusPageRequestData";
 import { CreateStatusPageRequestDataAttributes } from "./CreateStatusPageRequestDataAttributes";
@@ -5784,6 +5792,9 @@ const enumsMap: { [key: string]: any[] } = {
   CreatePageRequestDataType: ["pages"],
   CreatePageResponseDataType: ["pages"],
   CreateRulesetRequestDataType: ["create_ruleset"],
+  CreateSnapshotTTL: ["30d", "60d", "90d", "1y", "2y", "inf"],
+  CreateSnapshotTimeseriesLegendType: ["compact", "expanded", "none"],
+  CreateSnapshotType: ["create_snapshot"],
   CreateStatusPageRequestDataAttributesType: ["public", "internal"],
   CreateStatusPageRequestDataAttributesVisualizationType: [
     "bars_and_uptime_percentage",
@@ -9329,6 +9340,14 @@ const typeMap: { [index: string]: any } = {
     CreateServiceNowTicketRequestDataAttributes,
   CreateServiceNowTicketRequestDataRelationships:
     CreateServiceNowTicketRequestDataRelationships,
+  CreateSnapshotAdditionalConfig: CreateSnapshotAdditionalConfig,
+  CreateSnapshotDataAttributesRequest: CreateSnapshotDataAttributesRequest,
+  CreateSnapshotDataAttributesResponse: CreateSnapshotDataAttributesResponse,
+  CreateSnapshotDataRequest: CreateSnapshotDataRequest,
+  CreateSnapshotDataResponse: CreateSnapshotDataResponse,
+  CreateSnapshotRequest: CreateSnapshotRequest,
+  CreateSnapshotResponse: CreateSnapshotResponse,
+  CreateSnapshotTemplateVariable: CreateSnapshotTemplateVariable,
   CreateStatusPageRequest: CreateStatusPageRequest,
   CreateStatusPageRequestData: CreateStatusPageRequestData,
   CreateStatusPageRequestDataAttributes: CreateStatusPageRequestDataAttributes,

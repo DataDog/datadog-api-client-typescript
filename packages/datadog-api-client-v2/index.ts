@@ -1177,6 +1177,11 @@ export {
 } from "./apis/ReportSchedulesApi";
 
 export {
+  ReportingAndSharingApiCreateSnapshotRequest,
+  ReportingAndSharingApi,
+} from "./apis/ReportingAndSharingApi";
+
+export {
   RestrictionPoliciesApiDeleteRestrictionPolicyRequest,
   RestrictionPoliciesApiGetRestrictionPolicyRequest,
   RestrictionPoliciesApiUpdateRestrictionPolicyRequest,
@@ -3135,6 +3140,17 @@ export { CreateServiceNowTicketRequestArray } from "./models/CreateServiceNowTic
 export { CreateServiceNowTicketRequestData } from "./models/CreateServiceNowTicketRequestData";
 export { CreateServiceNowTicketRequestDataAttributes } from "./models/CreateServiceNowTicketRequestDataAttributes";
 export { CreateServiceNowTicketRequestDataRelationships } from "./models/CreateServiceNowTicketRequestDataRelationships";
+export { CreateSnapshotAdditionalConfig } from "./models/CreateSnapshotAdditionalConfig";
+export { CreateSnapshotDataAttributesRequest } from "./models/CreateSnapshotDataAttributesRequest";
+export { CreateSnapshotDataAttributesResponse } from "./models/CreateSnapshotDataAttributesResponse";
+export { CreateSnapshotDataRequest } from "./models/CreateSnapshotDataRequest";
+export { CreateSnapshotDataResponse } from "./models/CreateSnapshotDataResponse";
+export { CreateSnapshotRequest } from "./models/CreateSnapshotRequest";
+export { CreateSnapshotResponse } from "./models/CreateSnapshotResponse";
+export { CreateSnapshotTemplateVariable } from "./models/CreateSnapshotTemplateVariable";
+export { CreateSnapshotTimeseriesLegendType } from "./models/CreateSnapshotTimeseriesLegendType";
+export { CreateSnapshotTTL } from "./models/CreateSnapshotTTL";
+export { CreateSnapshotType } from "./models/CreateSnapshotType";
 export { CreateStatusPageRequest } from "./models/CreateStatusPageRequest";
 export { CreateStatusPageRequestData } from "./models/CreateStatusPageRequestData";
 export { CreateStatusPageRequestDataAttributes } from "./models/CreateStatusPageRequestDataAttributes";
