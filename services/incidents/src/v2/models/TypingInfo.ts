@@ -123,6 +123,7 @@ import { IncidentTodoRelationships } from "./IncidentTodoRelationships";
 import { IncidentTodoResponse } from "./IncidentTodoResponse";
 import { IncidentTodoResponseData } from "./IncidentTodoResponseData";
 import { IncidentTypeAttributes } from "./IncidentTypeAttributes";
+import { IncidentTypeConfiguration } from "./IncidentTypeConfiguration";
 import { IncidentTypeCreateData } from "./IncidentTypeCreateData";
 import { IncidentTypeCreateRequest } from "./IncidentTypeCreateRequest";
 import { IncidentTypeListResponse } from "./IncidentTypeListResponse";
@@ -277,6 +278,7 @@ export const TypingInfo: ModelTypingInfo = {
     IncidentTodoAnonymousAssigneeSource: ["slack", "microsoft_teams"],
     IncidentTodoType: ["incident_todos"],
     IncidentType: ["incidents"],
+    IncidentTypeSlugSource: ["default", "servicenow"],
     IncidentTypeType: ["incident_types"],
     IncidentUserDefinedFieldCategory: ["what_happened", "why_it_happened"],
     IncidentUserDefinedFieldCollected: [
@@ -488,6 +490,7 @@ export const TypingInfo: ModelTypingInfo = {
     IncidentTodoResponse: IncidentTodoResponse,
     IncidentTodoResponseData: IncidentTodoResponseData,
     IncidentTypeAttributes: IncidentTypeAttributes,
+    IncidentTypeConfiguration: IncidentTypeConfiguration,
     IncidentTypeCreateData: IncidentTypeCreateData,
     IncidentTypeCreateRequest: IncidentTypeCreateRequest,
     IncidentTypeListResponse: IncidentTypeListResponse,
