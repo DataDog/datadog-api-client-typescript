@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ObservabilityPipelineAmazonS3DestinationServerSideEncryption } from "./ObservabilityPipelineAmazonS3DestinationServerSideEncryption";
 import { ObservabilityPipelineAmazonS3DestinationStorageClass } from "./ObservabilityPipelineAmazonS3DestinationStorageClass";
 import { ObservabilityPipelineAmazonS3GenericBatchSettings } from "./ObservabilityPipelineAmazonS3GenericBatchSettings";
 import { ObservabilityPipelineAmazonS3GenericCompression } from "./ObservabilityPipelineAmazonS3GenericCompression";
@@ -60,6 +61,15 @@ export class ObservabilityPipelineAmazonS3GenericDestination {
    * AWS region of the S3 bucket.
    */
   "region": string;
+  /**
+   * Server-side encryption type for Amazon S3.
+   */
+  "serverSideEncryption"?: ObservabilityPipelineAmazonS3DestinationServerSideEncryption;
+  /**
+   * The AWS KMS key ID used for SSE-KMS encryption.
+   * Only applies when `server_side_encryption` is set to `aws:kms`.
+   */
+  "ssekmsKeyId"?: string;
   /**
    * S3 storage class.
    */
@@ -130,6 +140,14 @@ export class ObservabilityPipelineAmazonS3GenericDestination {
       baseName: "region",
       type: "string",
       required: true,
+    },
+    serverSideEncryption: {
+      baseName: "server_side_encryption",
+      type: "ObservabilityPipelineAmazonS3DestinationServerSideEncryption",
+    },
+    ssekmsKeyId: {
+      baseName: "ssekms_key_id",
+      type: "string",
     },
     storageClass: {
       baseName: "storage_class",
