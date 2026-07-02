@@ -204,6 +204,10 @@ export const TypingInfo: ModelTypingInfo = {
       "aws",
     ],
     ObservabilityPipelineAmazonOpenSearchDestinationType: ["amazon_opensearch"],
+    ObservabilityPipelineAmazonS3DestinationServerSideEncryption: [
+      "aws:kms",
+      "AES256",
+    ],
     ObservabilityPipelineAmazonS3DestinationStorageClass: [
       "STANDARD",
       "REDUCED_REDUNDANCY",
