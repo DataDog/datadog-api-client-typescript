@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { IncidentTypeConfiguration } from "./IncidentTypeConfiguration";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -10,6 +11,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Incident type's attributes for updates.
  */
 export class IncidentTypeUpdateAttributes {
+  /**
+   * The incident-type-scoped behavior settings. All fields are optional on update. Any field omitted from a PATCH request keeps its current value. This object is read-only on the incident type resource itself and is only mutated through the update (PATCH) endpoint.
+   */
+  "configuration"?: IncidentTypeConfiguration;
   /**
    * Timestamp when the incident type was created.
    */
@@ -59,6 +64,10 @@ export class IncidentTypeUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    configuration: {
+      baseName: "configuration",
+      type: "IncidentTypeConfiguration",
+    },
     createdAt: {
       baseName: "createdAt",
       type: "Date",
