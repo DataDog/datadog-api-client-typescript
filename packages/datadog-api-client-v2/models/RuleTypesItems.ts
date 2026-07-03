@@ -12,7 +12,7 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  * workload_security, signal_correlation, cloud_configuration and infrastructure_configuration.
  * Vulnerability-based notification rules can filter vulnerabilities based on rule types application_code_vulnerability,
  * application_library_vulnerability, attack_path, container_image_vulnerability, identity_risk, misconfiguration,
- * api_security, host_vulnerability, iac_misconfiguration, sast_vulnerability and secret_vulnerability.
+ * api_security, host_vulnerability, iac_misconfiguration, sast_vulnerability, secret_vulnerability and workload_activity.
  */
 
 export type RuleTypesItems =
@@ -33,6 +33,7 @@ export type RuleTypesItems =
   | typeof IAC_MISCONFIGURATION
   | typeof SAST_VULNERABILITY
   | typeof SECRET_VULNERABILITY
+  | typeof WORKLOAD_ACTIVITY
   | UnparsedObject;
 export const APPLICATION_SECURITY = "application_security";
 export const LOG_DETECTION = "log_detection";
@@ -52,3 +53,4 @@ export const HOST_VULNERABILITY = "host_vulnerability";
 export const IAC_MISCONFIGURATION = "iac_misconfiguration";
 export const SAST_VULNERABILITY = "sast_vulnerability";
 export const SECRET_VULNERABILITY = "secret_vulnerability";
+export const WORKLOAD_ACTIVITY = "workload_activity";

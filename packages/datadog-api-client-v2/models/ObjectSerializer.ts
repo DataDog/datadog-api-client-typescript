@@ -7203,6 +7203,7 @@ const enumsMap: { [key: string]: any[] } = {
     "iac_misconfiguration",
     "sast_vulnerability",
     "secret_vulnerability",
+    "workload_activity",
   ],
   RulesValidateQueryRequestDataType: ["validate_query"],
   RulesValidateQueryResponseDataType: ["validate_response"],
