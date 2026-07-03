@@ -638,6 +638,7 @@ export const TypingInfo: ModelTypingInfo = {
       "iac_misconfiguration",
       "sast_vulnerability",
       "secret_vulnerability",
+      "workload_activity",
     ],
     RunHistoricalJobRequestDataType: ["historicalDetectionsJobCreate"],
     SBOMComponentLicenseType: [
