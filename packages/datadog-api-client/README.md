@@ -486,6 +486,7 @@ apiInstance
 | Tag Policies | @datadog/datadog-api-client-tag-policies | [README.md](../../services/tag-policies/README.md) |
 | Tags | @datadog/datadog-api-client-tags | [README.md](../../services/tags/README.md) |
 | Teams | @datadog/datadog-api-client-teams | [README.md](../../services/teams/README.md) |
+| Test Examples | @datadog/datadog-api-client-test-examples | [README.md](../../services/test-examples/README.md) |
 | Test Optimization | @datadog/datadog-api-client-test-optimization | [README.md](../../services/test-optimization/README.md) |
 | Usage Metering | @datadog/datadog-api-client-usage-metering | [README.md](../../services/usage-metering/README.md) |
 | Users | @datadog/datadog-api-client-users | [README.md](../../services/users/README.md) |
