@@ -2,6 +2,7 @@ export {
   SecurityMonitoringApiActivateContentPackRequest,
   SecurityMonitoringApiAttachCaseRequest,
   SecurityMonitoringApiAttachJiraIssueRequest,
+  SecurityMonitoringApiAttachLinearIssueRequest,
   SecurityMonitoringApiAttachServiceNowTicketRequest,
   SecurityMonitoringApiBatchGetSecurityMonitoringDatasetDependenciesRequest,
   SecurityMonitoringApiBulkConvertExistingSecurityMonitoringRulesRequest,
@@ -21,6 +22,7 @@ export {
   SecurityMonitoringApiCreateCustomFrameworkRequest,
   SecurityMonitoringApiCreateIoCTriageStateRequest,
   SecurityMonitoringApiCreateJiraIssuesRequest,
+  SecurityMonitoringApiCreateLinearIssuesRequest,
   SecurityMonitoringApiCreateSampleLogGenerationSubscriptionRequest,
   SecurityMonitoringApiCreateSecurityFilterRequest,
   SecurityMonitoringApiCreateSecurityFindingsAutomationDueDateRuleRequest,
@@ -187,6 +189,10 @@ export { AttachJiraIssueRequest } from "./models/AttachJiraIssueRequest";
 export { AttachJiraIssueRequestData } from "./models/AttachJiraIssueRequestData";
 export { AttachJiraIssueRequestDataAttributes } from "./models/AttachJiraIssueRequestDataAttributes";
 export { AttachJiraIssueRequestDataRelationships } from "./models/AttachJiraIssueRequestDataRelationships";
+export { AttachLinearIssueRequest } from "./models/AttachLinearIssueRequest";
+export { AttachLinearIssueRequestData } from "./models/AttachLinearIssueRequestData";
+export { AttachLinearIssueRequestDataAttributes } from "./models/AttachLinearIssueRequestDataAttributes";
+export { AttachLinearIssueRequestDataRelationships } from "./models/AttachLinearIssueRequestDataRelationships";
 export { AttachServiceNowTicketRequest } from "./models/AttachServiceNowTicketRequest";
 export { AttachServiceNowTicketRequestData } from "./models/AttachServiceNowTicketRequestData";
 export { AttachServiceNowTicketRequestDataAttributes } from "./models/AttachServiceNowTicketRequestDataAttributes";
@@ -226,6 +232,10 @@ export { CreateJiraIssueRequestArray } from "./models/CreateJiraIssueRequestArra
 export { CreateJiraIssueRequestData } from "./models/CreateJiraIssueRequestData";
 export { CreateJiraIssueRequestDataAttributes } from "./models/CreateJiraIssueRequestDataAttributes";
 export { CreateJiraIssueRequestDataRelationships } from "./models/CreateJiraIssueRequestDataRelationships";
+export { CreateLinearIssueRequestArray } from "./models/CreateLinearIssueRequestArray";
+export { CreateLinearIssueRequestData } from "./models/CreateLinearIssueRequestData";
+export { CreateLinearIssueRequestDataAttributes } from "./models/CreateLinearIssueRequestDataAttributes";
+export { CreateLinearIssueRequestDataRelationships } from "./models/CreateLinearIssueRequestDataRelationships";
 export { CreateNotificationRuleParameters } from "./models/CreateNotificationRuleParameters";
 export { CreateNotificationRuleParametersData } from "./models/CreateNotificationRuleParametersData";
 export { CreateNotificationRuleParametersDataAttributes } from "./models/CreateNotificationRuleParametersDataAttributes";
@@ -302,6 +312,8 @@ export { FindingDataType } from "./models/FindingDataType";
 export { FindingEvaluation } from "./models/FindingEvaluation";
 export { FindingJiraIssue } from "./models/FindingJiraIssue";
 export { FindingJiraIssueResult } from "./models/FindingJiraIssueResult";
+export { FindingLinearIssue } from "./models/FindingLinearIssue";
+export { FindingLinearIssueResult } from "./models/FindingLinearIssueResult";
 export { FindingMute } from "./models/FindingMute";
 export { FindingMuteReason } from "./models/FindingMuteReason";
 export { FindingRule } from "./models/FindingRule";
@@ -387,6 +399,7 @@ export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
 export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
 export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 export { Library } from "./models/Library";
+export { LinearIssuesDataType } from "./models/LinearIssuesDataType";
 export { Links } from "./models/Links";
 export { ListAssetsSBOMsResponse } from "./models/ListAssetsSBOMsResponse";
 export { ListFindingsMeta } from "./models/ListFindingsMeta";

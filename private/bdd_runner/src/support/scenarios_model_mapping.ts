@@ -5967,6 +5967,20 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "FindingCaseResponse",
   },
+  "SecurityMonitoringApi.V2.CreateLinearIssues": {
+    body: {
+      type: "CreateLinearIssueRequestArray",
+      format: "",
+    },
+    operationResponseType: "FindingCaseResponseArray",
+  },
+  "SecurityMonitoringApi.V2.AttachLinearIssue": {
+    body: {
+      type: "AttachLinearIssueRequest",
+      format: "",
+    },
+    operationResponseType: "FindingCaseResponse",
+  },
   "SecurityMonitoringApi.V2.MuteSecurityFindings": {
     body: {
       type: "MuteFindingsRequest",
