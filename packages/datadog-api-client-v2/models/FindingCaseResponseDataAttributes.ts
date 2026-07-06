@@ -5,6 +5,7 @@
  */
 import { CaseInsightsItems } from "./CaseInsightsItems";
 import { FindingJiraIssue } from "./FindingJiraIssue";
+import { FindingLinearIssue } from "./FindingLinearIssue";
 import { FindingServiceNowTicket } from "./FindingServiceNowTicket";
 import { RelationshipToUser } from "./RelationshipToUser";
 
@@ -58,6 +59,10 @@ export class FindingCaseResponseDataAttributes {
    * Key of the case.
    */
   "key"?: string;
+  /**
+   * Linear issue associated with the case.
+   */
+  "linearIssue"?: FindingLinearIssue;
   /**
    * Timestamp of when the case was last modified.
    */
@@ -153,6 +158,10 @@ export class FindingCaseResponseDataAttributes {
     key: {
       baseName: "key",
       type: "string",
+    },
+    linearIssue: {
+      baseName: "linear_issue",
+      type: "FindingLinearIssue",
     },
     modifiedAt: {
       baseName: "modified_at",

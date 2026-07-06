@@ -25,6 +25,7 @@ import { AssigneeRequest } from "../models/AssigneeRequest";
 import { AssigneeResponse } from "../models/AssigneeResponse";
 import { AttachCaseRequest } from "../models/AttachCaseRequest";
 import { AttachJiraIssueRequest } from "../models/AttachJiraIssueRequest";
+import { AttachLinearIssueRequest } from "../models/AttachLinearIssueRequest";
 import { AttachServiceNowTicketRequest } from "../models/AttachServiceNowTicketRequest";
 import { CloudAssetType } from "../models/CloudAssetType";
 import { ConvertJobResultsToSignalsRequest } from "../models/ConvertJobResultsToSignalsRequest";
@@ -32,6 +33,7 @@ import { CreateCaseRequestArray } from "../models/CreateCaseRequestArray";
 import { CreateCustomFrameworkRequest } from "../models/CreateCustomFrameworkRequest";
 import { CreateCustomFrameworkResponse } from "../models/CreateCustomFrameworkResponse";
 import { CreateJiraIssueRequestArray } from "../models/CreateJiraIssueRequestArray";
+import { CreateLinearIssueRequestArray } from "../models/CreateLinearIssueRequestArray";
 import { CreateNotificationRuleParameters } from "../models/CreateNotificationRuleParameters";
 import { CreateServiceNowTicketRequestArray } from "../models/CreateServiceNowTicketRequestArray";
 import { CycloneDXBom } from "../models/CycloneDXBom";
@@ -306,6 +308,53 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AttachJiraIssueRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async attachLinearIssue(
+    body: AttachLinearIssueRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'attachLinearIssue'");
+    if (!_config.unstableOperations["v2.attachLinearIssue"]) {
+      throw new Error("Unstable operation 'attachLinearIssue' is disabled");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "attachLinearIssue");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/findings/linear_issues";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.attachLinearIssue")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "AttachLinearIssueRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -1279,6 +1328,53 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateJiraIssueRequestArray", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createLinearIssues(
+    body: CreateLinearIssueRequestArray,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'createLinearIssues'");
+    if (!_config.unstableOperations["v2.createLinearIssues"]) {
+      throw new Error("Unstable operation 'createLinearIssues' is disabled");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createLinearIssues");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/findings/linear_issues";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.createLinearIssues")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "CreateLinearIssueRequestArray", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -8764,6 +8860,68 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to attachLinearIssue
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async attachLinearIssue(
+    response: ResponseContext
+  ): Promise<FindingCaseResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: FindingCaseResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "FindingCaseResponse"
+      ) as FindingCaseResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: FindingCaseResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "FindingCaseResponse",
+        ""
+      ) as FindingCaseResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to attachServiceNowTicket
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -9953,6 +10111,68 @@ export class SecurityMonitoringApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createJiraIssues(
+    response: ResponseContext
+  ): Promise<FindingCaseResponseArray> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: FindingCaseResponseArray = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "FindingCaseResponseArray"
+      ) as FindingCaseResponseArray;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: FindingCaseResponseArray = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "FindingCaseResponseArray",
+        ""
+      ) as FindingCaseResponseArray;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createLinearIssues
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createLinearIssues(
     response: ResponseContext
   ): Promise<FindingCaseResponseArray> {
     const contentType = ObjectSerializer.normalizeMediaType(
@@ -18725,6 +18945,13 @@ export interface SecurityMonitoringApiAttachJiraIssueRequest {
   body: AttachJiraIssueRequest;
 }
 
+export interface SecurityMonitoringApiAttachLinearIssueRequest {
+  /**
+   * @type AttachLinearIssueRequest
+   */
+  body: AttachLinearIssueRequest;
+}
+
 export interface SecurityMonitoringApiAttachServiceNowTicketRequest {
   /**
    * @type AttachServiceNowTicketRequest
@@ -18875,6 +19102,13 @@ export interface SecurityMonitoringApiCreateJiraIssuesRequest {
    * @type CreateJiraIssueRequestArray
    */
   body: CreateJiraIssueRequestArray;
+}
+
+export interface SecurityMonitoringApiCreateLinearIssuesRequest {
+  /**
+   * @type CreateLinearIssueRequestArray
+   */
+  body: CreateLinearIssueRequestArray;
 }
 
 export interface SecurityMonitoringApiCreateSampleLogGenerationSubscriptionRequest {
@@ -20804,6 +21038,28 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Attach security findings to a Linear issue by providing the Linear issue URL.
+   * You can attach up to 50 security findings per Linear issue. If the Linear issue is not linked to any case, this operation will create a case for the security findings and link the Linear issue to the newly created case. Security findings that are already attached to another Linear issue will be detached from their previous Linear issue and attached to the specified Linear issue.
+   * @param param The request object
+   */
+  public attachLinearIssue(
+    param: SecurityMonitoringApiAttachLinearIssueRequest,
+    options?: Configuration
+  ): Promise<FindingCaseResponse> {
+    const requestContextPromise = this.requestFactory.attachLinearIssue(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.attachLinearIssue(responseContext);
+        });
+    });
+  }
+
+  /**
    * Attach security findings to a ServiceNow ticket by providing the ServiceNow ticket URL.
    * You can attach up to 50 security findings per ServiceNow ticket. If the ServiceNow ticket is not linked to any case, this operation will create a case for the security findings and link the ServiceNow ticket to the newly created case. Security findings that are already attached to another ServiceNow ticket will be detached from their previous ServiceNow ticket and attached to the specified ServiceNow ticket.
    * @param param The request object
@@ -21277,6 +21533,28 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createJiraIssues(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Create Linear issues for security findings.
+   * This operation creates a case in Datadog and a Linear issue linked to that case for bidirectional sync between Datadog and Linear. You can create up to 50 Linear issues per request and associate up to 50 security findings per Linear issue. Security findings that are already attached to another Linear issue will be detached from their previous Linear issue and attached to the newly created Linear issue.
+   * @param param The request object
+   */
+  public createLinearIssues(
+    param: SecurityMonitoringApiCreateLinearIssuesRequest,
+    options?: Configuration
+  ): Promise<FindingCaseResponseArray> {
+    const requestContextPromise = this.requestFactory.createLinearIssues(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createLinearIssues(responseContext);
         });
     });
   }
