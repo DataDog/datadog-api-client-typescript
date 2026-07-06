@@ -53,6 +53,11 @@ import { NotebookResponse } from "./NotebookResponse";
 import { NotebookResponseData } from "./NotebookResponseData";
 import { NotebookResponseDataAttributes } from "./NotebookResponseDataAttributes";
 import { NotebookSplitBy } from "./NotebookSplitBy";
+import { NotebookTemplateVariable } from "./NotebookTemplateVariable";
+import { NotebookTemplateVariableAvailableValuesQueryGroupBy } from "./NotebookTemplateVariableAvailableValuesQueryGroupBy";
+import { NotebookTemplateVariableAvailableValuesQueryLogRumSpans } from "./NotebookTemplateVariableAvailableValuesQueryLogRumSpans";
+import { NotebookTemplateVariableAvailableValuesQueryMetrics } from "./NotebookTemplateVariableAvailableValuesQueryMetrics";
+import { NotebookTemplateVariableAvailableValuesQuerySearch } from "./NotebookTemplateVariableAvailableValuesQuerySearch";
 import { NotebookTimeseriesCellAttributes } from "./NotebookTimeseriesCellAttributes";
 import { NotebookToplistCellAttributes } from "./NotebookToplistCellAttributes";
 import { NotebookUpdateData } from "./NotebookUpdateData";
@@ -408,6 +413,10 @@ export const TypingInfo: ModelTypingInfo = {
       "NotebookLogStreamCellAttributes",
     ],
     NotebookGlobalTime: ["NotebookRelativeTime", "NotebookAbsoluteTime"],
+    NotebookTemplateVariableAvailableValuesQuery: [
+      "NotebookTemplateVariableAvailableValuesQueryLogRumSpans",
+      "NotebookTemplateVariableAvailableValuesQueryMetrics",
+    ],
     NotebookUpdateCell: [
       "NotebookCellCreateRequest",
       "NotebookCellUpdateRequest",
@@ -489,6 +498,15 @@ export const TypingInfo: ModelTypingInfo = {
     NotebookResponseData: NotebookResponseData,
     NotebookResponseDataAttributes: NotebookResponseDataAttributes,
     NotebookSplitBy: NotebookSplitBy,
+    NotebookTemplateVariable: NotebookTemplateVariable,
+    NotebookTemplateVariableAvailableValuesQueryGroupBy:
+      NotebookTemplateVariableAvailableValuesQueryGroupBy,
+    NotebookTemplateVariableAvailableValuesQueryLogRumSpans:
+      NotebookTemplateVariableAvailableValuesQueryLogRumSpans,
+    NotebookTemplateVariableAvailableValuesQueryMetrics:
+      NotebookTemplateVariableAvailableValuesQueryMetrics,
+    NotebookTemplateVariableAvailableValuesQuerySearch:
+      NotebookTemplateVariableAvailableValuesQuerySearch,
     NotebookTimeseriesCellAttributes: NotebookTimeseriesCellAttributes,
     NotebookToplistCellAttributes: NotebookToplistCellAttributes,
     NotebookUpdateData: NotebookUpdateData,

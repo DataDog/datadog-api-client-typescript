@@ -109,6 +109,12 @@ export { NotebooksResponseDataAttributes } from "./models/NotebooksResponseDataA
 export { NotebooksResponseMeta } from "./models/NotebooksResponseMeta";
 export { NotebooksResponsePage } from "./models/NotebooksResponsePage";
 export { NotebookStatus } from "./models/NotebookStatus";
+export { NotebookTemplateVariable } from "./models/NotebookTemplateVariable";
+export { NotebookTemplateVariableAvailableValuesQuery } from "./models/NotebookTemplateVariableAvailableValuesQuery";
+export { NotebookTemplateVariableAvailableValuesQueryGroupBy } from "./models/NotebookTemplateVariableAvailableValuesQueryGroupBy";
+export { NotebookTemplateVariableAvailableValuesQueryLogRumSpans } from "./models/NotebookTemplateVariableAvailableValuesQueryLogRumSpans";
+export { NotebookTemplateVariableAvailableValuesQueryMetrics } from "./models/NotebookTemplateVariableAvailableValuesQueryMetrics";
+export { NotebookTemplateVariableAvailableValuesQuerySearch } from "./models/NotebookTemplateVariableAvailableValuesQuerySearch";
 export { NotebookTimeseriesCellAttributes } from "./models/NotebookTimeseriesCellAttributes";
 export { NotebookToplistCellAttributes } from "./models/NotebookToplistCellAttributes";
 export { NotebookUpdateCell } from "./models/NotebookUpdateCell";
