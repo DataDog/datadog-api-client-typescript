@@ -28,6 +28,7 @@ import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { Role } from "./Role";
 import { RoleAttributes } from "./RoleAttributes";
 import { RoleResponseRelationships } from "./RoleResponseRelationships";
+import { UpdateUserIdentityProvidersRequest } from "./UpdateUserIdentityProvidersRequest";
 import { User } from "./User";
 import { UserAttributes } from "./UserAttributes";
 import { UserCreateAttributes } from "./UserCreateAttributes";
@@ -40,6 +41,10 @@ import { UserInvitationResponse } from "./UserInvitationResponse";
 import { UserInvitationResponseData } from "./UserInvitationResponseData";
 import { UserInvitationsRequest } from "./UserInvitationsRequest";
 import { UserInvitationsResponse } from "./UserInvitationsResponse";
+import { UserOverrideIdentityProviderAttributes } from "./UserOverrideIdentityProviderAttributes";
+import { UserOverrideIdentityProviderData } from "./UserOverrideIdentityProviderData";
+import { UserOverrideIdentityProvidersResponse } from "./UserOverrideIdentityProvidersResponse";
+import { UserRelationshipIdentityProviderData } from "./UserRelationshipIdentityProviderData";
 import { UserRelationships } from "./UserRelationships";
 import { UserResponse } from "./UserResponse";
 import { UserResponseRelationships } from "./UserResponseRelationships";
@@ -57,6 +62,8 @@ export const TypingInfo: ModelTypingInfo = {
     QuerySortOrder: ["asc", "desc"],
     RolesType: ["roles"],
     UserInvitationsType: ["user_invitations"],
+    UserOverrideIdentityProviderDataType: ["identity_providers"],
+    UserRelationshipIdentityProviderDataType: ["identity_providers"],
     UsersType: ["users"],
   },
   oneOfMap: {
@@ -91,6 +98,7 @@ export const TypingInfo: ModelTypingInfo = {
     Role: Role,
     RoleAttributes: RoleAttributes,
     RoleResponseRelationships: RoleResponseRelationships,
+    UpdateUserIdentityProvidersRequest: UpdateUserIdentityProvidersRequest,
     User: User,
     UserAttributes: UserAttributes,
     UserCreateAttributes: UserCreateAttributes,
@@ -103,6 +111,12 @@ export const TypingInfo: ModelTypingInfo = {
     UserInvitationResponseData: UserInvitationResponseData,
     UserInvitationsRequest: UserInvitationsRequest,
     UserInvitationsResponse: UserInvitationsResponse,
+    UserOverrideIdentityProviderAttributes:
+      UserOverrideIdentityProviderAttributes,
+    UserOverrideIdentityProviderData: UserOverrideIdentityProviderData,
+    UserOverrideIdentityProvidersResponse:
+      UserOverrideIdentityProvidersResponse,
+    UserRelationshipIdentityProviderData: UserRelationshipIdentityProviderData,
     UserRelationships: UserRelationships,
     UserResponse: UserResponse,
     UserResponseRelationships: UserResponseRelationships,
