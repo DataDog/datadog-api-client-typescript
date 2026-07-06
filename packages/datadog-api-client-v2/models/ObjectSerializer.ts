@@ -1980,6 +1980,13 @@ import { IPAllowlistEntryAttributes } from "./IPAllowlistEntryAttributes";
 import { IPAllowlistEntryData } from "./IPAllowlistEntryData";
 import { IPAllowlistResponse } from "./IPAllowlistResponse";
 import { IPAllowlistUpdateRequest } from "./IPAllowlistUpdateRequest";
+import { IdentityProviderAttributes } from "./IdentityProviderAttributes";
+import { IdentityProviderData } from "./IdentityProviderData";
+import { IdentityProviderResponse } from "./IdentityProviderResponse";
+import { IdentityProviderUpdateAttributes } from "./IdentityProviderUpdateAttributes";
+import { IdentityProviderUpdateData } from "./IdentityProviderUpdateData";
+import { IdentityProviderUpdateRequest } from "./IdentityProviderUpdateRequest";
+import { IdentityProvidersResponse } from "./IdentityProvidersResponse";
 import { IncidentCreateAttributes } from "./IncidentCreateAttributes";
 import { IncidentCreateData } from "./IncidentCreateData";
 import { IncidentCreateRelationships } from "./IncidentCreateRelationships";
@@ -3205,6 +3212,19 @@ import { OpsgenieServiceUpdateData } from "./OpsgenieServiceUpdateData";
 import { OpsgenieServiceUpdateRequest } from "./OpsgenieServiceUpdateRequest";
 import { OpsgenieServicesResponse } from "./OpsgenieServicesResponse";
 import { OrgAttributes } from "./OrgAttributes";
+import { OrgAuthorizedClientAttributes } from "./OrgAuthorizedClientAttributes";
+import { OrgAuthorizedClientData } from "./OrgAuthorizedClientData";
+import { OrgAuthorizedClientRelationshipOAuth2Client } from "./OrgAuthorizedClientRelationshipOAuth2Client";
+import { OrgAuthorizedClientRelationshipOAuth2ClientData } from "./OrgAuthorizedClientRelationshipOAuth2ClientData";
+import { OrgAuthorizedClientRelationshipUserAuthorizedClients } from "./OrgAuthorizedClientRelationshipUserAuthorizedClients";
+import { OrgAuthorizedClientRelationshipUserAuthorizedClientsData } from "./OrgAuthorizedClientRelationshipUserAuthorizedClientsData";
+import { OrgAuthorizedClientRelationshipUserAuthorizedClientsLinks } from "./OrgAuthorizedClientRelationshipUserAuthorizedClientsLinks";
+import { OrgAuthorizedClientRelationships } from "./OrgAuthorizedClientRelationships";
+import { OrgAuthorizedClientResponse } from "./OrgAuthorizedClientResponse";
+import { OrgAuthorizedClientUpdateAttributes } from "./OrgAuthorizedClientUpdateAttributes";
+import { OrgAuthorizedClientUpdateData } from "./OrgAuthorizedClientUpdateData";
+import { OrgAuthorizedClientUpdateRequest } from "./OrgAuthorizedClientUpdateRequest";
+import { OrgAuthorizedClientsResponse } from "./OrgAuthorizedClientsResponse";
 import { OrgConfigGetResponse } from "./OrgConfigGetResponse";
 import { OrgConfigListResponse } from "./OrgConfigListResponse";
 import { OrgConfigRead } from "./OrgConfigRead";
@@ -5033,6 +5053,7 @@ import { UpdateTenancyConfigDataAttributesLogsConfig } from "./UpdateTenancyConf
 import { UpdateTenancyConfigDataAttributesMetricsConfig } from "./UpdateTenancyConfigDataAttributesMetricsConfig";
 import { UpdateTenancyConfigDataAttributesRegionsConfig } from "./UpdateTenancyConfigDataAttributesRegionsConfig";
 import { UpdateTenancyConfigRequest } from "./UpdateTenancyConfigRequest";
+import { UpdateUserIdentityProvidersRequest } from "./UpdateUserIdentityProvidersRequest";
 import { UpdateVariantRequest } from "./UpdateVariantRequest";
 import { UpdateWorkflowRequest } from "./UpdateWorkflowRequest";
 import { UpdateWorkflowResponse } from "./UpdateWorkflowResponse";
@@ -5069,6 +5090,17 @@ import { UsageSummaryAvailableFieldsResponse } from "./UsageSummaryAvailableFiel
 import { UsageTimeSeriesObject } from "./UsageTimeSeriesObject";
 import { User } from "./User";
 import { UserAttributes } from "./UserAttributes";
+import { UserAuthorizedClientAttributes } from "./UserAuthorizedClientAttributes";
+import { UserAuthorizedClientData } from "./UserAuthorizedClientData";
+import { UserAuthorizedClientRelationshipOAuth2Client } from "./UserAuthorizedClientRelationshipOAuth2Client";
+import { UserAuthorizedClientRelationshipOAuth2ClientData } from "./UserAuthorizedClientRelationshipOAuth2ClientData";
+import { UserAuthorizedClientRelationshipScopeData } from "./UserAuthorizedClientRelationshipScopeData";
+import { UserAuthorizedClientRelationshipScopes } from "./UserAuthorizedClientRelationshipScopes";
+import { UserAuthorizedClientRelationshipUser } from "./UserAuthorizedClientRelationshipUser";
+import { UserAuthorizedClientRelationshipUserData } from "./UserAuthorizedClientRelationshipUserData";
+import { UserAuthorizedClientRelationships } from "./UserAuthorizedClientRelationships";
+import { UserAuthorizedClientResponse } from "./UserAuthorizedClientResponse";
+import { UserAuthorizedClientsResponse } from "./UserAuthorizedClientsResponse";
 import { UserCreateAttributes } from "./UserCreateAttributes";
 import { UserCreateData } from "./UserCreateData";
 import { UserCreateRequest } from "./UserCreateRequest";
@@ -5079,7 +5111,11 @@ import { UserInvitationResponse } from "./UserInvitationResponse";
 import { UserInvitationResponseData } from "./UserInvitationResponseData";
 import { UserInvitationsRequest } from "./UserInvitationsRequest";
 import { UserInvitationsResponse } from "./UserInvitationsResponse";
+import { UserOverrideIdentityProviderAttributes } from "./UserOverrideIdentityProviderAttributes";
+import { UserOverrideIdentityProviderData } from "./UserOverrideIdentityProviderData";
+import { UserOverrideIdentityProvidersResponse } from "./UserOverrideIdentityProvidersResponse";
 import { UserRelationshipData } from "./UserRelationshipData";
+import { UserRelationshipIdentityProviderData } from "./UserRelationshipIdentityProviderData";
 import { UserRelationships } from "./UserRelationships";
 import { UserResponse } from "./UserResponse";
 import { UserResponseRelationships } from "./UserResponseRelationships";
@@ -6178,6 +6214,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   IPAllowlistEntryType: ["ip_allowlist_entry"],
   IPAllowlistType: ["ip_allowlist"],
+  IdentityProviderType: ["identity_providers"],
   IncidentAttachmentType: ["incident_attachments"],
   IncidentFieldAttributesSingleValueType: ["dropdown", "textbox"],
   IncidentFieldAttributesValueType: [
@@ -6959,6 +6996,16 @@ const enumsMap: { [key: string]: any[] } = {
   OpsgenieServiceRegionType: ["us", "eu", "custom"],
   OpsgenieServiceType: ["opsgenie-service"],
   OrderDirection: ["asc", "desc"],
+  OrgAuthorizedClientRelationshipOAuth2ClientDataType: ["oauth2_clients"],
+  OrgAuthorizedClientRelationshipUserAuthorizedClientsDataType: [
+    "user_authorized_clients",
+  ],
+  OrgAuthorizedClientType: ["org_authorized_clients"],
+  OrgAuthorizedClientUserAuthorizationsSort: [
+    "user.name",
+    "user.email",
+    "oauth2_client.name",
+  ],
   OrgConfigType: ["org_configs"],
   OrgConnectionOrgRelationshipDataType: ["orgs"],
   OrgConnectionType: ["org_connection"],
@@ -7976,7 +8023,13 @@ const enumsMap: { [key: string]: any[] } = {
   UsageSummaryAvailableFieldsType: ["usage_summary_available_fields"],
   UsageTimeSeriesType: ["usage_timeseries"],
   UserAttributesStatus: ["active", "deactivated", "pending"],
+  UserAuthorizedClientRelationshipOAuth2ClientDataType: ["oauth2_clients"],
+  UserAuthorizedClientRelationshipScopeDataType: ["scopes"],
+  UserAuthorizedClientRelationshipUserDataType: ["users"],
+  UserAuthorizedClientType: ["user_authorized_clients"],
   UserInvitationsType: ["user_invitations"],
+  UserOverrideIdentityProviderDataType: ["identity_providers"],
+  UserRelationshipIdentityProviderDataType: ["identity_providers"],
   UserResourceType: ["user"],
   UserTargetType: ["users"],
   UserTeamPermissionType: ["user_team_permissions"],
@@ -10428,6 +10481,13 @@ const typeMap: { [index: string]: any } = {
   IPAllowlistEntryData: IPAllowlistEntryData,
   IPAllowlistResponse: IPAllowlistResponse,
   IPAllowlistUpdateRequest: IPAllowlistUpdateRequest,
+  IdentityProviderAttributes: IdentityProviderAttributes,
+  IdentityProviderData: IdentityProviderData,
+  IdentityProviderResponse: IdentityProviderResponse,
+  IdentityProviderUpdateAttributes: IdentityProviderUpdateAttributes,
+  IdentityProviderUpdateData: IdentityProviderUpdateData,
+  IdentityProviderUpdateRequest: IdentityProviderUpdateRequest,
+  IdentityProvidersResponse: IdentityProvidersResponse,
   IncidentCreateAttributes: IncidentCreateAttributes,
   IncidentCreateData: IncidentCreateData,
   IncidentCreateRelationships: IncidentCreateRelationships,
@@ -11962,6 +12022,24 @@ const typeMap: { [index: string]: any } = {
   OpsgenieServiceUpdateRequest: OpsgenieServiceUpdateRequest,
   OpsgenieServicesResponse: OpsgenieServicesResponse,
   OrgAttributes: OrgAttributes,
+  OrgAuthorizedClientAttributes: OrgAuthorizedClientAttributes,
+  OrgAuthorizedClientData: OrgAuthorizedClientData,
+  OrgAuthorizedClientRelationshipOAuth2Client:
+    OrgAuthorizedClientRelationshipOAuth2Client,
+  OrgAuthorizedClientRelationshipOAuth2ClientData:
+    OrgAuthorizedClientRelationshipOAuth2ClientData,
+  OrgAuthorizedClientRelationshipUserAuthorizedClients:
+    OrgAuthorizedClientRelationshipUserAuthorizedClients,
+  OrgAuthorizedClientRelationshipUserAuthorizedClientsData:
+    OrgAuthorizedClientRelationshipUserAuthorizedClientsData,
+  OrgAuthorizedClientRelationshipUserAuthorizedClientsLinks:
+    OrgAuthorizedClientRelationshipUserAuthorizedClientsLinks,
+  OrgAuthorizedClientRelationships: OrgAuthorizedClientRelationships,
+  OrgAuthorizedClientResponse: OrgAuthorizedClientResponse,
+  OrgAuthorizedClientUpdateAttributes: OrgAuthorizedClientUpdateAttributes,
+  OrgAuthorizedClientUpdateData: OrgAuthorizedClientUpdateData,
+  OrgAuthorizedClientUpdateRequest: OrgAuthorizedClientUpdateRequest,
+  OrgAuthorizedClientsResponse: OrgAuthorizedClientsResponse,
   OrgConfigGetResponse: OrgConfigGetResponse,
   OrgConfigListResponse: OrgConfigListResponse,
   OrgConfigRead: OrgConfigRead,
@@ -14179,6 +14257,7 @@ const typeMap: { [index: string]: any } = {
   UpdateTenancyConfigDataAttributesRegionsConfig:
     UpdateTenancyConfigDataAttributesRegionsConfig,
   UpdateTenancyConfigRequest: UpdateTenancyConfigRequest,
+  UpdateUserIdentityProvidersRequest: UpdateUserIdentityProvidersRequest,
   UpdateVariantRequest: UpdateVariantRequest,
   UpdateWorkflowRequest: UpdateWorkflowRequest,
   UpdateWorkflowResponse: UpdateWorkflowResponse,
@@ -14221,6 +14300,22 @@ const typeMap: { [index: string]: any } = {
   UsageTimeSeriesObject: UsageTimeSeriesObject,
   User: User,
   UserAttributes: UserAttributes,
+  UserAuthorizedClientAttributes: UserAuthorizedClientAttributes,
+  UserAuthorizedClientData: UserAuthorizedClientData,
+  UserAuthorizedClientRelationshipOAuth2Client:
+    UserAuthorizedClientRelationshipOAuth2Client,
+  UserAuthorizedClientRelationshipOAuth2ClientData:
+    UserAuthorizedClientRelationshipOAuth2ClientData,
+  UserAuthorizedClientRelationshipScopeData:
+    UserAuthorizedClientRelationshipScopeData,
+  UserAuthorizedClientRelationshipScopes:
+    UserAuthorizedClientRelationshipScopes,
+  UserAuthorizedClientRelationshipUser: UserAuthorizedClientRelationshipUser,
+  UserAuthorizedClientRelationshipUserData:
+    UserAuthorizedClientRelationshipUserData,
+  UserAuthorizedClientRelationships: UserAuthorizedClientRelationships,
+  UserAuthorizedClientResponse: UserAuthorizedClientResponse,
+  UserAuthorizedClientsResponse: UserAuthorizedClientsResponse,
   UserCreateAttributes: UserCreateAttributes,
   UserCreateData: UserCreateData,
   UserCreateRequest: UserCreateRequest,
@@ -14231,7 +14326,12 @@ const typeMap: { [index: string]: any } = {
   UserInvitationResponseData: UserInvitationResponseData,
   UserInvitationsRequest: UserInvitationsRequest,
   UserInvitationsResponse: UserInvitationsResponse,
+  UserOverrideIdentityProviderAttributes:
+    UserOverrideIdentityProviderAttributes,
+  UserOverrideIdentityProviderData: UserOverrideIdentityProviderData,
+  UserOverrideIdentityProvidersResponse: UserOverrideIdentityProvidersResponse,
   UserRelationshipData: UserRelationshipData,
+  UserRelationshipIdentityProviderData: UserRelationshipIdentityProviderData,
   UserRelationships: UserRelationships,
   UserResponse: UserResponse,
   UserResponseRelationships: UserResponseRelationships,
