@@ -19911,7 +19911,7 @@ export interface SecurityMonitoringApiListAssetsSBOMsRequest {
    */
   pageNumber?: number;
   /**
-   * The type of the assets for the SBOM request.
+   * The type of the assets for the SBOM request. Required for initial requests (when no `page[token]` is provided). Infrastructure types (`Host`, `HostImage`, `Image`, `ServerlessFunction`) and code types (`Repository`, `Service`) cannot be mixed in the same request.
    * @type AssetType
    */
   filterAssetType?: AssetType;
@@ -23390,6 +23390,11 @@ export class SecurityMonitoringApi {
 
   /**
    * Get a list of assets SBOMs for an organization.
+   *
+   * The `filter[asset_type]` parameter is required for initial requests (when no `page[token]` is provided).
+   * Subsequent pages encode the asset type in the pagination token, so `filter[asset_type]` is not required
+   * for paginated requests. Mixing infrastructure asset types (`Host`, `HostImage`, `Image`, `ServerlessFunction`)
+   * with code asset types (`Repository`, `Service`) in the same request is not supported and returns a 400 error.
    *
    * ### Pagination
    *
