@@ -15,9 +15,9 @@ export class DORAIncidentObjectAttributes {
    */
   "env"?: string;
   /**
-   * Unix timestamp when the incident finished.
+   * The time when the incident finished.
    */
-  "finishedAt"?: number;
+  "finishedAt"?: Date;
   /**
    * Git info for DORA Metrics events.
    */
@@ -35,9 +35,9 @@ export class DORAIncidentObjectAttributes {
    */
   "severity"?: string;
   /**
-   * Unix timestamp when the incident started.
+   * The time when the incident started.
    */
-  "startedAt": number;
+  "startedAt"?: Date;
   /**
    * Name of the team owning the services impacted.
    */
@@ -71,8 +71,8 @@ export class DORAIncidentObjectAttributes {
     },
     finishedAt: {
       baseName: "finished_at",
-      type: "number",
-      format: "int64",
+      type: "Date",
+      format: "date-time",
     },
     git: {
       baseName: "git",
@@ -92,9 +92,8 @@ export class DORAIncidentObjectAttributes {
     },
     startedAt: {
       baseName: "started_at",
-      type: "number",
-      required: true,
-      format: "int64",
+      type: "Date",
+      format: "date-time",
     },
     team: {
       baseName: "team",
