@@ -5950,6 +5950,20 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "FindingCaseResponse",
     },
+    "v2.CreateLinearIssues": {
+        "body": {
+            "type": "CreateLinearIssueRequestArray",
+            "format": "",
+            },
+        "operationResponseType": "FindingCaseResponseArray",
+    },
+    "v2.AttachLinearIssue": {
+        "body": {
+            "type": "AttachLinearIssueRequest",
+            "format": "",
+            },
+        "operationResponseType": "FindingCaseResponse",
+    },
     "v2.MuteSecurityFindings": {
         "body": {
             "type": "MuteFindingsRequest",

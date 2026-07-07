@@ -347,6 +347,10 @@ import { AttachJiraIssueRequest } from "./AttachJiraIssueRequest";
 import { AttachJiraIssueRequestData } from "./AttachJiraIssueRequestData";
 import { AttachJiraIssueRequestDataAttributes } from "./AttachJiraIssueRequestDataAttributes";
 import { AttachJiraIssueRequestDataRelationships } from "./AttachJiraIssueRequestDataRelationships";
+import { AttachLinearIssueRequest } from "./AttachLinearIssueRequest";
+import { AttachLinearIssueRequestData } from "./AttachLinearIssueRequestData";
+import { AttachLinearIssueRequestDataAttributes } from "./AttachLinearIssueRequestDataAttributes";
+import { AttachLinearIssueRequestDataRelationships } from "./AttachLinearIssueRequestDataRelationships";
 import { AttachServiceNowTicketRequest } from "./AttachServiceNowTicketRequest";
 import { AttachServiceNowTicketRequestData } from "./AttachServiceNowTicketRequestData";
 import { AttachServiceNowTicketRequestDataAttributes } from "./AttachServiceNowTicketRequestDataAttributes";
@@ -995,6 +999,10 @@ import { CreateJiraIssueRequestArray } from "./CreateJiraIssueRequestArray";
 import { CreateJiraIssueRequestData } from "./CreateJiraIssueRequestData";
 import { CreateJiraIssueRequestDataAttributes } from "./CreateJiraIssueRequestDataAttributes";
 import { CreateJiraIssueRequestDataRelationships } from "./CreateJiraIssueRequestDataRelationships";
+import { CreateLinearIssueRequestArray } from "./CreateLinearIssueRequestArray";
+import { CreateLinearIssueRequestData } from "./CreateLinearIssueRequestData";
+import { CreateLinearIssueRequestDataAttributes } from "./CreateLinearIssueRequestDataAttributes";
+import { CreateLinearIssueRequestDataRelationships } from "./CreateLinearIssueRequestDataRelationships";
 import { CreateMaintenanceRequest } from "./CreateMaintenanceRequest";
 import { CreateMaintenanceRequestData } from "./CreateMaintenanceRequestData";
 import { CreateMaintenanceRequestDataAttributes } from "./CreateMaintenanceRequestDataAttributes";
@@ -1636,6 +1644,8 @@ import { FindingCaseResponseDataRelationships } from "./FindingCaseResponseDataR
 import { FindingData } from "./FindingData";
 import { FindingJiraIssue } from "./FindingJiraIssue";
 import { FindingJiraIssueResult } from "./FindingJiraIssueResult";
+import { FindingLinearIssue } from "./FindingLinearIssue";
+import { FindingLinearIssueResult } from "./FindingLinearIssueResult";
 import { FindingMute } from "./FindingMute";
 import { FindingRule } from "./FindingRule";
 import { FindingServiceNowTicket } from "./FindingServiceNowTicket";
@@ -6427,6 +6437,7 @@ const enumsMap: { [key: string]: any[] } = {
   LayerType: ["layers"],
   LeakedKeyType: ["leaked_keys"],
   LicensesListResponseDataType: ["licenserequest"],
+  LinearIssuesDataType: ["linear_issues"],
   ListConnectionsResponseDataType: ["list_connections_response"],
   ListDeploymentRulesDataType: ["list_deployment_rules"],
   ListTeamsInclude: ["team_links", "user_team_permissions"],
@@ -8551,6 +8562,12 @@ const typeMap: { [index: string]: any } = {
   AttachJiraIssueRequestDataAttributes: AttachJiraIssueRequestDataAttributes,
   AttachJiraIssueRequestDataRelationships:
     AttachJiraIssueRequestDataRelationships,
+  AttachLinearIssueRequest: AttachLinearIssueRequest,
+  AttachLinearIssueRequestData: AttachLinearIssueRequestData,
+  AttachLinearIssueRequestDataAttributes:
+    AttachLinearIssueRequestDataAttributes,
+  AttachLinearIssueRequestDataRelationships:
+    AttachLinearIssueRequestDataRelationships,
   AttachServiceNowTicketRequest: AttachServiceNowTicketRequest,
   AttachServiceNowTicketRequestData: AttachServiceNowTicketRequestData,
   AttachServiceNowTicketRequestDataAttributes:
@@ -9288,6 +9305,12 @@ const typeMap: { [index: string]: any } = {
   CreateJiraIssueRequestDataAttributes: CreateJiraIssueRequestDataAttributes,
   CreateJiraIssueRequestDataRelationships:
     CreateJiraIssueRequestDataRelationships,
+  CreateLinearIssueRequestArray: CreateLinearIssueRequestArray,
+  CreateLinearIssueRequestData: CreateLinearIssueRequestData,
+  CreateLinearIssueRequestDataAttributes:
+    CreateLinearIssueRequestDataAttributes,
+  CreateLinearIssueRequestDataRelationships:
+    CreateLinearIssueRequestDataRelationships,
   CreateMaintenanceRequest: CreateMaintenanceRequest,
   CreateMaintenanceRequestData: CreateMaintenanceRequestData,
   CreateMaintenanceRequestDataAttributes:
@@ -10047,6 +10070,8 @@ const typeMap: { [index: string]: any } = {
   FindingData: FindingData,
   FindingJiraIssue: FindingJiraIssue,
   FindingJiraIssueResult: FindingJiraIssueResult,
+  FindingLinearIssue: FindingLinearIssue,
+  FindingLinearIssueResult: FindingLinearIssueResult,
   FindingMute: FindingMute,
   FindingRule: FindingRule,
   FindingServiceNowTicket: FindingServiceNowTicket,
