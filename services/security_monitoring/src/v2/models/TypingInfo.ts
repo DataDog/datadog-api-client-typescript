@@ -35,6 +35,10 @@ import { AttachJiraIssueRequest } from "./AttachJiraIssueRequest";
 import { AttachJiraIssueRequestData } from "./AttachJiraIssueRequestData";
 import { AttachJiraIssueRequestDataAttributes } from "./AttachJiraIssueRequestDataAttributes";
 import { AttachJiraIssueRequestDataRelationships } from "./AttachJiraIssueRequestDataRelationships";
+import { AttachLinearIssueRequest } from "./AttachLinearIssueRequest";
+import { AttachLinearIssueRequestData } from "./AttachLinearIssueRequestData";
+import { AttachLinearIssueRequestDataAttributes } from "./AttachLinearIssueRequestDataAttributes";
+import { AttachLinearIssueRequestDataRelationships } from "./AttachLinearIssueRequestDataRelationships";
 import { AttachServiceNowTicketRequest } from "./AttachServiceNowTicketRequest";
 import { AttachServiceNowTicketRequestData } from "./AttachServiceNowTicketRequestData";
 import { AttachServiceNowTicketRequestDataAttributes } from "./AttachServiceNowTicketRequestDataAttributes";
@@ -68,6 +72,10 @@ import { CreateJiraIssueRequestArray } from "./CreateJiraIssueRequestArray";
 import { CreateJiraIssueRequestData } from "./CreateJiraIssueRequestData";
 import { CreateJiraIssueRequestDataAttributes } from "./CreateJiraIssueRequestDataAttributes";
 import { CreateJiraIssueRequestDataRelationships } from "./CreateJiraIssueRequestDataRelationships";
+import { CreateLinearIssueRequestArray } from "./CreateLinearIssueRequestArray";
+import { CreateLinearIssueRequestData } from "./CreateLinearIssueRequestData";
+import { CreateLinearIssueRequestDataAttributes } from "./CreateLinearIssueRequestDataAttributes";
+import { CreateLinearIssueRequestDataRelationships } from "./CreateLinearIssueRequestDataRelationships";
 import { CreateNotificationRuleParameters } from "./CreateNotificationRuleParameters";
 import { CreateNotificationRuleParametersData } from "./CreateNotificationRuleParametersData";
 import { CreateNotificationRuleParametersDataAttributes } from "./CreateNotificationRuleParametersDataAttributes";
@@ -134,6 +142,8 @@ import { FindingCaseResponseDataRelationships } from "./FindingCaseResponseDataR
 import { FindingData } from "./FindingData";
 import { FindingJiraIssue } from "./FindingJiraIssue";
 import { FindingJiraIssueResult } from "./FindingJiraIssueResult";
+import { FindingLinearIssue } from "./FindingLinearIssue";
+import { FindingLinearIssueResult } from "./FindingLinearIssueResult";
 import { FindingMute } from "./FindingMute";
 import { FindingRule } from "./FindingRule";
 import { FindingServiceNowTicket } from "./FindingServiceNowTicket";
@@ -592,6 +602,7 @@ export const TypingInfo: ModelTypingInfo = {
     IoCScoreEffect: ["RAISE_SCORE", "LOWER_SCORE", "NO_EFFECT"],
     IoCTriageState: ["not_reviewed", "reviewed"],
     JiraIssuesDataType: ["jira_issues"],
+    LinearIssuesDataType: ["linear_issues"],
     MuteDataType: ["mute"],
     MuteFindingsReason: [
       "PENDING_FIX",
@@ -1062,6 +1073,12 @@ export const TypingInfo: ModelTypingInfo = {
     AttachJiraIssueRequestDataAttributes: AttachJiraIssueRequestDataAttributes,
     AttachJiraIssueRequestDataRelationships:
       AttachJiraIssueRequestDataRelationships,
+    AttachLinearIssueRequest: AttachLinearIssueRequest,
+    AttachLinearIssueRequestData: AttachLinearIssueRequestData,
+    AttachLinearIssueRequestDataAttributes:
+      AttachLinearIssueRequestDataAttributes,
+    AttachLinearIssueRequestDataRelationships:
+      AttachLinearIssueRequestDataRelationships,
     AttachServiceNowTicketRequest: AttachServiceNowTicketRequest,
     AttachServiceNowTicketRequestData: AttachServiceNowTicketRequestData,
     AttachServiceNowTicketRequestDataAttributes:
@@ -1100,6 +1117,12 @@ export const TypingInfo: ModelTypingInfo = {
     CreateJiraIssueRequestDataAttributes: CreateJiraIssueRequestDataAttributes,
     CreateJiraIssueRequestDataRelationships:
       CreateJiraIssueRequestDataRelationships,
+    CreateLinearIssueRequestArray: CreateLinearIssueRequestArray,
+    CreateLinearIssueRequestData: CreateLinearIssueRequestData,
+    CreateLinearIssueRequestDataAttributes:
+      CreateLinearIssueRequestDataAttributes,
+    CreateLinearIssueRequestDataRelationships:
+      CreateLinearIssueRequestDataRelationships,
     CreateNotificationRuleParameters: CreateNotificationRuleParameters,
     CreateNotificationRuleParametersData: CreateNotificationRuleParametersData,
     CreateNotificationRuleParametersDataAttributes:
@@ -1171,6 +1194,8 @@ export const TypingInfo: ModelTypingInfo = {
     FindingData: FindingData,
     FindingJiraIssue: FindingJiraIssue,
     FindingJiraIssueResult: FindingJiraIssueResult,
+    FindingLinearIssue: FindingLinearIssue,
+    FindingLinearIssueResult: FindingLinearIssueResult,
     FindingMute: FindingMute,
     FindingRule: FindingRule,
     FindingServiceNowTicket: FindingServiceNowTicket,
