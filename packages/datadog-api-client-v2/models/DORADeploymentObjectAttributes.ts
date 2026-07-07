@@ -20,9 +20,9 @@ export class DORADeploymentObjectAttributes {
    */
   "env"?: string;
   /**
-   * Unix timestamp when the deployment finished.
+   * The time when the deployment finished.
    */
-  "finishedAt": number;
+  "finishedAt"?: Date;
   /**
    * Git info returned by DORA Metrics events.
    */
@@ -32,9 +32,9 @@ export class DORADeploymentObjectAttributes {
    */
   "service": string;
   /**
-   * Unix timestamp when the deployment started.
+   * The time when the deployment started.
    */
-  "startedAt": number;
+  "startedAt": Date;
   /**
    * Name of the team owning the deployed service.
    */
@@ -70,9 +70,8 @@ export class DORADeploymentObjectAttributes {
     },
     finishedAt: {
       baseName: "finished_at",
-      type: "number",
-      required: true,
-      format: "int64",
+      type: "Date",
+      format: "date-time",
     },
     git: {
       baseName: "git",
@@ -85,9 +84,9 @@ export class DORADeploymentObjectAttributes {
     },
     startedAt: {
       baseName: "started_at",
-      type: "number",
+      type: "Date",
       required: true,
-      format: "int64",
+      format: "date-time",
     },
     team: {
       baseName: "team",
