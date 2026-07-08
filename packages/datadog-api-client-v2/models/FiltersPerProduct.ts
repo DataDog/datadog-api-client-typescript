@@ -19,7 +19,7 @@ export class FiltersPerProduct {
   "filters": Array<string>;
   /**
    * Name of the product the dataset is for. Possible values are 'apm', 'rum',
-   * 'metrics', 'logs', 'error_tracking', 'cloud_cost', and 'sd_repoinfo'.
+   * 'metrics', 'logs', 'error_tracking', 'cloud_cost', 'sd_repoinfo', and 'secruntime'.
    */
   "product": string;
 
