@@ -15,10 +15,6 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class IncidentUserDefinedFieldAttributesResponse {
   /**
-   * The resource type this field is attached to. Always "incidents".
-   */
-  "attachedTo": string;
-  /**
    * The section in which the field appears: "what_happened" or "why_it_happened". When null, the field appears in the Attributes section.
    */
   "category": IncidentUserDefinedFieldCategory | null;
@@ -59,10 +55,6 @@ export class IncidentUserDefinedFieldAttributesResponse {
    */
   "ordinal": string | null;
   /**
-   * Reserved for future use. Always null.
-   */
-  "prerequisite": string | null;
-  /**
    * When true, users must fill out this field on incidents.
    */
   "required": boolean;
@@ -70,10 +62,6 @@ export class IncidentUserDefinedFieldAttributesResponse {
    * When true, this field is reserved for system use and cannot be deleted.
    */
   "reserved": boolean;
-  /**
-   * Reserved for internal use. Always 0.
-   */
-  "tableId": number;
   /**
    * For metric tag-type fields only, the metric tag key that powers the autocomplete options.
    */
@@ -103,11 +91,6 @@ export class IncidentUserDefinedFieldAttributesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attachedTo: {
-      baseName: "attached_to",
-      type: "string",
-      required: true,
-    },
     category: {
       baseName: "category",
       type: "IncidentUserDefinedFieldCategory",
@@ -161,11 +144,6 @@ export class IncidentUserDefinedFieldAttributesResponse {
       type: "string",
       required: true,
     },
-    prerequisite: {
-      baseName: "prerequisite",
-      type: "string",
-      required: true,
-    },
     required: {
       baseName: "required",
       type: "boolean",
@@ -175,12 +153,6 @@ export class IncidentUserDefinedFieldAttributesResponse {
       baseName: "reserved",
       type: "boolean",
       required: true,
-    },
-    tableId: {
-      baseName: "table_id",
-      type: "number",
-      required: true,
-      format: "int64",
     },
     tagKey: {
       baseName: "tag_key",
