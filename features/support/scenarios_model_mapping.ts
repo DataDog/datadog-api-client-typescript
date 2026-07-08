@@ -6535,6 +6535,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SecurityMonitoringIntegrationConfigResponse",
     },
+    "v2.GetEntraIdAzureAppRegistrations": {
+        "operationResponseType": "SecurityMonitoringEntraIdAzureAppRegistrationsResponse",
+    },
     "v2.ValidateSecurityMonitoringIntegrationCredentials": {
         "body": {
             "type": "SecurityMonitoringIntegrationCredentialsValidateRequest",
@@ -6573,6 +6576,24 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "{}",
+    },
+    "v2.ActivateIntegration": {
+        "integrationType": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SecurityMonitoringIntegrationActivateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringIntegrationConfigResponse",
+    },
+    "v2.DeactivateIntegration": {
+        "integrationType": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringIntegrationConfigResponse",
     },
     "v2.SendSecurityMonitoringNotificationPreview": {
         "body": {

@@ -1332,6 +1332,7 @@ export {
 
 export {
   SecurityMonitoringApiActivateContentPackRequest,
+  SecurityMonitoringApiActivateIntegrationRequest,
   SecurityMonitoringApiAttachCaseRequest,
   SecurityMonitoringApiAttachJiraIssueRequest,
   SecurityMonitoringApiAttachLinearIssueRequest,
@@ -1371,6 +1372,7 @@ export {
   SecurityMonitoringApiCreateStaticAnalysisServerAnalysisRequest,
   SecurityMonitoringApiCreateVulnerabilityNotificationRuleRequest,
   SecurityMonitoringApiDeactivateContentPackRequest,
+  SecurityMonitoringApiDeactivateIntegrationRequest,
   SecurityMonitoringApiDeleteCustomFrameworkRequest,
   SecurityMonitoringApiDeleteHistoricalJobRequest,
   SecurityMonitoringApiDeleteSampleLogGenerationSubscriptionRequest,
@@ -7100,6 +7102,7 @@ export { SecurityFindingsSearchRequestPage } from "./models/SecurityFindingsSear
 export { SecurityFindingsSort } from "./models/SecurityFindingsSort";
 export { SecurityFindingsStatus } from "./models/SecurityFindingsStatus";
 export { SecurityFindingType } from "./models/SecurityFindingType";
+export { SecurityMonitoringAzureAppRegistration } from "./models/SecurityMonitoringAzureAppRegistration";
 export { SecurityMonitoringContentPackActivation } from "./models/SecurityMonitoringContentPackActivation";
 export { SecurityMonitoringContentPackIntegrationStatus } from "./models/SecurityMonitoringContentPackIntegrationStatus";
 export { SecurityMonitoringContentPackStateAttributes } from "./models/SecurityMonitoringContentPackStateAttributes";
@@ -7153,8 +7156,16 @@ export { SecurityMonitoringDatasetVersionHistoryAttributes } from "./models/Secu
 export { SecurityMonitoringDatasetVersionHistoryData } from "./models/SecurityMonitoringDatasetVersionHistoryData";
 export { SecurityMonitoringDatasetVersionHistoryResponse } from "./models/SecurityMonitoringDatasetVersionHistoryResponse";
 export { SecurityMonitoringDatasetVersionHistoryType } from "./models/SecurityMonitoringDatasetVersionHistoryType";
+export { SecurityMonitoringEntraIdAzureAppRegistrationsAttributes } from "./models/SecurityMonitoringEntraIdAzureAppRegistrationsAttributes";
+export { SecurityMonitoringEntraIdAzureAppRegistrationsData } from "./models/SecurityMonitoringEntraIdAzureAppRegistrationsData";
+export { SecurityMonitoringEntraIdAzureAppRegistrationsResourceType } from "./models/SecurityMonitoringEntraIdAzureAppRegistrationsResourceType";
+export { SecurityMonitoringEntraIdAzureAppRegistrationsResponse } from "./models/SecurityMonitoringEntraIdAzureAppRegistrationsResponse";
 export { SecurityMonitoringFilter } from "./models/SecurityMonitoringFilter";
 export { SecurityMonitoringFilterAction } from "./models/SecurityMonitoringFilterAction";
+export { SecurityMonitoringIntegrationActivateAttributes } from "./models/SecurityMonitoringIntegrationActivateAttributes";
+export { SecurityMonitoringIntegrationActivateData } from "./models/SecurityMonitoringIntegrationActivateData";
+export { SecurityMonitoringIntegrationActivateRequest } from "./models/SecurityMonitoringIntegrationActivateRequest";
+export { SecurityMonitoringIntegrationActivateResourceType } from "./models/SecurityMonitoringIntegrationActivateResourceType";
 export { SecurityMonitoringIntegrationConfigAttributes } from "./models/SecurityMonitoringIntegrationConfigAttributes";
 export { SecurityMonitoringIntegrationConfigCreateAttributes } from "./models/SecurityMonitoringIntegrationConfigCreateAttributes";
 export { SecurityMonitoringIntegrationConfigCreateData } from "./models/SecurityMonitoringIntegrationConfigCreateData";
