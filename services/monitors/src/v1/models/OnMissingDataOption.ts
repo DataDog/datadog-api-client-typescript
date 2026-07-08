@@ -5,7 +5,8 @@ import { UnparsedObject } from "@datadog/datadog-api-client";
  * The default option results in different behavior depending on the monitor query type.
  * For monitors using Count queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions.
  * For monitors using any query type other than Count, for example Gauge, Measure, or Rate, the monitor shows the last known status.
- * This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+ * This option is available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+ * It is also required for metric monitors that use `scheduling_options.custom_schedule`.
  */
 export type OnMissingDataOption =
   | typeof DEFAULT
