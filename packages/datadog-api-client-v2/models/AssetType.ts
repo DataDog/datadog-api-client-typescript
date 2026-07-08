@@ -16,9 +16,11 @@ export type AssetType =
   | typeof HOST
   | typeof HOSTIMAGE
   | typeof IMAGE
+  | typeof SERVERLESSFUNCTION
   | UnparsedObject;
 export const REPOSITORY = "Repository";
 export const SERVICE = "Service";
 export const HOST = "Host";
 export const HOSTIMAGE = "HostImage";
 export const IMAGE = "Image";
+export const SERVERLESSFUNCTION = "ServerlessFunction";
