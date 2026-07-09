@@ -5958,10 +5958,11 @@ export { ObservabilityPipelineSyslogNgSourceType } from "./models/ObservabilityP
 export { ObservabilityPipelineSyslogSourceMode } from "./models/ObservabilityPipelineSyslogSourceMode";
 export { ObservabilityPipelineTagCardinalityLimitProcessor } from "./models/ObservabilityPipelineTagCardinalityLimitProcessor";
 export { ObservabilityPipelineTagCardinalityLimitProcessorAction } from "./models/ObservabilityPipelineTagCardinalityLimitProcessorAction";
+export { ObservabilityPipelineTagCardinalityLimitProcessorOverrideType } from "./models/ObservabilityPipelineTagCardinalityLimitProcessorOverrideType";
 export { ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit } from "./models/ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit";
-export { ObservabilityPipelineTagCardinalityLimitProcessorPerMetricMode } from "./models/ObservabilityPipelineTagCardinalityLimitProcessorPerMetricMode";
 export { ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit } from "./models/ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit";
-export { ObservabilityPipelineTagCardinalityLimitProcessorPerTagMode } from "./models/ObservabilityPipelineTagCardinalityLimitProcessorPerTagMode";
+export { ObservabilityPipelineTagCardinalityLimitProcessorTrackingMode } from "./models/ObservabilityPipelineTagCardinalityLimitProcessorTrackingMode";
+export { ObservabilityPipelineTagCardinalityLimitProcessorTrackingModeMode } from "./models/ObservabilityPipelineTagCardinalityLimitProcessorTrackingModeMode";
 export { ObservabilityPipelineTagCardinalityLimitProcessorType } from "./models/ObservabilityPipelineTagCardinalityLimitProcessorType";
 export { ObservabilityPipelineThrottleProcessor } from "./models/ObservabilityPipelineThrottleProcessor";
 export { ObservabilityPipelineThrottleProcessorType } from "./models/ObservabilityPipelineThrottleProcessorType";

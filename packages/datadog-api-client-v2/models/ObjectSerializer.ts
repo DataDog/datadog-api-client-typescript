@@ -3165,6 +3165,7 @@ import { ObservabilityPipelineSyslogNgSource } from "./ObservabilityPipelineSysl
 import { ObservabilityPipelineTagCardinalityLimitProcessor } from "./ObservabilityPipelineTagCardinalityLimitProcessor";
 import { ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit } from "./ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit";
 import { ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit } from "./ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit";
+import { ObservabilityPipelineTagCardinalityLimitProcessorTrackingMode } from "./ObservabilityPipelineTagCardinalityLimitProcessorTrackingMode";
 import { ObservabilityPipelineThrottleProcessor } from "./ObservabilityPipelineThrottleProcessor";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 import { ObservabilityPipelineWebsocketSource } from "./ObservabilityPipelineWebsocketSource";
@@ -6984,13 +6985,13 @@ const enumsMap: { [key: string]: any[] } = {
     "drop_tag",
     "drop_event",
   ],
-  ObservabilityPipelineTagCardinalityLimitProcessorPerMetricMode: [
-    "tracked",
-    "excluded",
-  ],
-  ObservabilityPipelineTagCardinalityLimitProcessorPerTagMode: [
+  ObservabilityPipelineTagCardinalityLimitProcessorOverrideType: [
     "limit_override",
     "excluded",
+  ],
+  ObservabilityPipelineTagCardinalityLimitProcessorTrackingModeMode: [
+    "exact_fingerprint",
+    "probabilistic",
   ],
   ObservabilityPipelineTagCardinalityLimitProcessorType: [
     "tag_cardinality_limit",
@@ -12004,6 +12005,8 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit,
   ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit:
     ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit,
+  ObservabilityPipelineTagCardinalityLimitProcessorTrackingMode:
+    ObservabilityPipelineTagCardinalityLimitProcessorTrackingMode,
   ObservabilityPipelineThrottleProcessor:
     ObservabilityPipelineThrottleProcessor,
   ObservabilityPipelineTls: ObservabilityPipelineTls,
