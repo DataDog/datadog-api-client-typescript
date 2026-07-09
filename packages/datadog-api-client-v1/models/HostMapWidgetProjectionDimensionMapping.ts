@@ -9,22 +9,21 @@ import { WidgetNumberFormat } from "./WidgetNumberFormat";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Formula for the infrastructure host map widget that specifies both the expression
- * and the visual dimension it populates.
+ * Maps a dataset column to a host map visual dimension.
  */
-export class HostMapWidgetFormula {
+export class HostMapWidgetProjectionDimensionMapping {
   /**
-   * Expression alias.
+   * Alias used to label the column instead of its name.
    */
   "alias"?: string;
+  /**
+   * Source column name from the dataset.
+   */
+  "column": string;
   /**
    * Visual dimension for the host map widget. Used both by infrastructure-backed formulas and by DDSQL projection columns; `group` is only meaningful for DDSQL projection columns, where repeated entries define the grouping hierarchy.
    */
   "dimension": HostMapWidgetDimension;
-  /**
-   * String expression built from queries, formulas, and functions.
-   */
-  "formula": string;
   /**
    * Number format options for the widget.
    */
@@ -50,14 +49,14 @@ export class HostMapWidgetFormula {
       baseName: "alias",
       type: "string",
     },
+    column: {
+      baseName: "column",
+      type: "string",
+      required: true,
+    },
     dimension: {
       baseName: "dimension",
       type: "HostMapWidgetDimension",
-      required: true,
-    },
-    formula: {
-      baseName: "formula",
-      type: "string",
       required: true,
     },
     numberFormat: {
@@ -74,7 +73,7 @@ export class HostMapWidgetFormula {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return HostMapWidgetFormula.attributeTypeMap;
+    return HostMapWidgetProjectionDimensionMapping.attributeTypeMap;
   }
 
   public constructor() {}

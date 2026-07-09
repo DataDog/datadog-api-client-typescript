@@ -3,29 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { DatasetListQuerySortField } from "./DatasetListQuerySortField";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Deprecated - The style to apply to the legacy metric-based host map widget. Use `HostMapWidgetInfrastructureStyle` instead.
+ * Sort configuration for a `DatasetListQuery`.
  */
-export class HostMapWidgetDefinitionStyle {
+export class DatasetListQuerySort {
   /**
-   * Max value to use to color the map.
+   * List of fields to sort the rows by, applied in order.
    */
-  "fillMax"?: string;
-  /**
-   * Min value to use to color the map.
-   */
-  "fillMin"?: string;
-  /**
-   * Color palette to apply to the widget.
-   */
-  "palette"?: string;
-  /**
-   * Whether to flip the palette tones.
-   */
-  "paletteFlip"?: boolean;
+  "fields": Array<DatasetListQuerySortField>;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,21 +32,10 @@ export class HostMapWidgetDefinitionStyle {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    fillMax: {
-      baseName: "fill_max",
-      type: "string",
-    },
-    fillMin: {
-      baseName: "fill_min",
-      type: "string",
-    },
-    palette: {
-      baseName: "palette",
-      type: "string",
-    },
-    paletteFlip: {
-      baseName: "palette_flip",
-      type: "boolean",
+    fields: {
+      baseName: "fields",
+      type: "Array<DatasetListQuerySortField>",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -69,7 +47,7 @@ export class HostMapWidgetDefinitionStyle {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return HostMapWidgetDefinitionStyle.attributeTypeMap;
+    return DatasetListQuerySort.attributeTypeMap;
   }
 
   public constructor() {}
