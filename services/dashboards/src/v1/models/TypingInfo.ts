@@ -30,6 +30,9 @@ import { DashboardTemplateVariable } from "./DashboardTemplateVariable";
 import { DashboardTemplateVariablePreset } from "./DashboardTemplateVariablePreset";
 import { DashboardTemplateVariablePresetValue } from "./DashboardTemplateVariablePresetValue";
 import { DataProjectionQuery } from "./DataProjectionQuery";
+import { DatasetListQuery } from "./DatasetListQuery";
+import { DatasetListQuerySort } from "./DatasetListQuerySort";
+import { DatasetListQuerySortField } from "./DatasetListQuerySortField";
 import { DeleteSharedDashboardResponse } from "./DeleteSharedDashboardResponse";
 import { DistributionWidgetDefinition } from "./DistributionWidgetDefinition";
 import { DistributionWidgetRequest } from "./DistributionWidgetRequest";
@@ -79,6 +82,8 @@ import { HostMapWidgetGroupBy } from "./HostMapWidgetGroupBy";
 import { HostMapWidgetInfrastructureRequest } from "./HostMapWidgetInfrastructureRequest";
 import { HostMapWidgetInfrastructureRequestLeaf } from "./HostMapWidgetInfrastructureRequestLeaf";
 import { HostMapWidgetInfrastructureStyle } from "./HostMapWidgetInfrastructureStyle";
+import { HostMapWidgetProjection } from "./HostMapWidgetProjection";
+import { HostMapWidgetProjectionDimensionMapping } from "./HostMapWidgetProjectionDimensionMapping";
 import { HostMapWidgetScalarRequest } from "./HostMapWidgetScalarRequest";
 import { IFrameWidgetDefinition } from "./IFrameWidgetDefinition";
 import { ImageWidgetDefinition } from "./ImageWidgetDefinition";
@@ -279,6 +284,7 @@ export const TypingInfo: ModelTypingInfo = {
     DashboardShareType: ["open", "invite", "embed"],
     DashboardType: ["custom_timeboard", "custom_screenboard"],
     DataProjectionRequestType: ["data_projection"],
+    DatasetListQueryDataSourceType: ["dataset"],
     DistributionWidgetDefinitionType: ["distribution"],
     EventStreamWidgetDefinitionType: ["event_stream"],
     EventTimelineWidgetDefinitionType: ["event_timeline"],
@@ -427,10 +433,15 @@ export const TypingInfo: ModelTypingInfo = {
     GroupType: ["group"],
     GroupWidgetDefinitionType: ["group"],
     HeatMapWidgetDefinitionType: ["heatmap"],
+    HostMapWidgetDefinitionRequestType: [
+      "infrastructure_hostmap",
+      "data_projection",
+    ],
     HostMapWidgetDefinitionType: ["hostmap"],
-    HostMapWidgetDimension: ["node", "fill", "size"],
+    HostMapWidgetDimension: ["node", "fill", "size", "group"],
     HostMapWidgetInfrastructureRequestRequestType: ["infrastructure_hostmap"],
     HostMapWidgetNodeType: ["host", "container", "pod", "cluster"],
+    HostMapWidgetProjectionType: ["hostmap"],
     HostMapWidgetScalarRequestResponseFormat: ["scalar"],
     IFrameWidgetDefinitionType: ["iframe"],
     ImageWidgetDefinitionType: ["image"],
@@ -490,6 +501,7 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     ProductAnalyticsFunnelDataSource: ["product_analytics_journey"],
     ProductAnalyticsFunnelRequestType: ["user_journey_funnel"],
+    PublishedDatasetProvider: ["ddsql_query"],
     QuerySortOrder: ["asc", "desc"],
     QueryValueWidgetComparisonDirectionality: [
       "increase_better",
@@ -842,6 +854,9 @@ export const TypingInfo: ModelTypingInfo = {
     DashboardTemplateVariablePreset: DashboardTemplateVariablePreset,
     DashboardTemplateVariablePresetValue: DashboardTemplateVariablePresetValue,
     DataProjectionQuery: DataProjectionQuery,
+    DatasetListQuery: DatasetListQuery,
+    DatasetListQuerySort: DatasetListQuerySort,
+    DatasetListQuerySortField: DatasetListQuerySortField,
     DeleteSharedDashboardResponse: DeleteSharedDashboardResponse,
     DistributionWidgetDefinition: DistributionWidgetDefinition,
     DistributionWidgetRequest: DistributionWidgetRequest,
@@ -906,6 +921,9 @@ export const TypingInfo: ModelTypingInfo = {
     HostMapWidgetInfrastructureRequestLeaf:
       HostMapWidgetInfrastructureRequestLeaf,
     HostMapWidgetInfrastructureStyle: HostMapWidgetInfrastructureStyle,
+    HostMapWidgetProjection: HostMapWidgetProjection,
+    HostMapWidgetProjectionDimensionMapping:
+      HostMapWidgetProjectionDimensionMapping,
     HostMapWidgetScalarRequest: HostMapWidgetScalarRequest,
     IFrameWidgetDefinition: IFrameWidgetDefinition,
     ImageWidgetDefinition: ImageWidgetDefinition,

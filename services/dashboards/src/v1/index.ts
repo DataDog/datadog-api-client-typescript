@@ -68,6 +68,10 @@ export { DashboardTemplateVariablePresetValue } from "./models/DashboardTemplate
 export { DashboardType } from "./models/DashboardType";
 export { DataProjectionQuery } from "./models/DataProjectionQuery";
 export { DataProjectionRequestType } from "./models/DataProjectionRequestType";
+export { DatasetListQuery } from "./models/DatasetListQuery";
+export { DatasetListQueryDataSourceType } from "./models/DatasetListQueryDataSourceType";
+export { DatasetListQuerySort } from "./models/DatasetListQuerySort";
+export { DatasetListQuerySortField } from "./models/DatasetListQuerySortField";
 export { DeleteSharedDashboardResponse } from "./models/DeleteSharedDashboardResponse";
 export { DistributionWidgetDefinition } from "./models/DistributionWidgetDefinition";
 export { DistributionWidgetDefinitionType } from "./models/DistributionWidgetDefinitionType";
@@ -151,6 +155,7 @@ export { HeatMapWidgetXAxis } from "./models/HeatMapWidgetXAxis";
 export { HostMapRequest } from "./models/HostMapRequest";
 export { HostMapWidgetDefinition } from "./models/HostMapWidgetDefinition";
 export { HostMapWidgetDefinitionRequests } from "./models/HostMapWidgetDefinitionRequests";
+export { HostMapWidgetDefinitionRequestType } from "./models/HostMapWidgetDefinitionRequestType";
 export { HostMapWidgetDefinitionStyle } from "./models/HostMapWidgetDefinitionStyle";
 export { HostMapWidgetDefinitionType } from "./models/HostMapWidgetDefinitionType";
 export { HostMapWidgetDimension } from "./models/HostMapWidgetDimension";
@@ -161,6 +166,9 @@ export { HostMapWidgetInfrastructureRequestLeaf } from "./models/HostMapWidgetIn
 export { HostMapWidgetInfrastructureRequestRequestType } from "./models/HostMapWidgetInfrastructureRequestRequestType";
 export { HostMapWidgetInfrastructureStyle } from "./models/HostMapWidgetInfrastructureStyle";
 export { HostMapWidgetNodeType } from "./models/HostMapWidgetNodeType";
+export { HostMapWidgetProjection } from "./models/HostMapWidgetProjection";
+export { HostMapWidgetProjectionDimensionMapping } from "./models/HostMapWidgetProjectionDimensionMapping";
+export { HostMapWidgetProjectionType } from "./models/HostMapWidgetProjectionType";
 export { HostMapWidgetScalarRequest } from "./models/HostMapWidgetScalarRequest";
 export { HostMapWidgetScalarRequestResponseFormat } from "./models/HostMapWidgetScalarRequestResponseFormat";
 export { IFrameWidgetDefinition } from "./models/IFrameWidgetDefinition";
@@ -229,6 +237,7 @@ export { ProductAnalyticsFunnelQuery } from "./models/ProductAnalyticsFunnelQuer
 export { ProductAnalyticsFunnelRequest } from "./models/ProductAnalyticsFunnelRequest";
 export { ProductAnalyticsFunnelRequestType } from "./models/ProductAnalyticsFunnelRequestType";
 export { ProductAnalyticsFunnelWidgetDefinition } from "./models/ProductAnalyticsFunnelWidgetDefinition";
+export { PublishedDatasetProvider } from "./models/PublishedDatasetProvider";
 export { QuerySortOrder } from "./models/QuerySortOrder";
 export { QueryValueWidgetComparison } from "./models/QueryValueWidgetComparison";
 export { QueryValueWidgetComparisonDirectionality } from "./models/QueryValueWidgetComparisonDirectionality";
