@@ -78,6 +78,10 @@ export class SyntheticsTestOptions {
    */
   "ignoreServerCertificateError"?: boolean;
   /**
+   * For SSL tests, whether or not the test should ignore certificate validation.
+   */
+  "ignoreCertificateValidation"?: boolean;
+  /**
    * Timeout before declaring the initial step as failed (in seconds) for browser tests.
    */
   "initialNavigationTimeout"?: number;
@@ -212,6 +216,10 @@ export class SyntheticsTestOptions {
     },
     ignoreServerCertificateError: {
       baseName: "ignoreServerCertificateError",
+      type: "boolean",
+    },
+    ignoreCertificateValidation: {
+      baseName: "ignore_certificate_validation",
       type: "boolean",
     },
     initialNavigationTimeout: {
