@@ -69,6 +69,9 @@ import { DashboardTemplateVariable } from "./DashboardTemplateVariable";
 import { DashboardTemplateVariablePreset } from "./DashboardTemplateVariablePreset";
 import { DashboardTemplateVariablePresetValue } from "./DashboardTemplateVariablePresetValue";
 import { DataProjectionQuery } from "./DataProjectionQuery";
+import { DatasetListQuery } from "./DatasetListQuery";
+import { DatasetListQuerySort } from "./DatasetListQuerySort";
+import { DatasetListQuerySortField } from "./DatasetListQuerySortField";
 import { DeleteSharedDashboardResponse } from "./DeleteSharedDashboardResponse";
 import { DeletedMonitor } from "./DeletedMonitor";
 import { DistributionPointsPayload } from "./DistributionPointsPayload";
@@ -136,6 +139,8 @@ import { HostMapWidgetGroupBy } from "./HostMapWidgetGroupBy";
 import { HostMapWidgetInfrastructureRequest } from "./HostMapWidgetInfrastructureRequest";
 import { HostMapWidgetInfrastructureRequestLeaf } from "./HostMapWidgetInfrastructureRequestLeaf";
 import { HostMapWidgetInfrastructureStyle } from "./HostMapWidgetInfrastructureStyle";
+import { HostMapWidgetProjection } from "./HostMapWidgetProjection";
+import { HostMapWidgetProjectionDimensionMapping } from "./HostMapWidgetProjectionDimensionMapping";
 import { HostMapWidgetScalarRequest } from "./HostMapWidgetScalarRequest";
 import { HostMeta } from "./HostMeta";
 import { HostMetaInstallMethod } from "./HostMetaInstallMethod";
@@ -839,6 +844,7 @@ const enumsMap: { [key: string]: any[] } = {
   DashboardShareType: ["open", "invite", "embed"],
   DashboardType: ["custom_timeboard", "custom_screenboard"],
   DataProjectionRequestType: ["data_projection"],
+  DatasetListQueryDataSourceType: ["dataset"],
   DistributionPointsContentEncoding: ["deflate"],
   DistributionPointsType: ["distribution"],
   DistributionWidgetDefinitionType: ["distribution"],
@@ -1002,10 +1008,15 @@ const enumsMap: { [key: string]: any[] } = {
   GroupType: ["group"],
   GroupWidgetDefinitionType: ["group"],
   HeatMapWidgetDefinitionType: ["heatmap"],
+  HostMapWidgetDefinitionRequestType: [
+    "infrastructure_hostmap",
+    "data_projection",
+  ],
   HostMapWidgetDefinitionType: ["hostmap"],
-  HostMapWidgetDimension: ["node", "fill", "size"],
+  HostMapWidgetDimension: ["node", "fill", "size", "group"],
   HostMapWidgetInfrastructureRequestRequestType: ["infrastructure_hostmap"],
   HostMapWidgetNodeType: ["host", "container", "pod", "cluster"],
+  HostMapWidgetProjectionType: ["hostmap"],
   HostMapWidgetScalarRequestResponseFormat: ["scalar"],
   HourlyUsageAttributionUsageType: [
     "api_usage",
@@ -1510,6 +1521,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   ProductAnalyticsFunnelDataSource: ["product_analytics_journey"],
   ProductAnalyticsFunnelRequestType: ["user_journey_funnel"],
+  PublishedDatasetProvider: ["ddsql_query"],
   QuerySortOrder: ["asc", "desc"],
   QueryValueWidgetComparisonDirectionality: [
     "increase_better",
@@ -2124,6 +2136,9 @@ const typeMap: { [index: string]: any } = {
   DashboardTemplateVariablePreset: DashboardTemplateVariablePreset,
   DashboardTemplateVariablePresetValue: DashboardTemplateVariablePresetValue,
   DataProjectionQuery: DataProjectionQuery,
+  DatasetListQuery: DatasetListQuery,
+  DatasetListQuerySort: DatasetListQuerySort,
+  DatasetListQuerySortField: DatasetListQuerySortField,
   DeleteSharedDashboardResponse: DeleteSharedDashboardResponse,
   DeletedMonitor: DeletedMonitor,
   DistributionPointsPayload: DistributionPointsPayload,
@@ -2206,6 +2221,9 @@ const typeMap: { [index: string]: any } = {
   HostMapWidgetInfrastructureRequestLeaf:
     HostMapWidgetInfrastructureRequestLeaf,
   HostMapWidgetInfrastructureStyle: HostMapWidgetInfrastructureStyle,
+  HostMapWidgetProjection: HostMapWidgetProjection,
+  HostMapWidgetProjectionDimensionMapping:
+    HostMapWidgetProjectionDimensionMapping,
   HostMapWidgetScalarRequest: HostMapWidgetScalarRequest,
   HostMeta: HostMeta,
   HostMetaInstallMethod: HostMetaInstallMethod,

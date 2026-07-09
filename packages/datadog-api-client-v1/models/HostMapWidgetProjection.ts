@@ -3,29 +3,23 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { HostMapWidgetProjectionDimensionMapping } from "./HostMapWidgetProjectionDimensionMapping";
+import { HostMapWidgetProjectionType } from "./HostMapWidgetProjectionType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Deprecated - The style to apply to the legacy metric-based host map widget. Use `HostMapWidgetInfrastructureStyle` instead.
+ * Projection for the DDSQL host map request. Maps dataset columns to map dimensions: `node` identifies the entity, repeated `group` entries define the grouping hierarchy (outermost first), and `fill`/`size` drive the tile color and size.
  */
-export class HostMapWidgetDefinitionStyle {
+export class HostMapWidgetProjection {
   /**
-   * Max value to use to color the map.
+   * List of column-to-dimension mappings for the projection.
    */
-  "fillMax"?: string;
+  "dimensions": Array<HostMapWidgetProjectionDimensionMapping>;
   /**
-   * Min value to use to color the map.
+   * Type of the host map projection.
    */
-  "fillMin"?: string;
-  /**
-   * Color palette to apply to the widget.
-   */
-  "palette"?: string;
-  /**
-   * Whether to flip the palette tones.
-   */
-  "paletteFlip"?: boolean;
+  "type": HostMapWidgetProjectionType;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,21 +37,15 @@ export class HostMapWidgetDefinitionStyle {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    fillMax: {
-      baseName: "fill_max",
-      type: "string",
+    dimensions: {
+      baseName: "dimensions",
+      type: "Array<HostMapWidgetProjectionDimensionMapping>",
+      required: true,
     },
-    fillMin: {
-      baseName: "fill_min",
-      type: "string",
-    },
-    palette: {
-      baseName: "palette",
-      type: "string",
-    },
-    paletteFlip: {
-      baseName: "palette_flip",
-      type: "boolean",
+    type: {
+      baseName: "type",
+      type: "HostMapWidgetProjectionType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -69,7 +57,7 @@ export class HostMapWidgetDefinitionStyle {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return HostMapWidgetDefinitionStyle.attributeTypeMap;
+    return HostMapWidgetProjection.attributeTypeMap;
   }
 
   public constructor() {}

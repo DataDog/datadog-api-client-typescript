@@ -9,7 +9,7 @@ import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Updated host map.
+ * Deprecated - Legacy metric-based host map request. Use the infrastructure-backed (`request_type: infrastructure_hostmap`) or DDSQL (`request_type: data_projection`) format instead.
  */
 export class HostMapRequest {
   /**
