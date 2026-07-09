@@ -125,6 +125,8 @@ import { SecurityMonitoringDatasetResponse } from "../models/SecurityMonitoringD
 import { SecurityMonitoringDatasetsListResponse } from "../models/SecurityMonitoringDatasetsListResponse";
 import { SecurityMonitoringDatasetUpdateRequest } from "../models/SecurityMonitoringDatasetUpdateRequest";
 import { SecurityMonitoringDatasetVersionHistoryResponse } from "../models/SecurityMonitoringDatasetVersionHistoryResponse";
+import { SecurityMonitoringEntraIdAzureAppRegistrationsResponse } from "../models/SecurityMonitoringEntraIdAzureAppRegistrationsResponse";
+import { SecurityMonitoringIntegrationActivateRequest } from "../models/SecurityMonitoringIntegrationActivateRequest";
 import { SecurityMonitoringIntegrationConfigCreateRequest } from "../models/SecurityMonitoringIntegrationConfigCreateRequest";
 import { SecurityMonitoringIntegrationConfigResponse } from "../models/SecurityMonitoringIntegrationConfigResponse";
 import { SecurityMonitoringIntegrationConfigsResponse } from "../models/SecurityMonitoringIntegrationConfigsResponse";
@@ -218,6 +220,62 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async activateIntegration(
+    integrationType: string,
+    body?: SecurityMonitoringIntegrationActivateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'activateIntegration'");
+    if (!_config.unstableOperations["v2.activateIntegration"]) {
+      throw new Error("Unstable operation 'activateIntegration' is disabled");
+    }
+
+    // verify required parameter 'integrationType' is not null or undefined
+    if (integrationType === null || integrationType === undefined) {
+      throw new RequiredError("integrationType", "activateIntegration");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/integration_config/{integration_type}/activate".replace(
+        "{integration_type}",
+        encodeURIComponent(String(integrationType))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.activateIntegration")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "SecurityMonitoringIntegrationActivateRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -2198,6 +2256,46 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deactivateIntegration(
+    integrationType: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'deactivateIntegration'");
+    if (!_config.unstableOperations["v2.deactivateIntegration"]) {
+      throw new Error("Unstable operation 'deactivateIntegration' is disabled");
+    }
+
+    // verify required parameter 'integrationType' is not null or undefined
+    if (integrationType === null || integrationType === undefined) {
+      throw new RequiredError("integrationType", "deactivateIntegration");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/integration_config/{integration_type}/deactivate".replace(
+        "{integration_type}",
+        encodeURIComponent(String(integrationType))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.deactivateIntegration")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteCustomFramework(
     handle: string,
     version: string,
@@ -3304,6 +3402,39 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         ""
       );
     }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getEntraIdAzureAppRegistrations(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getEntraIdAzureAppRegistrations'");
+    if (!_config.unstableOperations["v2.getEntraIdAzureAppRegistrations"]) {
+      throw new Error(
+        "Unstable operation 'getEntraIdAzureAppRegistrations' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/integration_config/entra_id/azure_app_registrations";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getEntraIdAzureAppRegistrations")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -8736,6 +8867,71 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to activateIntegration
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async activateIntegration(
+    response: ResponseContext
+  ): Promise<SecurityMonitoringIntegrationConfigResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringIntegrationConfigResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringIntegrationConfigResponse"
+        ) as SecurityMonitoringIntegrationConfigResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringIntegrationConfigResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringIntegrationConfigResponse",
+          ""
+        ) as SecurityMonitoringIntegrationConfigResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to attachCase
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -11362,6 +11558,70 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deactivateIntegration
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deactivateIntegration(
+    response: ResponseContext
+  ): Promise<SecurityMonitoringIntegrationConfigResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringIntegrationConfigResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringIntegrationConfigResponse"
+        ) as SecurityMonitoringIntegrationConfigResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringIntegrationConfigResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringIntegrationConfigResponse",
+          ""
+        ) as SecurityMonitoringIntegrationConfigResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteCustomFramework
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -12800,6 +13060,66 @@ export class SecurityMonitoringApiResponseProcessor {
         "EntityContextResponse",
         ""
       ) as EntityContextResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getEntraIdAzureAppRegistrations
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getEntraIdAzureAppRegistrations(
+    response: ResponseContext
+  ): Promise<SecurityMonitoringEntraIdAzureAppRegistrationsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringEntraIdAzureAppRegistrationsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringEntraIdAzureAppRegistrationsResponse"
+        ) as SecurityMonitoringEntraIdAzureAppRegistrationsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringEntraIdAzureAppRegistrationsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringEntraIdAzureAppRegistrationsResponse",
+          ""
+        ) as SecurityMonitoringEntraIdAzureAppRegistrationsResponse;
       return body;
     }
 
@@ -18926,6 +19246,19 @@ export interface SecurityMonitoringApiActivateContentPackRequest {
   contentPackId: string;
 }
 
+export interface SecurityMonitoringApiActivateIntegrationRequest {
+  /**
+   * The integration type to activate (for example, `entra_id`).
+   * @type string
+   */
+  integrationType: string;
+  /**
+   * Optional configuration overrides for the integration to activate.
+   * @type SecurityMonitoringIntegrationActivateRequest
+   */
+  body?: SecurityMonitoringIntegrationActivateRequest;
+}
+
 export interface SecurityMonitoringApiAttachCaseRequest {
   /**
    * Unique identifier of the case to attach security findings to
@@ -19231,6 +19564,14 @@ export interface SecurityMonitoringApiDeactivateContentPackRequest {
    * @type string
    */
   contentPackId: string;
+}
+
+export interface SecurityMonitoringApiDeactivateIntegrationRequest {
+  /**
+   * The integration type to deactivate (for example, `entra_id`).
+   * @type string
+   */
+  integrationType: string;
 }
 
 export interface SecurityMonitoringApiDeleteCustomFrameworkRequest {
@@ -20993,6 +21334,30 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Activate an entity context sync integration for a source type that does not require manually
+   * supplied credentials (for example, Entra ID). If an integration of this type already exists,
+   * it is returned (re-enabling it first if it was disabled) instead of creating a duplicate.
+   * @param param The request object
+   */
+  public activateIntegration(
+    param: SecurityMonitoringApiActivateIntegrationRequest,
+    options?: Configuration
+  ): Promise<SecurityMonitoringIntegrationConfigResponse> {
+    const requestContextPromise = this.requestFactory.activateIntegration(
+      param.integrationType,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.activateIntegration(responseContext);
+        });
+    });
+  }
+
+  /**
    * Attach security findings to a case.
    * You can attach up to 50 security findings per case. Security findings that are already attached to another case will be detached from their previous case and attached to the specified case.
    * @param param The request object
@@ -21941,6 +22306,27 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Deactivate all active entity context sync integrations of the given source type (for example, Entra ID).
+   * @param param The request object
+   */
+  public deactivateIntegration(
+    param: SecurityMonitoringApiDeactivateIntegrationRequest,
+    options?: Configuration
+  ): Promise<SecurityMonitoringIntegrationConfigResponse> {
+    const requestContextPromise = this.requestFactory.deactivateIntegration(
+      param.integrationType,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deactivateIntegration(responseContext);
+        });
+    });
+  }
+
+  /**
    * Delete a custom framework.
    * @param param The request object
    */
@@ -22506,6 +22892,27 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getEntityContext(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get the Azure App Registrations discovered for the organization and whether at least one of them has
+   * resource collection enabled, which is a prerequisite for activating the Entra ID entity context sync integration.
+   * @param param The request object
+   */
+  public getEntraIdAzureAppRegistrations(
+    options?: Configuration
+  ): Promise<SecurityMonitoringEntraIdAzureAppRegistrationsResponse> {
+    const requestContextPromise =
+      this.requestFactory.getEntraIdAzureAppRegistrations(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getEntraIdAzureAppRegistrations(
+            responseContext
+          );
         });
     });
   }

@@ -24,9 +24,10 @@ export class SecurityMonitoringIntegrationConfigCreateAttributes {
    */
   "name": string;
   /**
-   * The secrets used to authenticate against the external entity source. The accepted keys depend on the source type (for example, `admin_email` for Google Workspace).
+   * The secrets used to authenticate against the external entity source. The accepted keys depend on the source type
+   * (for example, `admin_email` for Google Workspace). Not required for source types that do not use secrets (for example, `ENTRA_ID`).
    */
-  "secrets": { [key: string]: any };
+  "secrets"?: { [key: string]: any };
   /**
    * Free-form, non-sensitive settings for the entity context sync. The accepted keys depend on the source type.
    */
@@ -66,7 +67,6 @@ export class SecurityMonitoringIntegrationConfigCreateAttributes {
     secrets: {
       baseName: "secrets",
       type: "{ [key: string]: any; }",
-      required: true,
     },
     settings: {
       baseName: "settings",

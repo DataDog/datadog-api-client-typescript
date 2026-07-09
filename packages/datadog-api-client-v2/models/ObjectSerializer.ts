@@ -4062,6 +4062,7 @@ import { SecurityFindingsSearchRequest } from "./SecurityFindingsSearchRequest";
 import { SecurityFindingsSearchRequestData } from "./SecurityFindingsSearchRequestData";
 import { SecurityFindingsSearchRequestDataAttributes } from "./SecurityFindingsSearchRequestDataAttributes";
 import { SecurityFindingsSearchRequestPage } from "./SecurityFindingsSearchRequestPage";
+import { SecurityMonitoringAzureAppRegistration } from "./SecurityMonitoringAzureAppRegistration";
 import { SecurityMonitoringContentPackStateAttributes } from "./SecurityMonitoringContentPackStateAttributes";
 import { SecurityMonitoringContentPackStateData } from "./SecurityMonitoringContentPackStateData";
 import { SecurityMonitoringContentPackStateMeta } from "./SecurityMonitoringContentPackStateMeta";
@@ -4103,7 +4104,13 @@ import { SecurityMonitoringDatasetVersionHistoryData } from "./SecurityMonitorin
 import { SecurityMonitoringDatasetVersionHistoryResponse } from "./SecurityMonitoringDatasetVersionHistoryResponse";
 import { SecurityMonitoringDatasetsListMeta } from "./SecurityMonitoringDatasetsListMeta";
 import { SecurityMonitoringDatasetsListResponse } from "./SecurityMonitoringDatasetsListResponse";
+import { SecurityMonitoringEntraIdAzureAppRegistrationsAttributes } from "./SecurityMonitoringEntraIdAzureAppRegistrationsAttributes";
+import { SecurityMonitoringEntraIdAzureAppRegistrationsData } from "./SecurityMonitoringEntraIdAzureAppRegistrationsData";
+import { SecurityMonitoringEntraIdAzureAppRegistrationsResponse } from "./SecurityMonitoringEntraIdAzureAppRegistrationsResponse";
 import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
+import { SecurityMonitoringIntegrationActivateAttributes } from "./SecurityMonitoringIntegrationActivateAttributes";
+import { SecurityMonitoringIntegrationActivateData } from "./SecurityMonitoringIntegrationActivateData";
+import { SecurityMonitoringIntegrationActivateRequest } from "./SecurityMonitoringIntegrationActivateRequest";
 import { SecurityMonitoringIntegrationConfigAttributes } from "./SecurityMonitoringIntegrationConfigAttributes";
 import { SecurityMonitoringIntegrationConfigCreateAttributes } from "./SecurityMonitoringIntegrationConfigCreateAttributes";
 import { SecurityMonitoringIntegrationConfigCreateData } from "./SecurityMonitoringIntegrationConfigCreateData";
@@ -7495,7 +7502,13 @@ const enumsMap: { [key: string]: any[] } = {
   SecurityMonitoringDatasetType: ["dataset"],
   SecurityMonitoringDatasetUpdateType: ["datasetUpdate"],
   SecurityMonitoringDatasetVersionHistoryType: ["dataset_version_history"],
+  SecurityMonitoringEntraIdAzureAppRegistrationsResourceType: [
+    "entra_id_azure_app_registrations",
+  ],
   SecurityMonitoringFilterAction: ["require", "suppress"],
+  SecurityMonitoringIntegrationActivateResourceType: [
+    "activate_entra_id_request",
+  ],
   SecurityMonitoringIntegrationConfigResourceType: ["integration_config"],
   SecurityMonitoringIntegrationConfigState: [
     "valid",
@@ -13003,6 +13016,8 @@ const typeMap: { [index: string]: any } = {
   SecurityFindingsSearchRequestDataAttributes:
     SecurityFindingsSearchRequestDataAttributes,
   SecurityFindingsSearchRequestPage: SecurityFindingsSearchRequestPage,
+  SecurityMonitoringAzureAppRegistration:
+    SecurityMonitoringAzureAppRegistration,
   SecurityMonitoringContentPackStateAttributes:
     SecurityMonitoringContentPackStateAttributes,
   SecurityMonitoringContentPackStateData:
@@ -13074,7 +13089,19 @@ const typeMap: { [index: string]: any } = {
   SecurityMonitoringDatasetsListMeta: SecurityMonitoringDatasetsListMeta,
   SecurityMonitoringDatasetsListResponse:
     SecurityMonitoringDatasetsListResponse,
+  SecurityMonitoringEntraIdAzureAppRegistrationsAttributes:
+    SecurityMonitoringEntraIdAzureAppRegistrationsAttributes,
+  SecurityMonitoringEntraIdAzureAppRegistrationsData:
+    SecurityMonitoringEntraIdAzureAppRegistrationsData,
+  SecurityMonitoringEntraIdAzureAppRegistrationsResponse:
+    SecurityMonitoringEntraIdAzureAppRegistrationsResponse,
   SecurityMonitoringFilter: SecurityMonitoringFilter,
+  SecurityMonitoringIntegrationActivateAttributes:
+    SecurityMonitoringIntegrationActivateAttributes,
+  SecurityMonitoringIntegrationActivateData:
+    SecurityMonitoringIntegrationActivateData,
+  SecurityMonitoringIntegrationActivateRequest:
+    SecurityMonitoringIntegrationActivateRequest,
   SecurityMonitoringIntegrationConfigAttributes:
     SecurityMonitoringIntegrationConfigAttributes,
   SecurityMonitoringIntegrationConfigCreateAttributes:
