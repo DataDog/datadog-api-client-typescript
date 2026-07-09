@@ -1,16 +1,18 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { DatasetListQuery } from "./DatasetListQuery";
 import { HostMapRequest } from "./HostMapRequest";
+import { HostMapWidgetDefinitionRequestType } from "./HostMapWidgetDefinitionRequestType";
 import { HostMapWidgetGroupBy } from "./HostMapWidgetGroupBy";
 import { HostMapWidgetInfrastructureRequest } from "./HostMapWidgetInfrastructureRequest";
-import { HostMapWidgetInfrastructureRequestRequestType } from "./HostMapWidgetInfrastructureRequestRequestType";
 import { HostMapWidgetInfrastructureStyle } from "./HostMapWidgetInfrastructureStyle";
 import { HostMapWidgetNodeType } from "./HostMapWidgetNodeType";
+import { HostMapWidgetProjection } from "./HostMapWidgetProjection";
 import { HostMapWidgetScalarRequest } from "./HostMapWidgetScalarRequest";
 import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
 
 /**
- * Query definition for the host map widget. Supports two mutually exclusive formats distinguished by the presence of `request_type`: the legacy metric-based format (`fill`/`size`) and the infrastructure-backed format (`request_type`, `node_type`, `enrichments`).
+ * Query definition for the host map widget. Supports three mutually exclusive formats distinguished by `request_type`: the deprecated legacy metric-based format (`fill`/`size`, no `request_type`), the infrastructure-backed format (`request_type: infrastructure_hostmap`), and the DDSQL published-dataset format (`request_type: data_projection`).
  */
 export class HostMapWidgetDefinitionRequests {
   /**
@@ -24,22 +26,26 @@ export class HostMapWidgetDefinitionRequests {
    */
   "conditionalFormats"?: Array<WidgetConditionalFormat>;
   /**
-   * Metric or event queries joined to the entity set. Each formula specifies a visual dimension.
+   * Metric or event queries joined to the entity set. Each formula specifies a visual dimension. Only used by the infrastructure-backed format.
    */
   "enrichments"?: Array<HostMapWidgetScalarRequest>;
   /**
-   * Updated host map.
+   * Deprecated - Legacy metric-based host map request. Use the infrastructure-backed (`request_type: infrastructure_hostmap`) or DDSQL (`request_type: data_projection`) format instead.
    */
   "fill"?: HostMapRequest;
   /**
-   * Filter string for the entity set in tag format (for example, `env:prod`).
+   * Filter string for the entity set in tag format (for example, `env:prod`). Only used by the infrastructure-backed format.
    */
   "filter"?: string;
   /**
    * Defines how entities are grouped into tiles. The ordering of entries implies
-   * the grouping hierarchy.
+   * the grouping hierarchy. Only used by the infrastructure-backed format.
    */
   "groupBy"?: Array<HostMapWidgetGroupBy>;
+  /**
+   * Maximum number of rows to return from the dataset query. Only used by the DDSQL format.
+   */
+  "limit"?: number;
   /**
    * Whether to hide entities that have no group assignment.
    */
@@ -53,11 +59,19 @@ export class HostMapWidgetDefinitionRequests {
    */
   "nodeType"?: HostMapWidgetNodeType;
   /**
-   * Identifies this as an infrastructure-backed host map request.
+   * Projection for the DDSQL host map request. Maps dataset columns to map dimensions: `node` identifies the entity, repeated `group` entries define the grouping hierarchy (outermost first), and `fill`/`size` drive the tile color and size.
    */
-  "requestType"?: HostMapWidgetInfrastructureRequestRequestType;
+  "projection"?: HostMapWidgetProjection;
   /**
-   * Updated host map.
+   * Query that lists the rows of a published dataset (a DDSQL query) without aggregation.
+   */
+  "query"?: DatasetListQuery;
+  /**
+   * Identifies which host map request format the sibling fields on `HostMapWidgetDefinitionRequests` describe: an infrastructure-backed request or a DDSQL published-dataset request.
+   */
+  "requestType"?: HostMapWidgetDefinitionRequestType;
+  /**
+   * Deprecated - Legacy metric-based host map request. Use the infrastructure-backed (`request_type: infrastructure_hostmap`) or DDSQL (`request_type: data_projection`) format instead.
    */
   "size"?: HostMapRequest;
   /**
@@ -103,6 +117,11 @@ export class HostMapWidgetDefinitionRequests {
       baseName: "group_by",
       type: "Array<HostMapWidgetGroupBy>",
     },
+    limit: {
+      baseName: "limit",
+      type: "number",
+      format: "int64",
+    },
     noGroupHosts: {
       baseName: "no_group_hosts",
       type: "boolean",
@@ -115,9 +134,17 @@ export class HostMapWidgetDefinitionRequests {
       baseName: "node_type",
       type: "HostMapWidgetNodeType",
     },
+    projection: {
+      baseName: "projection",
+      type: "HostMapWidgetProjection",
+    },
+    query: {
+      baseName: "query",
+      type: "DatasetListQuery",
+    },
     requestType: {
       baseName: "request_type",
-      type: "HostMapWidgetInfrastructureRequestRequestType",
+      type: "HostMapWidgetDefinitionRequestType",
     },
     size: {
       baseName: "size",
