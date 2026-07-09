@@ -15,9 +15,10 @@ export class SecurityMonitoringIntegrationCredentialsValidateAttributes {
    */
   "integrationType": SecurityMonitoringIntegrationType;
   /**
-   * The secrets used to authenticate against the external entity source. The accepted keys depend on the source type (for example, `admin_email` for Google Workspace).
+   * The secrets used to authenticate against the external entity source. The accepted keys depend on the source type
+   * (for example, `admin_email` for Google Workspace). Not required for source types that do not use secrets (for example, `ENTRA_ID`).
    */
-  "secrets": { [key: string]: any };
+  "secrets"?: { [key: string]: any };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -46,7 +47,6 @@ export class SecurityMonitoringIntegrationCredentialsValidateAttributes {
     secrets: {
       baseName: "secrets",
       type: "{ [key: string]: any; }",
-      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
