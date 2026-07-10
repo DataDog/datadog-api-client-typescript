@@ -6,6 +6,7 @@ export {
   IncidentsApiCreateIncidentIntegrationRequest,
   IncidentsApiCreateIncidentNotificationRuleRequest,
   IncidentsApiCreateIncidentNotificationTemplateRequest,
+  IncidentsApiCreateIncidentPostmortemRequest,
   IncidentsApiCreateIncidentPostmortemAttachmentRequest,
   IncidentsApiCreateIncidentPostmortemTemplateRequest,
   IncidentsApiCreateIncidentTodoRequest,
@@ -17,6 +18,7 @@ export {
   IncidentsApiDeleteIncidentIntegrationRequest,
   IncidentsApiDeleteIncidentNotificationRuleRequest,
   IncidentsApiDeleteIncidentNotificationTemplateRequest,
+  IncidentsApiDeleteIncidentPostmortemRequest,
   IncidentsApiDeleteIncidentPostmortemTemplateRequest,
   IncidentsApiDeleteIncidentTodoRequest,
   IncidentsApiDeleteIncidentTypeRequest,
@@ -25,6 +27,7 @@ export {
   IncidentsApiGetIncidentIntegrationRequest,
   IncidentsApiGetIncidentNotificationRuleRequest,
   IncidentsApiGetIncidentNotificationTemplateRequest,
+  IncidentsApiGetIncidentPostmortemRequest,
   IncidentsApiGetIncidentPostmortemTemplateRequest,
   IncidentsApiGetIncidentTodoRequest,
   IncidentsApiGetIncidentTypeRequest,
@@ -48,6 +51,7 @@ export {
   IncidentsApiUpdateIncidentIntegrationRequest,
   IncidentsApiUpdateIncidentNotificationRuleRequest,
   IncidentsApiUpdateIncidentNotificationTemplateRequest,
+  IncidentsApiUpdateIncidentPostmortemRequest,
   IncidentsApiUpdateIncidentPostmortemTemplateRequest,
   IncidentsApiUpdateIncidentTodoRequest,
   IncidentsApiUpdateIncidentTypeRequest,
@@ -173,7 +177,18 @@ export { IncidentNotificationTemplateResponseData } from "./models/IncidentNotif
 export { IncidentNotificationTemplateType } from "./models/IncidentNotificationTemplateType";
 export { IncidentNotificationTemplateUpdateAttributes } from "./models/IncidentNotificationTemplateUpdateAttributes";
 export { IncidentNotificationTemplateUpdateData } from "./models/IncidentNotificationTemplateUpdateData";
+export { IncidentPostmortemAttributes } from "./models/IncidentPostmortemAttributes";
+export { IncidentPostmortemCreateAttributes } from "./models/IncidentPostmortemCreateAttributes";
+export { IncidentPostmortemCreateData } from "./models/IncidentPostmortemCreateData";
+export { IncidentPostmortemCreateRequest } from "./models/IncidentPostmortemCreateRequest";
+export { IncidentPostmortemData } from "./models/IncidentPostmortemData";
+export { IncidentPostmortemIncluded } from "./models/IncidentPostmortemIncluded";
+export { IncidentPostmortemRelationships } from "./models/IncidentPostmortemRelationships";
+export { IncidentPostmortemResponse } from "./models/IncidentPostmortemResponse";
 export { IncidentPostmortemType } from "./models/IncidentPostmortemType";
+export { IncidentPostmortemUpdateAttributes } from "./models/IncidentPostmortemUpdateAttributes";
+export { IncidentPostmortemUpdateData } from "./models/IncidentPostmortemUpdateData";
+export { IncidentPostmortemUpdateRequest } from "./models/IncidentPostmortemUpdateRequest";
 export { IncidentRelatedObject } from "./models/IncidentRelatedObject";
 export { IncidentRespondersType } from "./models/IncidentRespondersType";
 export { IncidentResponse } from "./models/IncidentResponse";
@@ -264,6 +279,7 @@ export { MicrosoftTeamsConfigurationReference } from "./models/MicrosoftTeamsCon
 export { MicrosoftTeamsConfigurationReferenceData } from "./models/MicrosoftTeamsConfigurationReferenceData";
 export { MSTeamsIntegrationMetadata } from "./models/MSTeamsIntegrationMetadata";
 export { MSTeamsIntegrationMetadataTeamsItem } from "./models/MSTeamsIntegrationMetadataTeamsItem";
+export { NullableRelationshipToIncidentResponderData } from "./models/NullableRelationshipToIncidentResponderData";
 export { NullableRelationshipToUser } from "./models/NullableRelationshipToUser";
 export { NullableRelationshipToUserData } from "./models/NullableRelationshipToUserData";
 export { OrganizationsType } from "./models/OrganizationsType";
@@ -279,6 +295,7 @@ export { PostmortemCell } from "./models/PostmortemCell";
 export { PostmortemCellAttributes } from "./models/PostmortemCellAttributes";
 export { PostmortemCellDefinition } from "./models/PostmortemCellDefinition";
 export { PostmortemCellType } from "./models/PostmortemCellType";
+export { PostmortemStatus } from "./models/PostmortemStatus";
 export { PostmortemTemplateAttributesRequest } from "./models/PostmortemTemplateAttributesRequest";
 export { PostmortemTemplateAttributesResponse } from "./models/PostmortemTemplateAttributesResponse";
 export { PostmortemTemplateDataRequest } from "./models/PostmortemTemplateDataRequest";
@@ -300,6 +317,7 @@ export { RelationshipToIncidentNotificationTemplate } from "./models/Relationshi
 export { RelationshipToIncidentNotificationTemplateData } from "./models/RelationshipToIncidentNotificationTemplateData";
 export { RelationshipToIncidentPostmortem } from "./models/RelationshipToIncidentPostmortem";
 export { RelationshipToIncidentPostmortemData } from "./models/RelationshipToIncidentPostmortemData";
+export { RelationshipToIncidentResponder } from "./models/RelationshipToIncidentResponder";
 export { RelationshipToIncidentResponderData } from "./models/RelationshipToIncidentResponderData";
 export { RelationshipToIncidentResponders } from "./models/RelationshipToIncidentResponders";
 export { RelationshipToIncidentType } from "./models/RelationshipToIncidentType";
