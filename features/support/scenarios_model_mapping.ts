@@ -10238,6 +10238,54 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.GetIncidentPostmortem": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentPostmortemResponse",
+    },
+    "v2.CreateIncidentPostmortem": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentPostmortemCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentPostmortemResponse",
+    },
+    "v2.DeleteIncidentPostmortem": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateIncidentPostmortem": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentPostmortemUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentPostmortemResponse",
+    },
     "v2.ListIncidentIntegrations": {
         "incidentId": {
             "type": "string",
