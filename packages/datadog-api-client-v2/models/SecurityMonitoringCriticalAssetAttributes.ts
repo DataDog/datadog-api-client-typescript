@@ -29,6 +29,10 @@ export class SecurityMonitoringCriticalAssetAttributes {
    */
   "description"?: string;
   /**
+   * Whether the critical asset is editable.
+   */
+  "editable"?: boolean;
+  /**
    * Whether the critical asset is enabled.
    */
   "enabled"?: boolean;
@@ -98,6 +102,10 @@ export class SecurityMonitoringCriticalAssetAttributes {
     description: {
       baseName: "description",
       type: "string",
+    },
+    editable: {
+      baseName: "editable",
+      type: "boolean",
     },
     enabled: {
       baseName: "enabled",
