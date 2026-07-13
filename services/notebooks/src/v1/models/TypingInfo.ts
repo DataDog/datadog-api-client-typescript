@@ -104,6 +104,7 @@ import { UserJourneySearchFilters } from "./UserJourneySearchFilters";
 import { UserJourneySearchGraphFilter } from "./UserJourneySearchGraphFilter";
 import { UserJourneySearchTarget } from "./UserJourneySearchTarget";
 import { WidgetAxis } from "./WidgetAxis";
+import { WidgetCalendarAlignedSpan } from "./WidgetCalendarAlignedSpan";
 import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
 import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetEvent } from "./WidgetEvent";
@@ -307,6 +308,7 @@ export const TypingInfo: ModelTypingInfo = {
       "__dd.time_to_convert",
     ],
     WidgetAggregator: ["avg", "last", "max", "min", "sum", "percentile"],
+    WidgetCalendarAlignedSpanType: ["daily", "weekly", "monthly", "yearly"],
     WidgetComparator: ["=", ">", ">=", "<", "<="],
     WidgetDisplayType: ["area", "bars", "line", "overlay"],
     WidgetFormulaCellDisplayModeOptionsTrendType: ["area", "line", "bars"],
@@ -332,6 +334,9 @@ export const TypingInfo: ModelTypingInfo = {
       "month_to_date",
       "1y",
       "alert",
+      "full_week",
+      "full_month",
+      "year_to_date",
     ],
     WidgetLiveSpanUnit: ["minute", "hour", "day", "week", "month", "year"],
     WidgetMessageDisplay: ["inline", "expanded-md", "expanded-lg"],
@@ -428,6 +433,7 @@ export const TypingInfo: ModelTypingInfo = {
       "WidgetLegacyLiveSpan",
       "WidgetNewLiveSpan",
       "WidgetNewFixedSpan",
+      "WidgetCalendarAlignedSpan",
     ],
   },
   typeMap: {
@@ -555,6 +561,7 @@ export const TypingInfo: ModelTypingInfo = {
     UserJourneySearchGraphFilter: UserJourneySearchGraphFilter,
     UserJourneySearchTarget: UserJourneySearchTarget,
     WidgetAxis: WidgetAxis,
+    WidgetCalendarAlignedSpan: WidgetCalendarAlignedSpan,
     WidgetConditionalFormat: WidgetConditionalFormat,
     WidgetCustomLink: WidgetCustomLink,
     WidgetEvent: WidgetEvent,
