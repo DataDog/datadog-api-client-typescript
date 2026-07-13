@@ -4505,7 +4505,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "AuthNMappingResponse",
   },
-  "BitsAIApi.V2.ListInvestigations": {
+  "BitsAISREApi.V2.ListInvestigations": {
     pageOffset: {
       type: "number",
       format: "int64",
@@ -4520,14 +4520,14 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ListInvestigationsResponse",
   },
-  "BitsAIApi.V2.TriggerInvestigation": {
+  "BitsAISREApi.V2.TriggerInvestigation": {
     body: {
       type: "TriggerInvestigationRequest",
       format: "",
     },
     operationResponseType: "TriggerInvestigationResponse",
   },
-  "BitsAIApi.V2.GetInvestigation": {
+  "BitsAISREApi.V2.GetInvestigation": {
     id: {
       type: "string",
       format: "",
