@@ -37,6 +37,8 @@ import { AWSEventBridgeDeleteRequest } from "./models/AWSEventBridgeDeleteReques
 import { AWSEventBridgeDeleteResponse } from "./models/AWSEventBridgeDeleteResponse";
 import { AWSEventBridgeListResponse } from "./models/AWSEventBridgeListResponse";
 import { AWSIntegrationIamPermissionsResponse } from "./models/AWSIntegrationIamPermissionsResponse";
+import { AWSMetricNameFilterPreviewRequest } from "./models/AWSMetricNameFilterPreviewRequest";
+import { AWSMetricNameFilterPreviewResponse } from "./models/AWSMetricNameFilterPreviewResponse";
 import { AWSNamespacesResponse } from "./models/AWSNamespacesResponse";
 import { AWSNewExternalIDResponse } from "./models/AWSNewExternalIDResponse";
 import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
@@ -616,6 +618,64 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getAWSMetricNameFilterPreview(
+    awsAccountConfigId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "AWSIntegrationApi.v2.getAWSMetricNameFilterPreview"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getAWSMetricNameFilterPreview' is disabled. Enable it by setting `configuration.unstableOperations['AWSIntegrationApi.v2.getAWSMetricNameFilterPreview'] = true`",
+      );
+    }
+
+    // verify required parameter 'awsAccountConfigId' is not null or undefined
+    if (awsAccountConfigId === null || awsAccountConfigId === undefined) {
+      throw new RequiredError(
+        "awsAccountConfigId",
+        "getAWSMetricNameFilterPreview",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/integration/aws/accounts/{aws_account_config_id}/metric_name_filter_preview".replace(
+        "{aws_account_config_id}",
+        encodeURIComponent(String(awsAccountConfigId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AWSIntegrationApi.v2.getAWSMetricNameFilterPreview",
+      AWSIntegrationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listAWSAccounts(
     awsAccountId?: string,
     _options?: Configuration,
@@ -721,6 +781,79 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async previewAWSMetricNameFilter(
+    awsAccountConfigId: string,
+    body: AWSMetricNameFilterPreviewRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "AWSIntegrationApi.v2.previewAWSMetricNameFilter"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'previewAWSMetricNameFilter' is disabled. Enable it by setting `configuration.unstableOperations['AWSIntegrationApi.v2.previewAWSMetricNameFilter'] = true`",
+      );
+    }
+
+    // verify required parameter 'awsAccountConfigId' is not null or undefined
+    if (awsAccountConfigId === null || awsAccountConfigId === undefined) {
+      throw new RequiredError(
+        "awsAccountConfigId",
+        "previewAWSMetricNameFilter",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "previewAWSMetricNameFilter");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/integration/aws/accounts/{aws_account_config_id}/metric_name_filter_preview".replace(
+        "{aws_account_config_id}",
+        encodeURIComponent(String(awsAccountConfigId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AWSIntegrationApi.v2.previewAWSMetricNameFilter",
+      AWSIntegrationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "AWSMetricNameFilterPreviewRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -1613,6 +1746,66 @@ export class AWSIntegrationApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getAWSMetricNameFilterPreview
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getAWSMetricNameFilterPreview(
+    response: ResponseContext,
+  ): Promise<AWSMetricNameFilterPreviewResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: AWSMetricNameFilterPreviewResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "AWSMetricNameFilterPreviewResponse",
+      ) as AWSMetricNameFilterPreviewResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AWSMetricNameFilterPreviewResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "AWSMetricNameFilterPreviewResponse",
+        "",
+      ) as AWSMetricNameFilterPreviewResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listAWSAccounts
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1771,6 +1964,87 @@ export class AWSIntegrationApiResponseProcessor {
         "AWSNamespacesResponse",
         "",
       ) as AWSNamespacesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to previewAWSMetricNameFilter
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async previewAWSMetricNameFilter(
+    response: ResponseContext,
+  ): Promise<AWSMetricNameFilterPreviewResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: AWSMetricNameFilterPreviewResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "AWSMetricNameFilterPreviewResponse",
+      ) as AWSMetricNameFilterPreviewResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AWSMetricNameFilterPreviewResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "AWSMetricNameFilterPreviewResponse",
+        "",
+      ) as AWSMetricNameFilterPreviewResponse;
       return body;
     }
 
@@ -2058,6 +2332,16 @@ export interface AWSIntegrationApiGetAWSAccountCCMConfigRequest {
   awsAccountConfigId: string;
 }
 
+export interface AWSIntegrationApiGetAWSMetricNameFilterPreviewRequest {
+  /**
+   * Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the
+   * [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations)
+   * endpoint and query by AWS Account ID.
+   * @type string
+   */
+  awsAccountConfigId: string;
+}
+
 export interface AWSIntegrationApiListAWSAccountsRequest {
   /**
    * Optional query parameter to filter accounts by AWS Account ID.
@@ -2065,6 +2349,21 @@ export interface AWSIntegrationApiListAWSAccountsRequest {
    * @type string
    */
   awsAccountId?: string;
+}
+
+export interface AWSIntegrationApiPreviewAWSMetricNameFilterRequest {
+  /**
+   * Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the
+   * [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations)
+   * endpoint and query by AWS Account ID.
+   * @type string
+   */
+  awsAccountConfigId: string;
+  /**
+   * The metric name filters to preview.
+   * @type AWSMetricNameFilterPreviewRequest
+   */
+  body: AWSMetricNameFilterPreviewRequest;
 }
 
 export interface AWSIntegrationApiUpdateAWSAccountRequest {
@@ -2380,6 +2679,30 @@ export class AWSIntegrationApi {
   }
 
   /**
+   * Preview which collected CloudWatch metrics would be filtered by the account's saved metric name filters.
+   * @param param The request object
+   */
+  public getAWSMetricNameFilterPreview(
+    param: AWSIntegrationApiGetAWSMetricNameFilterPreviewRequest,
+    options?: Configuration,
+  ): Promise<AWSMetricNameFilterPreviewResponse> {
+    const requestContextPromise =
+      this.requestFactory.getAWSMetricNameFilterPreview(
+        param.awsAccountConfigId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getAWSMetricNameFilterPreview(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Get a list of AWS Account Integration Configs.
    * @param param The request object
    */
@@ -2434,6 +2757,32 @@ export class AWSIntegrationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listAWSNamespaces(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Preview which collected CloudWatch metrics would be filtered by the supplied metric name filters.
+   * The filters are not persisted.
+   * @param param The request object
+   */
+  public previewAWSMetricNameFilter(
+    param: AWSIntegrationApiPreviewAWSMetricNameFilterRequest,
+    options?: Configuration,
+  ): Promise<AWSMetricNameFilterPreviewResponse> {
+    const requestContextPromise =
+      this.requestFactory.previewAWSMetricNameFilter(
+        param.awsAccountConfigId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.previewAWSMetricNameFilter(
+            responseContext,
+          );
         });
     });
   }
