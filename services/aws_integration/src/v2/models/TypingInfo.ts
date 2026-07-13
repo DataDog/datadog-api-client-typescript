@@ -51,6 +51,18 @@ import { AWSLambdaForwarderConfig } from "./AWSLambdaForwarderConfig";
 import { AWSLambdaForwarderConfigLogSourceConfig } from "./AWSLambdaForwarderConfigLogSourceConfig";
 import { AWSLogSourceTagFilter } from "./AWSLogSourceTagFilter";
 import { AWSLogsConfig } from "./AWSLogsConfig";
+import { AWSMetricNameFilterPreviewDDName } from "./AWSMetricNameFilterPreviewDDName";
+import { AWSMetricNameFilterPreviewFilterMatch } from "./AWSMetricNameFilterPreviewFilterMatch";
+import { AWSMetricNameFilterPreviewMetric } from "./AWSMetricNameFilterPreviewMetric";
+import { AWSMetricNameFilterPreviewNamespace } from "./AWSMetricNameFilterPreviewNamespace";
+import { AWSMetricNameFilterPreviewRequest } from "./AWSMetricNameFilterPreviewRequest";
+import { AWSMetricNameFilterPreviewRequestAttributes } from "./AWSMetricNameFilterPreviewRequestAttributes";
+import { AWSMetricNameFilterPreviewRequestData } from "./AWSMetricNameFilterPreviewRequestData";
+import { AWSMetricNameFilterPreviewResponse } from "./AWSMetricNameFilterPreviewResponse";
+import { AWSMetricNameFilterPreviewResponseAttributes } from "./AWSMetricNameFilterPreviewResponseAttributes";
+import { AWSMetricNameFilterPreviewResponseData } from "./AWSMetricNameFilterPreviewResponseData";
+import { AWSMetricNameFiltersExcludeOnly } from "./AWSMetricNameFiltersExcludeOnly";
+import { AWSMetricNameFiltersIncludeOnly } from "./AWSMetricNameFiltersIncludeOnly";
 import { AWSMetricsConfig } from "./AWSMetricsConfig";
 import { AWSNamespaceFiltersExcludeOnly } from "./AWSNamespaceFiltersExcludeOnly";
 import { AWSNamespaceFiltersIncludeOnly } from "./AWSNamespaceFiltersIncludeOnly";
@@ -101,11 +113,16 @@ export const TypingInfo: ModelTypingInfo = {
     AWSEventBridgeDeleteStatus: ["empty"],
     AWSEventBridgeType: ["event_bridge"],
     AWSIntegrationIamPermissionsResponseDataType: ["permissions"],
+    AWSMetricNameFilterPreviewType: ["metric_name_filter_preview"],
     AWSNamespacesResponseDataType: ["namespaces"],
     AWSNewExternalIDResponseDataType: ["external_id"],
   },
   oneOfMap: {
     AWSAuthConfig: ["AWSAuthConfigKeys", "AWSAuthConfigRole"],
+    AWSMetricNameFilters: [
+      "AWSMetricNameFiltersIncludeOnly",
+      "AWSMetricNameFiltersExcludeOnly",
+    ],
     AWSNamespaceFilters: [
       "AWSNamespaceFiltersExcludeOnly",
       "AWSNamespaceFiltersIncludeOnly",
@@ -174,6 +191,23 @@ export const TypingInfo: ModelTypingInfo = {
       AWSLambdaForwarderConfigLogSourceConfig,
     AWSLogSourceTagFilter: AWSLogSourceTagFilter,
     AWSLogsConfig: AWSLogsConfig,
+    AWSMetricNameFilterPreviewDDName: AWSMetricNameFilterPreviewDDName,
+    AWSMetricNameFilterPreviewFilterMatch:
+      AWSMetricNameFilterPreviewFilterMatch,
+    AWSMetricNameFilterPreviewMetric: AWSMetricNameFilterPreviewMetric,
+    AWSMetricNameFilterPreviewNamespace: AWSMetricNameFilterPreviewNamespace,
+    AWSMetricNameFilterPreviewRequest: AWSMetricNameFilterPreviewRequest,
+    AWSMetricNameFilterPreviewRequestAttributes:
+      AWSMetricNameFilterPreviewRequestAttributes,
+    AWSMetricNameFilterPreviewRequestData:
+      AWSMetricNameFilterPreviewRequestData,
+    AWSMetricNameFilterPreviewResponse: AWSMetricNameFilterPreviewResponse,
+    AWSMetricNameFilterPreviewResponseAttributes:
+      AWSMetricNameFilterPreviewResponseAttributes,
+    AWSMetricNameFilterPreviewResponseData:
+      AWSMetricNameFilterPreviewResponseData,
+    AWSMetricNameFiltersExcludeOnly: AWSMetricNameFiltersExcludeOnly,
+    AWSMetricNameFiltersIncludeOnly: AWSMetricNameFiltersIncludeOnly,
     AWSMetricsConfig: AWSMetricsConfig,
     AWSNamespaceFiltersExcludeOnly: AWSNamespaceFiltersExcludeOnly,
     AWSNamespaceFiltersIncludeOnly: AWSNamespaceFiltersIncludeOnly,

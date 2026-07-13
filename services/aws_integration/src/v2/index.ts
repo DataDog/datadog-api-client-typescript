@@ -7,7 +7,9 @@ export {
   AWSIntegrationApiDeleteAWSEventBridgeSourceRequest,
   AWSIntegrationApiGetAWSAccountRequest,
   AWSIntegrationApiGetAWSAccountCCMConfigRequest,
+  AWSIntegrationApiGetAWSMetricNameFilterPreviewRequest,
   AWSIntegrationApiListAWSAccountsRequest,
+  AWSIntegrationApiPreviewAWSMetricNameFilterRequest,
   AWSIntegrationApiUpdateAWSAccountRequest,
   AWSIntegrationApiUpdateAWSAccountCCMConfigRequest,
   AWSIntegrationApiValidateAWSCCMConfigRequest,
@@ -75,6 +77,20 @@ export { AWSLambdaForwarderConfig } from "./models/AWSLambdaForwarderConfig";
 export { AWSLambdaForwarderConfigLogSourceConfig } from "./models/AWSLambdaForwarderConfigLogSourceConfig";
 export { AWSLogsConfig } from "./models/AWSLogsConfig";
 export { AWSLogSourceTagFilter } from "./models/AWSLogSourceTagFilter";
+export { AWSMetricNameFilterPreviewDDName } from "./models/AWSMetricNameFilterPreviewDDName";
+export { AWSMetricNameFilterPreviewFilterMatch } from "./models/AWSMetricNameFilterPreviewFilterMatch";
+export { AWSMetricNameFilterPreviewMetric } from "./models/AWSMetricNameFilterPreviewMetric";
+export { AWSMetricNameFilterPreviewNamespace } from "./models/AWSMetricNameFilterPreviewNamespace";
+export { AWSMetricNameFilterPreviewRequest } from "./models/AWSMetricNameFilterPreviewRequest";
+export { AWSMetricNameFilterPreviewRequestAttributes } from "./models/AWSMetricNameFilterPreviewRequestAttributes";
+export { AWSMetricNameFilterPreviewRequestData } from "./models/AWSMetricNameFilterPreviewRequestData";
+export { AWSMetricNameFilterPreviewResponse } from "./models/AWSMetricNameFilterPreviewResponse";
+export { AWSMetricNameFilterPreviewResponseAttributes } from "./models/AWSMetricNameFilterPreviewResponseAttributes";
+export { AWSMetricNameFilterPreviewResponseData } from "./models/AWSMetricNameFilterPreviewResponseData";
+export { AWSMetricNameFilterPreviewType } from "./models/AWSMetricNameFilterPreviewType";
+export { AWSMetricNameFilters } from "./models/AWSMetricNameFilters";
+export { AWSMetricNameFiltersExcludeOnly } from "./models/AWSMetricNameFiltersExcludeOnly";
+export { AWSMetricNameFiltersIncludeOnly } from "./models/AWSMetricNameFiltersIncludeOnly";
 export { AWSMetricsConfig } from "./models/AWSMetricsConfig";
 export { AWSNamespaceFilters } from "./models/AWSNamespaceFilters";
 export { AWSNamespaceFiltersExcludeOnly } from "./models/AWSNamespaceFiltersExcludeOnly";
