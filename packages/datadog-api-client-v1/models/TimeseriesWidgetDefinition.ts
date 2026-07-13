@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { TimeseriesWidgetAnomalyDetection } from "./TimeseriesWidgetAnomalyDetection";
 import { TimeseriesWidgetDefinitionType } from "./TimeseriesWidgetDefinitionType";
 import { TimeseriesWidgetLegendColumn } from "./TimeseriesWidgetLegendColumn";
 import { TimeseriesWidgetLegendLayout } from "./TimeseriesWidgetLegendLayout";
@@ -20,6 +21,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * The timeseries visualization allows you to display the evolution of one or more metrics, log events, or Indexed Spans over time.
  */
 export class TimeseriesWidgetDefinition {
+  /**
+   * Anomaly detection configuration for a timeseries widget.
+   */
+  "anomalyDetection"?: TimeseriesWidgetAnomalyDetection;
   /**
    * List of custom links.
    */
@@ -101,6 +106,10 @@ export class TimeseriesWidgetDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    anomalyDetection: {
+      baseName: "anomaly_detection",
+      type: "TimeseriesWidgetAnomalyDetection",
+    },
     customLinks: {
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
