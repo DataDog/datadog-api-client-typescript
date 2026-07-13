@@ -17,7 +17,10 @@ import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { DatasetReportScheduleListResponse } from "../models/DatasetReportScheduleListResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
+import { PrintReportRequest } from "../models/PrintReportRequest";
+import { PrintReportResponse } from "../models/PrintReportResponse";
 import { ReportScheduleCreateRequest } from "../models/ReportScheduleCreateRequest";
 import { ReportScheduleListResponse } from "../models/ReportScheduleListResponse";
 import { ReportSchedulePatchRequest } from "../models/ReportSchedulePatchRequest";
@@ -177,6 +180,40 @@ export class ReportSchedulesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listDatasetReportSchedules(
+    datasetId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'datasetId' is not null or undefined
+    if (datasetId === null || datasetId === undefined) {
+      throw new RequiredError("datasetId", "listDatasetReportSchedules");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/reporting/dataset/{dataset_id}/schedules".replace(
+        "{dataset_id}",
+        encodeURIComponent(String(datasetId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.ReportSchedulesApi.listDatasetReportSchedules")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listReportSchedules(
     pageLimit?: number,
     pageOffset?: number,
@@ -285,6 +322,47 @@ export class ReportSchedulesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ReportSchedulePatchRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async printReport(
+    body: PrintReportRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "printReport");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/reporting/print";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.ReportSchedulesApi.printReport")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "PrintReportRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -695,6 +773,93 @@ export class ReportSchedulesApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listDatasetReportSchedules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listDatasetReportSchedules(
+    response: ResponseContext
+  ): Promise<DatasetReportScheduleListResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: DatasetReportScheduleListResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "DatasetReportScheduleListResponse"
+        ) as DatasetReportScheduleListResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: DatasetReportScheduleListResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "DatasetReportScheduleListResponse",
+          ""
+        ) as DatasetReportScheduleListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listReportSchedules
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -865,6 +1030,92 @@ export class ReportSchedulesApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to printReport
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async printReport(
+    response: ResponseContext
+  ): Promise<PrintReportResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: PrintReportResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "PrintReportResponse"
+      ) as PrintReportResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 422
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: PrintReportResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "PrintReportResponse",
+        ""
+      ) as PrintReportResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to toggleReportSchedule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -983,6 +1234,14 @@ export interface ReportSchedulesApiGetReportSchedulesForResourceRequest {
   resourceId: string;
 }
 
+export interface ReportSchedulesApiListDatasetReportSchedulesRequest {
+  /**
+   * The identifier of the published dataset to retrieve report schedules for.
+   * @type string
+   */
+  datasetId: string;
+}
+
 export interface ReportSchedulesApiListReportSchedulesRequest {
   /**
    * The maximum number of schedules to return. The maximum value is 50.
@@ -1021,6 +1280,13 @@ export interface ReportSchedulesApiPatchReportScheduleRequest {
    * @type ReportSchedulePatchRequest
    */
   body: ReportSchedulePatchRequest;
+}
+
+export interface ReportSchedulesApiPrintReportRequest {
+  /**
+   * @type PrintReportRequest
+   */
+  body: PrintReportRequest;
 }
 
 export interface ReportSchedulesApiToggleReportScheduleRequest {
@@ -1147,6 +1413,29 @@ export class ReportSchedulesApi {
   }
 
   /**
+   * Retrieve all report schedules for a given published dataset.
+   * Returns report schedules belonging to the authenticated user's organization that target the specified dataset.
+   * Requires the `generate_log_reports` or `manage_log_reports` permission.
+   * @param param The request object
+   */
+  public listDatasetReportSchedules(
+    param: ReportSchedulesApiListDatasetReportSchedulesRequest,
+    options?: Configuration
+  ): Promise<DatasetReportScheduleListResponse> {
+    const requestContextPromise =
+      this.requestFactory.listDatasetReportSchedules(param.datasetId, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listDatasetReportSchedules(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * List dashboard and integration dashboard report schedules for the organization.
    * The response is paginated and can be filtered by title, author UUID, or recipients.
    * Requires the `generate_dashboard_reports` permission.
@@ -1194,6 +1483,29 @@ export class ReportSchedulesApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.patchReportSchedule(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Initiate a one-off, print-only report for a dashboard or integration dashboard.
+   * The report is rendered as a PDF and made available for download through the URL returned in the response.
+   * Requires a reporting permission appropriate to the targeted resource type.
+   * @param param The request object
+   */
+  public printReport(
+    param: ReportSchedulesApiPrintReportRequest,
+    options?: Configuration
+  ): Promise<PrintReportResponse> {
+    const requestContextPromise = this.requestFactory.printReport(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.printReport(responseContext);
         });
     });
   }

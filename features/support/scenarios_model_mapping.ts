@@ -14028,6 +14028,20 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "Snapshot",
     },
+    "v2.ListDatasetReportSchedules": {
+        "datasetId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DatasetReportScheduleListResponse",
+    },
+    "v2.PrintReport": {
+        "body": {
+            "type": "PrintReportRequest",
+            "format": "",
+            },
+        "operationResponseType": "PrintReportResponse",
+    },
     "v2.CreateReportSchedule": {
         "body": {
             "type": "ReportScheduleCreateRequest",
