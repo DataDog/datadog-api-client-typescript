@@ -193,6 +193,7 @@ import { TableWidgetTextFormatReplaceSubstring } from "./TableWidgetTextFormatRe
 import { TableWidgetTextFormatRule } from "./TableWidgetTextFormatRule";
 import { TimeseriesBackground } from "./TimeseriesBackground";
 import { TimeseriesRequestStyle } from "./TimeseriesRequestStyle";
+import { TimeseriesWidgetAnomalyDetection } from "./TimeseriesWidgetAnomalyDetection";
 import { TimeseriesWidgetDefinition } from "./TimeseriesWidgetDefinition";
 import { TimeseriesWidgetExpressionAlias } from "./TimeseriesWidgetExpressionAlias";
 import { TimeseriesWidgetRequest } from "./TimeseriesWidgetRequest";
@@ -569,6 +570,7 @@ export const TypingInfo: ModelTypingInfo = {
     TableWidgetTextFormatReplaceAllType: ["all"],
     TableWidgetTextFormatReplaceSubstringType: ["substring"],
     TimeseriesBackgroundType: ["bars", "area"],
+    TimeseriesWidgetAnomalyDetectionSensitivity: ["never_detect"],
     TimeseriesWidgetDefinitionType: ["timeseries"],
     TimeseriesWidgetLegendColumn: ["value", "avg", "sum", "min", "max"],
     TimeseriesWidgetLegendLayout: ["auto", "horizontal", "vertical"],
@@ -1040,6 +1042,7 @@ export const TypingInfo: ModelTypingInfo = {
     TableWidgetTextFormatRule: TableWidgetTextFormatRule,
     TimeseriesBackground: TimeseriesBackground,
     TimeseriesRequestStyle: TimeseriesRequestStyle,
+    TimeseriesWidgetAnomalyDetection: TimeseriesWidgetAnomalyDetection,
     TimeseriesWidgetDefinition: TimeseriesWidgetDefinition,
     TimeseriesWidgetExpressionAlias: TimeseriesWidgetExpressionAlias,
     TimeseriesWidgetRequest: TimeseriesWidgetRequest,
