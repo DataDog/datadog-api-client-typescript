@@ -54,6 +54,10 @@ import { ComparisonCustomTimeframe } from "./ComparisonCustomTimeframe";
 import { ComparisonDuration } from "./ComparisonDuration";
 import { Creator } from "./Creator";
 import { Dashboard } from "./Dashboard";
+import { DashboardAvailableValuesEventsQuery } from "./DashboardAvailableValuesEventsQuery";
+import { DashboardAvailableValuesEventsQueryGroupByItems } from "./DashboardAvailableValuesEventsQueryGroupByItems";
+import { DashboardAvailableValuesEventsQuerySearch } from "./DashboardAvailableValuesEventsQuerySearch";
+import { DashboardAvailableValuesMetricsQuery } from "./DashboardAvailableValuesMetricsQuery";
 import { DashboardBulkActionData } from "./DashboardBulkActionData";
 import { DashboardBulkDeleteRequest } from "./DashboardBulkDeleteRequest";
 import { DashboardDeleteResponse } from "./DashboardDeleteResponse";
@@ -832,6 +836,7 @@ const enumsMap: { [key: string]: any[] } = {
     "previous_month",
   ],
   ContentEncoding: ["gzip", "deflate"],
+  DashboardAvailableValuesEventsDataSource: ["spans", "logs", "rum"],
   DashboardGlobalTimeLiveSpan: [
     "15m",
     "1h",
@@ -2126,6 +2131,12 @@ const typeMap: { [index: string]: any } = {
   ComparisonDuration: ComparisonDuration,
   Creator: Creator,
   Dashboard: Dashboard,
+  DashboardAvailableValuesEventsQuery: DashboardAvailableValuesEventsQuery,
+  DashboardAvailableValuesEventsQueryGroupByItems:
+    DashboardAvailableValuesEventsQueryGroupByItems,
+  DashboardAvailableValuesEventsQuerySearch:
+    DashboardAvailableValuesEventsQuerySearch,
+  DashboardAvailableValuesMetricsQuery: DashboardAvailableValuesMetricsQuery,
   DashboardBulkActionData: DashboardBulkActionData,
   DashboardBulkDeleteRequest: DashboardBulkDeleteRequest,
   DashboardDeleteResponse: DashboardDeleteResponse,
@@ -2915,6 +2926,10 @@ const typeMap: { [index: string]: any } = {
 
 const oneOfMap: { [index: string]: string[] } = {
   BarChartWidgetDisplay: ["BarChartWidgetStacked", "BarChartWidgetFlat"],
+  DashboardTemplateVariableAvailableValuesQuery: [
+    "DashboardAvailableValuesEventsQuery",
+    "DashboardAvailableValuesMetricsQuery",
+  ],
   DistributionPointItem: ["number", "Array<number>"],
   DistributionWidgetHistogramRequestQuery: [
     "FormulaAndFunctionMetricQueryDefinition",

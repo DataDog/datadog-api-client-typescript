@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { DashboardTemplateVariableAvailableValuesQuery } from "./DashboardTemplateVariableAvailableValuesQuery";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -14,6 +15,14 @@ export class DashboardTemplateVariable {
    * The list of values that the template variable drop-down is limited to.
    */
   "availableValues"?: Array<string>;
+  /**
+   * A query that dynamically computes the list of values available for this template variable.
+   */
+  "availableValuesQuery"?: DashboardTemplateVariableAvailableValuesQuery;
+  /**
+   * A mapping from data source type to the variable value to use for that data source.
+   */
+  "dataSourceMappings"?: { [key: string]: string };
   /**
    * (deprecated) The default value for the template variable on dashboard load. Cannot be used in conjunction with `defaults`.
    */
@@ -54,6 +63,14 @@ export class DashboardTemplateVariable {
     availableValues: {
       baseName: "available_values",
       type: "Array<string>",
+    },
+    availableValuesQuery: {
+      baseName: "available_values_query",
+      type: "DashboardTemplateVariableAvailableValuesQuery",
+    },
+    dataSourceMappings: {
+      baseName: "data_source_mappings",
+      type: "{ [key: string]: string; }",
     },
     _default: {
       baseName: "default",
