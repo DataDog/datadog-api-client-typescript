@@ -19,10 +19,6 @@ export class IncidentTypeConfiguration {
    */
   "createMessage"?: string;
   /**
-   * Whether the out-of-the-box postmortem template is disabled for incidents of this type.
-   */
-  "disableOutOfTheBoxPostmortemTemplate"?: boolean;
-  /**
    * Whether responders can edit incident timestamps for incidents of this type.
    */
   "editableTimestamps"?: boolean;
@@ -68,10 +64,6 @@ export class IncidentTypeConfiguration {
     createMessage: {
       baseName: "create_message",
       type: "string",
-    },
-    disableOutOfTheBoxPostmortemTemplate: {
-      baseName: "disable_out_of_the_box_postmortem_template",
-      type: "boolean",
     },
     editableTimestamps: {
       baseName: "editable_timestamps",
