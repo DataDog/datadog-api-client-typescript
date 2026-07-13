@@ -43,6 +43,9 @@ import { IncidentNotificationRule } from "../models/IncidentNotificationRule";
 import { IncidentNotificationRuleArray } from "../models/IncidentNotificationRuleArray";
 import { IncidentNotificationTemplate } from "../models/IncidentNotificationTemplate";
 import { IncidentNotificationTemplateArray } from "../models/IncidentNotificationTemplateArray";
+import { IncidentPostmortemCreateRequest } from "../models/IncidentPostmortemCreateRequest";
+import { IncidentPostmortemResponse } from "../models/IncidentPostmortemResponse";
+import { IncidentPostmortemUpdateRequest } from "../models/IncidentPostmortemUpdateRequest";
 import { IncidentRelatedObject } from "../models/IncidentRelatedObject";
 import { IncidentResponse } from "../models/IncidentResponse";
 import { IncidentResponseData } from "../models/IncidentResponseData";
@@ -468,6 +471,74 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
         "CreateIncidentNotificationTemplateRequest",
         ""
       ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createIncidentPostmortem(
+    incidentId: string,
+    body: IncidentPostmortemCreateRequest,
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'createIncidentPostmortem'");
+    if (!_config.unstableOperations["v2.createIncidentPostmortem"]) {
+      throw new Error(
+        "Unstable operation 'createIncidentPostmortem' is disabled"
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "createIncidentPostmortem");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createIncidentPostmortem");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/{incident_id}/postmortem".replace(
+      "{incident_id}",
+      encodeURIComponent(String(incidentId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.createIncidentPostmortem")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "IncidentPostmortemCreateRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -1075,6 +1146,47 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deleteIncidentPostmortem(
+    incidentId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'deleteIncidentPostmortem'");
+    if (!_config.unstableOperations["v2.deleteIncidentPostmortem"]) {
+      throw new Error(
+        "Unstable operation 'deleteIncidentPostmortem' is disabled"
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "deleteIncidentPostmortem");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/{incident_id}/postmortem".replace(
+      "{incident_id}",
+      encodeURIComponent(String(incidentId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.deleteIncidentPostmortem")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteIncidentPostmortemTemplate(
     templateId: string,
     _options?: Configuration
@@ -1457,6 +1569,55 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = _config
       .getServer("v2.IncidentsApi.getIncidentNotificationTemplate")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getIncidentPostmortem(
+    incidentId: string,
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getIncidentPostmortem'");
+    if (!_config.unstableOperations["v2.getIncidentPostmortem"]) {
+      throw new Error("Unstable operation 'getIncidentPostmortem' is disabled");
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "getIncidentPostmortem");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/{incident_id}/postmortem".replace(
+      "{incident_id}",
+      encodeURIComponent(String(incidentId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.getIncidentPostmortem")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -2786,6 +2947,74 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async updateIncidentPostmortem(
+    incidentId: string,
+    body: IncidentPostmortemUpdateRequest,
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'updateIncidentPostmortem'");
+    if (!_config.unstableOperations["v2.updateIncidentPostmortem"]) {
+      throw new Error(
+        "Unstable operation 'updateIncidentPostmortem' is disabled"
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError("incidentId", "updateIncidentPostmortem");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateIncidentPostmortem");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/{incident_id}/postmortem".replace(
+      "{incident_id}",
+      encodeURIComponent(String(incidentId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.updateIncidentPostmortem")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "IncidentPostmortemUpdateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async updateIncidentPostmortemTemplate(
     templateId: string,
     body: PostmortemTemplateRequest,
@@ -3493,6 +3722,71 @@ export class IncidentsApiResponseProcessor {
         "IncidentNotificationTemplate",
         ""
       ) as IncidentNotificationTemplate;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createIncidentPostmortem
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createIncidentPostmortem(
+    response: ResponseContext
+  ): Promise<IncidentPostmortemResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: IncidentPostmortemResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IncidentPostmortemResponse"
+      ) as IncidentPostmortemResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentPostmortemResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IncidentPostmortemResponse",
+        ""
+      ) as IncidentPostmortemResponse;
       return body;
     }
 
@@ -4280,6 +4574,61 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deleteIncidentPostmortem
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteIncidentPostmortem(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteIncidentPostmortemTemplate
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4859,6 +5208,70 @@ export class IncidentsApiResponseProcessor {
         "IncidentNotificationTemplate",
         ""
       ) as IncidentNotificationTemplate;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getIncidentPostmortem
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getIncidentPostmortem(
+    response: ResponseContext
+  ): Promise<IncidentPostmortemResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: IncidentPostmortemResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IncidentPostmortemResponse"
+      ) as IncidentPostmortemResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentPostmortemResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IncidentPostmortemResponse",
+        ""
+      ) as IncidentPostmortemResponse;
       return body;
     }
 
@@ -6538,6 +6951,70 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateIncidentPostmortem
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateIncidentPostmortem(
+    response: ResponseContext
+  ): Promise<IncidentPostmortemResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: IncidentPostmortemResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IncidentPostmortemResponse"
+      ) as IncidentPostmortemResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentPostmortemResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IncidentPostmortemResponse",
+        ""
+      ) as IncidentPostmortemResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateIncidentPostmortemTemplate
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -6913,6 +7390,24 @@ export interface IncidentsApiCreateIncidentNotificationTemplateRequest {
   body: CreateIncidentNotificationTemplateRequest;
 }
 
+export interface IncidentsApiCreateIncidentPostmortemRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * Postmortem creation payload.
+   * @type IncidentPostmortemCreateRequest
+   */
+  body: IncidentPostmortemCreateRequest;
+  /**
+   * Resources to include in the response. Supported values: `last_modified_by_user`, `postmortem_owner_user`, `postmortem_owner_responder`, `incident`.
+   * @type string
+   */
+  include?: string;
+}
+
 export interface IncidentsApiCreateIncidentPostmortemAttachmentRequest {
   /**
    * The ID of the incident
@@ -7039,6 +7534,14 @@ export interface IncidentsApiDeleteIncidentNotificationTemplateRequest {
   include?: string;
 }
 
+export interface IncidentsApiDeleteIncidentPostmortemRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+}
+
 export interface IncidentsApiDeleteIncidentPostmortemTemplateRequest {
   /**
    * The ID of the postmortem template
@@ -7123,6 +7626,19 @@ export interface IncidentsApiGetIncidentNotificationTemplateRequest {
   id: string;
   /**
    * Comma-separated list of relationships to include. Supported values: `created_by_user`, `last_modified_by_user`, `incident_type`
+   * @type string
+   */
+  include?: string;
+}
+
+export interface IncidentsApiGetIncidentPostmortemRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * Resources to include in the response. Supported values: `last_modified_by_user`, `postmortem_owner_user`, `postmortem_owner_responder`, `incident`.
    * @type string
    */
   include?: string;
@@ -7454,6 +7970,24 @@ export interface IncidentsApiUpdateIncidentNotificationTemplateRequest {
   include?: string;
 }
 
+export interface IncidentsApiUpdateIncidentPostmortemRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * Postmortem update payload.
+   * @type IncidentPostmortemUpdateRequest
+   */
+  body: IncidentPostmortemUpdateRequest;
+  /**
+   * Resources to include in the response. Supported values: `last_modified_by_user`, `postmortem_owner_user`, `postmortem_owner_responder`, `incident`.
+   * @type string
+   */
+  include?: string;
+}
+
 export interface IncidentsApiUpdateIncidentPostmortemTemplateRequest {
   /**
    * The ID of the postmortem template
@@ -7689,6 +8223,34 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createIncidentNotificationTemplate(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Create a postmortem for an incident by linking a title and document URL
+   * (for example, a Datadog notebook, Confluence page, or Google Doc).
+   *
+   * Only one postmortem is allowed per incident.
+   * @param param The request object
+   */
+  public createIncidentPostmortem(
+    param: IncidentsApiCreateIncidentPostmortemRequest,
+    options?: Configuration
+  ): Promise<IncidentPostmortemResponse> {
+    const requestContextPromise = this.requestFactory.createIncidentPostmortem(
+      param.incidentId,
+      param.body,
+      param.include,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createIncidentPostmortem(
             responseContext
           );
         });
@@ -7972,6 +8534,29 @@ export class IncidentsApi {
   }
 
   /**
+   * Delete the postmortem attached to an incident.
+   * @param param The request object
+   */
+  public deleteIncidentPostmortem(
+    param: IncidentsApiDeleteIncidentPostmortemRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteIncidentPostmortem(
+      param.incidentId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteIncidentPostmortem(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Delete a postmortem template.
    * @param param The request object
    */
@@ -8172,6 +8757,28 @@ export class IncidentsApi {
           return this.responseProcessor.getIncidentNotificationTemplate(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Get the postmortem attached to an incident.
+   * @param param The request object
+   */
+  public getIncidentPostmortem(
+    param: IncidentsApiGetIncidentPostmortemRequest,
+    options?: Configuration
+  ): Promise<IncidentPostmortemResponse> {
+    const requestContextPromise = this.requestFactory.getIncidentPostmortem(
+      param.incidentId,
+      param.include,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getIncidentPostmortem(responseContext);
         });
     });
   }
@@ -8834,6 +9441,31 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateIncidentNotificationTemplate(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Update the postmortem attached to an incident, for example to change its status.
+   * @param param The request object
+   */
+  public updateIncidentPostmortem(
+    param: IncidentsApiUpdateIncidentPostmortemRequest,
+    options?: Configuration
+  ): Promise<IncidentPostmortemResponse> {
+    const requestContextPromise = this.requestFactory.updateIncidentPostmortem(
+      param.incidentId,
+      param.body,
+      param.include,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateIncidentPostmortem(
             responseContext
           );
         });

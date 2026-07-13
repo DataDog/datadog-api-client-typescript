@@ -2081,6 +2081,16 @@ import { IncidentNotificationTemplateRelationships } from "./IncidentNotificatio
 import { IncidentNotificationTemplateResponseData } from "./IncidentNotificationTemplateResponseData";
 import { IncidentNotificationTemplateUpdateAttributes } from "./IncidentNotificationTemplateUpdateAttributes";
 import { IncidentNotificationTemplateUpdateData } from "./IncidentNotificationTemplateUpdateData";
+import { IncidentPostmortemAttributes } from "./IncidentPostmortemAttributes";
+import { IncidentPostmortemCreateAttributes } from "./IncidentPostmortemCreateAttributes";
+import { IncidentPostmortemCreateData } from "./IncidentPostmortemCreateData";
+import { IncidentPostmortemCreateRequest } from "./IncidentPostmortemCreateRequest";
+import { IncidentPostmortemData } from "./IncidentPostmortemData";
+import { IncidentPostmortemRelationships } from "./IncidentPostmortemRelationships";
+import { IncidentPostmortemResponse } from "./IncidentPostmortemResponse";
+import { IncidentPostmortemUpdateAttributes } from "./IncidentPostmortemUpdateAttributes";
+import { IncidentPostmortemUpdateData } from "./IncidentPostmortemUpdateData";
+import { IncidentPostmortemUpdateRequest } from "./IncidentPostmortemUpdateRequest";
 import { IncidentRelationshipData } from "./IncidentRelationshipData";
 import { IncidentResponse } from "./IncidentResponse";
 import { IncidentResponseAttributes } from "./IncidentResponseAttributes";
@@ -2994,6 +3004,7 @@ import { NotionAPIKey } from "./NotionAPIKey";
 import { NotionAPIKeyUpdate } from "./NotionAPIKeyUpdate";
 import { NotionIntegration } from "./NotionIntegration";
 import { NotionIntegrationUpdate } from "./NotionIntegrationUpdate";
+import { NullableRelationshipToIncidentResponderData } from "./NullableRelationshipToIncidentResponderData";
 import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
 import { NullableUserRelationship } from "./NullableUserRelationship";
@@ -3637,6 +3648,7 @@ import { RelationshipToIncidentNotificationTemplateData } from "./RelationshipTo
 import { RelationshipToIncidentPostmortem } from "./RelationshipToIncidentPostmortem";
 import { RelationshipToIncidentPostmortemData } from "./RelationshipToIncidentPostmortemData";
 import { RelationshipToIncidentRequest } from "./RelationshipToIncidentRequest";
+import { RelationshipToIncidentResponder } from "./RelationshipToIncidentResponder";
 import { RelationshipToIncidentResponderData } from "./RelationshipToIncidentResponderData";
 import { RelationshipToIncidentResponders } from "./RelationshipToIncidentResponders";
 import { RelationshipToIncidentType } from "./RelationshipToIncidentType";
@@ -7131,6 +7143,7 @@ const enumsMap: { [key: string]: any[] } = {
   PersonalAccessTokensType: ["personal_access_tokens"],
   PlaylistDataType: ["rum_replay_playlist"],
   PostmortemCellType: ["markdown"],
+  PostmortemStatus: ["draft", "in_review", "completed"],
   PostmortemTemplateType: ["postmortem_template"],
   ProcessDataSource: ["process"],
   ProcessSummaryType: ["process"],
@@ -10651,6 +10664,16 @@ const typeMap: { [index: string]: any } = {
     IncidentNotificationTemplateUpdateAttributes,
   IncidentNotificationTemplateUpdateData:
     IncidentNotificationTemplateUpdateData,
+  IncidentPostmortemAttributes: IncidentPostmortemAttributes,
+  IncidentPostmortemCreateAttributes: IncidentPostmortemCreateAttributes,
+  IncidentPostmortemCreateData: IncidentPostmortemCreateData,
+  IncidentPostmortemCreateRequest: IncidentPostmortemCreateRequest,
+  IncidentPostmortemData: IncidentPostmortemData,
+  IncidentPostmortemRelationships: IncidentPostmortemRelationships,
+  IncidentPostmortemResponse: IncidentPostmortemResponse,
+  IncidentPostmortemUpdateAttributes: IncidentPostmortemUpdateAttributes,
+  IncidentPostmortemUpdateData: IncidentPostmortemUpdateData,
+  IncidentPostmortemUpdateRequest: IncidentPostmortemUpdateRequest,
   IncidentRelationshipData: IncidentRelationshipData,
   IncidentResponse: IncidentResponse,
   IncidentResponseAttributes: IncidentResponseAttributes,
@@ -11715,6 +11738,8 @@ const typeMap: { [index: string]: any } = {
   NotionAPIKeyUpdate: NotionAPIKeyUpdate,
   NotionIntegration: NotionIntegration,
   NotionIntegrationUpdate: NotionIntegrationUpdate,
+  NullableRelationshipToIncidentResponderData:
+    NullableRelationshipToIncidentResponderData,
   NullableRelationshipToUser: NullableRelationshipToUser,
   NullableRelationshipToUserData: NullableRelationshipToUserData,
   NullableUserRelationship: NullableUserRelationship,
@@ -12541,6 +12566,7 @@ const typeMap: { [index: string]: any } = {
   RelationshipToIncidentPostmortem: RelationshipToIncidentPostmortem,
   RelationshipToIncidentPostmortemData: RelationshipToIncidentPostmortemData,
   RelationshipToIncidentRequest: RelationshipToIncidentRequest,
+  RelationshipToIncidentResponder: RelationshipToIncidentResponder,
   RelationshipToIncidentResponderData: RelationshipToIncidentResponderData,
   RelationshipToIncidentResponders: RelationshipToIncidentResponders,
   RelationshipToIncidentType: RelationshipToIncidentType,
@@ -14850,6 +14876,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "IncidentNotificationTemplateObject",
   ],
   IncidentNotificationTemplateIncludedItems: ["User", "IncidentTypeObject"],
+  IncidentPostmortemIncluded: ["IncidentUserData", "IncidentResponseData"],
   IncidentResponseIncludedItem: ["IncidentUserData", "AttachmentData"],
   IncidentTimelineCellCreateAttributes: [
     "IncidentTimelineCellMarkdownCreateAttributes",
