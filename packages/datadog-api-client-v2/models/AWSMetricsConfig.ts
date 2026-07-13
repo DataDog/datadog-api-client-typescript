@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { AWSMetricNameFilters } from "./AWSMetricNameFilters";
 import { AWSNamespaceFilters } from "./AWSNamespaceFilters";
 import { AWSNamespaceTagFilter } from "./AWSNamespaceTagFilter";
 
@@ -28,6 +29,11 @@ export class AWSMetricsConfig {
    * Enable AWS metrics collection. Defaults to `true`.
    */
   "enabled"?: boolean;
+  /**
+   * AWS CloudWatch metric name filters. Each filter applies to a single namespace.
+   * Exactly one of `include_only` or `exclude_only` must be set on each filter.
+   */
+  "metricNameFilters"?: Array<AWSMetricNameFilters>;
   /**
    * AWS Metrics namespace filters. Defaults to `exclude_only`.
    */
@@ -68,6 +74,10 @@ export class AWSMetricsConfig {
     enabled: {
       baseName: "enabled",
       type: "boolean",
+    },
+    metricNameFilters: {
+      baseName: "metric_name_filters",
+      type: "Array<AWSMetricNameFilters>",
     },
     namespaceFilters: {
       baseName: "namespace_filters",

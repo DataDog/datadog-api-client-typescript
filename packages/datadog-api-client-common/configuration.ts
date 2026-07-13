@@ -590,6 +590,8 @@ export function createConfiguration(
       "v2.createAWSAccountCCMConfig": false,
       "v2.deleteAWSAccountCCMConfig": false,
       "v2.getAWSAccountCCMConfig": false,
+      "v2.getAWSMetricNameFilterPreview": false,
+      "v2.previewAWSMetricNameFilter": false,
       "v2.updateAWSAccountCCMConfig": false,
       "v2.validateAWSCCMConfig": false,
       "v2.createJiraIssueTemplate": false,

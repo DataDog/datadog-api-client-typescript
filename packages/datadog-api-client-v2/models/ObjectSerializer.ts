@@ -77,6 +77,18 @@ import { AWSLogsConfig } from "./AWSLogsConfig";
 import { AWSLogsServicesResponse } from "./AWSLogsServicesResponse";
 import { AWSLogsServicesResponseAttributes } from "./AWSLogsServicesResponseAttributes";
 import { AWSLogsServicesResponseData } from "./AWSLogsServicesResponseData";
+import { AWSMetricNameFilterPreviewDDName } from "./AWSMetricNameFilterPreviewDDName";
+import { AWSMetricNameFilterPreviewFilterMatch } from "./AWSMetricNameFilterPreviewFilterMatch";
+import { AWSMetricNameFilterPreviewMetric } from "./AWSMetricNameFilterPreviewMetric";
+import { AWSMetricNameFilterPreviewNamespace } from "./AWSMetricNameFilterPreviewNamespace";
+import { AWSMetricNameFilterPreviewRequest } from "./AWSMetricNameFilterPreviewRequest";
+import { AWSMetricNameFilterPreviewRequestAttributes } from "./AWSMetricNameFilterPreviewRequestAttributes";
+import { AWSMetricNameFilterPreviewRequestData } from "./AWSMetricNameFilterPreviewRequestData";
+import { AWSMetricNameFilterPreviewResponse } from "./AWSMetricNameFilterPreviewResponse";
+import { AWSMetricNameFilterPreviewResponseAttributes } from "./AWSMetricNameFilterPreviewResponseAttributes";
+import { AWSMetricNameFilterPreviewResponseData } from "./AWSMetricNameFilterPreviewResponseData";
+import { AWSMetricNameFiltersExcludeOnly } from "./AWSMetricNameFiltersExcludeOnly";
+import { AWSMetricNameFiltersIncludeOnly } from "./AWSMetricNameFiltersIncludeOnly";
 import { AWSMetricsConfig } from "./AWSMetricsConfig";
 import { AWSNamespaceFiltersExcludeOnly } from "./AWSNamespaceFiltersExcludeOnly";
 import { AWSNamespaceFiltersIncludeOnly } from "./AWSNamespaceFiltersIncludeOnly";
@@ -5323,6 +5335,7 @@ const enumsMap: { [key: string]: any[] } = {
   AWSIntegrationIamPermissionsResponseDataType: ["permissions"],
   AWSIntegrationType: ["AWS"],
   AWSLogsServicesResponseDataType: ["logs_services"],
+  AWSMetricNameFilterPreviewType: ["metric_name_filter_preview"],
   AWSNamespacesResponseDataType: ["namespaces"],
   AWSNewExternalIDResponseDataType: ["external_id"],
   AccessTokenOwnerType: ["users", "service_account"],
@@ -8307,6 +8320,21 @@ const typeMap: { [index: string]: any } = {
   AWSLogsServicesResponse: AWSLogsServicesResponse,
   AWSLogsServicesResponseAttributes: AWSLogsServicesResponseAttributes,
   AWSLogsServicesResponseData: AWSLogsServicesResponseData,
+  AWSMetricNameFilterPreviewDDName: AWSMetricNameFilterPreviewDDName,
+  AWSMetricNameFilterPreviewFilterMatch: AWSMetricNameFilterPreviewFilterMatch,
+  AWSMetricNameFilterPreviewMetric: AWSMetricNameFilterPreviewMetric,
+  AWSMetricNameFilterPreviewNamespace: AWSMetricNameFilterPreviewNamespace,
+  AWSMetricNameFilterPreviewRequest: AWSMetricNameFilterPreviewRequest,
+  AWSMetricNameFilterPreviewRequestAttributes:
+    AWSMetricNameFilterPreviewRequestAttributes,
+  AWSMetricNameFilterPreviewRequestData: AWSMetricNameFilterPreviewRequestData,
+  AWSMetricNameFilterPreviewResponse: AWSMetricNameFilterPreviewResponse,
+  AWSMetricNameFilterPreviewResponseAttributes:
+    AWSMetricNameFilterPreviewResponseAttributes,
+  AWSMetricNameFilterPreviewResponseData:
+    AWSMetricNameFilterPreviewResponseData,
+  AWSMetricNameFiltersExcludeOnly: AWSMetricNameFiltersExcludeOnly,
+  AWSMetricNameFiltersIncludeOnly: AWSMetricNameFiltersIncludeOnly,
   AWSMetricsConfig: AWSMetricsConfig,
   AWSNamespaceFiltersExcludeOnly: AWSNamespaceFiltersExcludeOnly,
   AWSNamespaceFiltersIncludeOnly: AWSNamespaceFiltersIncludeOnly,
@@ -14535,6 +14563,10 @@ const oneOfMap: { [index: string]: string[] } = {
   AWSAuthConfig: ["AWSAuthConfigKeys", "AWSAuthConfigRole"],
   AWSCredentials: ["AWSAssumeRole"],
   AWSCredentialsUpdate: ["AWSAssumeRoleUpdate"],
+  AWSMetricNameFilters: [
+    "AWSMetricNameFiltersIncludeOnly",
+    "AWSMetricNameFiltersExcludeOnly",
+  ],
   AWSNamespaceFilters: [
     "AWSNamespaceFiltersExcludeOnly",
     "AWSNamespaceFiltersIncludeOnly",

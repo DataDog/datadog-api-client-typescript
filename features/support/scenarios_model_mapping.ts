@@ -10423,6 +10423,24 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "AWSCcmConfigResponse",
     },
+    "v2.GetAWSMetricNameFilterPreview": {
+        "awsAccountConfigId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AWSMetricNameFilterPreviewResponse",
+    },
+    "v2.PreviewAWSMetricNameFilter": {
+        "awsAccountConfigId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "AWSMetricNameFilterPreviewRequest",
+            "format": "",
+            },
+        "operationResponseType": "AWSMetricNameFilterPreviewResponse",
+    },
     "v2.ListAWSNamespaces": {
         "operationResponseType": "AWSNamespacesResponse",
     },
