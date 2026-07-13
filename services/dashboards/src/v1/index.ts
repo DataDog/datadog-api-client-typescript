@@ -396,6 +396,8 @@ export { ViewingPreferencesTheme } from "./models/ViewingPreferencesTheme";
 export { Widget } from "./models/Widget";
 export { WidgetAggregator } from "./models/WidgetAggregator";
 export { WidgetAxis } from "./models/WidgetAxis";
+export { WidgetCalendarAlignedSpan } from "./models/WidgetCalendarAlignedSpan";
+export { WidgetCalendarAlignedSpanType } from "./models/WidgetCalendarAlignedSpanType";
 export { WidgetChangeType } from "./models/WidgetChangeType";
 export { WidgetColorPreference } from "./models/WidgetColorPreference";
 export { WidgetComparator } from "./models/WidgetComparator";
