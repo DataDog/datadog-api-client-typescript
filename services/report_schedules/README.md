@@ -27,18 +27,10 @@ import { ReportSchedulesApiV2 } from "@datadog/datadog-api-client-report-schedul
 import { v2 } from "@datadog/datadog-api-client-report-schedules";
 
 const configuration = createConfiguration();
-// Enable unstable operations
-const configurationOpts = {
-    unstableOperations: {
-        "ReportSchedulesApi.v2.createReportSchedule": true
-    }
-}
-
-const configuration = createConfiguration(configurationOpts);
 const apiInstance = new ReportSchedulesApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.createReportSchedule(params).then((data) => {
+apiInstance.listDatasetReportSchedules(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

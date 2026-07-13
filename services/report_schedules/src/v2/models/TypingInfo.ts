@@ -1,9 +1,18 @@
 import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
+import { DatasetReportScheduleListResponse } from "./DatasetReportScheduleListResponse";
+import { DatasetReportScheduleResponseAttributes } from "./DatasetReportScheduleResponseAttributes";
+import { DatasetReportScheduleResponseData } from "./DatasetReportScheduleResponseData";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
+import { PrintReportRequest } from "./PrintReportRequest";
+import { PrintReportRequestAttributes } from "./PrintReportRequestAttributes";
+import { PrintReportRequestData } from "./PrintReportRequestData";
+import { PrintReportResponse } from "./PrintReportResponse";
+import { PrintReportResponseAttributes } from "./PrintReportResponseAttributes";
+import { PrintReportResponseData } from "./PrintReportResponseData";
 import { ReportScheduleAuthor } from "./ReportScheduleAuthor";
 import { ReportScheduleAuthorAttributes } from "./ReportScheduleAuthorAttributes";
 import { ReportScheduleAuthorRelationship } from "./ReportScheduleAuthorRelationship";
@@ -37,6 +46,8 @@ import { ReportScheduleToggleRequestData } from "./ReportScheduleToggleRequestDa
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
+    DatasetReportScheduleResourceType: ["widget_dataset_list"],
+    PrintReportType: ["report"],
     ReportScheduleAuthorType: ["users"],
     ReportScheduleDeliveryFormat: ["pdf", "png", "pdf_and_png"],
     ReportScheduleIncludedResourceType: ["resource"],
@@ -58,9 +69,19 @@ export const TypingInfo: ModelTypingInfo = {
   },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
+    DatasetReportScheduleListResponse: DatasetReportScheduleListResponse,
+    DatasetReportScheduleResponseAttributes:
+      DatasetReportScheduleResponseAttributes,
+    DatasetReportScheduleResponseData: DatasetReportScheduleResponseData,
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
     JSONAPIErrorResponse: JSONAPIErrorResponse,
+    PrintReportRequest: PrintReportRequest,
+    PrintReportRequestAttributes: PrintReportRequestAttributes,
+    PrintReportRequestData: PrintReportRequestData,
+    PrintReportResponse: PrintReportResponse,
+    PrintReportResponseAttributes: PrintReportResponseAttributes,
+    PrintReportResponseData: PrintReportResponseData,
     ReportScheduleAuthor: ReportScheduleAuthor,
     ReportScheduleAuthorAttributes: ReportScheduleAuthorAttributes,
     ReportScheduleAuthorRelationship: ReportScheduleAuthorRelationship,

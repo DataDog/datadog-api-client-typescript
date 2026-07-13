@@ -14046,6 +14046,20 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "Snapshot",
   },
+  "ReportSchedulesApi.V2.ListDatasetReportSchedules": {
+    datasetId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "DatasetReportScheduleListResponse",
+  },
+  "ReportSchedulesApi.V2.PrintReport": {
+    body: {
+      type: "PrintReportRequest",
+      format: "",
+    },
+    operationResponseType: "PrintReportResponse",
+  },
   "ReportSchedulesApi.V2.CreateReportSchedule": {
     body: {
       type: "ReportScheduleCreateRequest",

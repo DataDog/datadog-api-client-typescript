@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ObservabilityPipelineTagCardinalityLimitProcessorAction } from "./ObservabilityPipelineTagCardinalityLimitProcessorAction";
-import { ObservabilityPipelineTagCardinalityLimitProcessorPerMetricMode } from "./ObservabilityPipelineTagCardinalityLimitProcessorPerMetricMode";
+import { ObservabilityPipelineTagCardinalityLimitProcessorOverrideType } from "./ObservabilityPipelineTagCardinalityLimitProcessorOverrideType";
 import { ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit } from "./ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit";
 
 /**
@@ -17,15 +17,15 @@ export class ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit {
    */
   "metricName": string;
   /**
-   * How the per-metric override is applied. `tracked` enforces a custom limit; `excluded` skips the metric entirely.
+   * How the override is applied. `limit_override` enforces a custom limit; `excluded` omits the metric or tag from cardinality tracking.
    */
-  "mode": ObservabilityPipelineTagCardinalityLimitProcessorPerMetricMode;
+  "overrideType": ObservabilityPipelineTagCardinalityLimitProcessorOverrideType;
   /**
-   * A list of per-tag cardinality overrides that apply within this metric. Must be omitted when `mode` is `excluded`.
+   * A list of per-tag cardinality overrides that apply within this metric. Must be omitted when `override_type` is `excluded`.
    */
   "perTagLimits"?: Array<ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit>;
   /**
-   * The maximum number of distinct tag value combinations allowed for this metric. Required when `mode` is `tracked`. Must be omitted when `mode` is `excluded`.
+   * The maximum number of distinct tag value combinations allowed for this metric. Required when `override_type` is `limit_override`. Must be omitted when `override_type` is `excluded`.
    */
   "valueLimit"?: number;
   /**
@@ -52,9 +52,9 @@ export class ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit {
       type: "string",
       required: true,
     },
-    mode: {
-      baseName: "mode",
-      type: "ObservabilityPipelineTagCardinalityLimitProcessorPerMetricMode",
+    overrideType: {
+      baseName: "override_type",
+      type: "ObservabilityPipelineTagCardinalityLimitProcessorOverrideType",
       required: true,
     },
     perTagLimits: {
