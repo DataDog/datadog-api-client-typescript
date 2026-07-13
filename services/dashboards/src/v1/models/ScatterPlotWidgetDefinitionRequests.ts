@@ -8,7 +8,9 @@ import { ScatterplotTableRequest } from "./ScatterplotTableRequest";
  */
 export class ScatterPlotWidgetDefinitionRequests {
   /**
-   * Scatterplot request containing formulas and functions.
+   * Scatterplot table request. Supports two modes:
+   * - **Formulas and functions** (default): `request_type` is absent or `"table"`. Uses `queries` and `formulas`.
+   * - **Data projection**: `request_type` is `"data_projection"`. Uses `query`, `projection`, and optionally `limit`.
    */
   "table"?: ScatterplotTableRequest;
   /**
