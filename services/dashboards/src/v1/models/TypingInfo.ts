@@ -18,6 +18,10 @@ import { CohortWidgetDefinition } from "./CohortWidgetDefinition";
 import { ComparisonCustomTimeframe } from "./ComparisonCustomTimeframe";
 import { ComparisonDuration } from "./ComparisonDuration";
 import { Dashboard } from "./Dashboard";
+import { DashboardAvailableValuesEventsQuery } from "./DashboardAvailableValuesEventsQuery";
+import { DashboardAvailableValuesEventsQueryGroupByItems } from "./DashboardAvailableValuesEventsQueryGroupByItems";
+import { DashboardAvailableValuesEventsQuerySearch } from "./DashboardAvailableValuesEventsQuerySearch";
+import { DashboardAvailableValuesMetricsQuery } from "./DashboardAvailableValuesMetricsQuery";
 import { DashboardBulkActionData } from "./DashboardBulkActionData";
 import { DashboardBulkDeleteRequest } from "./DashboardBulkDeleteRequest";
 import { DashboardDeleteResponse } from "./DashboardDeleteResponse";
@@ -267,6 +271,7 @@ export const TypingInfo: ModelTypingInfo = {
       "previous_week",
       "previous_month",
     ],
+    DashboardAvailableValuesEventsDataSource: ["spans", "logs", "rum"],
     DashboardGlobalTimeLiveSpan: [
       "15m",
       "1h",
@@ -716,6 +721,10 @@ export const TypingInfo: ModelTypingInfo = {
   },
   oneOfMap: {
     BarChartWidgetDisplay: ["BarChartWidgetStacked", "BarChartWidgetFlat"],
+    DashboardTemplateVariableAvailableValuesQuery: [
+      "DashboardAvailableValuesEventsQuery",
+      "DashboardAvailableValuesMetricsQuery",
+    ],
     DistributionWidgetHistogramRequestQuery: [
       "FormulaAndFunctionMetricQueryDefinition",
       "FormulaAndFunctionEventQueryDefinition",
@@ -842,6 +851,12 @@ export const TypingInfo: ModelTypingInfo = {
     ComparisonCustomTimeframe: ComparisonCustomTimeframe,
     ComparisonDuration: ComparisonDuration,
     Dashboard: Dashboard,
+    DashboardAvailableValuesEventsQuery: DashboardAvailableValuesEventsQuery,
+    DashboardAvailableValuesEventsQueryGroupByItems:
+      DashboardAvailableValuesEventsQueryGroupByItems,
+    DashboardAvailableValuesEventsQuerySearch:
+      DashboardAvailableValuesEventsQuerySearch,
+    DashboardAvailableValuesMetricsQuery: DashboardAvailableValuesMetricsQuery,
     DashboardBulkActionData: DashboardBulkActionData,
     DashboardBulkDeleteRequest: DashboardBulkDeleteRequest,
     DashboardDeleteResponse: DashboardDeleteResponse,
