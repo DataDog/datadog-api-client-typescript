@@ -3,16 +3,29 @@ export {
   ReportSchedulesApiDeleteReportScheduleRequest,
   ReportSchedulesApiGetReportScheduleRequest,
   ReportSchedulesApiGetReportSchedulesForResourceRequest,
+  ReportSchedulesApiListDatasetReportSchedulesRequest,
   ReportSchedulesApiListReportSchedulesRequest,
   ReportSchedulesApiPatchReportScheduleRequest,
+  ReportSchedulesApiPrintReportRequest,
   ReportSchedulesApiToggleReportScheduleRequest,
   ReportSchedulesApi,
 } from "./ReportSchedulesApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
+export { DatasetReportScheduleListResponse } from "./models/DatasetReportScheduleListResponse";
+export { DatasetReportScheduleResourceType } from "./models/DatasetReportScheduleResourceType";
+export { DatasetReportScheduleResponseAttributes } from "./models/DatasetReportScheduleResponseAttributes";
+export { DatasetReportScheduleResponseData } from "./models/DatasetReportScheduleResponseData";
 export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
 export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
 export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
+export { PrintReportRequest } from "./models/PrintReportRequest";
+export { PrintReportRequestAttributes } from "./models/PrintReportRequestAttributes";
+export { PrintReportRequestData } from "./models/PrintReportRequestData";
+export { PrintReportResponse } from "./models/PrintReportResponse";
+export { PrintReportResponseAttributes } from "./models/PrintReportResponseAttributes";
+export { PrintReportResponseData } from "./models/PrintReportResponseData";
+export { PrintReportType } from "./models/PrintReportType";
 export { ReportScheduleAuthor } from "./models/ReportScheduleAuthor";
 export { ReportScheduleAuthorAttributes } from "./models/ReportScheduleAuthorAttributes";
 export { ReportScheduleAuthorRelationship } from "./models/ReportScheduleAuthorRelationship";
