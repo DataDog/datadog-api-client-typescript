@@ -63,6 +63,10 @@ import { IncidentUserDefinedFieldCreateRequest } from "../models/IncidentUserDef
 import { IncidentUserDefinedFieldListResponse } from "../models/IncidentUserDefinedFieldListResponse";
 import { IncidentUserDefinedFieldResponse } from "../models/IncidentUserDefinedFieldResponse";
 import { IncidentUserDefinedFieldUpdateRequest } from "../models/IncidentUserDefinedFieldUpdateRequest";
+import { IncidentUserDefinedRolePatchRequest } from "../models/IncidentUserDefinedRolePatchRequest";
+import { IncidentUserDefinedRoleRequest } from "../models/IncidentUserDefinedRoleRequest";
+import { IncidentUserDefinedRoleResponse } from "../models/IncidentUserDefinedRoleResponse";
+import { IncidentUserDefinedRolesResponse } from "../models/IncidentUserDefinedRolesResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { PatchAttachmentRequest } from "../models/PatchAttachmentRequest";
 import { PatchIncidentNotificationTemplateRequest } from "../models/PatchIncidentNotificationTemplateRequest";
@@ -760,6 +764,65 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async createIncidentUserDefinedRole(
+    body: IncidentUserDefinedRoleRequest,
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'createIncidentUserDefinedRole'");
+    if (!_config.unstableOperations["v2.createIncidentUserDefinedRole"]) {
+      throw new Error(
+        "Unstable operation 'createIncidentUserDefinedRole' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createIncidentUserDefinedRole");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/config/user-defined-roles";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.createIncidentUserDefinedRole")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "IncidentUserDefinedRoleRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteGlobalIncidentHandle(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -1243,6 +1306,48 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deleteIncidentUserDefinedRole(
+    roleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'deleteIncidentUserDefinedRole'");
+    if (!_config.unstableOperations["v2.deleteIncidentUserDefinedRole"]) {
+      throw new Error(
+        "Unstable operation 'deleteIncidentUserDefinedRole' is disabled"
+      );
+    }
+
+    // verify required parameter 'roleId' is not null or undefined
+    if (roleId === null || roleId === undefined) {
+      throw new RequiredError("roleId", "deleteIncidentUserDefinedRole");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/config/user-defined-roles/{role_id}".replace(
+        "{role_id}",
+        encodeURIComponent(String(roleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.deleteIncidentUserDefinedRole")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getGlobalIncidentSettings(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -1635,6 +1740,58 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = _config
       .getServer("v2.IncidentsApi.getIncidentUserDefinedField")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getIncidentUserDefinedRole(
+    roleId: string,
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getIncidentUserDefinedRole'");
+    if (!_config.unstableOperations["v2.getIncidentUserDefinedRole"]) {
+      throw new Error(
+        "Unstable operation 'getIncidentUserDefinedRole' is disabled"
+      );
+    }
+
+    // verify required parameter 'roleId' is not null or undefined
+    if (roleId === null || roleId === undefined) {
+      throw new RequiredError("roleId", "getIncidentUserDefinedRole");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/config/user-defined-roles/{role_id}".replace(
+        "{role_id}",
+        encodeURIComponent(String(roleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.getIncidentUserDefinedRole")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -2220,6 +2377,56 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter[incident-type]",
         ObjectSerializer.serialize(filterIncidentType, "string", ""),
+        ""
+      );
+    }
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listIncidentUserDefinedRoles(
+    filterIncidentType?: string,
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listIncidentUserDefinedRoles'");
+    if (!_config.unstableOperations["v2.listIncidentUserDefinedRoles"]) {
+      throw new Error(
+        "Unstable operation 'listIncidentUserDefinedRoles' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/config/user-defined-roles";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.listIncidentUserDefinedRoles")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (filterIncidentType !== undefined) {
+      requestContext.setQueryParam(
+        "filter[incident-type]",
+        ObjectSerializer.serialize(filterIncidentType, "string", "uuid"),
         ""
       );
     }
@@ -3020,6 +3227,79 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
       ObjectSerializer.serialize(
         body,
         "IncidentUserDefinedFieldUpdateRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateIncidentUserDefinedRole(
+    roleId: string,
+    body: IncidentUserDefinedRolePatchRequest,
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'updateIncidentUserDefinedRole'");
+    if (!_config.unstableOperations["v2.updateIncidentUserDefinedRole"]) {
+      throw new Error(
+        "Unstable operation 'updateIncidentUserDefinedRole' is disabled"
+      );
+    }
+
+    // verify required parameter 'roleId' is not null or undefined
+    if (roleId === null || roleId === undefined) {
+      throw new RequiredError("roleId", "updateIncidentUserDefinedRole");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateIncidentUserDefinedRole");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/incidents/config/user-defined-roles/{role_id}".replace(
+        "{role_id}",
+        encodeURIComponent(String(roleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.updateIncidentUserDefinedRole")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "IncidentUserDefinedRolePatchRequest",
         ""
       ),
       contentType
@@ -3884,6 +4164,89 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createIncidentUserDefinedRole
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createIncidentUserDefinedRole(
+    response: ResponseContext
+  ): Promise<IncidentUserDefinedRoleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: IncidentUserDefinedRoleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentUserDefinedRoleResponse"
+        ) as IncidentUserDefinedRoleResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentUserDefinedRoleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentUserDefinedRoleResponse",
+          ""
+        ) as IncidentUserDefinedRoleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteGlobalIncidentHandle
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4498,6 +4861,78 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteIncidentUserDefinedRole
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteIncidentUserDefinedRole(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -5155,6 +5590,89 @@ export class IncidentsApiResponseProcessor {
           "IncidentUserDefinedFieldResponse",
           ""
         ) as IncidentUserDefinedFieldResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getIncidentUserDefinedRole
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getIncidentUserDefinedRole(
+    response: ResponseContext
+  ): Promise<IncidentUserDefinedRoleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: IncidentUserDefinedRoleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentUserDefinedRoleResponse"
+        ) as IncidentUserDefinedRoleResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentUserDefinedRoleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentUserDefinedRoleResponse",
+          ""
+        ) as IncidentUserDefinedRoleResponse;
       return body;
     }
 
@@ -5977,6 +6495,89 @@ export class IncidentsApiResponseProcessor {
           "IncidentUserDefinedFieldListResponse",
           ""
         ) as IncidentUserDefinedFieldListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listIncidentUserDefinedRoles
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listIncidentUserDefinedRoles(
+    response: ResponseContext
+  ): Promise<IncidentUserDefinedRolesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: IncidentUserDefinedRolesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentUserDefinedRolesResponse"
+        ) as IncidentUserDefinedRolesResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentUserDefinedRolesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentUserDefinedRolesResponse",
+          ""
+        ) as IncidentUserDefinedRolesResponse;
       return body;
     }
 
@@ -6829,6 +7430,89 @@ export class IncidentsApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateIncidentUserDefinedRole
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateIncidentUserDefinedRole(
+    response: ResponseContext
+  ): Promise<IncidentUserDefinedRoleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: IncidentUserDefinedRoleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentUserDefinedRoleResponse"
+        ) as IncidentUserDefinedRoleResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentUserDefinedRoleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentUserDefinedRoleResponse",
+          ""
+        ) as IncidentUserDefinedRoleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
 }
 
 export interface IncidentsApiCreateGlobalIncidentHandleRequest {
@@ -6966,6 +7650,18 @@ export interface IncidentsApiCreateIncidentUserDefinedFieldRequest {
   include?: string;
 }
 
+export interface IncidentsApiCreateIncidentUserDefinedRoleRequest {
+  /**
+   * @type IncidentUserDefinedRoleRequest
+   */
+  body: IncidentUserDefinedRoleRequest;
+  /**
+   * Comma-separated list of related resources to include in the response.
+   * @type string
+   */
+  include?: string;
+}
+
 export interface IncidentsApiDeleteIncidentRequest {
   /**
    * The UUID of the incident.
@@ -7076,6 +7772,14 @@ export interface IncidentsApiDeleteIncidentUserDefinedFieldRequest {
   fieldId: string;
 }
 
+export interface IncidentsApiDeleteIncidentUserDefinedRoleRequest {
+  /**
+   * The UUID of the incident user-defined role.
+   * @type string
+   */
+  roleId: string;
+}
+
 export interface IncidentsApiGetIncidentRequest {
   /**
    * The UUID of the incident.
@@ -7165,6 +7869,19 @@ export interface IncidentsApiGetIncidentUserDefinedFieldRequest {
   fieldId: string;
   /**
    * Comma-separated list of related resources to include. Supported values are "last_modified_by_user", "created_by_user", and "incident_type".
+   * @type string
+   */
+  include?: string;
+}
+
+export interface IncidentsApiGetIncidentUserDefinedRoleRequest {
+  /**
+   * The UUID of the incident user-defined role.
+   * @type string
+   */
+  roleId: string;
+  /**
+   * Comma-separated list of related resources to include in the response.
    * @type string
    */
   include?: string;
@@ -7308,6 +8025,19 @@ export interface IncidentsApiListIncidentUserDefinedFieldsRequest {
   filterIncidentType?: string;
   /**
    * Comma-separated list of related resources to include. Supported values are "last_modified_by_user", "created_by_user", and "incident_type".
+   * @type string
+   */
+  include?: string;
+}
+
+export interface IncidentsApiListIncidentUserDefinedRolesRequest {
+  /**
+   * Filter roles by incident type UUID.
+   * @type string
+   */
+  filterIncidentType?: string;
+  /**
+   * Comma-separated list of related resources to include in the response.
    * @type string
    */
   include?: string;
@@ -7510,6 +8240,23 @@ export interface IncidentsApiUpdateIncidentUserDefinedFieldRequest {
   body: IncidentUserDefinedFieldUpdateRequest;
   /**
    * Comma-separated list of related resources to include. Supported values are "last_modified_by_user", "created_by_user", and "incident_type".
+   * @type string
+   */
+  include?: string;
+}
+
+export interface IncidentsApiUpdateIncidentUserDefinedRoleRequest {
+  /**
+   * The UUID of the incident user-defined role.
+   * @type string
+   */
+  roleId: string;
+  /**
+   * @type IncidentUserDefinedRolePatchRequest
+   */
+  body: IncidentUserDefinedRolePatchRequest;
+  /**
+   * Comma-separated list of related resources to include in the response.
    * @type string
    */
   include?: string;
@@ -7814,6 +8561,31 @@ export class IncidentsApi {
   }
 
   /**
+   * Create a new user-defined role for incidents.
+   * @param param The request object
+   */
+  public createIncidentUserDefinedRole(
+    param: IncidentsApiCreateIncidentUserDefinedRoleRequest,
+    options?: Configuration
+  ): Promise<IncidentUserDefinedRoleResponse> {
+    const requestContextPromise =
+      this.requestFactory.createIncidentUserDefinedRole(
+        param.body,
+        param.include,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createIncidentUserDefinedRole(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Delete a global incident handle.
    * @param param The request object
    */
@@ -8063,6 +8835,27 @@ export class IncidentsApi {
   }
 
   /**
+   * Delete an existing user-defined role for incidents.
+   * @param param The request object
+   */
+  public deleteIncidentUserDefinedRole(
+    param: IncidentsApiDeleteIncidentUserDefinedRoleRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteIncidentUserDefinedRole(param.roleId, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteIncidentUserDefinedRole(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Retrieve global incident settings for the organization.
    * @param param The request object
    */
@@ -8262,6 +9055,31 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getIncidentUserDefinedField(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Retrieve a single user-defined role for incidents.
+   * @param param The request object
+   */
+  public getIncidentUserDefinedRole(
+    param: IncidentsApiGetIncidentUserDefinedRoleRequest,
+    options?: Configuration
+  ): Promise<IncidentUserDefinedRoleResponse> {
+    const requestContextPromise =
+      this.requestFactory.getIncidentUserDefinedRole(
+        param.roleId,
+        param.include,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getIncidentUserDefinedRole(
             responseContext
           );
         });
@@ -8583,6 +9401,31 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listIncidentUserDefinedFields(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * List all user-defined roles for incidents.
+   * @param param The request object
+   */
+  public listIncidentUserDefinedRoles(
+    param: IncidentsApiListIncidentUserDefinedRolesRequest = {},
+    options?: Configuration
+  ): Promise<IncidentUserDefinedRolesResponse> {
+    const requestContextPromise =
+      this.requestFactory.listIncidentUserDefinedRoles(
+        param.filterIncidentType,
+        param.include,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listIncidentUserDefinedRoles(
             responseContext
           );
         });
@@ -8930,6 +9773,32 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateIncidentUserDefinedField(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Update an existing user-defined role for incidents.
+   * @param param The request object
+   */
+  public updateIncidentUserDefinedRole(
+    param: IncidentsApiUpdateIncidentUserDefinedRoleRequest,
+    options?: Configuration
+  ): Promise<IncidentUserDefinedRoleResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateIncidentUserDefinedRole(
+        param.roleId,
+        param.body,
+        param.include,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateIncidentUserDefinedRole(
             responseContext
           );
         });
