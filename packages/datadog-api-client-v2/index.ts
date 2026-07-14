@@ -1190,8 +1190,10 @@ export {
   ReportSchedulesApiDeleteReportScheduleRequest,
   ReportSchedulesApiGetReportScheduleRequest,
   ReportSchedulesApiGetReportSchedulesForResourceRequest,
+  ReportSchedulesApiListDatasetReportSchedulesRequest,
   ReportSchedulesApiListReportSchedulesRequest,
   ReportSchedulesApiPatchReportScheduleRequest,
+  ReportSchedulesApiPrintReportRequest,
   ReportSchedulesApiToggleReportScheduleRequest,
   ReportSchedulesApi,
 } from "./apis/ReportSchedulesApi";
@@ -3470,6 +3472,10 @@ export { DataScalarColumn } from "./models/DataScalarColumn";
 export { DatasetAttributesRequest } from "./models/DatasetAttributesRequest";
 export { DatasetAttributesResponse } from "./models/DatasetAttributesResponse";
 export { DatasetCreateRequest } from "./models/DatasetCreateRequest";
+export { DatasetReportScheduleListResponse } from "./models/DatasetReportScheduleListResponse";
+export { DatasetReportScheduleResourceType } from "./models/DatasetReportScheduleResourceType";
+export { DatasetReportScheduleResponseAttributes } from "./models/DatasetReportScheduleResponseAttributes";
+export { DatasetReportScheduleResponseData } from "./models/DatasetReportScheduleResponseData";
 export { DatasetRequest } from "./models/DatasetRequest";
 export { DatasetResponse } from "./models/DatasetResponse";
 export { DatasetResponseMulti } from "./models/DatasetResponseMulti";
@@ -6361,6 +6367,13 @@ export { PowerpacksResponseMeta } from "./models/PowerpacksResponseMeta";
 export { PowerpacksResponseMetaPagination } from "./models/PowerpacksResponseMetaPagination";
 export { PowerpackTemplateVariable } from "./models/PowerpackTemplateVariable";
 export { PreviewEntityResponseData } from "./models/PreviewEntityResponseData";
+export { PrintReportRequest } from "./models/PrintReportRequest";
+export { PrintReportRequestAttributes } from "./models/PrintReportRequestAttributes";
+export { PrintReportRequestData } from "./models/PrintReportRequestData";
+export { PrintReportResponse } from "./models/PrintReportResponse";
+export { PrintReportResponseAttributes } from "./models/PrintReportResponseAttributes";
+export { PrintReportResponseData } from "./models/PrintReportResponseData";
+export { PrintReportType } from "./models/PrintReportType";
 export { ProcessDataSource } from "./models/ProcessDataSource";
 export { ProcessScalarQuery } from "./models/ProcessScalarQuery";
 export { ProcessSummariesMeta } from "./models/ProcessSummariesMeta";

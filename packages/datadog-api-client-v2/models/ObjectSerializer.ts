@@ -1301,6 +1301,9 @@ import { DatadogIntegrationUpdate } from "./DatadogIntegrationUpdate";
 import { DatasetAttributesRequest } from "./DatasetAttributesRequest";
 import { DatasetAttributesResponse } from "./DatasetAttributesResponse";
 import { DatasetCreateRequest } from "./DatasetCreateRequest";
+import { DatasetReportScheduleListResponse } from "./DatasetReportScheduleListResponse";
+import { DatasetReportScheduleResponseAttributes } from "./DatasetReportScheduleResponseAttributes";
+import { DatasetReportScheduleResponseData } from "./DatasetReportScheduleResponseData";
 import { DatasetRequest } from "./DatasetRequest";
 import { DatasetResponse } from "./DatasetResponse";
 import { DatasetResponseMulti } from "./DatasetResponseMulti";
@@ -3475,6 +3478,12 @@ import { PowerpackTemplateVariable } from "./PowerpackTemplateVariable";
 import { PowerpacksResponseMeta } from "./PowerpacksResponseMeta";
 import { PowerpacksResponseMetaPagination } from "./PowerpacksResponseMetaPagination";
 import { PreviewEntityResponseData } from "./PreviewEntityResponseData";
+import { PrintReportRequest } from "./PrintReportRequest";
+import { PrintReportRequestAttributes } from "./PrintReportRequestAttributes";
+import { PrintReportRequestData } from "./PrintReportRequestData";
+import { PrintReportResponse } from "./PrintReportResponse";
+import { PrintReportResponseAttributes } from "./PrintReportResponseAttributes";
+import { PrintReportResponseData } from "./PrintReportResponseData";
 import { ProcessScalarQuery } from "./ProcessScalarQuery";
 import { ProcessSummariesMeta } from "./ProcessSummariesMeta";
 import { ProcessSummariesMetaPage } from "./ProcessSummariesMetaPage";
@@ -5964,6 +5973,7 @@ const enumsMap: { [key: string]: any[] } = {
   DataTransformType: ["dataTransform"],
   DatadogAPIKeyType: ["DatadogAPIKey"],
   DatadogIntegrationType: ["Datadog"],
+  DatasetReportScheduleResourceType: ["widget_dataset_list"],
   DatasetType: ["dataset"],
   DatastoreDataType: ["datastores"],
   DatastoreItemConflictMode: ["fail_on_conflict", "overwrite_on_conflict"],
@@ -7133,6 +7143,7 @@ const enumsMap: { [key: string]: any[] } = {
   PlaylistDataType: ["rum_replay_playlist"],
   PostmortemCellType: ["markdown"],
   PostmortemTemplateType: ["postmortem_template"],
+  PrintReportType: ["report"],
   ProcessDataSource: ["process"],
   ProcessSummaryType: ["process"],
   ProductAnalyticsAnalyticsRequestType: ["formula_analytics_extended_request"],
@@ -9752,6 +9763,10 @@ const typeMap: { [index: string]: any } = {
   DatasetAttributesRequest: DatasetAttributesRequest,
   DatasetAttributesResponse: DatasetAttributesResponse,
   DatasetCreateRequest: DatasetCreateRequest,
+  DatasetReportScheduleListResponse: DatasetReportScheduleListResponse,
+  DatasetReportScheduleResponseAttributes:
+    DatasetReportScheduleResponseAttributes,
+  DatasetReportScheduleResponseData: DatasetReportScheduleResponseData,
   DatasetRequest: DatasetRequest,
   DatasetResponse: DatasetResponse,
   DatasetResponseMulti: DatasetResponseMulti,
@@ -12362,6 +12377,12 @@ const typeMap: { [index: string]: any } = {
   PowerpacksResponseMeta: PowerpacksResponseMeta,
   PowerpacksResponseMetaPagination: PowerpacksResponseMetaPagination,
   PreviewEntityResponseData: PreviewEntityResponseData,
+  PrintReportRequest: PrintReportRequest,
+  PrintReportRequestAttributes: PrintReportRequestAttributes,
+  PrintReportRequestData: PrintReportRequestData,
+  PrintReportResponse: PrintReportResponse,
+  PrintReportResponseAttributes: PrintReportResponseAttributes,
+  PrintReportResponseData: PrintReportResponseData,
   ProcessScalarQuery: ProcessScalarQuery,
   ProcessSummariesMeta: ProcessSummariesMeta,
   ProcessSummariesMetaPage: ProcessSummariesMetaPage,
