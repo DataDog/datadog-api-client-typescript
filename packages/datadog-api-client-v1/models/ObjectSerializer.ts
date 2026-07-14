@@ -49,6 +49,7 @@ import { CheckCanDeleteMonitorResponseData } from "./CheckCanDeleteMonitorRespon
 import { CheckCanDeleteSLOResponse } from "./CheckCanDeleteSLOResponse";
 import { CheckCanDeleteSLOResponseData } from "./CheckCanDeleteSLOResponseData";
 import { CheckStatusWidgetDefinition } from "./CheckStatusWidgetDefinition";
+import { CloudcraftWidgetDefinition } from "./CloudcraftWidgetDefinition";
 import { CohortWidgetDefinition } from "./CohortWidgetDefinition";
 import { ComparisonCustomTimeframe } from "./ComparisonCustomTimeframe";
 import { ComparisonDuration } from "./ComparisonDuration";
@@ -823,6 +824,18 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   ChangeWidgetDefinitionType: ["change"],
   CheckStatusWidgetDefinitionType: ["check_status"],
+  CloudcraftWidgetDefinitionOverlay: [
+    "Observability",
+    "CloudCost",
+    "Security",
+    "NDMReachability",
+    "Monitors",
+    "APM",
+    "Default",
+  ],
+  CloudcraftWidgetDefinitionProjection: ["isometric", "2d"],
+  CloudcraftWidgetDefinitionProvider: ["aws", "azure", "gcp", "ndm", "oci"],
+  CloudcraftWidgetDefinitionType: ["cloudcraft"],
   CohortWidgetDefinitionType: ["cohort"],
   ComparisonDurationType: [
     "previous_timeframe",
@@ -2121,6 +2134,7 @@ const typeMap: { [index: string]: any } = {
   CheckCanDeleteSLOResponse: CheckCanDeleteSLOResponse,
   CheckCanDeleteSLOResponseData: CheckCanDeleteSLOResponseData,
   CheckStatusWidgetDefinition: CheckStatusWidgetDefinition,
+  CloudcraftWidgetDefinition: CloudcraftWidgetDefinition,
   CohortWidgetDefinition: CohortWidgetDefinition,
   ComparisonCustomTimeframe: ComparisonCustomTimeframe,
   ComparisonDuration: ComparisonDuration,
@@ -3097,6 +3111,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "BarChartWidgetDefinition",
     "ChangeWidgetDefinition",
     "CheckStatusWidgetDefinition",
+    "CloudcraftWidgetDefinition",
     "CohortWidgetDefinition",
     "DistributionWidgetDefinition",
     "EventStreamWidgetDefinition",
