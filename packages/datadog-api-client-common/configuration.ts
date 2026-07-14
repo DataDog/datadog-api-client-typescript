@@ -465,6 +465,7 @@ export function createConfiguration(
       "v2.getCommitmentsUtilizationTimeseries": false,
       "v2.getCostAnomaly": false,
       "v2.getCostTagMetadataCurrency": false,
+      "v2.getCustomForecast": false,
       "v2.listCostAnomalies": false,
       "v2.listCostTagKeySources": false,
       "v2.listCostTagMetadata": false,
