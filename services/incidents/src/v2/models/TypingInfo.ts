@@ -93,6 +93,16 @@ import { IncidentNotificationTemplateRelationships } from "./IncidentNotificatio
 import { IncidentNotificationTemplateResponseData } from "./IncidentNotificationTemplateResponseData";
 import { IncidentNotificationTemplateUpdateAttributes } from "./IncidentNotificationTemplateUpdateAttributes";
 import { IncidentNotificationTemplateUpdateData } from "./IncidentNotificationTemplateUpdateData";
+import { IncidentPostmortemAttributes } from "./IncidentPostmortemAttributes";
+import { IncidentPostmortemCreateAttributes } from "./IncidentPostmortemCreateAttributes";
+import { IncidentPostmortemCreateData } from "./IncidentPostmortemCreateData";
+import { IncidentPostmortemCreateRequest } from "./IncidentPostmortemCreateRequest";
+import { IncidentPostmortemData } from "./IncidentPostmortemData";
+import { IncidentPostmortemRelationships } from "./IncidentPostmortemRelationships";
+import { IncidentPostmortemResponse } from "./IncidentPostmortemResponse";
+import { IncidentPostmortemUpdateAttributes } from "./IncidentPostmortemUpdateAttributes";
+import { IncidentPostmortemUpdateData } from "./IncidentPostmortemUpdateData";
+import { IncidentPostmortemUpdateRequest } from "./IncidentPostmortemUpdateRequest";
 import { IncidentResponse } from "./IncidentResponse";
 import { IncidentResponseAttributes } from "./IncidentResponseAttributes";
 import { IncidentResponseData } from "./IncidentResponseData";
@@ -164,6 +174,7 @@ import { MSTeamsIntegrationMetadata } from "./MSTeamsIntegrationMetadata";
 import { MSTeamsIntegrationMetadataTeamsItem } from "./MSTeamsIntegrationMetadataTeamsItem";
 import { MicrosoftTeamsConfigurationReference } from "./MicrosoftTeamsConfigurationReference";
 import { MicrosoftTeamsConfigurationReferenceData } from "./MicrosoftTeamsConfigurationReferenceData";
+import { NullableRelationshipToIncidentResponderData } from "./NullableRelationshipToIncidentResponderData";
 import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
 import { PatchAttachmentRequest } from "./PatchAttachmentRequest";
@@ -197,6 +208,7 @@ import { RelationshipToIncidentNotificationTemplate } from "./RelationshipToInci
 import { RelationshipToIncidentNotificationTemplateData } from "./RelationshipToIncidentNotificationTemplateData";
 import { RelationshipToIncidentPostmortem } from "./RelationshipToIncidentPostmortem";
 import { RelationshipToIncidentPostmortemData } from "./RelationshipToIncidentPostmortemData";
+import { RelationshipToIncidentResponder } from "./RelationshipToIncidentResponder";
 import { RelationshipToIncidentResponderData } from "./RelationshipToIncidentResponderData";
 import { RelationshipToIncidentResponders } from "./RelationshipToIncidentResponders";
 import { RelationshipToIncidentType } from "./RelationshipToIncidentType";
@@ -291,6 +303,7 @@ export const TypingInfo: ModelTypingInfo = {
     IncidentUserDefinedFieldType: ["user_defined_field"],
     OrganizationsType: ["orgs"],
     PostmortemCellType: ["markdown"],
+    PostmortemStatus: ["draft", "in_review", "completed"],
     PostmortemTemplateType: ["postmortem_template"],
     RolesType: ["roles"],
     UsersType: ["users"],
@@ -325,6 +338,7 @@ export const TypingInfo: ModelTypingInfo = {
       "IncidentNotificationTemplateObject",
     ],
     IncidentNotificationTemplateIncludedItems: ["User", "IncidentTypeObject"],
+    IncidentPostmortemIncluded: ["IncidentUserData", "IncidentResponseData"],
     IncidentResponseIncludedItem: ["IncidentUserData", "AttachmentData"],
     IncidentTimelineCellCreateAttributes: [
       "IncidentTimelineCellMarkdownCreateAttributes",
@@ -455,6 +469,16 @@ export const TypingInfo: ModelTypingInfo = {
       IncidentNotificationTemplateUpdateAttributes,
     IncidentNotificationTemplateUpdateData:
       IncidentNotificationTemplateUpdateData,
+    IncidentPostmortemAttributes: IncidentPostmortemAttributes,
+    IncidentPostmortemCreateAttributes: IncidentPostmortemCreateAttributes,
+    IncidentPostmortemCreateData: IncidentPostmortemCreateData,
+    IncidentPostmortemCreateRequest: IncidentPostmortemCreateRequest,
+    IncidentPostmortemData: IncidentPostmortemData,
+    IncidentPostmortemRelationships: IncidentPostmortemRelationships,
+    IncidentPostmortemResponse: IncidentPostmortemResponse,
+    IncidentPostmortemUpdateAttributes: IncidentPostmortemUpdateAttributes,
+    IncidentPostmortemUpdateData: IncidentPostmortemUpdateData,
+    IncidentPostmortemUpdateRequest: IncidentPostmortemUpdateRequest,
     IncidentResponse: IncidentResponse,
     IncidentResponseAttributes: IncidentResponseAttributes,
     IncidentResponseData: IncidentResponseData,
@@ -539,6 +563,8 @@ export const TypingInfo: ModelTypingInfo = {
     MicrosoftTeamsConfigurationReference: MicrosoftTeamsConfigurationReference,
     MicrosoftTeamsConfigurationReferenceData:
       MicrosoftTeamsConfigurationReferenceData,
+    NullableRelationshipToIncidentResponderData:
+      NullableRelationshipToIncidentResponderData,
     NullableRelationshipToUser: NullableRelationshipToUser,
     NullableRelationshipToUserData: NullableRelationshipToUserData,
     PatchAttachmentRequest: PatchAttachmentRequest,
@@ -579,6 +605,7 @@ export const TypingInfo: ModelTypingInfo = {
       RelationshipToIncidentNotificationTemplateData,
     RelationshipToIncidentPostmortem: RelationshipToIncidentPostmortem,
     RelationshipToIncidentPostmortemData: RelationshipToIncidentPostmortemData,
+    RelationshipToIncidentResponder: RelationshipToIncidentResponder,
     RelationshipToIncidentResponderData: RelationshipToIncidentResponderData,
     RelationshipToIncidentResponders: RelationshipToIncidentResponders,
     RelationshipToIncidentType: RelationshipToIncidentType,
