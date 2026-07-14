@@ -7746,6 +7746,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "CloudCostManagementApi.V2.GetCustomForecast": {
+    budgetId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "CustomForecastResponse",
+  },
   "CloudCostManagementApi.V2.DeleteCustomForecast": {
     budgetId: {
       type: "string",

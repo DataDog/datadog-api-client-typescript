@@ -2,6 +2,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ObservabilityPipelineTagCardinalityLimitProcessorAction } from "./ObservabilityPipelineTagCardinalityLimitProcessorAction";
 import { ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit } from "./ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit";
+import { ObservabilityPipelineTagCardinalityLimitProcessorTrackingMode } from "./ObservabilityPipelineTagCardinalityLimitProcessorTrackingMode";
 import { ObservabilityPipelineTagCardinalityLimitProcessorType } from "./ObservabilityPipelineTagCardinalityLimitProcessorType";
 
 /**
@@ -34,6 +35,10 @@ export class ObservabilityPipelineTagCardinalityLimitProcessor {
    * A list of per-metric cardinality overrides that take precedence over the default `value_limit`.
    */
   "perMetricLimits"?: Array<ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit>;
+  /**
+   * Controls whether the processor uses exact or probabilistic tag tracking.
+   */
+  "trackingMode": ObservabilityPipelineTagCardinalityLimitProcessorTrackingMode;
   /**
    * The processor type. The value must be `tag_cardinality_limit`.
    */
@@ -84,6 +89,11 @@ export class ObservabilityPipelineTagCardinalityLimitProcessor {
     perMetricLimits: {
       baseName: "per_metric_limits",
       type: "Array<ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit>",
+    },
+    trackingMode: {
+      baseName: "tracking_mode",
+      type: "ObservabilityPipelineTagCardinalityLimitProcessorTrackingMode",
+      required: true,
     },
     type: {
       baseName: "type",

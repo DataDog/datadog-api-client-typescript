@@ -32,6 +32,7 @@ export {
   CloudCostManagementApiGetCostTagMetadataCurrencyRequest,
   CloudCostManagementApiGetCustomAllocationRuleRequest,
   CloudCostManagementApiGetCustomCostsFileRequest,
+  CloudCostManagementApiGetCustomForecastRequest,
   CloudCostManagementApiGetTagPipelinesRulesetRequest,
   CloudCostManagementApiListCostAnomaliesRequest,
   CloudCostManagementApiListCostTagDescriptionsRequest,
