@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ObservabilityPipelineTagCardinalityLimitProcessorPerTagMode } from "./ObservabilityPipelineTagCardinalityLimitProcessorPerTagMode";
+import { ObservabilityPipelineTagCardinalityLimitProcessorOverrideType } from "./ObservabilityPipelineTagCardinalityLimitProcessorOverrideType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -12,15 +12,15 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit {
   /**
-   * How the per-tag override is applied. `limit_override` enforces a custom limit on the tag; `excluded` skips the tag from cardinality tracking.
+   * How the override is applied. `limit_override` enforces a custom limit; `excluded` omits the metric or tag from cardinality tracking.
    */
-  "mode": ObservabilityPipelineTagCardinalityLimitProcessorPerTagMode;
+  "overrideType": ObservabilityPipelineTagCardinalityLimitProcessorOverrideType;
   /**
    * The tag key this override applies to.
    */
   "tagKey": string;
   /**
-   * The maximum number of distinct values allowed for this tag. Required when `mode` is `limit_override`. Must be omitted when `mode` is `excluded`.
+   * The maximum number of distinct values allowed for this tag. Required when `override_type` is `limit_override`. Must be omitted when `override_type` is `excluded`.
    */
   "valueLimit"?: number;
 
@@ -40,9 +40,9 @@ export class ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    mode: {
-      baseName: "mode",
-      type: "ObservabilityPipelineTagCardinalityLimitProcessorPerTagMode",
+    overrideType: {
+      baseName: "override_type",
+      type: "ObservabilityPipelineTagCardinalityLimitProcessorOverrideType",
       required: true,
     },
     tagKey: {

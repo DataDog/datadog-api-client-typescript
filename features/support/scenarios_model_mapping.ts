@@ -7728,6 +7728,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.GetCustomForecast": {
+        "budgetId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CustomForecastResponse",
+    },
     "v2.DeleteCustomForecast": {
         "budgetId": {
             "type": "string",
