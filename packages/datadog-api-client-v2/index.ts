@@ -1577,6 +1577,8 @@ export {
   SpansMetricsApi,
 } from "./apis/SpansMetricsApi";
 
+export { SpecsApi } from "./apis/SpecsApi";
+
 export {
   StaticAnalysisApiCreateAiCustomRuleRequest,
   StaticAnalysisApiCreateAiCustomRuleRevisionRequest,
@@ -7710,6 +7712,11 @@ export { SpansSortOrder } from "./models/SpansSortOrder";
 export { SpansType } from "./models/SpansType";
 export { SpansWarning } from "./models/SpansWarning";
 export { Spec } from "./models/Spec";
+export { SpecAttributes } from "./models/SpecAttributes";
+export { SpecAttributesStatus } from "./models/SpecAttributesStatus";
+export { SpecData } from "./models/SpecData";
+export { SpecsListResponse } from "./models/SpecsListResponse";
+export { SpecType } from "./models/SpecType";
 export { SpecVersion } from "./models/SpecVersion";
 export { SplitAPIKey } from "./models/SplitAPIKey";
 export { SplitAPIKeyType } from "./models/SplitAPIKeyType";
