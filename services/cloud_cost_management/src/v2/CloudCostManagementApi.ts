@@ -2273,6 +2273,59 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
+  public async getCustomForecast(
+    budgetId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["CloudCostManagementApi.v2.getCustomForecast"]
+    ) {
+      throw new Error(
+        "Unstable operation 'getCustomForecast' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.getCustomForecast'] = true`",
+      );
+    }
+
+    // verify required parameter 'budgetId' is not null or undefined
+    if (budgetId === null || budgetId === undefined) {
+      throw new RequiredError("budgetId", "getCustomForecast");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/cost/budget/{budget_id}/custom-forecast".replace(
+        "{budget_id}",
+        encodeURIComponent(String(budgetId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.getCustomForecast",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async getTagPipelinesRuleset(
     rulesetId: string,
     _options?: Configuration,
@@ -6228,6 +6281,66 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getCustomForecast
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getCustomForecast(
+    response: ResponseContext,
+  ): Promise<CustomForecastResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: CustomForecastResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CustomForecastResponse",
+      ) as CustomForecastResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CustomForecastResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CustomForecastResponse",
+        "",
+      ) as CustomForecastResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getTagPipelinesRuleset
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -8695,6 +8808,14 @@ export interface CloudCostManagementApiGetCustomCostsFileRequest {
   fileId: string;
 }
 
+export interface CloudCostManagementApiGetCustomForecastRequest {
+  /**
+   * Budget id.
+   * @type string
+   */
+  budgetId: string;
+}
+
 export interface CloudCostManagementApiGetTagPipelinesRulesetRequest {
   /**
    * The unique identifier of the ruleset
@@ -9880,6 +10001,27 @@ export class CloudCostManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getCustomCostsFile(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get the custom forecast for a budget.
+   * @param param The request object
+   */
+  public getCustomForecast(
+    param: CloudCostManagementApiGetCustomForecastRequest,
+    options?: Configuration,
+  ): Promise<CustomForecastResponse> {
+    const requestContextPromise = this.requestFactory.getCustomForecast(
+      param.budgetId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getCustomForecast(responseContext);
         });
     });
   }
