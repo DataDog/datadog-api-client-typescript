@@ -10,6 +10,7 @@ export {
   OnCallApiGetOnCallEscalationPolicyRequest,
   OnCallApiGetOnCallScheduleRequest,
   OnCallApiGetOnCallTeamRoutingRulesRequest,
+  OnCallApiGetScheduleOnCallRespondersRequest,
   OnCallApiGetScheduleOnCallUserRequest,
   OnCallApiGetTeamOnCallUsersRequest,
   OnCallApiGetUserNotificationChannelRequest,
@@ -158,6 +159,25 @@ export { ScheduleMemberRelationshipsUser } from "./models/ScheduleMemberRelation
 export { ScheduleMemberRelationshipsUserData } from "./models/ScheduleMemberRelationshipsUserData";
 export { ScheduleMemberRelationshipsUserDataType } from "./models/ScheduleMemberRelationshipsUserDataType";
 export { ScheduleMemberType } from "./models/ScheduleMemberType";
+export { ScheduleOnCallResponderData } from "./models/ScheduleOnCallResponderData";
+export { ScheduleOnCallResponderDataAttributes } from "./models/ScheduleOnCallResponderDataAttributes";
+export { ScheduleOnCallResponderDataRelationships } from "./models/ScheduleOnCallResponderDataRelationships";
+export { ScheduleOnCallResponderDataRelationshipsShifts } from "./models/ScheduleOnCallResponderDataRelationshipsShifts";
+export { ScheduleOnCallResponderDataRelationshipsShiftsDataItems } from "./models/ScheduleOnCallResponderDataRelationshipsShiftsDataItems";
+export { ScheduleOnCallResponderDataRelationshipsShiftsDataItemsType } from "./models/ScheduleOnCallResponderDataRelationshipsShiftsDataItemsType";
+export { ScheduleOnCallResponderDataType } from "./models/ScheduleOnCallResponderDataType";
+export { ScheduleOnCallResponders } from "./models/ScheduleOnCallResponders";
+export { ScheduleOnCallRespondersData } from "./models/ScheduleOnCallRespondersData";
+export { ScheduleOnCallRespondersDataAttributes } from "./models/ScheduleOnCallRespondersDataAttributes";
+export { ScheduleOnCallRespondersDataRelationships } from "./models/ScheduleOnCallRespondersDataRelationships";
+export { ScheduleOnCallRespondersDataRelationshipsResponders } from "./models/ScheduleOnCallRespondersDataRelationshipsResponders";
+export { ScheduleOnCallRespondersDataRelationshipsRespondersDataItems } from "./models/ScheduleOnCallRespondersDataRelationshipsRespondersDataItems";
+export { ScheduleOnCallRespondersDataRelationshipsRespondersDataItemsType } from "./models/ScheduleOnCallRespondersDataRelationshipsRespondersDataItemsType";
+export { ScheduleOnCallRespondersDataRelationshipsSchedule } from "./models/ScheduleOnCallRespondersDataRelationshipsSchedule";
+export { ScheduleOnCallRespondersDataRelationshipsScheduleData } from "./models/ScheduleOnCallRespondersDataRelationshipsScheduleData";
+export { ScheduleOnCallRespondersDataRelationshipsScheduleDataType } from "./models/ScheduleOnCallRespondersDataRelationshipsScheduleDataType";
+export { ScheduleOnCallRespondersDataType } from "./models/ScheduleOnCallRespondersDataType";
+export { ScheduleOnCallRespondersIncluded } from "./models/ScheduleOnCallRespondersIncluded";
 export { ScheduleRequestDataAttributesLayersItemsMembersItems } from "./models/ScheduleRequestDataAttributesLayersItemsMembersItems";
 export { ScheduleRequestDataAttributesLayersItemsMembersItemsUser } from "./models/ScheduleRequestDataAttributesLayersItemsMembersItemsUser";
 export { ScheduleTarget } from "./models/ScheduleTarget";

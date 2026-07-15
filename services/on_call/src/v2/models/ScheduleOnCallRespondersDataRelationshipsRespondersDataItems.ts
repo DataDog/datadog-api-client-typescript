@@ -1,0 +1,56 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+import { ScheduleOnCallRespondersDataRelationshipsRespondersDataItemsType } from "./ScheduleOnCallRespondersDataRelationshipsRespondersDataItemsType";
+
+/**
+ * Represents a reference to one position's (previous, current, or next) responder group.
+ */
+export class ScheduleOnCallRespondersDataRelationshipsRespondersDataItems {
+  /**
+   * Unique identifier of the responder group.
+   */
+  "id": string;
+  /**
+   * Identifies the resource type for a responder group linked to a schedule's on-call responders lookup.
+   */
+  "type": ScheduleOnCallRespondersDataRelationshipsRespondersDataItemsType;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
+    },
+    type: {
+      baseName: "type",
+      type: "ScheduleOnCallRespondersDataRelationshipsRespondersDataItemsType",
+      required: true,
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return ScheduleOnCallRespondersDataRelationshipsRespondersDataItems.attributeTypeMap;
+  }
+
+  public constructor() {}
+}
