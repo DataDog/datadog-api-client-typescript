@@ -9,6 +9,10 @@ export class ScheduleDataAttributes {
    */
   "name"?: string;
   /**
+   * A list of tags associated with the schedule.
+   */
+  "tags"?: Array<string>;
+  /**
    * The time zone in which this schedule operates.
    */
   "timeZone"?: string;
@@ -30,6 +34,10 @@ export class ScheduleDataAttributes {
     name: {
       baseName: "name",
       type: "string",
+    },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
     timeZone: {
       baseName: "time_zone",

@@ -34,6 +34,7 @@ import { NotificationChannel } from "./models/NotificationChannel";
 import { OnCallNotificationRule } from "./models/OnCallNotificationRule";
 import { Schedule } from "./models/Schedule";
 import { ScheduleCreateRequest } from "./models/ScheduleCreateRequest";
+import { ScheduleOnCallResponders } from "./models/ScheduleOnCallResponders";
 import { ScheduleUpdateRequest } from "./models/ScheduleUpdateRequest";
 import { Shift } from "./models/Shift";
 import { TeamOnCallResponders } from "./models/TeamOnCallResponders";
@@ -641,6 +642,78 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "include",
         serialize(include, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getScheduleOnCallResponders(
+    scheduleId: string,
+    include?: string,
+    filterPosition?: string,
+    filterAtTs?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'scheduleId' is not null or undefined
+    if (scheduleId === null || scheduleId === undefined) {
+      throw new RequiredError("scheduleId", "getScheduleOnCallResponders");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/on-call/schedules/{schedule_id}/responders".replace(
+        "{schedule_id}",
+        encodeURIComponent(String(scheduleId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "OnCallApi.v2.getScheduleOnCallResponders",
+      OnCallApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        serialize(include, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterPosition !== undefined) {
+      requestContext.setQueryParam(
+        "filter[position]",
+        serialize(filterPosition, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterAtTs !== undefined) {
+      requestContext.setQueryParam(
+        "filter[at_ts]",
+        serialize(filterAtTs, TypingInfo, "string", ""),
         "",
       );
     }
@@ -1905,6 +1978,68 @@ export class OnCallApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getScheduleOnCallResponders
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getScheduleOnCallResponders(
+    response: ResponseContext,
+  ): Promise<ScheduleOnCallResponders> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ScheduleOnCallResponders = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ScheduleOnCallResponders",
+      ) as ScheduleOnCallResponders;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ScheduleOnCallResponders = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ScheduleOnCallResponders",
+        "",
+      ) as ScheduleOnCallResponders;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getScheduleOnCallUser
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2645,6 +2780,29 @@ export interface OnCallApiGetOnCallTeamRoutingRulesRequest {
   include?: string;
 }
 
+export interface OnCallApiGetScheduleOnCallRespondersRequest {
+  /**
+   * The ID of the schedule.
+   * @type string
+   */
+  scheduleId: string;
+  /**
+   * Comma-separated list of included relationships to be returned. Allowed values: `schedule`, `responders`, `responders.shifts`, `responders.shifts.user`.
+   * @type string
+   */
+  include?: string;
+  /**
+   * Comma-separated list of positions to retrieve. Allowed values: `previous`, `current`, `next`. Defaults to `current` if omitted.
+   * @type string
+   */
+  filterPosition?: string;
+  /**
+   * Retrieves the on-call responders at the given timestamp in RFC3339 format (for example, `2025-05-07T02:53:01Z` or `2025-05-07T02:53:01+00:00`). When using timezone offsets with `+` or `-`, ensure proper URL encoding (`+` should be encoded as `%2B`). Defaults to the current time if omitted.
+   * @type string
+   */
+  filterAtTs?: string;
+}
+
 export interface OnCallApiGetScheduleOnCallUserRequest {
   /**
    * The ID of the schedule.
@@ -3080,7 +3238,34 @@ export class OnCallApi {
   }
 
   /**
-   * Retrieves the user who is on-call for the specified schedule at a given time.
+   * Retrieves the on-call responders for the specified schedule, grouped by position (previous, current, next), at a given time. Supports schedules with multiple concurrent on-call responders at a position, by returning a list of shifts per position.
+   * @param param The request object
+   */
+  public getScheduleOnCallResponders(
+    param: OnCallApiGetScheduleOnCallRespondersRequest,
+    options?: Configuration,
+  ): Promise<ScheduleOnCallResponders> {
+    const requestContextPromise =
+      this.requestFactory.getScheduleOnCallResponders(
+        param.scheduleId,
+        param.include,
+        param.filterPosition,
+        param.filterAtTs,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getScheduleOnCallResponders(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Retrieves the user who is on-call for the specified schedule at a given time. This endpoint does not support schedules with multiple concurrent on-call responders at a position. Deprecated. Use `Get on-call responders for a schedule` instead.
    * @param param The request object
    */
   public getScheduleOnCallUser(

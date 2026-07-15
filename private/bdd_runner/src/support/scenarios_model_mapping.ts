@@ -12710,6 +12710,25 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "Shift",
   },
+  "OnCallApi.V2.GetScheduleOnCallResponders": {
+    include: {
+      type: "string",
+      format: "",
+    },
+    scheduleId: {
+      type: "string",
+      format: "",
+    },
+    filterPosition: {
+      type: "string",
+      format: "",
+    },
+    filterAtTs: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ScheduleOnCallResponders",
+  },
   "OnCallApi.V2.GetTeamOnCallUsers": {
     include: {
       type: "string",
