@@ -675,6 +675,7 @@ export function createConfiguration(
       "v2.listOrgGroupPolicies": false,
       "v2.listOrgGroupPolicyConfigs": false,
       "v2.listOrgGroupPolicyOverrides": false,
+      "v2.listOrgGroupPolicySuggestions": false,
       "v2.listOrgGroups": false,
       "v2.updateOrgGroup": false,
       "v2.updateOrgGroupMembership": false,
