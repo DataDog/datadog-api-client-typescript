@@ -342,6 +342,7 @@ export {
   CloudCostManagementApiGetCommitmentsUtilizationScalarRequest,
   CloudCostManagementApiGetCommitmentsUtilizationTimeseriesRequest,
   CloudCostManagementApiGetCostAWSCURConfigRequest,
+  CloudCostManagementApiGetCostAccountFiltersRequest,
   CloudCostManagementApiGetCostAnomalyRequest,
   CloudCostManagementApiGetCostAzureUCConfigRequest,
   CloudCostManagementApiGetCostGCPUsageCostConfigRequest,
@@ -366,6 +367,7 @@ export {
   CloudCostManagementApiReorderTagPipelinesRulesetsRequest,
   CloudCostManagementApiSearchCostRecommendationsRequest,
   CloudCostManagementApiUpdateCostAWSCURConfigRequest,
+  CloudCostManagementApiUpdateCostAccountFiltersRequest,
   CloudCostManagementApiUpdateCostAzureUCConfigsRequest,
   CloudCostManagementApiUpdateCostGCPUsageCostConfigRequest,
   CloudCostManagementApiUpdateCustomAllocationRuleRequest,
@@ -1846,6 +1848,14 @@ export { AccessTokenListItemRelationships } from "./models/AccessTokenListItemRe
 export { AccessTokenOwnerType } from "./models/AccessTokenOwnerType";
 export { AccessTokensType } from "./models/AccessTokensType";
 export { AccountFilteringConfig } from "./models/AccountFilteringConfig";
+export { AccountFilters } from "./models/AccountFilters";
+export { AccountFiltersAttributes } from "./models/AccountFiltersAttributes";
+export { AccountFiltersPatchData } from "./models/AccountFiltersPatchData";
+export { AccountFiltersPatchRequest } from "./models/AccountFiltersPatchRequest";
+export { AccountFiltersPatchRequestAttributes } from "./models/AccountFiltersPatchRequestAttributes";
+export { AccountFiltersPatchRequestType } from "./models/AccountFiltersPatchRequestType";
+export { AccountFiltersResponse } from "./models/AccountFiltersResponse";
+export { AccountFiltersType } from "./models/AccountFiltersType";
 export { ActionConnectionAttributes } from "./models/ActionConnectionAttributes";
 export { ActionConnectionAttributesUpdate } from "./models/ActionConnectionAttributesUpdate";
 export { ActionConnectionData } from "./models/ActionConnectionData";

@@ -16,6 +16,8 @@ import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
+import { AccountFiltersPatchRequest } from "../models/AccountFiltersPatchRequest";
+import { AccountFiltersResponse } from "../models/AccountFiltersResponse";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { ArbitraryCostUpsertRequest } from "../models/ArbitraryCostUpsertRequest";
 import { ArbitraryRuleResponse } from "../models/ArbitraryRuleResponse";
@@ -1529,6 +1531,41 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
+  public async getCostAccountFilters(
+    cloudAccountId: number,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'cloudAccountId' is not null or undefined
+    if (cloudAccountId === null || cloudAccountId === undefined) {
+      throw new RequiredError("cloudAccountId", "getCostAccountFilters");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/cost/account_filters/{cloud_account_id}".replace(
+        "{cloud_account_id}",
+        encodeURIComponent(String(cloudAccountId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CloudCostManagementApi.getCostAccountFilters")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getCostAnomaly(
     anomalyId: string,
     _options?: Configuration
@@ -2966,6 +3003,58 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "RecommendationsFilterRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateCostAccountFilters(
+    cloudAccountId: number,
+    body: AccountFiltersPatchRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'cloudAccountId' is not null or undefined
+    if (cloudAccountId === null || cloudAccountId === undefined) {
+      throw new RequiredError("cloudAccountId", "updateCostAccountFilters");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateCostAccountFilters");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/cost/account_filters/{cloud_account_id}".replace(
+        "{cloud_account_id}",
+        encodeURIComponent(String(cloudAccountId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CloudCostManagementApi.updateCostAccountFilters")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "AccountFiltersPatchRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -5074,6 +5163,69 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getCostAccountFilters
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getCostAccountFilters(
+    response: ResponseContext
+  ): Promise<AccountFiltersResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: AccountFiltersResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "AccountFiltersResponse"
+      ) as AccountFiltersResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AccountFiltersResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "AccountFiltersResponse",
+        ""
+      ) as AccountFiltersResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getCostAnomaly
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -7033,6 +7185,69 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateCostAccountFilters
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateCostAccountFilters(
+    response: ResponseContext
+  ): Promise<AccountFiltersResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: AccountFiltersResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "AccountFiltersResponse"
+      ) as AccountFiltersResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AccountFiltersResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "AccountFiltersResponse",
+        ""
+      ) as AccountFiltersResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateCostAWSCURConfig
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -8134,6 +8349,14 @@ export interface CloudCostManagementApiGetCommitmentsUtilizationTimeseriesReques
   commitmentType?: CommitmentsCommitmentType;
 }
 
+export interface CloudCostManagementApiGetCostAccountFiltersRequest {
+  /**
+   * Cloud Account id.
+   * @type number
+   */
+  cloudAccountId: number;
+}
+
 export interface CloudCostManagementApiGetCostAnomalyRequest {
   /**
    * The UUID of the cost anomaly.
@@ -8494,6 +8717,18 @@ export interface CloudCostManagementApiSearchCostRecommendationsRequest {
    * @type string
    */
   pageToken?: string;
+}
+
+export interface CloudCostManagementApiUpdateCostAccountFiltersRequest {
+  /**
+   * Cloud Account id.
+   * @type number
+   */
+  cloudAccountId: number;
+  /**
+   * @type AccountFiltersPatchRequest
+   */
+  body: AccountFiltersPatchRequest;
 }
 
 export interface CloudCostManagementApiUpdateCostAWSCURConfigRequest {
@@ -9213,6 +9448,27 @@ export class CloudCostManagementApi {
           return this.responseProcessor.getCommitmentsUtilizationTimeseries(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Get the account filters for a cloud account (AWS CUR 1.0/2.0, OCI, and other clouds).
+   * @param param The request object
+   */
+  public getCostAccountFilters(
+    param: CloudCostManagementApiGetCostAccountFiltersRequest,
+    options?: Configuration
+  ): Promise<AccountFiltersResponse> {
+    const requestContextPromise = this.requestFactory.getCostAccountFilters(
+      param.cloudAccountId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getCostAccountFilters(responseContext);
         });
     });
   }
@@ -9947,6 +10203,30 @@ export class CloudCostManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.searchCostRecommendations(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Update the account filters for a cloud account (AWS CUR 1.0/2.0, OCI, and other clouds).
+   * @param param The request object
+   */
+  public updateCostAccountFilters(
+    param: CloudCostManagementApiUpdateCostAccountFiltersRequest,
+    options?: Configuration
+  ): Promise<AccountFiltersResponse> {
+    const requestContextPromise = this.requestFactory.updateCostAccountFilters(
+      param.cloudAccountId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateCostAccountFilters(
             responseContext
           );
         });
