@@ -4001,6 +4001,19 @@ import { ScheduleMember } from "./ScheduleMember";
 import { ScheduleMemberRelationships } from "./ScheduleMemberRelationships";
 import { ScheduleMemberRelationshipsUser } from "./ScheduleMemberRelationshipsUser";
 import { ScheduleMemberRelationshipsUserData } from "./ScheduleMemberRelationshipsUserData";
+import { ScheduleOnCallResponderData } from "./ScheduleOnCallResponderData";
+import { ScheduleOnCallResponderDataAttributes } from "./ScheduleOnCallResponderDataAttributes";
+import { ScheduleOnCallResponderDataRelationships } from "./ScheduleOnCallResponderDataRelationships";
+import { ScheduleOnCallResponderDataRelationshipsShifts } from "./ScheduleOnCallResponderDataRelationshipsShifts";
+import { ScheduleOnCallResponderDataRelationshipsShiftsDataItems } from "./ScheduleOnCallResponderDataRelationshipsShiftsDataItems";
+import { ScheduleOnCallResponders } from "./ScheduleOnCallResponders";
+import { ScheduleOnCallRespondersData } from "./ScheduleOnCallRespondersData";
+import { ScheduleOnCallRespondersDataAttributes } from "./ScheduleOnCallRespondersDataAttributes";
+import { ScheduleOnCallRespondersDataRelationships } from "./ScheduleOnCallRespondersDataRelationships";
+import { ScheduleOnCallRespondersDataRelationshipsResponders } from "./ScheduleOnCallRespondersDataRelationshipsResponders";
+import { ScheduleOnCallRespondersDataRelationshipsRespondersDataItems } from "./ScheduleOnCallRespondersDataRelationshipsRespondersDataItems";
+import { ScheduleOnCallRespondersDataRelationshipsSchedule } from "./ScheduleOnCallRespondersDataRelationshipsSchedule";
+import { ScheduleOnCallRespondersDataRelationshipsScheduleData } from "./ScheduleOnCallRespondersDataRelationshipsScheduleData";
 import { ScheduleRequestDataAttributesLayersItemsMembersItems } from "./ScheduleRequestDataAttributesLayersItemsMembersItems";
 import { ScheduleRequestDataAttributesLayersItemsMembersItemsUser } from "./ScheduleRequestDataAttributesLayersItemsMembersItemsUser";
 import { ScheduleTarget } from "./ScheduleTarget";
@@ -7415,6 +7428,13 @@ const enumsMap: { [key: string]: any[] } = {
   ScheduleDataType: ["schedules"],
   ScheduleMemberRelationshipsUserDataType: ["users"],
   ScheduleMemberType: ["members"],
+  ScheduleOnCallResponderDataRelationshipsShiftsDataItemsType: ["shifts"],
+  ScheduleOnCallResponderDataType: ["schedule_oncall_responder"],
+  ScheduleOnCallRespondersDataRelationshipsRespondersDataItemsType: [
+    "schedule_oncall_responder",
+  ],
+  ScheduleOnCallRespondersDataRelationshipsScheduleDataType: ["schedules"],
+  ScheduleOnCallRespondersDataType: ["schedule_oncall_responders"],
   ScheduleTargetPosition: ["previous", "current", "next"],
   ScheduleTargetType: ["schedules"],
   ScheduleUpdateRequestDataType: ["schedules"],
@@ -12977,6 +12997,28 @@ const typeMap: { [index: string]: any } = {
   ScheduleMemberRelationships: ScheduleMemberRelationships,
   ScheduleMemberRelationshipsUser: ScheduleMemberRelationshipsUser,
   ScheduleMemberRelationshipsUserData: ScheduleMemberRelationshipsUserData,
+  ScheduleOnCallResponderData: ScheduleOnCallResponderData,
+  ScheduleOnCallResponderDataAttributes: ScheduleOnCallResponderDataAttributes,
+  ScheduleOnCallResponderDataRelationships:
+    ScheduleOnCallResponderDataRelationships,
+  ScheduleOnCallResponderDataRelationshipsShifts:
+    ScheduleOnCallResponderDataRelationshipsShifts,
+  ScheduleOnCallResponderDataRelationshipsShiftsDataItems:
+    ScheduleOnCallResponderDataRelationshipsShiftsDataItems,
+  ScheduleOnCallResponders: ScheduleOnCallResponders,
+  ScheduleOnCallRespondersData: ScheduleOnCallRespondersData,
+  ScheduleOnCallRespondersDataAttributes:
+    ScheduleOnCallRespondersDataAttributes,
+  ScheduleOnCallRespondersDataRelationships:
+    ScheduleOnCallRespondersDataRelationships,
+  ScheduleOnCallRespondersDataRelationshipsResponders:
+    ScheduleOnCallRespondersDataRelationshipsResponders,
+  ScheduleOnCallRespondersDataRelationshipsRespondersDataItems:
+    ScheduleOnCallRespondersDataRelationshipsRespondersDataItems,
+  ScheduleOnCallRespondersDataRelationshipsSchedule:
+    ScheduleOnCallRespondersDataRelationshipsSchedule,
+  ScheduleOnCallRespondersDataRelationshipsScheduleData:
+    ScheduleOnCallRespondersDataRelationshipsScheduleData,
   ScheduleRequestDataAttributesLayersItemsMembersItems:
     ScheduleRequestDataAttributesLayersItemsMembersItems,
   ScheduleRequestDataAttributesLayersItemsMembersItemsUser:
@@ -15154,6 +15196,12 @@ const oneOfMap: { [index: string]: string[] } = {
     "Layer",
     "ScheduleMember",
     "ScheduleUser",
+  ],
+  ScheduleOnCallRespondersIncluded: [
+    "ScheduleOnCallResponderData",
+    "ShiftData",
+    "ScheduleData",
+    "User",
   ],
   SecurityMonitoringRuleConvertPayload: [
     "SecurityMonitoringStandardRulePayload",
