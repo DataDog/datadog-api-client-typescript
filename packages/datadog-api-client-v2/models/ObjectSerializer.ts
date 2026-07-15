@@ -106,6 +106,12 @@ import { AWSTracesConfig } from "./AWSTracesConfig";
 import { AccessTokenListItem } from "./AccessTokenListItem";
 import { AccessTokenListItemRelationships } from "./AccessTokenListItemRelationships";
 import { AccountFilteringConfig } from "./AccountFilteringConfig";
+import { AccountFilters } from "./AccountFilters";
+import { AccountFiltersAttributes } from "./AccountFiltersAttributes";
+import { AccountFiltersPatchData } from "./AccountFiltersPatchData";
+import { AccountFiltersPatchRequest } from "./AccountFiltersPatchRequest";
+import { AccountFiltersPatchRequestAttributes } from "./AccountFiltersPatchRequestAttributes";
+import { AccountFiltersResponse } from "./AccountFiltersResponse";
 import { ActionConnectionAttributes } from "./ActionConnectionAttributes";
 import { ActionConnectionAttributesUpdate } from "./ActionConnectionAttributesUpdate";
 import { ActionConnectionData } from "./ActionConnectionData";
@@ -5378,6 +5384,8 @@ const enumsMap: { [key: string]: any[] } = {
   AWSNewExternalIDResponseDataType: ["external_id"],
   AccessTokenOwnerType: ["users", "service_account"],
   AccessTokensType: ["personal_access_tokens", "service_access_tokens"],
+  AccountFiltersPatchRequestType: ["account_filters_patch_request"],
+  AccountFiltersType: ["account_filters"],
   ActionConnectionDataType: ["action_connection"],
   ActionQueryType: ["action"],
   ActiveBillingDimensionsType: ["billing_dimensions"],
@@ -8400,6 +8408,12 @@ const typeMap: { [index: string]: any } = {
   AccessTokenListItem: AccessTokenListItem,
   AccessTokenListItemRelationships: AccessTokenListItemRelationships,
   AccountFilteringConfig: AccountFilteringConfig,
+  AccountFilters: AccountFilters,
+  AccountFiltersAttributes: AccountFiltersAttributes,
+  AccountFiltersPatchData: AccountFiltersPatchData,
+  AccountFiltersPatchRequest: AccountFiltersPatchRequest,
+  AccountFiltersPatchRequestAttributes: AccountFiltersPatchRequestAttributes,
+  AccountFiltersResponse: AccountFiltersResponse,
   ActionConnectionAttributes: ActionConnectionAttributes,
   ActionConnectionAttributesUpdate: ActionConnectionAttributesUpdate,
   ActionConnectionData: ActionConnectionData,
