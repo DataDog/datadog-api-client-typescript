@@ -10088,6 +10088,61 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "IncidentUserDefinedFieldResponse",
   },
+  "IncidentsApi.V2.ListIncidentUserDefinedRoles": {
+    filterIncidentType: {
+      type: "string",
+      format: "uuid",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "IncidentUserDefinedRolesResponse",
+  },
+  "IncidentsApi.V2.CreateIncidentUserDefinedRole": {
+    include: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "IncidentUserDefinedRoleRequest",
+      format: "",
+    },
+    operationResponseType: "IncidentUserDefinedRoleResponse",
+  },
+  "IncidentsApi.V2.GetIncidentUserDefinedRole": {
+    roleId: {
+      type: "string",
+      format: "uuid",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "IncidentUserDefinedRoleResponse",
+  },
+  "IncidentsApi.V2.DeleteIncidentUserDefinedRole": {
+    roleId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "IncidentsApi.V2.UpdateIncidentUserDefinedRole": {
+    roleId: {
+      type: "string",
+      format: "uuid",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "IncidentUserDefinedRolePatchRequest",
+      format: "",
+    },
+    operationResponseType: "IncidentUserDefinedRoleResponse",
+  },
   "IncidentsApi.V2.ImportIncident": {
     include: {
       type: "Array<IncidentImportRelatedObject>",

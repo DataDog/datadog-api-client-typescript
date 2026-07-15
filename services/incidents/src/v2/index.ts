@@ -11,6 +11,7 @@ export {
   IncidentsApiCreateIncidentTodoRequest,
   IncidentsApiCreateIncidentTypeRequest,
   IncidentsApiCreateIncidentUserDefinedFieldRequest,
+  IncidentsApiCreateIncidentUserDefinedRoleRequest,
   IncidentsApiDeleteIncidentRequest,
   IncidentsApiDeleteIncidentAttachmentRequest,
   IncidentsApiDeleteIncidentImpactRequest,
@@ -21,6 +22,7 @@ export {
   IncidentsApiDeleteIncidentTodoRequest,
   IncidentsApiDeleteIncidentTypeRequest,
   IncidentsApiDeleteIncidentUserDefinedFieldRequest,
+  IncidentsApiDeleteIncidentUserDefinedRoleRequest,
   IncidentsApiGetIncidentRequest,
   IncidentsApiGetIncidentIntegrationRequest,
   IncidentsApiGetIncidentNotificationRuleRequest,
@@ -29,6 +31,7 @@ export {
   IncidentsApiGetIncidentTodoRequest,
   IncidentsApiGetIncidentTypeRequest,
   IncidentsApiGetIncidentUserDefinedFieldRequest,
+  IncidentsApiGetIncidentUserDefinedRoleRequest,
   IncidentsApiImportIncidentRequest,
   IncidentsApiListGlobalIncidentHandlesRequest,
   IncidentsApiListIncidentAttachmentsRequest,
@@ -39,6 +42,7 @@ export {
   IncidentsApiListIncidentTodosRequest,
   IncidentsApiListIncidentTypesRequest,
   IncidentsApiListIncidentUserDefinedFieldsRequest,
+  IncidentsApiListIncidentUserDefinedRolesRequest,
   IncidentsApiListIncidentsRequest,
   IncidentsApiSearchIncidentsRequest,
   IncidentsApiUpdateGlobalIncidentHandleRequest,
@@ -52,6 +56,7 @@ export {
   IncidentsApiUpdateIncidentTodoRequest,
   IncidentsApiUpdateIncidentTypeRequest,
   IncidentsApiUpdateIncidentUserDefinedFieldRequest,
+  IncidentsApiUpdateIncidentUserDefinedRoleRequest,
   IncidentsApi,
 } from "./IncidentsApi";
 
@@ -255,6 +260,23 @@ export { IncidentUserDefinedFieldType } from "./models/IncidentUserDefinedFieldT
 export { IncidentUserDefinedFieldUpdateData } from "./models/IncidentUserDefinedFieldUpdateData";
 export { IncidentUserDefinedFieldUpdateRequest } from "./models/IncidentUserDefinedFieldUpdateRequest";
 export { IncidentUserDefinedFieldValidValue } from "./models/IncidentUserDefinedFieldValidValue";
+export { IncidentUserDefinedRoleDataAttributesRequest } from "./models/IncidentUserDefinedRoleDataAttributesRequest";
+export { IncidentUserDefinedRoleDataAttributesResponse } from "./models/IncidentUserDefinedRoleDataAttributesResponse";
+export { IncidentUserDefinedRoleDataRequest } from "./models/IncidentUserDefinedRoleDataRequest";
+export { IncidentUserDefinedRoleDataResponse } from "./models/IncidentUserDefinedRoleDataResponse";
+export { IncidentUserDefinedRoleIncidentTypeRelationship } from "./models/IncidentUserDefinedRoleIncidentTypeRelationship";
+export { IncidentUserDefinedRoleIncidentTypeRelationshipData } from "./models/IncidentUserDefinedRoleIncidentTypeRelationshipData";
+export { IncidentUserDefinedRoleIncludedItem } from "./models/IncidentUserDefinedRoleIncludedItem";
+export { IncidentUserDefinedRolePatchDataAttributesRequest } from "./models/IncidentUserDefinedRolePatchDataAttributesRequest";
+export { IncidentUserDefinedRolePatchDataRequest } from "./models/IncidentUserDefinedRolePatchDataRequest";
+export { IncidentUserDefinedRolePatchRequest } from "./models/IncidentUserDefinedRolePatchRequest";
+export { IncidentUserDefinedRolePolicy } from "./models/IncidentUserDefinedRolePolicy";
+export { IncidentUserDefinedRoleRelationshipsRequest } from "./models/IncidentUserDefinedRoleRelationshipsRequest";
+export { IncidentUserDefinedRoleRelationshipsResponse } from "./models/IncidentUserDefinedRoleRelationshipsResponse";
+export { IncidentUserDefinedRoleRequest } from "./models/IncidentUserDefinedRoleRequest";
+export { IncidentUserDefinedRoleResponse } from "./models/IncidentUserDefinedRoleResponse";
+export { IncidentUserDefinedRolesResponse } from "./models/IncidentUserDefinedRolesResponse";
+export { IncidentUserDefinedRoleType } from "./models/IncidentUserDefinedRoleType";
 export { JiraIntegrationMetadata } from "./models/JiraIntegrationMetadata";
 export { JiraIntegrationMetadataIssuesItem } from "./models/JiraIntegrationMetadataIssuesItem";
 export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";

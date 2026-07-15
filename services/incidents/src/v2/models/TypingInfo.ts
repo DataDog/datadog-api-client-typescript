@@ -154,6 +154,21 @@ import { IncidentUserDefinedFieldResponseData } from "./IncidentUserDefinedField
 import { IncidentUserDefinedFieldUpdateData } from "./IncidentUserDefinedFieldUpdateData";
 import { IncidentUserDefinedFieldUpdateRequest } from "./IncidentUserDefinedFieldUpdateRequest";
 import { IncidentUserDefinedFieldValidValue } from "./IncidentUserDefinedFieldValidValue";
+import { IncidentUserDefinedRoleDataAttributesRequest } from "./IncidentUserDefinedRoleDataAttributesRequest";
+import { IncidentUserDefinedRoleDataAttributesResponse } from "./IncidentUserDefinedRoleDataAttributesResponse";
+import { IncidentUserDefinedRoleDataRequest } from "./IncidentUserDefinedRoleDataRequest";
+import { IncidentUserDefinedRoleDataResponse } from "./IncidentUserDefinedRoleDataResponse";
+import { IncidentUserDefinedRoleIncidentTypeRelationship } from "./IncidentUserDefinedRoleIncidentTypeRelationship";
+import { IncidentUserDefinedRoleIncidentTypeRelationshipData } from "./IncidentUserDefinedRoleIncidentTypeRelationshipData";
+import { IncidentUserDefinedRolePatchDataAttributesRequest } from "./IncidentUserDefinedRolePatchDataAttributesRequest";
+import { IncidentUserDefinedRolePatchDataRequest } from "./IncidentUserDefinedRolePatchDataRequest";
+import { IncidentUserDefinedRolePatchRequest } from "./IncidentUserDefinedRolePatchRequest";
+import { IncidentUserDefinedRolePolicy } from "./IncidentUserDefinedRolePolicy";
+import { IncidentUserDefinedRoleRelationshipsRequest } from "./IncidentUserDefinedRoleRelationshipsRequest";
+import { IncidentUserDefinedRoleRelationshipsResponse } from "./IncidentUserDefinedRoleRelationshipsResponse";
+import { IncidentUserDefinedRoleRequest } from "./IncidentUserDefinedRoleRequest";
+import { IncidentUserDefinedRoleResponse } from "./IncidentUserDefinedRoleResponse";
+import { IncidentUserDefinedRolesResponse } from "./IncidentUserDefinedRolesResponse";
 import { IncidentsResponse } from "./IncidentsResponse";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
@@ -289,6 +304,7 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     IncidentUserDefinedFieldFieldType: [1, 2, 3, 4, 5, 6, 7, 8],
     IncidentUserDefinedFieldType: ["user_defined_field"],
+    IncidentUserDefinedRoleType: ["incident_user_defined_roles"],
     OrganizationsType: ["orgs"],
     PostmortemCellType: ["markdown"],
     PostmortemTemplateType: ["postmortem_template"],
@@ -331,6 +347,10 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     IncidentTodoAssignee: ["string", "IncidentTodoAnonymousAssignee"],
     IncidentTodoResponseIncludedItem: ["User"],
+    IncidentUserDefinedRoleIncludedItem: [
+      "IncidentUserData",
+      "IncidentTypeObject",
+    ],
   },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
@@ -528,6 +548,29 @@ export const TypingInfo: ModelTypingInfo = {
     IncidentUserDefinedFieldUpdateRequest:
       IncidentUserDefinedFieldUpdateRequest,
     IncidentUserDefinedFieldValidValue: IncidentUserDefinedFieldValidValue,
+    IncidentUserDefinedRoleDataAttributesRequest:
+      IncidentUserDefinedRoleDataAttributesRequest,
+    IncidentUserDefinedRoleDataAttributesResponse:
+      IncidentUserDefinedRoleDataAttributesResponse,
+    IncidentUserDefinedRoleDataRequest: IncidentUserDefinedRoleDataRequest,
+    IncidentUserDefinedRoleDataResponse: IncidentUserDefinedRoleDataResponse,
+    IncidentUserDefinedRoleIncidentTypeRelationship:
+      IncidentUserDefinedRoleIncidentTypeRelationship,
+    IncidentUserDefinedRoleIncidentTypeRelationshipData:
+      IncidentUserDefinedRoleIncidentTypeRelationshipData,
+    IncidentUserDefinedRolePatchDataAttributesRequest:
+      IncidentUserDefinedRolePatchDataAttributesRequest,
+    IncidentUserDefinedRolePatchDataRequest:
+      IncidentUserDefinedRolePatchDataRequest,
+    IncidentUserDefinedRolePatchRequest: IncidentUserDefinedRolePatchRequest,
+    IncidentUserDefinedRolePolicy: IncidentUserDefinedRolePolicy,
+    IncidentUserDefinedRoleRelationshipsRequest:
+      IncidentUserDefinedRoleRelationshipsRequest,
+    IncidentUserDefinedRoleRelationshipsResponse:
+      IncidentUserDefinedRoleRelationshipsResponse,
+    IncidentUserDefinedRoleRequest: IncidentUserDefinedRoleRequest,
+    IncidentUserDefinedRoleResponse: IncidentUserDefinedRoleResponse,
+    IncidentUserDefinedRolesResponse: IncidentUserDefinedRolesResponse,
     IncidentsResponse: IncidentsResponse,
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
