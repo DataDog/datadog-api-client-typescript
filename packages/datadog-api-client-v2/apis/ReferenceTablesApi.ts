@@ -764,6 +764,8 @@ export class ReferenceTablesApiResponseProcessor {
       response.httpStatusCode === 400 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 412 ||
       response.httpStatusCode === 429 ||
       response.httpStatusCode === 500
     ) {
@@ -1162,6 +1164,8 @@ export class ReferenceTablesApiResponseProcessor {
       response.httpStatusCode === 400 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 412 ||
       response.httpStatusCode === 429 ||
       response.httpStatusCode === 500
     ) {
