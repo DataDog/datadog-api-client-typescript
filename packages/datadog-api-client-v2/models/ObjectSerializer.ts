@@ -3345,6 +3345,10 @@ import { OrgGroupPolicyRelationshipToOne } from "./OrgGroupPolicyRelationshipToO
 import { OrgGroupPolicyRelationshipToOneData } from "./OrgGroupPolicyRelationshipToOneData";
 import { OrgGroupPolicyRelationships } from "./OrgGroupPolicyRelationships";
 import { OrgGroupPolicyResponse } from "./OrgGroupPolicyResponse";
+import { OrgGroupPolicySuggestionAttributes } from "./OrgGroupPolicySuggestionAttributes";
+import { OrgGroupPolicySuggestionData } from "./OrgGroupPolicySuggestionData";
+import { OrgGroupPolicySuggestionListResponse } from "./OrgGroupPolicySuggestionListResponse";
+import { OrgGroupPolicySuggestionRelationships } from "./OrgGroupPolicySuggestionRelationships";
 import { OrgGroupPolicyUpdateAttributes } from "./OrgGroupPolicyUpdateAttributes";
 import { OrgGroupPolicyUpdateData } from "./OrgGroupPolicyUpdateData";
 import { OrgGroupPolicyUpdateRequest } from "./OrgGroupPolicyUpdateRequest";
@@ -7110,6 +7114,8 @@ const enumsMap: { [key: string]: any[] } = {
   OrgGroupPolicyOverrideType: ["org_group_policy_overrides"],
   OrgGroupPolicyPolicyType: ["org_config"],
   OrgGroupPolicySortOption: ["id", "-id", "name", "-name"],
+  OrgGroupPolicySuggestionStatus: ["pending", "accepted", "dismissed"],
+  OrgGroupPolicySuggestionType: ["org_group_policy_suggestions"],
   OrgGroupPolicyType: ["org_group_policies"],
   OrgGroupSortOption: ["name", "-name", "uuid", "-uuid"],
   OrgGroupType: ["org_groups"],
@@ -12282,6 +12288,10 @@ const typeMap: { [index: string]: any } = {
   OrgGroupPolicyRelationshipToOneData: OrgGroupPolicyRelationshipToOneData,
   OrgGroupPolicyRelationships: OrgGroupPolicyRelationships,
   OrgGroupPolicyResponse: OrgGroupPolicyResponse,
+  OrgGroupPolicySuggestionAttributes: OrgGroupPolicySuggestionAttributes,
+  OrgGroupPolicySuggestionData: OrgGroupPolicySuggestionData,
+  OrgGroupPolicySuggestionListResponse: OrgGroupPolicySuggestionListResponse,
+  OrgGroupPolicySuggestionRelationships: OrgGroupPolicySuggestionRelationships,
   OrgGroupPolicyUpdateAttributes: OrgGroupPolicyUpdateAttributes,
   OrgGroupPolicyUpdateData: OrgGroupPolicyUpdateData,
   OrgGroupPolicyUpdateRequest: OrgGroupPolicyUpdateRequest,

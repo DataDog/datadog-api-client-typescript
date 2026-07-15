@@ -13293,6 +13293,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "OrgGroupPolicyOverrideResponse",
     },
+    "v2.ListOrgGroupPolicySuggestions": {
+        "filterOrgGroupId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "OrgGroupPolicySuggestionListResponse",
+    },
     "v2.ListOrgGroups": {
         "pageNumber": {
             "type": "number",
