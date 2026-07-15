@@ -13,6 +13,7 @@ export {
   OrgGroupsApiListOrgGroupMembershipsRequest,
   OrgGroupsApiListOrgGroupPoliciesRequest,
   OrgGroupsApiListOrgGroupPolicyOverridesRequest,
+  OrgGroupsApiListOrgGroupPolicySuggestionsRequest,
   OrgGroupsApiListOrgGroupsRequest,
   OrgGroupsApiUpdateOrgGroupRequest,
   OrgGroupsApiUpdateOrgGroupMembershipRequest,
@@ -82,6 +83,12 @@ export { OrgGroupPolicyRelationshipToOne } from "./models/OrgGroupPolicyRelation
 export { OrgGroupPolicyRelationshipToOneData } from "./models/OrgGroupPolicyRelationshipToOneData";
 export { OrgGroupPolicyResponse } from "./models/OrgGroupPolicyResponse";
 export { OrgGroupPolicySortOption } from "./models/OrgGroupPolicySortOption";
+export { OrgGroupPolicySuggestionAttributes } from "./models/OrgGroupPolicySuggestionAttributes";
+export { OrgGroupPolicySuggestionData } from "./models/OrgGroupPolicySuggestionData";
+export { OrgGroupPolicySuggestionListResponse } from "./models/OrgGroupPolicySuggestionListResponse";
+export { OrgGroupPolicySuggestionRelationships } from "./models/OrgGroupPolicySuggestionRelationships";
+export { OrgGroupPolicySuggestionStatus } from "./models/OrgGroupPolicySuggestionStatus";
+export { OrgGroupPolicySuggestionType } from "./models/OrgGroupPolicySuggestionType";
 export { OrgGroupPolicyType } from "./models/OrgGroupPolicyType";
 export { OrgGroupPolicyUpdateAttributes } from "./models/OrgGroupPolicyUpdateAttributes";
 export { OrgGroupPolicyUpdateData } from "./models/OrgGroupPolicyUpdateData";

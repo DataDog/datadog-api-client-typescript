@@ -41,6 +41,7 @@ import { OrgGroupPolicyOverrideSortOption } from "./models/OrgGroupPolicyOverrid
 import { OrgGroupPolicyOverrideUpdateRequest } from "./models/OrgGroupPolicyOverrideUpdateRequest";
 import { OrgGroupPolicyResponse } from "./models/OrgGroupPolicyResponse";
 import { OrgGroupPolicySortOption } from "./models/OrgGroupPolicySortOption";
+import { OrgGroupPolicySuggestionListResponse } from "./models/OrgGroupPolicySuggestionListResponse";
 import { OrgGroupPolicyUpdateRequest } from "./models/OrgGroupPolicyUpdateRequest";
 import { OrgGroupResponse } from "./models/OrgGroupResponse";
 import { OrgGroupSortOption } from "./models/OrgGroupSortOption";
@@ -957,6 +958,69 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "sort",
         serialize(sort, TypingInfo, "OrgGroupPolicyOverrideSortOption", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listOrgGroupPolicySuggestions(
+    filterOrgGroupId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "OrgGroupsApi.v2.listOrgGroupPolicySuggestions"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listOrgGroupPolicySuggestions' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.listOrgGroupPolicySuggestions'] = true`",
+      );
+    }
+
+    // verify required parameter 'filterOrgGroupId' is not null or undefined
+    if (filterOrgGroupId === null || filterOrgGroupId === undefined) {
+      throw new RequiredError(
+        "filterOrgGroupId",
+        "listOrgGroupPolicySuggestions",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/org_group_policy_suggestions";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "OrgGroupsApi.v2.listOrgGroupPolicySuggestions",
+      OrgGroupsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (filterOrgGroupId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[org_group_id]",
+        serialize(filterOrgGroupId, TypingInfo, "string", "uuid"),
         "",
       );
     }
@@ -2506,6 +2570,87 @@ export class OrgGroupsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listOrgGroupPolicySuggestions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listOrgGroupPolicySuggestions(
+    response: ResponseContext,
+  ): Promise<OrgGroupPolicySuggestionListResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: OrgGroupPolicySuggestionListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupPolicySuggestionListResponse",
+      ) as OrgGroupPolicySuggestionListResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OrgGroupPolicySuggestionListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "OrgGroupPolicySuggestionListResponse",
+        "",
+      ) as OrgGroupPolicySuggestionListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listOrgGroups
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3080,6 +3225,14 @@ export interface OrgGroupsApiListOrgGroupPolicyOverridesRequest {
   sort?: OrgGroupPolicyOverrideSortOption;
 }
 
+export interface OrgGroupsApiListOrgGroupPolicySuggestionsRequest {
+  /**
+   * Filter policies by org group ID.
+   * @type string
+   */
+  filterOrgGroupId: string;
+}
+
 export interface OrgGroupsApiListOrgGroupsRequest {
   /**
    * The page number to return.
@@ -3495,6 +3648,30 @@ export class OrgGroupsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listOrgGroupPolicyOverrides(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * List suggested organization group policies. Requires a filter on org group ID.
+   * @param param The request object
+   */
+  public listOrgGroupPolicySuggestions(
+    param: OrgGroupsApiListOrgGroupPolicySuggestionsRequest,
+    options?: Configuration,
+  ): Promise<OrgGroupPolicySuggestionListResponse> {
+    const requestContextPromise =
+      this.requestFactory.listOrgGroupPolicySuggestions(
+        param.filterOrgGroupId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listOrgGroupPolicySuggestions(
             responseContext,
           );
         });
