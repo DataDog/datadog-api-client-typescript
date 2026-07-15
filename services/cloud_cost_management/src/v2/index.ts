@@ -24,6 +24,7 @@ export {
   CloudCostManagementApiGetCommitmentsUtilizationScalarRequest,
   CloudCostManagementApiGetCommitmentsUtilizationTimeseriesRequest,
   CloudCostManagementApiGetCostAWSCURConfigRequest,
+  CloudCostManagementApiGetCostAccountFiltersRequest,
   CloudCostManagementApiGetCostAnomalyRequest,
   CloudCostManagementApiGetCostAzureUCConfigRequest,
   CloudCostManagementApiGetCostGCPUsageCostConfigRequest,
@@ -48,6 +49,7 @@ export {
   CloudCostManagementApiReorderTagPipelinesRulesetsRequest,
   CloudCostManagementApiSearchCostRecommendationsRequest,
   CloudCostManagementApiUpdateCostAWSCURConfigRequest,
+  CloudCostManagementApiUpdateCostAccountFiltersRequest,
   CloudCostManagementApiUpdateCostAzureUCConfigsRequest,
   CloudCostManagementApiUpdateCostGCPUsageCostConfigRequest,
   CloudCostManagementApiUpdateCustomAllocationRuleRequest,
@@ -62,6 +64,14 @@ export {
 } from "./CloudCostManagementApi";
 
 export { AccountFilteringConfig } from "./models/AccountFilteringConfig";
+export { AccountFilters } from "./models/AccountFilters";
+export { AccountFiltersAttributes } from "./models/AccountFiltersAttributes";
+export { AccountFiltersPatchData } from "./models/AccountFiltersPatchData";
+export { AccountFiltersPatchRequest } from "./models/AccountFiltersPatchRequest";
+export { AccountFiltersPatchRequestAttributes } from "./models/AccountFiltersPatchRequestAttributes";
+export { AccountFiltersPatchRequestType } from "./models/AccountFiltersPatchRequestType";
+export { AccountFiltersResponse } from "./models/AccountFiltersResponse";
+export { AccountFiltersType } from "./models/AccountFiltersType";
 export { APIErrorResponse } from "./models/APIErrorResponse";
 export { ArbitraryCostUpsertRequest } from "./models/ArbitraryCostUpsertRequest";
 export { ArbitraryCostUpsertRequestData } from "./models/ArbitraryCostUpsertRequestData";

@@ -2,6 +2,12 @@ import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
 import { AccountFilteringConfig } from "./AccountFilteringConfig";
+import { AccountFilters } from "./AccountFilters";
+import { AccountFiltersAttributes } from "./AccountFiltersAttributes";
+import { AccountFiltersPatchData } from "./AccountFiltersPatchData";
+import { AccountFiltersPatchRequest } from "./AccountFiltersPatchRequest";
+import { AccountFiltersPatchRequestAttributes } from "./AccountFiltersPatchRequestAttributes";
+import { AccountFiltersResponse } from "./AccountFiltersResponse";
 import { ArbitraryCostUpsertRequest } from "./ArbitraryCostUpsertRequest";
 import { ArbitraryCostUpsertRequestData } from "./ArbitraryCostUpsertRequestData";
 import { ArbitraryCostUpsertRequestDataAttributes } from "./ArbitraryCostUpsertRequestDataAttributes";
@@ -227,6 +233,8 @@ import { ValidationResponse } from "./ValidationResponse";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
+    AccountFiltersPatchRequestType: ["account_filters_patch_request"],
+    AccountFiltersType: ["account_filters"],
     ArbitraryCostUpsertRequestDataType: ["upsert_arbitrary_rule"],
     ArbitraryRuleResponseDataType: ["arbitrary_rule"],
     ArbitraryRuleStatusResponseDataType: ["arbitrary_rule_status"],
@@ -287,6 +295,12 @@ export const TypingInfo: ModelTypingInfo = {
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     AccountFilteringConfig: AccountFilteringConfig,
+    AccountFilters: AccountFilters,
+    AccountFiltersAttributes: AccountFiltersAttributes,
+    AccountFiltersPatchData: AccountFiltersPatchData,
+    AccountFiltersPatchRequest: AccountFiltersPatchRequest,
+    AccountFiltersPatchRequestAttributes: AccountFiltersPatchRequestAttributes,
+    AccountFiltersResponse: AccountFiltersResponse,
     ArbitraryCostUpsertRequest: ArbitraryCostUpsertRequest,
     ArbitraryCostUpsertRequestData: ArbitraryCostUpsertRequestData,
     ArbitraryCostUpsertRequestDataAttributes:

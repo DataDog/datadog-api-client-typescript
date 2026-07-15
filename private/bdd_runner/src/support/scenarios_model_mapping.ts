@@ -7523,6 +7523,24 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ContainersResponse",
   },
+  "CloudCostManagementApi.V2.GetCostAccountFilters": {
+    cloudAccountId: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "AccountFiltersResponse",
+  },
+  "CloudCostManagementApi.V2.UpdateCostAccountFilters": {
+    cloudAccountId: {
+      type: "number",
+      format: "int64",
+    },
+    body: {
+      type: "AccountFiltersPatchRequest",
+      format: "",
+    },
+    operationResponseType: "AccountFiltersResponse",
+  },
   "CloudCostManagementApi.V2.ListCostAnomalies": {
     start: {
       type: "number",
