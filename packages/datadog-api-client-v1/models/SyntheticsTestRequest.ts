@@ -99,6 +99,10 @@ export class SyntheticsTestRequest {
    */
   "httpVersion"?: SyntheticsTestOptionsHTTPVersion;
   /**
+   * For SSL tests, whether the test should ignore certificate validation.
+   */
+  "ignoreCertificateValidation"?: boolean;
+  /**
    * Whether the message is base64 encoded.
    */
   "isMessageBase64Encoded"?: boolean;
@@ -264,6 +268,10 @@ export class SyntheticsTestRequest {
     httpVersion: {
       baseName: "httpVersion",
       type: "SyntheticsTestOptionsHTTPVersion",
+    },
+    ignoreCertificateValidation: {
+      baseName: "ignore_certificate_validation",
+      type: "boolean",
     },
     isMessageBase64Encoded: {
       baseName: "isMessageBase64Encoded",
