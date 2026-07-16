@@ -1,23 +1,20 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { TopologyQueryDataSource } from "./TopologyQueryDataSource";
+import { TopologyQueryDataStreams } from "./TopologyQueryDataStreams";
+import { TopologyRequestType } from "./TopologyRequestType";
 
 /**
- * Query to service-based topology data sources like the service map or data streams.
+ * Request that returns nodes and edges from the data streams data source.
  */
-export class TopologyQuery {
+export class TopologyRequestDataStreams {
   /**
-   * Name of the data source
+   * Query to the data streams topology data source.
    */
-  "dataSource"?: TopologyQueryDataSource;
+  "query"?: TopologyQueryDataStreams;
   /**
-   * Your environment and primary tag (or * if enabled for your account).
+   * Widget request type.
    */
-  "filters"?: Array<string>;
-  /**
-   * Name of the service
-   */
-  "service"?: string;
+  "requestType"?: TopologyRequestType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -33,17 +30,13 @@ export class TopologyQuery {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    dataSource: {
-      baseName: "data_source",
-      type: "TopologyQueryDataSource",
+    query: {
+      baseName: "query",
+      type: "TopologyQueryDataStreams",
     },
-    filters: {
-      baseName: "filters",
-      type: "Array<string>",
-    },
-    service: {
-      baseName: "service",
-      type: "string",
+    requestType: {
+      baseName: "request_type",
+      type: "TopologyRequestType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +48,7 @@ export class TopologyQuery {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TopologyQuery.attributeTypeMap;
+    return TopologyRequestDataStreams.attributeTypeMap;
   }
 
   public constructor() {}
