@@ -3,19 +3,19 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TopologyQuery } from "./TopologyQuery";
+import { TopologyQueryDataStreams } from "./TopologyQueryDataStreams";
 import { TopologyRequestType } from "./TopologyRequestType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Request that will return nodes and edges to be used by topology map.
+ * Request that returns nodes and edges from the data streams data source.
  */
-export class TopologyRequest {
+export class TopologyRequestDataStreams {
   /**
-   * Query to service-based topology data sources like the service map or data streams.
+   * Query to the data streams topology data source.
    */
-  "query"?: TopologyQuery;
+  "query"?: TopologyQueryDataStreams;
   /**
    * Widget request type.
    */
@@ -39,7 +39,7 @@ export class TopologyRequest {
   static readonly attributeTypeMap: AttributeTypeMap = {
     query: {
       baseName: "query",
-      type: "TopologyQuery",
+      type: "TopologyQueryDataStreams",
     },
     requestType: {
       baseName: "request_type",
@@ -55,7 +55,7 @@ export class TopologyRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TopologyRequest.attributeTypeMap;
+    return TopologyRequestDataStreams.attributeTypeMap;
   }
 
   public constructor() {}
