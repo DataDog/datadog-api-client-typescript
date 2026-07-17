@@ -1,0 +1,72 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+/**
+ * The Google Cloud service account JSON used to authenticate against the Google Workspace Admin SDK. Additional keys beyond those documented are preserved.
+ */
+export class SecurityMonitoringIntegrationConfigGoogleWorkspaceServiceAccount {
+  /**
+   * The service account client email.
+   */
+  "clientEmail": string;
+  /**
+   * The service account private key.
+   */
+  "privateKey": string;
+  /**
+   * The Google Cloud project ID that owns the service account.
+   */
+  "projectId": string;
+  /**
+   * The service account type. Must be `service_account`.
+   */
+  "type": string;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    clientEmail: {
+      baseName: "client_email",
+      type: "string",
+      required: true,
+    },
+    privateKey: {
+      baseName: "private_key",
+      type: "string",
+      required: true,
+    },
+    projectId: {
+      baseName: "project_id",
+      type: "string",
+      required: true,
+    },
+    type: {
+      baseName: "type",
+      type: "string",
+      required: true,
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return SecurityMonitoringIntegrationConfigGoogleWorkspaceServiceAccount.attributeTypeMap;
+  }
+
+  public constructor() {}
+}
