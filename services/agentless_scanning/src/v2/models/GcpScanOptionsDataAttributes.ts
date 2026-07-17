@@ -5,6 +5,10 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  */
 export class GcpScanOptionsDataAttributes {
   /**
+   * Indicates if scanning of Cloud Functions is enabled.
+   */
+  "cloudFunction"?: boolean;
+  /**
    * Indicates whether host compliance scanning is enabled.
    */
   "complianceHost"?: boolean;
@@ -31,6 +35,10 @@ export class GcpScanOptionsDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    cloudFunction: {
+      baseName: "cloud_function",
+      type: "boolean",
+    },
     complianceHost: {
       baseName: "compliance_host",
       type: "boolean",
