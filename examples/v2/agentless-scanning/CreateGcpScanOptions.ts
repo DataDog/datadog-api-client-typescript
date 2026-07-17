@@ -13,6 +13,7 @@ const params: v2.AgentlessScanningApiCreateGcpScanOptionsRequest = {
       id: "new-project",
       type: "gcp_scan_options",
       attributes: {
+        cloudFunction: true,
         vulnHostOs: true,
         vulnContainersOs: true,
       },
