@@ -9,6 +9,10 @@ export class AzureScanOptionsInputUpdateDataAttributes {
    */
   "complianceHost"?: boolean;
   /**
+   * Indicates if scanning of Azure Functions is enabled.
+   */
+  "_function"?: boolean;
+  /**
    * Indicates if scanning for vulnerabilities in containers is enabled.
    */
   "vulnContainersOs"?: boolean;
@@ -33,6 +37,10 @@ export class AzureScanOptionsInputUpdateDataAttributes {
   static readonly attributeTypeMap: AttributeTypeMap = {
     complianceHost: {
       baseName: "compliance_host",
+      type: "boolean",
+    },
+    _function: {
+      baseName: "function",
       type: "boolean",
     },
     vulnContainersOs: {
