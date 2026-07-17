@@ -57,10 +57,12 @@ import { Dashboard } from "./Dashboard";
 import { DashboardBulkActionData } from "./DashboardBulkActionData";
 import { DashboardBulkDeleteRequest } from "./DashboardBulkDeleteRequest";
 import { DashboardDeleteResponse } from "./DashboardDeleteResponse";
+import { DashboardFixedTimeframe } from "./DashboardFixedTimeframe";
 import { DashboardGlobalTime } from "./DashboardGlobalTime";
 import { DashboardList } from "./DashboardList";
 import { DashboardListDeleteResponse } from "./DashboardListDeleteResponse";
 import { DashboardListListResponse } from "./DashboardListListResponse";
+import { DashboardLiveTimeframe } from "./DashboardLiveTimeframe";
 import { DashboardRestoreRequest } from "./DashboardRestoreRequest";
 import { DashboardSummary } from "./DashboardSummary";
 import { DashboardSummaryDefinition } from "./DashboardSummaryDefinition";
@@ -832,6 +834,7 @@ const enumsMap: { [key: string]: any[] } = {
     "previous_month",
   ],
   ContentEncoding: ["gzip", "deflate"],
+  DashboardFixedTimeframeType: ["fixed"],
   DashboardGlobalTimeLiveSpan: [
     "15m",
     "1h",
@@ -844,6 +847,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   DashboardInviteType: ["public_dashboard_invitation"],
   DashboardLayoutType: ["ordered", "free"],
+  DashboardLiveTimeframeType: ["live"],
   DashboardReflowType: ["auto", "fixed"],
   DashboardResourceType: ["dashboard"],
   DashboardShareType: ["open", "invite", "embed"],
@@ -2129,10 +2133,12 @@ const typeMap: { [index: string]: any } = {
   DashboardBulkActionData: DashboardBulkActionData,
   DashboardBulkDeleteRequest: DashboardBulkDeleteRequest,
   DashboardDeleteResponse: DashboardDeleteResponse,
+  DashboardFixedTimeframe: DashboardFixedTimeframe,
   DashboardGlobalTime: DashboardGlobalTime,
   DashboardList: DashboardList,
   DashboardListDeleteResponse: DashboardListDeleteResponse,
   DashboardListListResponse: DashboardListListResponse,
+  DashboardLiveTimeframe: DashboardLiveTimeframe,
   DashboardRestoreRequest: DashboardRestoreRequest,
   DashboardSummary: DashboardSummary,
   DashboardSummaryDefinition: DashboardSummaryDefinition,
@@ -2915,6 +2921,10 @@ const typeMap: { [index: string]: any } = {
 
 const oneOfMap: { [index: string]: string[] } = {
   BarChartWidgetDisplay: ["BarChartWidgetStacked", "BarChartWidgetFlat"],
+  DashboardDefaultTimeframeSetting: [
+    "DashboardLiveTimeframe",
+    "DashboardFixedTimeframe",
+  ],
   DistributionPointItem: ["number", "Array<number>"],
   DistributionWidgetHistogramRequestQuery: [
     "FormulaAndFunctionMetricQueryDefinition",
