@@ -3,26 +3,23 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TopologyQueryDataSource } from "./TopologyQueryDataSource";
+import { TopologyQueryServiceMap } from "./TopologyQueryServiceMap";
+import { TopologyRequestType } from "./TopologyRequestType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Query to service-based topology data sources like the service map or data streams.
+ * Request that returns nodes and edges from the service map data source.
  */
-export class TopologyQuery {
+export class TopologyRequestServiceMap {
   /**
-   * Name of the data source
+   * Query to the service map topology data source.
    */
-  "dataSource"?: TopologyQueryDataSource;
+  "query"?: TopologyQueryServiceMap;
   /**
-   * Your environment and primary tag (or * if enabled for your account).
+   * Widget request type.
    */
-  "filters"?: Array<string>;
-  /**
-   * Name of the service
-   */
-  "service"?: string;
+  "requestType"?: TopologyRequestType;
 
   /**
    * A container for additional, undeclared properties.
@@ -40,17 +37,13 @@ export class TopologyQuery {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    dataSource: {
-      baseName: "data_source",
-      type: "TopologyQueryDataSource",
+    query: {
+      baseName: "query",
+      type: "TopologyQueryServiceMap",
     },
-    filters: {
-      baseName: "filters",
-      type: "Array<string>",
-    },
-    service: {
-      baseName: "service",
-      type: "string",
+    requestType: {
+      baseName: "request_type",
+      type: "TopologyRequestType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,7 +55,7 @@ export class TopologyQuery {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TopologyQuery.attributeTypeMap;
+    return TopologyRequestServiceMap.attributeTypeMap;
   }
 
   public constructor() {}
