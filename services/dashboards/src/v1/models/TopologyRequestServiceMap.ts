@@ -1,16 +1,16 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { TopologyQuery } from "./TopologyQuery";
+import { TopologyQueryServiceMap } from "./TopologyQueryServiceMap";
 import { TopologyRequestType } from "./TopologyRequestType";
 
 /**
- * Request that will return nodes and edges to be used by topology map.
+ * Request that returns nodes and edges from the service map data source.
  */
-export class TopologyRequest {
+export class TopologyRequestServiceMap {
   /**
-   * Query to service-based topology data sources like the service map or data streams.
+   * Query to the service map topology data source.
    */
-  "query"?: TopologyQuery;
+  "query"?: TopologyQueryServiceMap;
   /**
    * Widget request type.
    */
@@ -32,7 +32,7 @@ export class TopologyRequest {
   static readonly attributeTypeMap: AttributeTypeMap = {
     query: {
       baseName: "query",
-      type: "TopologyQuery",
+      type: "TopologyQueryServiceMap",
     },
     requestType: {
       baseName: "request_type",
@@ -48,7 +48,7 @@ export class TopologyRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TopologyRequest.attributeTypeMap;
+    return TopologyRequestServiceMap.attributeTypeMap;
   }
 
   public constructor() {}
