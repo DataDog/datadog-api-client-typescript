@@ -18,7 +18,14 @@ const params: v2.SecurityMonitoringApiValidateSecurityMonitoringIntegrationCrede
           domain: "siem-test.com",
           integrationType: "GOOGLE_WORKSPACE",
           secrets: {
-            admin_email: "test@example.com",
+            adminEmail: "admin@example.com",
+            serviceAccountJson: {
+              clientEmail: "svc@my-project.iam.gserviceaccount.com",
+              privateKey:
+                "-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----",
+              projectId: "my-project",
+              type: "service_account",
+            },
           },
         },
         type: "integration_config",

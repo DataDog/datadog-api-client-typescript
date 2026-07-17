@@ -19,7 +19,14 @@ const params: v2.SecurityMonitoringApiCreateSecurityMonitoringIntegrationConfigR
           integrationType: "GOOGLE_WORKSPACE",
           name: "My GWS Integration",
           secrets: {
-            admin_email: "test@example.com",
+            adminEmail: "admin@example.com",
+            serviceAccountJson: {
+              clientEmail: "svc@my-project.iam.gserviceaccount.com",
+              privateKey:
+                "-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----",
+              projectId: "my-project",
+              type: "service_account",
+            },
           },
           settings: {
             setting1: "value1",
