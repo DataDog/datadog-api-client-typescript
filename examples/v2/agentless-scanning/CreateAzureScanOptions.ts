@@ -11,6 +11,7 @@ const params: v2.AgentlessScanningApiCreateAzureScanOptionsRequest = {
   body: {
     data: {
       attributes: {
+        _function: true,
         vulnContainersOs: true,
         vulnHostOs: true,
       },
