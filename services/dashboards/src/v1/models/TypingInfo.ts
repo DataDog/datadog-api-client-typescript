@@ -21,7 +21,9 @@ import { Dashboard } from "./Dashboard";
 import { DashboardBulkActionData } from "./DashboardBulkActionData";
 import { DashboardBulkDeleteRequest } from "./DashboardBulkDeleteRequest";
 import { DashboardDeleteResponse } from "./DashboardDeleteResponse";
+import { DashboardFixedTimeframe } from "./DashboardFixedTimeframe";
 import { DashboardGlobalTime } from "./DashboardGlobalTime";
+import { DashboardLiveTimeframe } from "./DashboardLiveTimeframe";
 import { DashboardRestoreRequest } from "./DashboardRestoreRequest";
 import { DashboardSummary } from "./DashboardSummary";
 import { DashboardSummaryDefinition } from "./DashboardSummaryDefinition";
@@ -267,6 +269,7 @@ export const TypingInfo: ModelTypingInfo = {
       "previous_week",
       "previous_month",
     ],
+    DashboardFixedTimeframeType: ["fixed"],
     DashboardGlobalTimeLiveSpan: [
       "15m",
       "1h",
@@ -279,6 +282,7 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     DashboardInviteType: ["public_dashboard_invitation"],
     DashboardLayoutType: ["ordered", "free"],
+    DashboardLiveTimeframeType: ["live"],
     DashboardReflowType: ["auto", "fixed"],
     DashboardResourceType: ["dashboard"],
     DashboardShareType: ["open", "invite", "embed"],
@@ -716,6 +720,10 @@ export const TypingInfo: ModelTypingInfo = {
   },
   oneOfMap: {
     BarChartWidgetDisplay: ["BarChartWidgetStacked", "BarChartWidgetFlat"],
+    DashboardDefaultTimeframeSetting: [
+      "DashboardLiveTimeframe",
+      "DashboardFixedTimeframe",
+    ],
     DistributionWidgetHistogramRequestQuery: [
       "FormulaAndFunctionMetricQueryDefinition",
       "FormulaAndFunctionEventQueryDefinition",
@@ -845,7 +853,9 @@ export const TypingInfo: ModelTypingInfo = {
     DashboardBulkActionData: DashboardBulkActionData,
     DashboardBulkDeleteRequest: DashboardBulkDeleteRequest,
     DashboardDeleteResponse: DashboardDeleteResponse,
+    DashboardFixedTimeframe: DashboardFixedTimeframe,
     DashboardGlobalTime: DashboardGlobalTime,
+    DashboardLiveTimeframe: DashboardLiveTimeframe,
     DashboardRestoreRequest: DashboardRestoreRequest,
     DashboardSummary: DashboardSummary,
     DashboardSummaryDefinition: DashboardSummaryDefinition,
