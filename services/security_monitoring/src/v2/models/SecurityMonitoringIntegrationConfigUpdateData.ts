@@ -8,7 +8,7 @@ import { SecurityMonitoringIntegrationConfigUpdateAttributes } from "./SecurityM
  */
 export class SecurityMonitoringIntegrationConfigUpdateData {
   /**
-   * Fields to update on the entity context sync configuration. All fields other than the integration type are optional.
+   * Fields to update on the entity context sync configuration. All fields are optional.
    */
   "attributes": SecurityMonitoringIntegrationConfigUpdateAttributes;
   /**

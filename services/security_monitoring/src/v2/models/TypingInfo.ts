@@ -352,9 +352,6 @@ import { SecurityMonitoringCriticalAssetUpdateAttributes } from "./SecurityMonit
 import { SecurityMonitoringCriticalAssetUpdateData } from "./SecurityMonitoringCriticalAssetUpdateData";
 import { SecurityMonitoringCriticalAssetUpdateRequest } from "./SecurityMonitoringCriticalAssetUpdateRequest";
 import { SecurityMonitoringCriticalAssetsResponse } from "./SecurityMonitoringCriticalAssetsResponse";
-import { SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes } from "./SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes";
-import { SecurityMonitoringCrowdStrikeIntegrationConfigUpdateAttributes } from "./SecurityMonitoringCrowdStrikeIntegrationConfigUpdateAttributes";
-import { SecurityMonitoringCrowdStrikeIntegrationCredentialsValidateAttributes } from "./SecurityMonitoringCrowdStrikeIntegrationCredentialsValidateAttributes";
 import { SecurityMonitoringDatasetAttributesRequest } from "./SecurityMonitoringDatasetAttributesRequest";
 import { SecurityMonitoringDatasetAttributesResponse } from "./SecurityMonitoringDatasetAttributesResponse";
 import { SecurityMonitoringDatasetColumn } from "./SecurityMonitoringDatasetColumn";
@@ -385,35 +382,24 @@ import { SecurityMonitoringDatasetsListResponse } from "./SecurityMonitoringData
 import { SecurityMonitoringEntraIdAzureAppRegistrationsAttributes } from "./SecurityMonitoringEntraIdAzureAppRegistrationsAttributes";
 import { SecurityMonitoringEntraIdAzureAppRegistrationsData } from "./SecurityMonitoringEntraIdAzureAppRegistrationsData";
 import { SecurityMonitoringEntraIdAzureAppRegistrationsResponse } from "./SecurityMonitoringEntraIdAzureAppRegistrationsResponse";
-import { SecurityMonitoringEntraIdIntegrationConfigCreateAttributes } from "./SecurityMonitoringEntraIdIntegrationConfigCreateAttributes";
-import { SecurityMonitoringEntraIdIntegrationConfigUpdateAttributes } from "./SecurityMonitoringEntraIdIntegrationConfigUpdateAttributes";
-import { SecurityMonitoringEntraIdIntegrationCredentialsValidateAttributes } from "./SecurityMonitoringEntraIdIntegrationCredentialsValidateAttributes";
 import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
-import { SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes } from "./SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes";
-import { SecurityMonitoringGoogleWorkspaceIntegrationConfigUpdateAttributes } from "./SecurityMonitoringGoogleWorkspaceIntegrationConfigUpdateAttributes";
-import { SecurityMonitoringGoogleWorkspaceIntegrationCredentialsValidateAttributes } from "./SecurityMonitoringGoogleWorkspaceIntegrationCredentialsValidateAttributes";
 import { SecurityMonitoringIntegrationActivateAttributes } from "./SecurityMonitoringIntegrationActivateAttributes";
 import { SecurityMonitoringIntegrationActivateData } from "./SecurityMonitoringIntegrationActivateData";
 import { SecurityMonitoringIntegrationActivateRequest } from "./SecurityMonitoringIntegrationActivateRequest";
 import { SecurityMonitoringIntegrationConfigAttributes } from "./SecurityMonitoringIntegrationConfigAttributes";
+import { SecurityMonitoringIntegrationConfigCreateAttributes } from "./SecurityMonitoringIntegrationConfigCreateAttributes";
 import { SecurityMonitoringIntegrationConfigCreateData } from "./SecurityMonitoringIntegrationConfigCreateData";
 import { SecurityMonitoringIntegrationConfigCreateRequest } from "./SecurityMonitoringIntegrationConfigCreateRequest";
-import { SecurityMonitoringIntegrationConfigCrowdStrikeSecrets } from "./SecurityMonitoringIntegrationConfigCrowdStrikeSecrets";
 import { SecurityMonitoringIntegrationConfigData } from "./SecurityMonitoringIntegrationConfigData";
-import { SecurityMonitoringIntegrationConfigGoogleWorkspaceSecrets } from "./SecurityMonitoringIntegrationConfigGoogleWorkspaceSecrets";
-import { SecurityMonitoringIntegrationConfigGoogleWorkspaceServiceAccount } from "./SecurityMonitoringIntegrationConfigGoogleWorkspaceServiceAccount";
-import { SecurityMonitoringIntegrationConfigOktaSecrets } from "./SecurityMonitoringIntegrationConfigOktaSecrets";
 import { SecurityMonitoringIntegrationConfigResponse } from "./SecurityMonitoringIntegrationConfigResponse";
-import { SecurityMonitoringIntegrationConfigSentinelOneSecrets } from "./SecurityMonitoringIntegrationConfigSentinelOneSecrets";
+import { SecurityMonitoringIntegrationConfigUpdateAttributes } from "./SecurityMonitoringIntegrationConfigUpdateAttributes";
 import { SecurityMonitoringIntegrationConfigUpdateData } from "./SecurityMonitoringIntegrationConfigUpdateData";
 import { SecurityMonitoringIntegrationConfigUpdateRequest } from "./SecurityMonitoringIntegrationConfigUpdateRequest";
 import { SecurityMonitoringIntegrationConfigsResponse } from "./SecurityMonitoringIntegrationConfigsResponse";
+import { SecurityMonitoringIntegrationCredentialsValidateAttributes } from "./SecurityMonitoringIntegrationCredentialsValidateAttributes";
 import { SecurityMonitoringIntegrationCredentialsValidateData } from "./SecurityMonitoringIntegrationCredentialsValidateData";
 import { SecurityMonitoringIntegrationCredentialsValidateRequest } from "./SecurityMonitoringIntegrationCredentialsValidateRequest";
 import { SecurityMonitoringListRulesResponse } from "./SecurityMonitoringListRulesResponse";
-import { SecurityMonitoringOktaIntegrationConfigCreateAttributes } from "./SecurityMonitoringOktaIntegrationConfigCreateAttributes";
-import { SecurityMonitoringOktaIntegrationConfigUpdateAttributes } from "./SecurityMonitoringOktaIntegrationConfigUpdateAttributes";
-import { SecurityMonitoringOktaIntegrationCredentialsValidateAttributes } from "./SecurityMonitoringOktaIntegrationCredentialsValidateAttributes";
 import { SecurityMonitoringPaginatedSuppressionsResponse } from "./SecurityMonitoringPaginatedSuppressionsResponse";
 import { SecurityMonitoringReferenceTable } from "./SecurityMonitoringReferenceTable";
 import { SecurityMonitoringRuleAnomalyDetectionOptions } from "./SecurityMonitoringRuleAnomalyDetectionOptions";
@@ -445,9 +431,6 @@ import { SecurityMonitoringRuleTestResponse } from "./SecurityMonitoringRuleTest
 import { SecurityMonitoringRuleThirdPartyOptions } from "./SecurityMonitoringRuleThirdPartyOptions";
 import { SecurityMonitoringRuleUpdatePayload } from "./SecurityMonitoringRuleUpdatePayload";
 import { SecurityMonitoringSchedulingOptions } from "./SecurityMonitoringSchedulingOptions";
-import { SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes } from "./SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes";
-import { SecurityMonitoringSentinelOneIntegrationConfigUpdateAttributes } from "./SecurityMonitoringSentinelOneIntegrationConfigUpdateAttributes";
-import { SecurityMonitoringSentinelOneIntegrationCredentialsValidateAttributes } from "./SecurityMonitoringSentinelOneIntegrationCredentialsValidateAttributes";
 import { SecurityMonitoringSignal } from "./SecurityMonitoringSignal";
 import { SecurityMonitoringSignalAssigneeUpdateAttributes } from "./SecurityMonitoringSignalAssigneeUpdateAttributes";
 import { SecurityMonitoringSignalAssigneeUpdateData } from "./SecurityMonitoringSignalAssigneeUpdateData";
@@ -802,18 +785,7 @@ export const TypingInfo: ModelTypingInfo = {
       "invalid",
       "initializing",
     ],
-    SecurityMonitoringIntegrationType: [
-      "GOOGLE_WORKSPACE",
-      "OKTA",
-      "ENTRA_ID",
-      "CROWDSTRIKE",
-      "SENTINELONE",
-    ],
-    SecurityMonitoringIntegrationTypeCrowdStrike: ["CROWDSTRIKE"],
-    SecurityMonitoringIntegrationTypeEntraId: ["ENTRA_ID"],
-    SecurityMonitoringIntegrationTypeGoogleWorkspace: ["GOOGLE_WORKSPACE"],
-    SecurityMonitoringIntegrationTypeOkta: ["OKTA"],
-    SecurityMonitoringIntegrationTypeSentinelOne: ["SENTINELONE"],
+    SecurityMonitoringIntegrationType: ["GOOGLE_WORKSPACE", "OKTA", "ENTRA_ID"],
     SecurityMonitoringRuleAnomalyDetectionOptionsBucketDuration: [
       300, 600, 900, 1800, 3600, 10800,
     ],
@@ -1058,27 +1030,6 @@ export const TypingInfo: ModelTypingInfo = {
     ],
   },
   oneOfMap: {
-    SecurityMonitoringIntegrationConfigCreateAttributes: [
-      "SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes",
-      "SecurityMonitoringOktaIntegrationConfigCreateAttributes",
-      "SecurityMonitoringEntraIdIntegrationConfigCreateAttributes",
-      "SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes",
-      "SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes",
-    ],
-    SecurityMonitoringIntegrationConfigUpdateAttributes: [
-      "SecurityMonitoringGoogleWorkspaceIntegrationConfigUpdateAttributes",
-      "SecurityMonitoringOktaIntegrationConfigUpdateAttributes",
-      "SecurityMonitoringEntraIdIntegrationConfigUpdateAttributes",
-      "SecurityMonitoringCrowdStrikeIntegrationConfigUpdateAttributes",
-      "SecurityMonitoringSentinelOneIntegrationConfigUpdateAttributes",
-    ],
-    SecurityMonitoringIntegrationCredentialsValidateAttributes: [
-      "SecurityMonitoringGoogleWorkspaceIntegrationCredentialsValidateAttributes",
-      "SecurityMonitoringOktaIntegrationCredentialsValidateAttributes",
-      "SecurityMonitoringEntraIdIntegrationCredentialsValidateAttributes",
-      "SecurityMonitoringCrowdStrikeIntegrationCredentialsValidateAttributes",
-      "SecurityMonitoringSentinelOneIntegrationCredentialsValidateAttributes",
-    ],
     SecurityMonitoringRuleConvertPayload: [
       "SecurityMonitoringStandardRulePayload",
       "SecurityMonitoringSignalRulePayload",
@@ -1517,12 +1468,6 @@ export const TypingInfo: ModelTypingInfo = {
       SecurityMonitoringCriticalAssetUpdateRequest,
     SecurityMonitoringCriticalAssetsResponse:
       SecurityMonitoringCriticalAssetsResponse,
-    SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes:
-      SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes,
-    SecurityMonitoringCrowdStrikeIntegrationConfigUpdateAttributes:
-      SecurityMonitoringCrowdStrikeIntegrationConfigUpdateAttributes,
-    SecurityMonitoringCrowdStrikeIntegrationCredentialsValidateAttributes:
-      SecurityMonitoringCrowdStrikeIntegrationCredentialsValidateAttributes,
     SecurityMonitoringDatasetAttributesRequest:
       SecurityMonitoringDatasetAttributesRequest,
     SecurityMonitoringDatasetAttributesResponse:
@@ -1574,19 +1519,7 @@ export const TypingInfo: ModelTypingInfo = {
       SecurityMonitoringEntraIdAzureAppRegistrationsData,
     SecurityMonitoringEntraIdAzureAppRegistrationsResponse:
       SecurityMonitoringEntraIdAzureAppRegistrationsResponse,
-    SecurityMonitoringEntraIdIntegrationConfigCreateAttributes:
-      SecurityMonitoringEntraIdIntegrationConfigCreateAttributes,
-    SecurityMonitoringEntraIdIntegrationConfigUpdateAttributes:
-      SecurityMonitoringEntraIdIntegrationConfigUpdateAttributes,
-    SecurityMonitoringEntraIdIntegrationCredentialsValidateAttributes:
-      SecurityMonitoringEntraIdIntegrationCredentialsValidateAttributes,
     SecurityMonitoringFilter: SecurityMonitoringFilter,
-    SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes:
-      SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes,
-    SecurityMonitoringGoogleWorkspaceIntegrationConfigUpdateAttributes:
-      SecurityMonitoringGoogleWorkspaceIntegrationConfigUpdateAttributes,
-    SecurityMonitoringGoogleWorkspaceIntegrationCredentialsValidateAttributes:
-      SecurityMonitoringGoogleWorkspaceIntegrationCredentialsValidateAttributes,
     SecurityMonitoringIntegrationActivateAttributes:
       SecurityMonitoringIntegrationActivateAttributes,
     SecurityMonitoringIntegrationActivateData:
@@ -1595,41 +1528,31 @@ export const TypingInfo: ModelTypingInfo = {
       SecurityMonitoringIntegrationActivateRequest,
     SecurityMonitoringIntegrationConfigAttributes:
       SecurityMonitoringIntegrationConfigAttributes,
+    SecurityMonitoringIntegrationConfigCreateAttributes:
+      SecurityMonitoringIntegrationConfigCreateAttributes,
     SecurityMonitoringIntegrationConfigCreateData:
       SecurityMonitoringIntegrationConfigCreateData,
     SecurityMonitoringIntegrationConfigCreateRequest:
       SecurityMonitoringIntegrationConfigCreateRequest,
-    SecurityMonitoringIntegrationConfigCrowdStrikeSecrets:
-      SecurityMonitoringIntegrationConfigCrowdStrikeSecrets,
     SecurityMonitoringIntegrationConfigData:
       SecurityMonitoringIntegrationConfigData,
-    SecurityMonitoringIntegrationConfigGoogleWorkspaceSecrets:
-      SecurityMonitoringIntegrationConfigGoogleWorkspaceSecrets,
-    SecurityMonitoringIntegrationConfigGoogleWorkspaceServiceAccount:
-      SecurityMonitoringIntegrationConfigGoogleWorkspaceServiceAccount,
-    SecurityMonitoringIntegrationConfigOktaSecrets:
-      SecurityMonitoringIntegrationConfigOktaSecrets,
     SecurityMonitoringIntegrationConfigResponse:
       SecurityMonitoringIntegrationConfigResponse,
-    SecurityMonitoringIntegrationConfigSentinelOneSecrets:
-      SecurityMonitoringIntegrationConfigSentinelOneSecrets,
+    SecurityMonitoringIntegrationConfigUpdateAttributes:
+      SecurityMonitoringIntegrationConfigUpdateAttributes,
     SecurityMonitoringIntegrationConfigUpdateData:
       SecurityMonitoringIntegrationConfigUpdateData,
     SecurityMonitoringIntegrationConfigUpdateRequest:
       SecurityMonitoringIntegrationConfigUpdateRequest,
     SecurityMonitoringIntegrationConfigsResponse:
       SecurityMonitoringIntegrationConfigsResponse,
+    SecurityMonitoringIntegrationCredentialsValidateAttributes:
+      SecurityMonitoringIntegrationCredentialsValidateAttributes,
     SecurityMonitoringIntegrationCredentialsValidateData:
       SecurityMonitoringIntegrationCredentialsValidateData,
     SecurityMonitoringIntegrationCredentialsValidateRequest:
       SecurityMonitoringIntegrationCredentialsValidateRequest,
     SecurityMonitoringListRulesResponse: SecurityMonitoringListRulesResponse,
-    SecurityMonitoringOktaIntegrationConfigCreateAttributes:
-      SecurityMonitoringOktaIntegrationConfigCreateAttributes,
-    SecurityMonitoringOktaIntegrationConfigUpdateAttributes:
-      SecurityMonitoringOktaIntegrationConfigUpdateAttributes,
-    SecurityMonitoringOktaIntegrationCredentialsValidateAttributes:
-      SecurityMonitoringOktaIntegrationCredentialsValidateAttributes,
     SecurityMonitoringPaginatedSuppressionsResponse:
       SecurityMonitoringPaginatedSuppressionsResponse,
     SecurityMonitoringReferenceTable: SecurityMonitoringReferenceTable,
@@ -1680,12 +1603,6 @@ export const TypingInfo: ModelTypingInfo = {
       SecurityMonitoringRuleThirdPartyOptions,
     SecurityMonitoringRuleUpdatePayload: SecurityMonitoringRuleUpdatePayload,
     SecurityMonitoringSchedulingOptions: SecurityMonitoringSchedulingOptions,
-    SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes:
-      SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes,
-    SecurityMonitoringSentinelOneIntegrationConfigUpdateAttributes:
-      SecurityMonitoringSentinelOneIntegrationConfigUpdateAttributes,
-    SecurityMonitoringSentinelOneIntegrationCredentialsValidateAttributes:
-      SecurityMonitoringSentinelOneIntegrationCredentialsValidateAttributes,
     SecurityMonitoringSignal: SecurityMonitoringSignal,
     SecurityMonitoringSignalAssigneeUpdateAttributes:
       SecurityMonitoringSignalAssigneeUpdateAttributes,
