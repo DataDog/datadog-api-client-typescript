@@ -13,7 +13,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SecurityMonitoringIntegrationConfigUpdateData {
   /**
-   * Fields to update on the entity context sync configuration. All fields are optional.
+   * Fields to update on the entity context sync configuration. All fields other than the integration type are optional.
    */
   "attributes": SecurityMonitoringIntegrationConfigUpdateAttributes;
   /**
