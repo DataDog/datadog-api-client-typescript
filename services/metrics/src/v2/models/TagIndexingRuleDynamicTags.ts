@@ -1,9 +1,25 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Configuration for including dynamically queried tags.
+ * Options for dynamic tag indexing applied per metric, such as tags filtered by query usage.
+ *
+ * Before a tag key is dropped by this rule, two grace period conditions must be met:
+ *
+ * 1. The metric must be submitted for at least as long as the selected window.
+ * 2. A tag key must have been submitted for at least 15 days.
+ *
+ * Any metric or tag key that does not meet these conditions are excluded from this
+ * indexing rule. The `exclude_not_*` fields require `exclude_tags_mode` to be set to `true`.
  */
 export class TagIndexingRuleDynamicTags {
+  /**
+   * Tags that have not been queried within this window are excluded from indexing. Maximum of `7776000` (90 days).
+   */
+  "excludeNotQueriedWindowSeconds"?: number;
+  /**
+   * Tags not used in any dashboards,  monitors, notebooks, or SLOs are excluded from indexing.
+   */
+  "excludeNotUsedInAssets"?: boolean;
   /**
    * Window in seconds for evaluating queried tags.
    */
@@ -27,6 +43,15 @@ export class TagIndexingRuleDynamicTags {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    excludeNotQueriedWindowSeconds: {
+      baseName: "exclude_not_queried_window_seconds",
+      type: "number",
+      format: "int64",
+    },
+    excludeNotUsedInAssets: {
+      baseName: "exclude_not_used_in_assets",
+      type: "boolean",
+    },
     queriedTagsWindowSeconds: {
       baseName: "queried_tags_window_seconds",
       type: "number",
