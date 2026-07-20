@@ -2780,6 +2780,9 @@ import { ManagedOrgsResponse } from "./ManagedOrgsResponse";
 import { MaxSessionDurationUpdateAttributes } from "./MaxSessionDurationUpdateAttributes";
 import { MaxSessionDurationUpdateData } from "./MaxSessionDurationUpdateData";
 import { MaxSessionDurationUpdateRequest } from "./MaxSessionDurationUpdateRequest";
+import { McpCrossAppAccessIssuerUrlUpdateAttributes } from "./McpCrossAppAccessIssuerUrlUpdateAttributes";
+import { McpCrossAppAccessIssuerUrlUpdateData } from "./McpCrossAppAccessIssuerUrlUpdateData";
+import { McpCrossAppAccessIssuerUrlUpdateRequest } from "./McpCrossAppAccessIssuerUrlUpdateRequest";
 import { McpScanRequest } from "./McpScanRequest";
 import { McpScanRequestData } from "./McpScanRequestData";
 import { McpScanRequestDataAttributes } from "./McpScanRequestDataAttributes";
@@ -6618,6 +6621,7 @@ const enumsMap: { [key: string]: any[] } = {
   MaintenanceWindowResourceType: ["maintenance_window"],
   ManagedOrgsType: ["managed_orgs"],
   MaxSessionDurationType: ["max_session_duration"],
+  McpCrossAppAccessIssuerUrlType: ["org_config"],
   McpScanRequestDataType: ["mcpscanrequest"],
   McpScanRequestResponseDataType: ["mcpscanrequestresponse"],
   MemberTeamType: ["member_teams"],
@@ -11558,6 +11562,11 @@ const typeMap: { [index: string]: any } = {
   MaxSessionDurationUpdateAttributes: MaxSessionDurationUpdateAttributes,
   MaxSessionDurationUpdateData: MaxSessionDurationUpdateData,
   MaxSessionDurationUpdateRequest: MaxSessionDurationUpdateRequest,
+  McpCrossAppAccessIssuerUrlUpdateAttributes:
+    McpCrossAppAccessIssuerUrlUpdateAttributes,
+  McpCrossAppAccessIssuerUrlUpdateData: McpCrossAppAccessIssuerUrlUpdateData,
+  McpCrossAppAccessIssuerUrlUpdateRequest:
+    McpCrossAppAccessIssuerUrlUpdateRequest,
   McpScanRequest: McpScanRequest,
   McpScanRequestData: McpScanRequestData,
   McpScanRequestDataAttributes: McpScanRequestDataAttributes,
