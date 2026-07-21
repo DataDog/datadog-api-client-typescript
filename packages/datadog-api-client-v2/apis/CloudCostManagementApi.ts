@@ -555,11 +555,6 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'deleteCustomForecast'");
-    if (!_config.unstableOperations["v2.deleteCustomForecast"]) {
-      throw new Error("Unstable operation 'deleteCustomForecast' is disabled");
-    }
-
     // verify required parameter 'budgetId' is not null or undefined
     if (budgetId === null || budgetId === undefined) {
       throw new RequiredError("budgetId", "deleteCustomForecast");
@@ -1934,11 +1929,6 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'getCustomForecast'");
-    if (!_config.unstableOperations["v2.getCustomForecast"]) {
-      throw new Error("Unstable operation 'getCustomForecast' is disabled");
-    }
 
     // verify required parameter 'budgetId' is not null or undefined
     if (budgetId === null || budgetId === undefined) {
@@ -3466,11 +3456,6 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'upsertCustomForecast'");
-    if (!_config.unstableOperations["v2.upsertCustomForecast"]) {
-      throw new Error("Unstable operation 'upsertCustomForecast' is disabled");
-    }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
