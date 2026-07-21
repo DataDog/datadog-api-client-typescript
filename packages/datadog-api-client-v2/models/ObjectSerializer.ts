@@ -5562,6 +5562,7 @@ const enumsMap: { [key: string]: any[] } = {
   ApplicationSecurityWafCustomRuleConditionInputAddress: [
     "server.db.statement",
     "server.io.fs.file",
+    "server.io.fs.file_write",
     "server.io.net.url",
     "server.sys.shell.cmd",
     "server.request.method",
@@ -5575,6 +5576,7 @@ const enumsMap: { [key: string]: any[] } = {
     "server.request.trailers",
     "server.request.body",
     "server.request.body.filenames",
+    "server.request.body.files_content",
     "server.response.status",
     "server.response.headers.no_cookies",
     "server.response.trailers",
