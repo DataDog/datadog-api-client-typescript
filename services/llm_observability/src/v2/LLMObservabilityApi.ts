@@ -39,6 +39,8 @@ import { LLMObsAnnotationQueuesResponse } from "./models/LLMObsAnnotationQueuesR
 import { LLMObsAnnotationQueueUpdateRequest } from "./models/LLMObsAnnotationQueueUpdateRequest";
 import { LLMObsAnnotationsRequest } from "./models/LLMObsAnnotationsRequest";
 import { LLMObsAnnotationsResponse } from "./models/LLMObsAnnotationsResponse";
+import { LLMObsCreatePromptRequest } from "./models/LLMObsCreatePromptRequest";
+import { LLMObsCreatePromptVersionRequest } from "./models/LLMObsCreatePromptVersionRequest";
 import { LLMObsCustomEvalConfigResponse } from "./models/LLMObsCustomEvalConfigResponse";
 import { LLMObsCustomEvalConfigUpdateRequest } from "./models/LLMObsCustomEvalConfigUpdateRequest";
 import { LLMObsDataDeletionRequest } from "./models/LLMObsDataDeletionRequest";
@@ -62,6 +64,7 @@ import { LLMObsDeleteAnnotationsRequest } from "./models/LLMObsDeleteAnnotations
 import { LLMObsDeleteAnnotationsResponse } from "./models/LLMObsDeleteAnnotationsResponse";
 import { LLMObsDeleteDatasetRecordsRequest } from "./models/LLMObsDeleteDatasetRecordsRequest";
 import { LLMObsDeleteDatasetsRequest } from "./models/LLMObsDeleteDatasetsRequest";
+import { LLMObsDeletedPromptResponse } from "./models/LLMObsDeletedPromptResponse";
 import { LLMObsDeleteExperimentsRequest } from "./models/LLMObsDeleteExperimentsRequest";
 import { LLMObsDeleteProjectsRequest } from "./models/LLMObsDeleteProjectsRequest";
 import { LLMObsExperimentationAnalyticsRequest } from "./models/LLMObsExperimentationAnalyticsRequest";
@@ -96,8 +99,15 @@ import { LLMObsProjectRequest } from "./models/LLMObsProjectRequest";
 import { LLMObsProjectResponse } from "./models/LLMObsProjectResponse";
 import { LLMObsProjectsResponse } from "./models/LLMObsProjectsResponse";
 import { LLMObsProjectUpdateRequest } from "./models/LLMObsProjectUpdateRequest";
+import { LLMObsPromptResponse } from "./models/LLMObsPromptResponse";
+import { LLMObsPromptSDKResponse } from "./models/LLMObsPromptSDKResponse";
+import { LLMObsPromptsResponse } from "./models/LLMObsPromptsResponse";
+import { LLMObsPromptVersionResponse } from "./models/LLMObsPromptVersionResponse";
+import { LLMObsPromptVersionsResponse } from "./models/LLMObsPromptVersionsResponse";
 import { LLMObsSearchSpansRequest } from "./models/LLMObsSearchSpansRequest";
 import { LLMObsSpansResponse } from "./models/LLMObsSpansResponse";
+import { LLMObsUpdatePromptRequest } from "./models/LLMObsUpdatePromptRequest";
+import { LLMObsUpdatePromptVersionRequest } from "./models/LLMObsUpdatePromptVersionRequest";
 import { version } from "../version";
 
 export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
@@ -866,6 +876,134 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async createLLMObsPrompt(
+    body: LLMObsCreatePromptRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["LLMObservabilityApi.v2.createLLMObsPrompt"]
+    ) {
+      throw new Error(
+        "Unstable operation 'createLLMObsPrompt' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.createLLMObsPrompt'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createLLMObsPrompt");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/llm-obs/v1/prompts";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.createLLMObsPrompt",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "LLMObsCreatePromptRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createLLMObsPromptVersion(
+    promptId: string,
+    body: LLMObsCreatePromptVersionRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.createLLMObsPromptVersion"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createLLMObsPromptVersion' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.createLLMObsPromptVersion'] = true`",
+      );
+    }
+
+    // verify required parameter 'promptId' is not null or undefined
+    if (promptId === null || promptId === undefined) {
+      throw new RequiredError("promptId", "createLLMObsPromptVersion");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createLLMObsPromptVersion");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/llm-obs/v1/prompts/{prompt_id}/versions".replace(
+        "{prompt_id}",
+        encodeURIComponent(String(promptId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.createLLMObsPromptVersion",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "LLMObsCreatePromptVersionRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteLLMObsAnnotationQueue(
     queueId: string,
     _options?: Configuration,
@@ -1501,6 +1639,58 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deleteLLMObsPrompt(
+    promptId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["LLMObservabilityApi.v2.deleteLLMObsPrompt"]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteLLMObsPrompt' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.deleteLLMObsPrompt'] = true`",
+      );
+    }
+
+    // verify required parameter 'promptId' is not null or undefined
+    if (promptId === null || promptId === undefined) {
+      throw new RequiredError("promptId", "deleteLLMObsPrompt");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/llm-obs/v1/prompts/{prompt_id}".replace(
+      "{prompt_id}",
+      encodeURIComponent(String(promptId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.deleteLLMObsPrompt",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async exportLLMObsDataset(
     projectId: string,
     datasetId: string,
@@ -1975,6 +2165,126 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
         serialize(configId, TypingInfo, "string", ""),
         "",
       );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getLLMObsPrompt(
+    promptId: string,
+    label?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.getLLMObsPrompt"]) {
+      throw new Error(
+        "Unstable operation 'getLLMObsPrompt' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.getLLMObsPrompt'] = true`",
+      );
+    }
+
+    // verify required parameter 'promptId' is not null or undefined
+    if (promptId === null || promptId === undefined) {
+      throw new RequiredError("promptId", "getLLMObsPrompt");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/llm-obs/v1/prompts/{prompt_id}".replace(
+      "{prompt_id}",
+      encodeURIComponent(String(promptId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.getLLMObsPrompt",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (label !== undefined) {
+      requestContext.setQueryParam(
+        "label",
+        serialize(label, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getLLMObsPromptVersion(
+    promptId: string,
+    version: number,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.getLLMObsPromptVersion"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getLLMObsPromptVersion' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.getLLMObsPromptVersion'] = true`",
+      );
+    }
+
+    // verify required parameter 'promptId' is not null or undefined
+    if (promptId === null || promptId === undefined) {
+      throw new RequiredError("promptId", "getLLMObsPromptVersion");
+    }
+
+    // verify required parameter 'version' is not null or undefined
+    if (version === null || version === undefined) {
+      throw new RequiredError("version", "getLLMObsPromptVersion");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/llm-obs/v1/prompts/{prompt_id}/versions/{version}"
+        .replace("{prompt_id}", encodeURIComponent(String(promptId)))
+        .replace("{version}", encodeURIComponent(String(version)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.getLLMObsPromptVersion",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
     // Apply auth methods
@@ -3128,6 +3438,114 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listLLMObsPrompts(
+    filterPromptId?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["LLMObservabilityApi.v2.listLLMObsPrompts"]
+    ) {
+      throw new Error(
+        "Unstable operation 'listLLMObsPrompts' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsPrompts'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/llm-obs/v1/prompts";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.listLLMObsPrompts",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (filterPromptId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[prompt_id]",
+        serialize(filterPromptId, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listLLMObsPromptVersions(
+    promptId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.listLLMObsPromptVersions"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listLLMObsPromptVersions' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsPromptVersions'] = true`",
+      );
+    }
+
+    // verify required parameter 'promptId' is not null or undefined
+    if (promptId === null || promptId === undefined) {
+      throw new RequiredError("promptId", "listLLMObsPromptVersions");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/llm-obs/v1/prompts/{prompt_id}/versions".replace(
+        "{prompt_id}",
+        encodeURIComponent(String(promptId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.listLLMObsPromptVersions",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listLLMObsSpans(
     filterFrom?: string,
     filterTo?: string,
@@ -4194,6 +4612,148 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsProjectUpdateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateLLMObsPrompt(
+    promptId: string,
+    body: LLMObsUpdatePromptRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["LLMObservabilityApi.v2.updateLLMObsPrompt"]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateLLMObsPrompt' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.updateLLMObsPrompt'] = true`",
+      );
+    }
+
+    // verify required parameter 'promptId' is not null or undefined
+    if (promptId === null || promptId === undefined) {
+      throw new RequiredError("promptId", "updateLLMObsPrompt");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateLLMObsPrompt");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/llm-obs/v1/prompts/{prompt_id}".replace(
+      "{prompt_id}",
+      encodeURIComponent(String(promptId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.updateLLMObsPrompt",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "LLMObsUpdatePromptRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateLLMObsPromptVersion(
+    promptId: string,
+    version: number,
+    body: LLMObsUpdatePromptVersionRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.updateLLMObsPromptVersion"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateLLMObsPromptVersion' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.updateLLMObsPromptVersion'] = true`",
+      );
+    }
+
+    // verify required parameter 'promptId' is not null or undefined
+    if (promptId === null || promptId === undefined) {
+      throw new RequiredError("promptId", "updateLLMObsPromptVersion");
+    }
+
+    // verify required parameter 'version' is not null or undefined
+    if (version === null || version === undefined) {
+      throw new RequiredError("version", "updateLLMObsPromptVersion");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateLLMObsPromptVersion");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/llm-obs/v1/prompts/{prompt_id}/versions/{version}"
+        .replace("{prompt_id}", encodeURIComponent(String(promptId)))
+        .replace("{version}", encodeURIComponent(String(version)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.updateLLMObsPromptVersion",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "LLMObsUpdatePromptVersionRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -5337,6 +5897,170 @@ export class LLMObservabilityApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createLLMObsPrompt
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createLLMObsPrompt(
+    response: ResponseContext,
+  ): Promise<LLMObsPromptResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsPromptResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPromptResponse",
+      ) as LLMObsPromptResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsPromptResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPromptResponse",
+        "",
+      ) as LLMObsPromptResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createLLMObsPromptVersion
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createLLMObsPromptVersion(
+    response: ResponseContext,
+  ): Promise<LLMObsPromptVersionResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsPromptVersionResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPromptVersionResponse",
+      ) as LLMObsPromptVersionResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsPromptVersionResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPromptVersionResponse",
+        "",
+      ) as LLMObsPromptVersionResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteLLMObsAnnotationQueue
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -6062,6 +6786,87 @@ export class LLMObservabilityApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deleteLLMObsPrompt
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteLLMObsPrompt(
+    response: ResponseContext,
+  ): Promise<LLMObsDeletedPromptResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsDeletedPromptResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsDeletedPromptResponse",
+      ) as LLMObsDeletedPromptResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsDeletedPromptResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsDeletedPromptResponse",
+        "",
+      ) as LLMObsDeletedPromptResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to exportLLMObsDataset
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -6706,6 +7511,169 @@ export class LLMObservabilityApiResponseProcessor {
         "LLMObsPatternsRunStatusResponse",
         "",
       ) as LLMObsPatternsRunStatusResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getLLMObsPrompt
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getLLMObsPrompt(
+    response: ResponseContext,
+  ): Promise<LLMObsPromptSDKResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsPromptSDKResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPromptSDKResponse",
+      ) as LLMObsPromptSDKResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsPromptSDKResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPromptSDKResponse",
+        "",
+      ) as LLMObsPromptSDKResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getLLMObsPromptVersion
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getLLMObsPromptVersion(
+    response: ResponseContext,
+  ): Promise<LLMObsPromptVersionResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsPromptVersionResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPromptVersionResponse",
+      ) as LLMObsPromptVersionResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsPromptVersionResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPromptVersionResponse",
+        "",
+      ) as LLMObsPromptVersionResponse;
       return body;
     }
 
@@ -8035,6 +9003,160 @@ export class LLMObservabilityApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listLLMObsPrompts
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listLLMObsPrompts(
+    response: ResponseContext,
+  ): Promise<LLMObsPromptsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsPromptsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPromptsResponse",
+      ) as LLMObsPromptsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 401 || response.httpStatusCode === 403) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsPromptsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPromptsResponse",
+        "",
+      ) as LLMObsPromptsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listLLMObsPromptVersions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listLLMObsPromptVersions(
+    response: ResponseContext,
+  ): Promise<LLMObsPromptVersionsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsPromptVersionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPromptVersionsResponse",
+      ) as LLMObsPromptVersionsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 401 || response.httpStatusCode === 403) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsPromptVersionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPromptVersionsResponse",
+        "",
+      ) as LLMObsPromptVersionsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listLLMObsSpans
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -9236,6 +10358,170 @@ export class LLMObservabilityApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateLLMObsPrompt
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateLLMObsPrompt(
+    response: ResponseContext,
+  ): Promise<LLMObsPromptResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsPromptResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPromptResponse",
+      ) as LLMObsPromptResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsPromptResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPromptResponse",
+        "",
+      ) as LLMObsPromptResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateLLMObsPromptVersion
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateLLMObsPromptVersion(
+    response: ResponseContext,
+  ): Promise<LLMObsPromptVersionResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsPromptVersionResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPromptVersionResponse",
+      ) as LLMObsPromptVersionResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsPromptVersionResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPromptVersionResponse",
+        "",
+      ) as LLMObsPromptVersionResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to uploadLLMObsDatasetRecordsFile
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -9613,6 +10899,27 @@ export interface LLMObservabilityApiCreateLLMObsProjectRequest {
   body: LLMObsProjectRequest;
 }
 
+export interface LLMObservabilityApiCreateLLMObsPromptRequest {
+  /**
+   * Create prompt payload.
+   * @type LLMObsCreatePromptRequest
+   */
+  body: LLMObsCreatePromptRequest;
+}
+
+export interface LLMObservabilityApiCreateLLMObsPromptVersionRequest {
+  /**
+   * The customer-provided identifier of the LLM Observability prompt.
+   * @type string
+   */
+  promptId: string;
+  /**
+   * Create prompt version payload.
+   * @type LLMObsCreatePromptVersionRequest
+   */
+  body: LLMObsCreatePromptVersionRequest;
+}
+
 export interface LLMObservabilityApiDeleteLLMObsAnnotationQueueRequest {
   /**
    * The ID of the LLM Observability annotation queue.
@@ -9718,6 +11025,14 @@ export interface LLMObservabilityApiDeleteLLMObsProjectsRequest {
   body: LLMObsDeleteProjectsRequest;
 }
 
+export interface LLMObservabilityApiDeleteLLMObsPromptRequest {
+  /**
+   * The customer-provided identifier of the LLM Observability prompt.
+   * @type string
+   */
+  promptId: string;
+}
+
 export interface LLMObservabilityApiExportLLMObsDatasetRequest {
   /**
    * The ID of the LLM Observability project.
@@ -9802,6 +11117,32 @@ export interface LLMObservabilityApiGetLLMObsPatternsRunStatusRequest {
    * @type string
    */
   configId: string;
+}
+
+export interface LLMObservabilityApiGetLLMObsPromptRequest {
+  /**
+   * The customer-provided identifier of the LLM Observability prompt.
+   * @type string
+   */
+  promptId: string;
+  /**
+   * **Deprecated.** Optional label of the prompt version to return. Do not use this parameter for new integrations. If omitted, the latest version is returned. If the prompt has no labels, the latest version is returned even when a label is requested. If the prompt has labels but none match the requested label, a 404 response is returned.
+   * @type string
+   */
+  label?: string;
+}
+
+export interface LLMObservabilityApiGetLLMObsPromptVersionRequest {
+  /**
+   * The customer-provided identifier of the LLM Observability prompt.
+   * @type string
+   */
+  promptId: string;
+  /**
+   * The version number of the LLM Observability prompt.
+   * @type number
+   */
+  version: number;
 }
 
 export interface LLMObservabilityApiListLLMObsAnnotationQueuesRequest {
@@ -10088,6 +11429,22 @@ export interface LLMObservabilityApiListLLMObsProjectsRequest {
   pageLimit?: number;
 }
 
+export interface LLMObservabilityApiListLLMObsPromptsRequest {
+  /**
+   * Optional filter for prompts by prompt ID.
+   * @type string
+   */
+  filterPromptId?: string;
+}
+
+export interface LLMObservabilityApiListLLMObsPromptVersionsRequest {
+  /**
+   * The customer-provided identifier of the LLM Observability prompt.
+   * @type string
+   */
+  promptId: string;
+}
+
 export interface LLMObservabilityApiListLLMObsSpansRequest {
   /**
    * Start of the time range. Accepts ISO 8601 or relative format (e.g., `now-15m`). Defaults to `now-15m`.
@@ -10326,6 +11683,37 @@ export interface LLMObservabilityApiUpdateLLMObsProjectRequest {
    * @type LLMObsProjectUpdateRequest
    */
   body: LLMObsProjectUpdateRequest;
+}
+
+export interface LLMObservabilityApiUpdateLLMObsPromptRequest {
+  /**
+   * The customer-provided identifier of the LLM Observability prompt.
+   * @type string
+   */
+  promptId: string;
+  /**
+   * Update prompt payload.
+   * @type LLMObsUpdatePromptRequest
+   */
+  body: LLMObsUpdatePromptRequest;
+}
+
+export interface LLMObservabilityApiUpdateLLMObsPromptVersionRequest {
+  /**
+   * The customer-provided identifier of the LLM Observability prompt.
+   * @type string
+   */
+  promptId: string;
+  /**
+   * The version number of the LLM Observability prompt.
+   * @type number
+   */
+  version: number;
+  /**
+   * Update prompt version payload.
+   * @type LLMObsUpdatePromptVersionRequest
+   */
+  body: LLMObsUpdatePromptVersionRequest;
 }
 
 export interface LLMObservabilityApiUploadLLMObsDatasetRecordsFileRequest {
@@ -10679,6 +12067,51 @@ export class LLMObservabilityApi {
   }
 
   /**
+   * Create a new prompt (and its first version) in the LLM Observability prompt registry.
+   * @param param The request object
+   */
+  public createLLMObsPrompt(
+    param: LLMObservabilityApiCreateLLMObsPromptRequest,
+    options?: Configuration,
+  ): Promise<LLMObsPromptResponse> {
+    const requestContextPromise = this.requestFactory.createLLMObsPrompt(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createLLMObsPrompt(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Create a new version of an existing LLM Observability prompt.
+   * @param param The request object
+   */
+  public createLLMObsPromptVersion(
+    param: LLMObservabilityApiCreateLLMObsPromptVersionRequest,
+    options?: Configuration,
+  ): Promise<LLMObsPromptVersionResponse> {
+    const requestContextPromise = this.requestFactory.createLLMObsPromptVersion(
+      param.promptId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createLLMObsPromptVersion(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Delete an annotation queue by its ID.
    * @param param The request object
    */
@@ -10904,6 +12337,27 @@ export class LLMObservabilityApi {
   }
 
   /**
+   * Soft-delete an LLM Observability prompt. The prompt's version rows are retained, but they are no longer accessible through the public prompt registry endpoints.
+   * @param param The request object
+   */
+  public deleteLLMObsPrompt(
+    param: LLMObservabilityApiDeleteLLMObsPromptRequest,
+    options?: Configuration,
+  ): Promise<LLMObsDeletedPromptResponse> {
+    const requestContextPromise = this.requestFactory.deleteLLMObsPrompt(
+      param.promptId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteLLMObsPrompt(responseContext);
+        });
+    });
+  }
+
+  /**
    * Download the contents of a dataset as a CSV file. The download is streamed and includes one row per dataset record.
    * @param param The request object
    */
@@ -11088,6 +12542,50 @@ export class LLMObservabilityApi {
           return this.responseProcessor.getLLMObsPatternsRunStatus(
             responseContext,
           );
+        });
+    });
+  }
+
+  /**
+   * Get the latest version of an LLM Observability prompt by prompt ID.
+   * @param param The request object
+   */
+  public getLLMObsPrompt(
+    param: LLMObservabilityApiGetLLMObsPromptRequest,
+    options?: Configuration,
+  ): Promise<LLMObsPromptSDKResponse> {
+    const requestContextPromise = this.requestFactory.getLLMObsPrompt(
+      param.promptId,
+      param.label,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getLLMObsPrompt(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get the full template of a single, specific version of an LLM Observability prompt.
+   * @param param The request object
+   */
+  public getLLMObsPromptVersion(
+    param: LLMObservabilityApiGetLLMObsPromptVersionRequest,
+    options?: Configuration,
+  ): Promise<LLMObsPromptVersionResponse> {
+    const requestContextPromise = this.requestFactory.getLLMObsPromptVersion(
+      param.promptId,
+      param.version,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getLLMObsPromptVersion(responseContext);
         });
     });
   }
@@ -11495,6 +12993,50 @@ export class LLMObservabilityApi {
   }
 
   /**
+   * List all LLM Observability prompts in the prompt registry for the organization.
+   * @param param The request object
+   */
+  public listLLMObsPrompts(
+    param: LLMObservabilityApiListLLMObsPromptsRequest = {},
+    options?: Configuration,
+  ): Promise<LLMObsPromptsResponse> {
+    const requestContextPromise = this.requestFactory.listLLMObsPrompts(
+      param.filterPromptId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listLLMObsPrompts(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List all versions of an LLM Observability prompt, ordered newest to oldest. If the prompt does not exist, is not registered, or is archived, the response contains an empty list.
+   * @param param The request object
+   */
+  public listLLMObsPromptVersions(
+    param: LLMObservabilityApiListLLMObsPromptVersionsRequest,
+    options?: Configuration,
+  ): Promise<LLMObsPromptVersionsResponse> {
+    const requestContextPromise = this.requestFactory.listLLMObsPromptVersions(
+      param.promptId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listLLMObsPromptVersions(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * List LLM Observability spans matching the specified filters.
    * @param param The request object
    */
@@ -11863,6 +13405,53 @@ export class LLMObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateLLMObsProject(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update the title, the description, or both, for an LLM Observability prompt.
+   * @param param The request object
+   */
+  public updateLLMObsPrompt(
+    param: LLMObservabilityApiUpdateLLMObsPromptRequest,
+    options?: Configuration,
+  ): Promise<LLMObsPromptResponse> {
+    const requestContextPromise = this.requestFactory.updateLLMObsPrompt(
+      param.promptId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateLLMObsPrompt(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update the description, the feature-flag environments, or both, for a specific version of an LLM Observability prompt.
+   * @param param The request object
+   */
+  public updateLLMObsPromptVersion(
+    param: LLMObservabilityApiUpdateLLMObsPromptVersionRequest,
+    options?: Configuration,
+  ): Promise<LLMObsPromptVersionResponse> {
+    const requestContextPromise = this.requestFactory.updateLLMObsPromptVersion(
+      param.promptId,
+      param.version,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateLLMObsPromptVersion(
+            responseContext,
+          );
         });
     });
   }

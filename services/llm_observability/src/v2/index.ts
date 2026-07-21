@@ -10,6 +10,8 @@ export {
   LLMObservabilityApiCreateLLMObsExperimentEventsRequest,
   LLMObservabilityApiCreateLLMObsIntegrationInferenceRequest,
   LLMObservabilityApiCreateLLMObsProjectRequest,
+  LLMObservabilityApiCreateLLMObsPromptRequest,
+  LLMObservabilityApiCreateLLMObsPromptVersionRequest,
   LLMObservabilityApiDeleteLLMObsAnnotationQueueRequest,
   LLMObservabilityApiDeleteLLMObsAnnotationQueueInteractionsRequest,
   LLMObservabilityApiDeleteLLMObsAnnotationsRequest,
@@ -20,6 +22,7 @@ export {
   LLMObservabilityApiDeleteLLMObsExperimentsRequest,
   LLMObservabilityApiDeleteLLMObsPatternsConfigRequest,
   LLMObservabilityApiDeleteLLMObsProjectsRequest,
+  LLMObservabilityApiDeleteLLMObsPromptRequest,
   LLMObservabilityApiExportLLMObsDatasetRequest,
   LLMObservabilityApiGetLLMObsAnnotatedInteractionsRequest,
   LLMObservabilityApiGetLLMObsAnnotatedInteractionsByTraceIDsRequest,
@@ -27,6 +30,8 @@ export {
   LLMObservabilityApiGetLLMObsCustomEvalConfigRequest,
   LLMObservabilityApiGetLLMObsDatasetDraftStateRequest,
   LLMObservabilityApiGetLLMObsPatternsRunStatusRequest,
+  LLMObservabilityApiGetLLMObsPromptRequest,
+  LLMObservabilityApiGetLLMObsPromptVersionRequest,
   LLMObservabilityApiListLLMObsAnnotationQueuesRequest,
   LLMObservabilityApiListLLMObsDatasetRecordsRequest,
   LLMObservabilityApiListLLMObsDatasetVersionsRequest,
@@ -42,6 +47,8 @@ export {
   LLMObservabilityApiListLLMObsPatternsTopicsRequest,
   LLMObservabilityApiListLLMObsPatternsTopicsWithClusteredPointsRequest,
   LLMObservabilityApiListLLMObsProjectsRequest,
+  LLMObservabilityApiListLLMObsPromptVersionsRequest,
+  LLMObservabilityApiListLLMObsPromptsRequest,
   LLMObservabilityApiListLLMObsSpansRequest,
   LLMObservabilityApiLockLLMObsDatasetDraftStateRequest,
   LLMObservabilityApiRestoreLLMObsDatasetVersionRequest,
@@ -57,6 +64,8 @@ export {
   LLMObservabilityApiUpdateLLMObsDatasetRecordsRequest,
   LLMObservabilityApiUpdateLLMObsExperimentRequest,
   LLMObservabilityApiUpdateLLMObsProjectRequest,
+  LLMObservabilityApiUpdateLLMObsPromptRequest,
+  LLMObservabilityApiUpdateLLMObsPromptVersionRequest,
   LLMObservabilityApiUploadLLMObsDatasetRecordsFileRequest,
   LLMObservabilityApiUpsertLLMObsAnnotationsRequest,
   LLMObservabilityApiUpsertLLMObsPatternsConfigRequest,
@@ -132,6 +141,12 @@ export { LLMObsContentBlockHeaderLevel } from "./models/LLMObsContentBlockHeader
 export { LLMObsContentBlockLLMObsTraceInteractionType } from "./models/LLMObsContentBlockLLMObsTraceInteractionType";
 export { LLMObsContentBlockTimeFrame } from "./models/LLMObsContentBlockTimeFrame";
 export { LLMObsContentBlockType } from "./models/LLMObsContentBlockType";
+export { LLMObsCreatePromptData } from "./models/LLMObsCreatePromptData";
+export { LLMObsCreatePromptDataAttributes } from "./models/LLMObsCreatePromptDataAttributes";
+export { LLMObsCreatePromptRequest } from "./models/LLMObsCreatePromptRequest";
+export { LLMObsCreatePromptVersionData } from "./models/LLMObsCreatePromptVersionData";
+export { LLMObsCreatePromptVersionDataAttributes } from "./models/LLMObsCreatePromptVersionDataAttributes";
+export { LLMObsCreatePromptVersionRequest } from "./models/LLMObsCreatePromptVersionRequest";
 export { LLMObsCursorMeta } from "./models/LLMObsCursorMeta";
 export { LLMObsCustomEvalConfigAssessmentCriteria } from "./models/LLMObsCustomEvalConfigAssessmentCriteria";
 export { LLMObsCustomEvalConfigAttributes } from "./models/LLMObsCustomEvalConfigAttributes";
@@ -225,6 +240,9 @@ export { LLMObsDeleteDatasetRecordsRequest } from "./models/LLMObsDeleteDatasetR
 export { LLMObsDeleteDatasetsDataAttributesRequest } from "./models/LLMObsDeleteDatasetsDataAttributesRequest";
 export { LLMObsDeleteDatasetsDataRequest } from "./models/LLMObsDeleteDatasetsDataRequest";
 export { LLMObsDeleteDatasetsRequest } from "./models/LLMObsDeleteDatasetsRequest";
+export { LLMObsDeletedPromptData } from "./models/LLMObsDeletedPromptData";
+export { LLMObsDeletedPromptDataAttributes } from "./models/LLMObsDeletedPromptDataAttributes";
+export { LLMObsDeletedPromptResponse } from "./models/LLMObsDeletedPromptResponse";
 export { LLMObsDeleteExperimentsDataAttributesRequest } from "./models/LLMObsDeleteExperimentsDataAttributesRequest";
 export { LLMObsDeleteExperimentsDataRequest } from "./models/LLMObsDeleteExperimentsDataRequest";
 export { LLMObsDeleteExperimentsRequest } from "./models/LLMObsDeleteExperimentsRequest";
@@ -383,6 +401,26 @@ export { LLMObsProjectType } from "./models/LLMObsProjectType";
 export { LLMObsProjectUpdateDataAttributesRequest } from "./models/LLMObsProjectUpdateDataAttributesRequest";
 export { LLMObsProjectUpdateDataRequest } from "./models/LLMObsProjectUpdateDataRequest";
 export { LLMObsProjectUpdateRequest } from "./models/LLMObsProjectUpdateRequest";
+export { LLMObsPromptChatMessage } from "./models/LLMObsPromptChatMessage";
+export { LLMObsPromptData } from "./models/LLMObsPromptData";
+export { LLMObsPromptDataAttributes } from "./models/LLMObsPromptDataAttributes";
+export { LLMObsPromptDataset } from "./models/LLMObsPromptDataset";
+export { LLMObsPromptResponse } from "./models/LLMObsPromptResponse";
+export { LLMObsPromptResponseSource } from "./models/LLMObsPromptResponseSource";
+export { LLMObsPromptSDKData } from "./models/LLMObsPromptSDKData";
+export { LLMObsPromptSDKDataAttributes } from "./models/LLMObsPromptSDKDataAttributes";
+export { LLMObsPromptSDKResponse } from "./models/LLMObsPromptSDKResponse";
+export { LLMObsPromptsResponse } from "./models/LLMObsPromptsResponse";
+export { LLMObsPromptTemplate } from "./models/LLMObsPromptTemplate";
+export { LLMObsPromptType } from "./models/LLMObsPromptType";
+export { LLMObsPromptVersionData } from "./models/LLMObsPromptVersionData";
+export { LLMObsPromptVersionDataAttributes } from "./models/LLMObsPromptVersionDataAttributes";
+export { LLMObsPromptVersionLabel } from "./models/LLMObsPromptVersionLabel";
+export { LLMObsPromptVersionListData } from "./models/LLMObsPromptVersionListData";
+export { LLMObsPromptVersionListDataAttributes } from "./models/LLMObsPromptVersionListDataAttributes";
+export { LLMObsPromptVersionResponse } from "./models/LLMObsPromptVersionResponse";
+export { LLMObsPromptVersionsResponse } from "./models/LLMObsPromptVersionsResponse";
+export { LLMObsPromptVersionType } from "./models/LLMObsPromptVersionType";
 export { LLMObsRecordType } from "./models/LLMObsRecordType";
 export { LLMObsSearchSpansRequest } from "./models/LLMObsSearchSpansRequest";
 export { LLMObsSearchSpansRequestAttributes } from "./models/LLMObsSearchSpansRequestAttributes";
@@ -408,5 +446,11 @@ export { LLMObsTraceAnnotatedInteractionItem } from "./models/LLMObsTraceAnnotat
 export { LLMObsTraceInteractionItem } from "./models/LLMObsTraceInteractionItem";
 export { LLMObsTraceInteractionResponseItem } from "./models/LLMObsTraceInteractionResponseItem";
 export { LLMObsTraceInteractionType } from "./models/LLMObsTraceInteractionType";
+export { LLMObsUpdatePromptData } from "./models/LLMObsUpdatePromptData";
+export { LLMObsUpdatePromptDataAttributes } from "./models/LLMObsUpdatePromptDataAttributes";
+export { LLMObsUpdatePromptRequest } from "./models/LLMObsUpdatePromptRequest";
+export { LLMObsUpdatePromptVersionData } from "./models/LLMObsUpdatePromptVersionData";
+export { LLMObsUpdatePromptVersionDataAttributes } from "./models/LLMObsUpdatePromptVersionDataAttributes";
+export { LLMObsUpdatePromptVersionRequest } from "./models/LLMObsUpdatePromptVersionRequest";
 export { LLMObsUpsertAnnotationItem } from "./models/LLMObsUpsertAnnotationItem";
 export { LLMObsVertexAIMetadata } from "./models/LLMObsVertexAIMetadata";
