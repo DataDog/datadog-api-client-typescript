@@ -1,0 +1,16 @@
+/**
+ * Unless explicitly stated otherwise all files in this repository are licensed under the Apache-2.0 License.
+ * This product includes software developed at Datadog (https://www.datadoghq.com/).
+ * Copyright 2020-Present Datadog, Inc.
+ */
+
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Resource type of an LLM Observability prompt version.
+ */
+
+export type LLMObsPromptVersionType =
+  | typeof PROMPT_TEMPLATE_VERSIONS
+  | UnparsedObject;
+export const PROMPT_TEMPLATE_VERSIONS = "prompt-template-versions";
