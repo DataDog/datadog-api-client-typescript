@@ -25,6 +25,7 @@ import { GlobalOrgsResponse } from "../models/GlobalOrgsResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { ManagedOrgsResponse } from "../models/ManagedOrgsResponse";
 import { MaxSessionDurationUpdateRequest } from "../models/MaxSessionDurationUpdateRequest";
+import { McpCrossAppAccessIssuerUrlUpdateRequest } from "../models/McpCrossAppAccessIssuerUrlUpdateRequest";
 import { OrgConfigGetResponse } from "../models/OrgConfigGetResponse";
 import { OrgConfigListResponse } from "../models/OrgConfigListResponse";
 import { OrgConfigWriteRequest } from "../models/OrgConfigWriteRequest";
@@ -271,6 +272,71 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "MaxSessionDurationUpdateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateLoginOrgConfigsMcpCrossAppAccessIssuerUrl(
+    body: McpCrossAppAccessIssuerUrlUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'updateLoginOrgConfigsMcpCrossAppAccessIssuerUrl'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.updateLoginOrgConfigsMcpCrossAppAccessIssuerUrl"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateLoginOrgConfigsMcpCrossAppAccessIssuerUrl' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "updateLoginOrgConfigsMcpCrossAppAccessIssuerUrl"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/login/org_configs/mcp_cross_app_access_issuer_url";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.OrganizationsApi.updateLoginOrgConfigsMcpCrossAppAccessIssuerUrl"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "McpCrossAppAccessIssuerUrlUpdateRequest",
+        ""
+      ),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -899,6 +965,60 @@ export class OrganizationsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateLoginOrgConfigsMcpCrossAppAccessIssuerUrl
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateLoginOrgConfigsMcpCrossAppAccessIssuerUrl(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateOrgConfig
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1201,6 +1321,13 @@ export interface OrganizationsApiUpdateLoginOrgConfigsMaxSessionDurationRequest 
   body: MaxSessionDurationUpdateRequest;
 }
 
+export interface OrganizationsApiUpdateLoginOrgConfigsMcpCrossAppAccessIssuerUrlRequest {
+  /**
+   * @type McpCrossAppAccessIssuerUrlUpdateRequest
+   */
+  body: McpCrossAppAccessIssuerUrlUpdateRequest;
+}
+
 export interface OrganizationsApiUpdateOrgConfigRequest {
   /**
    * The name of an Org Config.
@@ -1451,6 +1578,34 @@ export class OrganizationsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateLoginOrgConfigsMaxSessionDuration(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Update the Okta OIDC issuer URL used for MCP Cross-App Access (XAA)
+   * for the current organization. The URL must be a bare Okta issuer such
+   * as `https://your-subdomain.okta.com` (no path, port, query, or fragment).
+   * Provide an empty string to unset the issuer URL and opt the organization
+   * out of MCP Cross-App Access.
+   * @param param The request object
+   */
+  public updateLoginOrgConfigsMcpCrossAppAccessIssuerUrl(
+    param: OrganizationsApiUpdateLoginOrgConfigsMcpCrossAppAccessIssuerUrlRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.updateLoginOrgConfigsMcpCrossAppAccessIssuerUrl(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateLoginOrgConfigsMcpCrossAppAccessIssuerUrl(
             responseContext
           );
         });

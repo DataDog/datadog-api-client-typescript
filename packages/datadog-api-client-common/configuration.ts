@@ -536,6 +536,7 @@ export function createConfiguration(
       "v2.updateForm": false,
       "v2.upsertAndPublishFormVersion": false,
       "v2.upsertFormVersion": false,
+      "v2.updateLoginOrgConfigsMcpCrossAppAccessIssuerUrl": false,
       "v2.updateOrgSamlConfigurations": false,
       "v2.getGovernanceControl": false,
       "v2.listGovernanceControls": false,
