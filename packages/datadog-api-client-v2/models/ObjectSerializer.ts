@@ -2362,6 +2362,12 @@ import { LLMObsAzureOpenAIMetadata } from "./LLMObsAzureOpenAIMetadata";
 import { LLMObsBedrockMetadata } from "./LLMObsBedrockMetadata";
 import { LLMObsContentBlock } from "./LLMObsContentBlock";
 import { LLMObsContentBlockTimeFrame } from "./LLMObsContentBlockTimeFrame";
+import { LLMObsCreatePromptData } from "./LLMObsCreatePromptData";
+import { LLMObsCreatePromptDataAttributes } from "./LLMObsCreatePromptDataAttributes";
+import { LLMObsCreatePromptRequest } from "./LLMObsCreatePromptRequest";
+import { LLMObsCreatePromptVersionData } from "./LLMObsCreatePromptVersionData";
+import { LLMObsCreatePromptVersionDataAttributes } from "./LLMObsCreatePromptVersionDataAttributes";
+import { LLMObsCreatePromptVersionRequest } from "./LLMObsCreatePromptVersionRequest";
 import { LLMObsCursorMeta } from "./LLMObsCursorMeta";
 import { LLMObsCustomEvalConfigAssessmentCriteria } from "./LLMObsCustomEvalConfigAssessmentCriteria";
 import { LLMObsCustomEvalConfigAttributes } from "./LLMObsCustomEvalConfigAttributes";
@@ -2451,6 +2457,9 @@ import { LLMObsDeleteExperimentsRequest } from "./LLMObsDeleteExperimentsRequest
 import { LLMObsDeleteProjectsDataAttributesRequest } from "./LLMObsDeleteProjectsDataAttributesRequest";
 import { LLMObsDeleteProjectsDataRequest } from "./LLMObsDeleteProjectsDataRequest";
 import { LLMObsDeleteProjectsRequest } from "./LLMObsDeleteProjectsRequest";
+import { LLMObsDeletedPromptData } from "./LLMObsDeletedPromptData";
+import { LLMObsDeletedPromptDataAttributes } from "./LLMObsDeletedPromptDataAttributes";
+import { LLMObsDeletedPromptResponse } from "./LLMObsDeletedPromptResponse";
 import { LLMObsDisplayBlockAnnotatedInteractionItem } from "./LLMObsDisplayBlockAnnotatedInteractionItem";
 import { LLMObsDisplayBlockInteractionItem } from "./LLMObsDisplayBlockInteractionItem";
 import { LLMObsDisplayBlockInteractionResponseItem } from "./LLMObsDisplayBlockInteractionResponseItem";
@@ -2578,6 +2587,21 @@ import { LLMObsProjectUpdateDataAttributesRequest } from "./LLMObsProjectUpdateD
 import { LLMObsProjectUpdateDataRequest } from "./LLMObsProjectUpdateDataRequest";
 import { LLMObsProjectUpdateRequest } from "./LLMObsProjectUpdateRequest";
 import { LLMObsProjectsResponse } from "./LLMObsProjectsResponse";
+import { LLMObsPromptChatMessage } from "./LLMObsPromptChatMessage";
+import { LLMObsPromptData } from "./LLMObsPromptData";
+import { LLMObsPromptDataAttributes } from "./LLMObsPromptDataAttributes";
+import { LLMObsPromptDataset } from "./LLMObsPromptDataset";
+import { LLMObsPromptResponse } from "./LLMObsPromptResponse";
+import { LLMObsPromptSDKData } from "./LLMObsPromptSDKData";
+import { LLMObsPromptSDKDataAttributes } from "./LLMObsPromptSDKDataAttributes";
+import { LLMObsPromptSDKResponse } from "./LLMObsPromptSDKResponse";
+import { LLMObsPromptVersionData } from "./LLMObsPromptVersionData";
+import { LLMObsPromptVersionDataAttributes } from "./LLMObsPromptVersionDataAttributes";
+import { LLMObsPromptVersionListData } from "./LLMObsPromptVersionListData";
+import { LLMObsPromptVersionListDataAttributes } from "./LLMObsPromptVersionListDataAttributes";
+import { LLMObsPromptVersionResponse } from "./LLMObsPromptVersionResponse";
+import { LLMObsPromptVersionsResponse } from "./LLMObsPromptVersionsResponse";
+import { LLMObsPromptsResponse } from "./LLMObsPromptsResponse";
 import { LLMObsSearchSpansRequest } from "./LLMObsSearchSpansRequest";
 import { LLMObsSearchSpansRequestAttributes } from "./LLMObsSearchSpansRequestAttributes";
 import { LLMObsSearchSpansRequestData } from "./LLMObsSearchSpansRequestData";
@@ -2599,6 +2623,12 @@ import { LLMObsSpansResponsePage } from "./LLMObsSpansResponsePage";
 import { LLMObsTraceAnnotatedInteractionItem } from "./LLMObsTraceAnnotatedInteractionItem";
 import { LLMObsTraceInteractionItem } from "./LLMObsTraceInteractionItem";
 import { LLMObsTraceInteractionResponseItem } from "./LLMObsTraceInteractionResponseItem";
+import { LLMObsUpdatePromptData } from "./LLMObsUpdatePromptData";
+import { LLMObsUpdatePromptDataAttributes } from "./LLMObsUpdatePromptDataAttributes";
+import { LLMObsUpdatePromptRequest } from "./LLMObsUpdatePromptRequest";
+import { LLMObsUpdatePromptVersionData } from "./LLMObsUpdatePromptVersionData";
+import { LLMObsUpdatePromptVersionDataAttributes } from "./LLMObsUpdatePromptVersionDataAttributes";
+import { LLMObsUpdatePromptVersionRequest } from "./LLMObsUpdatePromptVersionRequest";
 import { LLMObsUpsertAnnotationItem } from "./LLMObsUpsertAnnotationItem";
 import { LLMObsVertexAIMetadata } from "./LLMObsVertexAIMetadata";
 import { LaunchDarklyAPIKey } from "./LaunchDarklyAPIKey";
@@ -6564,6 +6594,10 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   LLMObsPatternsTriggerResponseType: ["topic_discovery_run"],
   LLMObsProjectType: ["projects"],
+  LLMObsPromptResponseSource: ["registry", "code"],
+  LLMObsPromptType: ["prompt-templates"],
+  LLMObsPromptVersionLabel: ["production", "development"],
+  LLMObsPromptVersionType: ["prompt-template-versions"],
   LLMObsRecordType: ["records"],
   LLMObsSearchSpansRequestType: ["spans"],
   LLMObsSpanType: ["span"],
@@ -11089,6 +11123,13 @@ const typeMap: { [index: string]: any } = {
   LLMObsBedrockMetadata: LLMObsBedrockMetadata,
   LLMObsContentBlock: LLMObsContentBlock,
   LLMObsContentBlockTimeFrame: LLMObsContentBlockTimeFrame,
+  LLMObsCreatePromptData: LLMObsCreatePromptData,
+  LLMObsCreatePromptDataAttributes: LLMObsCreatePromptDataAttributes,
+  LLMObsCreatePromptRequest: LLMObsCreatePromptRequest,
+  LLMObsCreatePromptVersionData: LLMObsCreatePromptVersionData,
+  LLMObsCreatePromptVersionDataAttributes:
+    LLMObsCreatePromptVersionDataAttributes,
+  LLMObsCreatePromptVersionRequest: LLMObsCreatePromptVersionRequest,
   LLMObsCursorMeta: LLMObsCursorMeta,
   LLMObsCustomEvalConfigAssessmentCriteria:
     LLMObsCustomEvalConfigAssessmentCriteria,
@@ -11198,6 +11239,9 @@ const typeMap: { [index: string]: any } = {
     LLMObsDeleteProjectsDataAttributesRequest,
   LLMObsDeleteProjectsDataRequest: LLMObsDeleteProjectsDataRequest,
   LLMObsDeleteProjectsRequest: LLMObsDeleteProjectsRequest,
+  LLMObsDeletedPromptData: LLMObsDeletedPromptData,
+  LLMObsDeletedPromptDataAttributes: LLMObsDeletedPromptDataAttributes,
+  LLMObsDeletedPromptResponse: LLMObsDeletedPromptResponse,
   LLMObsDisplayBlockAnnotatedInteractionItem:
     LLMObsDisplayBlockAnnotatedInteractionItem,
   LLMObsDisplayBlockInteractionItem: LLMObsDisplayBlockInteractionItem,
@@ -11360,6 +11404,21 @@ const typeMap: { [index: string]: any } = {
   LLMObsProjectUpdateDataRequest: LLMObsProjectUpdateDataRequest,
   LLMObsProjectUpdateRequest: LLMObsProjectUpdateRequest,
   LLMObsProjectsResponse: LLMObsProjectsResponse,
+  LLMObsPromptChatMessage: LLMObsPromptChatMessage,
+  LLMObsPromptData: LLMObsPromptData,
+  LLMObsPromptDataAttributes: LLMObsPromptDataAttributes,
+  LLMObsPromptDataset: LLMObsPromptDataset,
+  LLMObsPromptResponse: LLMObsPromptResponse,
+  LLMObsPromptSDKData: LLMObsPromptSDKData,
+  LLMObsPromptSDKDataAttributes: LLMObsPromptSDKDataAttributes,
+  LLMObsPromptSDKResponse: LLMObsPromptSDKResponse,
+  LLMObsPromptVersionData: LLMObsPromptVersionData,
+  LLMObsPromptVersionDataAttributes: LLMObsPromptVersionDataAttributes,
+  LLMObsPromptVersionListData: LLMObsPromptVersionListData,
+  LLMObsPromptVersionListDataAttributes: LLMObsPromptVersionListDataAttributes,
+  LLMObsPromptVersionResponse: LLMObsPromptVersionResponse,
+  LLMObsPromptVersionsResponse: LLMObsPromptVersionsResponse,
+  LLMObsPromptsResponse: LLMObsPromptsResponse,
   LLMObsSearchSpansRequest: LLMObsSearchSpansRequest,
   LLMObsSearchSpansRequestAttributes: LLMObsSearchSpansRequestAttributes,
   LLMObsSearchSpansRequestData: LLMObsSearchSpansRequestData,
@@ -11381,6 +11440,13 @@ const typeMap: { [index: string]: any } = {
   LLMObsTraceAnnotatedInteractionItem: LLMObsTraceAnnotatedInteractionItem,
   LLMObsTraceInteractionItem: LLMObsTraceInteractionItem,
   LLMObsTraceInteractionResponseItem: LLMObsTraceInteractionResponseItem,
+  LLMObsUpdatePromptData: LLMObsUpdatePromptData,
+  LLMObsUpdatePromptDataAttributes: LLMObsUpdatePromptDataAttributes,
+  LLMObsUpdatePromptRequest: LLMObsUpdatePromptRequest,
+  LLMObsUpdatePromptVersionData: LLMObsUpdatePromptVersionData,
+  LLMObsUpdatePromptVersionDataAttributes:
+    LLMObsUpdatePromptVersionDataAttributes,
+  LLMObsUpdatePromptVersionRequest: LLMObsUpdatePromptVersionRequest,
   LLMObsUpsertAnnotationItem: LLMObsUpsertAnnotationItem,
   LLMObsVertexAIMetadata: LLMObsVertexAIMetadata,
   LaunchDarklyAPIKey: LaunchDarklyAPIKey,
@@ -15102,6 +15168,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "LLMObsTraceInteractionResponseItem",
     "LLMObsDisplayBlockInteractionResponseItem",
   ],
+  LLMObsPromptTemplate: ["string", "Array<LLMObsPromptChatMessage>"],
   LaunchDarklyCredentials: ["LaunchDarklyAPIKey"],
   LaunchDarklyCredentialsUpdate: ["LaunchDarklyAPIKeyUpdate"],
   ListEntityCatalogResponseIncludedItem: [

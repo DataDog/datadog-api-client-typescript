@@ -2860,6 +2860,93 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "LLMObsProjectResponse",
     },
+    "v2.ListLLMObsPrompts": {
+        "filterPromptId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsPromptsResponse",
+    },
+    "v2.CreateLLMObsPrompt": {
+        "body": {
+            "type": "LLMObsCreatePromptRequest",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsPromptResponse",
+    },
+    "v2.GetLLMObsPrompt": {
+        "promptId": {
+            "type": "string",
+            "format": "",
+            },
+        "label": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsPromptSDKResponse",
+    },
+    "v2.DeleteLLMObsPrompt": {
+        "promptId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsDeletedPromptResponse",
+    },
+    "v2.UpdateLLMObsPrompt": {
+        "promptId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "LLMObsUpdatePromptRequest",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsPromptResponse",
+    },
+    "v2.ListLLMObsPromptVersions": {
+        "promptId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsPromptVersionsResponse",
+    },
+    "v2.CreateLLMObsPromptVersion": {
+        "promptId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "LLMObsCreatePromptVersionRequest",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsPromptVersionResponse",
+    },
+    "v2.GetLLMObsPromptVersion": {
+        "promptId": {
+            "type": "string",
+            "format": "",
+            },
+        "version": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "LLMObsPromptVersionResponse",
+    },
+    "v2.UpdateLLMObsPromptVersion": {
+        "promptId": {
+            "type": "string",
+            "format": "",
+            },
+        "version": {
+            "type": "number",
+            "format": "int64",
+            },
+        "body": {
+            "type": "LLMObsUpdatePromptVersionRequest",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsPromptVersionResponse",
+    },
     "v2.ListLLMObsSpans": {
         "filterFrom": {
             "type": "string",
