@@ -2870,6 +2870,93 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsProjectResponse",
   },
+  "LLMObservabilityApi.V2.ListLLMObsPrompts": {
+    filterPromptId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "LLMObsPromptsResponse",
+  },
+  "LLMObservabilityApi.V2.CreateLLMObsPrompt": {
+    body: {
+      type: "LLMObsCreatePromptRequest",
+      format: "",
+    },
+    operationResponseType: "LLMObsPromptResponse",
+  },
+  "LLMObservabilityApi.V2.GetLLMObsPrompt": {
+    promptId: {
+      type: "string",
+      format: "",
+    },
+    label: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "LLMObsPromptSDKResponse",
+  },
+  "LLMObservabilityApi.V2.DeleteLLMObsPrompt": {
+    promptId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "LLMObsDeletedPromptResponse",
+  },
+  "LLMObservabilityApi.V2.UpdateLLMObsPrompt": {
+    promptId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "LLMObsUpdatePromptRequest",
+      format: "",
+    },
+    operationResponseType: "LLMObsPromptResponse",
+  },
+  "LLMObservabilityApi.V2.ListLLMObsPromptVersions": {
+    promptId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "LLMObsPromptVersionsResponse",
+  },
+  "LLMObservabilityApi.V2.CreateLLMObsPromptVersion": {
+    promptId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "LLMObsCreatePromptVersionRequest",
+      format: "",
+    },
+    operationResponseType: "LLMObsPromptVersionResponse",
+  },
+  "LLMObservabilityApi.V2.GetLLMObsPromptVersion": {
+    promptId: {
+      type: "string",
+      format: "",
+    },
+    version: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "LLMObsPromptVersionResponse",
+  },
+  "LLMObservabilityApi.V2.UpdateLLMObsPromptVersion": {
+    promptId: {
+      type: "string",
+      format: "",
+    },
+    version: {
+      type: "number",
+      format: "int64",
+    },
+    body: {
+      type: "LLMObsUpdatePromptVersionRequest",
+      format: "",
+    },
+    operationResponseType: "LLMObsPromptVersionResponse",
+  },
   "LLMObservabilityApi.V2.ListLLMObsSpans": {
     filterFrom: {
       type: "string",
