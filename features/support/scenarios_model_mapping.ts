@@ -8854,6 +8854,20 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.ExecuteDdsqlTabularQuery": {
+        "body": {
+            "type": "DdsqlTabularQueryRequest",
+            "format": "",
+            },
+        "operationResponseType": "DdsqlTabularQueryResponse",
+    },
+    "v2.FetchDdsqlTabularQuery": {
+        "body": {
+            "type": "DdsqlTabularQueryFetchRequest",
+            "format": "",
+            },
+        "operationResponseType": "DdsqlTabularQueryResponse",
+    },
     "v2.CreateDataDeletionRequest": {
         "product": {
             "type": "string",

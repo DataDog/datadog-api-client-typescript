@@ -435,6 +435,12 @@ export {
 } from "./apis/CustomerOrgApi";
 
 export {
+  DDSQLApiExecuteDdsqlTabularQueryRequest,
+  DDSQLApiFetchDdsqlTabularQueryRequest,
+  DDSQLApi,
+} from "./apis/DDSQLApi";
+
+export {
   DORAMetricsApiCreateDORADeploymentRequest,
   DORAMetricsApiCreateDORAFailureRequest,
   DORAMetricsApiCreateDORAIncidentRequest,
@@ -3512,6 +3518,22 @@ export { DatastoreTriggerWrapper } from "./models/DatastoreTriggerWrapper";
 export { DataTransform } from "./models/DataTransform";
 export { DataTransformProperties } from "./models/DataTransformProperties";
 export { DataTransformType } from "./models/DataTransformType";
+export { DdsqlTabularQueryColumn } from "./models/DdsqlTabularQueryColumn";
+export { DdsqlTabularQueryFetchRequest } from "./models/DdsqlTabularQueryFetchRequest";
+export { DdsqlTabularQueryFetchRequestAttributes } from "./models/DdsqlTabularQueryFetchRequestAttributes";
+export { DdsqlTabularQueryFetchRequestData } from "./models/DdsqlTabularQueryFetchRequestData";
+export { DdsqlTabularQueryFetchRequestType } from "./models/DdsqlTabularQueryFetchRequestType";
+export { DdsqlTabularQueryRequest } from "./models/DdsqlTabularQueryRequest";
+export { DdsqlTabularQueryRequestAttributes } from "./models/DdsqlTabularQueryRequestAttributes";
+export { DdsqlTabularQueryRequestData } from "./models/DdsqlTabularQueryRequestData";
+export { DdsqlTabularQueryRequestType } from "./models/DdsqlTabularQueryRequestType";
+export { DdsqlTabularQueryResponse } from "./models/DdsqlTabularQueryResponse";
+export { DdsqlTabularQueryResponseAttributes } from "./models/DdsqlTabularQueryResponseAttributes";
+export { DdsqlTabularQueryResponseData } from "./models/DdsqlTabularQueryResponseData";
+export { DdsqlTabularQueryResponseMeta } from "./models/DdsqlTabularQueryResponseMeta";
+export { DdsqlTabularQueryResponseType } from "./models/DdsqlTabularQueryResponseType";
+export { DdsqlTabularQueryState } from "./models/DdsqlTabularQueryState";
+export { DdsqlTabularQueryTimeWindow } from "./models/DdsqlTabularQueryTimeWindow";
 export { DefaultRulesetsPerLanguageData } from "./models/DefaultRulesetsPerLanguageData";
 export { DefaultRulesetsPerLanguageDataAttributes } from "./models/DefaultRulesetsPerLanguageDataAttributes";
 export { DefaultRulesetsPerLanguageDataType } from "./models/DefaultRulesetsPerLanguageDataType";

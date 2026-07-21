@@ -1321,6 +1321,18 @@ import { DatastoreData } from "./DatastoreData";
 import { DatastoreDataAttributes } from "./DatastoreDataAttributes";
 import { DatastoreTrigger } from "./DatastoreTrigger";
 import { DatastoreTriggerWrapper } from "./DatastoreTriggerWrapper";
+import { DdsqlTabularQueryColumn } from "./DdsqlTabularQueryColumn";
+import { DdsqlTabularQueryFetchRequest } from "./DdsqlTabularQueryFetchRequest";
+import { DdsqlTabularQueryFetchRequestAttributes } from "./DdsqlTabularQueryFetchRequestAttributes";
+import { DdsqlTabularQueryFetchRequestData } from "./DdsqlTabularQueryFetchRequestData";
+import { DdsqlTabularQueryRequest } from "./DdsqlTabularQueryRequest";
+import { DdsqlTabularQueryRequestAttributes } from "./DdsqlTabularQueryRequestAttributes";
+import { DdsqlTabularQueryRequestData } from "./DdsqlTabularQueryRequestData";
+import { DdsqlTabularQueryResponse } from "./DdsqlTabularQueryResponse";
+import { DdsqlTabularQueryResponseAttributes } from "./DdsqlTabularQueryResponseAttributes";
+import { DdsqlTabularQueryResponseData } from "./DdsqlTabularQueryResponseData";
+import { DdsqlTabularQueryResponseMeta } from "./DdsqlTabularQueryResponseMeta";
+import { DdsqlTabularQueryTimeWindow } from "./DdsqlTabularQueryTimeWindow";
 import { DefaultRulesetsPerLanguageData } from "./DefaultRulesetsPerLanguageData";
 import { DefaultRulesetsPerLanguageDataAttributes } from "./DefaultRulesetsPerLanguageDataAttributes";
 import { DefaultRulesetsPerLanguageResponse } from "./DefaultRulesetsPerLanguageResponse";
@@ -6036,6 +6048,10 @@ const enumsMap: { [key: string]: any[] } = {
   DatastoreItemConflictMode: ["fail_on_conflict", "overwrite_on_conflict"],
   DatastoreItemsDataType: ["items"],
   DatastorePrimaryKeyGenerationStrategy: ["none", "uuid"],
+  DdsqlTabularQueryFetchRequestType: ["ddsql_query_fetch_request"],
+  DdsqlTabularQueryRequestType: ["ddsql_query_request"],
+  DdsqlTabularQueryResponseType: ["ddsql_query_response"],
+  DdsqlTabularQueryState: ["running", "completed"],
   DefaultRulesetsPerLanguageDataType: ["defaultRulesetsPerLanguage"],
   DegradationDataAttributesSourceType: ["incident"],
   DeletedSuitesRequestType: ["delete_suites_request"],
@@ -9862,6 +9878,19 @@ const typeMap: { [index: string]: any } = {
   DatastoreDataAttributes: DatastoreDataAttributes,
   DatastoreTrigger: DatastoreTrigger,
   DatastoreTriggerWrapper: DatastoreTriggerWrapper,
+  DdsqlTabularQueryColumn: DdsqlTabularQueryColumn,
+  DdsqlTabularQueryFetchRequest: DdsqlTabularQueryFetchRequest,
+  DdsqlTabularQueryFetchRequestAttributes:
+    DdsqlTabularQueryFetchRequestAttributes,
+  DdsqlTabularQueryFetchRequestData: DdsqlTabularQueryFetchRequestData,
+  DdsqlTabularQueryRequest: DdsqlTabularQueryRequest,
+  DdsqlTabularQueryRequestAttributes: DdsqlTabularQueryRequestAttributes,
+  DdsqlTabularQueryRequestData: DdsqlTabularQueryRequestData,
+  DdsqlTabularQueryResponse: DdsqlTabularQueryResponse,
+  DdsqlTabularQueryResponseAttributes: DdsqlTabularQueryResponseAttributes,
+  DdsqlTabularQueryResponseData: DdsqlTabularQueryResponseData,
+  DdsqlTabularQueryResponseMeta: DdsqlTabularQueryResponseMeta,
+  DdsqlTabularQueryTimeWindow: DdsqlTabularQueryTimeWindow,
   DefaultRulesetsPerLanguageData: DefaultRulesetsPerLanguageData,
   DefaultRulesetsPerLanguageDataAttributes:
     DefaultRulesetsPerLanguageDataAttributes,

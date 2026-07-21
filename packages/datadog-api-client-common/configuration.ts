@@ -500,6 +500,8 @@ export function createConfiguration(
       "v2.getAllDatasets": false,
       "v2.getDataset": false,
       "v2.updateDataset": false,
+      "v2.executeDdsqlTabularQuery": false,
+      "v2.fetchDdsqlTabularQuery": false,
       "v2.cancelDataDeletionRequest": false,
       "v2.createDataDeletionRequest": false,
       "v2.getDataDeletionRequests": false,
