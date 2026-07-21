@@ -96,12 +96,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (!_config.unstableOperations["CaseManagementApi.v2.addCaseInsights"]) {
-      throw new Error(
-        "Unstable operation 'addCaseInsights' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.addCaseInsights'] = true`",
-      );
-    }
-
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
       throw new RequiredError("caseId", "addCaseInsights");
@@ -160,12 +154,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (!_config.unstableOperations["CaseManagementApi.v2.aggregateCases"]) {
-      throw new Error(
-        "Unstable operation 'aggregateCases' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.aggregateCases'] = true`",
-      );
-    }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
@@ -338,12 +326,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (!_config.unstableOperations["CaseManagementApi.v2.bulkUpdateCases"]) {
-      throw new Error(
-        "Unstable operation 'bulkUpdateCases' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.bulkUpdateCases'] = true`",
-      );
-    }
-
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "bulkUpdateCases");
@@ -455,12 +437,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (!_config.unstableOperations["CaseManagementApi.v2.countCases"]) {
-      throw new Error(
-        "Unstable operation 'countCases' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.countCases'] = true`",
-      );
-    }
 
     // Path Params
     const localVarPath = "/api/v2/cases/count";
@@ -574,16 +550,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CaseManagementApi.v2.createCaseAutomationRule"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createCaseAutomationRule' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.createCaseAutomationRule'] = true`",
-      );
-    }
-
     // verify required parameter 'projectId' is not null or undefined
     if (projectId === null || projectId === undefined) {
       throw new RequiredError("projectId", "createCaseAutomationRule");
@@ -643,14 +609,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations["CaseManagementApi.v2.createCaseJiraIssue"]
-    ) {
-      throw new Error(
-        "Unstable operation 'createCaseJiraIssue' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.createCaseJiraIssue'] = true`",
-      );
-    }
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
@@ -712,12 +670,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (!_config.unstableOperations["CaseManagementApi.v2.createCaseLink"]) {
-      throw new Error(
-        "Unstable operation 'createCaseLink' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.createCaseLink'] = true`",
-      );
-    }
-
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "createCaseLink");
@@ -769,14 +721,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations["CaseManagementApi.v2.createCaseNotebook"]
-    ) {
-      throw new Error(
-        "Unstable operation 'createCaseNotebook' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.createCaseNotebook'] = true`",
-      );
-    }
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
@@ -839,16 +783,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CaseManagementApi.v2.createCaseServiceNowTicket"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createCaseServiceNowTicket' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.createCaseServiceNowTicket'] = true`",
-      );
-    }
-
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
       throw new RequiredError("caseId", "createCaseServiceNowTicket");
@@ -909,12 +843,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (!_config.unstableOperations["CaseManagementApi.v2.createCaseView"]) {
-      throw new Error(
-        "Unstable operation 'createCaseView' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.createCaseView'] = true`",
-      );
-    }
-
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "createCaseView");
@@ -965,16 +893,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations[
-        "CaseManagementApi.v2.createMaintenanceWindow"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createMaintenanceWindow' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.createMaintenanceWindow'] = true`",
-      );
-    }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
@@ -1140,16 +1058,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CaseManagementApi.v2.deleteCaseAutomationRule"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteCaseAutomationRule' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.deleteCaseAutomationRule'] = true`",
-      );
-    }
-
     // verify required parameter 'projectId' is not null or undefined
     if (projectId === null || projectId === undefined) {
       throw new RequiredError("projectId", "deleteCaseAutomationRule");
@@ -1305,12 +1213,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (!_config.unstableOperations["CaseManagementApi.v2.deleteCaseLink"]) {
-      throw new Error(
-        "Unstable operation 'deleteCaseLink' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.deleteCaseLink'] = true`",
-      );
-    }
-
     // verify required parameter 'linkId' is not null or undefined
     if (linkId === null || linkId === undefined) {
       throw new RequiredError("linkId", "deleteCaseLink");
@@ -1356,12 +1258,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (!_config.unstableOperations["CaseManagementApi.v2.deleteCaseView"]) {
-      throw new Error(
-        "Unstable operation 'deleteCaseView' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.deleteCaseView'] = true`",
-      );
-    }
-
     // verify required parameter 'viewId' is not null or undefined
     if (viewId === null || viewId === undefined) {
       throw new RequiredError("viewId", "deleteCaseView");
@@ -1406,16 +1302,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations[
-        "CaseManagementApi.v2.deleteMaintenanceWindow"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteMaintenanceWindow' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.deleteMaintenanceWindow'] = true`",
-      );
-    }
 
     // verify required parameter 'maintenanceWindowId' is not null or undefined
     if (maintenanceWindowId === null || maintenanceWindowId === undefined) {
@@ -1566,16 +1452,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CaseManagementApi.v2.disableCaseAutomationRule"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'disableCaseAutomationRule' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.disableCaseAutomationRule'] = true`",
-      );
-    }
-
     // verify required parameter 'projectId' is not null or undefined
     if (projectId === null || projectId === undefined) {
       throw new RequiredError("projectId", "disableCaseAutomationRule");
@@ -1627,16 +1503,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CaseManagementApi.v2.enableCaseAutomationRule"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'enableCaseAutomationRule' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.enableCaseAutomationRule'] = true`",
-      );
-    }
-
     // verify required parameter 'projectId' is not null or undefined
     if (projectId === null || projectId === undefined) {
       throw new RequiredError("projectId", "enableCaseAutomationRule");
@@ -1686,14 +1552,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations["CaseManagementApi.v2.favoriteCaseProject"]
-    ) {
-      throw new Error(
-        "Unstable operation 'favoriteCaseProject' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.favoriteCaseProject'] = true`",
-      );
-    }
 
     // verify required parameter 'projectId' is not null or undefined
     if (projectId === null || projectId === undefined) {
@@ -1787,14 +1645,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["CaseManagementApi.v2.getCaseAutomationRule"]
-    ) {
-      throw new Error(
-        "Unstable operation 'getCaseAutomationRule' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.getCaseAutomationRule'] = true`",
-      );
-    }
-
     // verify required parameter 'projectId' is not null or undefined
     if (projectId === null || projectId === undefined) {
       throw new RequiredError("projectId", "getCaseAutomationRule");
@@ -1843,12 +1693,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (!_config.unstableOperations["CaseManagementApi.v2.getCaseView"]) {
-      throw new Error(
-        "Unstable operation 'getCaseView' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.getCaseView'] = true`",
-      );
-    }
 
     // verify required parameter 'viewId' is not null or undefined
     if (viewId === null || viewId === undefined) {
@@ -2021,12 +1865,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (!_config.unstableOperations["CaseManagementApi.v2.linkIncident"]) {
-      throw new Error(
-        "Unstable operation 'linkIncident' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.linkIncident'] = true`",
-      );
-    }
-
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
       throw new RequiredError("caseId", "linkIncident");
@@ -2088,14 +1926,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["CaseManagementApi.v2.linkJiraIssueToCase"]
-    ) {
-      throw new Error(
-        "Unstable operation 'linkJiraIssueToCase' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.linkJiraIssueToCase'] = true`",
-      );
-    }
-
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
       throw new RequiredError("caseId", "linkJiraIssueToCase");
@@ -2156,16 +1986,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CaseManagementApi.v2.listCaseAutomationRules"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listCaseAutomationRules' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.listCaseAutomationRules'] = true`",
-      );
-    }
-
     // verify required parameter 'projectId' is not null or undefined
     if (projectId === null || projectId === undefined) {
       throw new RequiredError("projectId", "listCaseAutomationRules");
@@ -2212,12 +2032,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (!_config.unstableOperations["CaseManagementApi.v2.listCaseLinks"]) {
-      throw new Error(
-        "Unstable operation 'listCaseLinks' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.listCaseLinks'] = true`",
-      );
-    }
 
     // verify required parameter 'entityType' is not null or undefined
     if (entityType === null || entityType === undefined) {
@@ -2292,12 +2106,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (!_config.unstableOperations["CaseManagementApi.v2.listCaseTimeline"]) {
-      throw new Error(
-        "Unstable operation 'listCaseTimeline' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.listCaseTimeline'] = true`",
-      );
-    }
-
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
       throw new RequiredError("caseId", "listCaseTimeline");
@@ -2366,12 +2174,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (!_config.unstableOperations["CaseManagementApi.v2.listCaseViews"]) {
-      throw new Error(
-        "Unstable operation 'listCaseViews' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.listCaseViews'] = true`",
-      );
-    }
-
     // verify required parameter 'projectId' is not null or undefined
     if (projectId === null || projectId === undefined) {
       throw new RequiredError("projectId", "listCaseViews");
@@ -2423,12 +2225,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (!_config.unstableOperations["CaseManagementApi.v2.listCaseWatchers"]) {
-      throw new Error(
-        "Unstable operation 'listCaseWatchers' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.listCaseWatchers'] = true`",
-      );
-    }
-
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
       throw new RequiredError("caseId", "listCaseWatchers");
@@ -2473,14 +2269,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["CaseManagementApi.v2.listMaintenanceWindows"]
-    ) {
-      throw new Error(
-        "Unstable operation 'listMaintenanceWindows' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.listMaintenanceWindows'] = true`",
-      );
-    }
-
     // Path Params
     const localVarPath = "/api/v2/maintenance_windows";
 
@@ -2516,16 +2304,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations[
-        "CaseManagementApi.v2.listUserCaseProjectFavorites"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listUserCaseProjectFavorites' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.listUserCaseProjectFavorites'] = true`",
-      );
-    }
 
     // Path Params
     const localVarPath = "/api/v2/cases/projects/favorites";
@@ -2564,12 +2342,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (!_config.unstableOperations["CaseManagementApi.v2.moveCaseToProject"]) {
-      throw new Error(
-        "Unstable operation 'moveCaseToProject' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.moveCaseToProject'] = true`",
-      );
-    }
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
@@ -2631,14 +2403,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations["CaseManagementApi.v2.removeCaseInsights"]
-    ) {
-      throw new Error(
-        "Unstable operation 'removeCaseInsights' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.removeCaseInsights'] = true`",
-      );
-    }
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
@@ -2897,14 +2661,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["CaseManagementApi.v2.unfavoriteCaseProject"]
-    ) {
-      throw new Error(
-        "Unstable operation 'unfavoriteCaseProject' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.unfavoriteCaseProject'] = true`",
-      );
-    }
-
     // verify required parameter 'projectId' is not null or undefined
     if (projectId === null || projectId === undefined) {
       throw new RequiredError("projectId", "unfavoriteCaseProject");
@@ -2950,12 +2706,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (!_config.unstableOperations["CaseManagementApi.v2.unlinkJiraIssue"]) {
-      throw new Error(
-        "Unstable operation 'unlinkJiraIssue' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.unlinkJiraIssue'] = true`",
-      );
-    }
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
@@ -3003,12 +2753,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (!_config.unstableOperations["CaseManagementApi.v2.unwatchCase"]) {
-      throw new Error(
-        "Unstable operation 'unwatchCase' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.unwatchCase'] = true`",
-      );
-    }
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
@@ -3121,16 +2865,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CaseManagementApi.v2.updateCaseAutomationRule"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateCaseAutomationRule' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.updateCaseAutomationRule'] = true`",
-      );
-    }
-
     // verify required parameter 'projectId' is not null or undefined
     if (projectId === null || projectId === undefined) {
       throw new RequiredError("projectId", "updateCaseAutomationRule");
@@ -3195,12 +2929,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (!_config.unstableOperations["CaseManagementApi.v2.updateCaseComment"]) {
-      throw new Error(
-        "Unstable operation 'updateCaseComment' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.updateCaseComment'] = true`",
-      );
-    }
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
@@ -3398,12 +3126,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (!_config.unstableOperations["CaseManagementApi.v2.updateCaseDueDate"]) {
-      throw new Error(
-        "Unstable operation 'updateCaseDueDate' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.updateCaseDueDate'] = true`",
-      );
-    }
-
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
       throw new RequiredError("caseId", "updateCaseDueDate");
@@ -3463,16 +3185,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations[
-        "CaseManagementApi.v2.updateCaseResolvedReason"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateCaseResolvedReason' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.updateCaseResolvedReason'] = true`",
-      );
-    }
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
@@ -3594,12 +3306,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (!_config.unstableOperations["CaseManagementApi.v2.updateCaseView"]) {
-      throw new Error(
-        "Unstable operation 'updateCaseView' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.updateCaseView'] = true`",
-      );
-    }
-
     // verify required parameter 'viewId' is not null or undefined
     if (viewId === null || viewId === undefined) {
       throw new RequiredError("viewId", "updateCaseView");
@@ -3659,16 +3365,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations[
-        "CaseManagementApi.v2.updateMaintenanceWindow"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateMaintenanceWindow' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.updateMaintenanceWindow'] = true`",
-      );
-    }
 
     // verify required parameter 'maintenanceWindowId' is not null or undefined
     if (maintenanceWindowId === null || maintenanceWindowId === undefined) {
@@ -3982,12 +3678,6 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (!_config.unstableOperations["CaseManagementApi.v2.watchCase"]) {
-      throw new Error(
-        "Unstable operation 'watchCase' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementApi.v2.watchCase'] = true`",
-      );
-    }
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
