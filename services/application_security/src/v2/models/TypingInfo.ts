@@ -64,6 +64,7 @@ export const TypingInfo: ModelTypingInfo = {
     ApplicationSecurityWafCustomRuleConditionInputAddress: [
       "server.db.statement",
       "server.io.fs.file",
+      "server.io.fs.file_write",
       "server.io.net.url",
       "server.sys.shell.cmd",
       "server.request.method",
@@ -77,6 +78,7 @@ export const TypingInfo: ModelTypingInfo = {
       "server.request.trailers",
       "server.request.body",
       "server.request.body.filenames",
+      "server.request.body.files_content",
       "server.response.status",
       "server.response.headers.no_cookies",
       "server.response.trailers",

@@ -6,6 +6,7 @@ import { UnparsedObject } from "@datadog/datadog-api-client";
 export type ApplicationSecurityWafCustomRuleConditionInputAddress =
   | typeof SERVER_DB_STATEMENT
   | typeof SERVER_IO_FS_FILE
+  | typeof SERVER_IO_FS_FILE_WRITE
   | typeof SERVER_IO_NET_URL
   | typeof SERVER_SYS_SHELL_CMD
   | typeof SERVER_REQUEST_METHOD
@@ -19,6 +20,7 @@ export type ApplicationSecurityWafCustomRuleConditionInputAddress =
   | typeof SERVER_REQUEST_TRAILERS
   | typeof SERVER_REQUEST_BODY
   | typeof SERVER_REQUEST_BODY_FILENAMES
+  | typeof SERVER_REQUEST_BODY_FILES_CONTENT
   | typeof SERVER_RESPONSE_STATUS
   | typeof SERVER_RESPONSE_HEADERS_NO_COOKIES
   | typeof SERVER_RESPONSE_TRAILERS
@@ -38,6 +40,7 @@ export type ApplicationSecurityWafCustomRuleConditionInputAddress =
   | UnparsedObject;
 export const SERVER_DB_STATEMENT = "server.db.statement";
 export const SERVER_IO_FS_FILE = "server.io.fs.file";
+export const SERVER_IO_FS_FILE_WRITE = "server.io.fs.file_write";
 export const SERVER_IO_NET_URL = "server.io.net.url";
 export const SERVER_SYS_SHELL_CMD = "server.sys.shell.cmd";
 export const SERVER_REQUEST_METHOD = "server.request.method";
@@ -52,6 +55,8 @@ export const SERVER_REQUEST_COOKIES = "server.request.cookies";
 export const SERVER_REQUEST_TRAILERS = "server.request.trailers";
 export const SERVER_REQUEST_BODY = "server.request.body";
 export const SERVER_REQUEST_BODY_FILENAMES = "server.request.body.filenames";
+export const SERVER_REQUEST_BODY_FILES_CONTENT =
+  "server.request.body.files_content";
 export const SERVER_RESPONSE_STATUS = "server.response.status";
 export const SERVER_RESPONSE_HEADERS_NO_COOKIES =
   "server.response.headers.no_cookies";
