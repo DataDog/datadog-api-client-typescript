@@ -22,7 +22,7 @@ export class IncidentUserDefinedRoleDataAttributesRequest {
   /**
    * Policy configuration for a user-defined role.
    */
-  "policy": IncidentUserDefinedRolePolicy;
+  "policy"?: IncidentUserDefinedRolePolicy;
 
   /**
    * A container for additional, undeclared properties.
@@ -52,7 +52,6 @@ export class IncidentUserDefinedRoleDataAttributesRequest {
     policy: {
       baseName: "policy",
       type: "IncidentUserDefinedRolePolicy",
-      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
