@@ -5,7 +5,6 @@
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-configuration.unstableOperations["v2.updateCustomAttributeConfig"] = true;
 const apiInstance = new v2.CaseManagementAttributeApi(configuration);
 
 const params: v2.CaseManagementAttributeApiUpdateCustomAttributeConfigRequest =

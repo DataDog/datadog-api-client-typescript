@@ -128,11 +128,6 @@ export class CaseManagementTypeApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'updateCaseType'");
-    if (!_config.unstableOperations["v2.updateCaseType"]) {
-      throw new Error("Unstable operation 'updateCaseType' is disabled");
-    }
-
     // verify required parameter 'caseTypeId' is not null or undefined
     if (caseTypeId === null || caseTypeId === undefined) {
       throw new RequiredError("caseTypeId", "updateCaseType");

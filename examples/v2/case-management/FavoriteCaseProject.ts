@@ -5,7 +5,6 @@
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-configuration.unstableOperations["v2.favoriteCaseProject"] = true;
 const apiInstance = new v2.CaseManagementApi(configuration);
 
 const params: v2.CaseManagementApiFavoriteCaseProjectRequest = {
