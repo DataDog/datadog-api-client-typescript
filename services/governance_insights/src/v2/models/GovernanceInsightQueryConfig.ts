@@ -9,7 +9,7 @@ export class GovernanceInsightQueryConfig {
    */
   "chartType"?: string;
   /**
-   * The window used for the previous value comparison, for example `week` or `month`.
+   * The window used for the previous value comparison; for example, `week` or `month`.
    */
   "comparisonShift": string;
   /**
