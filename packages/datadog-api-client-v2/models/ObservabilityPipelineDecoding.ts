@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The decoding format used to interpret incoming logs.
- */
+*/
 
-export type ObservabilityPipelineDecoding =
-  | typeof DECODE_BYTES
-  | typeof DECODE_GELF
-  | typeof DECODE_JSON
-  | typeof DECODE_SYSLOG
-  | UnparsedObject;
-export const DECODE_BYTES = "bytes";
-export const DECODE_GELF = "gelf";
-export const DECODE_JSON = "json";
-export const DECODE_SYSLOG = "syslog";
+export type ObservabilityPipelineDecoding = typeof DECODE_BYTES| typeof DECODE_GELF| typeof DECODE_JSON| typeof DECODE_SYSLOG | UnparsedObject;
+export const DECODE_BYTES = 'bytes';
+export const DECODE_GELF = 'gelf';
+export const DECODE_JSON = 'json';
+export const DECODE_SYSLOG = 'syslog';

@@ -5,35 +5,40 @@
  */
 import { SyntheticsTestResultCdnProviderInfo } from "./SyntheticsTestResultCdnProviderInfo";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A CDN resource encountered while executing a browser step.
- */
+*/
 export class SyntheticsTestResultCdnResource {
   /**
    * CDN provider details inferred from response headers.
-   */
+  */
   "cdn"?: SyntheticsTestResultCdnProviderInfo;
   /**
    * Resolved IP address for the CDN resource.
-   */
+  */
   "resolvedIp"?: string;
   /**
    * Unix timestamp (ms) of when the resource was fetched.
-   */
+  */
   "timestamp"?: number;
   /**
    * Timing breakdown for fetching the CDN resource.
-   */
-  "timings"?: { [key: string]: any };
+  */
+  "timings"?: { [key: string]: any; };
 
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -44,22 +49,22 @@ export class SyntheticsTestResultCdnResource {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    cdn: {
-      baseName: "cdn",
-      type: "SyntheticsTestResultCdnProviderInfo",
+    "cdn": {
+      "baseName": "cdn",
+      "type": "SyntheticsTestResultCdnProviderInfo",
     },
-    resolvedIp: {
-      baseName: "resolved_ip",
-      type: "string",
+    "resolvedIp": {
+      "baseName": "resolved_ip",
+      "type": "string",
     },
-    timestamp: {
-      baseName: "timestamp",
-      type: "number",
-      format: "int64",
+    "timestamp": {
+      "baseName": "timestamp",
+      "type": "number",
+      "format": "int64",
     },
-    timings: {
-      baseName: "timings",
-      type: "{ [key: string]: any; }",
+    "timings": {
+      "baseName": "timings",
+      "type": "{ [key: string]: any; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,8 +76,34 @@ export class SyntheticsTestResultCdnResource {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultCdnResource.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

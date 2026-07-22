@@ -4,39 +4,44 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Configuration parameters of the policy that triggered this status change.
- */
+*/
 export class FlakyTestHistoryPolicyMetaConfig {
   /**
    * The branches considered by the policy.
-   */
+  */
   "branches"?: Array<string>;
   /**
    * The number of days a test must have been active for the policy to trigger.
-   */
+  */
   "daysActive"?: number;
   /**
    * The failure rate threshold for the policy to trigger.
-   */
+  */
   "failureRate"?: number;
   /**
    * Branches excluded from the policy evaluation.
-   */
+  */
   "forgetBranches"?: Array<string>;
   /**
    * The minimum number of test runs required for the policy to trigger.
-   */
+  */
   "requiredRuns"?: number;
   /**
    * The target state the policy transitions the test from.
-   */
+  */
   "state"?: string;
   /**
    * Test services excluded from the policy evaluation.
-   */
+  */
   "testServices"?: Array<string>;
 
   /**
@@ -44,7 +49,7 @@ export class FlakyTestHistoryPolicyMetaConfig {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -55,36 +60,36 @@ export class FlakyTestHistoryPolicyMetaConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    branches: {
-      baseName: "branches",
-      type: "Array<string>",
+    "branches": {
+      "baseName": "branches",
+      "type": "Array<string>",
     },
-    daysActive: {
-      baseName: "days_active",
-      type: "number",
-      format: "int32",
+    "daysActive": {
+      "baseName": "days_active",
+      "type": "number",
+      "format": "int32",
     },
-    failureRate: {
-      baseName: "failure_rate",
-      type: "number",
-      format: "double",
+    "failureRate": {
+      "baseName": "failure_rate",
+      "type": "number",
+      "format": "double",
     },
-    forgetBranches: {
-      baseName: "forget_branches",
-      type: "Array<string>",
+    "forgetBranches": {
+      "baseName": "forget_branches",
+      "type": "Array<string>",
     },
-    requiredRuns: {
-      baseName: "required_runs",
-      type: "number",
-      format: "int32",
+    "requiredRuns": {
+      "baseName": "required_runs",
+      "type": "number",
+      "format": "int32",
     },
-    state: {
-      baseName: "state",
-      type: "string",
+    "state": {
+      "baseName": "state",
+      "type": "string",
     },
-    testServices: {
-      baseName: "test_services",
-      type: "Array<string>",
+    "testServices": {
+      "baseName": "test_services",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -96,8 +101,34 @@ export class FlakyTestHistoryPolicyMetaConfig {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FlakyTestHistoryPolicyMetaConfig.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

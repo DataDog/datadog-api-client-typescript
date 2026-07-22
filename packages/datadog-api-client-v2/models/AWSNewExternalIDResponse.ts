@@ -5,15 +5,20 @@
  */
 import { AWSNewExternalIDResponseData } from "./AWSNewExternalIDResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * AWS External ID response body.
- */
+*/
 export class AWSNewExternalIDResponse {
   /**
    * AWS External ID response body.
-   */
+  */
   "data": AWSNewExternalIDResponseData;
 
   /**
@@ -21,7 +26,7 @@ export class AWSNewExternalIDResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class AWSNewExternalIDResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "AWSNewExternalIDResponseData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "AWSNewExternalIDResponseData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class AWSNewExternalIDResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSNewExternalIDResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,13 +6,15 @@
 import { DeploymentRuleOptionsFaultyDeploymentDetection } from "./DeploymentRuleOptionsFaultyDeploymentDetection";
 import { DeploymentRuleOptionsMonitor } from "./DeploymentRuleOptionsMonitor";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Options for deployment rule response representing either faulty deployment detection or monitor options.
- */
+*/
 
-export type DeploymentRulesOptions =
-  | DeploymentRuleOptionsFaultyDeploymentDetection
-  | DeploymentRuleOptionsMonitor
-  | UnparsedObject;
+export type DeploymentRulesOptions = DeploymentRuleOptionsFaultyDeploymentDetection | DeploymentRuleOptionsMonitor | UnparsedObject;

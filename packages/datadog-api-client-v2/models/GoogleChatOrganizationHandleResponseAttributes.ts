@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Organization handle attributes.
- */
+*/
 export class GoogleChatOrganizationHandleResponseAttributes {
   /**
    * Organization handle name.
-   */
+  */
   "name"?: string;
   /**
    * Google space display name.
-   */
+  */
   "spaceDisplayName"?: string;
   /**
    * Google space resource name.
-   */
+  */
   "spaceResourceName"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class GoogleChatOrganizationHandleResponseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class GoogleChatOrganizationHandleResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    spaceDisplayName: {
-      baseName: "space_display_name",
-      type: "string",
+    "spaceDisplayName": {
+      "baseName": "space_display_name",
+      "type": "string",
     },
-    spaceResourceName: {
-      baseName: "space_resource_name",
-      type: "string",
+    "spaceResourceName": {
+      "baseName": "space_resource_name",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class GoogleChatOrganizationHandleResponseAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GoogleChatOrganizationHandleResponseAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

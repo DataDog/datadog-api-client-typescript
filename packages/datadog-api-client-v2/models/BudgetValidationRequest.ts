@@ -5,15 +5,20 @@
  */
 import { BudgetValidationRequestData } from "./BudgetValidationRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The request object for validating a budget configuration before creating or updating it.
- */
+*/
 export class BudgetValidationRequest {
   /**
    * The data object for a budget validation request, containing the resource type, ID, and budget attributes to validate.
-   */
+  */
   "data"?: BudgetValidationRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class BudgetValidationRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class BudgetValidationRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "BudgetValidationRequestData",
+    "data": {
+      "baseName": "data",
+      "type": "BudgetValidationRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class BudgetValidationRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return BudgetValidationRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

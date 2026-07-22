@@ -5,15 +5,20 @@
  */
 import { GCPUsageCostConfig } from "./GCPUsageCostConfig";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * List of Google Cloud Usage Cost configs.
- */
+*/
 export class GCPUsageCostConfigsResponse {
   /**
    * A Google Cloud Usage Cost config.
-   */
+  */
   "data": Array<GCPUsageCostConfig>;
 
   /**
@@ -21,7 +26,7 @@ export class GCPUsageCostConfigsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class GCPUsageCostConfigsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<GCPUsageCostConfig>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<GCPUsageCostConfig>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class GCPUsageCostConfigsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GCPUsageCostConfigsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

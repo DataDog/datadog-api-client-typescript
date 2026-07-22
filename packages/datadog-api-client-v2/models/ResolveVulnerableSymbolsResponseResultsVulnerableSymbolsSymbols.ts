@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A symbol identified as vulnerable within a dependency, including its name, type, and value.
- */
+*/
 export class ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols {
   /**
    * The name of the vulnerable symbol.
-   */
+  */
   "name"?: string;
   /**
    * The type classification of the vulnerable symbol (e.g., function, class, variable).
-   */
+  */
   "type"?: string;
   /**
    * The value or identifier associated with the vulnerable symbol.
-   */
+  */
   "value"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
-    value: {
-      baseName: "value",
-      type: "string",
+    "value": {
+      "baseName": "value",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

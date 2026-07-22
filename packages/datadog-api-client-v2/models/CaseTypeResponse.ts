@@ -5,15 +5,20 @@
  */
 import { CaseTypeResource } from "./CaseTypeResource";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a single case type.
- */
+*/
 export class CaseTypeResponse {
   /**
    * A case type that defines a classification category for cases. Each case type can have its own custom attributes, statuses, and automation rules.
-   */
+  */
   "data"?: CaseTypeResource;
 
   /**
@@ -21,7 +26,7 @@ export class CaseTypeResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class CaseTypeResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CaseTypeResource",
+    "data": {
+      "baseName": "data",
+      "type": "CaseTypeResource",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class CaseTypeResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseTypeResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

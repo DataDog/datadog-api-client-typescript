@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The destination type. The value should always be `new_relic`.
- */
+*/
 
-export type ObservabilityPipelineNewRelicDestinationType =
-  | typeof NEW_RELIC
-  | UnparsedObject;
-export const NEW_RELIC = "new_relic";
+export type ObservabilityPipelineNewRelicDestinationType = typeof NEW_RELIC | UnparsedObject;
+export const NEW_RELIC = 'new_relic';

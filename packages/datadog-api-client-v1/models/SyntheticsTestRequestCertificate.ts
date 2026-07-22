@@ -5,19 +5,24 @@
  */
 import { SyntheticsTestRequestCertificateItem } from "./SyntheticsTestRequestCertificateItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Client certificate to use when performing the test request.
- */
+*/
 export class SyntheticsTestRequestCertificate {
   /**
    * Define a request certificate.
-   */
+  */
   "cert"?: SyntheticsTestRequestCertificateItem;
   /**
    * Define a request certificate.
-   */
+  */
   "key"?: SyntheticsTestRequestCertificateItem;
 
   /**
@@ -25,7 +30,7 @@ export class SyntheticsTestRequestCertificate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class SyntheticsTestRequestCertificate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    cert: {
-      baseName: "cert",
-      type: "SyntheticsTestRequestCertificateItem",
+    "cert": {
+      "baseName": "cert",
+      "type": "SyntheticsTestRequestCertificateItem",
     },
-    key: {
-      baseName: "key",
-      type: "SyntheticsTestRequestCertificateItem",
+    "key": {
+      "baseName": "key",
+      "type": "SyntheticsTestRequestCertificateItem",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class SyntheticsTestRequestCertificate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestRequestCertificate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

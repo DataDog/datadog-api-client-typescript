@@ -4,23 +4,21 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The operation to perform
- */
+*/
 
-export type SyntheticsPatchTestOperationName =
-  | typeof ADD
-  | typeof REMOVE
-  | typeof REPLACE
-  | typeof MOVE
-  | typeof COPY
-  | typeof TEST
-  | UnparsedObject;
-export const ADD = "add";
-export const REMOVE = "remove";
-export const REPLACE = "replace";
-export const MOVE = "move";
-export const COPY = "copy";
-export const TEST = "test";
+export type SyntheticsPatchTestOperationName = typeof ADD| typeof REMOVE| typeof REPLACE| typeof MOVE| typeof COPY| typeof TEST | UnparsedObject;
+export const ADD = 'add';
+export const REMOVE = 'remove';
+export const REPLACE = 'replace';
+export const MOVE = 'move';
+export const COPY = 'copy';
+export const TEST = 'test';

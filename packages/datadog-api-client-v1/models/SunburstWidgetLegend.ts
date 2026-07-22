@@ -6,13 +6,15 @@
 import { SunburstWidgetLegendInlineAutomatic } from "./SunburstWidgetLegendInlineAutomatic";
 import { SunburstWidgetLegendTable } from "./SunburstWidgetLegendTable";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Configuration of the legend.
- */
+*/
 
-export type SunburstWidgetLegend =
-  | SunburstWidgetLegendTable
-  | SunburstWidgetLegendInlineAutomatic
-  | UnparsedObject;
+export type SunburstWidgetLegend = SunburstWidgetLegendTable | SunburstWidgetLegendInlineAutomatic | UnparsedObject;

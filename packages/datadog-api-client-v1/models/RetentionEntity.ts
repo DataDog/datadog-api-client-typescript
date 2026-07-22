@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Entity to track for retention.
- */
+*/
 
-export type RetentionEntity =
-  | typeof USER_ID
-  | typeof ACCOUNT_ID
-  | UnparsedObject;
-export const USER_ID = "@usr.id";
-export const ACCOUNT_ID = "@account.id";
+export type RetentionEntity = typeof USER_ID| typeof ACCOUNT_ID | UnparsedObject;
+export const USER_ID = '@usr.id';
+export const ACCOUNT_ID = '@account.id';

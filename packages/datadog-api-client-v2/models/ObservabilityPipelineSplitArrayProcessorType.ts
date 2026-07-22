@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The processor type. The value should always be `split_array`.
- */
+*/
 
-export type ObservabilityPipelineSplitArrayProcessorType =
-  | typeof SPLIT_ARRAY
-  | UnparsedObject;
-export const SPLIT_ARRAY = "split_array";
+export type ObservabilityPipelineSplitArrayProcessorType = typeof SPLIT_ARRAY | UnparsedObject;
+export const SPLIT_ARRAY = 'split_array';

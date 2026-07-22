@@ -6,23 +6,28 @@
 import { AwsCurConfigResponseDataAttributes } from "./AwsCurConfigResponseDataAttributes";
 import { AwsCurConfigResponseDataType } from "./AwsCurConfigResponseDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `AwsCurConfigResponseData` object.
- */
+*/
 export class AwsCurConfigResponseData {
   /**
    * The definition of `AwsCurConfigResponseDataAttributes` object.
-   */
+  */
   "attributes"?: AwsCurConfigResponseDataAttributes;
   /**
    * The `AwsCurConfigResponseData` `id`.
-   */
+  */
   "id"?: string;
   /**
    * AWS CUR config resource type.
-   */
+  */
   "type": AwsCurConfigResponseDataType;
 
   /**
@@ -30,7 +35,7 @@ export class AwsCurConfigResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class AwsCurConfigResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AwsCurConfigResponseDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AwsCurConfigResponseDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "AwsCurConfigResponseDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AwsCurConfigResponseDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class AwsCurConfigResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AwsCurConfigResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

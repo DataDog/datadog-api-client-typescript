@@ -7,79 +7,84 @@ import { CreateStatusPageRequestDataAttributesType } from "./CreateStatusPageReq
 import { CreateStatusPageRequestDataAttributesVisualizationType } from "./CreateStatusPageRequestDataAttributesVisualizationType";
 import { StatusPageAsIncludedAttributesComponentsItems } from "./StatusPageAsIncludedAttributesComponentsItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes of a status page.
- */
+*/
 export class StatusPageAsIncludedAttributes {
   /**
    * The base64-encoded image data displayed in the company logo.
-   */
+  */
   "companyLogo"?: string;
   /**
    * Components displayed on the status page.
-   */
+  */
   "components"?: Array<StatusPageAsIncludedAttributesComponentsItems>;
   /**
    * Timestamp of when the status page was created.
-   */
+  */
   "createdAt"?: Date;
   /**
    * If configured, the url that the status page is accessible at.
-   */
+  */
   "customDomain"?: string;
   /**
    * Whether the custom domain is configured.
-   */
+  */
   "customDomainEnabled"?: boolean;
   /**
    * The subdomain of the status page's url taking the form `https://{domain_prefix}.statuspage.datadoghq.com`. Globally unique across Datadog Status Pages.
-   */
+  */
   "domainPrefix"?: string;
   /**
    * Base64-encoded image data included in email notifications sent to status page subscribers.
-   */
+  */
   "emailHeaderImage"?: string;
   /**
    * Whether the status page is enabled.
-   */
+  */
   "enabled"?: boolean;
   /**
    * Base64-encoded image data displayed in the browser tab.
-   */
+  */
   "favicon"?: string;
   /**
    * Timestamp of when the status page was last modified.
-   */
+  */
   "modifiedAt"?: Date;
   /**
    * The name of the status page.
-   */
+  */
   "name"?: string;
   /**
    * The url that the status page is accessible at.
-   */
+  */
   "pageUrl"?: string;
   /**
    * The Slack app icon URL for the status page.
-   */
+  */
   "slackAppIcon"?: string;
   /**
    * Whether Slack subscriptions are enabled for the status page.
-   */
+  */
   "slackSubscriptionsEnabled"?: boolean;
   /**
    * Whether users can subscribe to the status page.
-   */
+  */
   "subscriptionsEnabled"?: boolean;
   /**
    * The type of the status page controlling how the status page is accessed.
-   */
+  */
   "type"?: CreateStatusPageRequestDataAttributesType;
   /**
    * The visualization type of the status page.
-   */
+  */
   "visualizationType"?: CreateStatusPageRequestDataAttributesVisualizationType;
 
   /**
@@ -87,7 +92,7 @@ export class StatusPageAsIncludedAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -98,75 +103,75 @@ export class StatusPageAsIncludedAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    companyLogo: {
-      baseName: "company_logo",
-      type: "string",
+    "companyLogo": {
+      "baseName": "company_logo",
+      "type": "string",
     },
-    components: {
-      baseName: "components",
-      type: "Array<StatusPageAsIncludedAttributesComponentsItems>",
+    "components": {
+      "baseName": "components",
+      "type": "Array<StatusPageAsIncludedAttributesComponentsItems>",
     },
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    customDomain: {
-      baseName: "custom_domain",
-      type: "string",
+    "customDomain": {
+      "baseName": "custom_domain",
+      "type": "string",
     },
-    customDomainEnabled: {
-      baseName: "custom_domain_enabled",
-      type: "boolean",
+    "customDomainEnabled": {
+      "baseName": "custom_domain_enabled",
+      "type": "boolean",
     },
-    domainPrefix: {
-      baseName: "domain_prefix",
-      type: "string",
+    "domainPrefix": {
+      "baseName": "domain_prefix",
+      "type": "string",
     },
-    emailHeaderImage: {
-      baseName: "email_header_image",
-      type: "string",
+    "emailHeaderImage": {
+      "baseName": "email_header_image",
+      "type": "string",
     },
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
+    "enabled": {
+      "baseName": "enabled",
+      "type": "boolean",
     },
-    favicon: {
-      baseName: "favicon",
-      type: "string",
+    "favicon": {
+      "baseName": "favicon",
+      "type": "string",
     },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "Date",
-      format: "date-time",
+    "modifiedAt": {
+      "baseName": "modified_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    pageUrl: {
-      baseName: "page_url",
-      type: "string",
+    "pageUrl": {
+      "baseName": "page_url",
+      "type": "string",
     },
-    slackAppIcon: {
-      baseName: "slack_app_icon",
-      type: "string",
+    "slackAppIcon": {
+      "baseName": "slack_app_icon",
+      "type": "string",
     },
-    slackSubscriptionsEnabled: {
-      baseName: "slack_subscriptions_enabled",
-      type: "boolean",
+    "slackSubscriptionsEnabled": {
+      "baseName": "slack_subscriptions_enabled",
+      "type": "boolean",
     },
-    subscriptionsEnabled: {
-      baseName: "subscriptions_enabled",
-      type: "boolean",
+    "subscriptionsEnabled": {
+      "baseName": "subscriptions_enabled",
+      "type": "boolean",
     },
-    type: {
-      baseName: "type",
-      type: "CreateStatusPageRequestDataAttributesType",
+    "type": {
+      "baseName": "type",
+      "type": "CreateStatusPageRequestDataAttributesType",
     },
-    visualizationType: {
-      baseName: "visualization_type",
-      type: "CreateStatusPageRequestDataAttributesVisualizationType",
+    "visualizationType": {
+      "baseName": "visualization_type",
+      "type": "CreateStatusPageRequestDataAttributesVisualizationType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -178,8 +183,34 @@ export class StatusPageAsIncludedAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return StatusPageAsIncludedAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

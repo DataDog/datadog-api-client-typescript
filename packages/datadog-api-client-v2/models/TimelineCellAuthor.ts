@@ -5,10 +5,15 @@
  */
 import { TimelineCellAuthorUser } from "./TimelineCellAuthorUser";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The author of the timeline cell. Currently only user authors are supported.
- */
+*/
 
 export type TimelineCellAuthor = TimelineCellAuthorUser | UnparsedObject;

@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Field to sort policies by.
- */
+*/
 
-export type OrgGroupPolicySortOption =
-  | typeof ID
-  | typeof MINUS_ID
-  | typeof NAME
-  | typeof MINUS_NAME
-  | UnparsedObject;
-export const ID = "id";
-export const MINUS_ID = "-id";
-export const NAME = "name";
-export const MINUS_NAME = "-name";
+export type OrgGroupPolicySortOption = typeof ID| typeof MINUS_ID| typeof NAME| typeof MINUS_NAME | UnparsedObject;
+export const ID = 'id';
+export const MINUS_ID = '-id';
+export const NAME = 'name';
+export const MINUS_NAME = '-name';

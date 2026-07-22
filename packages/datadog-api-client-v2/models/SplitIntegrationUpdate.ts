@@ -6,19 +6,24 @@
 import { SplitCredentialsUpdate } from "./SplitCredentialsUpdate";
 import { SplitIntegrationType } from "./SplitIntegrationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `SplitIntegrationUpdate` object.
- */
+*/
 export class SplitIntegrationUpdate {
   /**
    * The definition of the `SplitCredentialsUpdate` object.
-   */
+  */
   "credentials"?: SplitCredentialsUpdate;
   /**
    * The definition of the `SplitIntegrationType` object.
-   */
+  */
   "type": SplitIntegrationType;
 
   /**
@@ -26,7 +31,7 @@ export class SplitIntegrationUpdate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class SplitIntegrationUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    credentials: {
-      baseName: "credentials",
-      type: "SplitCredentialsUpdate",
+    "credentials": {
+      "baseName": "credentials",
+      "type": "SplitCredentialsUpdate",
     },
-    type: {
-      baseName: "type",
-      type: "SplitIntegrationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SplitIntegrationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class SplitIntegrationUpdate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SplitIntegrationUpdate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

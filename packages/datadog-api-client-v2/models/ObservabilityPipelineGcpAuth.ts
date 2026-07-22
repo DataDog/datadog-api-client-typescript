@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Google Cloud credentials used to authenticate with Google Cloud Storage.
- */
+*/
 export class ObservabilityPipelineGcpAuth {
   /**
    * Path to the Google Cloud service account key file.
-   */
+  */
   "credentialsFile": string;
 
   /**
@@ -20,7 +25,7 @@ export class ObservabilityPipelineGcpAuth {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,10 +36,10 @@ export class ObservabilityPipelineGcpAuth {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    credentialsFile: {
-      baseName: "credentials_file",
-      type: "string",
-      required: true,
+    "credentialsFile": {
+      "baseName": "credentials_file",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class ObservabilityPipelineGcpAuth {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineGcpAuth.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

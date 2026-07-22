@@ -7,27 +7,32 @@ import { DegradationDataAttributes } from "./DegradationDataAttributes";
 import { DegradationDataRelationships } from "./DegradationDataRelationships";
 import { PatchDegradationRequestDataType } from "./PatchDegradationRequestDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data object for a degradation.
- */
+*/
 export class DegradationData {
   /**
    * The attributes of a degradation.
-   */
+  */
   "attributes"?: DegradationDataAttributes;
   /**
    * The ID of the degradation.
-   */
+  */
   "id"?: string;
   /**
    * The relationships of a degradation.
-   */
+  */
   "relationships"?: DegradationDataRelationships;
   /**
    * Degradations resource type.
-   */
+  */
   "type": PatchDegradationRequestDataType;
 
   /**
@@ -35,7 +40,7 @@ export class DegradationData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,23 +51,23 @@ export class DegradationData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "DegradationDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "DegradationDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "format": "uuid",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "DegradationDataRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "DegradationDataRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "PatchDegradationRequestDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "PatchDegradationRequestDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,8 +79,34 @@ export class DegradationData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DegradationData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

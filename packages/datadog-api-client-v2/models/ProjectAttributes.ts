@@ -6,35 +6,40 @@
 import { ProjectColumnsConfig } from "./ProjectColumnsConfig";
 import { ProjectSettings } from "./ProjectSettings";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Project attributes.
- */
+*/
 export class ProjectAttributes {
   /**
    * Project columns configuration.
-   */
+  */
   "columnsConfig"?: ProjectColumnsConfig;
   /**
    * List of enabled custom case type IDs.
-   */
+  */
   "enabledCustomCaseTypes"?: Array<string>;
   /**
    * The project's key.
-   */
+  */
   "key"?: string;
   /**
    * Project's name.
-   */
+  */
   "name"?: string;
   /**
    * Whether the project is restricted.
-   */
+  */
   "restricted"?: boolean;
   /**
    * Project settings.
-   */
+  */
   "settings"?: ProjectSettings;
 
   /**
@@ -42,7 +47,7 @@ export class ProjectAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -53,29 +58,29 @@ export class ProjectAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    columnsConfig: {
-      baseName: "columns_config",
-      type: "ProjectColumnsConfig",
+    "columnsConfig": {
+      "baseName": "columns_config",
+      "type": "ProjectColumnsConfig",
     },
-    enabledCustomCaseTypes: {
-      baseName: "enabled_custom_case_types",
-      type: "Array<string>",
+    "enabledCustomCaseTypes": {
+      "baseName": "enabled_custom_case_types",
+      "type": "Array<string>",
     },
-    key: {
-      baseName: "key",
-      type: "string",
+    "key": {
+      "baseName": "key",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    restricted: {
-      baseName: "restricted",
-      type: "boolean",
+    "restricted": {
+      "baseName": "restricted",
+      "type": "boolean",
     },
-    settings: {
-      baseName: "settings",
-      type: "ProjectSettings",
+    "settings": {
+      "baseName": "settings",
+      "type": "ProjectSettings",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -87,8 +92,34 @@ export class ProjectAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProjectAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

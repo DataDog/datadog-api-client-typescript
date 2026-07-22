@@ -6,19 +6,24 @@
 import { DatadogCredentialsUpdate } from "./DatadogCredentialsUpdate";
 import { DatadogIntegrationType } from "./DatadogIntegrationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `DatadogIntegrationUpdate` object.
- */
+*/
 export class DatadogIntegrationUpdate {
   /**
    * The definition of the `DatadogCredentialsUpdate` object.
-   */
+  */
   "credentials"?: DatadogCredentialsUpdate;
   /**
    * The definition of the `DatadogIntegrationType` object.
-   */
+  */
   "type": DatadogIntegrationType;
 
   /**
@@ -26,7 +31,7 @@ export class DatadogIntegrationUpdate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class DatadogIntegrationUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    credentials: {
-      baseName: "credentials",
-      type: "DatadogCredentialsUpdate",
+    "credentials": {
+      "baseName": "credentials",
+      "type": "DatadogCredentialsUpdate",
     },
-    type: {
-      baseName: "type",
-      type: "DatadogIntegrationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "DatadogIntegrationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class DatadogIntegrationUpdate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DatadogIntegrationUpdate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

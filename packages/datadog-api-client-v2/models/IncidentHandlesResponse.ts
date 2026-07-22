@@ -6,19 +6,24 @@
 import { IncidentHandleDataResponse } from "./IncidentHandleDataResponse";
 import { IncidentHandleIncludedItemResponse } from "./IncidentHandleIncludedItemResponse";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response payload for a list of global incident handles, including handle data and related resources.
- */
+*/
 export class IncidentHandlesResponse {
   /**
    * Array of incident handle data objects returned in a list response.
-   */
+  */
   "data": Array<IncidentHandleDataResponse>;
   /**
    * Included related resources
-   */
+  */
   "included"?: Array<IncidentHandleIncludedItemResponse>;
 
   /**
@@ -26,7 +31,7 @@ export class IncidentHandlesResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class IncidentHandlesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<IncidentHandleDataResponse>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<IncidentHandleDataResponse>",
+      "required": true,
     },
-    included: {
-      baseName: "included",
-      type: "Array<IncidentHandleIncludedItemResponse>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<IncidentHandleIncludedItemResponse>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class IncidentHandlesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentHandlesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

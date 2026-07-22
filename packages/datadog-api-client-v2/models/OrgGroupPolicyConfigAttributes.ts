@@ -4,31 +4,36 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of an org group policy config.
- */
+*/
 export class OrgGroupPolicyConfigAttributes {
   /**
    * The allowed values for this config.
-   */
+  */
   "allowedValues": Array<string>;
   /**
    * The default value for this config.
-   */
+  */
   "defaultValue": any;
   /**
    * The description of the policy config.
-   */
+  */
   "description": string;
   /**
    * The name of the policy config.
-   */
+  */
   "name": string;
   /**
    * The type of the value for this config.
-   */
+  */
   "valueType": string;
 
   /**
@@ -36,7 +41,7 @@ export class OrgGroupPolicyConfigAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,30 +52,30 @@ export class OrgGroupPolicyConfigAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    allowedValues: {
-      baseName: "allowed_values",
-      type: "Array<string>",
-      required: true,
+    "allowedValues": {
+      "baseName": "allowed_values",
+      "type": "Array<string>",
+      "required": true,
     },
-    defaultValue: {
-      baseName: "default_value",
-      type: "any",
-      required: true,
+    "defaultValue": {
+      "baseName": "default_value",
+      "type": "any",
+      "required": true,
     },
-    description: {
-      baseName: "description",
-      type: "string",
-      required: true,
+    "description": {
+      "baseName": "description",
+      "type": "string",
+      "required": true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    valueType: {
-      baseName: "value_type",
-      type: "string",
-      required: true,
+    "valueType": {
+      "baseName": "value_type",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -82,8 +87,34 @@ export class OrgGroupPolicyConfigAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgGroupPolicyConfigAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

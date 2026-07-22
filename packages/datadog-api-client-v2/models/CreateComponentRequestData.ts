@@ -7,23 +7,28 @@ import { CreateComponentRequestDataAttributes } from "./CreateComponentRequestDa
 import { CreateComponentRequestDataRelationships } from "./CreateComponentRequestDataRelationships";
 import { StatusPagesComponentGroupType } from "./StatusPagesComponentGroupType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data object for creating a component.
- */
+*/
 export class CreateComponentRequestData {
   /**
    * The supported attributes for creating a component.
-   */
+  */
   "attributes": CreateComponentRequestDataAttributes;
   /**
    * The supported relationships for creating a component.
-   */
+  */
   "relationships"?: CreateComponentRequestDataRelationships;
   /**
    * Components resource type.
-   */
+  */
   "type": StatusPagesComponentGroupType;
 
   /**
@@ -31,7 +36,7 @@ export class CreateComponentRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,19 +47,19 @@ export class CreateComponentRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CreateComponentRequestDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CreateComponentRequestDataAttributes",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "CreateComponentRequestDataRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "CreateComponentRequestDataRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "StatusPagesComponentGroupType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "StatusPagesComponentGroupType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class CreateComponentRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateComponentRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

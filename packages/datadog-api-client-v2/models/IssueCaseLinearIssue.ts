@@ -5,23 +5,28 @@
  */
 import { IssueCaseLinearIssueResult } from "./IssueCaseLinearIssueResult";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Linear issue of the case.
- */
+*/
 export class IssueCaseLinearIssue {
   /**
    * Error message set when the Linear issue creation fails.
-   */
+  */
   "errorMessage"?: string;
   /**
    * Contains the identifiers and URL for a successfully created Linear issue.
-   */
+  */
   "result"?: IssueCaseLinearIssueResult;
   /**
    * Creation status of the Linear issue.
-   */
+  */
   "status"?: string;
 
   /**
@@ -29,7 +34,7 @@ export class IssueCaseLinearIssue {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,17 +45,17 @@ export class IssueCaseLinearIssue {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    errorMessage: {
-      baseName: "error_message",
-      type: "string",
+    "errorMessage": {
+      "baseName": "error_message",
+      "type": "string",
     },
-    result: {
-      baseName: "result",
-      type: "IssueCaseLinearIssueResult",
+    "result": {
+      "baseName": "result",
+      "type": "IssueCaseLinearIssueResult",
     },
-    status: {
-      baseName: "status",
-      type: "string",
+    "status": {
+      "baseName": "status",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class IssueCaseLinearIssue {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IssueCaseLinearIssue.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

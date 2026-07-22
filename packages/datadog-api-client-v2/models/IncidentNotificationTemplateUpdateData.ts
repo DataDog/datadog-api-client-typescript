@@ -6,23 +6,28 @@
 import { IncidentNotificationTemplateType } from "./IncidentNotificationTemplateType";
 import { IncidentNotificationTemplateUpdateAttributes } from "./IncidentNotificationTemplateUpdateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Notification template data for an update request.
- */
+*/
 export class IncidentNotificationTemplateUpdateData {
   /**
    * The attributes to update on a notification template.
-   */
+  */
   "attributes"?: IncidentNotificationTemplateUpdateAttributes;
   /**
    * The unique identifier of the notification template.
-   */
+  */
   "id": string;
   /**
    * Notification templates resource type.
-   */
+  */
   "type": IncidentNotificationTemplateType;
 
   /**
@@ -30,7 +35,7 @@ export class IncidentNotificationTemplateUpdateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class IncidentNotificationTemplateUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "IncidentNotificationTemplateUpdateAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "IncidentNotificationTemplateUpdateAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    type: {
-      baseName: "type",
-      type: "IncidentNotificationTemplateType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "IncidentNotificationTemplateType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class IncidentNotificationTemplateUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentNotificationTemplateUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

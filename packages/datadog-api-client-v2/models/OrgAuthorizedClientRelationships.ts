@@ -6,19 +6,24 @@
 import { OrgAuthorizedClientRelationshipOAuth2Client } from "./OrgAuthorizedClientRelationshipOAuth2Client";
 import { OrgAuthorizedClientRelationshipUserAuthorizedClients } from "./OrgAuthorizedClientRelationshipUserAuthorizedClients";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationships for an org authorized client.
- */
+*/
 export class OrgAuthorizedClientRelationships {
   /**
    * Relationship to the OAuth2 client for this org authorized client.
-   */
+  */
   "oauth2Client": OrgAuthorizedClientRelationshipOAuth2Client;
   /**
    * Relationship to the user authorized clients for this org authorized client.
-   */
+  */
   "userAuthorizedClients": OrgAuthorizedClientRelationshipUserAuthorizedClients;
 
   /**
@@ -26,7 +31,7 @@ export class OrgAuthorizedClientRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class OrgAuthorizedClientRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    oauth2Client: {
-      baseName: "oauth2_client",
-      type: "OrgAuthorizedClientRelationshipOAuth2Client",
-      required: true,
+    "oauth2Client": {
+      "baseName": "oauth2_client",
+      "type": "OrgAuthorizedClientRelationshipOAuth2Client",
+      "required": true,
     },
-    userAuthorizedClients: {
-      baseName: "user_authorized_clients",
-      type: "OrgAuthorizedClientRelationshipUserAuthorizedClients",
-      required: true,
+    "userAuthorizedClients": {
+      "baseName": "user_authorized_clients",
+      "type": "OrgAuthorizedClientRelationshipUserAuthorizedClients",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class OrgAuthorizedClientRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgAuthorizedClientRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

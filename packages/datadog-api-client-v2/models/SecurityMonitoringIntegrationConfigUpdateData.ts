@@ -6,19 +6,24 @@
 import { SecurityMonitoringIntegrationConfigResourceType } from "./SecurityMonitoringIntegrationConfigResourceType";
 import { SecurityMonitoringIntegrationConfigUpdateAttributes } from "./SecurityMonitoringIntegrationConfigUpdateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The entity context sync configuration fields to update.
- */
+*/
 export class SecurityMonitoringIntegrationConfigUpdateData {
   /**
    * Fields to update on the entity context sync configuration. All fields other than the integration type are optional.
-   */
+  */
   "attributes": SecurityMonitoringIntegrationConfigUpdateAttributes;
   /**
    * The type of the resource. The value should always be `integration_config`.
-   */
+  */
   "type": SecurityMonitoringIntegrationConfigResourceType;
 
   /**
@@ -26,7 +31,7 @@ export class SecurityMonitoringIntegrationConfigUpdateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class SecurityMonitoringIntegrationConfigUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SecurityMonitoringIntegrationConfigUpdateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SecurityMonitoringIntegrationConfigUpdateAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "SecurityMonitoringIntegrationConfigResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SecurityMonitoringIntegrationConfigResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class SecurityMonitoringIntegrationConfigUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringIntegrationConfigUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

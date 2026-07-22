@@ -6,19 +6,24 @@
 import { FacetInfoResponseDataAttributesResultRange } from "./FacetInfoResponseDataAttributesResultRange";
 import { FacetInfoResponseDataAttributesResultValuesItems } from "./FacetInfoResponseDataAttributesResultValuesItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The facet query result containing discrete value counts or a numeric range for the requested facet.
- */
+*/
 export class FacetInfoResponseDataAttributesResult {
   /**
    * The numeric range of a facet attribute, representing the minimum and maximum observed values.
-   */
+  */
   "range"?: FacetInfoResponseDataAttributesResultRange;
   /**
    * List of discrete facet values with their occurrence counts.
-   */
+  */
   "values"?: Array<FacetInfoResponseDataAttributesResultValuesItems>;
 
   /**
@@ -26,7 +31,7 @@ export class FacetInfoResponseDataAttributesResult {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class FacetInfoResponseDataAttributesResult {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    range: {
-      baseName: "range",
-      type: "FacetInfoResponseDataAttributesResultRange",
+    "range": {
+      "baseName": "range",
+      "type": "FacetInfoResponseDataAttributesResultRange",
     },
-    values: {
-      baseName: "values",
-      type: "Array<FacetInfoResponseDataAttributesResultValuesItems>",
+    "values": {
+      "baseName": "values",
+      "type": "Array<FacetInfoResponseDataAttributesResultValuesItems>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class FacetInfoResponseDataAttributesResult {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FacetInfoResponseDataAttributesResult.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

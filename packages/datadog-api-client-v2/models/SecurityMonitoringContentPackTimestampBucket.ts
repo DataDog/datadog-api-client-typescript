@@ -4,21 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Timestamp bucket indicating when logs were last collected.
- */
+*/
 
-export type SecurityMonitoringContentPackTimestampBucket =
-  | typeof NOT_SEEN
-  | typeof WITHIN_24_HOURS
-  | typeof WITHIN_24_TO_72_HOURS
-  | typeof OVER_72H_TO_30D
-  | typeof OVER_30D
-  | UnparsedObject;
-export const NOT_SEEN = "not_seen";
-export const WITHIN_24_HOURS = "within_24_hours";
-export const WITHIN_24_TO_72_HOURS = "within_24_to_72_hours";
-export const OVER_72H_TO_30D = "over_72h_to_30d";
-export const OVER_30D = "over_30d";
+export type SecurityMonitoringContentPackTimestampBucket = typeof NOT_SEEN| typeof WITHIN_24_HOURS| typeof WITHIN_24_TO_72_HOURS| typeof OVER_72H_TO_30D| typeof OVER_30D | UnparsedObject;
+export const NOT_SEEN = 'not_seen';
+export const WITHIN_24_HOURS = 'within_24_hours';
+export const WITHIN_24_TO_72_HOURS = 'within_24_to_72_hours';
+export const OVER_72H_TO_30D = 'over_72h_to_30d';
+export const OVER_30D = 'over_30d';

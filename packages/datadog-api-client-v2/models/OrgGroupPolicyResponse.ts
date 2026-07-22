@@ -5,15 +5,20 @@
  */
 import { OrgGroupPolicyData } from "./OrgGroupPolicyData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a single org group policy.
- */
+*/
 export class OrgGroupPolicyResponse {
   /**
    * An org group policy resource.
-   */
+  */
   "data": OrgGroupPolicyData;
 
   /**
@@ -21,7 +26,7 @@ export class OrgGroupPolicyResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class OrgGroupPolicyResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "OrgGroupPolicyData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "OrgGroupPolicyData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class OrgGroupPolicyResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgGroupPolicyResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

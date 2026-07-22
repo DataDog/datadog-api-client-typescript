@@ -5,35 +5,40 @@
  */
 import { TicketCreationTarget } from "./TicketCreationTarget";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The action to take when the ticket creation rule matches a finding.
- */
+*/
 export class TicketCreationRuleActionResponse {
   /**
    * The UUID of the default assignee for created tickets.
-   */
+  */
   "assigneeId"?: string;
   /**
    * The reason the rule was automatically disabled by the system due to a ticketing integration error.
-   */
+  */
   "autoDisabledReason"?: string;
   /**
    * Custom fields of the Jira issue to create. For the list of available fields, see [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get).
-   */
+  */
   "fields"?: any;
   /**
    * The maximum number of tickets the rule may create per day. If exceeded, one final ticket will be created, explaining the limit was hit and link back to the responsible rule.
-   */
+  */
   "maxTicketsPerDay": number;
   /**
    * The UUID of the case management project.
-   */
+  */
   "projectId": string;
   /**
    * The ticketing system to create tickets in.
-   */
+  */
   "target": TicketCreationTarget;
 
   /**
@@ -41,7 +46,7 @@ export class TicketCreationRuleActionResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -52,35 +57,35 @@ export class TicketCreationRuleActionResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    assigneeId: {
-      baseName: "assignee_id",
-      type: "string",
-      format: "uuid",
+    "assigneeId": {
+      "baseName": "assignee_id",
+      "type": "string",
+      "format": "uuid",
     },
-    autoDisabledReason: {
-      baseName: "auto_disabled_reason",
-      type: "string",
+    "autoDisabledReason": {
+      "baseName": "auto_disabled_reason",
+      "type": "string",
     },
-    fields: {
-      baseName: "fields",
-      type: "any",
+    "fields": {
+      "baseName": "fields",
+      "type": "any",
     },
-    maxTicketsPerDay: {
-      baseName: "max_tickets_per_day",
-      type: "number",
-      required: true,
-      format: "int64",
+    "maxTicketsPerDay": {
+      "baseName": "max_tickets_per_day",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    projectId: {
-      baseName: "project_id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "projectId": {
+      "baseName": "project_id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    target: {
-      baseName: "target",
-      type: "TicketCreationTarget",
-      required: true,
+    "target": {
+      "baseName": "target",
+      "type": "TicketCreationTarget",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -92,8 +97,34 @@ export class TicketCreationRuleActionResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TicketCreationRuleActionResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

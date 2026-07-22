@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Filters monitor notifications using a scope expression over key:value pairs with boolean logic (AND, OR, NOT).
- */
+*/
 export class MonitorNotificationRuleFilterScope {
   /**
    * A scope expression composed by key:value pairs (e.g. `service:foo`) with boolean operators (AND, OR, NOT) and parentheses for grouping.
-   */
+  */
   "scope": string;
 
   /**
@@ -24,19 +29,45 @@ export class MonitorNotificationRuleFilterScope {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    scope: {
-      baseName: "scope",
-      type: "string",
-      required: true,
-    },
+    "scope": {
+      "baseName": "scope",
+      "type": "string",
+      "required": true,
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorNotificationRuleFilterScope.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

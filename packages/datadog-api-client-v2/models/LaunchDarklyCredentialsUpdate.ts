@@ -5,12 +5,15 @@
  */
 import { LaunchDarklyAPIKeyUpdate } from "./LaunchDarklyAPIKeyUpdate";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of the `LaunchDarklyCredentialsUpdate` object.
- */
+*/
 
-export type LaunchDarklyCredentialsUpdate =
-  | LaunchDarklyAPIKeyUpdate
-  | UnparsedObject;
+export type LaunchDarklyCredentialsUpdate = LaunchDarklyAPIKeyUpdate | UnparsedObject;

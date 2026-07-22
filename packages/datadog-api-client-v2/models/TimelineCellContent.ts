@@ -5,10 +5,15 @@
  */
 import { TimelineCellContentComment } from "./TimelineCellContentComment";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The content payload of a timeline cell, varying by cell type.
- */
+*/
 
 export type TimelineCellContent = TimelineCellContentComment | UnparsedObject;

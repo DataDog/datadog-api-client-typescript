@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A template variable that viewers can modify on the secure embed shared dashboard.
- */
+*/
 export class SecureEmbedSelectableTemplateVariable {
   /**
    * Default selected values for the variable.
-   */
+  */
   "defaultValues"?: Array<string>;
   /**
    * Name of the template variable. Usually matches the prefix unless you want a different display name.
-   */
+  */
   "name"?: string;
   /**
    * Tag prefix for the variable (e.g., `environment`, `service`).
-   */
+  */
   "prefix"?: string;
   /**
    * Restrict which tag values are visible to the viewer.
-   */
+  */
   "visibleTags"?: Array<string>;
 
   /**
@@ -32,7 +37,7 @@ export class SecureEmbedSelectableTemplateVariable {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,21 +48,21 @@ export class SecureEmbedSelectableTemplateVariable {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    defaultValues: {
-      baseName: "default_values",
-      type: "Array<string>",
+    "defaultValues": {
+      "baseName": "default_values",
+      "type": "Array<string>",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    prefix: {
-      baseName: "prefix",
-      type: "string",
+    "prefix": {
+      "baseName": "prefix",
+      "type": "string",
     },
-    visibleTags: {
-      baseName: "visible_tags",
-      type: "Array<string>",
+    "visibleTags": {
+      "baseName": "visible_tags",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -69,8 +74,34 @@ export class SecureEmbedSelectableTemplateVariable {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecureEmbedSelectableTemplateVariable.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Metric for retention compute.
- */
+*/
 
-export type RetentionComputeMetric =
-  | typeof RETENTION
-  | typeof RETENTION_RATE
-  | UnparsedObject;
-export const RETENTION = "__dd.retention";
-export const RETENTION_RATE = "__dd.retention_rate";
+export type RetentionComputeMetric = typeof RETENTION| typeof RETENTION_RATE | UnparsedObject;
+export const RETENTION = '__dd.retention';
+export const RETENTION_RATE = '__dd.retention_rate';

@@ -4,15 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The value of a custom attribute. The accepted format depends on the attribute's type and whether it accepts multiple values.
- */
+*/
 
-export type CustomAttributeValuesUnion =
-  | string
-  | Array<string>
-  | number
-  | Array<number>
-  | UnparsedObject;
+export type CustomAttributeValuesUnion = string | Array<string> | number | Array<number> | UnparsedObject;

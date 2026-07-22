@@ -6,19 +6,24 @@
 import { CreateMaintenanceRequestDataAttributes } from "./CreateMaintenanceRequestDataAttributes";
 import { PatchMaintenanceRequestDataType } from "./PatchMaintenanceRequestDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data object for creating a maintenance.
- */
+*/
 export class CreateMaintenanceRequestData {
   /**
    * The supported attributes for creating a maintenance.
-   */
+  */
   "attributes": CreateMaintenanceRequestDataAttributes;
   /**
    * Maintenances resource type.
-   */
+  */
   "type": PatchMaintenanceRequestDataType;
 
   /**
@@ -26,7 +31,7 @@ export class CreateMaintenanceRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class CreateMaintenanceRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CreateMaintenanceRequestDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CreateMaintenanceRequestDataAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "PatchMaintenanceRequestDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "PatchMaintenanceRequestDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class CreateMaintenanceRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateMaintenanceRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

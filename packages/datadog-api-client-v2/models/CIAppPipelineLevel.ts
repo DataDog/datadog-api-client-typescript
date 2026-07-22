@@ -4,21 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Pipeline execution level.
- */
+*/
 
-export type CIAppPipelineLevel =
-  | typeof PIPELINE
-  | typeof STAGE
-  | typeof JOB
-  | typeof STEP
-  | typeof CUSTOM
-  | UnparsedObject;
-export const PIPELINE = "pipeline";
-export const STAGE = "stage";
-export const JOB = "job";
-export const STEP = "step";
-export const CUSTOM = "custom";
+export type CIAppPipelineLevel = typeof PIPELINE| typeof STAGE| typeof JOB| typeof STEP| typeof CUSTOM | UnparsedObject;
+export const PIPELINE = 'pipeline';
+export const STAGE = 'stage';
+export const JOB = 'job';
+export const STEP = 'step';
+export const CUSTOM = 'custom';

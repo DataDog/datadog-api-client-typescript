@@ -5,15 +5,20 @@
  */
 import { MicrosoftTeamsTenantBasedHandleRequestData } from "./MicrosoftTeamsTenantBasedHandleRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Create tenant-based handle request.
- */
+*/
 export class MicrosoftTeamsCreateTenantBasedHandleRequest {
   /**
    * Tenant-based handle data from a response.
-   */
+  */
   "data": MicrosoftTeamsTenantBasedHandleRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class MicrosoftTeamsCreateTenantBasedHandleRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class MicrosoftTeamsCreateTenantBasedHandleRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "MicrosoftTeamsTenantBasedHandleRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "MicrosoftTeamsTenantBasedHandleRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class MicrosoftTeamsCreateTenantBasedHandleRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MicrosoftTeamsCreateTenantBasedHandleRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

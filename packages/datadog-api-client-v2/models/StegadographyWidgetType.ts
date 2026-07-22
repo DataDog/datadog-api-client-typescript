@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Stegadography widget resource type.
- */
+*/
 
 export type StegadographyWidgetType = typeof WIDGET | UnparsedObject;
-export const WIDGET = "widget";
+export const WIDGET = 'widget';

@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * In this object, the key is the tag, and the value is a list of host names that are reporting that tag.
- */
+*/
 export class TagToHosts {
   /**
    * A mapping of tags to host names
-   */
-  "tags"?: { [key: string]: Array<string> };
+  */
+  "tags"?: { [key: string]: Array<string>; };
 
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,9 +36,9 @@ export class TagToHosts {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    tags: {
-      baseName: "tags",
-      type: "{ [key: string]: Array<string>; }",
+    "tags": {
+      "baseName": "tags",
+      "type": "{ [key: string]: Array<string>; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,8 +50,34 @@ export class TagToHosts {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TagToHosts.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

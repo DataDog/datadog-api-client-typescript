@@ -5,19 +5,24 @@
  */
 import { CaseNotificationRuleRecipientData } from "./CaseNotificationRuleRecipientData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Notification rule recipient
- */
+*/
 export class CaseNotificationRuleRecipient {
   /**
    * Recipient data
-   */
+  */
   "data"?: CaseNotificationRuleRecipientData;
   /**
    * Type of recipient (SLACK_CHANNEL, EMAIL, HTTP, PAGERDUTY_SERVICE, MS_TEAMS_CHANNEL)
-   */
+  */
   "type"?: string;
 
   /**
@@ -25,7 +30,7 @@ export class CaseNotificationRuleRecipient {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class CaseNotificationRuleRecipient {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CaseNotificationRuleRecipientData",
+    "data": {
+      "baseName": "data",
+      "type": "CaseNotificationRuleRecipientData",
     },
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class CaseNotificationRuleRecipient {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseNotificationRuleRecipient.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

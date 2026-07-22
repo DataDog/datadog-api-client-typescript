@@ -5,19 +5,24 @@
  */
 import { WidgetDefinition } from "./WidgetDefinition";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for creating or updating a widget.
- */
+*/
 export class CreateOrUpdateWidgetRequestAttributes {
   /**
    * The definition of a widget, including its type and configuration.
-   */
+  */
   "definition": WidgetDefinition;
   /**
    * User-defined tags for organizing the widget.
-   */
+  */
   "tags"?: Array<string>;
 
   /**
@@ -25,7 +30,7 @@ export class CreateOrUpdateWidgetRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,14 +41,14 @@ export class CreateOrUpdateWidgetRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    definition: {
-      baseName: "definition",
-      type: "WidgetDefinition",
-      required: true,
+    "definition": {
+      "baseName": "definition",
+      "type": "WidgetDefinition",
+      "required": true,
     },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
+    "tags": {
+      "baseName": "tags",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class CreateOrUpdateWidgetRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateOrUpdateWidgetRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

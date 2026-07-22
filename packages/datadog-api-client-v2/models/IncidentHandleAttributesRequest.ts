@@ -5,19 +5,24 @@
  */
 import { IncidentHandleAttributesFields } from "./IncidentHandleAttributesFields";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Incident handle attributes for requests
- */
+*/
 export class IncidentHandleAttributesRequest {
   /**
    * Dynamic fields associated with the handle
-   */
+  */
   "fields"?: IncidentHandleAttributesFields;
   /**
    * The handle name
-   */
+  */
   "name": string;
 
   /**
@@ -25,7 +30,7 @@ export class IncidentHandleAttributesRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,14 +41,14 @@ export class IncidentHandleAttributesRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    fields: {
-      baseName: "fields",
-      type: "IncidentHandleAttributesFields",
+    "fields": {
+      "baseName": "fields",
+      "type": "IncidentHandleAttributesFields",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class IncidentHandleAttributesRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentHandleAttributesRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -7,23 +7,28 @@ import { Log } from "./Log";
 import { LogsListResponseLinks } from "./LogsListResponseLinks";
 import { LogsResponseMetadata } from "./LogsResponseMetadata";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object with all logs matching the request and pagination information.
- */
+*/
 export class LogsListResponse {
   /**
    * Array of logs matching the request.
-   */
+  */
   "data"?: Array<Log>;
   /**
    * Links attributes.
-   */
+  */
   "links"?: LogsListResponseLinks;
   /**
    * The metadata associated with a request
-   */
+  */
   "meta"?: LogsResponseMetadata;
 
   /**
@@ -31,7 +36,7 @@ export class LogsListResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,17 +47,17 @@ export class LogsListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<Log>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<Log>",
     },
-    links: {
-      baseName: "links",
-      type: "LogsListResponseLinks",
+    "links": {
+      "baseName": "links",
+      "type": "LogsListResponseLinks",
     },
-    meta: {
-      baseName: "meta",
-      type: "LogsResponseMetadata",
+    "meta": {
+      "baseName": "meta",
+      "type": "LogsResponseMetadata",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class LogsListResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogsListResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

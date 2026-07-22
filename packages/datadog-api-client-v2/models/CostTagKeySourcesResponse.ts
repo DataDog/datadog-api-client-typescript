@@ -5,15 +5,20 @@
  */
 import { CostTagKeySource } from "./CostTagKeySource";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * List of Cloud Cost Management tag keys with their origin sources for the requested period.
- */
+*/
 export class CostTagKeySourcesResponse {
   /**
    * List of tag keys with their origin sources.
-   */
+  */
   "data": Array<CostTagKeySource>;
 
   /**
@@ -21,7 +26,7 @@ export class CostTagKeySourcesResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CostTagKeySourcesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<CostTagKeySource>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<CostTagKeySource>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CostTagKeySourcesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CostTagKeySourcesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

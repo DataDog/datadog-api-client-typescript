@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A reference to a component affected by a vulnerability.
- */
+*/
 export class ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems {
   /**
    * The BOM reference identifying the affected component.
-   */
+  */
   "ref"?: string;
 
   /**
@@ -20,7 +25,7 @@ export class ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,9 +36,9 @@ export class ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    ref: {
-      baseName: "ref",
-      type: "string",
+    "ref": {
+      "baseName": "ref",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,8 +50,34 @@ export class ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

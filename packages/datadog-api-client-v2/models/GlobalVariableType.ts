@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Global variable type.
- */
+*/
 
 export type GlobalVariableType = typeof GLOBAL_VARIABLES | UnparsedObject;
-export const GLOBAL_VARIABLES = "global_variables";
+export const GLOBAL_VARIABLES = 'global_variables';

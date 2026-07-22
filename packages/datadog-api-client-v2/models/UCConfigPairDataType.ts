@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Azure UC configs resource type.
- */
+*/
 
 export type UCConfigPairDataType = typeof AZURE_UC_CONFIGS | UnparsedObject;
-export const AZURE_UC_CONFIGS = "azure_uc_configs";
+export const AZURE_UC_CONFIGS = 'azure_uc_configs';

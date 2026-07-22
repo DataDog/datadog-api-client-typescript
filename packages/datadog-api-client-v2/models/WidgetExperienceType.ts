@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Widget experience types that differentiate between the products using the specific widget.
- */
+*/
 
-export type WidgetExperienceType =
-  | typeof CCM_REPORTS
-  | typeof LOGS_REPORTS
-  | typeof CSV_REPORTS
-  | typeof PRODUCT_ANALYTICS
-  | UnparsedObject;
-export const CCM_REPORTS = "ccm_reports";
-export const LOGS_REPORTS = "logs_reports";
-export const CSV_REPORTS = "csv_reports";
-export const PRODUCT_ANALYTICS = "product_analytics";
+export type WidgetExperienceType = typeof CCM_REPORTS| typeof LOGS_REPORTS| typeof CSV_REPORTS| typeof PRODUCT_ANALYTICS | UnparsedObject;
+export const CCM_REPORTS = 'ccm_reports';
+export const LOGS_REPORTS = 'logs_reports';
+export const CSV_REPORTS = 'csv_reports';
+export const PRODUCT_ANALYTICS = 'product_analytics';

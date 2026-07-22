@@ -6,19 +6,24 @@
 import { IncidentUserDefinedFieldListMeta } from "./IncidentUserDefinedFieldListMeta";
 import { IncidentUserDefinedFieldResponseData } from "./IncidentUserDefinedFieldResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a list of incident user-defined fields.
- */
+*/
 export class IncidentUserDefinedFieldListResponse {
   /**
    * An array of user-defined field objects.
-   */
+  */
   "data": Array<IncidentUserDefinedFieldResponseData>;
   /**
    * Pagination metadata for the user-defined field list response.
-   */
+  */
   "meta": IncidentUserDefinedFieldListMeta;
 
   /**
@@ -26,7 +31,7 @@ export class IncidentUserDefinedFieldListResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class IncidentUserDefinedFieldListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<IncidentUserDefinedFieldResponseData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<IncidentUserDefinedFieldResponseData>",
+      "required": true,
     },
-    meta: {
-      baseName: "meta",
-      type: "IncidentUserDefinedFieldListMeta",
-      required: true,
+    "meta": {
+      "baseName": "meta",
+      "type": "IncidentUserDefinedFieldListMeta",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class IncidentUserDefinedFieldListResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentUserDefinedFieldListResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

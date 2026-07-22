@@ -6,21 +6,26 @@
 import { DeploymentGatesEvaluationRequestAttributes } from "./DeploymentGatesEvaluationRequestAttributes";
 import { DeploymentGatesEvaluationRequestDataType } from "./DeploymentGatesEvaluationRequestDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for a deployment gate evaluation request.
- */
+*/
 export class DeploymentGatesEvaluationRequestData {
   /**
    * Attributes for a deployment gate evaluation request.
    * When `configuration` is provided, rules are evaluated inline from that configuration.
    * When omitted, rules are resolved from the preconfigured gate for the given service and environment.
-   */
+  */
   "attributes": DeploymentGatesEvaluationRequestAttributes;
   /**
    * JSON:API type for a deployment gate evaluation request.
-   */
+  */
   "type": DeploymentGatesEvaluationRequestDataType;
 
   /**
@@ -28,7 +33,7 @@ export class DeploymentGatesEvaluationRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,15 +44,15 @@ export class DeploymentGatesEvaluationRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "DeploymentGatesEvaluationRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "DeploymentGatesEvaluationRequestAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "DeploymentGatesEvaluationRequestDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "DeploymentGatesEvaluationRequestDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -59,8 +64,34 @@ export class DeploymentGatesEvaluationRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DeploymentGatesEvaluationRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

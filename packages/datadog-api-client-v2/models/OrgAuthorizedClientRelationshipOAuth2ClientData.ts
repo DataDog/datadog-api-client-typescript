@@ -5,19 +5,24 @@
  */
 import { OrgAuthorizedClientRelationshipOAuth2ClientDataType } from "./OrgAuthorizedClientRelationshipOAuth2ClientDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data identifying the OAuth2 client associated with this org authorized client.
- */
+*/
 export class OrgAuthorizedClientRelationshipOAuth2ClientData {
   /**
    * The ID of the OAuth2 client.
-   */
+  */
   "id": string;
   /**
    * OAuth2 client resource type.
-   */
+  */
   "type": OrgAuthorizedClientRelationshipOAuth2ClientDataType;
 
   /**
@@ -25,7 +30,7 @@ export class OrgAuthorizedClientRelationshipOAuth2ClientData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class OrgAuthorizedClientRelationshipOAuth2ClientData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "OrgAuthorizedClientRelationshipOAuth2ClientDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "OrgAuthorizedClientRelationshipOAuth2ClientDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class OrgAuthorizedClientRelationshipOAuth2ClientData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgAuthorizedClientRelationshipOAuth2ClientData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

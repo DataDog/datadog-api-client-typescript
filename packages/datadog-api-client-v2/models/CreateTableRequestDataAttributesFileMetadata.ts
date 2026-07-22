@@ -6,13 +6,15 @@
 import { CreateTableRequestDataAttributesFileMetadataCloudStorage } from "./CreateTableRequestDataAttributesFileMetadataCloudStorage";
 import { CreateTableRequestDataAttributesFileMetadataLocalFile } from "./CreateTableRequestDataAttributesFileMetadataLocalFile";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Metadata specifying where and how to access the reference table's data file.
- */
+*/
 
-export type CreateTableRequestDataAttributesFileMetadata =
-  | CreateTableRequestDataAttributesFileMetadataCloudStorage
-  | CreateTableRequestDataAttributesFileMetadataLocalFile
-  | UnparsedObject;
+export type CreateTableRequestDataAttributesFileMetadata = CreateTableRequestDataAttributesFileMetadataCloudStorage | CreateTableRequestDataAttributesFileMetadataLocalFile | UnparsedObject;

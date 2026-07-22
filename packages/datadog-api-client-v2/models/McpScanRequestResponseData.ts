@@ -6,23 +6,28 @@
 import { McpScanRequestResponseDataAttributes } from "./McpScanRequestResponseDataAttributes";
 import { McpScanRequestResponseDataType } from "./McpScanRequestResponseDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data object returned when a scan request has been accepted.
- */
+*/
 export class McpScanRequestResponseData {
   /**
    * The attributes returned when a scan request has been accepted, containing the job identifier used to poll for results.
-   */
+  */
   "attributes": McpScanRequestResponseDataAttributes;
   /**
    * The job identifier assigned to the scan.
-   */
+  */
   "id": string;
   /**
    * The type identifier for MCP SCA scan request responses.
-   */
+  */
   "type": McpScanRequestResponseDataType;
 
   /**
@@ -30,7 +35,7 @@ export class McpScanRequestResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class McpScanRequestResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "McpScanRequestResponseDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "McpScanRequestResponseDataAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "McpScanRequestResponseDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "McpScanRequestResponseDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class McpScanRequestResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return McpScanRequestResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

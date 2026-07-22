@@ -6,19 +6,24 @@
 import { CaseLinkAttributes } from "./CaseLinkAttributes";
 import { CaseLinkResourceType } from "./CaseLinkResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for creating a case link.
- */
+*/
 export class CaseLinkCreate {
   /**
    * Attributes describing a directional relationship between two entities (cases, incidents, or pages).
-   */
+  */
   "attributes": CaseLinkAttributes;
   /**
    * JSON:API resource type for case links.
-   */
+  */
   "type": CaseLinkResourceType;
 
   /**
@@ -26,7 +31,7 @@ export class CaseLinkCreate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class CaseLinkCreate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CaseLinkAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CaseLinkAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CaseLinkResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CaseLinkResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class CaseLinkCreate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseLinkCreate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

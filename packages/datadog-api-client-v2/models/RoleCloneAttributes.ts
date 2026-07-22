@@ -4,21 +4,26 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes required to create a new role by cloning an existing one.
- */
+*/
 export class RoleCloneAttributes {
   /**
    * Name of the new role that is cloned.
-   */
+  */
   "name": string;
   /**
    * The managed role from which this role automatically inherits new permissions.
    * Specify one of the following: "Datadog Admin Role", "Datadog Standard Role", or "Datadog Read Only Role".
    * If empty or not specified, the role does not automatically inherit permissions from any managed role.
-   */
+  */
   "receivesPermissionsFrom"?: Array<string>;
 
   /**
@@ -26,7 +31,7 @@ export class RoleCloneAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class RoleCloneAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    receivesPermissionsFrom: {
-      baseName: "receives_permissions_from",
-      type: "Array<string>",
+    "receivesPermissionsFrom": {
+      "baseName": "receives_permissions_from",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class RoleCloneAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RoleCloneAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

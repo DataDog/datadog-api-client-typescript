@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes that can be updated on a maintenance window. All fields are optional; only provided fields are changed.
- */
+*/
 export class MaintenanceWindowUpdateAttributes {
   /**
    * The end time of the maintenance window.
-   */
+  */
   "endAt"?: Date;
   /**
    * The name of the maintenance window.
-   */
+  */
   "name"?: string;
   /**
    * The query to filter event management cases for this maintenance window.
-   */
+  */
   "query"?: string;
   /**
    * The start time of the maintenance window.
-   */
+  */
   "startAt"?: Date;
 
   /**
@@ -32,7 +37,7 @@ export class MaintenanceWindowUpdateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,23 +48,23 @@ export class MaintenanceWindowUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    endAt: {
-      baseName: "end_at",
-      type: "Date",
-      format: "date-time",
+    "endAt": {
+      "baseName": "end_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    query: {
-      baseName: "query",
-      type: "string",
+    "query": {
+      "baseName": "query",
+      "type": "string",
     },
-    startAt: {
-      baseName: "start_at",
-      type: "Date",
-      format: "date-time",
+    "startAt": {
+      "baseName": "start_at",
+      "type": "Date",
+      "format": "date-time",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,8 +76,34 @@ export class MaintenanceWindowUpdateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MaintenanceWindowUpdateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

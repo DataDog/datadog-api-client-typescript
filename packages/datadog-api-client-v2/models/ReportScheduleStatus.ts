@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Whether the schedule is currently delivering reports (`active`) or paused (`inactive`).
- */
+*/
 
-export type ReportScheduleStatus =
-  | typeof ACTIVE
-  | typeof INACTIVE
-  | UnparsedObject;
-export const ACTIVE = "active";
-export const INACTIVE = "inactive";
+export type ReportScheduleStatus = typeof ACTIVE| typeof INACTIVE | UnparsedObject;
+export const ACTIVE = 'active';
+export const INACTIVE = 'inactive';

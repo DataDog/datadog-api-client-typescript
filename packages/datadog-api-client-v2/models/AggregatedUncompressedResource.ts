@@ -4,51 +4,56 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Aggregated uncompressed resource detection grouped by URL path.
- */
+*/
 export class AggregatedUncompressedResource {
   /**
    * Average uncompressed body size in bytes.
-   */
+  */
   "avgBodySize": number;
   /**
    * Average resource loading duration in nanoseconds.
-   */
+  */
   "avgDuration": number;
   /**
    * Unique fingerprint identifying this detection group.
-   */
+  */
   "fingerprint": string;
   /**
    * Impact score combining view frequency and resource size.
-   */
+  */
   "impactScore": number;
   /**
    * Total number of detection instances across sampled views.
-   */
+  */
   "instanceCount": number;
   /**
    * CDN or hosting provider type for the resource.
-   */
-  "providerType": string | null;
+  */
+  "providerType": string|null;
   /**
    * Whether the resource is render-blocking.
-   */
-  "renderBlocking": string | null;
+  */
+  "renderBlocking": string|null;
   /**
    * Type of the resource (JS, CSS, image, fetch, and so on).
-   */
+  */
   "resourceType": string;
   /**
    * Normalized URL path pattern for the uncompressed resource.
-   */
+  */
   "urlPathGroup": string;
   /**
    * Number of sampled views where this detection occurred.
-   */
+  */
   "viewOccurrences": number;
 
   /**
@@ -56,7 +61,7 @@ export class AggregatedUncompressedResource {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -67,60 +72,60 @@ export class AggregatedUncompressedResource {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    avgBodySize: {
-      baseName: "avg_body_size",
-      type: "number",
-      required: true,
-      format: "int64",
+    "avgBodySize": {
+      "baseName": "avg_body_size",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    avgDuration: {
-      baseName: "avg_duration",
-      type: "number",
-      required: true,
-      format: "int64",
+    "avgDuration": {
+      "baseName": "avg_duration",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    fingerprint: {
-      baseName: "fingerprint",
-      type: "string",
-      required: true,
+    "fingerprint": {
+      "baseName": "fingerprint",
+      "type": "string",
+      "required": true,
     },
-    impactScore: {
-      baseName: "impact_score",
-      type: "number",
-      required: true,
-      format: "double",
+    "impactScore": {
+      "baseName": "impact_score",
+      "type": "number",
+      "required": true,
+      "format": "double",
     },
-    instanceCount: {
-      baseName: "instance_count",
-      type: "number",
-      required: true,
-      format: "int32",
+    "instanceCount": {
+      "baseName": "instance_count",
+      "type": "number",
+      "required": true,
+      "format": "int32",
     },
-    providerType: {
-      baseName: "provider_type",
-      type: "string",
-      required: true,
+    "providerType": {
+      "baseName": "provider_type",
+      "type": "string",
+      "required": true,
     },
-    renderBlocking: {
-      baseName: "render_blocking",
-      type: "string",
-      required: true,
+    "renderBlocking": {
+      "baseName": "render_blocking",
+      "type": "string",
+      "required": true,
     },
-    resourceType: {
-      baseName: "resource_type",
-      type: "string",
-      required: true,
+    "resourceType": {
+      "baseName": "resource_type",
+      "type": "string",
+      "required": true,
     },
-    urlPathGroup: {
-      baseName: "url_path_group",
-      type: "string",
-      required: true,
+    "urlPathGroup": {
+      "baseName": "url_path_group",
+      "type": "string",
+      "required": true,
     },
-    viewOccurrences: {
-      baseName: "view_occurrences",
-      type: "number",
-      required: true,
-      format: "int32",
+    "viewOccurrences": {
+      "baseName": "view_occurrences",
+      "type": "number",
+      "required": true,
+      "format": "int32",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -132,8 +137,34 @@ export class AggregatedUncompressedResource {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AggregatedUncompressedResource.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

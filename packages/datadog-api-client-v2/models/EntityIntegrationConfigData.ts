@@ -6,23 +6,28 @@
 import { EntityIntegrationConfigAttributes } from "./EntityIntegrationConfigAttributes";
 import { EntityIntegrationConfigType } from "./EntityIntegrationConfigType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * JSON:API resource object for an entity integration configuration.
- */
+*/
 export class EntityIntegrationConfigData {
   /**
    * The organization ID, integration identifier, and integration-specific configuration payload for an entity integration configuration.
-   */
+  */
   "attributes": EntityIntegrationConfigAttributes;
   /**
    * Unique identifier of the entity integration configuration.
-   */
+  */
   "id": string;
   /**
    * JSON:API resource type for an entity integration configuration. Always `entity_integration_configs`.
-   */
+  */
   "type": EntityIntegrationConfigType;
 
   /**
@@ -30,7 +35,7 @@ export class EntityIntegrationConfigData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class EntityIntegrationConfigData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "EntityIntegrationConfigAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "EntityIntegrationConfigAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "EntityIntegrationConfigType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "EntityIntegrationConfigType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class EntityIntegrationConfigData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EntityIntegrationConfigData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

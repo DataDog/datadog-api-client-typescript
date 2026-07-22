@@ -5,15 +5,20 @@
  */
 import { NotificationRuleRoutingMode } from "./NotificationRuleRoutingMode";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Routing configuration for the notification rule.
- */
+*/
 export class NotificationRuleRouting {
   /**
    * The routing mode for the notification rule. `manual` sends notifications to the configured targets.
-   */
+  */
   "mode": NotificationRuleRoutingMode;
 
   /**
@@ -21,7 +26,7 @@ export class NotificationRuleRouting {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class NotificationRuleRouting {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    mode: {
-      baseName: "mode",
-      type: "NotificationRuleRoutingMode",
-      required: true,
+    "mode": {
+      "baseName": "mode",
+      "type": "NotificationRuleRoutingMode",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class NotificationRuleRouting {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return NotificationRuleRouting.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Google Chat organization resource type.
- */
+*/
 
-export type GoogleChatOrganizationType =
-  | typeof GOOGLE_CHAT_ORGANIZATION_TYPE
-  | UnparsedObject;
-export const GOOGLE_CHAT_ORGANIZATION_TYPE = "google-chat-organization";
+export type GoogleChatOrganizationType = typeof GOOGLE_CHAT_ORGANIZATION_TYPE | UnparsedObject;
+export const GOOGLE_CHAT_ORGANIZATION_TYPE = 'google-chat-organization';

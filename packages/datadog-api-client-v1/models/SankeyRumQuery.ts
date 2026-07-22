@@ -9,55 +9,60 @@ import { SankeyJoinKeys } from "./SankeyJoinKeys";
 import { SankeyRumDataSource } from "./SankeyRumDataSource";
 import { SankeyRumQueryMode } from "./SankeyRumQueryMode";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Query configuration for Product Analytics or RUM Sankey widget.
- */
+*/
 export class SankeyRumQuery {
   /**
    * Product Analytics/RUM audience filters.
-   */
+  */
   "audienceFilters"?: ProductAnalyticsAudienceFilters;
   /**
    * Product Analytics or RUM data source type.
-   */
+  */
   "dataSource": SankeyRumDataSource;
   /**
    * Entries per step.
-   */
+  */
   "entriesPerStep"?: number;
   /**
    * Join keys.
-   */
+  */
   "joinKeys"?: SankeyJoinKeys;
   /**
    * Sankey mode for Product Analytics or RUM queries.
-   */
+  */
   "mode": SankeyRumQueryMode;
   /**
    * Number of steps.
-   */
+  */
   "numberOfSteps"?: number;
   /**
    * Filter applied to occurrence counts when building a Product Analytics audience.
-   */
+  */
   "occurrences"?: ProductAnalyticsAudienceOccurrenceFilter;
   /**
    * RUM event search query used to filter views or actions.
-   */
+  */
   "queryString": string;
   /**
    * Source.
-   */
+  */
   "source"?: string;
   /**
    * Subquery ID.
-   */
+  */
   "subqueryId"?: string;
   /**
    * Target.
-   */
+  */
   "target"?: string;
 
   /**
@@ -69,63 +74,89 @@ export class SankeyRumQuery {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    audienceFilters: {
-      baseName: "audience_filters",
-      type: "ProductAnalyticsAudienceFilters",
+    "audienceFilters": {
+      "baseName": "audience_filters",
+      "type": "ProductAnalyticsAudienceFilters",
     },
-    dataSource: {
-      baseName: "data_source",
-      type: "SankeyRumDataSource",
-      required: true,
+    "dataSource": {
+      "baseName": "data_source",
+      "type": "SankeyRumDataSource",
+      "required": true,
     },
-    entriesPerStep: {
-      baseName: "entries_per_step",
-      type: "number",
-      format: "int64",
+    "entriesPerStep": {
+      "baseName": "entries_per_step",
+      "type": "number",
+      "format": "int64",
     },
-    joinKeys: {
-      baseName: "join_keys",
-      type: "SankeyJoinKeys",
+    "joinKeys": {
+      "baseName": "join_keys",
+      "type": "SankeyJoinKeys",
     },
-    mode: {
-      baseName: "mode",
-      type: "SankeyRumQueryMode",
-      required: true,
+    "mode": {
+      "baseName": "mode",
+      "type": "SankeyRumQueryMode",
+      "required": true,
     },
-    numberOfSteps: {
-      baseName: "number_of_steps",
-      type: "number",
-      format: "int64",
+    "numberOfSteps": {
+      "baseName": "number_of_steps",
+      "type": "number",
+      "format": "int64",
     },
-    occurrences: {
-      baseName: "occurrences",
-      type: "ProductAnalyticsAudienceOccurrenceFilter",
+    "occurrences": {
+      "baseName": "occurrences",
+      "type": "ProductAnalyticsAudienceOccurrenceFilter",
     },
-    queryString: {
-      baseName: "query_string",
-      type: "string",
-      required: true,
+    "queryString": {
+      "baseName": "query_string",
+      "type": "string",
+      "required": true,
     },
-    source: {
-      baseName: "source",
-      type: "string",
+    "source": {
+      "baseName": "source",
+      "type": "string",
     },
-    subqueryId: {
-      baseName: "subquery_id",
-      type: "string",
+    "subqueryId": {
+      "baseName": "subquery_id",
+      "type": "string",
     },
-    target: {
-      baseName: "target",
-      type: "string",
-    },
+    "target": {
+      "baseName": "target",
+      "type": "string",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SankeyRumQuery.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

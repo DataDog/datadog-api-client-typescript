@@ -5,15 +5,20 @@
  */
 import { FacetInfoRequestData } from "./FacetInfoRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request body for retrieving facet value information for a specified attribute with optional filtering.
- */
+*/
 export class FacetInfoRequest {
   /**
    * The data object containing the resource type and attributes for the facet info request.
-   */
+  */
   "data"?: FacetInfoRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class FacetInfoRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class FacetInfoRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "FacetInfoRequestData",
+    "data": {
+      "baseName": "data",
+      "type": "FacetInfoRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class FacetInfoRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FacetInfoRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

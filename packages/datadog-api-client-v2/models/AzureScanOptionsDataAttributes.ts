@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for Azure scan options configuration.
- */
+*/
 export class AzureScanOptionsDataAttributes {
   /**
    * Indicates whether host compliance scanning is enabled.
-   */
+  */
   "complianceHost"?: boolean;
   /**
    * Indicates if scanning of Azure Functions is enabled.
-   */
+  */
   "_function"?: boolean;
   /**
    * Indicates if scanning for vulnerabilities in containers is enabled.
-   */
+  */
   "vulnContainersOs"?: boolean;
   /**
    * Indicates if scanning for vulnerabilities in hosts is enabled.
-   */
+  */
   "vulnHostOs"?: boolean;
 
   /**
@@ -32,7 +37,7 @@ export class AzureScanOptionsDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,21 +48,21 @@ export class AzureScanOptionsDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    complianceHost: {
-      baseName: "compliance_host",
-      type: "boolean",
+    "complianceHost": {
+      "baseName": "compliance_host",
+      "type": "boolean",
     },
-    _function: {
-      baseName: "function",
-      type: "boolean",
+    "_function": {
+      "baseName": "function",
+      "type": "boolean",
     },
-    vulnContainersOs: {
-      baseName: "vuln_containers_os",
-      type: "boolean",
+    "vulnContainersOs": {
+      "baseName": "vuln_containers_os",
+      "type": "boolean",
     },
-    vulnHostOs: {
-      baseName: "vuln_host_os",
-      type: "boolean",
+    "vulnHostOs": {
+      "baseName": "vuln_host_os",
+      "type": "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -69,8 +74,34 @@ export class AzureScanOptionsDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AzureScanOptionsDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

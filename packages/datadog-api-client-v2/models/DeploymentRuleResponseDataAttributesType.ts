@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of the deployment rule.
- */
+*/
 
-export type DeploymentRuleResponseDataAttributesType =
-  | typeof FAULTY_DEPLOYMENT_DETECTION
-  | typeof MONITOR
-  | UnparsedObject;
-export const FAULTY_DEPLOYMENT_DETECTION = "faulty_deployment_detection";
-export const MONITOR = "monitor";
+export type DeploymentRuleResponseDataAttributesType = typeof FAULTY_DEPLOYMENT_DETECTION| typeof MONITOR | UnparsedObject;
+export const FAULTY_DEPLOYMENT_DETECTION = 'faulty_deployment_detection';
+export const MONITOR = 'monitor';

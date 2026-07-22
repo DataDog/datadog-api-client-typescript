@@ -7,23 +7,28 @@ import { OrgGroupPolicyOverrideCreateAttributes } from "./OrgGroupPolicyOverride
 import { OrgGroupPolicyOverrideCreateRelationships } from "./OrgGroupPolicyOverrideCreateRelationships";
 import { OrgGroupPolicyOverrideType } from "./OrgGroupPolicyOverrideType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for creating an org group policy override.
- */
+*/
 export class OrgGroupPolicyOverrideCreateData {
   /**
    * Attributes for creating a policy override.
-   */
+  */
   "attributes": OrgGroupPolicyOverrideCreateAttributes;
   /**
    * Relationships for creating a policy override.
-   */
+  */
   "relationships": OrgGroupPolicyOverrideCreateRelationships;
   /**
    * Org group policy overrides resource type.
-   */
+  */
   "type": OrgGroupPolicyOverrideType;
 
   /**
@@ -31,7 +36,7 @@ export class OrgGroupPolicyOverrideCreateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,20 +47,20 @@ export class OrgGroupPolicyOverrideCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "OrgGroupPolicyOverrideCreateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "OrgGroupPolicyOverrideCreateAttributes",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "OrgGroupPolicyOverrideCreateRelationships",
-      required: true,
+    "relationships": {
+      "baseName": "relationships",
+      "type": "OrgGroupPolicyOverrideCreateRelationships",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "OrgGroupPolicyOverrideType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "OrgGroupPolicyOverrideType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class OrgGroupPolicyOverrideCreateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgGroupPolicyOverrideCreateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

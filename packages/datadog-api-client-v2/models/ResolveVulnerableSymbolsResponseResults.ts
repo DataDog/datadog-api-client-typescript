@@ -5,19 +5,24 @@
  */
 import { ResolveVulnerableSymbolsResponseResultsVulnerableSymbols } from "./ResolveVulnerableSymbolsResponseResultsVulnerableSymbols";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The result of resolving vulnerable symbols for a specific package, identified by its PURL.
- */
+*/
 export class ResolveVulnerableSymbolsResponseResults {
   /**
    * The Package URL (PURL) uniquely identifying the package for which vulnerable symbols are resolved.
-   */
+  */
   "purl"?: string;
   /**
    * The list of vulnerable symbol groups found in this package, organized by advisory.
-   */
+  */
   "vulnerableSymbols"?: Array<ResolveVulnerableSymbolsResponseResultsVulnerableSymbols>;
 
   /**
@@ -25,7 +30,7 @@ export class ResolveVulnerableSymbolsResponseResults {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class ResolveVulnerableSymbolsResponseResults {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    purl: {
-      baseName: "purl",
-      type: "string",
+    "purl": {
+      "baseName": "purl",
+      "type": "string",
     },
-    vulnerableSymbols: {
-      baseName: "vulnerable_symbols",
-      type: "Array<ResolveVulnerableSymbolsResponseResultsVulnerableSymbols>",
+    "vulnerableSymbols": {
+      "baseName": "vulnerable_symbols",
+      "type": "Array<ResolveVulnerableSymbolsResponseResultsVulnerableSymbols>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class ResolveVulnerableSymbolsResponseResults {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ResolveVulnerableSymbolsResponseResults.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

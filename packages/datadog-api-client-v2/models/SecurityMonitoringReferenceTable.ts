@@ -4,31 +4,36 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Reference tables used in the queries.
- */
+*/
 export class SecurityMonitoringReferenceTable {
   /**
    * Whether to include or exclude the matched values.
-   */
+  */
   "checkPresence"?: boolean;
   /**
    * The name of the column in the reference table.
-   */
+  */
   "columnName"?: string;
   /**
    * The field in the log to match against the reference table.
-   */
+  */
   "logFieldPath"?: string;
   /**
    * The name of the query to apply the reference table to.
-   */
+  */
   "ruleQueryName"?: string;
   /**
    * The name of the reference table.
-   */
+  */
   "tableName"?: string;
 
   /**
@@ -36,7 +41,7 @@ export class SecurityMonitoringReferenceTable {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,25 +52,25 @@ export class SecurityMonitoringReferenceTable {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    checkPresence: {
-      baseName: "checkPresence",
-      type: "boolean",
+    "checkPresence": {
+      "baseName": "checkPresence",
+      "type": "boolean",
     },
-    columnName: {
-      baseName: "columnName",
-      type: "string",
+    "columnName": {
+      "baseName": "columnName",
+      "type": "string",
     },
-    logFieldPath: {
-      baseName: "logFieldPath",
-      type: "string",
+    "logFieldPath": {
+      "baseName": "logFieldPath",
+      "type": "string",
     },
-    ruleQueryName: {
-      baseName: "ruleQueryName",
-      type: "string",
+    "ruleQueryName": {
+      "baseName": "ruleQueryName",
+      "type": "string",
     },
-    tableName: {
-      baseName: "tableName",
-      type: "string",
+    "tableName": {
+      "baseName": "tableName",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -77,8 +82,34 @@ export class SecurityMonitoringReferenceTable {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringReferenceTable.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

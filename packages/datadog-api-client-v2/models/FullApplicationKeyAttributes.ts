@@ -4,35 +4,40 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a full application key.
- */
+*/
 export class FullApplicationKeyAttributes {
   /**
    * Creation date of the application key.
-   */
+  */
   "createdAt"?: Date;
   /**
    * The application key.
-   */
+  */
   "key"?: string;
   /**
    * The last four characters of the application key.
-   */
+  */
   "last4"?: string;
   /**
    * Last usage timestamp of the application key.
-   */
+  */
   "lastUsedAt"?: Date;
   /**
    * Name of the application key.
-   */
+  */
   "name"?: string;
   /**
    * Array of scopes to grant the application key.
-   */
+  */
   "scopes"?: Array<string>;
 
   /**
@@ -40,7 +45,7 @@ export class FullApplicationKeyAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -51,31 +56,31 @@ export class FullApplicationKeyAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    key: {
-      baseName: "key",
-      type: "string",
+    "key": {
+      "baseName": "key",
+      "type": "string",
     },
-    last4: {
-      baseName: "last4",
-      type: "string",
+    "last4": {
+      "baseName": "last4",
+      "type": "string",
     },
-    lastUsedAt: {
-      baseName: "last_used_at",
-      type: "Date",
-      format: "date-time",
+    "lastUsedAt": {
+      "baseName": "last_used_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    scopes: {
-      baseName: "scopes",
-      type: "Array<string>",
+    "scopes": {
+      "baseName": "scopes",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -87,8 +92,34 @@ export class FullApplicationKeyAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FullApplicationKeyAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,7 +6,12 @@
 import { LogsArrayMapProcessorType } from "./LogsArrayMapProcessorType";
 import { LogsArrayMapSubProcessor } from "./LogsArrayMapSubProcessor";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The array-map processor transforms each element of a source array by applying
@@ -16,39 +21,39 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * (object element field), bare `$sourceElem` (primitive element), or any parent
  * log attribute path. Sub-processors write to `$targetElem.<field>` (object
  * output field) or bare `$targetElem` (primitive output).
- */
+*/
 export class LogsArrayMapProcessor {
   /**
    * Whether or not the processor is enabled.
-   */
+  */
   "isEnabled"?: boolean;
   /**
    * Name of the processor.
-   */
+  */
   "name"?: string;
   /**
    * When `false` and `source != target`, the source attribute is removed after
    * processing. Cannot be `false` when `source == target`.
-   */
+  */
   "preserveSource"?: boolean;
   /**
    * Sub-processors applied to each element. Allowed types: `attribute-remapper`,
    * `string-builder-processor`, `arithmetic-processor`, `category-processor`.
-   */
+  */
   "processors": Array<LogsArrayMapSubProcessor>;
   /**
    * Attribute path of the source array. Elements are read-only via `$sourceElem`
    * inside sub-processors.
-   */
+  */
   "source": string;
   /**
    * Attribute path of the output array. Sub-processors write to `$targetElem`
    * (or `$targetElem.<field>`) to build each output element.
-   */
+  */
   "target": string;
   /**
    * Type of logs array-map processor.
-   */
+  */
   "type": LogsArrayMapProcessorType;
 
   /**
@@ -56,7 +61,7 @@ export class LogsArrayMapProcessor {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -67,37 +72,37 @@ export class LogsArrayMapProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    isEnabled: {
-      baseName: "is_enabled",
-      type: "boolean",
+    "isEnabled": {
+      "baseName": "is_enabled",
+      "type": "boolean",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    preserveSource: {
-      baseName: "preserve_source",
-      type: "boolean",
+    "preserveSource": {
+      "baseName": "preserve_source",
+      "type": "boolean",
     },
-    processors: {
-      baseName: "processors",
-      type: "Array<LogsArrayMapSubProcessor>",
-      required: true,
+    "processors": {
+      "baseName": "processors",
+      "type": "Array<LogsArrayMapSubProcessor>",
+      "required": true,
     },
-    source: {
-      baseName: "source",
-      type: "string",
-      required: true,
+    "source": {
+      "baseName": "source",
+      "type": "string",
+      "required": true,
     },
-    target: {
-      baseName: "target",
-      type: "string",
-      required: true,
+    "target": {
+      "baseName": "target",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LogsArrayMapProcessorType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LogsArrayMapProcessorType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -109,8 +114,34 @@ export class LogsArrayMapProcessor {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogsArrayMapProcessor.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

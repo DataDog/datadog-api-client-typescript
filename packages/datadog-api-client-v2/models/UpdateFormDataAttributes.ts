@@ -5,15 +5,20 @@
  */
 import { FormUpdateAttributes } from "./FormUpdateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes for updating a form.
- */
+*/
 export class UpdateFormDataAttributes {
   /**
    * The fields to update on a form. At least one field must be provided.
-   */
+  */
   "formUpdate": FormUpdateAttributes;
 
   /**
@@ -21,7 +26,7 @@ export class UpdateFormDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class UpdateFormDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    formUpdate: {
-      baseName: "form_update",
-      type: "FormUpdateAttributes",
-      required: true,
+    "formUpdate": {
+      "baseName": "form_update",
+      "type": "FormUpdateAttributes",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class UpdateFormDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateFormDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Query users request resource type.
- */
+*/
 
-export type QueryUsersRequestDataType =
-  | typeof QUERY_USERS_REQUEST
-  | UnparsedObject;
-export const QUERY_USERS_REQUEST = "query_users_request";
+export type QueryUsersRequestDataType = typeof QUERY_USERS_REQUEST | UnparsedObject;
+export const QUERY_USERS_REQUEST = 'query_users_request';

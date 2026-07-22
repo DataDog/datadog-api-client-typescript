@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The compression type. Always `zstd`.
- */
+*/
 
-export type ObservabilityPipelineAmazonS3GenericCompressionZstdType =
-  | typeof ZSTD
-  | UnparsedObject;
-export const ZSTD = "zstd";
+export type ObservabilityPipelineAmazonS3GenericCompressionZstdType = typeof ZSTD | UnparsedObject;
+export const ZSTD = 'zstd';

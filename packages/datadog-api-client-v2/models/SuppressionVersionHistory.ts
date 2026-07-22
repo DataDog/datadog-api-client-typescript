@@ -5,27 +5,32 @@
  */
 import { SuppressionVersions } from "./SuppressionVersions";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object containing the version history of a suppression.
- */
+*/
 export class SuppressionVersionHistory {
   /**
    * The number of suppression versions.
-   */
+  */
   "count"?: number;
   /**
    * The version history of a suppression.
-   */
-  "data"?: { [key: string]: SuppressionVersions };
+  */
+  "data"?: { [key: string]: SuppressionVersions; };
 
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,14 +41,14 @@ export class SuppressionVersionHistory {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    count: {
-      baseName: "count",
-      type: "number",
-      format: "int32",
+    "count": {
+      "baseName": "count",
+      "type": "number",
+      "format": "int32",
     },
-    data: {
-      baseName: "data",
-      type: "{ [key: string]: SuppressionVersions; }",
+    "data": {
+      "baseName": "data",
+      "type": "{ [key: string]: SuppressionVersions; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class SuppressionVersionHistory {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SuppressionVersionHistory.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

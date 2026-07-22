@@ -6,19 +6,24 @@
 import { ProductAnalyticsAnalyticsRequestAttributes } from "./ProductAnalyticsAnalyticsRequestAttributes";
 import { ProductAnalyticsAnalyticsRequestType } from "./ProductAnalyticsAnalyticsRequestType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for an analytics request.
- */
+*/
 export class ProductAnalyticsAnalyticsRequestData {
   /**
    * Attributes for an analytics request.
-   */
+  */
   "attributes": ProductAnalyticsAnalyticsRequestAttributes;
   /**
    * The resource type for analytics requests.
-   */
+  */
   "type": ProductAnalyticsAnalyticsRequestType;
 
   /**
@@ -26,7 +31,7 @@ export class ProductAnalyticsAnalyticsRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class ProductAnalyticsAnalyticsRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ProductAnalyticsAnalyticsRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ProductAnalyticsAnalyticsRequestAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ProductAnalyticsAnalyticsRequestType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ProductAnalyticsAnalyticsRequestType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class ProductAnalyticsAnalyticsRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProductAnalyticsAnalyticsRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -7,23 +7,28 @@ import { ServiceAccountCreateAttributes } from "./ServiceAccountCreateAttributes
 import { UserRelationships } from "./UserRelationships";
 import { UsersType } from "./UsersType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object to create a service account User.
- */
+*/
 export class ServiceAccountCreateData {
   /**
    * Attributes of the created user.
-   */
+  */
   "attributes": ServiceAccountCreateAttributes;
   /**
    * Relationships of the user object.
-   */
+  */
   "relationships"?: UserRelationships;
   /**
    * Users resource type.
-   */
+  */
   "type": UsersType;
 
   /**
@@ -31,7 +36,7 @@ export class ServiceAccountCreateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,19 +47,19 @@ export class ServiceAccountCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ServiceAccountCreateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ServiceAccountCreateAttributes",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "UserRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "UserRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "UsersType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "UsersType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class ServiceAccountCreateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceAccountCreateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

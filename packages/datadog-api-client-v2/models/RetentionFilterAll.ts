@@ -6,23 +6,28 @@
 import { ApmRetentionFilterType } from "./ApmRetentionFilterType";
 import { RetentionFilterAllAttributes } from "./RetentionFilterAllAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the retention filter.
- */
+*/
 export class RetentionFilterAll {
   /**
    * The attributes of the retention filter.
-   */
+  */
   "attributes": RetentionFilterAllAttributes;
   /**
    * The ID of the retention filter.
-   */
+  */
   "id": string;
   /**
    * The type of the resource.
-   */
+  */
   "type": ApmRetentionFilterType;
 
   /**
@@ -30,7 +35,7 @@ export class RetentionFilterAll {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class RetentionFilterAll {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RetentionFilterAllAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "RetentionFilterAllAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ApmRetentionFilterType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ApmRetentionFilterType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class RetentionFilterAll {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RetentionFilterAll.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

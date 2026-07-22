@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The destination type. Always `amazon_security_lake`.
- */
+*/
 
-export type ObservabilityPipelineAmazonSecurityLakeDestinationType =
-  | typeof AMAZON_SECURITY_LAKE
-  | UnparsedObject;
-export const AMAZON_SECURITY_LAKE = "amazon_security_lake";
+export type ObservabilityPipelineAmazonSecurityLakeDestinationType = typeof AMAZON_SECURITY_LAKE | UnparsedObject;
+export const AMAZON_SECURITY_LAKE = 'amazon_security_lake';

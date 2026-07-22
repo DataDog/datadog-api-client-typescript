@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Extract the token from a specific HTTP request header.
- */
+*/
 export class ObservabilityPipelineHttpServerSourceValidTokenPathToTokenHeader {
   /**
    * The name of the HTTP header that carries the token.
-   */
+  */
   "header": string;
 
   /**
@@ -20,7 +25,7 @@ export class ObservabilityPipelineHttpServerSourceValidTokenPathToTokenHeader {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,10 +36,10 @@ export class ObservabilityPipelineHttpServerSourceValidTokenPathToTokenHeader {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    header: {
-      baseName: "header",
-      type: "string",
-      required: true,
+    "header": {
+      "baseName": "header",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class ObservabilityPipelineHttpServerSourceValidTokenPathToTokenHeader {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineHttpServerSourceValidTokenPathToTokenHeader.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

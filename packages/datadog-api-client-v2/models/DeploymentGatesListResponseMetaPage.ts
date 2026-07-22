@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Pagination information for a list of deployment gates.
- */
+*/
 export class DeploymentGatesListResponseMetaPage {
   /**
    * The cursor used for the current page.
-   */
+  */
   "cursor"?: string;
   /**
    * The cursor to use to fetch the next page. This is absent when there are no more pages.
-   */
+  */
   "nextCursor"?: string;
   /**
    * The number of results per page.
-   */
+  */
   "size"?: number;
 
   /**
@@ -28,7 +33,7 @@ export class DeploymentGatesListResponseMetaPage {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,18 +44,18 @@ export class DeploymentGatesListResponseMetaPage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    cursor: {
-      baseName: "cursor",
-      type: "string",
+    "cursor": {
+      "baseName": "cursor",
+      "type": "string",
     },
-    nextCursor: {
-      baseName: "next_cursor",
-      type: "string",
+    "nextCursor": {
+      "baseName": "next_cursor",
+      "type": "string",
     },
-    size: {
-      baseName: "size",
-      type: "number",
-      format: "int64",
+    "size": {
+      "baseName": "size",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class DeploymentGatesListResponseMetaPage {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DeploymentGatesListResponseMetaPage.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

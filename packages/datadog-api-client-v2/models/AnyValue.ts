@@ -5,16 +5,15 @@
  */
 import { AnyValueItem } from "./AnyValueItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Represents any valid JSON value.
- */
+*/
 
-export type AnyValue =
-  | string
-  | number
-  | { [key: string]: any }
-  | Array<AnyValueItem>
-  | boolean
-  | UnparsedObject;
+export type AnyValue = string | number | { [key: string]: any; } | Array<AnyValueItem> | boolean | UnparsedObject;

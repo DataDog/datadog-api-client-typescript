@@ -7,27 +7,32 @@ import { FunnelComparisonDuration } from "./FunnelComparisonDuration";
 import { ProductAnalyticsFunnelQuery } from "./ProductAnalyticsFunnelQuery";
 import { ProductAnalyticsFunnelRequestType } from "./ProductAnalyticsFunnelRequestType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * User journey funnel widget request.
- */
+*/
 export class ProductAnalyticsFunnelRequest {
   /**
    * Comparison segments.
-   */
+  */
   "comparisonSegments"?: Array<string>;
   /**
    * Comparison time configuration for funnel widgets.
-   */
+  */
   "comparisonTime"?: FunnelComparisonDuration;
   /**
    * User journey funnel query definition.
-   */
+  */
   "query": ProductAnalyticsFunnelQuery;
   /**
    * Request type for user journey funnel widget.
-   */
+  */
   "requestType": ProductAnalyticsFunnelRequestType;
 
   /**
@@ -39,32 +44,58 @@ export class ProductAnalyticsFunnelRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    comparisonSegments: {
-      baseName: "comparison_segments",
-      type: "Array<string>",
+    "comparisonSegments": {
+      "baseName": "comparison_segments",
+      "type": "Array<string>",
     },
-    comparisonTime: {
-      baseName: "comparison_time",
-      type: "FunnelComparisonDuration",
+    "comparisonTime": {
+      "baseName": "comparison_time",
+      "type": "FunnelComparisonDuration",
     },
-    query: {
-      baseName: "query",
-      type: "ProductAnalyticsFunnelQuery",
-      required: true,
+    "query": {
+      "baseName": "query",
+      "type": "ProductAnalyticsFunnelQuery",
+      "required": true,
     },
-    requestType: {
-      baseName: "request_type",
-      type: "ProductAnalyticsFunnelRequestType",
-      required: true,
-    },
+    "requestType": {
+      "baseName": "request_type",
+      "type": "ProductAnalyticsFunnelRequestType",
+      "required": true,
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProductAnalyticsFunnelRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

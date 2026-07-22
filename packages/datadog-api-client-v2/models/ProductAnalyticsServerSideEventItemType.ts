@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of Product Analytics event. Must be `server` for server-side events.
- */
+*/
 
-export type ProductAnalyticsServerSideEventItemType =
-  | typeof SERVER
-  | UnparsedObject;
-export const SERVER = "server";
+export type ProductAnalyticsServerSideEventItemType = typeof SERVER | UnparsedObject;
+export const SERVER = 'server';

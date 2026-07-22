@@ -6,23 +6,28 @@
 import { CostTagDescriptionType } from "./CostTagDescriptionType";
 import { CostTagDescriptionUpsertRequestDataAttributes } from "./CostTagDescriptionUpsertRequestDataAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Resource envelope carrying the tag key description being upserted. The `id` is informational; the authoritative tag key is taken from the URL path.
- */
+*/
 export class CostTagDescriptionUpsertRequestData {
   /**
    * Mutable attributes set when creating or updating a Cloud Cost Management tag key description.
-   */
+  */
   "attributes": CostTagDescriptionUpsertRequestDataAttributes;
   /**
    * Identifier of the tag key the description applies to. Matches the `tag_key` path parameter.
-   */
+  */
   "id"?: string;
   /**
    * Type of the Cloud Cost Management tag description resource.
-   */
+  */
   "type": CostTagDescriptionType;
 
   /**
@@ -30,7 +35,7 @@ export class CostTagDescriptionUpsertRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class CostTagDescriptionUpsertRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CostTagDescriptionUpsertRequestDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CostTagDescriptionUpsertRequestDataAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "CostTagDescriptionType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CostTagDescriptionType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class CostTagDescriptionUpsertRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CostTagDescriptionUpsertRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

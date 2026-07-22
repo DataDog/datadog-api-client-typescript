@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Upload configuration specifying how data is uploaded by the user, and properties of the table to associate the upload with.
- */
+*/
 export class CreateUploadRequestDataAttributes {
   /**
    * The CSV file headers that define the schema fields, provided in the same order as the columns in the uploaded file.
-   */
+  */
   "headers": Array<string>;
   /**
    * Number of parts to split the file into for multipart upload.
-   */
+  */
   "partCount": number;
   /**
    * The size of each part in the upload in bytes. All parts except the last one must be at least 5,000,000 bytes.
-   */
+  */
   "partSize": number;
   /**
    * Name of the table to associate with this upload.
-   */
+  */
   "tableName": string;
 
   /**
@@ -32,7 +37,7 @@ export class CreateUploadRequestDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,27 +48,27 @@ export class CreateUploadRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    headers: {
-      baseName: "headers",
-      type: "Array<string>",
-      required: true,
+    "headers": {
+      "baseName": "headers",
+      "type": "Array<string>",
+      "required": true,
     },
-    partCount: {
-      baseName: "part_count",
-      type: "number",
-      required: true,
-      format: "int32",
+    "partCount": {
+      "baseName": "part_count",
+      "type": "number",
+      "required": true,
+      "format": "int32",
     },
-    partSize: {
-      baseName: "part_size",
-      type: "number",
-      required: true,
-      format: "int64",
+    "partSize": {
+      "baseName": "part_size",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    tableName: {
-      baseName: "table_name",
-      type: "string",
-      required: true,
+    "tableName": {
+      "baseName": "table_name",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -75,8 +80,34 @@ export class CreateUploadRequestDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateUploadRequestDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

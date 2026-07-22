@@ -6,23 +6,28 @@
 import { AuthNMappingTeamAttributes } from "./AuthNMappingTeamAttributes";
 import { TeamType } from "./TeamType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Team.
- */
+*/
 export class AuthNMappingTeam {
   /**
    * Team attributes.
-   */
+  */
   "attributes"?: AuthNMappingTeamAttributes;
   /**
    * The ID of the Team.
-   */
+  */
   "id"?: string;
   /**
    * Team type
-   */
+  */
   "type"?: TeamType;
 
   /**
@@ -30,7 +35,7 @@ export class AuthNMappingTeam {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class AuthNMappingTeam {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AuthNMappingTeamAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AuthNMappingTeamAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "TeamType",
+    "type": {
+      "baseName": "type",
+      "type": "TeamType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class AuthNMappingTeam {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AuthNMappingTeam.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

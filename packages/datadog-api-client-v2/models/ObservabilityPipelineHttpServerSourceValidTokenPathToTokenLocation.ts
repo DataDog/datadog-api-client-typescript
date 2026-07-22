@@ -4,13 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Built-in token location on the incoming HTTP request.
- */
+*/
 
-export type ObservabilityPipelineHttpServerSourceValidTokenPathToTokenLocation =
-  typeof PATH | typeof ADDRESS | UnparsedObject;
-export const PATH = "path";
-export const ADDRESS = "address";
+export type ObservabilityPipelineHttpServerSourceValidTokenPathToTokenLocation = typeof PATH| typeof ADDRESS | UnparsedObject;
+export const PATH = 'path';
+export const ADDRESS = 'address';

@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of the cost anomalies collection resource. Must be `anomalies`.
- */
+*/
 
 export type CostAnomaliesResponseDataType = typeof ANOMALIES | UnparsedObject;
-export const ANOMALIES = "anomalies";
+export const ANOMALIES = 'anomalies';

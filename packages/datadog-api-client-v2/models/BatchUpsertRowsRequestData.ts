@@ -6,23 +6,28 @@
 import { BatchUpsertRowsRequestDataAttributes } from "./BatchUpsertRowsRequestDataAttributes";
 import { TableRowResourceDataType } from "./TableRowResourceDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Row resource containing a single row identifier and its column values.
- */
+*/
 export class BatchUpsertRowsRequestData {
   /**
    * Attributes containing row data values for row creation or update operations.
-   */
+  */
   "attributes"?: BatchUpsertRowsRequestDataAttributes;
   /**
    * The primary key value that uniquely identifies the row to create or update.
-   */
+  */
   "id": string;
   /**
    * Row resource type.
-   */
+  */
   "type": TableRowResourceDataType;
 
   /**
@@ -30,7 +35,7 @@ export class BatchUpsertRowsRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class BatchUpsertRowsRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "BatchUpsertRowsRequestDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "BatchUpsertRowsRequestDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "TableRowResourceDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TableRowResourceDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class BatchUpsertRowsRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return BatchUpsertRowsRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

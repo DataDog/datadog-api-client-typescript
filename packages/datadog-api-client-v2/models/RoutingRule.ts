@@ -7,27 +7,32 @@ import { RoutingRuleAttributes } from "./RoutingRuleAttributes";
 import { RoutingRuleRelationships } from "./RoutingRuleRelationships";
 import { RoutingRuleType } from "./RoutingRuleType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Represents a routing rule, including its attributes, relationships, and unique identifier.
- */
+*/
 export class RoutingRule {
   /**
    * Defines the configurable attributes of a routing rule, such as actions, query, time restriction, and urgency.
-   */
+  */
   "attributes"?: RoutingRuleAttributes;
   /**
    * Specifies the unique identifier of this routing rule.
-   */
+  */
   "id"?: string;
   /**
    * Specifies relationships for a routing rule, linking to associated policy resources.
-   */
+  */
   "relationships"?: RoutingRuleRelationships;
   /**
    * Team routing rules resource type.
-   */
+  */
   "type": RoutingRuleType;
 
   /**
@@ -35,7 +40,7 @@ export class RoutingRule {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,22 +51,22 @@ export class RoutingRule {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RoutingRuleAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "RoutingRuleAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "RoutingRuleRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "RoutingRuleRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "RoutingRuleType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "RoutingRuleType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -73,8 +78,34 @@ export class RoutingRule {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RoutingRule.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

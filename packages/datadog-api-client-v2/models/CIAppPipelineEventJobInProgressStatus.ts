@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The in-progress status of the job.
- */
+*/
 
-export type CIAppPipelineEventJobInProgressStatus =
-  | typeof RUNNING
-  | UnparsedObject;
-export const RUNNING = "running";
+export type CIAppPipelineEventJobInProgressStatus = typeof RUNNING | UnparsedObject;
+export const RUNNING = 'running';

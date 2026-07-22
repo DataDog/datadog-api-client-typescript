@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of the `OktaIntegrationType` object.
- */
+*/
 
 export type OktaIntegrationType = typeof OKTA | UnparsedObject;
-export const OKTA = "Okta";
+export const OKTA = 'Okta';

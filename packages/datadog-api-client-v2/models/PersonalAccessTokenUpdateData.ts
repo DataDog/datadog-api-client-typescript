@@ -6,23 +6,28 @@
 import { PersonalAccessTokensType } from "./PersonalAccessTokensType";
 import { PersonalAccessTokenUpdateAttributes } from "./PersonalAccessTokenUpdateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object used to update an access token.
- */
+*/
 export class PersonalAccessTokenUpdateData {
   /**
    * Attributes used to update an access token.
-   */
+  */
   "attributes": PersonalAccessTokenUpdateAttributes;
   /**
    * ID of the access token.
-   */
+  */
   "id": string;
   /**
    * Personal access tokens resource type.
-   */
+  */
   "type": PersonalAccessTokensType;
 
   /**
@@ -30,7 +35,7 @@ export class PersonalAccessTokenUpdateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class PersonalAccessTokenUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "PersonalAccessTokenUpdateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "PersonalAccessTokenUpdateAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "PersonalAccessTokensType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "PersonalAccessTokensType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class PersonalAccessTokenUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PersonalAccessTokenUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

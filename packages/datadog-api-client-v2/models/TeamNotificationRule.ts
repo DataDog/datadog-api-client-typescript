@@ -6,23 +6,28 @@
 import { TeamNotificationRuleAttributes } from "./TeamNotificationRuleAttributes";
 import { TeamNotificationRuleType } from "./TeamNotificationRuleType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Team notification rule
- */
+*/
 export class TeamNotificationRule {
   /**
    * Team notification rule attributes
-   */
+  */
   "attributes": TeamNotificationRuleAttributes;
   /**
    * The identifier of the team notification rule
-   */
+  */
   "id"?: string;
   /**
    * Team notification rule type
-   */
+  */
   "type": TeamNotificationRuleType;
 
   /**
@@ -30,7 +35,7 @@ export class TeamNotificationRule {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class TeamNotificationRule {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "TeamNotificationRuleAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "TeamNotificationRuleAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "TeamNotificationRuleType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TeamNotificationRuleType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class TeamNotificationRule {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamNotificationRule.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

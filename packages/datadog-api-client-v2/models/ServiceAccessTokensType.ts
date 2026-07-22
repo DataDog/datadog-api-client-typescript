@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Service access tokens resource type.
- */
+*/
 
-export type ServiceAccessTokensType =
-  | typeof SERVICE_ACCESS_TOKENS
-  | UnparsedObject;
-export const SERVICE_ACCESS_TOKENS = "service_access_tokens";
+export type ServiceAccessTokensType = typeof SERVICE_ACCESS_TOKENS | UnparsedObject;
+export const SERVICE_ACCESS_TOKENS = 'service_access_tokens';

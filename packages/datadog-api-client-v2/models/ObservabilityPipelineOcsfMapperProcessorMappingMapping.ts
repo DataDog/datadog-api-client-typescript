@@ -6,13 +6,15 @@
 import { ObservabilityPipelineOcsfMappingCustom } from "./ObservabilityPipelineOcsfMappingCustom";
 import { ObservabilityPipelineOcsfMappingLibrary } from "./ObservabilityPipelineOcsfMappingLibrary";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Defines a single mapping rule for transforming logs into the OCSF schema.
- */
+*/
 
-export type ObservabilityPipelineOcsfMapperProcessorMappingMapping =
-  | ObservabilityPipelineOcsfMappingLibrary
-  | ObservabilityPipelineOcsfMappingCustom
-  | UnparsedObject;
+export type ObservabilityPipelineOcsfMapperProcessorMappingMapping = ObservabilityPipelineOcsfMappingLibrary | ObservabilityPipelineOcsfMappingCustom | UnparsedObject;

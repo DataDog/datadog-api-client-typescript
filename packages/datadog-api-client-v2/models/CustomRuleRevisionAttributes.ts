@@ -9,91 +9,96 @@ import { CustomRuleRevisionAttributesSeverity } from "./CustomRuleRevisionAttrib
 import { CustomRuleRevisionTest } from "./CustomRuleRevisionTest";
 import { Language } from "./Language";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a custom rule revision, including code, metadata, and test cases.
- */
+*/
 export class CustomRuleRevisionAttributes {
   /**
    * Rule arguments
-   */
+  */
   "arguments": Array<Argument>;
   /**
    * Rule category
-   */
+  */
   "category": CustomRuleRevisionAttributesCategory;
   /**
    * Code checksum
-   */
+  */
   "checksum": string;
   /**
    * Rule code
-   */
+  */
   "code": string;
   /**
    * Creation timestamp
-   */
+  */
   "createdAt": Date;
   /**
    * Creator identifier
-   */
+  */
   "createdBy": string;
   /**
    * Revision creation message
-   */
+  */
   "creationMessage": string;
   /**
    * Associated CVE
-   */
-  "cve": string | null;
+  */
+  "cve": string|null;
   /**
    * Associated CWE
-   */
-  "cwe": string | null;
+  */
+  "cwe": string|null;
   /**
    * Full description
-   */
+  */
   "description": string;
   /**
    * Documentation URL
-   */
-  "documentationUrl": string | null;
+  */
+  "documentationUrl": string|null;
   /**
    * Whether the revision is published
-   */
+  */
   "isPublished": boolean;
   /**
    * Whether this is a testing revision
-   */
+  */
   "isTesting": boolean;
   /**
    * Programming language
-   */
+  */
   "language": Language;
   /**
    * Rule severity
-   */
+  */
   "severity": CustomRuleRevisionAttributesSeverity;
   /**
    * Short description
-   */
+  */
   "shortDescription": string;
   /**
    * Whether to use AI for fixes
-   */
+  */
   "shouldUseAiFix": boolean;
   /**
    * Rule tags
-   */
+  */
   "tags": Array<string>;
   /**
    * Rule tests
-   */
+  */
   "tests": Array<CustomRuleRevisionTest>;
   /**
    * Tree-sitter query
-   */
+  */
   "treeSitterQuery": string;
 
   /**
@@ -101,7 +106,7 @@ export class CustomRuleRevisionAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -112,106 +117,106 @@ export class CustomRuleRevisionAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    arguments: {
-      baseName: "arguments",
-      type: "Array<Argument>",
-      required: true,
+    "arguments": {
+      "baseName": "arguments",
+      "type": "Array<Argument>",
+      "required": true,
     },
-    category: {
-      baseName: "category",
-      type: "CustomRuleRevisionAttributesCategory",
-      required: true,
+    "category": {
+      "baseName": "category",
+      "type": "CustomRuleRevisionAttributesCategory",
+      "required": true,
     },
-    checksum: {
-      baseName: "checksum",
-      type: "string",
-      required: true,
+    "checksum": {
+      "baseName": "checksum",
+      "type": "string",
+      "required": true,
     },
-    code: {
-      baseName: "code",
-      type: "string",
-      required: true,
+    "code": {
+      "baseName": "code",
+      "type": "string",
+      "required": true,
     },
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    createdBy: {
-      baseName: "created_by",
-      type: "string",
-      required: true,
+    "createdBy": {
+      "baseName": "created_by",
+      "type": "string",
+      "required": true,
     },
-    creationMessage: {
-      baseName: "creation_message",
-      type: "string",
-      required: true,
+    "creationMessage": {
+      "baseName": "creation_message",
+      "type": "string",
+      "required": true,
     },
-    cve: {
-      baseName: "cve",
-      type: "string",
-      required: true,
+    "cve": {
+      "baseName": "cve",
+      "type": "string",
+      "required": true,
     },
-    cwe: {
-      baseName: "cwe",
-      type: "string",
-      required: true,
+    "cwe": {
+      "baseName": "cwe",
+      "type": "string",
+      "required": true,
     },
-    description: {
-      baseName: "description",
-      type: "string",
-      required: true,
+    "description": {
+      "baseName": "description",
+      "type": "string",
+      "required": true,
     },
-    documentationUrl: {
-      baseName: "documentation_url",
-      type: "string",
-      required: true,
+    "documentationUrl": {
+      "baseName": "documentation_url",
+      "type": "string",
+      "required": true,
     },
-    isPublished: {
-      baseName: "is_published",
-      type: "boolean",
-      required: true,
+    "isPublished": {
+      "baseName": "is_published",
+      "type": "boolean",
+      "required": true,
     },
-    isTesting: {
-      baseName: "is_testing",
-      type: "boolean",
-      required: true,
+    "isTesting": {
+      "baseName": "is_testing",
+      "type": "boolean",
+      "required": true,
     },
-    language: {
-      baseName: "language",
-      type: "Language",
-      required: true,
+    "language": {
+      "baseName": "language",
+      "type": "Language",
+      "required": true,
     },
-    severity: {
-      baseName: "severity",
-      type: "CustomRuleRevisionAttributesSeverity",
-      required: true,
+    "severity": {
+      "baseName": "severity",
+      "type": "CustomRuleRevisionAttributesSeverity",
+      "required": true,
     },
-    shortDescription: {
-      baseName: "short_description",
-      type: "string",
-      required: true,
+    "shortDescription": {
+      "baseName": "short_description",
+      "type": "string",
+      "required": true,
     },
-    shouldUseAiFix: {
-      baseName: "should_use_ai_fix",
-      type: "boolean",
-      required: true,
+    "shouldUseAiFix": {
+      "baseName": "should_use_ai_fix",
+      "type": "boolean",
+      "required": true,
     },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
-      required: true,
+    "tags": {
+      "baseName": "tags",
+      "type": "Array<string>",
+      "required": true,
     },
-    tests: {
-      baseName: "tests",
-      type: "Array<CustomRuleRevisionTest>",
-      required: true,
+    "tests": {
+      "baseName": "tests",
+      "type": "Array<CustomRuleRevisionTest>",
+      "required": true,
     },
-    treeSitterQuery: {
-      baseName: "tree_sitter_query",
-      type: "string",
-      required: true,
+    "treeSitterQuery": {
+      "baseName": "tree_sitter_query",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -223,8 +228,34 @@ export class CustomRuleRevisionAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomRuleRevisionAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

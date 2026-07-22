@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes of the get-AST request, containing the source code to parse.
- */
+*/
 export class GetAstRequestDataAttributes {
   /**
    * The base64-encoded source code to parse into an abstract syntax tree.
-   */
+  */
   "code": string;
   /**
    * The encoding of the source code file (must be utf-8).
-   */
+  */
   "fileEncoding": string;
   /**
    * The programming language of the source code to parse.
-   */
+  */
   "language": string;
 
   /**
@@ -28,7 +33,7 @@ export class GetAstRequestDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,20 +44,20 @@ export class GetAstRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    code: {
-      baseName: "code",
-      type: "string",
-      required: true,
+    "code": {
+      "baseName": "code",
+      "type": "string",
+      "required": true,
     },
-    fileEncoding: {
-      baseName: "file_encoding",
-      type: "string",
-      required: true,
+    "fileEncoding": {
+      "baseName": "file_encoding",
+      "type": "string",
+      "required": true,
     },
-    language: {
-      baseName: "language",
-      type: "string",
-      required: true,
+    "language": {
+      "baseName": "language",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class GetAstRequestDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GetAstRequestDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

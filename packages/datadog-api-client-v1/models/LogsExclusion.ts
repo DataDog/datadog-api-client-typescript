@@ -5,23 +5,28 @@
  */
 import { LogsExclusionFilter } from "./LogsExclusionFilter";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Represents the index exclusion filter object from configuration API.
- */
+*/
 export class LogsExclusion {
   /**
    * Exclusion filter is defined by a query, a sampling rule, and a active/inactive toggle.
-   */
+  */
   "filter"?: LogsExclusionFilter;
   /**
    * Whether or not the exclusion filter is active.
-   */
+  */
   "isEnabled"?: boolean;
   /**
    * Name of the index exclusion filter.
-   */
+  */
   "name": string;
 
   /**
@@ -29,7 +34,7 @@ export class LogsExclusion {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,18 +45,18 @@ export class LogsExclusion {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    filter: {
-      baseName: "filter",
-      type: "LogsExclusionFilter",
+    "filter": {
+      "baseName": "filter",
+      "type": "LogsExclusionFilter",
     },
-    isEnabled: {
-      baseName: "is_enabled",
-      type: "boolean",
+    "isEnabled": {
+      "baseName": "is_enabled",
+      "type": "boolean",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class LogsExclusion {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogsExclusion.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

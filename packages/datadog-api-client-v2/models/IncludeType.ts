@@ -4,21 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Supported include types.
- */
+*/
 
-export type IncludeType =
-  | typeof SCHEMA
-  | typeof RAW_SCHEMA
-  | typeof ONCALL
-  | typeof INCIDENT
-  | typeof RELATION
-  | UnparsedObject;
-export const SCHEMA = "schema";
-export const RAW_SCHEMA = "raw_schema";
-export const ONCALL = "oncall";
-export const INCIDENT = "incident";
-export const RELATION = "relation";
+export type IncludeType = typeof SCHEMA| typeof RAW_SCHEMA| typeof ONCALL| typeof INCIDENT| typeof RELATION | UnparsedObject;
+export const SCHEMA = 'schema';
+export const RAW_SCHEMA = 'raw_schema';
+export const ONCALL = 'oncall';
+export const INCIDENT = 'incident';
+export const RELATION = 'relation';

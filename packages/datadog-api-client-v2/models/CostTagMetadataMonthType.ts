@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of the Cloud Cost Management tag metadata month resource.
- */
+*/
 
-export type CostTagMetadataMonthType =
-  | typeof COST_TAG_METADATA_MONTH
-  | UnparsedObject;
-export const COST_TAG_METADATA_MONTH = "cost_tag_metadata_month";
+export type CostTagMetadataMonthType = typeof COST_TAG_METADATA_MONTH | UnparsedObject;
+export const COST_TAG_METADATA_MONTH = 'cost_tag_metadata_month';

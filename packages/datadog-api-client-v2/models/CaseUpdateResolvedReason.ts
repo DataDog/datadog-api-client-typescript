@@ -6,19 +6,24 @@
 import { CaseResourceType } from "./CaseResourceType";
 import { CaseUpdateResolvedReasonAttributes } from "./CaseUpdateResolvedReasonAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for updating a case's resolved reason.
- */
+*/
 export class CaseUpdateResolvedReason {
   /**
    * Attributes for setting the resolution reason on a security case.
-   */
+  */
   "attributes": CaseUpdateResolvedReasonAttributes;
   /**
    * JSON:API resource type for cases.
-   */
+  */
   "type": CaseResourceType;
 
   /**
@@ -26,7 +31,7 @@ export class CaseUpdateResolvedReason {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class CaseUpdateResolvedReason {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CaseUpdateResolvedReasonAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CaseUpdateResolvedReasonAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CaseResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CaseResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class CaseUpdateResolvedReason {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseUpdateResolvedReason.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

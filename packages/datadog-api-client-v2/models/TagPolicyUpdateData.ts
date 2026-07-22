@@ -6,24 +6,29 @@
 import { TagPolicyResourceType } from "./TagPolicyResourceType";
 import { TagPolicyUpdateAttributes } from "./TagPolicyUpdateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for updating a tag policy.
- */
+*/
 export class TagPolicyUpdateData {
   /**
    * Mutable attributes of a tag policy. Each field is optional; omitting a field leaves its
    * current value unchanged. The `source` of a policy cannot be changed.
-   */
+  */
   "attributes"?: TagPolicyUpdateAttributes;
   /**
    * The unique identifier of the tag policy being updated.
-   */
+  */
   "id": string;
   /**
    * JSON:API resource type for a tag policy.
-   */
+  */
   "type": TagPolicyResourceType;
 
   /**
@@ -31,7 +36,7 @@ export class TagPolicyUpdateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,19 +47,19 @@ export class TagPolicyUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "TagPolicyUpdateAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "TagPolicyUpdateAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "TagPolicyResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TagPolicyResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class TagPolicyUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TagPolicyUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

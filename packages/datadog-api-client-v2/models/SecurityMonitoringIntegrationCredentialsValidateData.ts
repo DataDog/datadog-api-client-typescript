@@ -6,19 +6,24 @@
 import { SecurityMonitoringIntegrationConfigResourceType } from "./SecurityMonitoringIntegrationConfigResourceType";
 import { SecurityMonitoringIntegrationCredentialsValidateAttributes } from "./SecurityMonitoringIntegrationCredentialsValidateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The credentials to validate.
- */
+*/
 export class SecurityMonitoringIntegrationCredentialsValidateData {
   /**
    * The credentials to validate against the external entity source.
-   */
+  */
   "attributes": SecurityMonitoringIntegrationCredentialsValidateAttributes;
   /**
    * The type of the resource. The value should always be `integration_config`.
-   */
+  */
   "type": SecurityMonitoringIntegrationConfigResourceType;
 
   /**
@@ -26,7 +31,7 @@ export class SecurityMonitoringIntegrationCredentialsValidateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class SecurityMonitoringIntegrationCredentialsValidateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SecurityMonitoringIntegrationCredentialsValidateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SecurityMonitoringIntegrationCredentialsValidateAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "SecurityMonitoringIntegrationConfigResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SecurityMonitoringIntegrationConfigResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class SecurityMonitoringIntegrationCredentialsValidateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringIntegrationCredentialsValidateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

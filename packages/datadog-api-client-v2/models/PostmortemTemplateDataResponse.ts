@@ -6,23 +6,28 @@
 import { PostmortemTemplateAttributesResponse } from "./PostmortemTemplateAttributesResponse";
 import { PostmortemTemplateType } from "./PostmortemTemplateType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for a postmortem template returned in a response.
- */
+*/
 export class PostmortemTemplateDataResponse {
   /**
    * Attributes of a postmortem template returned in a response.
-   */
+  */
   "attributes": PostmortemTemplateAttributesResponse;
   /**
    * The ID of the template
-   */
+  */
   "id": string;
   /**
    * Postmortem template resource type
-   */
+  */
   "type": PostmortemTemplateType;
 
   /**
@@ -30,7 +35,7 @@ export class PostmortemTemplateDataResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class PostmortemTemplateDataResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "PostmortemTemplateAttributesResponse",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "PostmortemTemplateAttributesResponse",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "PostmortemTemplateType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "PostmortemTemplateType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class PostmortemTemplateDataResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PostmortemTemplateDataResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,19 +6,24 @@
 import { ListAPIsResponseData } from "./ListAPIsResponseData";
 import { ListAPIsResponseMeta } from "./ListAPIsResponseMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response for `ListAPIs`.
- */
+*/
 export class ListAPIsResponse {
   /**
    * List of API items.
-   */
+  */
   "data"?: Array<ListAPIsResponseData>;
   /**
    * Metadata for `ListAPIsResponse`.
-   */
+  */
   "meta"?: ListAPIsResponseMeta;
 
   /**
@@ -26,7 +31,7 @@ export class ListAPIsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class ListAPIsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<ListAPIsResponseData>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<ListAPIsResponseData>",
     },
-    meta: {
-      baseName: "meta",
-      type: "ListAPIsResponseMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "ListAPIsResponseMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class ListAPIsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListAPIsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -9,46 +9,51 @@ import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The Change graph shows you the change in a value over the time period chosen.
- */
+*/
 export class ChangeWidgetDefinition {
   /**
    * List of custom links.
-   */
+  */
   "customLinks"?: Array<WidgetCustomLink>;
   /**
    * The description of the widget.
-   */
+  */
   "description"?: string;
   /**
    * Array of one request object to display in the widget.
-   *
+   * 
    * See the dedicated [Request JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json)
    *  to learn how to build the `REQUEST_SCHEMA`.
-   */
+  */
   "requests": [ChangeWidgetRequest];
   /**
    * Time setting for the widget.
-   */
+  */
   "time"?: WidgetTime;
   /**
    * Title of the widget.
-   */
+  */
   "title"?: string;
   /**
    * How to align the text on the widget.
-   */
+  */
   "titleAlign"?: WidgetTextAlign;
   /**
    * Size of the title.
-   */
+  */
   "titleSize"?: string;
   /**
    * Type of the change widget.
-   */
+  */
   "type": ChangeWidgetDefinitionType;
 
   /**
@@ -56,7 +61,7 @@ export class ChangeWidgetDefinition {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -67,39 +72,39 @@ export class ChangeWidgetDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    customLinks: {
-      baseName: "custom_links",
-      type: "Array<WidgetCustomLink>",
+    "customLinks": {
+      "baseName": "custom_links",
+      "type": "Array<WidgetCustomLink>",
     },
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    requests: {
-      baseName: "requests",
-      type: "[ChangeWidgetRequest]",
-      required: true,
+    "requests": {
+      "baseName": "requests",
+      "type": "[ChangeWidgetRequest]",
+      "required": true,
     },
-    time: {
-      baseName: "time",
-      type: "WidgetTime",
+    "time": {
+      "baseName": "time",
+      "type": "WidgetTime",
     },
-    title: {
-      baseName: "title",
-      type: "string",
+    "title": {
+      "baseName": "title",
+      "type": "string",
     },
-    titleAlign: {
-      baseName: "title_align",
-      type: "WidgetTextAlign",
+    "titleAlign": {
+      "baseName": "title_align",
+      "type": "WidgetTextAlign",
     },
-    titleSize: {
-      baseName: "title_size",
-      type: "string",
+    "titleSize": {
+      "baseName": "title_size",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "ChangeWidgetDefinitionType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ChangeWidgetDefinitionType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -111,8 +116,34 @@ export class ChangeWidgetDefinition {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ChangeWidgetDefinition.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

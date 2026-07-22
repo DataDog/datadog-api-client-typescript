@@ -8,33 +8,38 @@ import { TeamSyncAttributesSource } from "./TeamSyncAttributesSource";
 import { TeamSyncAttributesType } from "./TeamSyncAttributesType";
 import { TeamSyncSelectionStateItem } from "./TeamSyncSelectionStateItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Team sync attributes.
- */
+*/
 export class TeamSyncAttributes {
   /**
    * How often the sync process should be run. Defaults to `once` when not provided.
-   */
+  */
   "frequency"?: TeamSyncAttributesFrequency;
   /**
    * Specifies which teams or organizations to sync. When
    * provided, synchronization is limited to the specified
    * items and their subtrees.
-   */
+  */
   "selectionState"?: Array<TeamSyncSelectionStateItem>;
   /**
    * The external source platform for team synchronization. Only "github" is supported.
-   */
+  */
   "source": TeamSyncAttributesSource;
   /**
    * Whether to sync members from the external team to the Datadog team. Defaults to `false` when not provided.
-   */
+  */
   "syncMembership"?: boolean;
   /**
    * The type of synchronization operation. "link" connects teams by matching names. "provision" creates new teams when no match is found.
-   */
+  */
   "type": TeamSyncAttributesType;
 
   /**
@@ -42,7 +47,7 @@ export class TeamSyncAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -53,27 +58,27 @@ export class TeamSyncAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    frequency: {
-      baseName: "frequency",
-      type: "TeamSyncAttributesFrequency",
+    "frequency": {
+      "baseName": "frequency",
+      "type": "TeamSyncAttributesFrequency",
     },
-    selectionState: {
-      baseName: "selection_state",
-      type: "Array<TeamSyncSelectionStateItem>",
+    "selectionState": {
+      "baseName": "selection_state",
+      "type": "Array<TeamSyncSelectionStateItem>",
     },
-    source: {
-      baseName: "source",
-      type: "TeamSyncAttributesSource",
-      required: true,
+    "source": {
+      "baseName": "source",
+      "type": "TeamSyncAttributesSource",
+      "required": true,
     },
-    syncMembership: {
-      baseName: "sync_membership",
-      type: "boolean",
+    "syncMembership": {
+      "baseName": "sync_membership",
+      "type": "boolean",
     },
-    type: {
-      baseName: "type",
-      type: "TeamSyncAttributesType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TeamSyncAttributesType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -85,8 +90,34 @@ export class TeamSyncAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamSyncAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

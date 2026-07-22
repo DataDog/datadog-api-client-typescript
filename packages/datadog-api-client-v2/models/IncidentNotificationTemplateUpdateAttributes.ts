@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes to update on a notification template.
- */
+*/
 export class IncidentNotificationTemplateUpdateAttributes {
   /**
    * The category of the notification template.
-   */
+  */
   "category"?: string;
   /**
    * The content body of the notification template.
-   */
+  */
   "content"?: string;
   /**
    * The name of the notification template.
-   */
+  */
   "name"?: string;
   /**
    * The subject line of the notification template.
-   */
+  */
   "subject"?: string;
 
   /**
@@ -32,7 +37,7 @@ export class IncidentNotificationTemplateUpdateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,21 +48,21 @@ export class IncidentNotificationTemplateUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    category: {
-      baseName: "category",
-      type: "string",
+    "category": {
+      "baseName": "category",
+      "type": "string",
     },
-    content: {
-      baseName: "content",
-      type: "string",
+    "content": {
+      "baseName": "content",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    subject: {
-      baseName: "subject",
-      type: "string",
+    "subject": {
+      "baseName": "subject",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -69,8 +74,34 @@ export class IncidentNotificationTemplateUpdateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentNotificationTemplateUpdateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

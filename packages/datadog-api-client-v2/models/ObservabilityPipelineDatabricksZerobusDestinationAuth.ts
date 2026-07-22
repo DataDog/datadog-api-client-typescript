@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * OAuth credentials for authenticating with the Databricks Zerobus ingestion API.
- */
+*/
 export class ObservabilityPipelineDatabricksZerobusDestinationAuth {
   /**
    * Your service principal application ID (UUID).
-   */
+  */
   "clientId": string;
   /**
    * Name of the environment variable or secret that holds the OAuth client secret used to authenticate with the Databricks ingestion endpoint.
-   */
+  */
   "clientSecretKey"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class ObservabilityPipelineDatabricksZerobusDestinationAuth {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,14 +40,14 @@ export class ObservabilityPipelineDatabricksZerobusDestinationAuth {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    clientId: {
-      baseName: "client_id",
-      type: "string",
-      required: true,
+    "clientId": {
+      "baseName": "client_id",
+      "type": "string",
+      "required": true,
     },
-    clientSecretKey: {
-      baseName: "client_secret_key",
-      type: "string",
+    "clientSecretKey": {
+      "baseName": "client_secret_key",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class ObservabilityPipelineDatabricksZerobusDestinationAuth {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineDatabricksZerobusDestinationAuth.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

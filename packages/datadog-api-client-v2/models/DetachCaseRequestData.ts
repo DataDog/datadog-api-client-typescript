@@ -6,19 +6,24 @@
 import { CaseDataType } from "./CaseDataType";
 import { DetachCaseRequestDataRelationships } from "./DetachCaseRequestDataRelationships";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for detaching security findings from their case.
- */
+*/
 export class DetachCaseRequestData {
   /**
    * Relationships detaching security findings from their case.
-   */
+  */
   "relationships"?: DetachCaseRequestDataRelationships;
   /**
    * Cases resource type.
-   */
+  */
   "type": CaseDataType;
 
   /**
@@ -26,7 +31,7 @@ export class DetachCaseRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class DetachCaseRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    relationships: {
-      baseName: "relationships",
-      type: "DetachCaseRequestDataRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "DetachCaseRequestDataRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "CaseDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CaseDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class DetachCaseRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DetachCaseRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

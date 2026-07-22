@@ -5,15 +5,20 @@
  */
 import { AWSLogsServicesResponseData } from "./AWSLogsServicesResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * AWS Logs Services response body
- */
+*/
 export class AWSLogsServicesResponse {
   /**
    * AWS Logs Services response body
-   */
+  */
   "data": AWSLogsServicesResponseData;
 
   /**
@@ -21,7 +26,7 @@ export class AWSLogsServicesResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class AWSLogsServicesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "AWSLogsServicesResponseData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "AWSLogsServicesResponseData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class AWSLogsServicesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSLogsServicesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

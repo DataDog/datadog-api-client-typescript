@@ -6,23 +6,28 @@
 import { PatchComponentRequestDataAttributes } from "./PatchComponentRequestDataAttributes";
 import { StatusPagesComponentGroupType } from "./StatusPagesComponentGroupType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data object for updating a component.
- */
+*/
 export class PatchComponentRequestData {
   /**
    * The supported attributes for updating a component.
-   */
+  */
   "attributes": PatchComponentRequestDataAttributes;
   /**
    * The ID of the component.
-   */
+  */
   "id": string;
   /**
    * Components resource type.
-   */
+  */
   "type": StatusPagesComponentGroupType;
 
   /**
@@ -30,7 +35,7 @@ export class PatchComponentRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,21 +46,21 @@ export class PatchComponentRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "PatchComponentRequestDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "PatchComponentRequestDataAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    type: {
-      baseName: "type",
-      type: "StatusPagesComponentGroupType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "StatusPagesComponentGroupType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class PatchComponentRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PatchComponentRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

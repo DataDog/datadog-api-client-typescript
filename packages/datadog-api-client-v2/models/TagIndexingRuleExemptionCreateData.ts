@@ -6,19 +6,24 @@
 import { TagIndexingRuleExemptionCreateAttributes } from "./TagIndexingRuleExemptionCreateAttributes";
 import { TagIndexingRuleExemptionType } from "./TagIndexingRuleExemptionType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for creating a tag indexing rule exemption.
- */
+*/
 export class TagIndexingRuleExemptionCreateData {
   /**
    * Attributes for creating a tag indexing rule exemption.
-   */
+  */
   "attributes": TagIndexingRuleExemptionCreateAttributes;
   /**
    * The tag indexing rule exemption resource type.
-   */
+  */
   "type": TagIndexingRuleExemptionType;
 
   /**
@@ -26,7 +31,7 @@ export class TagIndexingRuleExemptionCreateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class TagIndexingRuleExemptionCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "TagIndexingRuleExemptionCreateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "TagIndexingRuleExemptionCreateAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "TagIndexingRuleExemptionType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TagIndexingRuleExemptionType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class TagIndexingRuleExemptionCreateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TagIndexingRuleExemptionCreateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

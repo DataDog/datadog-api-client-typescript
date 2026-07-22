@@ -8,15 +8,15 @@ import { MetricMonitorAsset } from "./MetricMonitorAsset";
 import { MetricNotebookAsset } from "./MetricNotebookAsset";
 import { MetricSLOAsset } from "./MetricSLOAsset";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * List of included assets with full set of attributes.
- */
+*/
 
-export type MetricAssetResponseIncluded =
-  | MetricDashboardAsset
-  | MetricMonitorAsset
-  | MetricNotebookAsset
-  | MetricSLOAsset
-  | UnparsedObject;
+export type MetricAssetResponseIncluded = MetricDashboardAsset | MetricMonitorAsset | MetricNotebookAsset | MetricSLOAsset | UnparsedObject;

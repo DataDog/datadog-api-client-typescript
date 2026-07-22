@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes confirming that an LLM Observability prompt was deleted.
- */
+*/
 export class LLMObsDeletedPromptDataAttributes {
   /**
    * Timestamp when the prompt was deleted.
-   */
+  */
   "deletedAt": Date;
   /**
    * Customer-provided identifier of the deleted prompt.
-   */
+  */
   "promptId": string;
 
   /**
@@ -24,7 +29,7 @@ export class LLMObsDeletedPromptDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,16 +40,16 @@ export class LLMObsDeletedPromptDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    deletedAt: {
-      baseName: "deleted_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "deletedAt": {
+      "baseName": "deleted_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    promptId: {
-      baseName: "prompt_id",
-      type: "string",
-      required: true,
+    "promptId": {
+      "baseName": "prompt_id",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class LLMObsDeletedPromptDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDeletedPromptDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

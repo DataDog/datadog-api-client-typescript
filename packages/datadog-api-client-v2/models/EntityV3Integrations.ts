@@ -6,19 +6,24 @@
 import { EntityV3DatadogIntegrationOpsgenie } from "./EntityV3DatadogIntegrationOpsgenie";
 import { EntityV3DatadogIntegrationPagerduty } from "./EntityV3DatadogIntegrationPagerduty";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A base schema for defining third-party integrations.
- */
+*/
 export class EntityV3Integrations {
   /**
    * An Opsgenie integration schema.
-   */
+  */
   "opsgenie"?: EntityV3DatadogIntegrationOpsgenie;
   /**
    * A PagerDuty integration schema.
-   */
+  */
   "pagerduty"?: EntityV3DatadogIntegrationPagerduty;
 
   /**
@@ -30,22 +35,48 @@ export class EntityV3Integrations {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    opsgenie: {
-      baseName: "opsgenie",
-      type: "EntityV3DatadogIntegrationOpsgenie",
+    "opsgenie": {
+      "baseName": "opsgenie",
+      "type": "EntityV3DatadogIntegrationOpsgenie",
     },
-    pagerduty: {
-      baseName: "pagerduty",
-      type: "EntityV3DatadogIntegrationPagerduty",
-    },
+    "pagerduty": {
+      "baseName": "pagerduty",
+      "type": "EntityV3DatadogIntegrationPagerduty",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EntityV3Integrations.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

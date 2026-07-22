@@ -4,14 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type identifier for responses containing resolved vulnerable symbols.
- */
+*/
 
-export type ResolveVulnerableSymbolsResponseDataType =
-  | typeof RESOLVE_VULNERABLE_SYMBOLS_RESPONSE
-  | UnparsedObject;
-export const RESOLVE_VULNERABLE_SYMBOLS_RESPONSE =
-  "resolve-vulnerable-symbols-response";
+export type ResolveVulnerableSymbolsResponseDataType = typeof RESOLVE_VULNERABLE_SYMBOLS_RESPONSE | UnparsedObject;
+export const RESOLVE_VULNERABLE_SYMBOLS_RESPONSE = 'resolve-vulnerable-symbols-response';

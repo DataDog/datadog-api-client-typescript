@@ -6,19 +6,24 @@
 import { AttachmentDataAttributesAttachmentType } from "./AttachmentDataAttributesAttachmentType";
 import { CreateAttachmentRequestDataAttributesAttachment } from "./CreateAttachmentRequestDataAttributesAttachment";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes for creating an attachment.
- */
+*/
 export class CreateAttachmentRequestDataAttributes {
   /**
    * The attachment object for creating an attachment.
-   */
+  */
   "attachment"?: CreateAttachmentRequestDataAttributesAttachment;
   /**
    * The type of the attachment.
-   */
+  */
   "attachmentType"?: AttachmentDataAttributesAttachmentType;
 
   /**
@@ -26,7 +31,7 @@ export class CreateAttachmentRequestDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class CreateAttachmentRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attachment: {
-      baseName: "attachment",
-      type: "CreateAttachmentRequestDataAttributesAttachment",
+    "attachment": {
+      "baseName": "attachment",
+      "type": "CreateAttachmentRequestDataAttributesAttachment",
     },
-    attachmentType: {
-      baseName: "attachment_type",
-      type: "AttachmentDataAttributesAttachmentType",
+    "attachmentType": {
+      "baseName": "attachment_type",
+      "type": "AttachmentDataAttributesAttachmentType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class CreateAttachmentRequestDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateAttachmentRequestDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

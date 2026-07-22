@@ -5,19 +5,24 @@
  */
 import { AnonymizeUserError } from "./AnonymizeUserError";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of an anonymize users response.
- */
+*/
 export class AnonymizeUsersResponseAttributes {
   /**
    * List of errors encountered during anonymization, one entry per failed user.
-   */
+  */
   "anonymizeErrors": Array<AnonymizeUserError>;
   /**
    * List of user IDs (UUIDs) that were successfully anonymized.
-   */
+  */
   "anonymizedUserIds": Array<string>;
 
   /**
@@ -25,7 +30,7 @@ export class AnonymizeUsersResponseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class AnonymizeUsersResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    anonymizeErrors: {
-      baseName: "anonymize_errors",
-      type: "Array<AnonymizeUserError>",
-      required: true,
+    "anonymizeErrors": {
+      "baseName": "anonymize_errors",
+      "type": "Array<AnonymizeUserError>",
+      "required": true,
     },
-    anonymizedUserIds: {
-      baseName: "anonymized_user_ids",
-      type: "Array<string>",
-      required: true,
+    "anonymizedUserIds": {
+      "baseName": "anonymized_user_ids",
+      "type": "Array<string>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class AnonymizeUsersResponseAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AnonymizeUsersResponseAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

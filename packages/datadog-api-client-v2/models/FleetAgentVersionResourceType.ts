@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of Agent version resource.
- */
+*/
 
-export type FleetAgentVersionResourceType =
-  | typeof AGENT_VERSION
-  | UnparsedObject;
-export const AGENT_VERSION = "agent_version";
+export type FleetAgentVersionResourceType = typeof AGENT_VERSION | UnparsedObject;
+export const AGENT_VERSION = 'agent_version';

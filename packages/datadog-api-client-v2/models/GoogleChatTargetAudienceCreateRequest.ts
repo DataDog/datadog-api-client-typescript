@@ -5,15 +5,20 @@
  */
 import { GoogleChatTargetAudienceCreateRequestData } from "./GoogleChatTargetAudienceCreateRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Create target audience request.
- */
+*/
 export class GoogleChatTargetAudienceCreateRequest {
   /**
    * Data for a create target audience request.
-   */
+  */
   "data": GoogleChatTargetAudienceCreateRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class GoogleChatTargetAudienceCreateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class GoogleChatTargetAudienceCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "GoogleChatTargetAudienceCreateRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "GoogleChatTargetAudienceCreateRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class GoogleChatTargetAudienceCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GoogleChatTargetAudienceCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -8,49 +8,54 @@ import { ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit } from 
 import { ObservabilityPipelineTagCardinalityLimitProcessorTrackingMode } from "./ObservabilityPipelineTagCardinalityLimitProcessorTrackingMode";
 import { ObservabilityPipelineTagCardinalityLimitProcessorType } from "./ObservabilityPipelineTagCardinalityLimitProcessorType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The `tag_cardinality_limit` processor caps the number of distinct tag value combinations on metrics, dropping tags or events once the limit is exceeded.
- *
+ * 
  * **Supported pipeline types:** metrics
- */
+*/
 export class ObservabilityPipelineTagCardinalityLimitProcessor {
   /**
    * The display name for a component.
-   */
+  */
   "displayName"?: string;
   /**
    * Indicates whether the processor is enabled.
-   */
+  */
   "enabled": boolean;
   /**
    * The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
-   */
+  */
   "id": string;
   /**
    * A Datadog search query used to determine which metrics this processor targets.
-   */
+  */
   "include": string;
   /**
    * The action to take when the cardinality limit is exceeded.
-   */
+  */
   "limitExceededAction": ObservabilityPipelineTagCardinalityLimitProcessorAction;
   /**
    * A list of per-metric cardinality overrides that take precedence over the default `value_limit`.
-   */
+  */
   "perMetricLimits"?: Array<ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit>;
   /**
    * Controls whether the processor uses exact or probabilistic tag tracking.
-   */
+  */
   "trackingMode": ObservabilityPipelineTagCardinalityLimitProcessorTrackingMode;
   /**
    * The processor type. The value must be `tag_cardinality_limit`.
-   */
+  */
   "type": ObservabilityPipelineTagCardinalityLimitProcessorType;
   /**
    * The default maximum number of distinct tag value combinations allowed per metric.
-   */
+  */
   "valueLimit": number;
 
   /**
@@ -58,7 +63,7 @@ export class ObservabilityPipelineTagCardinalityLimitProcessor {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -69,49 +74,49 @@ export class ObservabilityPipelineTagCardinalityLimitProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    displayName: {
-      baseName: "display_name",
-      type: "string",
+    "displayName": {
+      "baseName": "display_name",
+      "type": "string",
     },
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
-      required: true,
+    "enabled": {
+      "baseName": "enabled",
+      "type": "boolean",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    include: {
-      baseName: "include",
-      type: "string",
-      required: true,
+    "include": {
+      "baseName": "include",
+      "type": "string",
+      "required": true,
     },
-    limitExceededAction: {
-      baseName: "limit_exceeded_action",
-      type: "ObservabilityPipelineTagCardinalityLimitProcessorAction",
-      required: true,
+    "limitExceededAction": {
+      "baseName": "limit_exceeded_action",
+      "type": "ObservabilityPipelineTagCardinalityLimitProcessorAction",
+      "required": true,
     },
-    perMetricLimits: {
-      baseName: "per_metric_limits",
-      type: "Array<ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit>",
+    "perMetricLimits": {
+      "baseName": "per_metric_limits",
+      "type": "Array<ObservabilityPipelineTagCardinalityLimitProcessorPerMetricLimit>",
     },
-    trackingMode: {
-      baseName: "tracking_mode",
-      type: "ObservabilityPipelineTagCardinalityLimitProcessorTrackingMode",
-      required: true,
+    "trackingMode": {
+      "baseName": "tracking_mode",
+      "type": "ObservabilityPipelineTagCardinalityLimitProcessorTrackingMode",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ObservabilityPipelineTagCardinalityLimitProcessorType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ObservabilityPipelineTagCardinalityLimitProcessorType",
+      "required": true,
     },
-    valueLimit: {
-      baseName: "value_limit",
-      type: "number",
-      required: true,
-      format: "int64",
+    "valueLimit": {
+      "baseName": "value_limit",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -123,8 +128,34 @@ export class ObservabilityPipelineTagCardinalityLimitProcessor {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineTagCardinalityLimitProcessor.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

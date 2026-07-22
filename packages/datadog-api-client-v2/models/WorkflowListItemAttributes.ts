@@ -5,39 +5,44 @@
  */
 import { Spec } from "./Spec";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a workflow returned in a list response.
- */
+*/
 export class WorkflowListItemAttributes {
   /**
    * When the workflow was created.
-   */
+  */
   "createdAt"?: Date;
   /**
    * Description of the workflow.
-   */
+  */
   "description"?: string;
   /**
    * Name of the workflow.
-   */
+  */
   "name": string;
   /**
    * Whether the workflow is published. Unpublished workflows can only be run manually. Automatic triggers such as Schedule do not fire until the workflow is published.
-   */
+  */
   "published"?: boolean;
   /**
    * The spec defines what the workflow does.
-   */
+  */
   "spec"?: Spec;
   /**
    * Tags of the workflow.
-   */
+  */
   "tags"?: Array<string>;
   /**
    * When the workflow was last updated.
-   */
+  */
   "updatedAt"?: Date;
 
   /**
@@ -45,7 +50,7 @@ export class WorkflowListItemAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -56,36 +61,36 @@ export class WorkflowListItemAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "createdAt",
-      type: "Date",
-      format: "date-time",
+    "createdAt": {
+      "baseName": "createdAt",
+      "type": "Date",
+      "format": "date-time",
     },
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    published: {
-      baseName: "published",
-      type: "boolean",
+    "published": {
+      "baseName": "published",
+      "type": "boolean",
     },
-    spec: {
-      baseName: "spec",
-      type: "Spec",
+    "spec": {
+      "baseName": "spec",
+      "type": "Spec",
     },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
+    "tags": {
+      "baseName": "tags",
+      "type": "Array<string>",
     },
-    updatedAt: {
-      baseName: "updatedAt",
-      type: "Date",
-      format: "date-time",
+    "updatedAt": {
+      "baseName": "updatedAt",
+      "type": "Date",
+      "format": "date-time",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -97,8 +102,34 @@ export class WorkflowListItemAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return WorkflowListItemAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

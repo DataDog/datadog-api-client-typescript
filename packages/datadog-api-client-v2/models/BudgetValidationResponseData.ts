@@ -6,23 +6,28 @@
 import { BudgetValidationResponseDataAttributes } from "./BudgetValidationResponseDataAttributes";
 import { BudgetValidationResponseDataType } from "./BudgetValidationResponseDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data object for a budget validation response, containing the resource type, ID, and validation attributes.
- */
+*/
 export class BudgetValidationResponseData {
   /**
    * The attributes of a budget validation response, including any validation errors and the validity status.
-   */
+  */
   "attributes"?: BudgetValidationResponseDataAttributes;
   /**
    * The unique identifier of the budget being validated.
-   */
+  */
   "id"?: string;
   /**
    * Budget validation resource type.
-   */
+  */
   "type": BudgetValidationResponseDataType;
 
   /**
@@ -30,7 +35,7 @@ export class BudgetValidationResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class BudgetValidationResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "BudgetValidationResponseDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "BudgetValidationResponseDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "BudgetValidationResponseDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "BudgetValidationResponseDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class BudgetValidationResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return BudgetValidationResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

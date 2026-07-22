@@ -5,15 +5,20 @@
  */
 import { IoCTriageWriteRequestData } from "./IoCTriageWriteRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request body for creating or updating an indicator triage state.
- */
+*/
 export class IoCTriageWriteRequest {
   /**
    * Data object for the triage write request.
-   */
+  */
   "data": IoCTriageWriteRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class IoCTriageWriteRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class IoCTriageWriteRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "IoCTriageWriteRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "IoCTriageWriteRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class IoCTriageWriteRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IoCTriageWriteRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

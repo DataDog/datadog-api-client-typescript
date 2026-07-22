@@ -5,19 +5,24 @@
  */
 import { TimeRestriction } from "./TimeRestriction";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Support hours during which the escalation policy will be executed. Outside of these hours, the escalation policy will be on hold and triggered once the next support hours window starts. This is mutually exclusive with the top-level `time_restriction` field on the routing rule.
- */
+*/
 export class RoutingRuleEscalationPolicyActionSupportHours {
   /**
    * The list of support hours time windows.
-   */
+  */
   "restrictions"?: Array<TimeRestriction>;
   /**
    * The time zone in which the support hours are expressed.
-   */
+  */
   "timeZone": string;
 
   /**
@@ -25,7 +30,7 @@ export class RoutingRuleEscalationPolicyActionSupportHours {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,14 +41,14 @@ export class RoutingRuleEscalationPolicyActionSupportHours {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    restrictions: {
-      baseName: "restrictions",
-      type: "Array<TimeRestriction>",
+    "restrictions": {
+      "baseName": "restrictions",
+      "type": "Array<TimeRestriction>",
     },
-    timeZone: {
-      baseName: "time_zone",
-      type: "string",
-      required: true,
+    "timeZone": {
+      "baseName": "time_zone",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class RoutingRuleEscalationPolicyActionSupportHours {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RoutingRuleEscalationPolicyActionSupportHours.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

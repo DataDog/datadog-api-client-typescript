@@ -5,23 +5,28 @@
  */
 import { FreshserviceAPIKeyType } from "./FreshserviceAPIKeyType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `FreshserviceAPIKey` object.
- */
+*/
 export class FreshserviceAPIKey {
   /**
    * The `FreshserviceAPIKey` `api_key`.
-   */
+  */
   "apiKey": string;
   /**
    * The `FreshserviceAPIKey` `domain`.
-   */
+  */
   "domain": string;
   /**
    * The definition of the `FreshserviceAPIKey` object.
-   */
+  */
   "type": FreshserviceAPIKeyType;
 
   /**
@@ -29,7 +34,7 @@ export class FreshserviceAPIKey {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,20 +45,20 @@ export class FreshserviceAPIKey {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    apiKey: {
-      baseName: "api_key",
-      type: "string",
-      required: true,
+    "apiKey": {
+      "baseName": "api_key",
+      "type": "string",
+      "required": true,
     },
-    domain: {
-      baseName: "domain",
-      type: "string",
-      required: true,
+    "domain": {
+      "baseName": "domain",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "FreshserviceAPIKeyType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "FreshserviceAPIKeyType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class FreshserviceAPIKey {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FreshserviceAPIKey.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

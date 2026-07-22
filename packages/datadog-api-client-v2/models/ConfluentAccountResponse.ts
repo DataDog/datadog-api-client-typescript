@@ -5,15 +5,20 @@
  */
 import { ConfluentAccountResponseData } from "./ConfluentAccountResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The expected response schema when getting a Confluent account.
- */
+*/
 export class ConfluentAccountResponse {
   /**
    * An API key and API secret pair that represents a Confluent account.
-   */
+  */
   "data"?: ConfluentAccountResponseData;
 
   /**
@@ -21,7 +26,7 @@ export class ConfluentAccountResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class ConfluentAccountResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ConfluentAccountResponseData",
+    "data": {
+      "baseName": "data",
+      "type": "ConfluentAccountResponseData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class ConfluentAccountResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ConfluentAccountResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

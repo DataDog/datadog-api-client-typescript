@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The resource type for network health insights. Always `network-health-insights`.
- */
+*/
 
-export type NetworkHealthInsightsType =
-  | typeof NETWORK_HEALTH_INSIGHTS
-  | UnparsedObject;
-export const NETWORK_HEALTH_INSIGHTS = "network-health-insights";
+export type NetworkHealthInsightsType = typeof NETWORK_HEALTH_INSIGHTS | UnparsedObject;
+export const NETWORK_HEALTH_INSIGHTS = 'network-health-insights';

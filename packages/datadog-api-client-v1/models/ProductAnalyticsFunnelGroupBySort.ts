@@ -5,23 +5,28 @@
  */
 import { WidgetSort } from "./WidgetSort";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Sort configuration for user journey funnel group by.
- */
+*/
 export class ProductAnalyticsFunnelGroupBySort {
   /**
    * Aggregation type.
-   */
+  */
   "aggregation": string;
   /**
    * Metric to sort by.
-   */
+  */
   "metric"?: string;
   /**
    * Widget sorting methods.
-   */
+  */
   "order"?: WidgetSort;
 
   /**
@@ -33,27 +38,53 @@ export class ProductAnalyticsFunnelGroupBySort {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregation: {
-      baseName: "aggregation",
-      type: "string",
-      required: true,
+    "aggregation": {
+      "baseName": "aggregation",
+      "type": "string",
+      "required": true,
     },
-    metric: {
-      baseName: "metric",
-      type: "string",
+    "metric": {
+      "baseName": "metric",
+      "type": "string",
     },
-    order: {
-      baseName: "order",
-      type: "WidgetSort",
-    },
+    "order": {
+      "baseName": "order",
+      "type": "WidgetSort",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProductAnalyticsFunnelGroupBySort.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

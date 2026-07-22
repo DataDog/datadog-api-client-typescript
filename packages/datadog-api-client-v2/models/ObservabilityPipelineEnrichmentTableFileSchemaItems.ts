@@ -5,19 +5,24 @@
  */
 import { ObservabilityPipelineEnrichmentTableFileSchemaItemsType } from "./ObservabilityPipelineEnrichmentTableFileSchemaItemsType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Describes a single column and its type in an enrichment table schema.
- */
+*/
 export class ObservabilityPipelineEnrichmentTableFileSchemaItems {
   /**
    * The `items` `column`.
-   */
+  */
   "column": string;
   /**
    * Declares allowed data types for enrichment table columns.
-   */
+  */
   "type": ObservabilityPipelineEnrichmentTableFileSchemaItemsType;
 
   /**
@@ -25,7 +30,7 @@ export class ObservabilityPipelineEnrichmentTableFileSchemaItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class ObservabilityPipelineEnrichmentTableFileSchemaItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    column: {
-      baseName: "column",
-      type: "string",
-      required: true,
+    "column": {
+      "baseName": "column",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ObservabilityPipelineEnrichmentTableFileSchemaItemsType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ObservabilityPipelineEnrichmentTableFileSchemaItemsType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class ObservabilityPipelineEnrichmentTableFileSchemaItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineEnrichmentTableFileSchemaItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

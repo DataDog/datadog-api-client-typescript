@@ -7,23 +7,28 @@ import { RumPermanentRetentionFilterAttributes } from "./RumPermanentRetentionFi
 import { RumPermanentRetentionFilterID } from "./RumPermanentRetentionFilterID";
 import { RumPermanentRetentionFilterType } from "./RumPermanentRetentionFilterType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A permanent RUM retention filter.
- */
+*/
 export class RumPermanentRetentionFilterData {
   /**
    * The attributes of a permanent RUM retention filter.
-   */
+  */
   "attributes"?: RumPermanentRetentionFilterAttributes;
   /**
    * The identifier of a permanent RUM retention filter.
-   */
+  */
   "id"?: RumPermanentRetentionFilterID;
   /**
    * The type of the resource. The value should always be `permanent_retention_filters`.
-   */
+  */
   "type"?: RumPermanentRetentionFilterType;
 
   /**
@@ -31,7 +36,7 @@ export class RumPermanentRetentionFilterData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,17 +47,17 @@ export class RumPermanentRetentionFilterData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RumPermanentRetentionFilterAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "RumPermanentRetentionFilterAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "RumPermanentRetentionFilterID",
+    "id": {
+      "baseName": "id",
+      "type": "RumPermanentRetentionFilterID",
     },
-    type: {
-      baseName: "type",
-      type: "RumPermanentRetentionFilterType",
+    "type": {
+      "baseName": "type",
+      "type": "RumPermanentRetentionFilterType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class RumPermanentRetentionFilterData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RumPermanentRetentionFilterData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

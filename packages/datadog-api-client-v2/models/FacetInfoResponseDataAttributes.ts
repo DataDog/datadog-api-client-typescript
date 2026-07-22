@@ -5,15 +5,20 @@
  */
 import { FacetInfoResponseDataAttributesResult } from "./FacetInfoResponseDataAttributesResult";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of the facet info response, containing the facet result data.
- */
+*/
 export class FacetInfoResponseDataAttributes {
   /**
    * The facet query result containing discrete value counts or a numeric range for the requested facet.
-   */
+  */
   "result"?: FacetInfoResponseDataAttributesResult;
 
   /**
@@ -21,7 +26,7 @@ export class FacetInfoResponseDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class FacetInfoResponseDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    result: {
-      baseName: "result",
-      type: "FacetInfoResponseDataAttributesResult",
+    "result": {
+      "baseName": "result",
+      "type": "FacetInfoResponseDataAttributesResult",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class FacetInfoResponseDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FacetInfoResponseDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

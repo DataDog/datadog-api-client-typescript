@@ -5,15 +5,20 @@
  */
 import { LogsMetricResponseData } from "./LogsMetricResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * All the available log-based metric objects.
- */
+*/
 export class LogsMetricsResponse {
   /**
    * A list of log-based metric objects.
-   */
+  */
   "data"?: Array<LogsMetricResponseData>;
 
   /**
@@ -21,7 +26,7 @@ export class LogsMetricsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class LogsMetricsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<LogsMetricResponseData>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<LogsMetricResponseData>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class LogsMetricsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogsMetricsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The account filtering configuration.
- */
+*/
 export class AccountFilteringConfig {
   /**
    * The AWS account IDs to be excluded from your billing dataset. This field is used when `include_new_accounts` is `true`.
-   */
+  */
   "excludedAccounts"?: Array<string>;
   /**
    * Whether or not to automatically include new member accounts by default in your billing dataset.
-   */
+  */
   "includeNewAccounts"?: boolean;
   /**
    * The AWS account IDs to be included in your billing dataset. This field is used when `include_new_accounts` is `false`.
-   */
+  */
   "includedAccounts"?: Array<string>;
 
   /**
@@ -28,7 +33,7 @@ export class AccountFilteringConfig {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class AccountFilteringConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    excludedAccounts: {
-      baseName: "excluded_accounts",
-      type: "Array<string>",
+    "excludedAccounts": {
+      "baseName": "excluded_accounts",
+      "type": "Array<string>",
     },
-    includeNewAccounts: {
-      baseName: "include_new_accounts",
-      type: "boolean",
+    "includeNewAccounts": {
+      "baseName": "include_new_accounts",
+      "type": "boolean",
     },
-    includedAccounts: {
-      baseName: "included_accounts",
-      type: "Array<string>",
+    "includedAccounts": {
+      "baseName": "included_accounts",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class AccountFilteringConfig {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AccountFilteringConfig.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

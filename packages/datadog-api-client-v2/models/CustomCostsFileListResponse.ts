@@ -6,19 +6,24 @@
 import { CustomCostListResponseMeta } from "./CustomCostListResponseMeta";
 import { CustomCostsFileMetadataHighLevel } from "./CustomCostsFileMetadataHighLevel";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response for List Custom Costs files.
- */
+*/
 export class CustomCostsFileListResponse {
   /**
    * List of Custom Costs files.
-   */
+  */
   "data"?: Array<CustomCostsFileMetadataHighLevel>;
   /**
    * Meta for the response from the List Custom Costs endpoints.
-   */
+  */
   "meta"?: CustomCostListResponseMeta;
 
   /**
@@ -26,7 +31,7 @@ export class CustomCostsFileListResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class CustomCostsFileListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<CustomCostsFileMetadataHighLevel>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<CustomCostsFileMetadataHighLevel>",
     },
-    meta: {
-      baseName: "meta",
-      type: "CustomCostListResponseMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "CustomCostListResponseMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class CustomCostsFileListResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomCostsFileListResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

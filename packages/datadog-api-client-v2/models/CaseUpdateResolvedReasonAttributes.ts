@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for setting the resolution reason on a security case.
- */
+*/
 export class CaseUpdateResolvedReasonAttributes {
   /**
    * The reason the security case was resolved (for example, `FALSE_POSITIVE`, `TRUE_POSITIVE`, `BENIGN_POSITIVE`).
-   */
+  */
   "securityResolvedReason": string;
 
   /**
@@ -20,7 +25,7 @@ export class CaseUpdateResolvedReasonAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,10 +36,10 @@ export class CaseUpdateResolvedReasonAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    securityResolvedReason: {
-      baseName: "security_resolved_reason",
-      type: "string",
-      required: true,
+    "securityResolvedReason": {
+      "baseName": "security_resolved_reason",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class CaseUpdateResolvedReasonAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseUpdateResolvedReasonAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

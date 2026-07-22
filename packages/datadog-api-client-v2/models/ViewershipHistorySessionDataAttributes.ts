@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a viewership history session entry, capturing when it was last watched and the associated event data.
- */
+*/
 export class ViewershipHistorySessionDataAttributes {
   /**
    * Unique identifier of the RUM event associated with the watched session.
-   */
+  */
   "eventId"?: string;
   /**
    * Timestamp when the session was last watched by the user.
-   */
+  */
   "lastWatchedAt": Date;
   /**
    * Raw event data associated with the replay session.
-   */
-  "sessionEvent"?: { [key: string]: any };
+  */
+  "sessionEvent"?: { [key: string]: any; };
   /**
    * Replay track identifier indicating which recording track the session belongs to.
-   */
+  */
   "track"?: string;
 
   /**
@@ -32,7 +37,7 @@ export class ViewershipHistorySessionDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,23 +48,23 @@ export class ViewershipHistorySessionDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    eventId: {
-      baseName: "event_id",
-      type: "string",
+    "eventId": {
+      "baseName": "event_id",
+      "type": "string",
     },
-    lastWatchedAt: {
-      baseName: "last_watched_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "lastWatchedAt": {
+      "baseName": "last_watched_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    sessionEvent: {
-      baseName: "session_event",
-      type: "{ [key: string]: any; }",
+    "sessionEvent": {
+      "baseName": "session_event",
+      "type": "{ [key: string]: any; }",
     },
-    track: {
-      baseName: "track",
-      type: "string",
+    "track": {
+      "baseName": "track",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,8 +76,34 @@ export class ViewershipHistorySessionDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ViewershipHistorySessionDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

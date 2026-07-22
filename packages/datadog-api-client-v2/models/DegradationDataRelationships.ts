@@ -7,23 +7,28 @@ import { DegradationDataRelationshipsCreatedByUser } from "./DegradationDataRela
 import { DegradationDataRelationshipsLastModifiedByUser } from "./DegradationDataRelationshipsLastModifiedByUser";
 import { DegradationDataRelationshipsStatusPage } from "./DegradationDataRelationshipsStatusPage";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The relationships of a degradation.
- */
+*/
 export class DegradationDataRelationships {
   /**
    * The Datadog user who created the degradation.
-   */
+  */
   "createdByUser"?: DegradationDataRelationshipsCreatedByUser;
   /**
    * The Datadog user who last modified the degradation.
-   */
+  */
   "lastModifiedByUser"?: DegradationDataRelationshipsLastModifiedByUser;
   /**
    * The status page the degradation belongs to.
-   */
+  */
   "statusPage"?: DegradationDataRelationshipsStatusPage;
 
   /**
@@ -31,7 +36,7 @@ export class DegradationDataRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,17 +47,17 @@ export class DegradationDataRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdByUser: {
-      baseName: "created_by_user",
-      type: "DegradationDataRelationshipsCreatedByUser",
+    "createdByUser": {
+      "baseName": "created_by_user",
+      "type": "DegradationDataRelationshipsCreatedByUser",
     },
-    lastModifiedByUser: {
-      baseName: "last_modified_by_user",
-      type: "DegradationDataRelationshipsLastModifiedByUser",
+    "lastModifiedByUser": {
+      "baseName": "last_modified_by_user",
+      "type": "DegradationDataRelationshipsLastModifiedByUser",
     },
-    statusPage: {
-      baseName: "status_page",
-      type: "DegradationDataRelationshipsStatusPage",
+    "statusPage": {
+      "baseName": "status_page",
+      "type": "DegradationDataRelationshipsStatusPage",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class DegradationDataRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DegradationDataRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,19 +5,24 @@
  */
 import { RetryStrategy } from "./RetryStrategy";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Used to handle errors in an action.
- */
+*/
 export class ErrorHandler {
   /**
    * The `ErrorHandler` `fallbackStepName`.
-   */
+  */
   "fallbackStepName": string;
   /**
    * The definition of `RetryStrategy` object.
-   */
+  */
   "retryStrategy": RetryStrategy;
 
   /**
@@ -25,7 +30,7 @@ export class ErrorHandler {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class ErrorHandler {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    fallbackStepName: {
-      baseName: "fallbackStepName",
-      type: "string",
-      required: true,
+    "fallbackStepName": {
+      "baseName": "fallbackStepName",
+      "type": "string",
+      "required": true,
     },
-    retryStrategy: {
-      baseName: "retryStrategy",
-      type: "RetryStrategy",
-      required: true,
+    "retryStrategy": {
+      "baseName": "retryStrategy",
+      "type": "RetryStrategy",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class ErrorHandler {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ErrorHandler.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

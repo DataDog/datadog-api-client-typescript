@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Incident description.
- */
+*/
 
-export type EntityResponseIncludedIncidentType =
-  | typeof INCIDENT
-  | UnparsedObject;
-export const INCIDENT = "incident";
+export type EntityResponseIncludedIncidentType = typeof INCIDENT | UnparsedObject;
+export const INCIDENT = 'incident';

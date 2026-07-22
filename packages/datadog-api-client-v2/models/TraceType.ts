@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of the trace resource. The value is always `trace`.
- */
+*/
 
 export type TraceType = typeof TRACE | UnparsedObject;
-export const TRACE = "trace";
+export const TRACE = 'trace';

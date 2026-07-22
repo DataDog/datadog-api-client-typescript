@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Audit logs usage for a given organization for a given hour.
- */
+*/
 export class UsageAuditLogsHour {
   /**
    * The hour for the usage.
-   */
+  */
   "hour"?: Date;
   /**
    * The total number of audit logs lines indexed during a given hour.
-   */
+  */
   "linesIndexed"?: number;
   /**
    * The organization name.
-   */
+  */
   "orgName"?: string;
   /**
    * The organization public ID.
-   */
+  */
   "publicId"?: string;
 
   /**
@@ -32,7 +37,7 @@ export class UsageAuditLogsHour {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,23 +48,23 @@ export class UsageAuditLogsHour {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    hour: {
-      baseName: "hour",
-      type: "Date",
-      format: "date-time",
+    "hour": {
+      "baseName": "hour",
+      "type": "Date",
+      "format": "date-time",
     },
-    linesIndexed: {
-      baseName: "lines_indexed",
-      type: "number",
-      format: "int64",
+    "linesIndexed": {
+      "baseName": "lines_indexed",
+      "type": "number",
+      "format": "int64",
     },
-    orgName: {
-      baseName: "org_name",
-      type: "string",
+    "orgName": {
+      "baseName": "org_name",
+      "type": "string",
     },
-    publicId: {
-      baseName: "public_id",
-      type: "string",
+    "publicId": {
+      "baseName": "public_id",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,8 +76,34 @@ export class UsageAuditLogsHour {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageAuditLogsHour.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

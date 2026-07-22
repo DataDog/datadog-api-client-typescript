@@ -6,19 +6,24 @@
 import { TagIndexingRuleType } from "./TagIndexingRuleType";
 import { TagIndexingRuleUpdateAttributes } from "./TagIndexingRuleUpdateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for updating a tag indexing rule.
- */
+*/
 export class TagIndexingRuleUpdateData {
   /**
    * Attributes for updating a tag indexing rule. All fields are optional; omitted fields are unchanged.
-   */
+  */
   "attributes"?: TagIndexingRuleUpdateAttributes;
   /**
    * The tag indexing rule resource type.
-   */
+  */
   "type": TagIndexingRuleType;
 
   /**
@@ -26,7 +31,7 @@ export class TagIndexingRuleUpdateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class TagIndexingRuleUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "TagIndexingRuleUpdateAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "TagIndexingRuleUpdateAttributes",
     },
-    type: {
-      baseName: "type",
-      type: "TagIndexingRuleType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TagIndexingRuleType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class TagIndexingRuleUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TagIndexingRuleUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

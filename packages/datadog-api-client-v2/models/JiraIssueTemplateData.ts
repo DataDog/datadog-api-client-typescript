@@ -7,27 +7,32 @@ import { JiraIssueTemplateDataAttributes } from "./JiraIssueTemplateDataAttribut
 import { JiraIssueTemplateDataRelationships } from "./JiraIssueTemplateDataRelationships";
 import { JiraIssueTemplateType } from "./JiraIssueTemplateType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for a Jira issue template
- */
+*/
 export class JiraIssueTemplateData {
   /**
    * Attributes of a Jira issue template
-   */
+  */
   "attributes": JiraIssueTemplateDataAttributes;
   /**
    * Unique identifier for the Jira issue template
-   */
+  */
   "id": string;
   /**
    * Relationships of a Jira issue template
-   */
+  */
   "relationships"?: JiraIssueTemplateDataRelationships;
   /**
    * Type identifier for Jira issue template resources
-   */
+  */
   "type": JiraIssueTemplateType;
 
   /**
@@ -35,7 +40,7 @@ export class JiraIssueTemplateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,25 +51,25 @@ export class JiraIssueTemplateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "JiraIssueTemplateDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "JiraIssueTemplateDataAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "JiraIssueTemplateDataRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "JiraIssueTemplateDataRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "JiraIssueTemplateType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "JiraIssueTemplateType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -76,8 +81,34 @@ export class JiraIssueTemplateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return JiraIssueTemplateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

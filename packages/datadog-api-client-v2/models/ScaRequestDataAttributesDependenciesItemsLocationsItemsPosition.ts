@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A specific position (line and column) within a source file.
- */
+*/
 export class ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition {
   /**
    * The column number of the position within the line.
-   */
+  */
   "col"?: number;
   /**
    * The line number of the position within the file.
-   */
+  */
   "line"?: number;
 
   /**
@@ -24,7 +29,7 @@ export class ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,15 +40,15 @@ export class ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    col: {
-      baseName: "col",
-      type: "number",
-      format: "int32",
+    "col": {
+      "baseName": "col",
+      "type": "number",
+      "format": "int32",
     },
-    line: {
-      baseName: "line",
-      type: "number",
-      format: "int32",
+    "line": {
+      "baseName": "line",
+      "type": "number",
+      "format": "int32",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

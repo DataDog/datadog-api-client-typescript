@@ -7,23 +7,28 @@ import { IntegrationServiceNowSyncConfigPriority } from "./IntegrationServiceNow
 import { SyncProperty } from "./SyncProperty";
 import { SyncPropertyWithMapping } from "./SyncPropertyWithMapping";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Field-level synchronization properties for ServiceNow integration.
- */
+*/
 export class IntegrationServiceNowSyncConfig139772721534496 {
   /**
    * Sync property configuration.
-   */
+  */
   "comments"?: SyncProperty;
   /**
    * Priority synchronization configuration for ServiceNow integration.
-   */
+  */
   "priority"?: IntegrationServiceNowSyncConfigPriority;
   /**
    * Sync property with mapping configuration.
-   */
+  */
   "status"?: SyncPropertyWithMapping;
 
   /**
@@ -31,7 +36,7 @@ export class IntegrationServiceNowSyncConfig139772721534496 {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,17 +47,17 @@ export class IntegrationServiceNowSyncConfig139772721534496 {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    comments: {
-      baseName: "comments",
-      type: "SyncProperty",
+    "comments": {
+      "baseName": "comments",
+      "type": "SyncProperty",
     },
-    priority: {
-      baseName: "priority",
-      type: "IntegrationServiceNowSyncConfigPriority",
+    "priority": {
+      "baseName": "priority",
+      "type": "IntegrationServiceNowSyncConfigPriority",
     },
-    status: {
-      baseName: "status",
-      type: "SyncPropertyWithMapping",
+    "status": {
+      "baseName": "status",
+      "type": "SyncPropertyWithMapping",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class IntegrationServiceNowSyncConfig139772721534496 {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IntegrationServiceNowSyncConfig139772721534496.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { CustomAttributeConfig } from "./CustomAttributeConfig";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a list of custom attribute configurations.
- */
+*/
 export class CustomAttributeConfigsResponse {
   /**
    * List of custom attribute configs of case type
-   */
+  */
   "data"?: Array<CustomAttributeConfig>;
 
   /**
@@ -21,7 +26,7 @@ export class CustomAttributeConfigsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class CustomAttributeConfigsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<CustomAttributeConfig>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<CustomAttributeConfig>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class CustomAttributeConfigsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomAttributeConfigsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

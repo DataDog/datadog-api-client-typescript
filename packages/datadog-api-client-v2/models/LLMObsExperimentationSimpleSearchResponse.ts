@@ -6,19 +6,24 @@
 import { LLMObsExperimentationSimpleSearchDataResponse } from "./LLMObsExperimentationSimpleSearchDataResponse";
 import { LLMObsExperimentationSimpleSearchMeta } from "./LLMObsExperimentationSimpleSearchMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response to an offset-based experimentation simple search.
- */
+*/
 export class LLMObsExperimentationSimpleSearchResponse {
   /**
    * JSON:API data object for a simple search response.
-   */
+  */
   "data": LLMObsExperimentationSimpleSearchDataResponse;
   /**
    * Pagination metadata for a simple search response.
-   */
+  */
   "meta"?: LLMObsExperimentationSimpleSearchMeta;
 
   /**
@@ -26,7 +31,7 @@ export class LLMObsExperimentationSimpleSearchResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class LLMObsExperimentationSimpleSearchResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "LLMObsExperimentationSimpleSearchDataResponse",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "LLMObsExperimentationSimpleSearchDataResponse",
+      "required": true,
     },
-    meta: {
-      baseName: "meta",
-      type: "LLMObsExperimentationSimpleSearchMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "LLMObsExperimentationSimpleSearchMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class LLMObsExperimentationSimpleSearchResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsExperimentationSimpleSearchResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

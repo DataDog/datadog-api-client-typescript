@@ -5,27 +5,32 @@
  */
 import { ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition } from "./ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The source code location where a dependency is declared, including block, name, namespace, and version positions within the file.
- */
+*/
 export class ScaRequestDataAttributesDependenciesItemsLocationsItems {
   /**
    * A range within a file defined by a start and end position, along with the file name.
-   */
+  */
   "block"?: ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition;
   /**
    * A range within a file defined by a start and end position, along with the file name.
-   */
+  */
   "name"?: ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition;
   /**
    * A range within a file defined by a start and end position, along with the file name.
-   */
+  */
   "namespace"?: ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition;
   /**
    * A range within a file defined by a start and end position, along with the file name.
-   */
+  */
   "version"?: ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition;
 
   /**
@@ -33,7 +38,7 @@ export class ScaRequestDataAttributesDependenciesItemsLocationsItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -44,21 +49,21 @@ export class ScaRequestDataAttributesDependenciesItemsLocationsItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    block: {
-      baseName: "block",
-      type: "ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition",
+    "block": {
+      "baseName": "block",
+      "type": "ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition",
     },
-    name: {
-      baseName: "name",
-      type: "ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition",
+    "name": {
+      "baseName": "name",
+      "type": "ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition",
     },
-    namespace: {
-      baseName: "namespace",
-      type: "ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition",
+    "namespace": {
+      "baseName": "namespace",
+      "type": "ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition",
     },
-    version: {
-      baseName: "version",
-      type: "ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition",
+    "version": {
+      "baseName": "version",
+      "type": "ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -70,8 +75,34 @@ export class ScaRequestDataAttributesDependenciesItemsLocationsItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ScaRequestDataAttributesDependenciesItemsLocationsItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

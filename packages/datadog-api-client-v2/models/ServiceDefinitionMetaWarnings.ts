@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Schema validation warnings.
- */
+*/
 export class ServiceDefinitionMetaWarnings {
   /**
    * The warning instance location.
-   */
+  */
   "instanceLocation"?: string;
   /**
    * The warning keyword location.
-   */
+  */
   "keywordLocation"?: string;
   /**
    * The warning message.
-   */
+  */
   "message"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class ServiceDefinitionMetaWarnings {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class ServiceDefinitionMetaWarnings {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    instanceLocation: {
-      baseName: "instance-location",
-      type: "string",
+    "instanceLocation": {
+      "baseName": "instance-location",
+      "type": "string",
     },
-    keywordLocation: {
-      baseName: "keyword-location",
-      type: "string",
+    "keywordLocation": {
+      "baseName": "keyword-location",
+      "type": "string",
     },
-    message: {
-      baseName: "message",
-      type: "string",
+    "message": {
+      "baseName": "message",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class ServiceDefinitionMetaWarnings {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceDefinitionMetaWarnings.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

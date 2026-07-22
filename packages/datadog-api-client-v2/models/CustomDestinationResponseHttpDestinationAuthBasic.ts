@@ -5,15 +5,20 @@
  */
 import { CustomDestinationResponseHttpDestinationAuthBasicType } from "./CustomDestinationResponseHttpDestinationAuthBasicType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Basic access authentication.
- */
+*/
 export class CustomDestinationResponseHttpDestinationAuthBasic {
   /**
    * Type of the basic access authentication.
-   */
+  */
   "type": CustomDestinationResponseHttpDestinationAuthBasicType;
 
   /**
@@ -21,7 +26,7 @@ export class CustomDestinationResponseHttpDestinationAuthBasic {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CustomDestinationResponseHttpDestinationAuthBasic {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    type: {
-      baseName: "type",
-      type: "CustomDestinationResponseHttpDestinationAuthBasicType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CustomDestinationResponseHttpDestinationAuthBasicType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CustomDestinationResponseHttpDestinationAuthBasic {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomDestinationResponseHttpDestinationAuthBasic.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

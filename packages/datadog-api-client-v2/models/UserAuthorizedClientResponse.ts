@@ -5,15 +5,20 @@
  */
 import { UserAuthorizedClientData } from "./UserAuthorizedClientData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a single user authorized client.
- */
+*/
 export class UserAuthorizedClientResponse {
   /**
    * Data object representing a user authorized client.
-   */
+  */
   "data": UserAuthorizedClientData;
 
   /**
@@ -21,7 +26,7 @@ export class UserAuthorizedClientResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class UserAuthorizedClientResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "UserAuthorizedClientData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "UserAuthorizedClientData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class UserAuthorizedClientResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UserAuthorizedClientResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

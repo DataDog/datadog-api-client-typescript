@@ -4,12 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * How SLO results are grouped in the response.
- */
+*/
 
-export type SlosGroupMode = typeof OVERALL | typeof COMPONENTS | UnparsedObject;
-export const OVERALL = "overall";
-export const COMPONENTS = "components";
+export type SlosGroupMode = typeof OVERALL| typeof COMPONENTS | UnparsedObject;
+export const OVERALL = 'overall';
+export const COMPONENTS = 'components';

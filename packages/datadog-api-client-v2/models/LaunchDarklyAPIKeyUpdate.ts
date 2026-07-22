@@ -5,19 +5,24 @@
  */
 import { LaunchDarklyAPIKeyType } from "./LaunchDarklyAPIKeyType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `LaunchDarklyAPIKey` object.
- */
+*/
 export class LaunchDarklyAPIKeyUpdate {
   /**
    * The `LaunchDarklyAPIKeyUpdate` `api_token`.
-   */
+  */
   "apiToken"?: string;
   /**
    * The definition of the `LaunchDarklyAPIKey` object.
-   */
+  */
   "type": LaunchDarklyAPIKeyType;
 
   /**
@@ -25,7 +30,7 @@ export class LaunchDarklyAPIKeyUpdate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,14 +41,14 @@ export class LaunchDarklyAPIKeyUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    apiToken: {
-      baseName: "api_token",
-      type: "string",
+    "apiToken": {
+      "baseName": "api_token",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "LaunchDarklyAPIKeyType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LaunchDarklyAPIKeyType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class LaunchDarklyAPIKeyUpdate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LaunchDarklyAPIKeyUpdate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

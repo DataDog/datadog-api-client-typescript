@@ -5,15 +5,20 @@
  */
 import { SecurityMonitoringRuleBulkExportData } from "./SecurityMonitoringRuleBulkExportData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Payload for bulk exporting security monitoring rules.
- */
+*/
 export class SecurityMonitoringRuleBulkExportPayload {
   /**
    * Data for bulk exporting security monitoring rules.
-   */
+  */
   "data": SecurityMonitoringRuleBulkExportData;
 
   /**
@@ -21,7 +26,7 @@ export class SecurityMonitoringRuleBulkExportPayload {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class SecurityMonitoringRuleBulkExportPayload {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SecurityMonitoringRuleBulkExportData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "SecurityMonitoringRuleBulkExportData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class SecurityMonitoringRuleBulkExportPayload {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringRuleBulkExportPayload.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

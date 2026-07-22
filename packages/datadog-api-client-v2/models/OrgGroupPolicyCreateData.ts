@@ -7,23 +7,28 @@ import { OrgGroupPolicyCreateAttributes } from "./OrgGroupPolicyCreateAttributes
 import { OrgGroupPolicyCreateRelationships } from "./OrgGroupPolicyCreateRelationships";
 import { OrgGroupPolicyType } from "./OrgGroupPolicyType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for creating an org group policy.
- */
+*/
 export class OrgGroupPolicyCreateData {
   /**
    * Attributes for creating an org group policy. If `policy_type` or `enforcement_tier` are not provided, they default to `org_config` and `DEFAULT` respectively.
-   */
+  */
   "attributes": OrgGroupPolicyCreateAttributes;
   /**
    * Relationships for creating a policy.
-   */
+  */
   "relationships": OrgGroupPolicyCreateRelationships;
   /**
    * Org group policies resource type.
-   */
+  */
   "type": OrgGroupPolicyType;
 
   /**
@@ -31,7 +36,7 @@ export class OrgGroupPolicyCreateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,20 +47,20 @@ export class OrgGroupPolicyCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "OrgGroupPolicyCreateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "OrgGroupPolicyCreateAttributes",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "OrgGroupPolicyCreateRelationships",
-      required: true,
+    "relationships": {
+      "baseName": "relationships",
+      "type": "OrgGroupPolicyCreateRelationships",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "OrgGroupPolicyType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "OrgGroupPolicyType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class OrgGroupPolicyCreateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgGroupPolicyCreateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

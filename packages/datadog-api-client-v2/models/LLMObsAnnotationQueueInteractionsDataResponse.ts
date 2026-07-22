@@ -6,23 +6,28 @@
 import { LLMObsAnnotationQueueInteractionsDataAttributesResponse } from "./LLMObsAnnotationQueueInteractionsDataAttributesResponse";
 import { LLMObsAnnotationQueueInteractionsType } from "./LLMObsAnnotationQueueInteractionsType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for the interaction addition response.
- */
+*/
 export class LLMObsAnnotationQueueInteractionsDataResponse {
   /**
    * Attributes of the interaction addition response.
-   */
+  */
   "attributes": LLMObsAnnotationQueueInteractionsDataAttributesResponse;
   /**
    * The queue ID the interactions were added to.
-   */
+  */
   "id": string;
   /**
    * Resource type for annotation queue interactions.
-   */
+  */
   "type": LLMObsAnnotationQueueInteractionsType;
 
   /**
@@ -30,7 +35,7 @@ export class LLMObsAnnotationQueueInteractionsDataResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class LLMObsAnnotationQueueInteractionsDataResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LLMObsAnnotationQueueInteractionsDataAttributesResponse",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "LLMObsAnnotationQueueInteractionsDataAttributesResponse",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LLMObsAnnotationQueueInteractionsType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LLMObsAnnotationQueueInteractionsType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class LLMObsAnnotationQueueInteractionsDataResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsAnnotationQueueInteractionsDataResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

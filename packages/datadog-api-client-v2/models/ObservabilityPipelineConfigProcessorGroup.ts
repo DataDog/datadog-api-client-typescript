@@ -5,35 +5,40 @@
  */
 import { ObservabilityPipelineConfigProcessorItem } from "./ObservabilityPipelineConfigProcessorItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A group of processors.
- */
+*/
 export class ObservabilityPipelineConfigProcessorGroup {
   /**
    * The display name for a component.
-   */
+  */
   "displayName"?: string;
   /**
    * Whether this processor group is enabled.
-   */
+  */
   "enabled": boolean;
   /**
    * The unique identifier for the processor group.
-   */
+  */
   "id": string;
   /**
    * Conditional expression for when this processor group should execute.
-   */
+  */
   "include": string;
   /**
    * A list of IDs for components whose output is used as the input for this processor group.
-   */
+  */
   "inputs": Array<string>;
   /**
    * Processors applied sequentially within this group. Events flow through each processor in order.
-   */
+  */
   "processors": Array<ObservabilityPipelineConfigProcessorItem>;
 
   /**
@@ -41,7 +46,7 @@ export class ObservabilityPipelineConfigProcessorGroup {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -52,34 +57,34 @@ export class ObservabilityPipelineConfigProcessorGroup {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    displayName: {
-      baseName: "display_name",
-      type: "string",
+    "displayName": {
+      "baseName": "display_name",
+      "type": "string",
     },
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
-      required: true,
+    "enabled": {
+      "baseName": "enabled",
+      "type": "boolean",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    include: {
-      baseName: "include",
-      type: "string",
-      required: true,
+    "include": {
+      "baseName": "include",
+      "type": "string",
+      "required": true,
     },
-    inputs: {
-      baseName: "inputs",
-      type: "Array<string>",
-      required: true,
+    "inputs": {
+      "baseName": "inputs",
+      "type": "Array<string>",
+      "required": true,
     },
-    processors: {
-      baseName: "processors",
-      type: "Array<ObservabilityPipelineConfigProcessorItem>",
-      required: true,
+    "processors": {
+      "baseName": "processors",
+      "type": "Array<ObservabilityPipelineConfigProcessorItem>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -91,8 +96,34 @@ export class ObservabilityPipelineConfigProcessorGroup {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineConfigProcessorGroup.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

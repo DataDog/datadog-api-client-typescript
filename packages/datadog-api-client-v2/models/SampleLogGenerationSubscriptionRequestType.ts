@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of the resource. The value should always be `subscription_requests`.
- */
+*/
 
-export type SampleLogGenerationSubscriptionRequestType =
-  | typeof SUBSCRIPTION_REQUESTS
-  | UnparsedObject;
-export const SUBSCRIPTION_REQUESTS = "subscription_requests";
+export type SampleLogGenerationSubscriptionRequestType = typeof SUBSCRIPTION_REQUESTS | UnparsedObject;
+export const SUBSCRIPTION_REQUESTS = 'subscription_requests';

@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An insight of the case.
- */
+*/
 export class CaseInsightsItems {
   /**
    * Reference of the insight.
-   */
+  */
   "ref"?: string;
   /**
    * Unique identifier of the resource. For example, the unique identifier of a security finding.
-   */
+  */
   "resourceId"?: string;
   /**
    * Type of the resource. For example, the type of a security finding is "SECURITY_FINDING".
-   */
+  */
   "type"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class CaseInsightsItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class CaseInsightsItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    ref: {
-      baseName: "ref",
-      type: "string",
+    "ref": {
+      "baseName": "ref",
+      "type": "string",
     },
-    resourceId: {
-      baseName: "resource_id",
-      type: "string",
+    "resourceId": {
+      "baseName": "resource_id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class CaseInsightsItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseInsightsItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

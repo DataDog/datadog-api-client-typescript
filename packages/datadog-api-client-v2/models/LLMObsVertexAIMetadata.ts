@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Vertex AI-specific metadata for an integration account or inference request.
- */
+*/
 export class LLMObsVertexAIMetadata {
   /**
    * The Vertex AI region.
-   */
+  */
   "location"?: string;
   /**
    * The Google Cloud project ID.
-   */
+  */
   "project"?: string;
   /**
    * List of Google Cloud project IDs available to the service account.
-   */
+  */
   "projectIds"?: Array<string>;
 
   /**
@@ -28,7 +33,7 @@ export class LLMObsVertexAIMetadata {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class LLMObsVertexAIMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    location: {
-      baseName: "location",
-      type: "string",
+    "location": {
+      "baseName": "location",
+      "type": "string",
     },
-    project: {
-      baseName: "project",
-      type: "string",
+    "project": {
+      "baseName": "project",
+      "type": "string",
     },
-    projectIds: {
-      baseName: "project_ids",
-      type: "Array<string>",
+    "projectIds": {
+      "baseName": "project_ids",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class LLMObsVertexAIMetadata {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsVertexAIMetadata.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

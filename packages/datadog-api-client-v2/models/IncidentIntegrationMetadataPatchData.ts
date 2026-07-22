@@ -6,19 +6,24 @@
 import { IncidentIntegrationMetadataAttributes } from "./IncidentIntegrationMetadataAttributes";
 import { IncidentIntegrationMetadataType } from "./IncidentIntegrationMetadataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Incident integration metadata data for a patch request.
- */
+*/
 export class IncidentIntegrationMetadataPatchData {
   /**
    * Incident integration metadata's attributes for a create request.
-   */
+  */
   "attributes": IncidentIntegrationMetadataAttributes;
   /**
    * Integration metadata resource type.
-   */
+  */
   "type": IncidentIntegrationMetadataType;
 
   /**
@@ -26,7 +31,7 @@ export class IncidentIntegrationMetadataPatchData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class IncidentIntegrationMetadataPatchData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "IncidentIntegrationMetadataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "IncidentIntegrationMetadataAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "IncidentIntegrationMetadataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "IncidentIntegrationMetadataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class IncidentIntegrationMetadataPatchData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentIntegrationMetadataPatchData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

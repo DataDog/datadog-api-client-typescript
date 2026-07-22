@@ -5,21 +5,26 @@
  */
 import { ObservabilityPipelineClickhouseDestinationBatchEncodingCodec } from "./ObservabilityPipelineClickhouseDestinationBatchEncodingCodec";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Batch encoding configuration for the ClickHouse destination.
  * Required when `format` is `arrow_stream`. The `codec` field must be set to `arrow_stream`.
- */
+*/
 export class ObservabilityPipelineClickhouseDestinationBatchEncoding {
   /**
    * When `true`, null values are allowed for non-nullable fields in the ClickHouse schema.
    * When `false` (default), missing values for non-nullable columns cause encoding errors.
-   */
+  */
   "allowNullableFields"?: boolean;
   /**
    * The codec used for batch encoding. Only `arrow_stream` is supported.
-   */
+  */
   "codec": ObservabilityPipelineClickhouseDestinationBatchEncodingCodec;
 
   /**
@@ -27,7 +32,7 @@ export class ObservabilityPipelineClickhouseDestinationBatchEncoding {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -38,14 +43,14 @@ export class ObservabilityPipelineClickhouseDestinationBatchEncoding {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    allowNullableFields: {
-      baseName: "allow_nullable_fields",
-      type: "boolean",
+    "allowNullableFields": {
+      "baseName": "allow_nullable_fields",
+      "type": "boolean",
     },
-    codec: {
-      baseName: "codec",
-      type: "ObservabilityPipelineClickhouseDestinationBatchEncodingCodec",
-      required: true,
+    "codec": {
+      "baseName": "codec",
+      "type": "ObservabilityPipelineClickhouseDestinationBatchEncodingCodec",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class ObservabilityPipelineClickhouseDestinationBatchEncoding {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineClickhouseDestinationBatchEncoding.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

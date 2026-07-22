@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Faulty deployment detection options for deployment rules.
- */
+*/
 export class DeploymentRuleOptionsFaultyDeploymentDetection {
   /**
    * The duration for faulty deployment detection.
-   */
+  */
   "duration"?: number;
   /**
    * Resources to exclude from faulty deployment detection.
-   */
+  */
   "excludedResources"?: Array<string>;
 
   /**
@@ -28,23 +33,49 @@ export class DeploymentRuleOptionsFaultyDeploymentDetection {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    duration: {
-      baseName: "duration",
-      type: "number",
-      format: "int64",
+    "duration": {
+      "baseName": "duration",
+      "type": "number",
+      "format": "int64",
     },
-    excludedResources: {
-      baseName: "excluded_resources",
-      type: "Array<string>",
-    },
+    "excludedResources": {
+      "baseName": "excluded_resources",
+      "type": "Array<string>",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DeploymentRuleOptionsFaultyDeploymentDetection.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

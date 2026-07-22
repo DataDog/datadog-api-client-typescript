@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of the host map projection.
- */
+*/
 
 export type HostMapWidgetProjectionType = typeof HOSTMAP | UnparsedObject;
-export const HOSTMAP = "hostmap";
+export const HOSTMAP = 'hostmap';

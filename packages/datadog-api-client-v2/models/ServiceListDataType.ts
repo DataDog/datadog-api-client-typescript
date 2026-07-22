@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Services list resource type.
- */
+*/
 
 export type ServiceListDataType = typeof SERVICES_LIST | UnparsedObject;
-export const SERVICES_LIST = "services_list";
+export const SERVICES_LIST = 'services_list';

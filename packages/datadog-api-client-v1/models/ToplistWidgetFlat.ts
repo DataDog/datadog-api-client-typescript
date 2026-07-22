@@ -5,15 +5,20 @@
  */
 import { ToplistWidgetFlatType } from "./ToplistWidgetFlatType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Top list widget flat display.
- */
+*/
 export class ToplistWidgetFlat {
   /**
    * Top list widget flat display type.
-   */
+  */
   "type": ToplistWidgetFlatType;
 
   /**
@@ -21,7 +26,7 @@ export class ToplistWidgetFlat {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class ToplistWidgetFlat {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    type: {
-      baseName: "type",
-      type: "ToplistWidgetFlatType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ToplistWidgetFlatType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class ToplistWidgetFlat {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ToplistWidgetFlat.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

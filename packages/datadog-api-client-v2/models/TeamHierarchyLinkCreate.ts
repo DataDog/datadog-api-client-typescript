@@ -6,19 +6,24 @@
 import { TeamHierarchyLinkCreateRelationships } from "./TeamHierarchyLinkCreateRelationships";
 import { TeamHierarchyLinkType } from "./TeamHierarchyLinkType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data provided when creating a team hierarchy link
- */
+*/
 export class TeamHierarchyLinkCreate {
   /**
    * The related teams that will be connected by the team hierarchy link
-   */
+  */
   "relationships": TeamHierarchyLinkCreateRelationships;
   /**
    * Team hierarchy link type
-   */
+  */
   "type": TeamHierarchyLinkType;
 
   /**
@@ -26,7 +31,7 @@ export class TeamHierarchyLinkCreate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class TeamHierarchyLinkCreate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    relationships: {
-      baseName: "relationships",
-      type: "TeamHierarchyLinkCreateRelationships",
-      required: true,
+    "relationships": {
+      "baseName": "relationships",
+      "type": "TeamHierarchyLinkCreateRelationships",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "TeamHierarchyLinkType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TeamHierarchyLinkType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class TeamHierarchyLinkCreate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamHierarchyLinkCreate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

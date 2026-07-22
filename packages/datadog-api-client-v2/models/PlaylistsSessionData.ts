@@ -6,23 +6,28 @@
 import { PlaylistsSessionDataAttributes } from "./PlaylistsSessionDataAttributes";
 import { ViewershipHistorySessionDataType } from "./ViewershipHistorySessionDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object representing a session within a playlist, including its identifier, type, and attributes.
- */
+*/
 export class PlaylistsSessionData {
   /**
    * Attributes of a session within a playlist, including the session event data and its replay track.
-   */
+  */
   "attributes"?: PlaylistsSessionDataAttributes;
   /**
    * Unique identifier of the RUM replay session.
-   */
+  */
   "id"?: string;
   /**
    * Rum replay session resource type.
-   */
+  */
   "type": ViewershipHistorySessionDataType;
 
   /**
@@ -30,7 +35,7 @@ export class PlaylistsSessionData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class PlaylistsSessionData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "PlaylistsSessionDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "PlaylistsSessionDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "ViewershipHistorySessionDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ViewershipHistorySessionDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class PlaylistsSessionData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PlaylistsSessionData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

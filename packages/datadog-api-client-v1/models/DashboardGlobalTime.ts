@@ -5,15 +5,20 @@
  */
 import { DashboardGlobalTimeLiveSpan } from "./DashboardGlobalTimeLiveSpan";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object containing the live span selection for the dashboard.
- */
+*/
 export class DashboardGlobalTime {
   /**
    * Dashboard global time live_span selection
-   */
+  */
   "liveSpan"?: DashboardGlobalTimeLiveSpan;
 
   /**
@@ -21,7 +26,7 @@ export class DashboardGlobalTime {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class DashboardGlobalTime {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    liveSpan: {
-      baseName: "live_span",
-      type: "DashboardGlobalTimeLiveSpan",
+    "liveSpan": {
+      "baseName": "live_span",
+      "type": "DashboardGlobalTimeLiveSpan",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class DashboardGlobalTime {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DashboardGlobalTime.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

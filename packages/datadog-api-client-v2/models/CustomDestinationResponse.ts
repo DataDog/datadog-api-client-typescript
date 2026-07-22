@@ -5,15 +5,20 @@
  */
 import { CustomDestinationResponseDefinition } from "./CustomDestinationResponseDefinition";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The custom destination.
- */
+*/
 export class CustomDestinationResponse {
   /**
    * The definition of a custom destination.
-   */
+  */
   "data"?: CustomDestinationResponseDefinition;
 
   /**
@@ -21,7 +26,7 @@ export class CustomDestinationResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class CustomDestinationResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CustomDestinationResponseDefinition",
+    "data": {
+      "baseName": "data",
+      "type": "CustomDestinationResponseDefinition",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class CustomDestinationResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomDestinationResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

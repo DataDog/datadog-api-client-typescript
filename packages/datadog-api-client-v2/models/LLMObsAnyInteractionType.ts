@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of an annotated interaction.
- */
+*/
 
-export type LLMObsAnyInteractionType =
-  | typeof TRACE
-  | typeof EXPERIMENT_TRACE
-  | typeof SESSION
-  | typeof DISPLAY_BLOCK
-  | UnparsedObject;
-export const TRACE = "trace";
-export const EXPERIMENT_TRACE = "experiment_trace";
-export const SESSION = "session";
-export const DISPLAY_BLOCK = "display_block";
+export type LLMObsAnyInteractionType = typeof TRACE| typeof EXPERIMENT_TRACE| typeof SESSION| typeof DISPLAY_BLOCK | UnparsedObject;
+export const TRACE = 'trace';
+export const EXPERIMENT_TRACE = 'experiment_trace';
+export const SESSION = 'session';
+export const DISPLAY_BLOCK = 'display_block';

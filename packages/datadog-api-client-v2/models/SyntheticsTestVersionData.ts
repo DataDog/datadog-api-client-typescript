@@ -6,23 +6,28 @@
 import { SyntheticsTestVersionAttributes } from "./SyntheticsTestVersionAttributes";
 import { SyntheticsTestVersionType } from "./SyntheticsTestVersionType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for a specific Synthetic test version.
- */
+*/
 export class SyntheticsTestVersionData {
   /**
    * Attributes of a specific Synthetic test version.
-   */
+  */
   "attributes"?: SyntheticsTestVersionAttributes;
   /**
    * UUID of the version record.
-   */
+  */
   "id"?: string;
   /**
    * Type of the version resource.
-   */
+  */
   "type"?: SyntheticsTestVersionType;
 
   /**
@@ -30,7 +35,7 @@ export class SyntheticsTestVersionData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class SyntheticsTestVersionData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SyntheticsTestVersionAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SyntheticsTestVersionAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SyntheticsTestVersionType",
+    "type": {
+      "baseName": "type",
+      "type": "SyntheticsTestVersionType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class SyntheticsTestVersionData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestVersionData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

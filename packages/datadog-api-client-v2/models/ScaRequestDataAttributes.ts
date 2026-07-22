@@ -10,47 +10,52 @@ import { ScaRequestDataAttributesRelationsItems } from "./ScaRequestDataAttribut
 import { ScaRequestDataAttributesRepository } from "./ScaRequestDataAttributesRepository";
 import { ScaRequestDataAttributesVulnerabilitiesItems } from "./ScaRequestDataAttributesVulnerabilitiesItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes of an SCA request, containing dependency graph data, vulnerability information, and repository context.
- */
+*/
 export class ScaRequestDataAttributes {
   /**
    * Metadata about the commit associated with the SCA scan, including author, committer, and branch information.
-   */
+  */
   "commit"?: ScaRequestDataAttributesCommit;
   /**
    * The list of dependencies discovered in the repository.
-   */
+  */
   "dependencies"?: Array<ScaRequestDataAttributesDependenciesItems>;
   /**
    * The environment context in which the SCA scan was performed (e.g., production, staging).
-   */
+  */
   "env"?: string;
   /**
    * The list of dependency manifest files found in the repository.
-   */
+  */
   "files"?: Array<ScaRequestDataAttributesFilesItems>;
   /**
    * The dependency relations describing the inter-component dependency graph.
-   */
+  */
   "relations"?: Array<ScaRequestDataAttributesRelationsItems>;
   /**
    * Information about the source code repository being analyzed.
-   */
+  */
   "repository"?: ScaRequestDataAttributesRepository;
   /**
    * The name of the service or application being analyzed.
-   */
+  */
   "service"?: string;
   /**
    * A map of key-value tags providing additional metadata for the SCA scan.
-   */
-  "tags"?: { [key: string]: string };
+  */
+  "tags"?: { [key: string]: string; };
   /**
    * The list of vulnerabilities identified in the dependency graph.
-   */
+  */
   "vulnerabilities"?: Array<ScaRequestDataAttributesVulnerabilitiesItems>;
 
   /**
@@ -58,7 +63,7 @@ export class ScaRequestDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -69,41 +74,41 @@ export class ScaRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    commit: {
-      baseName: "commit",
-      type: "ScaRequestDataAttributesCommit",
+    "commit": {
+      "baseName": "commit",
+      "type": "ScaRequestDataAttributesCommit",
     },
-    dependencies: {
-      baseName: "dependencies",
-      type: "Array<ScaRequestDataAttributesDependenciesItems>",
+    "dependencies": {
+      "baseName": "dependencies",
+      "type": "Array<ScaRequestDataAttributesDependenciesItems>",
     },
-    env: {
-      baseName: "env",
-      type: "string",
+    "env": {
+      "baseName": "env",
+      "type": "string",
     },
-    files: {
-      baseName: "files",
-      type: "Array<ScaRequestDataAttributesFilesItems>",
+    "files": {
+      "baseName": "files",
+      "type": "Array<ScaRequestDataAttributesFilesItems>",
     },
-    relations: {
-      baseName: "relations",
-      type: "Array<ScaRequestDataAttributesRelationsItems>",
+    "relations": {
+      "baseName": "relations",
+      "type": "Array<ScaRequestDataAttributesRelationsItems>",
     },
-    repository: {
-      baseName: "repository",
-      type: "ScaRequestDataAttributesRepository",
+    "repository": {
+      "baseName": "repository",
+      "type": "ScaRequestDataAttributesRepository",
     },
-    service: {
-      baseName: "service",
-      type: "string",
+    "service": {
+      "baseName": "service",
+      "type": "string",
     },
-    tags: {
-      baseName: "tags",
-      type: "{ [key: string]: string; }",
+    "tags": {
+      "baseName": "tags",
+      "type": "{ [key: string]: string; }",
     },
-    vulnerabilities: {
-      baseName: "vulnerabilities",
-      type: "Array<ScaRequestDataAttributesVulnerabilitiesItems>",
+    "vulnerabilities": {
+      "baseName": "vulnerabilities",
+      "type": "Array<ScaRequestDataAttributesVulnerabilitiesItems>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -115,8 +120,34 @@ export class ScaRequestDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ScaRequestDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A tool definition available to an LLM span.
- */
+*/
 export class LLMObsSpanToolDefinition {
   /**
    * Description of what the tool does.
-   */
+  */
   "description"?: string;
   /**
    * Name of the tool.
-   */
+  */
   "name"?: string;
   /**
    * JSON schema describing the tool's input parameters.
-   */
-  "schema"?: { [key: string]: any };
+  */
+  "schema"?: { [key: string]: any; };
   /**
    * Version of the tool definition.
-   */
+  */
   "version"?: string;
 
   /**
@@ -32,7 +37,7 @@ export class LLMObsSpanToolDefinition {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,21 +48,21 @@ export class LLMObsSpanToolDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    schema: {
-      baseName: "schema",
-      type: "{ [key: string]: any; }",
+    "schema": {
+      "baseName": "schema",
+      "type": "{ [key: string]: any; }",
     },
-    version: {
-      baseName: "version",
-      type: "string",
+    "version": {
+      "baseName": "version",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -69,8 +74,34 @@ export class LLMObsSpanToolDefinition {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsSpanToolDefinition.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

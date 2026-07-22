@@ -6,19 +6,24 @@
 import { LLMObsExperimentDataAttributesRequest } from "./LLMObsExperimentDataAttributesRequest";
 import { LLMObsExperimentType } from "./LLMObsExperimentType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for creating an LLM Observability experiment.
- */
+*/
 export class LLMObsExperimentDataRequest {
   /**
    * Attributes for creating an LLM Observability experiment.
-   */
+  */
   "attributes": LLMObsExperimentDataAttributesRequest;
   /**
    * Resource type of an LLM Observability experiment.
-   */
+  */
   "type": LLMObsExperimentType;
 
   /**
@@ -26,7 +31,7 @@ export class LLMObsExperimentDataRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class LLMObsExperimentDataRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LLMObsExperimentDataAttributesRequest",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "LLMObsExperimentDataAttributesRequest",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LLMObsExperimentType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LLMObsExperimentType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class LLMObsExperimentDataRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsExperimentDataRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

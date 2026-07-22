@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Count of security signals by severity level.
- */
+*/
 export class IoCSignalSeverityCount {
   /**
    * Number of signals at this severity level.
-   */
+  */
   "count"?: number;
   /**
    * Severity level (for example, critical, high, medium, low, info).
-   */
+  */
   "severity"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class IoCSignalSeverityCount {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,14 +40,14 @@ export class IoCSignalSeverityCount {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    count: {
-      baseName: "count",
-      type: "number",
-      format: "int64",
+    "count": {
+      "baseName": "count",
+      "type": "number",
+      "format": "int64",
     },
-    severity: {
-      baseName: "severity",
-      type: "string",
+    "severity": {
+      "baseName": "severity",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class IoCSignalSeverityCount {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IoCSignalSeverityCount.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Response format for the scalar formula request. Only `scalar` is supported.
- */
+*/
 
-export type HostMapWidgetScalarRequestResponseFormat =
-  | typeof SCALAR
-  | UnparsedObject;
-export const SCALAR = "scalar";
+export type HostMapWidgetScalarRequestResponseFormat = typeof SCALAR | UnparsedObject;
+export const SCALAR = 'scalar';

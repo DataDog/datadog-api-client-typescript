@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Resource type for annotation queue interactions.
- */
+*/
 
-export type LLMObsAnnotationQueueInteractionsType =
-  | typeof INTERACTIONS
-  | UnparsedObject;
-export const INTERACTIONS = "interactions";
+export type LLMObsAnnotationQueueInteractionsType = typeof INTERACTIONS | UnparsedObject;
+export const INTERACTIONS = 'interactions';

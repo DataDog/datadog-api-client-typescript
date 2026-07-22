@@ -8,15 +8,15 @@ import { Issue } from "./Issue";
 import { IssueTeam } from "./IssueTeam";
 import { IssueUser } from "./IssueUser";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * An array of related resources, returned when the `include` query parameter is used.
- */
+*/
 
-export type IssuesSearchResultIncluded =
-  | Issue
-  | Case
-  | IssueUser
-  | IssueTeam
-  | UnparsedObject;
+export type IssuesSearchResultIncluded = Issue | Case | IssueUser | IssueTeam | UnparsedObject;

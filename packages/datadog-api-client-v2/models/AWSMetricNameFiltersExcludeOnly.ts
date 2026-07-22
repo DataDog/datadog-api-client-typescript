@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Exclude metric names matching one of these patterns for a single namespace.
- */
+*/
 export class AWSMetricNameFiltersExcludeOnly {
   /**
    * Exclude metric names matching one of these patterns.
-   */
+  */
   "excludeOnly": Array<string>;
   /**
    * The AWS CloudWatch namespace to which this metric name filter applies.
-   */
+  */
   "namespace": string;
 
   /**
@@ -24,7 +29,7 @@ export class AWSMetricNameFiltersExcludeOnly {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,15 +40,15 @@ export class AWSMetricNameFiltersExcludeOnly {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    excludeOnly: {
-      baseName: "exclude_only",
-      type: "Array<string>",
-      required: true,
+    "excludeOnly": {
+      "baseName": "exclude_only",
+      "type": "Array<string>",
+      "required": true,
     },
-    namespace: {
-      baseName: "namespace",
-      type: "string",
-      required: true,
+    "namespace": {
+      "baseName": "namespace",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class AWSMetricNameFiltersExcludeOnly {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSMetricNameFiltersExcludeOnly.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

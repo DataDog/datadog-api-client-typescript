@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Budget resource type.
- */
+*/
 
 export type BudgetWithEntriesDataType = typeof BUDGET | UnparsedObject;
-export const BUDGET = "budget";
+export const BUDGET = 'budget';

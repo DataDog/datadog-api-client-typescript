@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Action to perform when a guardrail threshold is triggered.
- */
+*/
 
-export type GuardrailTriggerAction =
-  | typeof PAUSE
-  | typeof ABORT
-  | UnparsedObject;
-export const PAUSE = "PAUSE";
-export const ABORT = "ABORT";
+export type GuardrailTriggerAction = typeof PAUSE| typeof ABORT | UnparsedObject;
+export const PAUSE = 'PAUSE';
+export const ABORT = 'ABORT';

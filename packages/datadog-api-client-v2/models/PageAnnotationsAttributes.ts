@@ -5,31 +5,36 @@
  */
 import { AnnotationInPage } from "./AnnotationInPage";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of the annotations on a page.
- */
+*/
 export class PageAnnotationsAttributes {
   /**
    * Map of annotation UUID to annotation object, keyed by annotation ID.
-   */
-  "annotations": { [key: string]: AnnotationInPage };
+  */
+  "annotations": { [key: string]: AnnotationInPage; };
   /**
    * List of annotation IDs that apply to the entire page rather than a specific widget.
-   */
+  */
   "globalAnnotations": Array<string>;
   /**
    * Map from widget ID to the list of annotation IDs displayed on that widget.
-   */
-  "widgetMapping": { [key: string]: Array<string> };
+  */
+  "widgetMapping": { [key: string]: Array<string>; };
 
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,20 +45,20 @@ export class PageAnnotationsAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    annotations: {
-      baseName: "annotations",
-      type: "{ [key: string]: AnnotationInPage; }",
-      required: true,
+    "annotations": {
+      "baseName": "annotations",
+      "type": "{ [key: string]: AnnotationInPage; }",
+      "required": true,
     },
-    globalAnnotations: {
-      baseName: "global_annotations",
-      type: "Array<string>",
-      required: true,
+    "globalAnnotations": {
+      "baseName": "global_annotations",
+      "type": "Array<string>",
+      "required": true,
     },
-    widgetMapping: {
-      baseName: "widget_mapping",
-      type: "{ [key: string]: Array<string>; }",
-      required: true,
+    "widgetMapping": {
+      "baseName": "widget_mapping",
+      "type": "{ [key: string]: Array<string>; }",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class PageAnnotationsAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PageAnnotationsAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

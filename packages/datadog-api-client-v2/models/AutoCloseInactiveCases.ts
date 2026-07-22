@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Auto-close inactive cases settings.
- */
+*/
 export class AutoCloseInactiveCases {
   /**
    * Whether auto-close is enabled.
-   */
+  */
   "enabled"?: boolean;
   /**
    * Maximum inactive time in seconds before auto-closing.
-   */
+  */
   "maxInactiveTimeInSecs"?: number;
 
   /**
@@ -24,7 +29,7 @@ export class AutoCloseInactiveCases {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,14 +40,14 @@ export class AutoCloseInactiveCases {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
+    "enabled": {
+      "baseName": "enabled",
+      "type": "boolean",
     },
-    maxInactiveTimeInSecs: {
-      baseName: "max_inactive_time_in_secs",
-      type: "number",
-      format: "int64",
+    "maxInactiveTimeInSecs": {
+      "baseName": "max_inactive_time_in_secs",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class AutoCloseInactiveCases {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AutoCloseInactiveCases.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

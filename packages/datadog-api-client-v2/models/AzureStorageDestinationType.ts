@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The destination type. The value should always be `azure_storage`.
- */
+*/
 
 export type AzureStorageDestinationType = typeof AZURE_STORAGE | UnparsedObject;
-export const AZURE_STORAGE = "azure_storage";
+export const AZURE_STORAGE = 'azure_storage';

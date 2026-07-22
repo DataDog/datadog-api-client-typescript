@@ -6,19 +6,24 @@
 import { CloudflareAccountType } from "./CloudflareAccountType";
 import { CloudflareAccountUpdateRequestAttributes } from "./CloudflareAccountUpdateRequestAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for updating a Cloudflare account.
- */
+*/
 export class CloudflareAccountUpdateRequestData {
   /**
    * Attributes object for updating a Cloudflare account.
-   */
+  */
   "attributes"?: CloudflareAccountUpdateRequestAttributes;
   /**
    * The JSON:API type for this API. Should always be `cloudflare-accounts`.
-   */
+  */
   "type"?: CloudflareAccountType;
 
   /**
@@ -26,7 +31,7 @@ export class CloudflareAccountUpdateRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class CloudflareAccountUpdateRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CloudflareAccountUpdateRequestAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CloudflareAccountUpdateRequestAttributes",
     },
-    type: {
-      baseName: "type",
-      type: "CloudflareAccountType",
+    "type": {
+      "baseName": "type",
+      "type": "CloudflareAccountType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class CloudflareAccountUpdateRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CloudflareAccountUpdateRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

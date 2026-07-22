@@ -6,23 +6,28 @@
 import { IncidentUserDefinedRolePatchDataAttributesRequest } from "./IncidentUserDefinedRolePatchDataAttributesRequest";
 import { IncidentUserDefinedRoleType } from "./IncidentUserDefinedRoleType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for updating an incident user-defined role.
- */
+*/
 export class IncidentUserDefinedRolePatchDataRequest {
   /**
    * Attributes for updating an incident user-defined role.
-   */
+  */
   "attributes"?: IncidentUserDefinedRolePatchDataAttributesRequest;
   /**
    * The ID of the user-defined role to update.
-   */
+  */
   "id": string;
   /**
    * Incident user-defined role resource type.
-   */
+  */
   "type": IncidentUserDefinedRoleType;
 
   /**
@@ -30,7 +35,7 @@ export class IncidentUserDefinedRolePatchDataRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class IncidentUserDefinedRolePatchDataRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "IncidentUserDefinedRolePatchDataAttributesRequest",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "IncidentUserDefinedRolePatchDataAttributesRequest",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    type: {
-      baseName: "type",
-      type: "IncidentUserDefinedRoleType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "IncidentUserDefinedRoleType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class IncidentUserDefinedRolePatchDataRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentUserDefinedRolePatchDataRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes of a request to resolve vulnerable symbols, containing the list of package PURLs to check.
- */
+*/
 export class ResolveVulnerableSymbolsRequestDataAttributes {
   /**
    * The list of Package URLs (PURLs) for which to resolve vulnerable symbols.
-   */
+  */
   "purls"?: Array<string>;
 
   /**
@@ -20,7 +25,7 @@ export class ResolveVulnerableSymbolsRequestDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,9 +36,9 @@ export class ResolveVulnerableSymbolsRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    purls: {
-      baseName: "purls",
-      type: "Array<string>",
+    "purls": {
+      "baseName": "purls",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,8 +50,34 @@ export class ResolveVulnerableSymbolsRequestDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ResolveVulnerableSymbolsRequestDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

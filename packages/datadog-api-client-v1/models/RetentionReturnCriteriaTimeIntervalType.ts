@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of time interval for return criteria.
- */
+*/
 
-export type RetentionReturnCriteriaTimeIntervalType =
-  | typeof FIXED
-  | UnparsedObject;
-export const FIXED = "fixed";
+export type RetentionReturnCriteriaTimeIntervalType = typeof FIXED | UnparsedObject;
+export const FIXED = 'fixed';

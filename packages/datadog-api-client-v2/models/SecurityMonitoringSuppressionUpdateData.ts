@@ -6,19 +6,24 @@
 import { SecurityMonitoringSuppressionType } from "./SecurityMonitoringSuppressionType";
 import { SecurityMonitoringSuppressionUpdateAttributes } from "./SecurityMonitoringSuppressionUpdateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The new suppression properties; partial updates are supported.
- */
+*/
 export class SecurityMonitoringSuppressionUpdateData {
   /**
    * The suppression rule properties to be updated.
-   */
+  */
   "attributes": SecurityMonitoringSuppressionUpdateAttributes;
   /**
    * The type of the resource. The value should always be `suppressions`.
-   */
+  */
   "type": SecurityMonitoringSuppressionType;
 
   /**
@@ -26,7 +31,7 @@ export class SecurityMonitoringSuppressionUpdateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class SecurityMonitoringSuppressionUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SecurityMonitoringSuppressionUpdateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SecurityMonitoringSuppressionUpdateAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "SecurityMonitoringSuppressionType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SecurityMonitoringSuppressionType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class SecurityMonitoringSuppressionUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringSuppressionUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

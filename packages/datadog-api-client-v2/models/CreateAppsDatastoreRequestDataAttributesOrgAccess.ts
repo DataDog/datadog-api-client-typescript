@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The organization access level for the datastore. For example, 'contributor'.
- */
+*/
 
-export type CreateAppsDatastoreRequestDataAttributesOrgAccess =
-  | typeof CONTRIBUTOR
-  | typeof VIEWER
-  | typeof MANAGER
-  | UnparsedObject;
-export const CONTRIBUTOR = "contributor";
-export const VIEWER = "viewer";
-export const MANAGER = "manager";
+export type CreateAppsDatastoreRequestDataAttributesOrgAccess = typeof CONTRIBUTOR| typeof VIEWER| typeof MANAGER | UnparsedObject;
+export const CONTRIBUTOR = 'contributor';
+export const VIEWER = 'viewer';
+export const MANAGER = 'manager';

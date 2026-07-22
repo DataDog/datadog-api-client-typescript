@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The resource type for user authorized clients.
- */
+*/
 
-export type UserAuthorizedClientType =
-  | typeof USER_AUTHORIZED_CLIENTS
-  | UnparsedObject;
-export const USER_AUTHORIZED_CLIENTS = "user_authorized_clients";
+export type UserAuthorizedClientType = typeof USER_AUTHORIZED_CLIENTS | UnparsedObject;
+export const USER_AUTHORIZED_CLIENTS = 'user_authorized_clients';

@@ -6,19 +6,24 @@
 import { AutomationRuleCreateAttributes } from "./AutomationRuleCreateAttributes";
 import { CaseAutomationRuleResourceType } from "./CaseAutomationRuleResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for updating an automation rule.
- */
+*/
 export class AutomationRuleUpdate {
   /**
    * Attributes required to create an automation rule.
-   */
+  */
   "attributes"?: AutomationRuleCreateAttributes;
   /**
    * JSON:API resource type for case automation rules.
-   */
+  */
   "type": CaseAutomationRuleResourceType;
 
   /**
@@ -26,7 +31,7 @@ export class AutomationRuleUpdate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class AutomationRuleUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AutomationRuleCreateAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AutomationRuleCreateAttributes",
     },
-    type: {
-      baseName: "type",
-      type: "CaseAutomationRuleResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CaseAutomationRuleResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class AutomationRuleUpdate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AutomationRuleUpdate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,23 +6,28 @@
 import { CreateAttachmentRequestDataAttributes } from "./CreateAttachmentRequestDataAttributes";
 import { IncidentAttachmentType } from "./IncidentAttachmentType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attachment data for a create request.
- */
+*/
 export class CreateAttachmentRequestData {
   /**
    * The attributes for creating an attachment.
-   */
+  */
   "attributes"?: CreateAttachmentRequestDataAttributes;
   /**
    * The unique identifier of the attachment.
-   */
+  */
   "id"?: string;
   /**
    * The incident attachment resource type.
-   */
+  */
   "type": IncidentAttachmentType;
 
   /**
@@ -30,7 +35,7 @@ export class CreateAttachmentRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class CreateAttachmentRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CreateAttachmentRequestDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CreateAttachmentRequestDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "IncidentAttachmentType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "IncidentAttachmentType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class CreateAttachmentRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateAttachmentRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

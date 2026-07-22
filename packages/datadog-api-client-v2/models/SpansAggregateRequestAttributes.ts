@@ -8,28 +8,33 @@ import { SpansGroupBy } from "./SpansGroupBy";
 import { SpansQueryFilter } from "./SpansQueryFilter";
 import { SpansQueryOptions } from "./SpansQueryOptions";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The object containing all the query parameters.
- */
+*/
 export class SpansAggregateRequestAttributes {
   /**
    * The list of metrics or timeseries to compute for the retrieved buckets.
-   */
+  */
   "compute"?: Array<SpansCompute>;
   /**
    * The search and filter query settings.
-   */
+  */
   "filter"?: SpansQueryFilter;
   /**
    * The rules for the group by.
-   */
+  */
   "groupBy"?: Array<SpansGroupBy>;
   /**
    * Global query options that are used during the query.
    * Note: You should only supply timezone or time offset but not both otherwise the query will fail.
-   */
+  */
   "options"?: SpansQueryOptions;
 
   /**
@@ -37,7 +42,7 @@ export class SpansAggregateRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -48,21 +53,21 @@ export class SpansAggregateRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    compute: {
-      baseName: "compute",
-      type: "Array<SpansCompute>",
+    "compute": {
+      "baseName": "compute",
+      "type": "Array<SpansCompute>",
     },
-    filter: {
-      baseName: "filter",
-      type: "SpansQueryFilter",
+    "filter": {
+      "baseName": "filter",
+      "type": "SpansQueryFilter",
     },
-    groupBy: {
-      baseName: "group_by",
-      type: "Array<SpansGroupBy>",
+    "groupBy": {
+      "baseName": "group_by",
+      "type": "Array<SpansGroupBy>",
     },
-    options: {
-      baseName: "options",
-      type: "SpansQueryOptions",
+    "options": {
+      "baseName": "options",
+      "type": "SpansQueryOptions",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,8 +79,34 @@ export class SpansAggregateRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SpansAggregateRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

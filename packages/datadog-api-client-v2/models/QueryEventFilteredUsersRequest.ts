@@ -5,15 +5,20 @@
  */
 import { QueryEventFilteredUsersRequestData } from "./QueryEventFilteredUsersRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request body for querying users filtered by user properties combined with event platform activity.
- */
+*/
 export class QueryEventFilteredUsersRequest {
   /**
    * The data object containing the resource type and attributes for querying event-filtered users.
-   */
+  */
   "data"?: QueryEventFilteredUsersRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class QueryEventFilteredUsersRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class QueryEventFilteredUsersRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "QueryEventFilteredUsersRequestData",
+    "data": {
+      "baseName": "data",
+      "type": "QueryEventFilteredUsersRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class QueryEventFilteredUsersRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return QueryEventFilteredUsersRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

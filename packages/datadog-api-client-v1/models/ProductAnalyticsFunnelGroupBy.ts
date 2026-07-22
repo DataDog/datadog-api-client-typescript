@@ -6,31 +6,36 @@
 import { ProductAnalyticsFunnelGroupBySort } from "./ProductAnalyticsFunnelGroupBySort";
 import { UserJourneySearchTarget } from "./UserJourneySearchTarget";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Group by configuration for user journey funnel.
- */
+*/
 export class ProductAnalyticsFunnelGroupBy {
   /**
    * Facet to group by.
-   */
+  */
   "facet": string;
   /**
    * Maximum number of groups.
-   */
+  */
   "limit"?: number;
   /**
    * Whether to exclude missing values.
-   */
+  */
   "shouldExcludeMissing"?: boolean;
   /**
    * Sort configuration for user journey funnel group by.
-   */
+  */
   "sort"?: ProductAnalyticsFunnelGroupBySort;
   /**
    * Target for user journey search.
-   */
+  */
   "target"?: UserJourneySearchTarget;
 
   /**
@@ -38,7 +43,7 @@ export class ProductAnalyticsFunnelGroupBy {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -49,27 +54,27 @@ export class ProductAnalyticsFunnelGroupBy {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    facet: {
-      baseName: "facet",
-      type: "string",
-      required: true,
+    "facet": {
+      "baseName": "facet",
+      "type": "string",
+      "required": true,
     },
-    limit: {
-      baseName: "limit",
-      type: "number",
-      format: "int64",
+    "limit": {
+      "baseName": "limit",
+      "type": "number",
+      "format": "int64",
     },
-    shouldExcludeMissing: {
-      baseName: "should_exclude_missing",
-      type: "boolean",
+    "shouldExcludeMissing": {
+      "baseName": "should_exclude_missing",
+      "type": "boolean",
     },
-    sort: {
-      baseName: "sort",
-      type: "ProductAnalyticsFunnelGroupBySort",
+    "sort": {
+      "baseName": "sort",
+      "type": "ProductAnalyticsFunnelGroupBySort",
     },
-    target: {
-      baseName: "target",
-      type: "UserJourneySearchTarget",
+    "target": {
+      "baseName": "target",
+      "type": "UserJourneySearchTarget",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -81,8 +86,34 @@ export class ProductAnalyticsFunnelGroupBy {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProductAnalyticsFunnelGroupBy.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

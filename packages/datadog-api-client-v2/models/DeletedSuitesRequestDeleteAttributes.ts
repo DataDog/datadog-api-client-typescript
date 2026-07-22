@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for a bulk delete Synthetic test suites request.
- */
+*/
 export class DeletedSuitesRequestDeleteAttributes {
   /**
    * Whether to force deletion of suites that have dependent resources.
-   */
+  */
   "forceDeleteDependencies"?: boolean;
   /**
    * List of public IDs of the Synthetic test suites to delete.
-   */
+  */
   "publicIds": Array<string>;
 
   /**
@@ -24,7 +29,7 @@ export class DeletedSuitesRequestDeleteAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,14 +40,14 @@ export class DeletedSuitesRequestDeleteAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    forceDeleteDependencies: {
-      baseName: "force_delete_dependencies",
-      type: "boolean",
+    "forceDeleteDependencies": {
+      "baseName": "force_delete_dependencies",
+      "type": "boolean",
     },
-    publicIds: {
-      baseName: "public_ids",
-      type: "Array<string>",
-      required: true,
+    "publicIds": {
+      "baseName": "public_ids",
+      "type": "Array<string>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class DeletedSuitesRequestDeleteAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DeletedSuitesRequestDeleteAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

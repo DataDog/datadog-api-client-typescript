@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Links for the user authorized clients relationship.
- */
+*/
 export class OrgAuthorizedClientRelationshipUserAuthorizedClientsLinks {
   /**
    * Link to the user authorized clients for this org authorized client.
-   */
+  */
   "related": string;
 
   /**
@@ -20,7 +25,7 @@ export class OrgAuthorizedClientRelationshipUserAuthorizedClientsLinks {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,10 +36,10 @@ export class OrgAuthorizedClientRelationshipUserAuthorizedClientsLinks {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    related: {
-      baseName: "related",
-      type: "string",
-      required: true,
+    "related": {
+      "baseName": "related",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class OrgAuthorizedClientRelationshipUserAuthorizedClientsLinks {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgAuthorizedClientRelationshipUserAuthorizedClientsLinks.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

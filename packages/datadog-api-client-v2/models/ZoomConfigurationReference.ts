@@ -5,23 +5,28 @@
  */
 import { ZoomConfigurationReferenceData } from "./ZoomConfigurationReferenceData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A reference to a Zoom configuration resource.
- */
+*/
 export class ZoomConfigurationReference {
   /**
    * The Zoom configuration relationship data object.
-   */
-  "data": ZoomConfigurationReferenceData | null;
+  */
+  "data": ZoomConfigurationReferenceData|null;
 
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class ZoomConfigurationReference {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ZoomConfigurationReferenceData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "ZoomConfigurationReferenceData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class ZoomConfigurationReference {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ZoomConfigurationReference.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

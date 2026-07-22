@@ -5,31 +5,36 @@
  */
 import { SampleLogGenerationSubscriptionStatus } from "./SampleLogGenerationSubscriptionStatus";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes describing a sample log generation subscription.
- */
+*/
 export class SampleLogGenerationSubscriptionAttributes {
   /**
    * The identifier of the Cloud SIEM content pack the subscription targets.
-   */
+  */
   "contentPackId": string;
   /**
    * The time at which the subscription was created.
-   */
+  */
   "createdAt": Date;
   /**
    * The time at which the subscription expires and stops generating logs.
-   */
+  */
   "expiresAt": Date;
   /**
    * Whether the subscription is currently active and generating logs.
-   */
+  */
   "isActive": boolean;
   /**
    * The status of the subscription.
-   */
+  */
   "status": SampleLogGenerationSubscriptionStatus;
 
   /**
@@ -37,7 +42,7 @@ export class SampleLogGenerationSubscriptionAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -48,32 +53,32 @@ export class SampleLogGenerationSubscriptionAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    contentPackId: {
-      baseName: "content_pack_id",
-      type: "string",
-      required: true,
+    "contentPackId": {
+      "baseName": "content_pack_id",
+      "type": "string",
+      "required": true,
     },
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    expiresAt: {
-      baseName: "expires_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "expiresAt": {
+      "baseName": "expires_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    isActive: {
-      baseName: "is_active",
-      type: "boolean",
-      required: true,
+    "isActive": {
+      "baseName": "is_active",
+      "type": "boolean",
+      "required": true,
     },
-    status: {
-      baseName: "status",
-      type: "SampleLogGenerationSubscriptionStatus",
-      required: true,
+    "status": {
+      "baseName": "status",
+      "type": "SampleLogGenerationSubscriptionStatus",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -85,8 +90,34 @@ export class SampleLogGenerationSubscriptionAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SampleLogGenerationSubscriptionAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

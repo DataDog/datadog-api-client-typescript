@@ -5,19 +5,24 @@
  */
 import { OrgGroupRelationshipToOne } from "./OrgGroupRelationshipToOne";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationships for bulk updating memberships.
- */
+*/
 export class OrgGroupMembershipBulkUpdateRelationships {
   /**
    * Relationship to a single org group.
-   */
+  */
   "sourceOrgGroup": OrgGroupRelationshipToOne;
   /**
    * Relationship to a single org group.
-   */
+  */
   "targetOrgGroup": OrgGroupRelationshipToOne;
 
   /**
@@ -25,7 +30,7 @@ export class OrgGroupMembershipBulkUpdateRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class OrgGroupMembershipBulkUpdateRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    sourceOrgGroup: {
-      baseName: "source_org_group",
-      type: "OrgGroupRelationshipToOne",
-      required: true,
+    "sourceOrgGroup": {
+      "baseName": "source_org_group",
+      "type": "OrgGroupRelationshipToOne",
+      "required": true,
     },
-    targetOrgGroup: {
-      baseName: "target_org_group",
-      type: "OrgGroupRelationshipToOne",
-      required: true,
+    "targetOrgGroup": {
+      "baseName": "target_org_group",
+      "type": "OrgGroupRelationshipToOne",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class OrgGroupMembershipBulkUpdateRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgGroupMembershipBulkUpdateRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

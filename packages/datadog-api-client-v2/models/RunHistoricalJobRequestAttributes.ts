@@ -6,23 +6,28 @@
 import { JobDefinition } from "./JobDefinition";
 import { JobDefinitionFromRule } from "./JobDefinitionFromRule";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Run a historical job request.
- */
+*/
 export class RunHistoricalJobRequestAttributes {
   /**
    * Definition of a historical job based on a security monitoring rule.
-   */
+  */
   "fromRule"?: JobDefinitionFromRule;
   /**
    * Definition of a historical job.
-   */
+  */
   "jobDefinition"?: JobDefinition;
   /**
    * Whether the job outputs signals when results are converted.
-   */
+  */
   "signalOutput"?: boolean;
 
   /**
@@ -30,7 +35,7 @@ export class RunHistoricalJobRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class RunHistoricalJobRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    fromRule: {
-      baseName: "fromRule",
-      type: "JobDefinitionFromRule",
+    "fromRule": {
+      "baseName": "fromRule",
+      "type": "JobDefinitionFromRule",
     },
-    jobDefinition: {
-      baseName: "jobDefinition",
-      type: "JobDefinition",
+    "jobDefinition": {
+      "baseName": "jobDefinition",
+      "type": "JobDefinition",
     },
-    signalOutput: {
-      baseName: "signalOutput",
-      type: "boolean",
+    "signalOutput": {
+      "baseName": "signalOutput",
+      "type": "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class RunHistoricalJobRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RunHistoricalJobRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

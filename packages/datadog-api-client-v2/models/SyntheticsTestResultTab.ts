@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Information about a browser tab involved in a step.
- */
+*/
 export class SyntheticsTestResultTab {
   /**
    * Whether the tab was focused during the step.
-   */
+  */
   "focused"?: boolean;
   /**
    * Title of the tab.
-   */
+  */
   "title"?: string;
   /**
    * URL loaded in the tab.
-   */
+  */
   "url"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class SyntheticsTestResultTab {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class SyntheticsTestResultTab {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    focused: {
-      baseName: "focused",
-      type: "boolean",
+    "focused": {
+      "baseName": "focused",
+      "type": "boolean",
     },
-    title: {
-      baseName: "title",
-      type: "string",
+    "title": {
+      "baseName": "title",
+      "type": "string",
     },
-    url: {
-      baseName: "url",
-      type: "string",
+    "url": {
+      "baseName": "url",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class SyntheticsTestResultTab {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultTab.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

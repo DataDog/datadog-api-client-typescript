@@ -6,19 +6,24 @@
 import { UpsertOAuthScopesRestrictionDataAttributes } from "./UpsertOAuthScopesRestrictionDataAttributes";
 import { UpsertOAuthScopesRestrictionType } from "./UpsertOAuthScopesRestrictionType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object of an upsert OAuth2 scopes restriction request.
- */
+*/
 export class UpsertOAuthScopesRestrictionData {
   /**
    * Attributes of an upsert OAuth2 scopes restriction request.
-   */
+  */
   "attributes"?: UpsertOAuthScopesRestrictionDataAttributes;
   /**
    * JSON:API resource type for an upsert OAuth2 client scopes restriction request.
-   */
+  */
   "type": UpsertOAuthScopesRestrictionType;
 
   /**
@@ -26,7 +31,7 @@ export class UpsertOAuthScopesRestrictionData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class UpsertOAuthScopesRestrictionData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "UpsertOAuthScopesRestrictionDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "UpsertOAuthScopesRestrictionDataAttributes",
     },
-    type: {
-      baseName: "type",
-      type: "UpsertOAuthScopesRestrictionType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "UpsertOAuthScopesRestrictionType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class UpsertOAuthScopesRestrictionData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpsertOAuthScopesRestrictionData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

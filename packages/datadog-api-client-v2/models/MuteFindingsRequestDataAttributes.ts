@@ -5,15 +5,20 @@
  */
 import { MuteFindingsMuteAttributes } from "./MuteFindingsMuteAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of the mute request.
- */
+*/
 export class MuteFindingsRequestDataAttributes {
   /**
    * Mute properties to apply to the findings.
-   */
+  */
   "mute": MuteFindingsMuteAttributes;
 
   /**
@@ -21,7 +26,7 @@ export class MuteFindingsRequestDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class MuteFindingsRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    mute: {
-      baseName: "mute",
-      type: "MuteFindingsMuteAttributes",
-      required: true,
+    "mute": {
+      "baseName": "mute",
+      "type": "MuteFindingsMuteAttributes",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class MuteFindingsRequestDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MuteFindingsRequestDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

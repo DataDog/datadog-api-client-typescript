@@ -7,23 +7,28 @@ import { CreateServiceNowTicketRequestDataAttributes } from "./CreateServiceNowT
 import { CreateServiceNowTicketRequestDataRelationships } from "./CreateServiceNowTicketRequestDataRelationships";
 import { ServiceNowTicketsDataType } from "./ServiceNowTicketsDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data of the ServiceNow ticket to create.
- */
+*/
 export class CreateServiceNowTicketRequestData {
   /**
    * Attributes of the ServiceNow ticket to create.
-   */
+  */
   "attributes"?: CreateServiceNowTicketRequestDataAttributes;
   /**
    * Relationships of the ServiceNow ticket to create.
-   */
+  */
   "relationships": CreateServiceNowTicketRequestDataRelationships;
   /**
    * ServiceNow tickets resource type.
-   */
+  */
   "type": ServiceNowTicketsDataType;
 
   /**
@@ -31,7 +36,7 @@ export class CreateServiceNowTicketRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,19 +47,19 @@ export class CreateServiceNowTicketRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CreateServiceNowTicketRequestDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CreateServiceNowTicketRequestDataAttributes",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "CreateServiceNowTicketRequestDataRelationships",
-      required: true,
+    "relationships": {
+      "baseName": "relationships",
+      "type": "CreateServiceNowTicketRequestDataRelationships",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ServiceNowTicketsDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ServiceNowTicketsDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class CreateServiceNowTicketRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateServiceNowTicketRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

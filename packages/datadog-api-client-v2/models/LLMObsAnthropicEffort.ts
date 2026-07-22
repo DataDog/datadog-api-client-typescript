@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The effort level for Anthropic inference.
- */
+*/
 
-export type LLMObsAnthropicEffort =
-  | typeof LOW
-  | typeof MEDIUM
-  | typeof HIGH
-  | typeof MAX
-  | UnparsedObject;
-export const LOW = "low";
-export const MEDIUM = "medium";
-export const HIGH = "high";
-export const MAX = "max";
+export type LLMObsAnthropicEffort = typeof LOW| typeof MEDIUM| typeof HIGH| typeof MAX | UnparsedObject;
+export const LOW = 'low';
+export const MEDIUM = 'medium';
+export const HIGH = 'high';
+export const MAX = 'max';

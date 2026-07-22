@@ -11,79 +11,84 @@ import { CustomAttributeValue } from "./CustomAttributeValue";
 import { JiraIssue } from "./JiraIssue";
 import { ServiceNowTicket } from "./ServiceNowTicket";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Case resource attributes
- */
+*/
 export class CaseAttributes {
   /**
    * Timestamp of when the case was archived
-   */
+  */
   "archivedAt"?: Date;
   /**
    * Key-value pairs of case attributes. Each key maps to an array of string values, used for flexible metadata such as labels or tags.
-   */
-  "attributes"?: { [key: string]: Array<string> };
+  */
+  "attributes"?: { [key: string]: Array<string>; };
   /**
    * Timestamp of when the case was closed
-   */
+  */
   "closedAt"?: Date;
   /**
    * Timestamp of when the case was created
-   */
+  */
   "createdAt"?: Date;
   /**
    * Case custom attributes
-   */
-  "customAttributes"?: { [key: string]: CustomAttributeValue };
+  */
+  "customAttributes"?: { [key: string]: CustomAttributeValue; };
   /**
    * Description
-   */
+  */
   "description"?: string;
   /**
    * Jira issue attached to case
-   */
+  */
   "jiraIssue"?: JiraIssue;
   /**
    * Key
-   */
+  */
   "key"?: string;
   /**
    * Timestamp of when the case was last modified
-   */
+  */
   "modifiedAt"?: Date;
   /**
    * Case priority
-   */
+  */
   "priority"?: CasePriority;
   /**
    * ServiceNow ticket attached to case
-   */
+  */
   "serviceNowTicket"?: ServiceNowTicket;
   /**
    * Deprecated way of representing the case status, which only supports OPEN, IN_PROGRESS, and CLOSED statuses. Use `status_name` instead.
-   */
+  */
   "status"?: CaseStatus;
   /**
    * Status group of the case.
-   */
+  */
   "statusGroup"?: CaseStatusGroup;
   /**
    * Status of the case. Must be one of the existing statuses for the case's type.
-   */
+  */
   "statusName"?: string;
   /**
    * Title
-   */
+  */
   "title"?: string;
   /**
    * Case type
-   */
+  */
   "type"?: CaseType;
   /**
    * Case type UUID
-   */
+  */
   "typeId"?: string;
 
   /**
@@ -91,7 +96,7 @@ export class CaseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -102,77 +107,77 @@ export class CaseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    archivedAt: {
-      baseName: "archived_at",
-      type: "Date",
-      format: "date-time",
+    "archivedAt": {
+      "baseName": "archived_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    attributes: {
-      baseName: "attributes",
-      type: "{ [key: string]: Array<string>; }",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "{ [key: string]: Array<string>; }",
     },
-    closedAt: {
-      baseName: "closed_at",
-      type: "Date",
-      format: "date-time",
+    "closedAt": {
+      "baseName": "closed_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    customAttributes: {
-      baseName: "custom_attributes",
-      type: "{ [key: string]: CustomAttributeValue; }",
+    "customAttributes": {
+      "baseName": "custom_attributes",
+      "type": "{ [key: string]: CustomAttributeValue; }",
     },
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    jiraIssue: {
-      baseName: "jira_issue",
-      type: "JiraIssue",
+    "jiraIssue": {
+      "baseName": "jira_issue",
+      "type": "JiraIssue",
     },
-    key: {
-      baseName: "key",
-      type: "string",
+    "key": {
+      "baseName": "key",
+      "type": "string",
     },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "Date",
-      format: "date-time",
+    "modifiedAt": {
+      "baseName": "modified_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    priority: {
-      baseName: "priority",
-      type: "CasePriority",
+    "priority": {
+      "baseName": "priority",
+      "type": "CasePriority",
     },
-    serviceNowTicket: {
-      baseName: "service_now_ticket",
-      type: "ServiceNowTicket",
+    "serviceNowTicket": {
+      "baseName": "service_now_ticket",
+      "type": "ServiceNowTicket",
     },
-    status: {
-      baseName: "status",
-      type: "CaseStatus",
+    "status": {
+      "baseName": "status",
+      "type": "CaseStatus",
     },
-    statusGroup: {
-      baseName: "status_group",
-      type: "CaseStatusGroup",
+    "statusGroup": {
+      "baseName": "status_group",
+      "type": "CaseStatusGroup",
     },
-    statusName: {
-      baseName: "status_name",
-      type: "string",
+    "statusName": {
+      "baseName": "status_name",
+      "type": "string",
     },
-    title: {
-      baseName: "title",
-      type: "string",
+    "title": {
+      "baseName": "title",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "CaseType",
+    "type": {
+      "baseName": "type",
+      "type": "CaseType",
     },
-    typeId: {
-      baseName: "type_id",
-      type: "string",
+    "typeId": {
+      "baseName": "type_id",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -184,8 +189,34 @@ export class CaseAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

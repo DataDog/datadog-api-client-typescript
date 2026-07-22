@@ -5,15 +5,20 @@
  */
 import { CreateAppsDatastoreResponseData } from "./CreateAppsDatastoreResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response after successfully creating a new datastore, containing the datastore's assigned ID.
- */
+*/
 export class CreateAppsDatastoreResponse {
   /**
    * The newly created datastore's data.
-   */
+  */
   "data"?: CreateAppsDatastoreResponseData;
 
   /**
@@ -21,7 +26,7 @@ export class CreateAppsDatastoreResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class CreateAppsDatastoreResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CreateAppsDatastoreResponseData",
+    "data": {
+      "baseName": "data",
+      "type": "CreateAppsDatastoreResponseData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class CreateAppsDatastoreResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateAppsDatastoreResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

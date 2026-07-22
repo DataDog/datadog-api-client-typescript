@@ -4,17 +4,22 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object containing the ordered list of log index names.
- */
+*/
 export class LogsIndexesOrder {
   /**
    * Array of strings identifying by their name(s) the index(es) of your organization.
    * Logs are tested against the query filter of each index one by one, following the order of the array.
    * Logs are eventually stored in the first matching index.
-   */
+  */
   "indexNames": Array<string>;
 
   /**
@@ -22,7 +27,7 @@ export class LogsIndexesOrder {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -33,10 +38,10 @@ export class LogsIndexesOrder {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    indexNames: {
-      baseName: "index_names",
-      type: "Array<string>",
-      required: true,
+    "indexNames": {
+      "baseName": "index_names",
+      "type": "Array<string>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -48,8 +53,34 @@ export class LogsIndexesOrder {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogsIndexesOrder.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

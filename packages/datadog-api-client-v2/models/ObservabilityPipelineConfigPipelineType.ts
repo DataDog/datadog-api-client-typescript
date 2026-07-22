@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of data being ingested. Defaults to `logs` if not specified.
- */
+*/
 
-export type ObservabilityPipelineConfigPipelineType =
-  | typeof LOGS
-  | typeof METRICS
-  | UnparsedObject;
-export const LOGS = "logs";
-export const METRICS = "metrics";
+export type ObservabilityPipelineConfigPipelineType = typeof LOGS| typeof METRICS | UnparsedObject;
+export const LOGS = 'logs';
+export const METRICS = 'metrics';

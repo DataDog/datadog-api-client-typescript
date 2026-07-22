@@ -4,27 +4,23 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of source map.
- */
+*/
 
-export type SourcemapMapKind =
-  | typeof JS
-  | typeof JVM
-  | typeof IOS
-  | typeof REACT
-  | typeof FLUTTER
-  | typeof ELF
-  | typeof NDK
-  | typeof IL2CPP
-  | UnparsedObject;
-export const JS = "js";
-export const JVM = "jvm";
-export const IOS = "ios";
-export const REACT = "react";
-export const FLUTTER = "flutter";
-export const ELF = "elf";
-export const NDK = "ndk";
-export const IL2CPP = "il2cpp";
+export type SourcemapMapKind = typeof JS| typeof JVM| typeof IOS| typeof REACT| typeof FLUTTER| typeof ELF| typeof NDK| typeof IL2CPP | UnparsedObject;
+export const JS = 'js';
+export const JVM = 'jvm';
+export const IOS = 'ios';
+export const REACT = 'react';
+export const FLUTTER = 'flutter';
+export const ELF = 'elf';
+export const NDK = 'ndk';
+export const IL2CPP = 'il2cpp';

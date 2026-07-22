@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of the `ServiceNowIntegrationType` object.
- */
+*/
 
 export type ServiceNowIntegrationType = typeof SERVICENOW | UnparsedObject;
-export const SERVICENOW = "ServiceNow";
+export const SERVICENOW = 'ServiceNow';

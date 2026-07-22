@@ -7,27 +7,32 @@ import { SyntheticsNetworkAssertionLatencyType } from "./SyntheticsNetworkAssert
 import { SyntheticsNetworkAssertionOperator } from "./SyntheticsNetworkAssertionOperator";
 import { SyntheticsNetworkAssertionProperty } from "./SyntheticsNetworkAssertionProperty";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Network latency assertion for a Network Path test.
- */
+*/
 export class SyntheticsNetworkAssertionLatency {
   /**
    * Assertion operator to apply.
-   */
+  */
   "operator": SyntheticsNetworkAssertionOperator;
   /**
    * The associated assertion property.
-   */
+  */
   "property": SyntheticsNetworkAssertionProperty;
   /**
    * Target value in milliseconds.
-   */
+  */
   "target": number;
   /**
    * Type of the latency assertion.
-   */
+  */
   "type": SyntheticsNetworkAssertionLatencyType;
 
   /**
@@ -35,7 +40,7 @@ export class SyntheticsNetworkAssertionLatency {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,26 +51,26 @@ export class SyntheticsNetworkAssertionLatency {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    operator: {
-      baseName: "operator",
-      type: "SyntheticsNetworkAssertionOperator",
-      required: true,
+    "operator": {
+      "baseName": "operator",
+      "type": "SyntheticsNetworkAssertionOperator",
+      "required": true,
     },
-    property: {
-      baseName: "property",
-      type: "SyntheticsNetworkAssertionProperty",
-      required: true,
+    "property": {
+      "baseName": "property",
+      "type": "SyntheticsNetworkAssertionProperty",
+      "required": true,
     },
-    target: {
-      baseName: "target",
-      type: "number",
-      required: true,
-      format: "double",
+    "target": {
+      "baseName": "target",
+      "type": "number",
+      "required": true,
+      "format": "double",
     },
-    type: {
-      baseName: "type",
-      type: "SyntheticsNetworkAssertionLatencyType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SyntheticsNetworkAssertionLatencyType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -77,8 +82,34 @@ export class SyntheticsNetworkAssertionLatency {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsNetworkAssertionLatency.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

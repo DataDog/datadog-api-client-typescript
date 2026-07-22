@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of the custom LLM Observability evaluator configuration resource.
- */
+*/
 
-export type LLMObsCustomEvalConfigType =
-  | typeof EVALUATOR_CONFIG
-  | UnparsedObject;
-export const EVALUATOR_CONFIG = "evaluator_config";
+export type LLMObsCustomEvalConfigType = typeof EVALUATOR_CONFIG | UnparsedObject;
+export const EVALUATOR_CONFIG = 'evaluator_config';

@@ -6,23 +6,28 @@
 import { CreateRulesetRequestDataAttributes } from "./CreateRulesetRequestDataAttributes";
 import { CreateRulesetRequestDataType } from "./CreateRulesetRequestDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `CreateRulesetRequestData` object.
- */
+*/
 export class CreateRulesetRequestData {
   /**
    * The definition of `CreateRulesetRequestDataAttributes` object.
-   */
+  */
   "attributes"?: CreateRulesetRequestDataAttributes;
   /**
    * The `CreateRulesetRequestData` `id`.
-   */
+  */
   "id"?: string;
   /**
    * Create ruleset resource type.
-   */
+  */
   "type": CreateRulesetRequestDataType;
 
   /**
@@ -30,7 +35,7 @@ export class CreateRulesetRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class CreateRulesetRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CreateRulesetRequestDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CreateRulesetRequestDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "CreateRulesetRequestDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CreateRulesetRequestDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class CreateRulesetRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateRulesetRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

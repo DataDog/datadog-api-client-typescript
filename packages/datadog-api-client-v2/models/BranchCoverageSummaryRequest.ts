@@ -5,15 +5,20 @@
  */
 import { BranchCoverageSummaryRequestData } from "./BranchCoverageSummaryRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request object for getting code coverage summary for a branch.
- */
+*/
 export class BranchCoverageSummaryRequest {
   /**
    * Data object for branch summary request.
-   */
+  */
   "data": BranchCoverageSummaryRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class BranchCoverageSummaryRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class BranchCoverageSummaryRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "BranchCoverageSummaryRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "BranchCoverageSummaryRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class BranchCoverageSummaryRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return BranchCoverageSummaryRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

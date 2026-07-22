@@ -5,15 +5,20 @@
  */
 import { ConnectionsPagePagination } from "./ConnectionsPagePagination";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Connections response metadata.
- */
+*/
 export class ConnectionsResponseMeta {
   /**
    * Page-based pagination metadata.
-   */
+  */
   "page"?: ConnectionsPagePagination;
 
   /**
@@ -21,7 +26,7 @@ export class ConnectionsResponseMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class ConnectionsResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    page: {
-      baseName: "page",
-      type: "ConnectionsPagePagination",
+    "page": {
+      "baseName": "page",
+      "type": "ConnectionsPagePagination",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class ConnectionsResponseMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ConnectionsResponseMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

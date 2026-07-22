@@ -6,19 +6,24 @@
 import { FleetAgentsResponseData } from "./FleetAgentsResponseData";
 import { FleetAgentsResponseMeta } from "./FleetAgentsResponseMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a paginated list of Datadog Agents.
- */
+*/
 export class FleetAgentsResponse {
   /**
    * The response data containing status and agents array.
-   */
+  */
   "data": FleetAgentsResponseData;
   /**
    * Metadata for the list of agents response.
-   */
+  */
   "meta"?: FleetAgentsResponseMeta;
 
   /**
@@ -26,7 +31,7 @@ export class FleetAgentsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class FleetAgentsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "FleetAgentsResponseData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "FleetAgentsResponseData",
+      "required": true,
     },
-    meta: {
-      baseName: "meta",
-      type: "FleetAgentsResponseMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "FleetAgentsResponseMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class FleetAgentsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FleetAgentsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

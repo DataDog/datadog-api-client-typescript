@@ -6,19 +6,24 @@
 import { ListWorkflowsResponseMeta } from "./ListWorkflowsResponseMeta";
 import { WorkflowListItem } from "./WorkflowListItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The response object for a listing workflows request.
- */
+*/
 export class ListWorkflowsResponse {
   /**
    * A list of workflows.
-   */
+  */
   "data"?: Array<WorkflowListItem>;
   /**
    * Metadata for a List Workflows response.
-   */
+  */
   "meta"?: ListWorkflowsResponseMeta;
 
   /**
@@ -26,7 +31,7 @@ export class ListWorkflowsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class ListWorkflowsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<WorkflowListItem>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<WorkflowListItem>",
     },
-    meta: {
-      baseName: "meta",
-      type: "ListWorkflowsResponseMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "ListWorkflowsResponseMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class ListWorkflowsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListWorkflowsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

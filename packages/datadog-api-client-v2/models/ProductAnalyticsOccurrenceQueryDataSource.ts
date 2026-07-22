@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The data source identifier for occurrence queries.
- */
+*/
 
-export type ProductAnalyticsOccurrenceQueryDataSource =
-  | typeof PRODUCT_ANALYTICS_OCCURRENCE
-  | UnparsedObject;
-export const PRODUCT_ANALYTICS_OCCURRENCE = "product_analytics_occurrence";
+export type ProductAnalyticsOccurrenceQueryDataSource = typeof PRODUCT_ANALYTICS_OCCURRENCE | UnparsedObject;
+export const PRODUCT_ANALYTICS_OCCURRENCE = 'product_analytics_occurrence';

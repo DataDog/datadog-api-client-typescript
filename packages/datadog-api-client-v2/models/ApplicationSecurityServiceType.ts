@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of the resource. The value should always be `service_env`.
- */
+*/
 
-export type ApplicationSecurityServiceType =
-  | typeof SERVICE_ENV
-  | UnparsedObject;
-export const SERVICE_ENV = "service_env";
+export type ApplicationSecurityServiceType = typeof SERVICE_ENV | UnparsedObject;
+export const SERVICE_ENV = 'service_env';

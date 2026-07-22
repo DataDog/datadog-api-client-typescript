@@ -5,31 +5,36 @@
  */
 import { QueryEventFilteredUsersRequestDataAttributesEventQuery } from "./QueryEventFilteredUsersRequestDataAttributesEventQuery";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for filtering users by both user properties and event platform activity.
- */
+*/
 export class QueryEventFilteredUsersRequestDataAttributes {
   /**
    * Event platform query used to filter users based on their event activity within a specified time window.
-   */
+  */
   "eventQuery"?: QueryEventFilteredUsersRequestDataAttributesEventQuery;
   /**
    * Whether to include the total count of matching users in the response.
-   */
+  */
   "includeRowCount"?: boolean;
   /**
    * Maximum number of user records to return in the response.
-   */
+  */
   "limit"?: number;
   /**
    * Filter expression using user attribute conditions to narrow results.
-   */
+  */
   "query"?: string;
   /**
    * List of user attribute column names to include in the response.
-   */
+  */
   "selectColumns"?: Array<string>;
 
   /**
@@ -37,7 +42,7 @@ export class QueryEventFilteredUsersRequestDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -48,26 +53,26 @@ export class QueryEventFilteredUsersRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    eventQuery: {
-      baseName: "event_query",
-      type: "QueryEventFilteredUsersRequestDataAttributesEventQuery",
+    "eventQuery": {
+      "baseName": "event_query",
+      "type": "QueryEventFilteredUsersRequestDataAttributesEventQuery",
     },
-    includeRowCount: {
-      baseName: "include_row_count",
-      type: "boolean",
+    "includeRowCount": {
+      "baseName": "include_row_count",
+      "type": "boolean",
     },
-    limit: {
-      baseName: "limit",
-      type: "number",
-      format: "int64",
+    "limit": {
+      "baseName": "limit",
+      "type": "number",
+      "format": "int64",
     },
-    query: {
-      baseName: "query",
-      type: "string",
+    "query": {
+      "baseName": "query",
+      "type": "string",
     },
-    selectColumns: {
-      baseName: "select_columns",
-      type: "Array<string>",
+    "selectColumns": {
+      "baseName": "select_columns",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -79,8 +84,34 @@ export class QueryEventFilteredUsersRequestDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return QueryEventFilteredUsersRequestDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,24 +5,29 @@
  */
 import { MonitorStateGroup } from "./MonitorStateGroup";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Wrapper object with the different monitor states.
- */
+*/
 export class MonitorState {
   /**
    * Dictionary where the keys are groups (comma separated lists of tags) and the values are
    * the list of groups your monitor is broken down on.
-   */
-  "groups"?: { [key: string]: MonitorStateGroup };
+  */
+  "groups"?: { [key: string]: MonitorStateGroup; };
 
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -33,9 +38,9 @@ export class MonitorState {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    groups: {
-      baseName: "groups",
-      type: "{ [key: string]: MonitorStateGroup; }",
+    "groups": {
+      "baseName": "groups",
+      "type": "{ [key: string]: MonitorStateGroup; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class MonitorState {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorState.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

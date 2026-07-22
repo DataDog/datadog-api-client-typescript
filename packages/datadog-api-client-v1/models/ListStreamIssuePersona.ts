@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Persona filter for the `issue_stream` data source.
- */
+*/
 
-export type ListStreamIssuePersona =
-  | typeof ALL
-  | typeof BROWSER
-  | typeof MOBILE
-  | typeof BACKEND
-  | UnparsedObject;
-export const ALL = "all";
-export const BROWSER = "browser";
-export const MOBILE = "mobile";
-export const BACKEND = "backend";
+export type ListStreamIssuePersona = typeof ALL| typeof BROWSER| typeof MOBILE| typeof BACKEND | UnparsedObject;
+export const ALL = 'all';
+export const BROWSER = 'browser';
+export const MOBILE = 'mobile';
+export const BACKEND = 'backend';

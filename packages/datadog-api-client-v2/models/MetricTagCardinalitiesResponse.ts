@@ -6,19 +6,24 @@
 import { MetricTagCardinalitiesMeta } from "./MetricTagCardinalitiesMeta";
 import { MetricTagCardinality } from "./MetricTagCardinality";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object that includes an array of objects representing the cardinality details of a metric's tags.
- */
+*/
 export class MetricTagCardinalitiesResponse {
   /**
    * A list of tag cardinalities associated with the given metric.
-   */
+  */
   "data"?: Array<MetricTagCardinality>;
   /**
    * Response metadata object.
-   */
+  */
   "meta"?: MetricTagCardinalitiesMeta;
 
   /**
@@ -26,7 +31,7 @@ export class MetricTagCardinalitiesResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class MetricTagCardinalitiesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<MetricTagCardinality>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<MetricTagCardinality>",
     },
-    meta: {
-      baseName: "meta",
-      type: "MetricTagCardinalitiesMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "MetricTagCardinalitiesMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class MetricTagCardinalitiesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricTagCardinalitiesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

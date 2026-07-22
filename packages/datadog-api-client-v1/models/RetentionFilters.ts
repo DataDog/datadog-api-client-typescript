@@ -5,19 +5,24 @@
  */
 import { ProductAnalyticsAudienceFilters } from "./ProductAnalyticsAudienceFilters";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Filters for retention queries.
- */
+*/
 export class RetentionFilters {
   /**
    * Product Analytics/RUM audience filters.
-   */
+  */
   "audienceFilters"?: ProductAnalyticsAudienceFilters;
   /**
    * String filter.
-   */
+  */
   "stringFilter"?: string;
 
   /**
@@ -29,22 +34,48 @@ export class RetentionFilters {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    audienceFilters: {
-      baseName: "audience_filters",
-      type: "ProductAnalyticsAudienceFilters",
+    "audienceFilters": {
+      "baseName": "audience_filters",
+      "type": "ProductAnalyticsAudienceFilters",
     },
-    stringFilter: {
-      baseName: "string_filter",
-      type: "string",
-    },
+    "stringFilter": {
+      "baseName": "string_filter",
+      "type": "string",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RetentionFilters.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

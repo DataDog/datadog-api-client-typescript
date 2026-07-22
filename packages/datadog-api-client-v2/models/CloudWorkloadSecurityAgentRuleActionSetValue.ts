@@ -4,14 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The value of the set action
- */
+*/
 
-export type CloudWorkloadSecurityAgentRuleActionSetValue =
-  | string
-  | number
-  | boolean
-  | UnparsedObject;
+export type CloudWorkloadSecurityAgentRuleActionSetValue = string | number | boolean | UnparsedObject;

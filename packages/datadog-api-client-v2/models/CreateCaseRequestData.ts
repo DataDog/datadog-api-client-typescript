@@ -7,23 +7,28 @@ import { CaseDataType } from "./CaseDataType";
 import { CreateCaseRequestDataAttributes } from "./CreateCaseRequestDataAttributes";
 import { CreateCaseRequestDataRelationships } from "./CreateCaseRequestDataRelationships";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data of the case to create.
- */
+*/
 export class CreateCaseRequestData {
   /**
    * Attributes of the case to create.
-   */
+  */
   "attributes"?: CreateCaseRequestDataAttributes;
   /**
    * Relationships of the case to create.
-   */
+  */
   "relationships"?: CreateCaseRequestDataRelationships;
   /**
    * Cases resource type.
-   */
+  */
   "type": CaseDataType;
 
   /**
@@ -31,7 +36,7 @@ export class CreateCaseRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,18 +47,18 @@ export class CreateCaseRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CreateCaseRequestDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CreateCaseRequestDataAttributes",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "CreateCaseRequestDataRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "CreateCaseRequestDataRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "CaseDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CaseDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class CreateCaseRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateCaseRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

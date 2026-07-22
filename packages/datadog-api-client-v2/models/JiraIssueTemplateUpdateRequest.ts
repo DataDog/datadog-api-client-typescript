@@ -5,15 +5,20 @@
  */
 import { JiraIssueTemplateUpdateRequestData } from "./JiraIssueTemplateUpdateRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request to update a Jira issue template
- */
+*/
 export class JiraIssueTemplateUpdateRequest {
   /**
    * Data object for updating a Jira issue template
-   */
+  */
   "data": JiraIssueTemplateUpdateRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class JiraIssueTemplateUpdateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class JiraIssueTemplateUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "JiraIssueTemplateUpdateRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "JiraIssueTemplateUpdateRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class JiraIssueTemplateUpdateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return JiraIssueTemplateUpdateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

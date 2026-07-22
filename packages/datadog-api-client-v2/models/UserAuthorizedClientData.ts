@@ -7,27 +7,32 @@ import { UserAuthorizedClientAttributes } from "./UserAuthorizedClientAttributes
 import { UserAuthorizedClientRelationships } from "./UserAuthorizedClientRelationships";
 import { UserAuthorizedClientType } from "./UserAuthorizedClientType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object representing a user authorized client.
- */
+*/
 export class UserAuthorizedClientData {
   /**
    * Attributes of a user authorized client.
-   */
+  */
   "attributes": UserAuthorizedClientAttributes;
   /**
    * The unique identifier of the user authorized client.
-   */
+  */
   "id": string;
   /**
    * Relationships for a user authorized client.
-   */
+  */
   "relationships": UserAuthorizedClientRelationships;
   /**
    * The resource type for user authorized clients.
-   */
+  */
   "type": UserAuthorizedClientType;
 
   /**
@@ -35,7 +40,7 @@ export class UserAuthorizedClientData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,25 +51,25 @@ export class UserAuthorizedClientData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "UserAuthorizedClientAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "UserAuthorizedClientAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "UserAuthorizedClientRelationships",
-      required: true,
+    "relationships": {
+      "baseName": "relationships",
+      "type": "UserAuthorizedClientRelationships",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "UserAuthorizedClientType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "UserAuthorizedClientType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -76,8 +81,34 @@ export class UserAuthorizedClientData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UserAuthorizedClientData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Resource type of an LLM Observability patterns topics response.
- */
+*/
 
-export type LLMObsPatternsTopicsType =
-  | typeof GET_TOPICS_RESPONSE
-  | UnparsedObject;
-export const GET_TOPICS_RESPONSE = "get_topics_response";
+export type LLMObsPatternsTopicsType = typeof GET_TOPICS_RESPONSE | UnparsedObject;
+export const GET_TOPICS_RESPONSE = 'get_topics_response';

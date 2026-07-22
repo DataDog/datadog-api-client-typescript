@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Local file metadata for patch requests using upload ID.
- */
+*/
 export class PatchTableRequestDataAttributesFileMetadataLocalFile {
   /**
    * The upload ID.
-   */
+  */
   "uploadId": string;
 
   /**
@@ -24,19 +29,45 @@ export class PatchTableRequestDataAttributesFileMetadataLocalFile {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    uploadId: {
-      baseName: "upload_id",
-      type: "string",
-      required: true,
-    },
+    "uploadId": {
+      "baseName": "upload_id",
+      "type": "string",
+      "required": true,
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PatchTableRequestDataAttributesFileMetadataLocalFile.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

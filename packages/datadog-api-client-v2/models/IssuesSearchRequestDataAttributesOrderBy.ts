@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The attribute to sort the search results by.
- */
+*/
 
-export type IssuesSearchRequestDataAttributesOrderBy =
-  | typeof TOTAL_COUNT
-  | typeof FIRST_SEEN
-  | typeof IMPACTED_SESSIONS
-  | typeof PRIORITY
-  | UnparsedObject;
-export const TOTAL_COUNT = "TOTAL_COUNT";
-export const FIRST_SEEN = "FIRST_SEEN";
-export const IMPACTED_SESSIONS = "IMPACTED_SESSIONS";
-export const PRIORITY = "PRIORITY";
+export type IssuesSearchRequestDataAttributesOrderBy = typeof TOTAL_COUNT| typeof FIRST_SEEN| typeof IMPACTED_SESSIONS| typeof PRIORITY | UnparsedObject;
+export const TOTAL_COUNT = 'TOTAL_COUNT';
+export const FIRST_SEEN = 'FIRST_SEEN';
+export const IMPACTED_SESSIONS = 'IMPACTED_SESSIONS';
+export const PRIORITY = 'PRIORITY';

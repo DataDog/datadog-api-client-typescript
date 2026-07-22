@@ -5,15 +5,20 @@
  */
 import { AWSCcmConfigValidationRequestData } from "./AWSCcmConfigValidationRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * AWS CCM config validation request body.
- */
+*/
 export class AWSCcmConfigValidationRequest {
   /**
    * AWS CCM config validation request data.
-   */
+  */
   "data": AWSCcmConfigValidationRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class AWSCcmConfigValidationRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class AWSCcmConfigValidationRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "AWSCcmConfigValidationRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "AWSCcmConfigValidationRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class AWSCcmConfigValidationRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSCcmConfigValidationRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Incident user-defined role resource type.
- */
+*/
 
-export type IncidentUserDefinedRoleType =
-  | typeof INCIDENT_USER_DEFINED_ROLES
-  | UnparsedObject;
-export const INCIDENT_USER_DEFINED_ROLES = "incident_user_defined_roles";
+export type IncidentUserDefinedRoleType = typeof INCIDENT_USER_DEFINED_ROLES | UnparsedObject;
+export const INCIDENT_USER_DEFINED_ROLES = 'incident_user_defined_roles';

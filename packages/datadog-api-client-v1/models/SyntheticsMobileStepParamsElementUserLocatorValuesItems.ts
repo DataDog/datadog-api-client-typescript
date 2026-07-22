@@ -5,19 +5,24 @@
  */
 import { SyntheticsMobileStepParamsElementUserLocatorValuesItemsType } from "./SyntheticsMobileStepParamsElementUserLocatorValuesItemsType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A single user locator object.
- */
+*/
 export class SyntheticsMobileStepParamsElementUserLocatorValuesItems {
   /**
    * Type of a user locator.
-   */
+  */
   "type"?: SyntheticsMobileStepParamsElementUserLocatorValuesItemsType;
   /**
    * Value of a user locator.
-   */
+  */
   "value"?: string;
 
   /**
@@ -25,7 +30,7 @@ export class SyntheticsMobileStepParamsElementUserLocatorValuesItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class SyntheticsMobileStepParamsElementUserLocatorValuesItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    type: {
-      baseName: "type",
-      type: "SyntheticsMobileStepParamsElementUserLocatorValuesItemsType",
+    "type": {
+      "baseName": "type",
+      "type": "SyntheticsMobileStepParamsElementUserLocatorValuesItemsType",
     },
-    value: {
-      baseName: "value",
-      type: "string",
+    "value": {
+      "baseName": "value",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class SyntheticsMobileStepParamsElementUserLocatorValuesItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsMobileStepParamsElementUserLocatorValuesItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

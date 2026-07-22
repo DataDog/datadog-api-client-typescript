@@ -7,27 +7,32 @@ import { SyntheticsAssertionJSONPathOperator } from "./SyntheticsAssertionJSONPa
 import { SyntheticsAssertionJSONPathTargetTarget } from "./SyntheticsAssertionJSONPathTargetTarget";
 import { SyntheticsAssertionType } from "./SyntheticsAssertionType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An assertion for the `validatesJSONPath` operator.
- */
+*/
 export class SyntheticsAssertionJSONPathTarget {
   /**
    * Assertion operator to apply.
-   */
+  */
   "operator": SyntheticsAssertionJSONPathOperator;
   /**
    * The associated assertion property.
-   */
+  */
   "property"?: string;
   /**
    * Composed target for `validatesJSONPath` operator.
-   */
+  */
   "target"?: SyntheticsAssertionJSONPathTargetTarget;
   /**
    * Type of the assertion.
-   */
+  */
   "type": SyntheticsAssertionType;
 
   /**
@@ -35,7 +40,7 @@ export class SyntheticsAssertionJSONPathTarget {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,23 +51,23 @@ export class SyntheticsAssertionJSONPathTarget {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    operator: {
-      baseName: "operator",
-      type: "SyntheticsAssertionJSONPathOperator",
-      required: true,
+    "operator": {
+      "baseName": "operator",
+      "type": "SyntheticsAssertionJSONPathOperator",
+      "required": true,
     },
-    property: {
-      baseName: "property",
-      type: "string",
+    "property": {
+      "baseName": "property",
+      "type": "string",
     },
-    target: {
-      baseName: "target",
-      type: "SyntheticsAssertionJSONPathTargetTarget",
+    "target": {
+      "baseName": "target",
+      "type": "SyntheticsAssertionJSONPathTargetTarget",
     },
-    type: {
-      baseName: "type",
-      type: "SyntheticsAssertionType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SyntheticsAssertionType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,8 +79,34 @@ export class SyntheticsAssertionJSONPathTarget {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsAssertionJSONPathTarget.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

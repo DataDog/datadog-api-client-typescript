@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The split graph list contains a graph for each value of the split dimension.
- */
+*/
 export class SplitVectorEntryItem {
   /**
    * The tag key.
-   */
+  */
   "tagKey": string;
   /**
    * The tag values.
-   */
+  */
   "tagValues": Array<string>;
 
   /**
@@ -24,7 +29,7 @@ export class SplitVectorEntryItem {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,15 +40,15 @@ export class SplitVectorEntryItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    tagKey: {
-      baseName: "tag_key",
-      type: "string",
-      required: true,
+    "tagKey": {
+      "baseName": "tag_key",
+      "type": "string",
+      "required": true,
     },
-    tagValues: {
-      baseName: "tag_values",
-      type: "Array<string>",
-      required: true,
+    "tagValues": {
+      "baseName": "tag_values",
+      "type": "Array<string>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class SplitVectorEntryItem {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SplitVectorEntryItem.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

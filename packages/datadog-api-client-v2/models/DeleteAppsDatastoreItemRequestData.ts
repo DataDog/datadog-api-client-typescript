@@ -6,19 +6,24 @@
 import { DatastoreItemsDataType } from "./DatastoreItemsDataType";
 import { DeleteAppsDatastoreItemRequestDataAttributes } from "./DeleteAppsDatastoreItemRequestDataAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data wrapper containing the information needed to identify and delete a specific datastore item.
- */
+*/
 export class DeleteAppsDatastoreItemRequestData {
   /**
    * Attributes specifying which datastore item to delete by its primary key.
-   */
+  */
   "attributes"?: DeleteAppsDatastoreItemRequestDataAttributes;
   /**
    * The resource type for datastore items.
-   */
+  */
   "type": DatastoreItemsDataType;
 
   /**
@@ -26,7 +31,7 @@ export class DeleteAppsDatastoreItemRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class DeleteAppsDatastoreItemRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "DeleteAppsDatastoreItemRequestDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "DeleteAppsDatastoreItemRequestDataAttributes",
     },
-    type: {
-      baseName: "type",
-      type: "DatastoreItemsDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "DatastoreItemsDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class DeleteAppsDatastoreItemRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DeleteAppsDatastoreItemRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

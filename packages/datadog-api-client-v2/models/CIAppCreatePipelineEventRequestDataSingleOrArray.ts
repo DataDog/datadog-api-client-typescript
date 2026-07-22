@@ -5,13 +5,15 @@
  */
 import { CIAppCreatePipelineEventRequestData } from "./CIAppCreatePipelineEventRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Data of the pipeline events to create.
- */
+*/
 
-export type CIAppCreatePipelineEventRequestDataSingleOrArray =
-  | CIAppCreatePipelineEventRequestData
-  | Array<CIAppCreatePipelineEventRequestData>
-  | UnparsedObject;
+export type CIAppCreatePipelineEventRequestDataSingleOrArray = CIAppCreatePipelineEventRequestData | Array<CIAppCreatePipelineEventRequestData> | UnparsedObject;

@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Jira issue information
- */
+*/
 export class JiraIssueResult {
   /**
    * Jira issue ID
-   */
+  */
   "issueId"?: string;
   /**
    * Jira issue key
-   */
+  */
   "issueKey"?: string;
   /**
    * Jira issue URL
-   */
+  */
   "issueUrl"?: string;
   /**
    * Jira project key
-   */
+  */
   "projectKey"?: string;
 
   /**
@@ -32,7 +37,7 @@ export class JiraIssueResult {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,21 +48,21 @@ export class JiraIssueResult {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    issueId: {
-      baseName: "issue_id",
-      type: "string",
+    "issueId": {
+      "baseName": "issue_id",
+      "type": "string",
     },
-    issueKey: {
-      baseName: "issue_key",
-      type: "string",
+    "issueKey": {
+      "baseName": "issue_key",
+      "type": "string",
     },
-    issueUrl: {
-      baseName: "issue_url",
-      type: "string",
+    "issueUrl": {
+      "baseName": "issue_url",
+      "type": "string",
     },
-    projectKey: {
-      baseName: "project_key",
-      type: "string",
+    "projectKey": {
+      "baseName": "project_key",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -69,8 +74,34 @@ export class JiraIssueResult {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return JiraIssueResult.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

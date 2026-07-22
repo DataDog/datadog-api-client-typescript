@@ -7,16 +7,16 @@ import { ObservabilityPipelineEnrichmentTableFieldEventLookup } from "./Observab
 import { ObservabilityPipelineEnrichmentTableFieldSecretLookup } from "./ObservabilityPipelineEnrichmentTableFieldSecretLookup";
 import { ObservabilityPipelineEnrichmentTableFieldVrlLookup } from "./ObservabilityPipelineEnrichmentTableFieldVrlLookup";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Specifies the source of the key value used for enrichment table lookups.
  * Can be a plain field path string or an object specifying `event`, `vrl`, or `secret`.
- */
+*/
 
-export type ObservabilityPipelineEnrichmentTableFileKeyItemField =
-  | string
-  | ObservabilityPipelineEnrichmentTableFieldEventLookup
-  | ObservabilityPipelineEnrichmentTableFieldVrlLookup
-  | ObservabilityPipelineEnrichmentTableFieldSecretLookup
-  | UnparsedObject;
+export type ObservabilityPipelineEnrichmentTableFileKeyItemField = string | ObservabilityPipelineEnrichmentTableFieldEventLookup | ObservabilityPipelineEnrichmentTableFieldVrlLookup | ObservabilityPipelineEnrichmentTableFieldSecretLookup | UnparsedObject;

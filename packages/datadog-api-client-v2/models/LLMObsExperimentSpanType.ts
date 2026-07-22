@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Resource type for a span item in an experiment spans response.
- */
+*/
 
 export type LLMObsExperimentSpanType = typeof EXPERIMENTS_SPAN | UnparsedObject;
-export const EXPERIMENTS_SPAN = "experiments";
+export const EXPERIMENTS_SPAN = 'experiments';

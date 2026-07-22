@@ -5,15 +5,20 @@
  */
 import { RelationshipToRoles } from "./RelationshipToRoles";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationships of a SAML configuration.
- */
+*/
 export class SAMLConfigurationRelationships {
   /**
    * Relationship to roles.
-   */
+  */
   "defaultRoles"?: RelationshipToRoles;
 
   /**
@@ -21,7 +26,7 @@ export class SAMLConfigurationRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class SAMLConfigurationRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    defaultRoles: {
-      baseName: "default_roles",
-      type: "RelationshipToRoles",
+    "defaultRoles": {
+      "baseName": "default_roles",
+      "type": "RelationshipToRoles",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class SAMLConfigurationRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SAMLConfigurationRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

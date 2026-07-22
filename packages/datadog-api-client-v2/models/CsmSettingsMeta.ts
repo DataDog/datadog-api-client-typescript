@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Pagination metadata for a CSM settings list response.
- */
+*/
 export class CsmSettingsMeta {
   /**
    * The current page index (zero-based).
-   */
+  */
   "pageIndex": number;
   /**
    * The number of resources returned per page.
-   */
+  */
   "pageSize": number;
   /**
    * The total number of resources matching the filter criteria.
-   */
+  */
   "totalFiltered": number;
 
   /**
@@ -28,7 +33,7 @@ export class CsmSettingsMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,23 +44,23 @@ export class CsmSettingsMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    pageIndex: {
-      baseName: "page_index",
-      type: "number",
-      required: true,
-      format: "int64",
+    "pageIndex": {
+      "baseName": "page_index",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    pageSize: {
-      baseName: "page_size",
-      type: "number",
-      required: true,
-      format: "int64",
+    "pageSize": {
+      "baseName": "page_size",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    totalFiltered: {
-      baseName: "total_filtered",
-      type: "number",
-      required: true,
-      format: "int64",
+    "totalFiltered": {
+      "baseName": "total_filtered",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class CsmSettingsMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CsmSettingsMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

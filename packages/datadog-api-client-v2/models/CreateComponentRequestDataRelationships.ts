@@ -5,15 +5,20 @@
  */
 import { CreateComponentRequestDataRelationshipsGroup } from "./CreateComponentRequestDataRelationshipsGroup";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The supported relationships for creating a component.
- */
+*/
 export class CreateComponentRequestDataRelationships {
   /**
    * The group to create the component within.
-   */
+  */
   "group"?: CreateComponentRequestDataRelationshipsGroup;
 
   /**
@@ -21,7 +26,7 @@ export class CreateComponentRequestDataRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class CreateComponentRequestDataRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    group: {
-      baseName: "group",
-      type: "CreateComponentRequestDataRelationshipsGroup",
+    "group": {
+      "baseName": "group",
+      "type": "CreateComponentRequestDataRelationshipsGroup",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class CreateComponentRequestDataRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateComponentRequestDataRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

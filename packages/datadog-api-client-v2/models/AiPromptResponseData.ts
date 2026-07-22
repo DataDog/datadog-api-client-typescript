@@ -6,23 +6,28 @@
 import { AiPromptDataType } from "./AiPromptDataType";
 import { AiPromptResponseAttributes } from "./AiPromptResponseAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response data for an AI prompt.
- */
+*/
 export class AiPromptResponseData {
   /**
    * Response attributes of an AI prompt.
-   */
+  */
   "attributes": AiPromptResponseAttributes;
   /**
    * The prompt identifier.
-   */
+  */
   "id": string;
   /**
    * AI prompt resource type.
-   */
+  */
   "type": AiPromptDataType;
 
   /**
@@ -30,7 +35,7 @@ export class AiPromptResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class AiPromptResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AiPromptResponseAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AiPromptResponseAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "AiPromptDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AiPromptDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class AiPromptResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AiPromptResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

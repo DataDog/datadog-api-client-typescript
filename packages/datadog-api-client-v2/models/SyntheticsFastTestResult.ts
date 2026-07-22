@@ -5,16 +5,21 @@
  */
 import { SyntheticsFastTestResultData } from "./SyntheticsFastTestResultData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Fast test result response. Returns `null` if the result is not yet available
  * (the test is still running or timed out before completing).
- */
+*/
 export class SyntheticsFastTestResult {
   /**
    * Fast test result data object (JSON:API format).
-   */
+  */
   "data"?: SyntheticsFastTestResultData;
 
   /**
@@ -22,7 +27,7 @@ export class SyntheticsFastTestResult {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -33,9 +38,9 @@ export class SyntheticsFastTestResult {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SyntheticsFastTestResultData",
+    "data": {
+      "baseName": "data",
+      "type": "SyntheticsFastTestResultData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class SyntheticsFastTestResult {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsFastTestResult.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,27 +6,32 @@
 import { CreateDegradationRequestDataAttributesComponentsAffectedItems } from "./CreateDegradationRequestDataAttributesComponentsAffectedItems";
 import { CreateDegradationRequestDataAttributesStatus } from "./CreateDegradationRequestDataAttributesStatus";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The supported attributes for creating a degradation.
- */
+*/
 export class CreateDegradationRequestDataAttributes {
   /**
    * The components affected by the degradation.
-   */
+  */
   "componentsAffected": Array<CreateDegradationRequestDataAttributesComponentsAffectedItems>;
   /**
    * The description of the degradation.
-   */
+  */
   "description"?: string;
   /**
    * The status of the degradation.
-   */
+  */
   "status": CreateDegradationRequestDataAttributesStatus;
   /**
    * The title of the degradation.
-   */
+  */
   "title": string;
 
   /**
@@ -34,7 +39,7 @@ export class CreateDegradationRequestDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -45,24 +50,24 @@ export class CreateDegradationRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    componentsAffected: {
-      baseName: "components_affected",
-      type: "Array<CreateDegradationRequestDataAttributesComponentsAffectedItems>",
-      required: true,
+    "componentsAffected": {
+      "baseName": "components_affected",
+      "type": "Array<CreateDegradationRequestDataAttributesComponentsAffectedItems>",
+      "required": true,
     },
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    status: {
-      baseName: "status",
-      type: "CreateDegradationRequestDataAttributesStatus",
-      required: true,
+    "status": {
+      "baseName": "status",
+      "type": "CreateDegradationRequestDataAttributesStatus",
+      "required": true,
     },
-    title: {
-      baseName: "title",
-      type: "string",
-      required: true,
+    "title": {
+      "baseName": "title",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,8 +79,34 @@ export class CreateDegradationRequestDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateDegradationRequestDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

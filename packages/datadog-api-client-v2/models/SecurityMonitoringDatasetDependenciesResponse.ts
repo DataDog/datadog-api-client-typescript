@@ -5,15 +5,20 @@
  */
 import { SecurityMonitoringDatasetDependentsData } from "./SecurityMonitoringDatasetDependentsData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response listing the dependents of each requested dataset.
- */
+*/
 export class SecurityMonitoringDatasetDependenciesResponse {
   /**
    * The list of dataset dependents entries.
-   */
+  */
   "data": Array<SecurityMonitoringDatasetDependentsData>;
 
   /**
@@ -21,7 +26,7 @@ export class SecurityMonitoringDatasetDependenciesResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class SecurityMonitoringDatasetDependenciesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<SecurityMonitoringDatasetDependentsData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<SecurityMonitoringDatasetDependentsData>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class SecurityMonitoringDatasetDependenciesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringDatasetDependenciesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

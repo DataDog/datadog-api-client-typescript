@@ -31,38 +31,15 @@ import { ObservabilityPipelineSplunkHecMetricsDestination } from "./Observabilit
 import { ObservabilityPipelineSumoLogicDestination } from "./ObservabilityPipelineSumoLogicDestination";
 import { ObservabilityPipelineSyslogNgDestination } from "./ObservabilityPipelineSyslogNgDestination";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A destination for the pipeline.
- */
+*/
 
-export type ObservabilityPipelineConfigDestinationItem =
-  | ObservabilityPipelineElasticsearchDestination
-  | ObservabilityPipelineHttpClientDestination
-  | ObservabilityPipelineAmazonOpenSearchDestination
-  | ObservabilityPipelineAmazonS3Destination
-  | ObservabilityPipelineAmazonS3GenericDestination
-  | ObservabilityPipelineAmazonSecurityLakeDestination
-  | AzureStorageDestination
-  | ObservabilityPipelineClickhouseDestination
-  | ObservabilityPipelineCloudPremDestination
-  | ObservabilityPipelineCrowdStrikeNextGenSiemDestination
-  | ObservabilityPipelineDatadogLogsDestination
-  | ObservabilityPipelineGoogleChronicleDestination
-  | ObservabilityPipelineGoogleCloudStorageDestination
-  | ObservabilityPipelineGooglePubSubDestination
-  | ObservabilityPipelineKafkaDestination
-  | MicrosoftSentinelDestination
-  | ObservabilityPipelineNewRelicDestination
-  | ObservabilityPipelineOpenSearchDestination
-  | ObservabilityPipelineRsyslogDestination
-  | ObservabilityPipelineSentinelOneDestination
-  | ObservabilityPipelineSocketDestination
-  | ObservabilityPipelineSplunkHecDestination
-  | ObservabilityPipelineSumoLogicDestination
-  | ObservabilityPipelineSyslogNgDestination
-  | ObservabilityPipelineDatabricksZerobusDestination
-  | ObservabilityPipelineDatadogMetricsDestination
-  | ObservabilityPipelineSplunkHecMetricsDestination
-  | UnparsedObject;
+export type ObservabilityPipelineConfigDestinationItem = ObservabilityPipelineElasticsearchDestination | ObservabilityPipelineHttpClientDestination | ObservabilityPipelineAmazonOpenSearchDestination | ObservabilityPipelineAmazonS3Destination | ObservabilityPipelineAmazonS3GenericDestination | ObservabilityPipelineAmazonSecurityLakeDestination | AzureStorageDestination | ObservabilityPipelineClickhouseDestination | ObservabilityPipelineCloudPremDestination | ObservabilityPipelineCrowdStrikeNextGenSiemDestination | ObservabilityPipelineDatadogLogsDestination | ObservabilityPipelineGoogleChronicleDestination | ObservabilityPipelineGoogleCloudStorageDestination | ObservabilityPipelineGooglePubSubDestination | ObservabilityPipelineKafkaDestination | MicrosoftSentinelDestination | ObservabilityPipelineNewRelicDestination | ObservabilityPipelineOpenSearchDestination | ObservabilityPipelineRsyslogDestination | ObservabilityPipelineSentinelOneDestination | ObservabilityPipelineSocketDestination | ObservabilityPipelineSplunkHecDestination | ObservabilityPipelineSumoLogicDestination | ObservabilityPipelineSyslogNgDestination | ObservabilityPipelineDatabricksZerobusDestination | ObservabilityPipelineDatadogMetricsDestination | ObservabilityPipelineSplunkHecMetricsDestination | UnparsedObject;

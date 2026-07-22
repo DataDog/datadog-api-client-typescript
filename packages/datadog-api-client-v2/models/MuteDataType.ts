@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Mute resource type.
- */
+*/
 
 export type MuteDataType = typeof MUTE | UnparsedObject;
-export const MUTE = "mute";
+export const MUTE = 'mute';

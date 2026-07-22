@@ -5,23 +5,28 @@
  */
 import { CaseAggregateResponseAttributes } from "./CaseAggregateResponseAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object containing the aggregation results, including total count and per-group breakdowns.
- */
+*/
 export class CaseAggregateResponseData {
   /**
    * Attributes of the aggregation result, including the total count across all groups and the per-group breakdowns.
-   */
+  */
   "attributes": CaseAggregateResponseAttributes;
   /**
    * Aggregate response identifier.
-   */
+  */
   "id": string;
   /**
    * Aggregate resource type.
-   */
+  */
   "type": string;
 
   /**
@@ -29,7 +34,7 @@ export class CaseAggregateResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,20 +45,20 @@ export class CaseAggregateResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CaseAggregateResponseAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CaseAggregateResponseAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "string",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class CaseAggregateResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseAggregateResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

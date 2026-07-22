@@ -5,23 +5,28 @@
  */
 import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The relationships the incident will have with other resources once created.
- */
+*/
 export class IncidentCreateRelationships {
   /**
    * Relationship to user.
-   */
-  "commanderUser": NullableRelationshipToUser | null;
+  */
+  "commanderUser": NullableRelationshipToUser|null;
 
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class IncidentCreateRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    commanderUser: {
-      baseName: "commander_user",
-      type: "NullableRelationshipToUser",
-      required: true,
+    "commanderUser": {
+      "baseName": "commander_user",
+      "type": "NullableRelationshipToUser",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class IncidentCreateRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentCreateRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

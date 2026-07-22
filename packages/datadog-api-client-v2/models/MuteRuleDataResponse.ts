@@ -6,23 +6,28 @@
 import { MuteRuleAttributesResponse } from "./MuteRuleAttributesResponse";
 import { MuteRuleType } from "./MuteRuleType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data object for a mute rule returned by the API.
- */
+*/
 export class MuteRuleDataResponse {
   /**
    * Attributes of a mute rule returned by the API.
-   */
+  */
   "attributes": MuteRuleAttributesResponse;
   /**
    * The ID of the mute rule.
-   */
+  */
   "id": string;
   /**
    * The JSON:API type for mute rules.
-   */
+  */
   "type": MuteRuleType;
 
   /**
@@ -30,7 +35,7 @@ export class MuteRuleDataResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,21 +46,21 @@ export class MuteRuleDataResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "MuteRuleAttributesResponse",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "MuteRuleAttributesResponse",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    type: {
-      baseName: "type",
-      type: "MuteRuleType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "MuteRuleType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class MuteRuleDataResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MuteRuleDataResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

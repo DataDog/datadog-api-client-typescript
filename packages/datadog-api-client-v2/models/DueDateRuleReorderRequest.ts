@@ -5,15 +5,20 @@
  */
 import { DueDateRuleReorderItem } from "./DueDateRuleReorderItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The body of the due date rule reorder request.
- */
+*/
 export class DueDateRuleReorderRequest {
   /**
    * The ordered list of all due date rules; every rule must be included.
-   */
+  */
   "data": Array<DueDateRuleReorderItem>;
 
   /**
@@ -21,7 +26,7 @@ export class DueDateRuleReorderRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class DueDateRuleReorderRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<DueDateRuleReorderItem>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<DueDateRuleReorderItem>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class DueDateRuleReorderRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DueDateRuleReorderRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

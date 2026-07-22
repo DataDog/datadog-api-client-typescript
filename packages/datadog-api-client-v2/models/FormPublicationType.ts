@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The resource type for a form publication.
- */
+*/
 
 export type FormPublicationType = typeof FORM_PUBLICATIONS | UnparsedObject;
-export const FORM_PUBLICATIONS = "form_publications";
+export const FORM_PUBLICATIONS = 'form_publications';

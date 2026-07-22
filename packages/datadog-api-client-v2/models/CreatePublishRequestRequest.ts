@@ -5,15 +5,20 @@
  */
 import { CreatePublishRequestRequestData } from "./CreatePublishRequestRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A request to ask for approval to publish an app whose protection level is `approval_required`.
- */
+*/
 export class CreatePublishRequestRequest {
   /**
    * Data for creating a publish request.
-   */
+  */
   "data"?: CreatePublishRequestRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class CreatePublishRequestRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class CreatePublishRequestRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CreatePublishRequestRequestData",
+    "data": {
+      "baseName": "data",
+      "type": "CreatePublishRequestRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class CreatePublishRequestRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreatePublishRequestRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

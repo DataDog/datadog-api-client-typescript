@@ -6,19 +6,24 @@
 import { FunnelQuery } from "./FunnelQuery";
 import { FunnelRequestType } from "./FunnelRequestType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Updated funnel widget.
- */
+*/
 export class FunnelWidgetRequest {
   /**
    * Updated funnel widget.
-   */
+  */
   "query": FunnelQuery;
   /**
    * Widget request type.
-   */
+  */
   "requestType": FunnelRequestType;
 
   /**
@@ -26,7 +31,7 @@ export class FunnelWidgetRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class FunnelWidgetRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    query: {
-      baseName: "query",
-      type: "FunnelQuery",
-      required: true,
+    "query": {
+      "baseName": "query",
+      "type": "FunnelQuery",
+      "required": true,
     },
-    requestType: {
-      baseName: "request_type",
-      type: "FunnelRequestType",
-      required: true,
+    "requestType": {
+      "baseName": "request_type",
+      "type": "FunnelRequestType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class FunnelWidgetRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FunnelWidgetRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

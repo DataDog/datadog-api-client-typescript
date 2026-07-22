@@ -4,25 +4,30 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object representing a graph snapshot.
- */
+*/
 export class GraphSnapshot {
   /**
    * A JSON document defining the graph. `graph_def` can be used instead of `metric_query`.
    * The JSON document uses the [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar)
    * and should be formatted to a single line then URL encoded.
-   */
+  */
   "graphDef"?: string;
   /**
    * The metric query. One of `metric_query` or `graph_def` is required.
-   */
+  */
   "metricQuery"?: string;
   /**
    * URL of your [graph snapshot](https://docs.datadoghq.com/metrics/explorer/#snapshot).
-   */
+  */
   "snapshotUrl"?: string;
 
   /**
@@ -30,7 +35,7 @@ export class GraphSnapshot {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class GraphSnapshot {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    graphDef: {
-      baseName: "graph_def",
-      type: "string",
+    "graphDef": {
+      "baseName": "graph_def",
+      "type": "string",
     },
-    metricQuery: {
-      baseName: "metric_query",
-      type: "string",
+    "metricQuery": {
+      "baseName": "metric_query",
+      "type": "string",
     },
-    snapshotUrl: {
-      baseName: "snapshot_url",
-      type: "string",
+    "snapshotUrl": {
+      "baseName": "snapshot_url",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class GraphSnapshot {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GraphSnapshot.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Automatic quarantine triggering rule based on a time window.
- */
+*/
 export class TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule {
   /**
    * Whether this auto-quarantine rule is enabled.
-   */
+  */
   "enabled"?: boolean;
   /**
    * Time window in seconds over which flakiness is evaluated. Must be greater than 0.
-   */
+  */
   "windowSeconds"?: number;
 
   /**
@@ -24,7 +29,7 @@ export class TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,14 +40,14 @@ export class TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
+    "enabled": {
+      "baseName": "enabled",
+      "type": "boolean",
     },
-    windowSeconds: {
-      baseName: "window_seconds",
-      type: "number",
-      format: "int64",
+    "windowSeconds": {
+      "baseName": "window_seconds",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

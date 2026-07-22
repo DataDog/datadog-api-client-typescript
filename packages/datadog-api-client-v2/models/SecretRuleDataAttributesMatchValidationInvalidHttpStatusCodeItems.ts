@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An HTTP status code range that indicates an invalid (unsuccessful) secret match during validation.
- */
+*/
 export class SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems {
   /**
    * The inclusive upper bound of the HTTP status code range.
-   */
+  */
   "end"?: number;
   /**
    * The inclusive lower bound of the HTTP status code range.
-   */
+  */
   "start"?: number;
 
   /**
@@ -24,7 +29,7 @@ export class SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,15 +40,15 @@ export class SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    end: {
-      baseName: "end",
-      type: "number",
-      format: "int64",
+    "end": {
+      "baseName": "end",
+      "type": "number",
+      "format": "int64",
     },
-    start: {
-      baseName: "start",
-      type: "number",
-      format: "int64",
+    "start": {
+      "baseName": "start",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

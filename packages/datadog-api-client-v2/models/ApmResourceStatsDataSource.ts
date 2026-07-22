@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A data source for APM resource statistics queries.
- */
+*/
 
-export type ApmResourceStatsDataSource =
-  | typeof APM_RESOURCE_STATS
-  | UnparsedObject;
-export const APM_RESOURCE_STATS = "apm_resource_stats";
+export type ApmResourceStatsDataSource = typeof APM_RESOURCE_STATS | UnparsedObject;
+export const APM_RESOURCE_STATS = 'apm_resource_stats';

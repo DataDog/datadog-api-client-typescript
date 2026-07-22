@@ -6,19 +6,24 @@
 import { OktaAccountType } from "./OktaAccountType";
 import { OktaAccountUpdateRequestAttributes } from "./OktaAccountUpdateRequestAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for updating an Okta account.
- */
+*/
 export class OktaAccountUpdateRequestData {
   /**
    * Attributes object for updating an Okta account.
-   */
+  */
   "attributes"?: OktaAccountUpdateRequestAttributes;
   /**
    * Account type for an Okta account.
-   */
+  */
   "type"?: OktaAccountType;
 
   /**
@@ -26,7 +31,7 @@ export class OktaAccountUpdateRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class OktaAccountUpdateRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "OktaAccountUpdateRequestAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "OktaAccountUpdateRequestAttributes",
     },
-    type: {
-      baseName: "type",
-      type: "OktaAccountType",
+    "type": {
+      "baseName": "type",
+      "type": "OktaAccountType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class OktaAccountUpdateRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OktaAccountUpdateRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

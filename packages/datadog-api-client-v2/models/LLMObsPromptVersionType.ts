@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Resource type of an LLM Observability prompt version.
- */
+*/
 
-export type LLMObsPromptVersionType =
-  | typeof PROMPT_TEMPLATE_VERSIONS
-  | UnparsedObject;
-export const PROMPT_TEMPLATE_VERSIONS = "prompt-template-versions";
+export type LLMObsPromptVersionType = typeof PROMPT_TEMPLATE_VERSIONS | UnparsedObject;
+export const PROMPT_TEMPLATE_VERSIONS = 'prompt-template-versions';

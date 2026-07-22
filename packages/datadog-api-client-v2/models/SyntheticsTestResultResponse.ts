@@ -6,19 +6,24 @@
 import { SyntheticsTestResultData } from "./SyntheticsTestResultData";
 import { SyntheticsTestResultIncludedItem } from "./SyntheticsTestResultIncludedItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object for a Synthetic test result.
- */
+*/
 export class SyntheticsTestResultResponse {
   /**
    * Wrapper object for a Synthetic test result.
-   */
+  */
   "data"?: SyntheticsTestResultData;
   /**
    * Array of included related resources, such as the test definition.
-   */
+  */
   "included"?: Array<SyntheticsTestResultIncludedItem>;
 
   /**
@@ -26,7 +31,7 @@ export class SyntheticsTestResultResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class SyntheticsTestResultResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SyntheticsTestResultData",
+    "data": {
+      "baseName": "data",
+      "type": "SyntheticsTestResultData",
     },
-    included: {
-      baseName: "included",
-      type: "Array<SyntheticsTestResultIncludedItem>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<SyntheticsTestResultIncludedItem>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class SyntheticsTestResultResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Column type.
- */
+*/
 
-export type ProductAnalyticsScalarColumnType =
-  | typeof NUMBER
-  | typeof GROUP
-  | UnparsedObject;
-export const NUMBER = "number";
-export const GROUP = "group";
+export type ProductAnalyticsScalarColumnType = typeof NUMBER| typeof GROUP | UnparsedObject;
+export const NUMBER = 'number';
+export const GROUP = 'group';

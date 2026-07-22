@@ -7,27 +7,32 @@ import { ChangeRequestDecisionCreateAttributes } from "./ChangeRequestDecisionCr
 import { ChangeRequestDecisionCreateRelationships } from "./ChangeRequestDecisionCreateRelationships";
 import { ChangeRequestDecisionResourceType } from "./ChangeRequestDecisionResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An included change request decision for a create or update operation.
- */
+*/
 export class ChangeRequestDecisionCreateItem {
   /**
    * Attributes for creating a change request decision.
-   */
+  */
   "attributes"?: ChangeRequestDecisionCreateAttributes;
   /**
    * The decision identifier.
-   */
+  */
   "id": string;
   /**
    * Relationships for creating a change request decision.
-   */
+  */
   "relationships"?: ChangeRequestDecisionCreateRelationships;
   /**
    * Change request decision resource type.
-   */
+  */
   "type": ChangeRequestDecisionResourceType;
 
   /**
@@ -35,7 +40,7 @@ export class ChangeRequestDecisionCreateItem {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,23 +51,23 @@ export class ChangeRequestDecisionCreateItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ChangeRequestDecisionCreateAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ChangeRequestDecisionCreateAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "ChangeRequestDecisionCreateRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "ChangeRequestDecisionCreateRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "ChangeRequestDecisionResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ChangeRequestDecisionResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,8 +79,34 @@ export class ChangeRequestDecisionCreateItem {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ChangeRequestDecisionCreateItem.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

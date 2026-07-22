@@ -5,19 +5,24 @@
  */
 import { MonitorNotificationRuleCondition } from "./MonitorNotificationRuleCondition";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
- */
+*/
 export class MonitorNotificationRuleConditionalRecipients {
   /**
    * Conditions of the notification rule.
-   */
+  */
   "conditions": Array<MonitorNotificationRuleCondition>;
   /**
    * A list of recipients to notify. Uses the same format as the monitor `message` field. Must not start with an '@'. Cannot be used with `conditional_recipients`.
-   */
+  */
   "fallbackRecipients"?: Array<string>;
 
   /**
@@ -25,7 +30,7 @@ export class MonitorNotificationRuleConditionalRecipients {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,14 +41,14 @@ export class MonitorNotificationRuleConditionalRecipients {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    conditions: {
-      baseName: "conditions",
-      type: "Array<MonitorNotificationRuleCondition>",
-      required: true,
+    "conditions": {
+      "baseName": "conditions",
+      "type": "Array<MonitorNotificationRuleCondition>",
+      "required": true,
     },
-    fallbackRecipients: {
-      baseName: "fallback_recipients",
-      type: "Array<string>",
+    "fallbackRecipients": {
+      "baseName": "fallback_recipients",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class MonitorNotificationRuleConditionalRecipients {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorNotificationRuleConditionalRecipients.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

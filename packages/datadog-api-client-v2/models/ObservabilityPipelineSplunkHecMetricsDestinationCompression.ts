@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Compression algorithm applied when sending metrics to Splunk HEC.
- */
+*/
 
-export type ObservabilityPipelineSplunkHecMetricsDestinationCompression =
-  | typeof NONE
-  | typeof GZIP
-  | UnparsedObject;
-export const NONE = "none";
-export const GZIP = "gzip";
+export type ObservabilityPipelineSplunkHecMetricsDestinationCompression = typeof NONE| typeof GZIP | UnparsedObject;
+export const NONE = 'none';
+export const GZIP = 'gzip';

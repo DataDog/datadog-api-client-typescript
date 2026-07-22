@@ -8,36 +8,41 @@ import { SpansGroupByHistogram } from "./SpansGroupByHistogram";
 import { SpansGroupByMissing } from "./SpansGroupByMissing";
 import { SpansGroupByTotal } from "./SpansGroupByTotal";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A group by rule.
- */
+*/
 export class SpansGroupBy {
   /**
    * The name of the facet to use (required).
-   */
+  */
   "facet": string;
   /**
    * Used to perform a histogram computation (only for measure facets).
    * Note: At most 100 buckets are allowed, the number of buckets is (max - min)/interval.
-   */
+  */
   "histogram"?: SpansGroupByHistogram;
   /**
    * The maximum buckets to return for this group by.
-   */
+  */
   "limit"?: number;
   /**
    * The value to use for spans that don't have the facet used to group by.
-   */
+  */
   "missing"?: SpansGroupByMissing;
   /**
    * A sort rule.
-   */
+  */
   "sort"?: SpansAggregateSort;
   /**
    * A resulting object to put the given computes in over all the matching records.
-   */
+  */
   "total"?: SpansGroupByTotal;
 
   /**
@@ -45,7 +50,7 @@ export class SpansGroupBy {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -56,31 +61,31 @@ export class SpansGroupBy {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    facet: {
-      baseName: "facet",
-      type: "string",
-      required: true,
+    "facet": {
+      "baseName": "facet",
+      "type": "string",
+      "required": true,
     },
-    histogram: {
-      baseName: "histogram",
-      type: "SpansGroupByHistogram",
+    "histogram": {
+      "baseName": "histogram",
+      "type": "SpansGroupByHistogram",
     },
-    limit: {
-      baseName: "limit",
-      type: "number",
-      format: "int64",
+    "limit": {
+      "baseName": "limit",
+      "type": "number",
+      "format": "int64",
     },
-    missing: {
-      baseName: "missing",
-      type: "SpansGroupByMissing",
+    "missing": {
+      "baseName": "missing",
+      "type": "SpansGroupByMissing",
     },
-    sort: {
-      baseName: "sort",
-      type: "SpansAggregateSort",
+    "sort": {
+      "baseName": "sort",
+      "type": "SpansAggregateSort",
     },
-    total: {
-      baseName: "total",
-      type: "SpansGroupByTotal",
+    "total": {
+      "baseName": "total",
+      "type": "SpansGroupByTotal",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -92,8 +97,34 @@ export class SpansGroupBy {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SpansGroupBy.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

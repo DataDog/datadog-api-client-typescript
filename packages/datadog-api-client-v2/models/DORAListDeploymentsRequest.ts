@@ -5,15 +5,20 @@
  */
 import { DORAListDeploymentsRequestData } from "./DORAListDeploymentsRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request to get a list of deployments.
- */
+*/
 export class DORAListDeploymentsRequest {
   /**
    * The JSON:API data.
-   */
+  */
   "data": DORAListDeploymentsRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class DORAListDeploymentsRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class DORAListDeploymentsRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "DORAListDeploymentsRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "DORAListDeploymentsRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class DORAListDeploymentsRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DORAListDeploymentsRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

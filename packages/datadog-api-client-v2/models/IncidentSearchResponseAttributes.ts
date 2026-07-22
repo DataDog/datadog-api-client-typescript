@@ -6,23 +6,28 @@
 import { IncidentSearchResponseFacetsData } from "./IncidentSearchResponseFacetsData";
 import { IncidentSearchResponseIncidentsData } from "./IncidentSearchResponseIncidentsData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes returned by an incident search.
- */
+*/
 export class IncidentSearchResponseAttributes {
   /**
    * Facet data for incidents returned by a search query.
-   */
+  */
   "facets": IncidentSearchResponseFacetsData;
   /**
    * Incidents returned by the search.
-   */
+  */
   "incidents": Array<IncidentSearchResponseIncidentsData>;
   /**
    * Number of incidents returned by the search.
-   */
+  */
   "total": number;
 
   /**
@@ -30,7 +35,7 @@ export class IncidentSearchResponseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,21 +46,21 @@ export class IncidentSearchResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    facets: {
-      baseName: "facets",
-      type: "IncidentSearchResponseFacetsData",
-      required: true,
+    "facets": {
+      "baseName": "facets",
+      "type": "IncidentSearchResponseFacetsData",
+      "required": true,
     },
-    incidents: {
-      baseName: "incidents",
-      type: "Array<IncidentSearchResponseIncidentsData>",
-      required: true,
+    "incidents": {
+      "baseName": "incidents",
+      "type": "Array<IncidentSearchResponseIncidentsData>",
+      "required": true,
     },
-    total: {
-      baseName: "total",
-      type: "number",
-      required: true,
-      format: "int32",
+    "total": {
+      "baseName": "total",
+      "type": "number",
+      "required": true,
+      "format": "int32",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class IncidentSearchResponseAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentSearchResponseAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Identifies this as an infrastructure-backed host map request.
- */
+*/
 
-export type HostMapWidgetInfrastructureRequestRequestType =
-  | typeof INFRASTRUCTURE_HOSTMAP
-  | UnparsedObject;
-export const INFRASTRUCTURE_HOSTMAP = "infrastructure_hostmap";
+export type HostMapWidgetInfrastructureRequestRequestType = typeof INFRASTRUCTURE_HOSTMAP | UnparsedObject;
+export const INFRASTRUCTURE_HOSTMAP = 'infrastructure_hostmap';

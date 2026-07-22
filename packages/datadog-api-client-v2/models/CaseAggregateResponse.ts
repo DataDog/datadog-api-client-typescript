@@ -5,15 +5,20 @@
  */
 import { CaseAggregateResponseData } from "./CaseAggregateResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing aggregated case counts grouped by the requested fields.
- */
+*/
 export class CaseAggregateResponse {
   /**
    * Data object containing the aggregation results, including total count and per-group breakdowns.
-   */
+  */
   "data": CaseAggregateResponseData;
 
   /**
@@ -21,7 +26,7 @@ export class CaseAggregateResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CaseAggregateResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CaseAggregateResponseData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "CaseAggregateResponseData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CaseAggregateResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseAggregateResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { BatchRowsQueryResponseDataRelationshipsRows } from "./BatchRowsQueryResponseDataRelationshipsRows";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationships of the batch rows query response data.
- */
+*/
 export class BatchRowsQueryResponseDataRelationships {
   /**
    * Relationship data containing the list of matching rows.
-   */
+  */
   "rows"?: BatchRowsQueryResponseDataRelationshipsRows;
 
   /**
@@ -21,7 +26,7 @@ export class BatchRowsQueryResponseDataRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class BatchRowsQueryResponseDataRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    rows: {
-      baseName: "rows",
-      type: "BatchRowsQueryResponseDataRelationshipsRows",
+    "rows": {
+      "baseName": "rows",
+      "type": "BatchRowsQueryResponseDataRelationshipsRows",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class BatchRowsQueryResponseDataRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return BatchRowsQueryResponseDataRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

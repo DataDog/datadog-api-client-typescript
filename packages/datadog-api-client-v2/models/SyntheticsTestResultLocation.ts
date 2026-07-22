@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Location information for a Synthetic test result.
- */
+*/
 export class SyntheticsTestResultLocation {
   /**
    * Identifier of the location.
-   */
+  */
   "id"?: string;
   /**
    * Human-readable name of the location.
-   */
+  */
   "name"?: string;
   /**
    * Version of the worker that ran the test.
-   */
+  */
   "version"?: string;
   /**
    * Identifier of the specific worker that ran the test.
-   */
+  */
   "workerId"?: string;
 
   /**
@@ -32,7 +37,7 @@ export class SyntheticsTestResultLocation {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,21 +48,21 @@ export class SyntheticsTestResultLocation {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    version: {
-      baseName: "version",
-      type: "string",
+    "version": {
+      "baseName": "version",
+      "type": "string",
     },
-    workerId: {
-      baseName: "worker_id",
-      type: "string",
+    "workerId": {
+      "baseName": "worker_id",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -69,8 +74,34 @@ export class SyntheticsTestResultLocation {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultLocation.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

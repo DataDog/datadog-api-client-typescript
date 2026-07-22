@@ -6,23 +6,28 @@
 import { SharedDashboardIncludedUserAttributes } from "./SharedDashboardIncludedUserAttributes";
 import { UserResourceType } from "./UserResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Included user resource.
- */
+*/
 export class SharedDashboardIncludedUser {
   /**
    * Attributes of the included user.
-   */
+  */
   "attributes": SharedDashboardIncludedUserAttributes;
   /**
    * ID of the user.
-   */
+  */
   "id": string;
   /**
    * User resource type.
-   */
+  */
   "type": UserResourceType;
 
   /**
@@ -30,7 +35,7 @@ export class SharedDashboardIncludedUser {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class SharedDashboardIncludedUser {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SharedDashboardIncludedUserAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SharedDashboardIncludedUserAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "UserResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "UserResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class SharedDashboardIncludedUser {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SharedDashboardIncludedUser.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

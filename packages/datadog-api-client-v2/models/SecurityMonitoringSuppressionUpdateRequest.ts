@@ -5,15 +5,20 @@
  */
 import { SecurityMonitoringSuppressionUpdateData } from "./SecurityMonitoringSuppressionUpdateData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request object containing the fields to update on the suppression rule.
- */
+*/
 export class SecurityMonitoringSuppressionUpdateRequest {
   /**
    * The new suppression properties; partial updates are supported.
-   */
+  */
   "data": SecurityMonitoringSuppressionUpdateData;
 
   /**
@@ -21,7 +26,7 @@ export class SecurityMonitoringSuppressionUpdateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class SecurityMonitoringSuppressionUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SecurityMonitoringSuppressionUpdateData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "SecurityMonitoringSuppressionUpdateData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class SecurityMonitoringSuppressionUpdateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringSuppressionUpdateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

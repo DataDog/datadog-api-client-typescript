@@ -5,27 +5,32 @@
  */
 import { IncidentHandleAttributesFields } from "./IncidentHandleAttributesFields";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Incident handle attributes for responses
- */
+*/
 export class IncidentHandleAttributesResponse {
   /**
    * Timestamp when the handle was created
-   */
+  */
   "createdAt": Date;
   /**
    * Dynamic fields associated with the handle
-   */
+  */
   "fields": IncidentHandleAttributesFields;
   /**
    * Timestamp when the handle was last modified
-   */
+  */
   "modifiedAt": Date;
   /**
    * The handle name
-   */
+  */
   "name": string;
 
   /**
@@ -33,7 +38,7 @@ export class IncidentHandleAttributesResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -44,27 +49,27 @@ export class IncidentHandleAttributesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    fields: {
-      baseName: "fields",
-      type: "IncidentHandleAttributesFields",
-      required: true,
+    "fields": {
+      "baseName": "fields",
+      "type": "IncidentHandleAttributesFields",
+      "required": true,
     },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "modifiedAt": {
+      "baseName": "modified_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -76,8 +81,34 @@ export class IncidentHandleAttributesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentHandleAttributesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

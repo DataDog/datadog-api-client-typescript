@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of the `ClickupIntegrationType` object.
- */
+*/
 
 export type ClickupIntegrationType = typeof CLICKUP | UnparsedObject;
-export const CLICKUP = "Clickup";
+export const CLICKUP = 'Clickup';

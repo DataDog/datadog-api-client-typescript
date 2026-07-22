@@ -5,15 +5,20 @@
  */
 import { SecureEmbedGlobalTimeLiveSpan } from "./SecureEmbedGlobalTimeLiveSpan";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Default time range configuration for the secure embed.
- */
+*/
 export class SecureEmbedGlobalTime {
   /**
    * Dashboard global time live_span selection.
-   */
+  */
   "liveSpan"?: SecureEmbedGlobalTimeLiveSpan;
 
   /**
@@ -21,7 +26,7 @@ export class SecureEmbedGlobalTime {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class SecureEmbedGlobalTime {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    liveSpan: {
-      baseName: "live_span",
-      type: "SecureEmbedGlobalTimeLiveSpan",
+    "liveSpan": {
+      "baseName": "live_span",
+      "type": "SecureEmbedGlobalTimeLiveSpan",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class SecureEmbedGlobalTime {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecureEmbedGlobalTime.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,21 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * State of the issue
- */
+*/
 
-export type IssueState =
-  | typeof OPEN
-  | typeof ACKNOWLEDGED
-  | typeof RESOLVED
-  | typeof IGNORED
-  | typeof EXCLUDED
-  | UnparsedObject;
-export const OPEN = "OPEN";
-export const ACKNOWLEDGED = "ACKNOWLEDGED";
-export const RESOLVED = "RESOLVED";
-export const IGNORED = "IGNORED";
-export const EXCLUDED = "EXCLUDED";
+export type IssueState = typeof OPEN| typeof ACKNOWLEDGED| typeof RESOLVED| typeof IGNORED| typeof EXCLUDED | UnparsedObject;
+export const OPEN = 'OPEN';
+export const ACKNOWLEDGED = 'ACKNOWLEDGED';
+export const RESOLVED = 'RESOLVED';
+export const IGNORED = 'IGNORED';
+export const EXCLUDED = 'EXCLUDED';

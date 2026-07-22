@@ -5,19 +5,24 @@
  */
 import { CaseStatus } from "./CaseStatus";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Case update status attributes
- */
+*/
 export class CaseUpdateStatusAttributes {
   /**
    * Deprecated way of representing the case status, which only supports OPEN, IN_PROGRESS, and CLOSED statuses. Use `status_name` instead.
-   */
+  */
   "status"?: CaseStatus;
   /**
    * Status of the case. Must be one of the existing statuses for the case's type.
-   */
+  */
   "statusName"?: string;
 
   /**
@@ -25,7 +30,7 @@ export class CaseUpdateStatusAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class CaseUpdateStatusAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    status: {
-      baseName: "status",
-      type: "CaseStatus",
+    "status": {
+      "baseName": "status",
+      "type": "CaseStatus",
     },
-    statusName: {
-      baseName: "status_name",
-      type: "string",
+    "statusName": {
+      "baseName": "status_name",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class CaseUpdateStatusAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseUpdateStatusAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Invitee that can access an invite-only shared dashboard.
- */
+*/
 export class SharedDashboardInvitee {
   /**
    * Time when the invitee's access expires.
-   */
-  "accessExpiration": Date | null;
+  */
+  "accessExpiration": Date|null;
   /**
    * Time when the invitee was added.
-   */
+  */
   "createdAt": Date;
   /**
    * Email address of the invitee.
-   */
+  */
   "email": string;
 
   /**
@@ -28,7 +33,7 @@ export class SharedDashboardInvitee {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,22 +44,22 @@ export class SharedDashboardInvitee {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    accessExpiration: {
-      baseName: "access_expiration",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "accessExpiration": {
+      "baseName": "access_expiration",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    email: {
-      baseName: "email",
-      type: "string",
-      required: true,
+    "email": {
+      "baseName": "email",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class SharedDashboardInvitee {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SharedDashboardInvitee.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

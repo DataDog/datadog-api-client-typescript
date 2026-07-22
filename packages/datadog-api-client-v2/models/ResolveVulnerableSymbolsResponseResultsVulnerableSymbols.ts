@@ -5,19 +5,24 @@
  */
 import { ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols } from "./ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A collection of vulnerable symbols associated with a specific security advisory.
- */
+*/
 export class ResolveVulnerableSymbolsResponseResultsVulnerableSymbols {
   /**
    * The identifier of the security advisory that describes the vulnerability.
-   */
+  */
   "advisoryId"?: string;
   /**
    * The list of symbols that are vulnerable according to this advisory.
-   */
+  */
   "symbols"?: Array<ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols>;
 
   /**
@@ -25,7 +30,7 @@ export class ResolveVulnerableSymbolsResponseResultsVulnerableSymbols {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class ResolveVulnerableSymbolsResponseResultsVulnerableSymbols {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    advisoryId: {
-      baseName: "advisory_id",
-      type: "string",
+    "advisoryId": {
+      "baseName": "advisory_id",
+      "type": "string",
     },
-    symbols: {
-      baseName: "symbols",
-      type: "Array<ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols>",
+    "symbols": {
+      "baseName": "symbols",
+      "type": "Array<ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class ResolveVulnerableSymbolsResponseResultsVulnerableSymbols {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ResolveVulnerableSymbolsResponseResultsVulnerableSymbols.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

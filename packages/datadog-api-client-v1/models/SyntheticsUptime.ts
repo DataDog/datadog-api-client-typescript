@@ -5,19 +5,24 @@
  */
 import { SLOHistoryResponseErrorWithType } from "./SLOHistoryResponseErrorWithType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object containing the uptime information.
- */
+*/
 export class SyntheticsUptime {
   /**
    * An array of error objects returned while querying the history data for the service level objective.
-   */
+  */
   "errors"?: Array<SLOHistoryResponseErrorWithType>;
   /**
    * The location name
-   */
+  */
   "group"?: string;
   /**
    * The state transition history for the monitor, represented as an array of
@@ -25,15 +30,15 @@ export class SyntheticsUptime {
    * in Unix epoch format (integer) and the second element is the state (integer).
    * For the state, an integer value of `0` indicates uptime, `1` indicates downtime,
    * and `2` indicates no data.
-   */
+  */
   "history"?: Array<[number, number]>;
   /**
    * The number of decimal places to which the SLI value is accurate for the given from-to timestamps.
-   */
+  */
   "spanPrecision"?: number;
   /**
    * The overall uptime.
-   */
+  */
   "uptime"?: number;
 
   /**
@@ -41,7 +46,7 @@ export class SyntheticsUptime {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -52,27 +57,27 @@ export class SyntheticsUptime {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    errors: {
-      baseName: "errors",
-      type: "Array<SLOHistoryResponseErrorWithType>",
+    "errors": {
+      "baseName": "errors",
+      "type": "Array<SLOHistoryResponseErrorWithType>",
     },
-    group: {
-      baseName: "group",
-      type: "string",
+    "group": {
+      "baseName": "group",
+      "type": "string",
     },
-    history: {
-      baseName: "history",
-      type: "Array<[number, number]>",
+    "history": {
+      "baseName": "history",
+      "type": "Array<[number, number]>",
     },
-    spanPrecision: {
-      baseName: "span_precision",
-      type: "number",
-      format: "double",
+    "spanPrecision": {
+      "baseName": "span_precision",
+      "type": "number",
+      "format": "double",
     },
-    uptime: {
-      baseName: "uptime",
-      type: "number",
-      format: "double",
+    "uptime": {
+      "baseName": "uptime",
+      "type": "number",
+      "format": "double",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -84,8 +89,34 @@ export class SyntheticsUptime {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsUptime.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

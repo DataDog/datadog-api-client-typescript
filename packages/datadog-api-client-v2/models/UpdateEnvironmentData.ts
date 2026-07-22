@@ -6,19 +6,24 @@
 import { UpdateEnvironmentAttributes } from "./UpdateEnvironmentAttributes";
 import { UpdateEnvironmentDataType } from "./UpdateEnvironmentDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for updating an environment.
- */
+*/
 export class UpdateEnvironmentData {
   /**
    * Attributes for updating an environment.
-   */
+  */
   "attributes": UpdateEnvironmentAttributes;
   /**
    * The resource type.
-   */
+  */
   "type": UpdateEnvironmentDataType;
 
   /**
@@ -26,7 +31,7 @@ export class UpdateEnvironmentData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class UpdateEnvironmentData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "UpdateEnvironmentAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "UpdateEnvironmentAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "UpdateEnvironmentDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "UpdateEnvironmentDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class UpdateEnvironmentData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateEnvironmentData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

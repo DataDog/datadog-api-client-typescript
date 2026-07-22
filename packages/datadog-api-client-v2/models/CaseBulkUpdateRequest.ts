@@ -5,15 +5,20 @@
  */
 import { CaseBulkUpdateRequestData } from "./CaseBulkUpdateRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request payload for applying a single action (such as changing priority, status, or assignment) to multiple cases at once.
- */
+*/
 export class CaseBulkUpdateRequest {
   /**
    * Data object wrapping the bulk update type and attributes.
-   */
+  */
   "data": CaseBulkUpdateRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class CaseBulkUpdateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CaseBulkUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CaseBulkUpdateRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "CaseBulkUpdateRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CaseBulkUpdateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseBulkUpdateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

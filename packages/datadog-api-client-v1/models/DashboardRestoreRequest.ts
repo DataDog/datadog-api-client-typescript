@@ -5,15 +5,20 @@
  */
 import { DashboardBulkActionData } from "./DashboardBulkActionData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Dashboard restore request body.
- */
+*/
 export class DashboardRestoreRequest {
   /**
    * List of dashboard bulk action request data objects.
-   */
+  */
   "data": Array<DashboardBulkActionData>;
 
   /**
@@ -21,7 +26,7 @@ export class DashboardRestoreRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class DashboardRestoreRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<DashboardBulkActionData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<DashboardBulkActionData>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class DashboardRestoreRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DashboardRestoreRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

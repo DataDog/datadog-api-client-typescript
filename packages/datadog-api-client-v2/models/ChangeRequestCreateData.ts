@@ -6,19 +6,24 @@
 import { ChangeRequestCreateAttributes } from "./ChangeRequestCreateAttributes";
 import { ChangeRequestResourceType } from "./ChangeRequestResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object to create a change request.
- */
+*/
 export class ChangeRequestCreateData {
   /**
    * Attributes for creating a change request.
-   */
+  */
   "attributes": ChangeRequestCreateAttributes;
   /**
    * Change request resource type.
-   */
+  */
   "type": ChangeRequestResourceType;
 
   /**
@@ -26,7 +31,7 @@ export class ChangeRequestCreateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class ChangeRequestCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ChangeRequestCreateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ChangeRequestCreateAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ChangeRequestResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ChangeRequestResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class ChangeRequestCreateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ChangeRequestCreateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

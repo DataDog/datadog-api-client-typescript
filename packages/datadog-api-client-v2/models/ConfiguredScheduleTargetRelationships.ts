@@ -5,15 +5,20 @@
  */
 import { ConfiguredScheduleTargetRelationshipsSchedule } from "./ConfiguredScheduleTargetRelationshipsSchedule";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Represents the relationships of a configured schedule target.
- */
+*/
 export class ConfiguredScheduleTargetRelationships {
   /**
    * Holds the schedule reference for a configured schedule target.
-   */
+  */
   "schedule": ConfiguredScheduleTargetRelationshipsSchedule;
 
   /**
@@ -21,7 +26,7 @@ export class ConfiguredScheduleTargetRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class ConfiguredScheduleTargetRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    schedule: {
-      baseName: "schedule",
-      type: "ConfiguredScheduleTargetRelationshipsSchedule",
-      required: true,
+    "schedule": {
+      "baseName": "schedule",
+      "type": "ConfiguredScheduleTargetRelationshipsSchedule",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class ConfiguredScheduleTargetRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ConfiguredScheduleTargetRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

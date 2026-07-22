@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a watermarked widget recovered from an image.
- */
+*/
 export class StegadographyWidgetAttributes {
   /**
    * Horizontal pixel coordinate where the watermark was found in the image.
-   */
+  */
   "locationx": number;
   /**
    * Vertical pixel coordinate where the watermark was found in the image.
-   */
+  */
   "locationy": number;
   /**
    * JSON-encoded string representing the widget state.
-   */
+  */
   "rawData": string;
   /**
    * Hex-encoded watermark string identifying the widget.
-   */
+  */
   "watermark": string;
 
   /**
@@ -32,7 +37,7 @@ export class StegadographyWidgetAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,27 +48,27 @@ export class StegadographyWidgetAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    locationx: {
-      baseName: "locationx",
-      type: "number",
-      required: true,
-      format: "int64",
+    "locationx": {
+      "baseName": "locationx",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    locationy: {
-      baseName: "locationy",
-      type: "number",
-      required: true,
-      format: "int64",
+    "locationy": {
+      "baseName": "locationy",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    rawData: {
-      baseName: "rawData",
-      type: "string",
-      required: true,
+    "rawData": {
+      "baseName": "rawData",
+      "type": "string",
+      "required": true,
     },
-    watermark: {
-      baseName: "watermark",
-      type: "string",
-      required: true,
+    "watermark": {
+      "baseName": "watermark",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -75,8 +80,34 @@ export class StegadographyWidgetAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return StegadographyWidgetAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

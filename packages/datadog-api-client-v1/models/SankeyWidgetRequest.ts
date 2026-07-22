@@ -6,13 +6,15 @@
 import { SankeyNetworkRequest } from "./SankeyNetworkRequest";
 import { SankeyRumRequest } from "./SankeyRumRequest";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Request definition for Sankey widget.
- */
+*/
 
-export type SankeyWidgetRequest =
-  | SankeyRumRequest
-  | SankeyNetworkRequest
-  | UnparsedObject;
+export type SankeyWidgetRequest = SankeyRumRequest | SankeyNetworkRequest | UnparsedObject;

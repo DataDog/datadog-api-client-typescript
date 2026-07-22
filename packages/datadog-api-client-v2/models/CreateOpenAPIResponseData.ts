@@ -5,19 +5,24 @@
  */
 import { CreateOpenAPIResponseAttributes } from "./CreateOpenAPIResponseAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data envelope for `CreateOpenAPIResponse`.
- */
+*/
 export class CreateOpenAPIResponseData {
   /**
    * Attributes for `CreateOpenAPI`.
-   */
+  */
   "attributes"?: CreateOpenAPIResponseAttributes;
   /**
    * API identifier.
-   */
+  */
   "id"?: string;
 
   /**
@@ -25,7 +30,7 @@ export class CreateOpenAPIResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class CreateOpenAPIResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CreateOpenAPIResponseAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CreateOpenAPIResponseAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class CreateOpenAPIResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateOpenAPIResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

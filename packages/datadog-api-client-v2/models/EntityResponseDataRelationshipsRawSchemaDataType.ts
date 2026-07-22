@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Raw schema resource type.
- */
+*/
 
-export type EntityResponseDataRelationshipsRawSchemaDataType =
-  | typeof RAWSCHEMA
-  | UnparsedObject;
-export const RAWSCHEMA = "rawSchema";
+export type EntityResponseDataRelationshipsRawSchemaDataType = typeof RAWSCHEMA | UnparsedObject;
+export const RAWSCHEMA = 'rawSchema';

@@ -5,19 +5,24 @@
  */
 import { ConnectedTeamRefDataType } from "./ConnectedTeamRefDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Reference to connected external team.
- */
+*/
 export class ConnectedTeamRefData {
   /**
    * The connected team ID as it is referenced throughout the Datadog ecosystem.
-   */
+  */
   "id": string;
   /**
    * External team resource type.
-   */
+  */
   "type": ConnectedTeamRefDataType;
 
   /**
@@ -25,7 +30,7 @@ export class ConnectedTeamRefData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class ConnectedTeamRefData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ConnectedTeamRefDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ConnectedTeamRefDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class ConnectedTeamRefData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ConnectedTeamRefData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

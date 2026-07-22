@@ -4,17 +4,22 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Optional attributes for a customer org disable request. When supplied, `org_uuid`
  * must match the authenticated organization or the request is rejected.
- */
+*/
 export class CustomerOrgDisableRequestAttributes {
   /**
    * Datadog organization UUID. If supplied, must match the authenticated
    * organization.
-   */
+  */
   "orgUuid"?: string;
 
   /**
@@ -22,7 +27,7 @@ export class CustomerOrgDisableRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -33,9 +38,9 @@ export class CustomerOrgDisableRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    orgUuid: {
-      baseName: "org_uuid",
-      type: "string",
+    "orgUuid": {
+      "baseName": "org_uuid",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CustomerOrgDisableRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomerOrgDisableRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

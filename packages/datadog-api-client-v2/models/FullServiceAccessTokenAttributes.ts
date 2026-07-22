@@ -4,35 +4,40 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a full access token, including the token key.
- */
+*/
 export class FullServiceAccessTokenAttributes {
   /**
    * Creation date of the access token.
-   */
+  */
   "createdAt"?: Date;
   /**
    * Expiration date of the access token.
-   */
+  */
   "expiresAt"?: Date;
   /**
    * The access token key. Only returned upon creation.
-   */
+  */
   "key"?: string;
   /**
    * Name of the access token.
-   */
+  */
   "name"?: string;
   /**
    * The public portion of the access token.
-   */
+  */
   "publicPortion"?: string;
   /**
    * Array of scopes granted to the access token.
-   */
+  */
   "scopes"?: Array<string>;
 
   /**
@@ -40,7 +45,7 @@ export class FullServiceAccessTokenAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -51,31 +56,31 @@ export class FullServiceAccessTokenAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    expiresAt: {
-      baseName: "expires_at",
-      type: "Date",
-      format: "date-time",
+    "expiresAt": {
+      "baseName": "expires_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    key: {
-      baseName: "key",
-      type: "string",
+    "key": {
+      "baseName": "key",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    publicPortion: {
-      baseName: "public_portion",
-      type: "string",
+    "publicPortion": {
+      "baseName": "public_portion",
+      "type": "string",
     },
-    scopes: {
-      baseName: "scopes",
-      type: "Array<string>",
+    "scopes": {
+      "baseName": "scopes",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -87,8 +92,34 @@ export class FullServiceAccessTokenAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FullServiceAccessTokenAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -7,33 +7,38 @@ import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBuffe
 import { ObservabilityPipelineDatadogLogsDestinationRoute } from "./ObservabilityPipelineDatadogLogsDestinationRoute";
 import { ObservabilityPipelineDatadogLogsDestinationType } from "./ObservabilityPipelineDatadogLogsDestinationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The `datadog_logs` destination forwards logs to Datadog Log Management.
- *
+ * 
  * **Supported pipeline types:** logs
- */
+*/
 export class ObservabilityPipelineDatadogLogsDestination {
   /**
    * Configuration for buffer settings on destination components.
-   */
+  */
   "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * The unique identifier for this component.
-   */
+  */
   "id": string;
   /**
    * A list of component IDs whose output is used as the `input` for this component.
-   */
+  */
   "inputs": Array<string>;
   /**
    * A list of routing rules that forward matching logs to Datadog using dedicated API keys.
-   */
+  */
   "routes"?: Array<ObservabilityPipelineDatadogLogsDestinationRoute>;
   /**
    * The destination type. The value should always be `datadog_logs`.
-   */
+  */
   "type": ObservabilityPipelineDatadogLogsDestinationType;
 
   /**
@@ -41,7 +46,7 @@ export class ObservabilityPipelineDatadogLogsDestination {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -52,28 +57,28 @@ export class ObservabilityPipelineDatadogLogsDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    buffer: {
-      baseName: "buffer",
-      type: "ObservabilityPipelineBufferOptions",
+    "buffer": {
+      "baseName": "buffer",
+      "type": "ObservabilityPipelineBufferOptions",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    inputs: {
-      baseName: "inputs",
-      type: "Array<string>",
-      required: true,
+    "inputs": {
+      "baseName": "inputs",
+      "type": "Array<string>",
+      "required": true,
     },
-    routes: {
-      baseName: "routes",
-      type: "Array<ObservabilityPipelineDatadogLogsDestinationRoute>",
+    "routes": {
+      "baseName": "routes",
+      "type": "Array<ObservabilityPipelineDatadogLogsDestinationRoute>",
     },
-    type: {
-      baseName: "type",
-      type: "ObservabilityPipelineDatadogLogsDestinationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ObservabilityPipelineDatadogLogsDestinationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -85,8 +90,34 @@ export class ObservabilityPipelineDatadogLogsDestination {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineDatadogLogsDestination.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

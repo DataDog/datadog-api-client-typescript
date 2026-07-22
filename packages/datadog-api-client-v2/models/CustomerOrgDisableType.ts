@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * JSON:API resource type for a customer org disable request.
- */
+*/
 
-export type CustomerOrgDisableType =
-  | typeof CUSTOMER_ORG_DISABLE
-  | UnparsedObject;
-export const CUSTOMER_ORG_DISABLE = "customer_org_disable";
+export type CustomerOrgDisableType = typeof CUSTOMER_ORG_DISABLE | UnparsedObject;
+export const CUSTOMER_ORG_DISABLE = 'customer_org_disable';

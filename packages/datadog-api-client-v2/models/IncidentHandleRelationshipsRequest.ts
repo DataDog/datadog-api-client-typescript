@@ -5,19 +5,24 @@
  */
 import { IncidentHandleRelationship } from "./IncidentHandleRelationship";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationships to associate with an incident handle in a create or update request.
- */
+*/
 export class IncidentHandleRelationshipsRequest {
   /**
    * A single relationship object for an incident handle, wrapping the related resource data.
-   */
+  */
   "commanderUser"?: IncidentHandleRelationship;
   /**
    * A single relationship object for an incident handle, wrapping the related resource data.
-   */
+  */
   "incidentType": IncidentHandleRelationship;
 
   /**
@@ -25,7 +30,7 @@ export class IncidentHandleRelationshipsRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,14 +41,14 @@ export class IncidentHandleRelationshipsRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    commanderUser: {
-      baseName: "commander_user",
-      type: "IncidentHandleRelationship",
+    "commanderUser": {
+      "baseName": "commander_user",
+      "type": "IncidentHandleRelationship",
     },
-    incidentType: {
-      baseName: "incident_type",
-      type: "IncidentHandleRelationship",
-      required: true,
+    "incidentType": {
+      "baseName": "incident_type",
+      "type": "IncidentHandleRelationship",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class IncidentHandleRelationshipsRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentHandleRelationshipsRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

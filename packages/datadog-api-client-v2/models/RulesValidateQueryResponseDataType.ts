@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Validate response resource type.
- */
+*/
 
-export type RulesValidateQueryResponseDataType =
-  | typeof VALIDATE_RESPONSE
-  | UnparsedObject;
-export const VALIDATE_RESPONSE = "validate_response";
+export type RulesValidateQueryResponseDataType = typeof VALIDATE_RESPONSE | UnparsedObject;
+export const VALIDATE_RESPONSE = 'validate_response';

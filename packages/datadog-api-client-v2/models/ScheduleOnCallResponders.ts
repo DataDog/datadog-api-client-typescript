@@ -6,19 +6,24 @@
 import { ScheduleOnCallRespondersData } from "./ScheduleOnCallRespondersData";
 import { ScheduleOnCallRespondersIncluded } from "./ScheduleOnCallRespondersIncluded";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Root object representing a schedule's on-call responders, grouped by position (previous, current, next), for a given point in time.
- */
+*/
 export class ScheduleOnCallResponders {
   /**
    * The main data object representing a schedule's on-call responders lookup, including relationships and metadata.
-   */
+  */
   "data"?: ScheduleOnCallRespondersData;
   /**
    * Related resources referenced in the responder groups' relationships, such as shifts, schedules, and users.
-   */
+  */
   "included"?: Array<ScheduleOnCallRespondersIncluded>;
 
   /**
@@ -26,7 +31,7 @@ export class ScheduleOnCallResponders {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class ScheduleOnCallResponders {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ScheduleOnCallRespondersData",
+    "data": {
+      "baseName": "data",
+      "type": "ScheduleOnCallRespondersData",
     },
-    included: {
-      baseName: "included",
-      type: "Array<ScheduleOnCallRespondersIncluded>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<ScheduleOnCallRespondersIncluded>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class ScheduleOnCallResponders {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ScheduleOnCallResponders.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

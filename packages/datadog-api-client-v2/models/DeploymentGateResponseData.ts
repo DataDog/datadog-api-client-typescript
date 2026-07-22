@@ -6,23 +6,28 @@
 import { DeploymentGateDataType } from "./DeploymentGateDataType";
 import { DeploymentGateResponseDataAttributes } from "./DeploymentGateResponseDataAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for a deployment gate.
- */
+*/
 export class DeploymentGateResponseData {
   /**
    * Basic information about a deployment gate.
-   */
+  */
   "attributes": DeploymentGateResponseDataAttributes;
   /**
    * Unique identifier of the deployment gate.
-   */
+  */
   "id": string;
   /**
    * Deployment gate resource type.
-   */
+  */
   "type": DeploymentGateDataType;
 
   /**
@@ -30,7 +35,7 @@ export class DeploymentGateResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class DeploymentGateResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "DeploymentGateResponseDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "DeploymentGateResponseDataAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "DeploymentGateDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "DeploymentGateDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class DeploymentGateResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DeploymentGateResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

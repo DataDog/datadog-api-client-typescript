@@ -5,15 +5,20 @@
  */
 import { UsageOnlineArchiveHour } from "./UsageOnlineArchiveHour";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Online Archive usage response.
- */
+*/
 export class UsageOnlineArchiveResponse {
   /**
    * Response containing Online Archive usage.
-   */
+  */
   "usage"?: Array<UsageOnlineArchiveHour>;
 
   /**
@@ -21,7 +26,7 @@ export class UsageOnlineArchiveResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class UsageOnlineArchiveResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageOnlineArchiveHour>",
+    "usage": {
+      "baseName": "usage",
+      "type": "Array<UsageOnlineArchiveHour>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class UsageOnlineArchiveResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageOnlineArchiveResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

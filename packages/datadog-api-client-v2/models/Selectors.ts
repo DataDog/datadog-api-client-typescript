@@ -7,30 +7,35 @@ import { RuleSeverity } from "./RuleSeverity";
 import { RuleTypesItems } from "./RuleTypesItems";
 import { TriggerSource } from "./TriggerSource";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Selectors are used to filter security issues for which notifications should be generated.
  * Users can specify rule severities, rule types, a query to filter security issues on tags and attributes, and the trigger source.
  * Only the trigger_source field is required.
- */
+*/
 export class Selectors {
   /**
    * The query is composed of one or several key:value pairs, which can be used to filter security issues on tags and attributes.
-   */
+  */
   "query"?: string;
   /**
    * Security rule types used as filters in security rules.
-   */
+  */
   "ruleTypes"?: Array<RuleTypesItems>;
   /**
    * The security rules severities to consider.
-   */
+  */
   "severities"?: Array<RuleSeverity>;
   /**
    * The type of security issues on which the rule applies. Notification rules based on security signals need to use the trigger source "security_signals",
    * while notification rules based on security vulnerabilities need to use the trigger source "security_findings".
-   */
+  */
   "triggerSource": TriggerSource;
 
   /**
@@ -38,7 +43,7 @@ export class Selectors {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -49,22 +54,22 @@ export class Selectors {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    query: {
-      baseName: "query",
-      type: "string",
+    "query": {
+      "baseName": "query",
+      "type": "string",
     },
-    ruleTypes: {
-      baseName: "rule_types",
-      type: "Array<RuleTypesItems>",
+    "ruleTypes": {
+      "baseName": "rule_types",
+      "type": "Array<RuleTypesItems>",
     },
-    severities: {
-      baseName: "severities",
-      type: "Array<RuleSeverity>",
+    "severities": {
+      "baseName": "severities",
+      "type": "Array<RuleSeverity>",
     },
-    triggerSource: {
-      baseName: "trigger_source",
-      type: "TriggerSource",
-      required: true,
+    "triggerSource": {
+      "baseName": "trigger_source",
+      "type": "TriggerSource",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -76,8 +81,34 @@ export class Selectors {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return Selectors.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

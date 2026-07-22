@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of Agent info resource.
- */
+*/
 
-export type FleetAgentInfoResourceType =
-  | typeof DATADOG_AGENT_KEY
-  | UnparsedObject;
-export const DATADOG_AGENT_KEY = "datadog_agent_key";
+export type FleetAgentInfoResourceType = typeof DATADOG_AGENT_KEY | UnparsedObject;
+export const DATADOG_AGENT_KEY = 'datadog_agent_key';

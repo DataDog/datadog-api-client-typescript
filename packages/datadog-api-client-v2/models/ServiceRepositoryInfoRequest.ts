@@ -5,15 +5,20 @@
  */
 import { ServiceRepositoryInfoRequestData } from "./ServiceRepositoryInfoRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request body for retrieving service repository information.
- */
+*/
 export class ServiceRepositoryInfoRequest {
   /**
    * Data object for the service repository info request.
-   */
+  */
   "data": ServiceRepositoryInfoRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class ServiceRepositoryInfoRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class ServiceRepositoryInfoRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ServiceRepositoryInfoRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "ServiceRepositoryInfoRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class ServiceRepositoryInfoRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceRepositoryInfoRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

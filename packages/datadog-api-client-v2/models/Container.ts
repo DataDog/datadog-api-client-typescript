@@ -6,23 +6,28 @@
 import { ContainerAttributes } from "./ContainerAttributes";
 import { ContainerType } from "./ContainerType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Container object.
- */
+*/
 export class Container {
   /**
    * Attributes for a container.
-   */
+  */
   "attributes"?: ContainerAttributes;
   /**
    * Container ID.
-   */
+  */
   "id"?: string;
   /**
    * Type of container.
-   */
+  */
   "type"?: ContainerType;
 
   /**
@@ -30,7 +35,7 @@ export class Container {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class Container {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ContainerAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ContainerAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "ContainerType",
+    "type": {
+      "baseName": "type",
+      "type": "ContainerType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class Container {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return Container.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

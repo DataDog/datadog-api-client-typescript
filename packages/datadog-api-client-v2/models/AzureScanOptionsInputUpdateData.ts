@@ -6,23 +6,28 @@
 import { AzureScanOptionsInputUpdateDataAttributes } from "./AzureScanOptionsInputUpdateDataAttributes";
 import { AzureScanOptionsInputUpdateDataType } from "./AzureScanOptionsInputUpdateDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for updating the scan options of a single Azure subscription.
- */
+*/
 export class AzureScanOptionsInputUpdateData {
   /**
    * Attributes for updating Azure scan options configuration.
-   */
+  */
   "attributes"?: AzureScanOptionsInputUpdateDataAttributes;
   /**
    * The Azure subscription ID.
-   */
+  */
   "id": string;
   /**
    * Azure scan options resource type.
-   */
+  */
   "type": AzureScanOptionsInputUpdateDataType;
 
   /**
@@ -30,7 +35,7 @@ export class AzureScanOptionsInputUpdateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class AzureScanOptionsInputUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AzureScanOptionsInputUpdateDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AzureScanOptionsInputUpdateDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "AzureScanOptionsInputUpdateDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AzureScanOptionsInputUpdateDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class AzureScanOptionsInputUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AzureScanOptionsInputUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

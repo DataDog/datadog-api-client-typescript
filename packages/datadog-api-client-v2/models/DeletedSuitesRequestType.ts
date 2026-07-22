@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type for the bulk delete Synthetic suites request, `delete_suites_request`.
- */
+*/
 
-export type DeletedSuitesRequestType =
-  | typeof DELETE_SUITES_REQUEST
-  | UnparsedObject;
-export const DELETE_SUITES_REQUEST = "delete_suites_request";
+export type DeletedSuitesRequestType = typeof DELETE_SUITES_REQUEST | UnparsedObject;
+export const DELETE_SUITES_REQUEST = 'delete_suites_request';

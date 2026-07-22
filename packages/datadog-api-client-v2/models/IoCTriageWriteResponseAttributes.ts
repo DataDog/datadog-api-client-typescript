@@ -5,31 +5,36 @@
  */
 import { IoCTriageState } from "./IoCTriageState";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a created or updated triage state.
- */
+*/
 export class IoCTriageWriteResponseAttributes {
   /**
    * Timestamp when the triage record was created.
-   */
+  */
   "createdAt"?: Date;
   /**
    * The indicator value that was triaged.
-   */
+  */
   "indicator"?: string;
   /**
    * Current triage state of the indicator.
-   */
+  */
   "triageState"?: IoCTriageState;
   /**
    * Timestamp when the triage state was set.
-   */
+  */
   "triagedAt"?: Date;
   /**
    * UUID of the user who set the triage state.
-   */
+  */
   "triagedBy"?: string;
 
   /**
@@ -37,7 +42,7 @@ export class IoCTriageWriteResponseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -48,27 +53,27 @@ export class IoCTriageWriteResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    indicator: {
-      baseName: "indicator",
-      type: "string",
+    "indicator": {
+      "baseName": "indicator",
+      "type": "string",
     },
-    triageState: {
-      baseName: "triage_state",
-      type: "IoCTriageState",
+    "triageState": {
+      "baseName": "triage_state",
+      "type": "IoCTriageState",
     },
-    triagedAt: {
-      baseName: "triaged_at",
-      type: "Date",
-      format: "date-time",
+    "triagedAt": {
+      "baseName": "triaged_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    triagedBy: {
-      baseName: "triaged_by",
-      type: "string",
+    "triagedBy": {
+      "baseName": "triaged_by",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -80,8 +85,34 @@ export class IoCTriageWriteResponseAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IoCTriageWriteResponseAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

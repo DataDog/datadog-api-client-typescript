@@ -4,35 +4,40 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The unit used for all cost values in the response.
- */
+*/
 export class BudgetAttributesCostsUnit {
   /**
    * The unit family (for example, `currency`).
-   */
+  */
   "family"?: string;
   /**
    * The unique identifier for the unit.
-   */
+  */
   "id"?: string;
   /**
    * The full name of the unit.
-   */
+  */
   "name"?: string;
   /**
    * The plural form of the unit name.
-   */
+  */
   "plural"?: string;
   /**
    * The scale factor applied to raw cost values.
-   */
+  */
   "scaleFactor"?: number;
   /**
    * The abbreviated unit name.
-   */
+  */
   "shortName"?: string;
 
   /**
@@ -40,7 +45,7 @@ export class BudgetAttributesCostsUnit {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -51,30 +56,30 @@ export class BudgetAttributesCostsUnit {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    family: {
-      baseName: "family",
-      type: "string",
+    "family": {
+      "baseName": "family",
+      "type": "string",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    plural: {
-      baseName: "plural",
-      type: "string",
+    "plural": {
+      "baseName": "plural",
+      "type": "string",
     },
-    scaleFactor: {
-      baseName: "scale_factor",
-      type: "number",
-      format: "double",
+    "scaleFactor": {
+      "baseName": "scale_factor",
+      "type": "number",
+      "format": "double",
     },
-    shortName: {
-      baseName: "short_name",
-      type: "string",
+    "shortName": {
+      "baseName": "short_name",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -86,8 +91,34 @@ export class BudgetAttributesCostsUnit {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return BudgetAttributesCostsUnit.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

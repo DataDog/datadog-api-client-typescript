@@ -5,19 +5,24 @@
  */
 import { CaseManagementProjectDataType } from "./CaseManagementProjectDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object representing a case management project.
- */
+*/
 export class CaseManagementProjectData {
   /**
    * Unique identifier of the case management project.
-   */
+  */
   "id": string;
   /**
    * Projects resource type.
-   */
+  */
   "type": CaseManagementProjectDataType;
 
   /**
@@ -25,7 +30,7 @@ export class CaseManagementProjectData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class CaseManagementProjectData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CaseManagementProjectDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CaseManagementProjectDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class CaseManagementProjectData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseManagementProjectData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

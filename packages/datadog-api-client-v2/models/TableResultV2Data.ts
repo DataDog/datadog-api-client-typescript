@@ -6,23 +6,28 @@
 import { TableResultV2DataAttributes } from "./TableResultV2DataAttributes";
 import { TableResultV2DataType } from "./TableResultV2DataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data object containing the reference table configuration and state.
- */
+*/
 export class TableResultV2Data {
   /**
    * Attributes that define the reference table's configuration and properties.
-   */
+  */
   "attributes"?: TableResultV2DataAttributes;
   /**
    * Unique identifier for the reference table.
-   */
+  */
   "id"?: string;
   /**
    * Reference table resource type.
-   */
+  */
   "type": TableResultV2DataType;
 
   /**
@@ -34,27 +39,53 @@ export class TableResultV2Data {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "TableResultV2DataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "TableResultV2DataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "TableResultV2DataType",
-      required: true,
-    },
+    "type": {
+      "baseName": "type",
+      "type": "TableResultV2DataType",
+      "required": true,
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TableResultV2Data.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

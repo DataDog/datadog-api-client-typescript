@@ -4,21 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Rule category
- */
+*/
 
-export type CustomRuleRevisionAttributesCategory =
-  | typeof SECURITY
-  | typeof BEST_PRACTICES
-  | typeof CODE_STYLE
-  | typeof ERROR_PRONE
-  | typeof PERFORMANCE
-  | UnparsedObject;
-export const SECURITY = "SECURITY";
-export const BEST_PRACTICES = "BEST_PRACTICES";
-export const CODE_STYLE = "CODE_STYLE";
-export const ERROR_PRONE = "ERROR_PRONE";
-export const PERFORMANCE = "PERFORMANCE";
+export type CustomRuleRevisionAttributesCategory = typeof SECURITY| typeof BEST_PRACTICES| typeof CODE_STYLE| typeof ERROR_PRONE| typeof PERFORMANCE | UnparsedObject;
+export const SECURITY = 'SECURITY';
+export const BEST_PRACTICES = 'BEST_PRACTICES';
+export const CODE_STYLE = 'CODE_STYLE';
+export const ERROR_PRONE = 'ERROR_PRONE';
+export const PERFORMANCE = 'PERFORMANCE';

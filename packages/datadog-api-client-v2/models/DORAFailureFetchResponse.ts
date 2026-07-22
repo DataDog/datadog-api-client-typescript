@@ -5,15 +5,20 @@
  */
 import { DORAIncidentObject } from "./DORAIncidentObject";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response for fetching a single incident event.
- */
+*/
 export class DORAFailureFetchResponse {
   /**
    * A DORA incident event.
-   */
+  */
   "data"?: DORAIncidentObject;
 
   /**
@@ -21,7 +26,7 @@ export class DORAFailureFetchResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class DORAFailureFetchResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "DORAIncidentObject",
+    "data": {
+      "baseName": "data",
+      "type": "DORAIncidentObject",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class DORAFailureFetchResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DORAFailureFetchResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

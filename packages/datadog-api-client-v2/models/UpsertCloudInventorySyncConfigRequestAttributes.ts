@@ -7,23 +7,28 @@ import { CloudInventorySyncConfigAWSRequestAttributes } from "./CloudInventorySy
 import { CloudInventorySyncConfigAzureRequestAttributes } from "./CloudInventorySyncConfigAzureRequestAttributes";
 import { CloudInventorySyncConfigGCPRequestAttributes } from "./CloudInventorySyncConfigGCPRequestAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Settings for the cloud provider specified in `data.id`. Include only the matching provider object (`aws`, `gcp`, or `azure`).
- */
+*/
 export class UpsertCloudInventorySyncConfigRequestAttributes {
   /**
    * AWS settings for the S3 bucket Storage Management reads inventory reports from.
-   */
+  */
   "aws"?: CloudInventorySyncConfigAWSRequestAttributes;
   /**
    * Azure settings for the storage account and container with inventory data.
-   */
+  */
   "azure"?: CloudInventorySyncConfigAzureRequestAttributes;
   /**
    * GCP settings for buckets involved in inventory reporting.
-   */
+  */
   "gcp"?: CloudInventorySyncConfigGCPRequestAttributes;
 
   /**
@@ -31,7 +36,7 @@ export class UpsertCloudInventorySyncConfigRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,17 +47,17 @@ export class UpsertCloudInventorySyncConfigRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    aws: {
-      baseName: "aws",
-      type: "CloudInventorySyncConfigAWSRequestAttributes",
+    "aws": {
+      "baseName": "aws",
+      "type": "CloudInventorySyncConfigAWSRequestAttributes",
     },
-    azure: {
-      baseName: "azure",
-      type: "CloudInventorySyncConfigAzureRequestAttributes",
+    "azure": {
+      "baseName": "azure",
+      "type": "CloudInventorySyncConfigAzureRequestAttributes",
     },
-    gcp: {
-      baseName: "gcp",
-      type: "CloudInventorySyncConfigGCPRequestAttributes",
+    "gcp": {
+      "baseName": "gcp",
+      "type": "CloudInventorySyncConfigGCPRequestAttributes",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class UpsertCloudInventorySyncConfigRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpsertCloudInventorySyncConfigRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

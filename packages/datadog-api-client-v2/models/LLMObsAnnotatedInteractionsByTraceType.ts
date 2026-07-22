@@ -4,14 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Resource type for cross-queue annotated interactions lookup.
- */
+*/
 
-export type LLMObsAnnotatedInteractionsByTraceType =
-  | typeof ANNOTATED_INTERACTIONS_BY_TRACE
-  | UnparsedObject;
-export const ANNOTATED_INTERACTIONS_BY_TRACE =
-  "annotated_interactions_by_trace";
+export type LLMObsAnnotatedInteractionsByTraceType = typeof ANNOTATED_INTERACTIONS_BY_TRACE | UnparsedObject;
+export const ANNOTATED_INTERACTIONS_BY_TRACE = 'annotated_interactions_by_trace';

@@ -5,19 +5,24 @@
  */
 import { IoCTriageState } from "./IoCTriageState";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for setting an indicator's triage state.
- */
+*/
 export class IoCTriageWriteRequestAttributes {
   /**
    * The indicator value to triage (for example, an IP address or domain).
-   */
+  */
   "indicator": string;
   /**
    * Current triage state of the indicator.
-   */
+  */
   "triageState": IoCTriageState;
 
   /**
@@ -25,7 +30,7 @@ export class IoCTriageWriteRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class IoCTriageWriteRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    indicator: {
-      baseName: "indicator",
-      type: "string",
-      required: true,
+    "indicator": {
+      "baseName": "indicator",
+      "type": "string",
+      "required": true,
     },
-    triageState: {
-      baseName: "triage_state",
-      type: "IoCTriageState",
-      required: true,
+    "triageState": {
+      "baseName": "triage_state",
+      "type": "IoCTriageState",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class IoCTriageWriteRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IoCTriageWriteRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,23 +6,28 @@
 import { LLMObsDatasetCloneDataAttributesRequest } from "./LLMObsDatasetCloneDataAttributesRequest";
 import { LLMObsDatasetType } from "./LLMObsDatasetType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for cloning an LLM Observability dataset.
- */
+*/
 export class LLMObsDatasetCloneDataRequest {
   /**
    * Attributes for cloning an LLM Observability dataset.
-   */
+  */
   "attributes": LLMObsDatasetCloneDataAttributesRequest;
   /**
    * Identifier of the source dataset to clone.
-   */
+  */
   "id": string;
   /**
    * Resource type of an LLM Observability dataset.
-   */
+  */
   "type": LLMObsDatasetType;
 
   /**
@@ -30,7 +35,7 @@ export class LLMObsDatasetCloneDataRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class LLMObsDatasetCloneDataRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LLMObsDatasetCloneDataAttributesRequest",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "LLMObsDatasetCloneDataAttributesRequest",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LLMObsDatasetType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LLMObsDatasetType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class LLMObsDatasetCloneDataRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDatasetCloneDataRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

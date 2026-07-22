@@ -5,15 +5,20 @@
  */
 import { MonitorUserTemplateResponseData } from "./MonitorUserTemplateResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response for creating a monitor user template.
- */
+*/
 export class MonitorUserTemplateCreateResponse {
   /**
    * Monitor user template list response data.
-   */
+  */
   "data"?: MonitorUserTemplateResponseData;
 
   /**
@@ -21,7 +26,7 @@ export class MonitorUserTemplateCreateResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class MonitorUserTemplateCreateResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "MonitorUserTemplateResponseData",
+    "data": {
+      "baseName": "data",
+      "type": "MonitorUserTemplateResponseData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class MonitorUserTemplateCreateResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorUserTemplateCreateResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

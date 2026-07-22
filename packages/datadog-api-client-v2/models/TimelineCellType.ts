@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of content in the timeline cell. Currently only `COMMENT` is supported in this endpoint.
- */
+*/
 
 export type TimelineCellType = typeof COMMENT | UnparsedObject;
-export const COMMENT = "COMMENT";
+export const COMMENT = 'COMMENT';

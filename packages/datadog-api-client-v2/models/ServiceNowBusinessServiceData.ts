@@ -6,23 +6,28 @@
 import { ServiceNowBusinessServiceAttributes } from "./ServiceNowBusinessServiceAttributes";
 import { ServiceNowBusinessServiceType } from "./ServiceNowBusinessServiceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for a ServiceNow business service
- */
+*/
 export class ServiceNowBusinessServiceData {
   /**
    * Attributes of a ServiceNow business service
-   */
+  */
   "attributes": ServiceNowBusinessServiceAttributes;
   /**
    * Unique identifier for the ServiceNow business service
-   */
+  */
   "id": string;
   /**
    * Type identifier for ServiceNow business service resources
-   */
+  */
   "type": ServiceNowBusinessServiceType;
 
   /**
@@ -30,7 +35,7 @@ export class ServiceNowBusinessServiceData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,21 +46,21 @@ export class ServiceNowBusinessServiceData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ServiceNowBusinessServiceAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ServiceNowBusinessServiceAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    type: {
-      baseName: "type",
-      type: "ServiceNowBusinessServiceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ServiceNowBusinessServiceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class ServiceNowBusinessServiceData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceNowBusinessServiceData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

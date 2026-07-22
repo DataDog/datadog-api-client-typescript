@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of the change request.
- */
+*/
 
-export type ChangeRequestChangeType =
-  | typeof NORMAL
-  | typeof STANDARD
-  | typeof EMERGENCY
-  | UnparsedObject;
-export const NORMAL = "NORMAL";
-export const STANDARD = "STANDARD";
-export const EMERGENCY = "EMERGENCY";
+export type ChangeRequestChangeType = typeof NORMAL| typeof STANDARD| typeof EMERGENCY | UnparsedObject;
+export const NORMAL = 'NORMAL';
+export const STANDARD = 'STANDARD';
+export const EMERGENCY = 'EMERGENCY';

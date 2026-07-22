@@ -6,23 +6,28 @@
 import { RetentionReturnCriteriaTimeIntervalType } from "./RetentionReturnCriteriaTimeIntervalType";
 import { RetentionReturnCriteriaTimeIntervalUnit } from "./RetentionReturnCriteriaTimeIntervalUnit";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Time interval for return criteria.
- */
+*/
 export class RetentionReturnCriteriaTimeInterval {
   /**
    * Type of time interval for return criteria.
-   */
+  */
   "type": RetentionReturnCriteriaTimeIntervalType;
   /**
    * Unit of time for retention return criteria interval.
-   */
+  */
   "unit": RetentionReturnCriteriaTimeIntervalUnit;
   /**
    * Value of the time interval.
-   */
+  */
   "value": number;
 
   /**
@@ -34,30 +39,56 @@ export class RetentionReturnCriteriaTimeInterval {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    type: {
-      baseName: "type",
-      type: "RetentionReturnCriteriaTimeIntervalType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "RetentionReturnCriteriaTimeIntervalType",
+      "required": true,
     },
-    unit: {
-      baseName: "unit",
-      type: "RetentionReturnCriteriaTimeIntervalUnit",
-      required: true,
+    "unit": {
+      "baseName": "unit",
+      "type": "RetentionReturnCriteriaTimeIntervalUnit",
+      "required": true,
     },
-    value: {
-      baseName: "value",
-      type: "number",
-      required: true,
-      format: "double",
-    },
+    "value": {
+      "baseName": "value",
+      "type": "number",
+      "required": true,
+      "format": "double",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RetentionReturnCriteriaTimeInterval.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

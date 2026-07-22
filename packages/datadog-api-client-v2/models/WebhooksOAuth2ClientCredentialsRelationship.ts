@@ -5,15 +5,20 @@
  */
 import { WebhooksOAuth2ClientCredentialsRelationshipData } from "./WebhooksOAuth2ClientCredentialsRelationshipData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationship pointing to the OAuth2 client credentials resource for this auth method.
- */
+*/
 export class WebhooksOAuth2ClientCredentialsRelationship {
   /**
    * Relationship data referencing an OAuth2 client credentials resource.
-   */
+  */
   "data"?: WebhooksOAuth2ClientCredentialsRelationshipData;
 
   /**
@@ -21,7 +26,7 @@ export class WebhooksOAuth2ClientCredentialsRelationship {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class WebhooksOAuth2ClientCredentialsRelationship {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "WebhooksOAuth2ClientCredentialsRelationshipData",
+    "data": {
+      "baseName": "data",
+      "type": "WebhooksOAuth2ClientCredentialsRelationshipData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class WebhooksOAuth2ClientCredentialsRelationship {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return WebhooksOAuth2ClientCredentialsRelationship.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,25 +5,30 @@
  */
 import { ObservabilityPipelineSumoLogicSourceType } from "./ObservabilityPipelineSumoLogicSourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The `sumo_logic` source receives logs from Sumo Logic collectors.
- *
+ * 
  * **Supported pipeline types:** logs
- */
+*/
 export class ObservabilityPipelineSumoLogicSource {
   /**
    * Name of the environment variable or secret that holds the listen address for the Sumo Logic receiver.
-   */
+  */
   "addressKey"?: string;
   /**
    * The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
-   */
+  */
   "id": string;
   /**
    * The source type. The value should always be `sumo_logic`.
-   */
+  */
   "type": ObservabilityPipelineSumoLogicSourceType;
 
   /**
@@ -31,7 +36,7 @@ export class ObservabilityPipelineSumoLogicSource {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,19 +47,19 @@ export class ObservabilityPipelineSumoLogicSource {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    addressKey: {
-      baseName: "address_key",
-      type: "string",
+    "addressKey": {
+      "baseName": "address_key",
+      "type": "string",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ObservabilityPipelineSumoLogicSourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ObservabilityPipelineSumoLogicSourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class ObservabilityPipelineSumoLogicSource {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineSumoLogicSource.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

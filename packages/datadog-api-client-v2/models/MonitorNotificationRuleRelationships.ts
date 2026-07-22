@@ -5,15 +5,20 @@
  */
 import { MonitorNotificationRuleRelationshipsCreatedBy } from "./MonitorNotificationRuleRelationshipsCreatedBy";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * All relationships associated with monitor notification rule.
- */
+*/
 export class MonitorNotificationRuleRelationships {
   /**
    * The user who created the monitor notification rule.
-   */
+  */
   "createdBy"?: MonitorNotificationRuleRelationshipsCreatedBy;
 
   /**
@@ -21,7 +26,7 @@ export class MonitorNotificationRuleRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class MonitorNotificationRuleRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdBy: {
-      baseName: "created_by",
-      type: "MonitorNotificationRuleRelationshipsCreatedBy",
+    "createdBy": {
+      "baseName": "created_by",
+      "type": "MonitorNotificationRuleRelationshipsCreatedBy",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class MonitorNotificationRuleRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorNotificationRuleRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { UsageIncidentManagementHour } from "./UsageIncidentManagementHour";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing the incident management usage for each hour for a given organization.
- */
+*/
 export class UsageIncidentManagementResponse {
   /**
    * Get hourly usage for incident management.
-   */
+  */
   "usage"?: Array<UsageIncidentManagementHour>;
 
   /**
@@ -21,7 +26,7 @@ export class UsageIncidentManagementResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class UsageIncidentManagementResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageIncidentManagementHour>",
+    "usage": {
+      "baseName": "usage",
+      "type": "Array<UsageIncidentManagementHour>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class UsageIncidentManagementResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageIncidentManagementResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

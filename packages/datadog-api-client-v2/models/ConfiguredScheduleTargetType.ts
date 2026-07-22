@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Indicates that the resource is of type `schedule_target`.
- */
+*/
 
-export type ConfiguredScheduleTargetType =
-  | typeof SCHEDULE_TARGET
-  | UnparsedObject;
-export const SCHEDULE_TARGET = "schedule_target";
+export type ConfiguredScheduleTargetType = typeof SCHEDULE_TARGET | UnparsedObject;
+export const SCHEDULE_TARGET = 'schedule_target';

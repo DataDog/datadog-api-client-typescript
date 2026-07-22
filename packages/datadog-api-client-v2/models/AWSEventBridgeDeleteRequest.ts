@@ -5,15 +5,20 @@
  */
 import { AWSEventBridgeDeleteRequestData } from "./AWSEventBridgeDeleteRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Amazon EventBridge delete request body.
- */
+*/
 export class AWSEventBridgeDeleteRequest {
   /**
    * Amazon EventBridge delete request data.
-   */
+  */
   "data": AWSEventBridgeDeleteRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class AWSEventBridgeDeleteRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class AWSEventBridgeDeleteRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "AWSEventBridgeDeleteRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "AWSEventBridgeDeleteRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class AWSEventBridgeDeleteRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSEventBridgeDeleteRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

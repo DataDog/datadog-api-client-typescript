@@ -5,15 +5,20 @@
  */
 import { StatusPagesComponentDataRelationshipsStatusPageData } from "./StatusPagesComponentDataRelationshipsStatusPageData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The status page the component belongs to.
- */
+*/
 export class StatusPagesComponentDataRelationshipsStatusPage {
   /**
    * The data object identifying the status page the component belongs to.
-   */
+  */
   "data": StatusPagesComponentDataRelationshipsStatusPageData;
 
   /**
@@ -21,7 +26,7 @@ export class StatusPagesComponentDataRelationshipsStatusPage {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class StatusPagesComponentDataRelationshipsStatusPage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "StatusPagesComponentDataRelationshipsStatusPageData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "StatusPagesComponentDataRelationshipsStatusPageData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class StatusPagesComponentDataRelationshipsStatusPage {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return StatusPagesComponentDataRelationshipsStatusPage.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

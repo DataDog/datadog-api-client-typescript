@@ -5,19 +5,24 @@
  */
 import { CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails } from "./CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Cloud storage file metadata for create requests. Both access_details and sync_enabled are required.
- */
+*/
 export class CreateTableRequestDataAttributesFileMetadataCloudStorage {
   /**
    * Cloud storage access configuration for the reference table data file.
-   */
+  */
   "accessDetails": CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails;
   /**
    * Whether this table is synced automatically.
-   */
+  */
   "syncEnabled": boolean;
 
   /**
@@ -29,24 +34,50 @@ export class CreateTableRequestDataAttributesFileMetadataCloudStorage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    accessDetails: {
-      baseName: "access_details",
-      type: "CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails",
-      required: true,
+    "accessDetails": {
+      "baseName": "access_details",
+      "type": "CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails",
+      "required": true,
     },
-    syncEnabled: {
-      baseName: "sync_enabled",
-      type: "boolean",
-      required: true,
-    },
+    "syncEnabled": {
+      "baseName": "sync_enabled",
+      "type": "boolean",
+      "required": true,
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateTableRequestDataAttributesFileMetadataCloudStorage.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

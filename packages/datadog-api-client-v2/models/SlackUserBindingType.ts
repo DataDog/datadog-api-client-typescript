@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Slack user binding resource type.
- */
+*/
 
 export type SlackUserBindingType = typeof TEAM_ID | UnparsedObject;
-export const TEAM_ID = "team_id";
+export const TEAM_ID = 'team_id';

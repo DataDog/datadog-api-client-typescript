@@ -6,19 +6,24 @@
 import { LLMObsCreatePromptDataAttributes } from "./LLMObsCreatePromptDataAttributes";
 import { LLMObsPromptType } from "./LLMObsPromptType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for creating an LLM Observability prompt.
- */
+*/
 export class LLMObsCreatePromptData {
   /**
    * Attributes for creating an LLM Observability prompt and its first version. `prompt_id` and `template` are required; all other attributes are optional.
-   */
+  */
   "attributes": LLMObsCreatePromptDataAttributes;
   /**
    * Resource type of an LLM Observability prompt.
-   */
+  */
   "type": LLMObsPromptType;
 
   /**
@@ -26,7 +31,7 @@ export class LLMObsCreatePromptData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class LLMObsCreatePromptData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LLMObsCreatePromptDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "LLMObsCreatePromptDataAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LLMObsPromptType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LLMObsPromptType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class LLMObsCreatePromptData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsCreatePromptData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

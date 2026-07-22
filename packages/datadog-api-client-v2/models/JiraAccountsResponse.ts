@@ -6,19 +6,24 @@
 import { JiraAccountData } from "./JiraAccountData";
 import { JiraAccountsMeta } from "./JiraAccountsMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing Jira accounts
- */
+*/
 export class JiraAccountsResponse {
   /**
    * Array of Jira account data objects
-   */
+  */
   "data": Array<JiraAccountData>;
   /**
    * Metadata for Jira accounts response
-   */
+  */
   "meta"?: JiraAccountsMeta;
 
   /**
@@ -26,7 +31,7 @@ export class JiraAccountsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class JiraAccountsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<JiraAccountData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<JiraAccountData>",
+      "required": true,
     },
-    meta: {
-      baseName: "meta",
-      type: "JiraAccountsMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "JiraAccountsMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class JiraAccountsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return JiraAccountsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

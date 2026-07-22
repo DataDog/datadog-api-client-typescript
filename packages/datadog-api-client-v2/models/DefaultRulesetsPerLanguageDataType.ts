@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Default rulesets per language resource type.
- */
+*/
 
-export type DefaultRulesetsPerLanguageDataType =
-  | typeof DEFAULT_RULESETS_PER_LANGUAGE
-  | UnparsedObject;
-export const DEFAULT_RULESETS_PER_LANGUAGE = "defaultRulesetsPerLanguage";
+export type DefaultRulesetsPerLanguageDataType = typeof DEFAULT_RULESETS_PER_LANGUAGE | UnparsedObject;
+export const DEFAULT_RULESETS_PER_LANGUAGE = 'defaultRulesetsPerLanguage';

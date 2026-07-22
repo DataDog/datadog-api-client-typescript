@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Get multiple rulesets request resource type.
- */
+*/
 
-export type GetMultipleRulesetsRequestDataType =
-  | typeof GET_MULTIPLE_RULESETS_REQUEST
-  | UnparsedObject;
-export const GET_MULTIPLE_RULESETS_REQUEST = "get_multiple_rulesets_request";
+export type GetMultipleRulesetsRequestDataType = typeof GET_MULTIPLE_RULESETS_REQUEST | UnparsedObject;
+export const GET_MULTIPLE_RULESETS_REQUEST = 'get_multiple_rulesets_request';

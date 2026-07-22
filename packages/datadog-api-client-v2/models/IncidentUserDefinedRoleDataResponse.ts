@@ -7,27 +7,32 @@ import { IncidentUserDefinedRoleDataAttributesResponse } from "./IncidentUserDef
 import { IncidentUserDefinedRoleRelationshipsResponse } from "./IncidentUserDefinedRoleRelationshipsResponse";
 import { IncidentUserDefinedRoleType } from "./IncidentUserDefinedRoleType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for an incident user-defined role response.
- */
+*/
 export class IncidentUserDefinedRoleDataResponse {
   /**
    * Attributes of an incident user-defined role.
-   */
+  */
   "attributes": IncidentUserDefinedRoleDataAttributesResponse;
   /**
    * The ID of the user-defined role.
-   */
+  */
   "id": string;
   /**
    * Relationships of a user-defined role response.
-   */
+  */
   "relationships"?: IncidentUserDefinedRoleRelationshipsResponse;
   /**
    * Incident user-defined role resource type.
-   */
+  */
   "type": IncidentUserDefinedRoleType;
 
   /**
@@ -35,7 +40,7 @@ export class IncidentUserDefinedRoleDataResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,25 +51,25 @@ export class IncidentUserDefinedRoleDataResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "IncidentUserDefinedRoleDataAttributesResponse",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "IncidentUserDefinedRoleDataAttributesResponse",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "IncidentUserDefinedRoleRelationshipsResponse",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "IncidentUserDefinedRoleRelationshipsResponse",
     },
-    type: {
-      baseName: "type",
-      type: "IncidentUserDefinedRoleType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "IncidentUserDefinedRoleType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -76,8 +81,34 @@ export class IncidentUserDefinedRoleDataResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentUserDefinedRoleDataResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

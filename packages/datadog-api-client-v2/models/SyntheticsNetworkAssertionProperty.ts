@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The associated assertion property.
- */
+*/
 
-export type SyntheticsNetworkAssertionProperty =
-  | typeof AVG
-  | typeof MAX
-  | typeof MIN
-  | UnparsedObject;
-export const AVG = "avg";
-export const MAX = "max";
-export const MIN = "min";
+export type SyntheticsNetworkAssertionProperty = typeof AVG| typeof MAX| typeof MIN | UnparsedObject;
+export const AVG = 'avg';
+export const MAX = 'max';
+export const MIN = 'min';

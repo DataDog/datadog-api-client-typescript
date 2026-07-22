@@ -6,23 +6,28 @@
 import { ArbitraryRuleResponseDataAttributes } from "./ArbitraryRuleResponseDataAttributes";
 import { ArbitraryRuleResponseDataType } from "./ArbitraryRuleResponseDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `ArbitraryRuleResponseData` object.
- */
+*/
 export class ArbitraryRuleResponseData {
   /**
    * The definition of `ArbitraryRuleResponseDataAttributes` object.
-   */
+  */
   "attributes"?: ArbitraryRuleResponseDataAttributes;
   /**
    * The `ArbitraryRuleResponseData` `id`.
-   */
+  */
   "id"?: string;
   /**
    * Arbitrary rule resource type.
-   */
+  */
   "type": ArbitraryRuleResponseDataType;
 
   /**
@@ -30,7 +35,7 @@ export class ArbitraryRuleResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class ArbitraryRuleResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ArbitraryRuleResponseDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ArbitraryRuleResponseDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "ArbitraryRuleResponseDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ArbitraryRuleResponseDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class ArbitraryRuleResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ArbitraryRuleResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

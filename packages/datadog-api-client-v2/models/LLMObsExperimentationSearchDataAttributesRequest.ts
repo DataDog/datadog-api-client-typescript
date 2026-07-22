@@ -8,27 +8,32 @@ import { LLMObsExperimentationCursorPage } from "./LLMObsExperimentationCursorPa
 import { LLMObsExperimentationFilter } from "./LLMObsExperimentationFilter";
 import { LLMObsExperimentationInclude } from "./LLMObsExperimentationInclude";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for an experimentation search request.
- */
+*/
 export class LLMObsExperimentationSearchDataAttributesRequest {
   /**
    * Options to control content preview truncation.
-   */
+  */
   "contentPreview"?: LLMObsExperimentationContentPreview;
   /**
    * Filter criteria for an experimentation search request.
-   */
+  */
   "filter": LLMObsExperimentationFilter;
   /**
    * Additional data to include in the response.
-   */
+  */
   "include"?: LLMObsExperimentationInclude;
   /**
    * Cursor-based pagination parameters.
-   */
+  */
   "page"?: LLMObsExperimentationCursorPage;
 
   /**
@@ -36,7 +41,7 @@ export class LLMObsExperimentationSearchDataAttributesRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,22 +52,22 @@ export class LLMObsExperimentationSearchDataAttributesRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    contentPreview: {
-      baseName: "content_preview",
-      type: "LLMObsExperimentationContentPreview",
+    "contentPreview": {
+      "baseName": "content_preview",
+      "type": "LLMObsExperimentationContentPreview",
     },
-    filter: {
-      baseName: "filter",
-      type: "LLMObsExperimentationFilter",
-      required: true,
+    "filter": {
+      "baseName": "filter",
+      "type": "LLMObsExperimentationFilter",
+      "required": true,
     },
-    include: {
-      baseName: "include",
-      type: "LLMObsExperimentationInclude",
+    "include": {
+      "baseName": "include",
+      "type": "LLMObsExperimentationInclude",
     },
-    page: {
-      baseName: "page",
-      type: "LLMObsExperimentationCursorPage",
+    "page": {
+      "baseName": "page",
+      "type": "LLMObsExperimentationCursorPage",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,8 +79,34 @@ export class LLMObsExperimentationSearchDataAttributesRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsExperimentationSearchDataAttributesRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

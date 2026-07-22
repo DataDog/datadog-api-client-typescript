@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Track of the events to query. Either track(s) or persona(s) must be specified.
- */
+*/
 
-export type IssuesSearchRequestDataAttributesTrack =
-  | typeof TRACE
-  | typeof LOGS
-  | typeof RUM
-  | UnparsedObject;
-export const TRACE = "trace";
-export const LOGS = "logs";
-export const RUM = "rum";
+export type IssuesSearchRequestDataAttributesTrack = typeof TRACE| typeof LOGS| typeof RUM | UnparsedObject;
+export const TRACE = 'trace';
+export const LOGS = 'logs';
+export const RUM = 'rum';

@@ -5,27 +5,32 @@
  */
 import { ServiceDefinitionV2Dot1LinkType } from "./ServiceDefinitionV2Dot1LinkType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Service's external links.
- */
+*/
 export class ServiceDefinitionV2Dot1Link {
   /**
    * Link name.
-   */
+  */
   "name": string;
   /**
    * Link provider.
-   */
+  */
   "provider"?: string;
   /**
    * Link type.
-   */
+  */
   "type": ServiceDefinitionV2Dot1LinkType;
   /**
    * Link URL.
-   */
+  */
   "url": string;
 
   /**
@@ -33,7 +38,7 @@ export class ServiceDefinitionV2Dot1Link {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -44,24 +49,24 @@ export class ServiceDefinitionV2Dot1Link {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    provider: {
-      baseName: "provider",
-      type: "string",
+    "provider": {
+      "baseName": "provider",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "ServiceDefinitionV2Dot1LinkType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ServiceDefinitionV2Dot1LinkType",
+      "required": true,
     },
-    url: {
-      baseName: "url",
-      type: "string",
-      required: true,
+    "url": {
+      "baseName": "url",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -73,8 +78,34 @@ export class ServiceDefinitionV2Dot1Link {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceDefinitionV2Dot1Link.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of logs exclude attribute processor.
- */
+*/
 
-export type LogsExcludeAttributeProcessorType =
-  | typeof EXCLUDE_ATTRIBUTE
-  | UnparsedObject;
-export const EXCLUDE_ATTRIBUTE = "exclude-attribute";
+export type LogsExcludeAttributeProcessorType = typeof EXCLUDE_ATTRIBUTE | UnparsedObject;
+export const EXCLUDE_ATTRIBUTE = 'exclude-attribute';

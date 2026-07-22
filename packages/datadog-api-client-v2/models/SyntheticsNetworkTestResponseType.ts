@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of response, `network_test`.
- */
+*/
 
-export type SyntheticsNetworkTestResponseType =
-  | typeof NETWORK_TEST
-  | UnparsedObject;
-export const NETWORK_TEST = "network_test";
+export type SyntheticsNetworkTestResponseType = typeof NETWORK_TEST | UnparsedObject;
+export const NETWORK_TEST = 'network_test';

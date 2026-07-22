@@ -5,23 +5,28 @@
  */
 import { CommitmentsUnit } from "./CommitmentsUnit";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A timeseries metric containing timestamps, series values, and optional unit metadata.
- */
+*/
 export class CommitmentsTimeseriesMetric {
   /**
    * Timeseries data as a map of series names to their corresponding value arrays.
-   */
-  "series": { [key: string]: Array<number> };
+  */
+  "series": { [key: string]: Array<number>; };
   /**
    * Unix timestamps in seconds for the timeseries data points.
-   */
+  */
   "times": Array<number>;
   /**
    * Unit metadata for a numeric metric.
-   */
+  */
   "unit"?: CommitmentsUnit;
 
   /**
@@ -29,7 +34,7 @@ export class CommitmentsTimeseriesMetric {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,19 +45,19 @@ export class CommitmentsTimeseriesMetric {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    series: {
-      baseName: "series",
-      type: "{ [key: string]: Array<number>; }",
-      required: true,
+    "series": {
+      "baseName": "series",
+      "type": "{ [key: string]: Array<number>; }",
+      "required": true,
     },
-    times: {
-      baseName: "times",
-      type: "Array<number>",
-      required: true,
+    "times": {
+      "baseName": "times",
+      "type": "Array<number>",
+      "required": true,
     },
-    unit: {
-      baseName: "unit",
-      type: "CommitmentsUnit",
+    "unit": {
+      "baseName": "unit",
+      "type": "CommitmentsUnit",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class CommitmentsTimeseriesMetric {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CommitmentsTimeseriesMetric.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

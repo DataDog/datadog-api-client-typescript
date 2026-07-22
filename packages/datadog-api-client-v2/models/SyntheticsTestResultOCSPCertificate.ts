@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Certificate details returned in an OCSP response.
- */
+*/
 export class SyntheticsTestResultOCSPCertificate {
   /**
    * Reason code for the revocation, when applicable.
-   */
+  */
   "revocationReason"?: string;
   /**
    * Unix timestamp (ms) of the revocation.
-   */
+  */
   "revocationTime"?: number;
   /**
    * Serial number of the certificate.
-   */
+  */
   "serialNumber"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class SyntheticsTestResultOCSPCertificate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,18 +44,18 @@ export class SyntheticsTestResultOCSPCertificate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    revocationReason: {
-      baseName: "revocation_reason",
-      type: "string",
+    "revocationReason": {
+      "baseName": "revocation_reason",
+      "type": "string",
     },
-    revocationTime: {
-      baseName: "revocation_time",
-      type: "number",
-      format: "int64",
+    "revocationTime": {
+      "baseName": "revocation_time",
+      "type": "number",
+      "format": "int64",
     },
-    serialNumber: {
-      baseName: "serial_number",
-      type: "string",
+    "serialNumber": {
+      "baseName": "serial_number",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class SyntheticsTestResultOCSPCertificate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultOCSPCertificate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

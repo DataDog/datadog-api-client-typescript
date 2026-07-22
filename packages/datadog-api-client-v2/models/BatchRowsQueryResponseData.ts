@@ -6,23 +6,28 @@
 import { BatchRowsQueryDataType } from "./BatchRowsQueryDataType";
 import { BatchRowsQueryResponseDataRelationships } from "./BatchRowsQueryResponseDataRelationships";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for a batch rows query response.
- */
+*/
 export class BatchRowsQueryResponseData {
   /**
    * Unique identifier of the batch query.
-   */
+  */
   "id"?: string;
   /**
    * Relationships of the batch rows query response data.
-   */
+  */
   "relationships"?: BatchRowsQueryResponseDataRelationships;
   /**
    * Resource type identifier for batch queries of reference table rows.
-   */
+  */
   "type": BatchRowsQueryDataType;
 
   /**
@@ -30,7 +35,7 @@ export class BatchRowsQueryResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class BatchRowsQueryResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "BatchRowsQueryResponseDataRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "BatchRowsQueryResponseDataRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "BatchRowsQueryDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "BatchRowsQueryDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class BatchRowsQueryResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return BatchRowsQueryResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

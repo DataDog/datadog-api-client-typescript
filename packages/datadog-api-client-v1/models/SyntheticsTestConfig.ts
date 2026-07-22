@@ -8,27 +8,32 @@ import { SyntheticsBrowserVariable } from "./SyntheticsBrowserVariable";
 import { SyntheticsConfigVariable } from "./SyntheticsConfigVariable";
 import { SyntheticsTestRequest } from "./SyntheticsTestRequest";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Configuration object for a Synthetic test.
- */
+*/
 export class SyntheticsTestConfig {
   /**
    * Array of assertions used for the test. Required for single API tests.
-   */
+  */
   "assertions"?: Array<SyntheticsAssertion>;
   /**
    * Array of variables used for the test.
-   */
+  */
   "configVariables"?: Array<SyntheticsConfigVariable>;
   /**
    * Object describing the Synthetic test request.
-   */
+  */
   "request"?: SyntheticsTestRequest;
   /**
    * Browser tests only - array of variables used for the test steps.
-   */
+  */
   "variables"?: Array<SyntheticsBrowserVariable>;
 
   /**
@@ -36,7 +41,7 @@ export class SyntheticsTestConfig {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,21 +52,21 @@ export class SyntheticsTestConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    assertions: {
-      baseName: "assertions",
-      type: "Array<SyntheticsAssertion>",
+    "assertions": {
+      "baseName": "assertions",
+      "type": "Array<SyntheticsAssertion>",
     },
-    configVariables: {
-      baseName: "configVariables",
-      type: "Array<SyntheticsConfigVariable>",
+    "configVariables": {
+      "baseName": "configVariables",
+      "type": "Array<SyntheticsConfigVariable>",
     },
-    request: {
-      baseName: "request",
-      type: "SyntheticsTestRequest",
+    "request": {
+      "baseName": "request",
+      "type": "SyntheticsTestRequest",
     },
-    variables: {
-      baseName: "variables",
-      type: "Array<SyntheticsBrowserVariable>",
+    "variables": {
+      "baseName": "variables",
+      "type": "Array<SyntheticsBrowserVariable>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -73,8 +78,34 @@ export class SyntheticsTestConfig {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestConfig.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

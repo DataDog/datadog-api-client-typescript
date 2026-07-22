@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Sort configuration for a project board column.
- */
+*/
 export class ProjectColumnsConfigColumnsItemsSort {
   /**
    * Whether to sort in ascending order.
-   */
+  */
   "ascending"?: boolean;
   /**
    * The sort priority order for this column.
-   */
+  */
   "priority"?: number;
 
   /**
@@ -24,7 +29,7 @@ export class ProjectColumnsConfigColumnsItemsSort {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,14 +40,14 @@ export class ProjectColumnsConfigColumnsItemsSort {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    ascending: {
-      baseName: "ascending",
-      type: "boolean",
+    "ascending": {
+      "baseName": "ascending",
+      "type": "boolean",
     },
-    priority: {
-      baseName: "priority",
-      type: "number",
-      format: "int64",
+    "priority": {
+      "baseName": "priority",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class ProjectColumnsConfigColumnsItemsSort {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProjectColumnsConfigColumnsItemsSort.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

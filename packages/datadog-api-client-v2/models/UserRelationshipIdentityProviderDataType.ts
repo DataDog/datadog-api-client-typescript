@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The resource type for identity providers.
- */
+*/
 
-export type UserRelationshipIdentityProviderDataType =
-  | typeof IDENTITY_PROVIDERS
-  | UnparsedObject;
-export const IDENTITY_PROVIDERS = "identity_providers";
+export type UserRelationshipIdentityProviderDataType = typeof IDENTITY_PROVIDERS | UnparsedObject;
+export const IDENTITY_PROVIDERS = 'identity_providers';

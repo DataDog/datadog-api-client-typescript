@@ -6,19 +6,24 @@
 import { ProductAnalyticsOccurrenceQueryDataSource } from "./ProductAnalyticsOccurrenceQueryDataSource";
 import { ProductAnalyticsOccurrenceSearch } from "./ProductAnalyticsOccurrenceSearch";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A Product Analytics occurrence-filtered query.
- */
+*/
 export class ProductAnalyticsOccurrenceQuery {
   /**
    * The data source identifier for occurrence queries.
-   */
+  */
   "dataSource": ProductAnalyticsOccurrenceQueryDataSource;
   /**
    * Search parameters for an occurrence query.
-   */
+  */
   "search": ProductAnalyticsOccurrenceSearch;
 
   /**
@@ -26,7 +31,7 @@ export class ProductAnalyticsOccurrenceQuery {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class ProductAnalyticsOccurrenceQuery {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    dataSource: {
-      baseName: "data_source",
-      type: "ProductAnalyticsOccurrenceQueryDataSource",
-      required: true,
+    "dataSource": {
+      "baseName": "data_source",
+      "type": "ProductAnalyticsOccurrenceQueryDataSource",
+      "required": true,
     },
-    search: {
-      baseName: "search",
-      type: "ProductAnalyticsOccurrenceSearch",
-      required: true,
+    "search": {
+      "baseName": "search",
+      "type": "ProductAnalyticsOccurrenceSearch",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class ProductAnalyticsOccurrenceQuery {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProductAnalyticsOccurrenceQuery.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

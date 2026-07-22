@@ -5,23 +5,28 @@
  */
 import { OpsgenieServiceRegionType } from "./OpsgenieServiceRegionType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes from an Opsgenie service response.
- */
+*/
 export class OpsgenieServiceResponseAttributes {
   /**
    * The custom URL for a custom region.
-   */
+  */
   "customUrl"?: string;
   /**
    * The name for the Opsgenie service.
-   */
+  */
   "name"?: string;
   /**
    * The region for the Opsgenie service.
-   */
+  */
   "region"?: OpsgenieServiceRegionType;
 
   /**
@@ -29,7 +34,7 @@ export class OpsgenieServiceResponseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,17 +45,17 @@ export class OpsgenieServiceResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    customUrl: {
-      baseName: "custom_url",
-      type: "string",
+    "customUrl": {
+      "baseName": "custom_url",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    region: {
-      baseName: "region",
-      type: "OpsgenieServiceRegionType",
+    "region": {
+      "baseName": "region",
+      "type": "OpsgenieServiceRegionType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class OpsgenieServiceResponseAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OpsgenieServiceResponseAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

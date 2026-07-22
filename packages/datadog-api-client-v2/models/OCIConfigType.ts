@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of OCI config.
- */
+*/
 
 export type OCIConfigType = typeof OCI_CONFIG | UnparsedObject;
-export const OCI_CONFIG = "oci_config";
+export const OCI_CONFIG = 'oci_config';

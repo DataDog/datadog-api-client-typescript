@@ -6,23 +6,28 @@
 import { NodeTypesResponseDataAttributes } from "./NodeTypesResponseDataAttributes";
 import { NodeTypesResponseDataType } from "./NodeTypesResponseDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The primary data object in the node types response.
- */
+*/
 export class NodeTypesResponseData {
   /**
    * The attributes of the node types response, containing the list of node type definitions for the requested language.
-   */
+  */
   "attributes": NodeTypesResponseDataAttributes;
   /**
    * The unique identifier of the node types response resource.
-   */
+  */
   "id": string;
   /**
    * Get node types response resource type.
-   */
+  */
   "type": NodeTypesResponseDataType;
 
   /**
@@ -30,7 +35,7 @@ export class NodeTypesResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class NodeTypesResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "NodeTypesResponseDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "NodeTypesResponseDataAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "NodeTypesResponseDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "NodeTypesResponseDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class NodeTypesResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return NodeTypesResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

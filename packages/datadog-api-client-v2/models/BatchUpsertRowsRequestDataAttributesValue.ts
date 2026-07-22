@@ -4,13 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Types allowed for Reference Table row values.
- */
+*/
 
-export type BatchUpsertRowsRequestDataAttributesValue =
-  | string
-  | number
-  | UnparsedObject;
+export type BatchUpsertRowsRequestDataAttributesValue = string | number | UnparsedObject;

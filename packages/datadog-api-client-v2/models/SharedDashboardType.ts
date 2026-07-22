@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Shared dashboard resource type.
- */
+*/
 
 export type SharedDashboardType = typeof SHARED_DASHBOARD | UnparsedObject;
-export const SHARED_DASHBOARD = "shared_dashboard";
+export const SHARED_DASHBOARD = 'shared_dashboard';

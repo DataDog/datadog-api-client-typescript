@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Resource type returned by the access tokens list endpoint. Includes both personal and service access tokens.
- */
+*/
 
-export type AccessTokensType =
-  | typeof PERSONAL_ACCESS_TOKENS
-  | typeof SERVICE_ACCESS_TOKENS
-  | UnparsedObject;
-export const PERSONAL_ACCESS_TOKENS = "personal_access_tokens";
-export const SERVICE_ACCESS_TOKENS = "service_access_tokens";
+export type AccessTokensType = typeof PERSONAL_ACCESS_TOKENS| typeof SERVICE_ACCESS_TOKENS | UnparsedObject;
+export const PERSONAL_ACCESS_TOKENS = 'personal_access_tokens';
+export const SERVICE_ACCESS_TOKENS = 'service_access_tokens';

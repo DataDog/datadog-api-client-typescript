@@ -5,19 +5,24 @@
  */
 import { EventsAggregation } from "./EventsAggregation";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Compute aggregation for network queries.
- */
+*/
 export class SankeyNetworkQueryCompute {
   /**
    * The type of aggregation that can be performed on events-based queries.
-   */
+  */
   "aggregation": EventsAggregation;
   /**
    * Metric to aggregate.
-   */
+  */
   "metric": string;
 
   /**
@@ -29,24 +34,50 @@ export class SankeyNetworkQueryCompute {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregation: {
-      baseName: "aggregation",
-      type: "EventsAggregation",
-      required: true,
+    "aggregation": {
+      "baseName": "aggregation",
+      "type": "EventsAggregation",
+      "required": true,
     },
-    metric: {
-      baseName: "metric",
-      type: "string",
-      required: true,
-    },
+    "metric": {
+      "baseName": "metric",
+      "type": "string",
+      "required": true,
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SankeyNetworkQueryCompute.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

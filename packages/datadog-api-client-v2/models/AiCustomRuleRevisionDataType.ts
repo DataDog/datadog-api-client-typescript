@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * AI custom rule revision resource type.
- */
+*/
 
-export type AiCustomRuleRevisionDataType =
-  | typeof AI_RULE_REVISION
-  | UnparsedObject;
-export const AI_RULE_REVISION = "ai_rule_revision";
+export type AiCustomRuleRevisionDataType = typeof AI_RULE_REVISION | UnparsedObject;
+export const AI_RULE_REVISION = 'ai_rule_revision';

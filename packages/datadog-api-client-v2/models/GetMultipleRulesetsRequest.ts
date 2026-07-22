@@ -5,15 +5,20 @@
  */
 import { GetMultipleRulesetsRequestData } from "./GetMultipleRulesetsRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The request payload for retrieving rules for multiple rulesets in a single batch call.
- */
+*/
 export class GetMultipleRulesetsRequest {
   /**
    * The primary data object in the get-multiple-rulesets request, containing request attributes and resource type.
-   */
+  */
   "data"?: GetMultipleRulesetsRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class GetMultipleRulesetsRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class GetMultipleRulesetsRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "GetMultipleRulesetsRequestData",
+    "data": {
+      "baseName": "data",
+      "type": "GetMultipleRulesetsRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class GetMultipleRulesetsRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GetMultipleRulesetsRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

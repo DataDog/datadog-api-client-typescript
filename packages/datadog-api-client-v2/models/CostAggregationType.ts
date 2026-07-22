@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Controls how costs are aggregated when using `start_date`. The `cumulative` option returns month-to-date running totals.
- */
+*/
 
 export type CostAggregationType = typeof CUMULATIVE | UnparsedObject;
-export const CUMULATIVE = "cumulative";
+export const CUMULATIVE = 'cumulative';

@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Data source for SLO measures queries.
- */
+*/
 
 export type FormulaAndFunctionSLODataSource = typeof SLO | UnparsedObject;
-export const SLO = "slo";
+export const SLO = 'slo';

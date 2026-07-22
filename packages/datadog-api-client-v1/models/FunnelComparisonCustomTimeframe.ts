@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Custom timeframe for funnel comparison.
- */
+*/
 export class FunnelComparisonCustomTimeframe {
   /**
    * Start of the custom timeframe.
-   */
+  */
   "from": number;
   /**
    * End of the custom timeframe.
-   */
+  */
   "to": number;
 
   /**
@@ -28,26 +33,52 @@ export class FunnelComparisonCustomTimeframe {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    from: {
-      baseName: "from",
-      type: "number",
-      required: true,
-      format: "double",
+    "from": {
+      "baseName": "from",
+      "type": "number",
+      "required": true,
+      "format": "double",
     },
-    to: {
-      baseName: "to",
-      type: "number",
-      required: true,
-      format: "double",
-    },
+    "to": {
+      "baseName": "to",
+      "type": "number",
+      "required": true,
+      "format": "double",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FunnelComparisonCustomTimeframe.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

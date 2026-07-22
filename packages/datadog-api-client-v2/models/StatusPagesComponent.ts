@@ -6,19 +6,24 @@
 import { StatusPagesComponentArrayIncluded } from "./StatusPagesComponentArrayIncluded";
 import { StatusPagesComponentData } from "./StatusPagesComponentData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object for a single component.
- */
+*/
 export class StatusPagesComponent {
   /**
    * The data object for a component.
-   */
+  */
   "data"?: StatusPagesComponentData;
   /**
    * The included related resources of a component. Client must explicitly request these resources by name in the `include` query parameter.
-   */
+  */
   "included"?: Array<StatusPagesComponentArrayIncluded>;
 
   /**
@@ -26,7 +31,7 @@ export class StatusPagesComponent {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class StatusPagesComponent {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "StatusPagesComponentData",
+    "data": {
+      "baseName": "data",
+      "type": "StatusPagesComponentData",
     },
-    included: {
-      baseName: "included",
-      type: "Array<StatusPagesComponentArrayIncluded>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<StatusPagesComponentArrayIncluded>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class StatusPagesComponent {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return StatusPagesComponent.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Team notification rule type
- */
+*/
 
-export type TeamNotificationRuleType =
-  | typeof TEAM_NOTIFICATION_RULES
-  | UnparsedObject;
-export const TEAM_NOTIFICATION_RULES = "team_notification_rules";
+export type TeamNotificationRuleType = typeof TEAM_NOTIFICATION_RULES | UnparsedObject;
+export const TEAM_NOTIFICATION_RULES = 'team_notification_rules';

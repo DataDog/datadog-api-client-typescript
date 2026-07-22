@@ -4,39 +4,44 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of an access token.
- */
+*/
 export class PersonalAccessTokenAttributes {
   /**
    * Creation date of the access token.
-   */
+  */
   "createdAt"?: Date;
   /**
    * Expiration date of the access token.
-   */
+  */
   "expiresAt"?: Date;
   /**
    * Date the access token was last used.
-   */
+  */
   "lastUsedAt"?: Date;
   /**
    * Date of last modification of the access token.
-   */
+  */
   "modifiedAt"?: Date;
   /**
    * Name of the access token.
-   */
+  */
   "name"?: string;
   /**
    * The public portion of the access token.
-   */
+  */
   "publicPortion"?: string;
   /**
    * Array of scopes granted to the access token.
-   */
+  */
   "scopes"?: Array<string>;
 
   /**
@@ -44,7 +49,7 @@ export class PersonalAccessTokenAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -55,37 +60,37 @@ export class PersonalAccessTokenAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    expiresAt: {
-      baseName: "expires_at",
-      type: "Date",
-      format: "date-time",
+    "expiresAt": {
+      "baseName": "expires_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    lastUsedAt: {
-      baseName: "last_used_at",
-      type: "Date",
-      format: "date-time",
+    "lastUsedAt": {
+      "baseName": "last_used_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "Date",
-      format: "date-time",
+    "modifiedAt": {
+      "baseName": "modified_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    publicPortion: {
-      baseName: "public_portion",
-      type: "string",
+    "publicPortion": {
+      "baseName": "public_portion",
+      "type": "string",
     },
-    scopes: {
-      baseName: "scopes",
-      type: "Array<string>",
+    "scopes": {
+      "baseName": "scopes",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -97,8 +102,34 @@ export class PersonalAccessTokenAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PersonalAccessTokenAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

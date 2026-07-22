@@ -5,25 +5,30 @@
  */
 import { DatasetResponse } from "./DatasetResponse";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a single dataset object.
- */
+*/
 export class DatasetResponseSingle {
   /**
    * **Datasets Object Constraints**
    * - **Tag Limit per Dataset**:
    *   - Each restricted dataset supports a maximum of 10 key:value pairs per product.
-   *
+   * 
    * - **Tag Key Rules per Telemetry Type**:
    *   - Only one tag key or attribute may be used to define access within a single telemetry type.
    *   - The same or different tag key may be used across different telemetry types.
-   *
+   * 
    * - **Tag Value Uniqueness**:
    *   - Tag values must be unique within a single dataset.
    *   - A tag value used in one dataset cannot be reused in another dataset of the same telemetry type.
-   */
+  */
   "data"?: DatasetResponse;
 
   /**
@@ -31,7 +36,7 @@ export class DatasetResponseSingle {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,9 +47,9 @@ export class DatasetResponseSingle {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "DatasetResponse",
+    "data": {
+      "baseName": "data",
+      "type": "DatasetResponse",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class DatasetResponseSingle {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DatasetResponseSingle.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

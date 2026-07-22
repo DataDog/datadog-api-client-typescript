@@ -6,13 +6,15 @@
 import { DowntimeScheduleOneTimeCreateUpdateRequest } from "./DowntimeScheduleOneTimeCreateUpdateRequest";
 import { DowntimeScheduleRecurrencesUpdateRequest } from "./DowntimeScheduleRecurrencesUpdateRequest";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Schedule for the downtime.
- */
+*/
 
-export type DowntimeScheduleUpdateRequest =
-  | DowntimeScheduleRecurrencesUpdateRequest
-  | DowntimeScheduleOneTimeCreateUpdateRequest
-  | UnparsedObject;
+export type DowntimeScheduleUpdateRequest = DowntimeScheduleRecurrencesUpdateRequest | DowntimeScheduleOneTimeCreateUpdateRequest | UnparsedObject;

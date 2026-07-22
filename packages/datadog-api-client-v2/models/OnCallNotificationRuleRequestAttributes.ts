@@ -6,23 +6,28 @@
 import { OnCallNotificationRuleCategory } from "./OnCallNotificationRuleCategory";
 import { OnCallNotificationRuleChannelSettings } from "./OnCallNotificationRuleChannelSettings";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for creating or modifying an on-call notification rule.
- */
+*/
 export class OnCallNotificationRuleRequestAttributes {
   /**
    * Specifies the category a notification rule will apply to
-   */
+  */
   "category"?: OnCallNotificationRuleCategory;
   /**
    * Defines the configuration for a channel associated with a notification rule
-   */
+  */
   "channelSettings"?: OnCallNotificationRuleChannelSettings;
   /**
    * The number of minutes that will elapse before this rule is evaluated.  0 indicates immediate evaluation
-   */
+  */
   "delayMinutes"?: number;
 
   /**
@@ -30,7 +35,7 @@ export class OnCallNotificationRuleRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class OnCallNotificationRuleRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    category: {
-      baseName: "category",
-      type: "OnCallNotificationRuleCategory",
+    "category": {
+      "baseName": "category",
+      "type": "OnCallNotificationRuleCategory",
     },
-    channelSettings: {
-      baseName: "channel_settings",
-      type: "OnCallNotificationRuleChannelSettings",
+    "channelSettings": {
+      "baseName": "channel_settings",
+      "type": "OnCallNotificationRuleChannelSettings",
     },
-    delayMinutes: {
-      baseName: "delay_minutes",
-      type: "number",
-      format: "int64",
+    "delayMinutes": {
+      "baseName": "delay_minutes",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class OnCallNotificationRuleRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OnCallNotificationRuleRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

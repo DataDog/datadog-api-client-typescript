@@ -8,43 +8,48 @@ import { AutomationRuleModifiedBy } from "./AutomationRuleModifiedBy";
 import { AutomationRuleScope } from "./AutomationRuleScope";
 import { MuteRuleAction } from "./MuteRuleAction";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a mute rule returned by the API.
- */
+*/
 export class MuteRuleAttributesResponse {
   /**
    * The action to take when the mute rule matches a finding.
-   */
+  */
   "action": MuteRuleAction;
   /**
    * The Unix timestamp in milliseconds when the rule was created.
-   */
+  */
   "createdAt": number;
   /**
    * The user or Datadog system who created the rule.
-   */
+  */
   "createdBy": AutomationRuleCreatedBy;
   /**
    * Whether the mute rule is enabled.
-   */
+  */
   "enabled": boolean;
   /**
    * The Unix timestamp in milliseconds when the rule was last modified.
-   */
+  */
   "modifiedAt": number;
   /**
    * The user or Datadog system who last modified the rule.
-   */
+  */
   "modifiedBy": AutomationRuleModifiedBy;
   /**
    * The name of the mute rule.
-   */
+  */
   "name": string;
   /**
    * Defines the scope of findings to which the automation rule applies.
-   */
+  */
   "rule": AutomationRuleScope;
 
   /**
@@ -52,7 +57,7 @@ export class MuteRuleAttributesResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -63,47 +68,47 @@ export class MuteRuleAttributesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    action: {
-      baseName: "action",
-      type: "MuteRuleAction",
-      required: true,
+    "action": {
+      "baseName": "action",
+      "type": "MuteRuleAction",
+      "required": true,
     },
-    createdAt: {
-      baseName: "created_at",
-      type: "number",
-      required: true,
-      format: "int64",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    createdBy: {
-      baseName: "created_by",
-      type: "AutomationRuleCreatedBy",
-      required: true,
+    "createdBy": {
+      "baseName": "created_by",
+      "type": "AutomationRuleCreatedBy",
+      "required": true,
     },
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
-      required: true,
+    "enabled": {
+      "baseName": "enabled",
+      "type": "boolean",
+      "required": true,
     },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "number",
-      required: true,
-      format: "int64",
+    "modifiedAt": {
+      "baseName": "modified_at",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    modifiedBy: {
-      baseName: "modified_by",
-      type: "AutomationRuleModifiedBy",
-      required: true,
+    "modifiedBy": {
+      "baseName": "modified_by",
+      "type": "AutomationRuleModifiedBy",
+      "required": true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    rule: {
-      baseName: "rule",
-      type: "AutomationRuleScope",
-      required: true,
+    "rule": {
+      "baseName": "rule",
+      "type": "AutomationRuleScope",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -115,8 +120,34 @@ export class MuteRuleAttributesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MuteRuleAttributesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

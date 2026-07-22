@@ -6,31 +6,36 @@
 import { MonitorFormulaAndFunctionReferenceTableColumn } from "./MonitorFormulaAndFunctionReferenceTableColumn";
 import { MonitorFormulaAndFunctionReferenceTableDataSource } from "./MonitorFormulaAndFunctionReferenceTableDataSource";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A reference table query for use in aggregate queries.
- */
+*/
 export class MonitorFormulaAndFunctionReferenceTableQueryDefinition {
   /**
    * List of columns to retrieve from the reference table.
-   */
+  */
   "columns"?: Array<MonitorFormulaAndFunctionReferenceTableColumn>;
   /**
    * Data source for reference table queries.
-   */
+  */
   "dataSource": MonitorFormulaAndFunctionReferenceTableDataSource;
   /**
    * Name of the query.
-   */
+  */
   "name"?: string;
   /**
    * Optional filter expression for the reference table query.
-   */
+  */
   "queryFilter"?: string;
   /**
    * Name of the reference table.
-   */
+  */
   "tableName": string;
 
   /**
@@ -42,36 +47,62 @@ export class MonitorFormulaAndFunctionReferenceTableQueryDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    columns: {
-      baseName: "columns",
-      type: "Array<MonitorFormulaAndFunctionReferenceTableColumn>",
+    "columns": {
+      "baseName": "columns",
+      "type": "Array<MonitorFormulaAndFunctionReferenceTableColumn>",
     },
-    dataSource: {
-      baseName: "data_source",
-      type: "MonitorFormulaAndFunctionReferenceTableDataSource",
-      required: true,
+    "dataSource": {
+      "baseName": "data_source",
+      "type": "MonitorFormulaAndFunctionReferenceTableDataSource",
+      "required": true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    queryFilter: {
-      baseName: "query_filter",
-      type: "string",
+    "queryFilter": {
+      "baseName": "query_filter",
+      "type": "string",
     },
-    tableName: {
-      baseName: "table_name",
-      type: "string",
-      required: true,
-    },
+    "tableName": {
+      "baseName": "table_name",
+      "type": "string",
+      "required": true,
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorFormulaAndFunctionReferenceTableQueryDefinition.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

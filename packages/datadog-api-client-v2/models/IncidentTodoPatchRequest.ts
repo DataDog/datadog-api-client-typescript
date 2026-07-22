@@ -5,15 +5,20 @@
  */
 import { IncidentTodoPatchData } from "./IncidentTodoPatchData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Patch request for an incident todo.
- */
+*/
 export class IncidentTodoPatchRequest {
   /**
    * Incident todo data for a patch request.
-   */
+  */
   "data": IncidentTodoPatchData;
 
   /**
@@ -21,7 +26,7 @@ export class IncidentTodoPatchRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class IncidentTodoPatchRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "IncidentTodoPatchData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "IncidentTodoPatchData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class IncidentTodoPatchRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentTodoPatchRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

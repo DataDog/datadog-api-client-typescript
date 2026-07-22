@@ -6,19 +6,24 @@
 import { LogsRestrictionQueriesType } from "./LogsRestrictionQueriesType";
 import { RestrictionQueryCreateAttributes } from "./RestrictionQueryCreateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data related to the creation of a restriction query.
- */
+*/
 export class RestrictionQueryCreateData {
   /**
    * Attributes of the created restriction query.
-   */
+  */
   "attributes"?: RestrictionQueryCreateAttributes;
   /**
    * Restriction query resource type.
-   */
+  */
   "type"?: LogsRestrictionQueriesType;
 
   /**
@@ -26,7 +31,7 @@ export class RestrictionQueryCreateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class RestrictionQueryCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RestrictionQueryCreateAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "RestrictionQueryCreateAttributes",
     },
-    type: {
-      baseName: "type",
-      type: "LogsRestrictionQueriesType",
+    "type": {
+      "baseName": "type",
+      "type": "LogsRestrictionQueriesType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class RestrictionQueryCreateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RestrictionQueryCreateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

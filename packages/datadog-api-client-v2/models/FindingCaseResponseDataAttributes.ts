@@ -9,91 +9,96 @@ import { FindingLinearIssue } from "./FindingLinearIssue";
 import { FindingServiceNowTicket } from "./FindingServiceNowTicket";
 import { RelationshipToUser } from "./RelationshipToUser";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of the case.
- */
+*/
 export class FindingCaseResponseDataAttributes {
   /**
    * Timestamp of when the case was archived.
-   */
+  */
   "archivedAt"?: Date;
   /**
    * Relationship to user.
-   */
+  */
   "assignedTo"?: RelationshipToUser;
   /**
    * Custom attributes associated with the case as key-value pairs where values are string arrays.
-   */
-  "attributes"?: { [key: string]: Array<string> };
+  */
+  "attributes"?: { [key: string]: Array<string>; };
   /**
    * Timestamp of when the case was closed.
-   */
+  */
   "closedAt"?: Date;
   /**
    * Timestamp of when the case was created.
-   */
+  */
   "createdAt"?: Date;
   /**
    * Source of the case creation.
-   */
+  */
   "creationSource"?: string;
   /**
    * Description of the case.
-   */
+  */
   "description"?: string;
   /**
    * Due date of the case.
-   */
+  */
   "dueDate"?: string;
   /**
    * Insights of the case.
-   */
+  */
   "insights"?: Array<CaseInsightsItems>;
   /**
    * Jira issue associated with the case.
-   */
+  */
   "jiraIssue"?: FindingJiraIssue;
   /**
    * Key of the case.
-   */
+  */
   "key"?: string;
   /**
    * Linear issue associated with the case.
-   */
+  */
   "linearIssue"?: FindingLinearIssue;
   /**
    * Timestamp of when the case was last modified.
-   */
+  */
   "modifiedAt"?: Date;
   /**
    * Priority of the case.
-   */
+  */
   "priority"?: string;
   /**
    * ServiceNow ticket associated with the case.
-   */
+  */
   "servicenowTicket"?: FindingServiceNowTicket;
   /**
    * Status of the case.
-   */
+  */
   "status"?: string;
   /**
    * Status group of the case.
-   */
+  */
   "statusGroup"?: string;
   /**
    * Status name of the case.
-   */
+  */
   "statusName"?: string;
   /**
    * Title of the case.
-   */
+  */
   "title"?: string;
   /**
    * Type of the case. For security cases, this is always "SECURITY".
-   */
+  */
   "type"?: string;
 
   /**
@@ -101,7 +106,7 @@ export class FindingCaseResponseDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -112,89 +117,89 @@ export class FindingCaseResponseDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    archivedAt: {
-      baseName: "archived_at",
-      type: "Date",
-      format: "date-time",
+    "archivedAt": {
+      "baseName": "archived_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    assignedTo: {
-      baseName: "assigned_to",
-      type: "RelationshipToUser",
+    "assignedTo": {
+      "baseName": "assigned_to",
+      "type": "RelationshipToUser",
     },
-    attributes: {
-      baseName: "attributes",
-      type: "{ [key: string]: Array<string>; }",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "{ [key: string]: Array<string>; }",
     },
-    closedAt: {
-      baseName: "closed_at",
-      type: "Date",
-      format: "date-time",
+    "closedAt": {
+      "baseName": "closed_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    creationSource: {
-      baseName: "creation_source",
-      type: "string",
+    "creationSource": {
+      "baseName": "creation_source",
+      "type": "string",
     },
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    dueDate: {
-      baseName: "due_date",
-      type: "string",
+    "dueDate": {
+      "baseName": "due_date",
+      "type": "string",
     },
-    insights: {
-      baseName: "insights",
-      type: "Array<CaseInsightsItems>",
+    "insights": {
+      "baseName": "insights",
+      "type": "Array<CaseInsightsItems>",
     },
-    jiraIssue: {
-      baseName: "jira_issue",
-      type: "FindingJiraIssue",
+    "jiraIssue": {
+      "baseName": "jira_issue",
+      "type": "FindingJiraIssue",
     },
-    key: {
-      baseName: "key",
-      type: "string",
+    "key": {
+      "baseName": "key",
+      "type": "string",
     },
-    linearIssue: {
-      baseName: "linear_issue",
-      type: "FindingLinearIssue",
+    "linearIssue": {
+      "baseName": "linear_issue",
+      "type": "FindingLinearIssue",
     },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "Date",
-      format: "date-time",
+    "modifiedAt": {
+      "baseName": "modified_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    priority: {
-      baseName: "priority",
-      type: "string",
+    "priority": {
+      "baseName": "priority",
+      "type": "string",
     },
-    servicenowTicket: {
-      baseName: "servicenow_ticket",
-      type: "FindingServiceNowTicket",
+    "servicenowTicket": {
+      "baseName": "servicenow_ticket",
+      "type": "FindingServiceNowTicket",
     },
-    status: {
-      baseName: "status",
-      type: "string",
+    "status": {
+      "baseName": "status",
+      "type": "string",
     },
-    statusGroup: {
-      baseName: "status_group",
-      type: "string",
+    "statusGroup": {
+      "baseName": "status_group",
+      "type": "string",
     },
-    statusName: {
-      baseName: "status_name",
-      type: "string",
+    "statusName": {
+      "baseName": "status_name",
+      "type": "string",
     },
-    title: {
-      baseName: "title",
-      type: "string",
+    "title": {
+      "baseName": "title",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -206,8 +211,34 @@ export class FindingCaseResponseDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FindingCaseResponseDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

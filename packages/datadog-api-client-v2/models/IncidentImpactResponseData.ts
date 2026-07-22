@@ -7,27 +7,32 @@ import { IncidentImpactAttributes } from "./IncidentImpactAttributes";
 import { IncidentImpactRelationships } from "./IncidentImpactRelationships";
 import { IncidentImpactType } from "./IncidentImpactType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Incident impact data from a response.
- */
+*/
 export class IncidentImpactResponseData {
   /**
    * The incident impact's attributes.
-   */
+  */
   "attributes"?: IncidentImpactAttributes;
   /**
    * The incident impact's ID.
-   */
+  */
   "id": string;
   /**
    * The incident impact's resource relationships.
-   */
+  */
   "relationships"?: IncidentImpactRelationships;
   /**
    * Incident impact resource type.
-   */
+  */
   "type": IncidentImpactType;
 
   /**
@@ -35,7 +40,7 @@ export class IncidentImpactResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,23 +51,23 @@ export class IncidentImpactResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "IncidentImpactAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "IncidentImpactAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "IncidentImpactRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "IncidentImpactRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "IncidentImpactType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "IncidentImpactType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,8 +79,34 @@ export class IncidentImpactResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentImpactResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

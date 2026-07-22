@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of logs schema processor.
- */
+*/
 
 export type LogsSchemaProcessorType = typeof SCHEMA_PROCESSOR | UnparsedObject;
-export const SCHEMA_PROCESSOR = "schema-processor";
+export const SCHEMA_PROCESSOR = 'schema-processor';

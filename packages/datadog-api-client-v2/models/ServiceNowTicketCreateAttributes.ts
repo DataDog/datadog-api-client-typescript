@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * ServiceNow ticket creation attributes
- */
+*/
 export class ServiceNowTicketCreateAttributes {
   /**
    * ServiceNow assignment group
-   */
+  */
   "assignmentGroup"?: string;
   /**
    * ServiceNow instance name
-   */
+  */
   "instanceName": string;
 
   /**
@@ -24,7 +29,7 @@ export class ServiceNowTicketCreateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,14 +40,14 @@ export class ServiceNowTicketCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    assignmentGroup: {
-      baseName: "assignment_group",
-      type: "string",
+    "assignmentGroup": {
+      "baseName": "assignment_group",
+      "type": "string",
     },
-    instanceName: {
-      baseName: "instance_name",
-      type: "string",
-      required: true,
+    "instanceName": {
+      "baseName": "instance_name",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class ServiceNowTicketCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceNowTicketCreateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

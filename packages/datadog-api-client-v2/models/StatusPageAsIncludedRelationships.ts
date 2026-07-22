@@ -6,19 +6,24 @@
 import { StatusPageAsIncludedRelationshipsCreatedByUser } from "./StatusPageAsIncludedRelationshipsCreatedByUser";
 import { StatusPageAsIncludedRelationshipsLastModifiedByUser } from "./StatusPageAsIncludedRelationshipsLastModifiedByUser";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The relationships of a status page.
- */
+*/
 export class StatusPageAsIncludedRelationships {
   /**
    * The Datadog user who created the status page.
-   */
+  */
   "createdByUser"?: StatusPageAsIncludedRelationshipsCreatedByUser;
   /**
    * The Datadog user who last modified the status page.
-   */
+  */
   "lastModifiedByUser"?: StatusPageAsIncludedRelationshipsLastModifiedByUser;
 
   /**
@@ -26,7 +31,7 @@ export class StatusPageAsIncludedRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class StatusPageAsIncludedRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdByUser: {
-      baseName: "created_by_user",
-      type: "StatusPageAsIncludedRelationshipsCreatedByUser",
+    "createdByUser": {
+      "baseName": "created_by_user",
+      "type": "StatusPageAsIncludedRelationshipsCreatedByUser",
     },
-    lastModifiedByUser: {
-      baseName: "last_modified_by_user",
-      type: "StatusPageAsIncludedRelationshipsLastModifiedByUser",
+    "lastModifiedByUser": {
+      "baseName": "last_modified_by_user",
+      "type": "StatusPageAsIncludedRelationshipsLastModifiedByUser",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class StatusPageAsIncludedRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return StatusPageAsIncludedRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of the timeseries widget.
- */
+*/
 
 export type TimeseriesWidgetDefinitionType = typeof TIMESERIES | UnparsedObject;
-export const TIMESERIES = "timeseries";
+export const TIMESERIES = 'timeseries';

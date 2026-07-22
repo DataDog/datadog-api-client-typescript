@@ -6,31 +6,36 @@
 import { GetMultipleRulesetsResponseDataAttributesRulesetsItemsData } from "./GetMultipleRulesetsResponseDataAttributesRulesetsItemsData";
 import { GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems } from "./GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A ruleset returned in the response, containing its metadata and associated rules.
- */
+*/
 export class GetMultipleRulesetsResponseDataAttributesRulesetsItems {
   /**
    * The resource identifier and type for a ruleset.
-   */
+  */
   "data": GetMultipleRulesetsResponseDataAttributesRulesetsItemsData;
   /**
    * A detailed description of the ruleset's purpose and the types of issues it targets.
-   */
+  */
   "description"?: string;
   /**
    * The unique name of the ruleset.
-   */
+  */
   "name"?: string;
   /**
    * The list of static analysis rules included in this ruleset.
-   */
+  */
   "rules"?: Array<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems>;
   /**
    * A brief summary of the ruleset, suitable for display in listings.
-   */
+  */
   "shortDescription"?: string;
 
   /**
@@ -38,7 +43,7 @@ export class GetMultipleRulesetsResponseDataAttributesRulesetsItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -49,26 +54,26 @@ export class GetMultipleRulesetsResponseDataAttributesRulesetsItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "GetMultipleRulesetsResponseDataAttributesRulesetsItemsData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "GetMultipleRulesetsResponseDataAttributesRulesetsItemsData",
+      "required": true,
     },
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    rules: {
-      baseName: "rules",
-      type: "Array<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems>",
+    "rules": {
+      "baseName": "rules",
+      "type": "Array<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems>",
     },
-    shortDescription: {
-      baseName: "short_description",
-      type: "string",
+    "shortDescription": {
+      "baseName": "short_description",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -80,8 +85,34 @@ export class GetMultipleRulesetsResponseDataAttributesRulesetsItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GetMultipleRulesetsResponseDataAttributesRulesetsItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

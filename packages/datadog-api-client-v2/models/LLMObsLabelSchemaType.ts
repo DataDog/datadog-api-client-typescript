@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of a label in an annotation queue label schema.
- */
+*/
 
-export type LLMObsLabelSchemaType =
-  | typeof SCORE
-  | typeof CATEGORICAL
-  | typeof BOOLEAN
-  | typeof TEXT
-  | UnparsedObject;
-export const SCORE = "score";
-export const CATEGORICAL = "categorical";
-export const BOOLEAN = "boolean";
-export const TEXT = "text";
+export type LLMObsLabelSchemaType = typeof SCORE| typeof CATEGORICAL| typeof BOOLEAN| typeof TEXT | UnparsedObject;
+export const SCORE = 'score';
+export const CATEGORICAL = 'categorical';
+export const BOOLEAN = 'boolean';
+export const TEXT = 'text';

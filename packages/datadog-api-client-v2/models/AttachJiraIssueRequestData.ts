@@ -7,23 +7,28 @@ import { AttachJiraIssueRequestDataAttributes } from "./AttachJiraIssueRequestDa
 import { AttachJiraIssueRequestDataRelationships } from "./AttachJiraIssueRequestDataRelationships";
 import { JiraIssuesDataType } from "./JiraIssuesDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data of the Jira issue to attach security findings to.
- */
+*/
 export class AttachJiraIssueRequestData {
   /**
    * Attributes of the Jira issue to attach security findings to.
-   */
+  */
   "attributes"?: AttachJiraIssueRequestDataAttributes;
   /**
    * Relationships of the Jira issue to attach security findings to.
-   */
+  */
   "relationships"?: AttachJiraIssueRequestDataRelationships;
   /**
    * Jira issues resource type.
-   */
+  */
   "type": JiraIssuesDataType;
 
   /**
@@ -31,7 +36,7 @@ export class AttachJiraIssueRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,18 +47,18 @@ export class AttachJiraIssueRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AttachJiraIssueRequestDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AttachJiraIssueRequestDataAttributes",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "AttachJiraIssueRequestDataRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "AttachJiraIssueRequestDataRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "JiraIssuesDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "JiraIssuesDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class AttachJiraIssueRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AttachJiraIssueRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

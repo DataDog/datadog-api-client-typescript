@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An object describing the error with error type and error message.
- */
+*/
 export class SLOHistoryResponseErrorWithType {
   /**
    * A message with more details about the error.
-   */
+  */
   "errorMessage": string;
   /**
    * Type of the error.
-   */
+  */
   "errorType": string;
 
   /**
@@ -24,7 +29,7 @@ export class SLOHistoryResponseErrorWithType {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,15 +40,15 @@ export class SLOHistoryResponseErrorWithType {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    errorMessage: {
-      baseName: "error_message",
-      type: "string",
-      required: true,
+    "errorMessage": {
+      "baseName": "error_message",
+      "type": "string",
+      "required": true,
     },
-    errorType: {
-      baseName: "error_type",
-      type: "string",
-      required: true,
+    "errorType": {
+      "baseName": "error_type",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class SLOHistoryResponseErrorWithType {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SLOHistoryResponseErrorWithType.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

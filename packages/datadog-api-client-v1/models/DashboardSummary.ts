@@ -5,15 +5,20 @@
  */
 import { DashboardSummaryDefinition } from "./DashboardSummaryDefinition";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Dashboard summary response.
- */
+*/
 export class DashboardSummary {
   /**
    * List of dashboard definitions.
-   */
+  */
   "dashboards"?: Array<DashboardSummaryDefinition>;
 
   /**
@@ -21,7 +26,7 @@ export class DashboardSummary {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class DashboardSummary {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    dashboards: {
-      baseName: "dashboards",
-      type: "Array<DashboardSummaryDefinition>",
+    "dashboards": {
+      "baseName": "dashboards",
+      "type": "Array<DashboardSummaryDefinition>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class DashboardSummary {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DashboardSummary.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

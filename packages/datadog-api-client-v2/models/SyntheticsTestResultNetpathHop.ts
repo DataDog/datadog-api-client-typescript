@@ -4,31 +4,36 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A single hop along a network path.
- */
+*/
 export class SyntheticsTestResultNetpathHop {
   /**
    * Resolved hostname of the hop.
-   */
+  */
   "hostname"?: string;
   /**
    * IP address of the hop.
-   */
+  */
   "ipAddress"?: string;
   /**
    * Whether this hop was reachable.
-   */
+  */
   "reachable"?: boolean;
   /**
    * Round-trip time to this hop in milliseconds.
-   */
+  */
   "rtt"?: number;
   /**
    * Time-to-live value of the probe packet at this hop.
-   */
+  */
   "ttl"?: number;
 
   /**
@@ -36,7 +41,7 @@ export class SyntheticsTestResultNetpathHop {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,27 +52,27 @@ export class SyntheticsTestResultNetpathHop {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    hostname: {
-      baseName: "hostname",
-      type: "string",
+    "hostname": {
+      "baseName": "hostname",
+      "type": "string",
     },
-    ipAddress: {
-      baseName: "ip_address",
-      type: "string",
+    "ipAddress": {
+      "baseName": "ip_address",
+      "type": "string",
     },
-    reachable: {
-      baseName: "reachable",
-      type: "boolean",
+    "reachable": {
+      "baseName": "reachable",
+      "type": "boolean",
     },
-    rtt: {
-      baseName: "rtt",
-      type: "number",
-      format: "double",
+    "rtt": {
+      "baseName": "rtt",
+      "type": "number",
+      "format": "double",
     },
-    ttl: {
-      baseName: "ttl",
-      type: "number",
-      format: "int64",
+    "ttl": {
+      "baseName": "ttl",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -79,8 +84,34 @@ export class SyntheticsTestResultNetpathHop {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultNetpathHop.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

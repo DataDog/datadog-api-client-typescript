@@ -6,23 +6,28 @@
 import { ScorecardListResponseAttributes } from "./ScorecardListResponseAttributes";
 import { ScorecardListType } from "./ScorecardListType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Scorecard data.
- */
+*/
 export class ScorecardListResponseData {
   /**
    * Scorecard attributes.
-   */
+  */
   "attributes": ScorecardListResponseAttributes;
   /**
    * The unique ID of the scorecard.
-   */
+  */
   "id": string;
   /**
    * The JSON:API type for scorecard list.
-   */
+  */
   "type": ScorecardListType;
 
   /**
@@ -30,7 +35,7 @@ export class ScorecardListResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class ScorecardListResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ScorecardListResponseAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ScorecardListResponseAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ScorecardListType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ScorecardListType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class ScorecardListResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ScorecardListResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

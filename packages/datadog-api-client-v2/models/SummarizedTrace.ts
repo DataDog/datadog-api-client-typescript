@@ -5,19 +5,24 @@
  */
 import { SummarizedSpan } from "./SummarizedSpan";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A summarized, hierarchical view of a trace.
- */
+*/
 export class SummarizedTrace {
   /**
    * A node in the pruned trace tree.
-   */
+  */
   "root": SummarizedSpan;
   /**
    * The full 128-bit trace ID, encoded as a 32-character hexadecimal string.
-   */
+  */
   "traceId": string;
 
   /**
@@ -25,7 +30,7 @@ export class SummarizedTrace {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class SummarizedTrace {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    root: {
-      baseName: "root",
-      type: "SummarizedSpan",
-      required: true,
+    "root": {
+      "baseName": "root",
+      "type": "SummarizedSpan",
+      "required": true,
     },
-    traceId: {
-      baseName: "traceId",
-      type: "string",
-      required: true,
+    "traceId": {
+      "baseName": "traceId",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class SummarizedTrace {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SummarizedTrace.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

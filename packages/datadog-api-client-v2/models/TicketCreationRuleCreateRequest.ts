@@ -5,15 +5,20 @@
  */
 import { TicketCreationRuleDataCreate } from "./TicketCreationRuleDataCreate";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The body of a ticket creation rule create request.
- */
+*/
 export class TicketCreationRuleCreateRequest {
   /**
    * The data object for a ticket creation rule create or update request.
-   */
+  */
   "data": TicketCreationRuleDataCreate;
 
   /**
@@ -21,7 +26,7 @@ export class TicketCreationRuleCreateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class TicketCreationRuleCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "TicketCreationRuleDataCreate",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "TicketCreationRuleDataCreate",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class TicketCreationRuleCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TicketCreationRuleCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

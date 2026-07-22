@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A tag filter used to scope a budget entry to specific resource tags.
- */
+*/
 export class BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems {
   /**
    * The tag key to filter on.
-   */
+  */
   "tagKey"?: string;
   /**
    * The tag value to filter on.
-   */
+  */
   "tagValue"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    tagKey: {
-      baseName: "tag_key",
-      type: "string",
+    "tagKey": {
+      "baseName": "tag_key",
+      "type": "string",
     },
-    tagValue: {
-      baseName: "tag_value",
-      type: "string",
+    "tagValue": {
+      "baseName": "tag_value",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

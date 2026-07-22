@@ -5,19 +5,24 @@
  */
 import { RuleBasedViewRule } from "./RuleBasedViewRule";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of the rule-based view.
- */
+*/
 export class RuleBasedViewAttributes {
   /**
    * Total number of rules in the view.
-   */
+  */
   "count": number;
   /**
    * List of rules in the rule-based view.
-   */
+  */
   "rules": Array<RuleBasedViewRule>;
 
   /**
@@ -25,7 +30,7 @@ export class RuleBasedViewAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,16 +41,16 @@ export class RuleBasedViewAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    count: {
-      baseName: "count",
-      type: "number",
-      required: true,
-      format: "int64",
+    "count": {
+      "baseName": "count",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    rules: {
-      baseName: "rules",
-      type: "Array<RuleBasedViewRule>",
-      required: true,
+    "rules": {
+      "baseName": "rules",
+      "type": "Array<RuleBasedViewRule>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class RuleBasedViewAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RuleBasedViewAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

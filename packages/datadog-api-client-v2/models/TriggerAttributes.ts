@@ -6,19 +6,24 @@
 import { MonitorAlertTriggerAttributes } from "./MonitorAlertTriggerAttributes";
 import { TriggerType } from "./TriggerType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The trigger definition for starting an investigation.
- */
+*/
 export class TriggerAttributes {
   /**
    * Attributes for a monitor alert trigger.
-   */
+  */
   "monitorAlertTrigger": MonitorAlertTriggerAttributes;
   /**
    * The type of trigger for the investigation.
-   */
+  */
   "type": TriggerType;
 
   /**
@@ -26,7 +31,7 @@ export class TriggerAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class TriggerAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    monitorAlertTrigger: {
-      baseName: "monitor_alert_trigger",
-      type: "MonitorAlertTriggerAttributes",
-      required: true,
+    "monitorAlertTrigger": {
+      "baseName": "monitor_alert_trigger",
+      "type": "MonitorAlertTriggerAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "TriggerType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TriggerType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class TriggerAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TriggerAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

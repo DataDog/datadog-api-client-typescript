@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The self-service resource type.
- */
+*/
 
 export type AppSelfServiceType = typeof SELFSERVICE | UnparsedObject;
-export const SELFSERVICE = "selfService";
+export const SELFSERVICE = 'selfService';

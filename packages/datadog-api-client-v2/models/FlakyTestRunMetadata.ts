@@ -4,35 +4,40 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metadata about the latest failed test run of the flaky test.
- */
+*/
 export class FlakyTestRunMetadata {
   /**
    * The duration of the test run in milliseconds.
-   */
+  */
   "durationMs"?: number;
   /**
    * The error message from the test failure.
-   */
+  */
   "errorMessage"?: string;
   /**
    * The stack trace from the test failure.
-   */
+  */
   "errorStack"?: string;
   /**
    * The line number where the test ends in the source file.
-   */
+  */
   "sourceEnd"?: number;
   /**
    * The source file where the test is defined.
-   */
+  */
   "sourceFile"?: string;
   /**
    * The line number where the test starts in the source file.
-   */
+  */
   "sourceStart"?: number;
 
   /**
@@ -40,7 +45,7 @@ export class FlakyTestRunMetadata {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -51,32 +56,32 @@ export class FlakyTestRunMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    durationMs: {
-      baseName: "duration_ms",
-      type: "number",
-      format: "int64",
+    "durationMs": {
+      "baseName": "duration_ms",
+      "type": "number",
+      "format": "int64",
     },
-    errorMessage: {
-      baseName: "error_message",
-      type: "string",
+    "errorMessage": {
+      "baseName": "error_message",
+      "type": "string",
     },
-    errorStack: {
-      baseName: "error_stack",
-      type: "string",
+    "errorStack": {
+      "baseName": "error_stack",
+      "type": "string",
     },
-    sourceEnd: {
-      baseName: "source_end",
-      type: "number",
-      format: "int64",
+    "sourceEnd": {
+      "baseName": "source_end",
+      "type": "number",
+      "format": "int64",
     },
-    sourceFile: {
-      baseName: "source_file",
-      type: "string",
+    "sourceFile": {
+      "baseName": "source_file",
+      "type": "string",
     },
-    sourceStart: {
-      baseName: "source_start",
-      type: "number",
-      format: "int64",
+    "sourceStart": {
+      "baseName": "source_start",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -88,8 +93,34 @@ export class FlakyTestRunMetadata {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FlakyTestRunMetadata.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

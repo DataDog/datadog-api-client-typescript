@@ -5,19 +5,24 @@
  */
 import { ServiceListDataAttributesMetadataItems } from "./ServiceListDataAttributesMetadataItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a service list entry, containing metadata and a list of service names.
- */
+*/
 export class ServiceListDataAttributes {
   /**
    * A list of metadata items associated with the service.
-   */
+  */
   "metadata"?: Array<ServiceListDataAttributesMetadataItems>;
   /**
    * A list of service names.
-   */
+  */
   "services"?: Array<string>;
 
   /**
@@ -25,7 +30,7 @@ export class ServiceListDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class ServiceListDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    metadata: {
-      baseName: "metadata",
-      type: "Array<ServiceListDataAttributesMetadataItems>",
+    "metadata": {
+      "baseName": "metadata",
+      "type": "Array<ServiceListDataAttributesMetadataItems>",
     },
-    services: {
-      baseName: "services",
-      type: "Array<string>",
+    "services": {
+      "baseName": "services",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class ServiceListDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceListDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

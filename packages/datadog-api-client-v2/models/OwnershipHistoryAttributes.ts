@@ -6,19 +6,24 @@
 import { OwnershipHistoryItem } from "./OwnershipHistoryItem";
 import { OwnershipHistoryPagination } from "./OwnershipHistoryPagination";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes of an ownership history response.
- */
+*/
 export class OwnershipHistoryAttributes {
   /**
    * The list of history entries returned for this page.
-   */
+  */
   "items": Array<OwnershipHistoryItem>;
   /**
    * Cursor-based pagination metadata for the history response.
-   */
+  */
   "pagination": OwnershipHistoryPagination;
 
   /**
@@ -26,7 +31,7 @@ export class OwnershipHistoryAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class OwnershipHistoryAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    items: {
-      baseName: "items",
-      type: "Array<OwnershipHistoryItem>",
-      required: true,
+    "items": {
+      "baseName": "items",
+      "type": "Array<OwnershipHistoryItem>",
+      "required": true,
     },
-    pagination: {
-      baseName: "pagination",
-      type: "OwnershipHistoryPagination",
-      required: true,
+    "pagination": {
+      "baseName": "pagination",
+      "type": "OwnershipHistoryPagination",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class OwnershipHistoryAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OwnershipHistoryAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

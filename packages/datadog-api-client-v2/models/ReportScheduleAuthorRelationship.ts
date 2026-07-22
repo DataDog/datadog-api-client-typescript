@@ -5,15 +5,20 @@
  */
 import { ReportScheduleAuthorRelationshipData } from "./ReportScheduleAuthorRelationshipData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationship to the author of the report schedule.
- */
+*/
 export class ReportScheduleAuthorRelationship {
   /**
    * Relationship data for the author of the report schedule.
-   */
+  */
   "data": ReportScheduleAuthorRelationshipData;
 
   /**
@@ -21,7 +26,7 @@ export class ReportScheduleAuthorRelationship {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class ReportScheduleAuthorRelationship {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ReportScheduleAuthorRelationshipData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "ReportScheduleAuthorRelationshipData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class ReportScheduleAuthorRelationship {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ReportScheduleAuthorRelationship.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

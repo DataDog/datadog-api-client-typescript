@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The ways searched incidents can be sorted.
- */
+*/
 
-export type IncidentSearchSortOrder =
-  | typeof CREATED_ASCENDING
-  | typeof CREATED_DESCENDING
-  | UnparsedObject;
-export const CREATED_ASCENDING = "created";
-export const CREATED_DESCENDING = "-created";
+export type IncidentSearchSortOrder = typeof CREATED_ASCENDING| typeof CREATED_DESCENDING | UnparsedObject;
+export const CREATED_ASCENDING = 'created';
+export const CREATED_DESCENDING = '-created';

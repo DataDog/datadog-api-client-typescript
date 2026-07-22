@@ -7,27 +7,32 @@ import { RelationshipToIncidentNotificationTemplate } from "./RelationshipToInci
 import { RelationshipToIncidentType } from "./RelationshipToIncidentType";
 import { RelationshipToUser } from "./RelationshipToUser";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The notification rule's resource relationships.
- */
+*/
 export class IncidentNotificationRuleRelationships {
   /**
    * Relationship to user.
-   */
+  */
   "createdByUser"?: RelationshipToUser;
   /**
    * Relationship to an incident type.
-   */
+  */
   "incidentType"?: RelationshipToIncidentType;
   /**
    * Relationship to user.
-   */
+  */
   "lastModifiedByUser"?: RelationshipToUser;
   /**
    * A relationship reference to a notification template.
-   */
+  */
   "notificationTemplate"?: RelationshipToIncidentNotificationTemplate;
 
   /**
@@ -35,7 +40,7 @@ export class IncidentNotificationRuleRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,21 +51,21 @@ export class IncidentNotificationRuleRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdByUser: {
-      baseName: "created_by_user",
-      type: "RelationshipToUser",
+    "createdByUser": {
+      "baseName": "created_by_user",
+      "type": "RelationshipToUser",
     },
-    incidentType: {
-      baseName: "incident_type",
-      type: "RelationshipToIncidentType",
+    "incidentType": {
+      "baseName": "incident_type",
+      "type": "RelationshipToIncidentType",
     },
-    lastModifiedByUser: {
-      baseName: "last_modified_by_user",
-      type: "RelationshipToUser",
+    "lastModifiedByUser": {
+      "baseName": "last_modified_by_user",
+      "type": "RelationshipToUser",
     },
-    notificationTemplate: {
-      baseName: "notification_template",
-      type: "RelationshipToIncidentNotificationTemplate",
+    "notificationTemplate": {
+      "baseName": "notification_template",
+      "type": "RelationshipToIncidentNotificationTemplate",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -72,8 +77,34 @@ export class IncidentNotificationRuleRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentNotificationRuleRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,23 +6,28 @@
 import { LicensesListResponseDataAttributes } from "./LicensesListResponseDataAttributes";
 import { LicensesListResponseDataType } from "./LicensesListResponseDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data object in a licenses list response, containing the list of SPDX licenses.
- */
+*/
 export class LicensesListResponseData {
   /**
    * The attributes of the licenses list response, containing the array of SPDX licenses.
-   */
+  */
   "attributes": LicensesListResponseDataAttributes;
   /**
    * The unique identifier for this licenses list response.
-   */
+  */
   "id": string;
   /**
    * The type identifier for license list responses.
-   */
+  */
   "type": LicensesListResponseDataType;
 
   /**
@@ -30,7 +35,7 @@ export class LicensesListResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class LicensesListResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LicensesListResponseDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "LicensesListResponseDataAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LicensesListResponseDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LicensesListResponseDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class LicensesListResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LicensesListResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

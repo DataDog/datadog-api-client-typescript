@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The New Relic region.
- */
+*/
 
-export type ObservabilityPipelineNewRelicDestinationRegion =
-  | typeof US
-  | typeof EU
-  | UnparsedObject;
-export const US = "us";
-export const EU = "eu";
+export type ObservabilityPipelineNewRelicDestinationRegion = typeof US| typeof EU | UnparsedObject;
+export const US = 'us';
+export const EU = 'eu';

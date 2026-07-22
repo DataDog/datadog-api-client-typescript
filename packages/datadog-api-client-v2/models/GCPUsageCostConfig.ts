@@ -6,23 +6,28 @@
 import { GCPUsageCostConfigAttributes } from "./GCPUsageCostConfigAttributes";
 import { GCPUsageCostConfigType } from "./GCPUsageCostConfigType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Google Cloud Usage Cost config.
- */
+*/
 export class GCPUsageCostConfig {
   /**
    * Attributes for a Google Cloud Usage Cost config.
-   */
+  */
   "attributes": GCPUsageCostConfigAttributes;
   /**
    * The ID of the Google Cloud Usage Cost config.
-   */
+  */
   "id"?: string;
   /**
    * Type of Google Cloud Usage Cost config.
-   */
+  */
   "type": GCPUsageCostConfigType;
 
   /**
@@ -30,7 +35,7 @@ export class GCPUsageCostConfig {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class GCPUsageCostConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "GCPUsageCostConfigAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "GCPUsageCostConfigAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "GCPUsageCostConfigType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "GCPUsageCostConfigType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class GCPUsageCostConfig {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GCPUsageCostConfig.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

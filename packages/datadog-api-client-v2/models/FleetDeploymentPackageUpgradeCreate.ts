@@ -6,19 +6,24 @@
 import { FleetDeploymentPackageUpgradeAttributes } from "./FleetDeploymentPackageUpgradeAttributes";
 import { FleetDeploymentResourceType } from "./FleetDeploymentResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for creating a new package upgrade deployment.
- */
+*/
 export class FleetDeploymentPackageUpgradeCreate {
   /**
    * Attributes for creating a new package upgrade deployment.
-   */
+  */
   "attributes": FleetDeploymentPackageUpgradeAttributes;
   /**
    * The type of deployment resource.
-   */
+  */
   "type": FleetDeploymentResourceType;
 
   /**
@@ -26,7 +31,7 @@ export class FleetDeploymentPackageUpgradeCreate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class FleetDeploymentPackageUpgradeCreate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "FleetDeploymentPackageUpgradeAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "FleetDeploymentPackageUpgradeAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "FleetDeploymentResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "FleetDeploymentResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class FleetDeploymentPackageUpgradeCreate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FleetDeploymentPackageUpgradeCreate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

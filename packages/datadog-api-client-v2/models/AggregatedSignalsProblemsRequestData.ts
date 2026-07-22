@@ -6,19 +6,24 @@
 import { AggregatedSignalsProblemsRequestAttributes } from "./AggregatedSignalsProblemsRequestAttributes";
 import { AggregatedSignalsProblemsRequestType } from "./AggregatedSignalsProblemsRequestType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data envelope for an aggregated signals and problems request.
- */
+*/
 export class AggregatedSignalsProblemsRequestData {
   /**
    * Attributes for an aggregated signals and problems query.
-   */
+  */
   "attributes": AggregatedSignalsProblemsRequestAttributes;
   /**
    * The JSON:API type for aggregated signals and problems requests.
-   */
+  */
   "type": AggregatedSignalsProblemsRequestType;
 
   /**
@@ -26,7 +31,7 @@ export class AggregatedSignalsProblemsRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class AggregatedSignalsProblemsRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AggregatedSignalsProblemsRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AggregatedSignalsProblemsRequestAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "AggregatedSignalsProblemsRequestType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AggregatedSignalsProblemsRequestType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class AggregatedSignalsProblemsRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AggregatedSignalsProblemsRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

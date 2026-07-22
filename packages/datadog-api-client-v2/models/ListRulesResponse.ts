@@ -6,19 +6,24 @@
 import { ListRulesResponseDataItem } from "./ListRulesResponseDataItem";
 import { ListRulesResponseLinks } from "./ListRulesResponseLinks";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Scorecard rules response.
- */
+*/
 export class ListRulesResponse {
   /**
    * Array of rule details.
-   */
+  */
   "data"?: Array<ListRulesResponseDataItem>;
   /**
    * Links attributes.
-   */
+  */
   "links"?: ListRulesResponseLinks;
 
   /**
@@ -26,7 +31,7 @@ export class ListRulesResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class ListRulesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<ListRulesResponseDataItem>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<ListRulesResponseDataItem>",
     },
-    links: {
-      baseName: "links",
-      type: "ListRulesResponseLinks",
+    "links": {
+      "baseName": "links",
+      "type": "ListRulesResponseLinks",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class ListRulesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListRulesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

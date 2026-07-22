@@ -6,20 +6,25 @@
 import { PrintReportRequestAttributes } from "./PrintReportRequestAttributes";
 import { PrintReportType } from "./PrintReportType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The JSON:API data object for a print report request.
- */
+*/
 export class PrintReportRequestData {
   /**
    * The configuration for a print-only report. Specify exactly one of `timeframe` (for a
    * relative time window) or both `from_ts` and `to_ts` (for an absolute time range).
-   */
+  */
   "attributes": PrintReportRequestAttributes;
   /**
    * JSON:API resource type for a print-only report.
-   */
+  */
   "type": PrintReportType;
 
   /**
@@ -27,7 +32,7 @@ export class PrintReportRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -38,15 +43,15 @@ export class PrintReportRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "PrintReportRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "PrintReportRequestAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "PrintReportType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "PrintReportType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -58,8 +63,34 @@ export class PrintReportRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PrintReportRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

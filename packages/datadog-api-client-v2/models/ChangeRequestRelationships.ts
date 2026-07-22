@@ -6,23 +6,28 @@
 import { ChangeRequestDecisionsRelationship } from "./ChangeRequestDecisionsRelationship";
 import { ChangeRequestUserRelationship } from "./ChangeRequestUserRelationship";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationships of a change request.
- */
+*/
 export class ChangeRequestRelationships {
   /**
    * Relationship to change request decisions.
-   */
+  */
   "changeRequestDecisions": ChangeRequestDecisionsRelationship;
   /**
    * Relationship to a user.
-   */
+  */
   "createdBy": ChangeRequestUserRelationship;
   /**
    * Relationship to a user.
-   */
+  */
   "modifiedBy": ChangeRequestUserRelationship;
 
   /**
@@ -30,7 +35,7 @@ export class ChangeRequestRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class ChangeRequestRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    changeRequestDecisions: {
-      baseName: "change_request_decisions",
-      type: "ChangeRequestDecisionsRelationship",
-      required: true,
+    "changeRequestDecisions": {
+      "baseName": "change_request_decisions",
+      "type": "ChangeRequestDecisionsRelationship",
+      "required": true,
     },
-    createdBy: {
-      baseName: "created_by",
-      type: "ChangeRequestUserRelationship",
-      required: true,
+    "createdBy": {
+      "baseName": "created_by",
+      "type": "ChangeRequestUserRelationship",
+      "required": true,
     },
-    modifiedBy: {
-      baseName: "modified_by",
-      type: "ChangeRequestUserRelationship",
-      required: true,
+    "modifiedBy": {
+      "baseName": "modified_by",
+      "type": "ChangeRequestUserRelationship",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class ChangeRequestRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ChangeRequestRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

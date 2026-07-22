@@ -5,15 +5,20 @@
  */
 import { FastlyAccountResponseData } from "./FastlyAccountResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The expected response schema when getting a Fastly account.
- */
+*/
 export class FastlyAccountResponse {
   /**
    * Data object of a Fastly account.
-   */
+  */
   "data"?: FastlyAccountResponseData;
 
   /**
@@ -21,7 +26,7 @@ export class FastlyAccountResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class FastlyAccountResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "FastlyAccountResponseData",
+    "data": {
+      "baseName": "data",
+      "type": "FastlyAccountResponseData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class FastlyAccountResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FastlyAccountResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

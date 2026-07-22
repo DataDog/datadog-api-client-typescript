@@ -6,19 +6,24 @@
 import { AsanaCredentials } from "./AsanaCredentials";
 import { AsanaIntegrationType } from "./AsanaIntegrationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `AsanaIntegration` object.
- */
+*/
 export class AsanaIntegration {
   /**
    * The definition of the `AsanaCredentials` object.
-   */
+  */
   "credentials": AsanaCredentials;
   /**
    * The definition of the `AsanaIntegrationType` object.
-   */
+  */
   "type": AsanaIntegrationType;
 
   /**
@@ -26,7 +31,7 @@ export class AsanaIntegration {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class AsanaIntegration {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    credentials: {
-      baseName: "credentials",
-      type: "AsanaCredentials",
-      required: true,
+    "credentials": {
+      "baseName": "credentials",
+      "type": "AsanaCredentials",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "AsanaIntegrationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AsanaIntegrationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class AsanaIntegration {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AsanaIntegration.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

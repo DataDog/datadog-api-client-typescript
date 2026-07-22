@@ -5,15 +5,20 @@
  */
 import { CaseNotificationRuleUpdate } from "./CaseNotificationRuleUpdate";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Notification rule update request
- */
+*/
 export class CaseNotificationRuleUpdateRequest {
   /**
    * Notification rule update
-   */
+  */
   "data": CaseNotificationRuleUpdate;
 
   /**
@@ -21,7 +26,7 @@ export class CaseNotificationRuleUpdateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CaseNotificationRuleUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CaseNotificationRuleUpdate",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "CaseNotificationRuleUpdate",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CaseNotificationRuleUpdateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseNotificationRuleUpdateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

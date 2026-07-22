@@ -5,19 +5,24 @@
  */
 import { ChangeEventCustomAttributesAuthorType } from "./ChangeEventCustomAttributesAuthorType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The entity that made the change. Optional, if provided it must include `type` and `name`.
- */
+*/
 export class ChangeEventCustomAttributesAuthor {
   /**
    * The name of the user or system that made the change. Limited to 128 characters.
-   */
+  */
   "name": string;
   /**
    * Author's type.
-   */
+  */
   "type": ChangeEventCustomAttributesAuthorType;
 
   /**
@@ -29,24 +34,50 @@ export class ChangeEventCustomAttributesAuthor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ChangeEventCustomAttributesAuthorType",
-      required: true,
-    },
+    "type": {
+      "baseName": "type",
+      "type": "ChangeEventCustomAttributesAuthorType",
+      "required": true,
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ChangeEventCustomAttributesAuthor.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

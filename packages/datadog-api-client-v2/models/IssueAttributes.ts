@@ -8,67 +8,72 @@ import { IssuePlatform } from "./IssuePlatform";
 import { IssueRegression } from "./IssueRegression";
 import { IssueState } from "./IssueState";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object containing the information of an issue.
- */
+*/
 export class IssueAttributes {
   /**
    * Error message associated with the issue.
-   */
+  */
   "errorMessage"?: string;
   /**
    * Type of the error that matches the issue.
-   */
+  */
   "errorType"?: string;
   /**
    * Path of the file where the issue occurred.
-   */
+  */
   "filePath"?: string;
   /**
    * Timestamp of the first seen error in milliseconds since the Unix epoch.
-   */
+  */
   "firstSeen"?: number;
   /**
    * The application version (for example, git commit hash) where the issue was first observed.
-   */
+  */
   "firstSeenVersion"?: string;
   /**
    * Name of the function where the issue occurred.
-   */
+  */
   "functionName"?: string;
   /**
    * Error is a crash.
-   */
+  */
   "isCrash"?: boolean;
   /**
    * Array of programming languages associated with the issue.
-   */
+  */
   "languages"?: Array<IssueLanguage>;
   /**
    * Timestamp of the last seen error in milliseconds since the Unix epoch.
-   */
+  */
   "lastSeen"?: number;
   /**
    * The application version (for example, git commit hash) where the issue was last observed.
-   */
+  */
   "lastSeenVersion"?: string;
   /**
    * Platform associated with the issue.
-   */
+  */
   "platform"?: IssuePlatform;
   /**
    * Regression information for an issue that was previously resolved and then reopened.
-   */
+  */
   "regression"?: IssueRegression;
   /**
    * Service name.
-   */
+  */
   "service"?: string;
   /**
    * State of the issue
-   */
+  */
   "state"?: IssueState;
 
   /**
@@ -76,7 +81,7 @@ export class IssueAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -87,63 +92,63 @@ export class IssueAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    errorMessage: {
-      baseName: "error_message",
-      type: "string",
+    "errorMessage": {
+      "baseName": "error_message",
+      "type": "string",
     },
-    errorType: {
-      baseName: "error_type",
-      type: "string",
+    "errorType": {
+      "baseName": "error_type",
+      "type": "string",
     },
-    filePath: {
-      baseName: "file_path",
-      type: "string",
+    "filePath": {
+      "baseName": "file_path",
+      "type": "string",
     },
-    firstSeen: {
-      baseName: "first_seen",
-      type: "number",
-      format: "int64",
+    "firstSeen": {
+      "baseName": "first_seen",
+      "type": "number",
+      "format": "int64",
     },
-    firstSeenVersion: {
-      baseName: "first_seen_version",
-      type: "string",
+    "firstSeenVersion": {
+      "baseName": "first_seen_version",
+      "type": "string",
     },
-    functionName: {
-      baseName: "function_name",
-      type: "string",
+    "functionName": {
+      "baseName": "function_name",
+      "type": "string",
     },
-    isCrash: {
-      baseName: "is_crash",
-      type: "boolean",
+    "isCrash": {
+      "baseName": "is_crash",
+      "type": "boolean",
     },
-    languages: {
-      baseName: "languages",
-      type: "Array<IssueLanguage>",
+    "languages": {
+      "baseName": "languages",
+      "type": "Array<IssueLanguage>",
     },
-    lastSeen: {
-      baseName: "last_seen",
-      type: "number",
-      format: "int64",
+    "lastSeen": {
+      "baseName": "last_seen",
+      "type": "number",
+      "format": "int64",
     },
-    lastSeenVersion: {
-      baseName: "last_seen_version",
-      type: "string",
+    "lastSeenVersion": {
+      "baseName": "last_seen_version",
+      "type": "string",
     },
-    platform: {
-      baseName: "platform",
-      type: "IssuePlatform",
+    "platform": {
+      "baseName": "platform",
+      "type": "IssuePlatform",
     },
-    regression: {
-      baseName: "regression",
-      type: "IssueRegression",
+    "regression": {
+      "baseName": "regression",
+      "type": "IssueRegression",
     },
-    service: {
-      baseName: "service",
-      type: "string",
+    "service": {
+      "baseName": "service",
+      "type": "string",
     },
-    state: {
-      baseName: "state",
-      type: "IssueState",
+    "state": {
+      "baseName": "state",
+      "type": "IssueState",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -155,8 +160,34 @@ export class IssueAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IssueAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

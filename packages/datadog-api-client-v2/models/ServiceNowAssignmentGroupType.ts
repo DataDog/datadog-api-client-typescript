@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type identifier for ServiceNow assignment group resources
- */
+*/
 
-export type ServiceNowAssignmentGroupType =
-  | typeof ASSIGNMENT_GROUPS
-  | UnparsedObject;
-export const ASSIGNMENT_GROUPS = "assignment_groups";
+export type ServiceNowAssignmentGroupType = typeof ASSIGNMENT_GROUPS | UnparsedObject;
+export const ASSIGNMENT_GROUPS = 'assignment_groups';

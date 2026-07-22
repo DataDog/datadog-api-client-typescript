@@ -5,15 +5,20 @@
  */
 import { AWSEventBridgeDeleteResponseData } from "./AWSEventBridgeDeleteResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Amazon EventBridge delete response body.
- */
+*/
 export class AWSEventBridgeDeleteResponse {
   /**
    * Amazon EventBridge delete response data.
-   */
+  */
   "data": AWSEventBridgeDeleteResponseData;
 
   /**
@@ -21,7 +26,7 @@ export class AWSEventBridgeDeleteResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class AWSEventBridgeDeleteResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "AWSEventBridgeDeleteResponseData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "AWSEventBridgeDeleteResponseData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class AWSEventBridgeDeleteResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSEventBridgeDeleteResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

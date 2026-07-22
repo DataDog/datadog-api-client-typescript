@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The feedback action to apply to an inference.
- */
+*/
 
-export type OwnershipFeedbackAction =
-  | typeof CONFIRM
-  | typeof REJECT
-  | typeof CORRECT
-  | typeof PERSIST
-  | UnparsedObject;
-export const CONFIRM = "confirm";
-export const REJECT = "reject";
-export const CORRECT = "correct";
-export const PERSIST = "persist";
+export type OwnershipFeedbackAction = typeof CONFIRM| typeof REJECT| typeof CORRECT| typeof PERSIST | UnparsedObject;
+export const CONFIRM = 'confirm';
+export const REJECT = 'reject';
+export const CORRECT = 'correct';
+export const PERSIST = 'persist';

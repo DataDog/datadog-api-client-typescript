@@ -6,19 +6,24 @@
 import { OrgGroupCreateAttributes } from "./OrgGroupCreateAttributes";
 import { OrgGroupType } from "./OrgGroupType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for creating an org group.
- */
+*/
 export class OrgGroupCreateData {
   /**
    * Attributes for creating an org group.
-   */
+  */
   "attributes": OrgGroupCreateAttributes;
   /**
    * Org groups resource type.
-   */
+  */
   "type": OrgGroupType;
 
   /**
@@ -26,7 +31,7 @@ export class OrgGroupCreateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class OrgGroupCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "OrgGroupCreateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "OrgGroupCreateAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "OrgGroupType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "OrgGroupType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class OrgGroupCreateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgGroupCreateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A column definition for reference table queries.
- */
+*/
 export class MonitorFormulaAndFunctionReferenceTableColumn {
   /**
    * Optional alias for the column.
-   */
+  */
   "alias"?: string;
   /**
    * Name of the column.
-   */
+  */
   "name": string;
 
   /**
@@ -28,23 +33,49 @@ export class MonitorFormulaAndFunctionReferenceTableColumn {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    alias: {
-      baseName: "alias",
-      type: "string",
+    "alias": {
+      "baseName": "alias",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorFormulaAndFunctionReferenceTableColumn.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

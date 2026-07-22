@@ -5,32 +5,37 @@
  */
 import { TestOptimizationFlakyTestsManagementPoliciesDisabledStatus } from "./TestOptimizationFlakyTestsManagementPoliciesDisabledStatus";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Failure-rate-based rule for the disabled policy.
- */
+*/
 export class TestOptimizationFlakyTestsManagementPoliciesDisabledFailureRateRule {
   /**
    * List of branches to which this rule applies.
-   */
+  */
   "branches"?: Array<string>;
   /**
    * Whether this failure rate rule is enabled.
-   */
+  */
   "enabled"?: boolean;
   /**
    * Minimum number of runs required before the rule is evaluated. Must be greater than or equal to 0.
-   */
+  */
   "minRuns"?: number;
   /**
    * Test status that the disable policy applies to.
    * Must be either `active` or `quarantined`.
-   */
+  */
   "status"?: TestOptimizationFlakyTestsManagementPoliciesDisabledStatus;
   /**
    * Failure rate threshold (0.0–1.0) above which the rule triggers.
-   */
+  */
   "threshold"?: number;
 
   /**
@@ -38,7 +43,7 @@ export class TestOptimizationFlakyTestsManagementPoliciesDisabledFailureRateRule
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -49,27 +54,27 @@ export class TestOptimizationFlakyTestsManagementPoliciesDisabledFailureRateRule
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    branches: {
-      baseName: "branches",
-      type: "Array<string>",
+    "branches": {
+      "baseName": "branches",
+      "type": "Array<string>",
     },
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
+    "enabled": {
+      "baseName": "enabled",
+      "type": "boolean",
     },
-    minRuns: {
-      baseName: "min_runs",
-      type: "number",
-      format: "int64",
+    "minRuns": {
+      "baseName": "min_runs",
+      "type": "number",
+      "format": "int64",
     },
-    status: {
-      baseName: "status",
-      type: "TestOptimizationFlakyTestsManagementPoliciesDisabledStatus",
+    "status": {
+      "baseName": "status",
+      "type": "TestOptimizationFlakyTestsManagementPoliciesDisabledStatus",
     },
-    threshold: {
-      baseName: "threshold",
-      type: "number",
-      format: "double",
+    "threshold": {
+      "baseName": "threshold",
+      "type": "number",
+      "format": "double",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -81,8 +86,34 @@ export class TestOptimizationFlakyTestsManagementPoliciesDisabledFailureRateRule
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TestOptimizationFlakyTestsManagementPoliciesDisabledFailureRateRule.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

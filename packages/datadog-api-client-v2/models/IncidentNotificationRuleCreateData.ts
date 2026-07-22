@@ -7,23 +7,28 @@ import { IncidentNotificationRuleCreateAttributes } from "./IncidentNotification
 import { IncidentNotificationRuleCreateDataRelationships } from "./IncidentNotificationRuleCreateDataRelationships";
 import { IncidentNotificationRuleType } from "./IncidentNotificationRuleType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Notification rule data for a create request.
- */
+*/
 export class IncidentNotificationRuleCreateData {
   /**
    * The attributes for creating a notification rule.
-   */
+  */
   "attributes": IncidentNotificationRuleCreateAttributes;
   /**
    * The definition of `NotificationRuleCreateDataRelationships` object.
-   */
+  */
   "relationships"?: IncidentNotificationRuleCreateDataRelationships;
   /**
    * Notification rules resource type.
-   */
+  */
   "type": IncidentNotificationRuleType;
 
   /**
@@ -31,7 +36,7 @@ export class IncidentNotificationRuleCreateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,19 +47,19 @@ export class IncidentNotificationRuleCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "IncidentNotificationRuleCreateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "IncidentNotificationRuleCreateAttributes",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "IncidentNotificationRuleCreateDataRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "IncidentNotificationRuleCreateDataRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "IncidentNotificationRuleType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "IncidentNotificationRuleType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class IncidentNotificationRuleCreateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentNotificationRuleCreateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

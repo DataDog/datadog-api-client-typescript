@@ -6,23 +6,28 @@
 import { WatchDataAttributes } from "./WatchDataAttributes";
 import { WatchDataType } from "./WatchDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object representing a session watch record, including its identifier, type, and attributes.
- */
+*/
 export class WatchData {
   /**
    * Attributes for recording a session watch event, including the application, event reference, and timestamp.
-   */
+  */
   "attributes"?: WatchDataAttributes;
   /**
    * Unique identifier of the watch record.
-   */
+  */
   "id"?: string;
   /**
    * Rum replay watch resource type.
-   */
+  */
   "type": WatchDataType;
 
   /**
@@ -30,7 +35,7 @@ export class WatchData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class WatchData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "WatchDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "WatchDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "WatchDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "WatchDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class WatchData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return WatchData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

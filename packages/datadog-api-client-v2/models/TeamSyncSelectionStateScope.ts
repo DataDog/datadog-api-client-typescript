@@ -4,13 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The scope of the selection. When set to `subtree`,
  * synchronization includes the referenced team or
  * organization and everything nested under it.
- */
+*/
 
 export type TeamSyncSelectionStateScope = typeof SUBTREE | UnparsedObject;
-export const SUBTREE = "subtree";
+export const SUBTREE = 'subtree';

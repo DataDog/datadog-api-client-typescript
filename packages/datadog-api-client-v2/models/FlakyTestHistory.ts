@@ -6,31 +6,36 @@
 import { FlakyTestHistoryPolicyId } from "./FlakyTestHistoryPolicyId";
 import { FlakyTestHistoryPolicyMeta } from "./FlakyTestHistoryPolicyMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A single history entry representing a status change for a flaky test.
- */
+*/
 export class FlakyTestHistory {
   /**
    * The commit SHA associated with this status change. Will be an empty string if the commit SHA is not available.
-   */
+  */
   "commitSha": string;
   /**
    * The policy that triggered this status change.
-   */
+  */
   "policyId"?: FlakyTestHistoryPolicyId;
   /**
    * Metadata about the policy that triggered this status change.
-   */
+  */
   "policyMeta"?: FlakyTestHistoryPolicyMeta;
   /**
    * The test status at this point in history.
-   */
+  */
   "status": string;
   /**
    * Unix timestamp in milliseconds when this status change occurred.
-   */
+  */
   "timestamp": number;
 
   /**
@@ -38,7 +43,7 @@ export class FlakyTestHistory {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -49,29 +54,29 @@ export class FlakyTestHistory {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    commitSha: {
-      baseName: "commit_sha",
-      type: "string",
-      required: true,
+    "commitSha": {
+      "baseName": "commit_sha",
+      "type": "string",
+      "required": true,
     },
-    policyId: {
-      baseName: "policy_id",
-      type: "FlakyTestHistoryPolicyId",
+    "policyId": {
+      "baseName": "policy_id",
+      "type": "FlakyTestHistoryPolicyId",
     },
-    policyMeta: {
-      baseName: "policy_meta",
-      type: "FlakyTestHistoryPolicyMeta",
+    "policyMeta": {
+      "baseName": "policy_meta",
+      "type": "FlakyTestHistoryPolicyMeta",
     },
-    status: {
-      baseName: "status",
-      type: "string",
-      required: true,
+    "status": {
+      "baseName": "status",
+      "type": "string",
+      "required": true,
     },
-    timestamp: {
-      baseName: "timestamp",
-      type: "number",
-      required: true,
-      format: "int64",
+    "timestamp": {
+      "baseName": "timestamp",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -83,8 +88,34 @@ export class FlakyTestHistory {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FlakyTestHistory.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

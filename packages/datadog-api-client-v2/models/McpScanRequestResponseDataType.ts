@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type identifier for MCP SCA scan request responses.
- */
+*/
 
-export type McpScanRequestResponseDataType =
-  | typeof MCPSCANREQUESTRESPONSE
-  | UnparsedObject;
-export const MCPSCANREQUESTRESPONSE = "mcpscanrequestresponse";
+export type McpScanRequestResponseDataType = typeof MCPSCANREQUESTRESPONSE | UnparsedObject;
+export const MCPSCANREQUESTRESPONSE = 'mcpscanrequestresponse';

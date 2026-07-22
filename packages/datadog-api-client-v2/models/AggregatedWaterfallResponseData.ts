@@ -6,23 +6,28 @@
 import { AggregatedWaterfallRequestType } from "./AggregatedWaterfallRequestType";
 import { AggregatedWaterfallResponseAttributes } from "./AggregatedWaterfallResponseAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data envelope for an aggregated waterfall response.
- */
+*/
 export class AggregatedWaterfallResponseData {
   /**
    * Attributes of an aggregated waterfall response.
-   */
+  */
   "attributes": AggregatedWaterfallResponseAttributes;
   /**
    * Hash-based unique identifier for this aggregation.
-   */
+  */
   "id": string;
   /**
    * The JSON:API type for aggregated waterfall requests.
-   */
+  */
   "type": AggregatedWaterfallRequestType;
 
   /**
@@ -30,7 +35,7 @@ export class AggregatedWaterfallResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class AggregatedWaterfallResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AggregatedWaterfallResponseAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AggregatedWaterfallResponseAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "AggregatedWaterfallRequestType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AggregatedWaterfallRequestType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class AggregatedWaterfallResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AggregatedWaterfallResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

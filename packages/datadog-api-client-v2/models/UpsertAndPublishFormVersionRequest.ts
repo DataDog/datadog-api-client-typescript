@@ -5,15 +5,20 @@
  */
 import { UpsertAndPublishFormVersionData } from "./UpsertAndPublishFormVersionData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A request to upsert and publish a form version in a single transaction.
- */
+*/
 export class UpsertAndPublishFormVersionRequest {
   /**
    * The data for upserting and publishing a form version.
-   */
+  */
   "data": UpsertAndPublishFormVersionData;
 
   /**
@@ -21,7 +26,7 @@ export class UpsertAndPublishFormVersionRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class UpsertAndPublishFormVersionRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "UpsertAndPublishFormVersionData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "UpsertAndPublishFormVersionData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class UpsertAndPublishFormVersionRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpsertAndPublishFormVersionRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

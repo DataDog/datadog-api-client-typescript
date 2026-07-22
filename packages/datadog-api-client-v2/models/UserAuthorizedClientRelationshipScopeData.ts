@@ -5,19 +5,24 @@
  */
 import { UserAuthorizedClientRelationshipScopeDataType } from "./UserAuthorizedClientRelationshipScopeDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data identifying a scope granted to the OAuth2 client.
- */
+*/
 export class UserAuthorizedClientRelationshipScopeData {
   /**
    * The identifier of the scope.
-   */
+  */
   "id": string;
   /**
    * Scope resource type.
-   */
+  */
   "type": UserAuthorizedClientRelationshipScopeDataType;
 
   /**
@@ -25,7 +30,7 @@ export class UserAuthorizedClientRelationshipScopeData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class UserAuthorizedClientRelationshipScopeData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "UserAuthorizedClientRelationshipScopeDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "UserAuthorizedClientRelationshipScopeDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class UserAuthorizedClientRelationshipScopeData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UserAuthorizedClientRelationshipScopeData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

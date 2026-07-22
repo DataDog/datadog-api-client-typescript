@@ -5,19 +5,24 @@
  */
 import { StatsigAPIKeyType } from "./StatsigAPIKeyType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `StatsigAPIKey` object.
- */
+*/
 export class StatsigAPIKey {
   /**
    * The `StatsigAPIKey` `api_key`.
-   */
+  */
   "apiKey": string;
   /**
    * The definition of the `StatsigAPIKey` object.
-   */
+  */
   "type": StatsigAPIKeyType;
 
   /**
@@ -25,7 +30,7 @@ export class StatsigAPIKey {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class StatsigAPIKey {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    apiKey: {
-      baseName: "api_key",
-      type: "string",
-      required: true,
+    "apiKey": {
+      "baseName": "api_key",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "StatsigAPIKeyType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "StatsigAPIKeyType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class StatsigAPIKey {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return StatsigAPIKey.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

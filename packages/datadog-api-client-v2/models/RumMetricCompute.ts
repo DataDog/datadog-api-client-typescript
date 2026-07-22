@@ -5,25 +5,30 @@
  */
 import { RumMetricComputeAggregationType } from "./RumMetricComputeAggregationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The compute rule to compute the RUM-based metric.
- */
+*/
 export class RumMetricCompute {
   /**
    * The type of aggregation to use.
-   */
+  */
   "aggregationType": RumMetricComputeAggregationType;
   /**
    * Toggle to include or exclude percentile aggregations for distribution metrics.
    * Only present when `aggregation_type` is `distribution`.
-   */
+  */
   "includePercentiles"?: boolean;
   /**
    * The path to the value the RUM-based metric will aggregate on.
    * Only present when `aggregation_type` is `distribution`.
-   */
+  */
   "path"?: string;
 
   /**
@@ -31,7 +36,7 @@ export class RumMetricCompute {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,18 +47,18 @@ export class RumMetricCompute {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregationType: {
-      baseName: "aggregation_type",
-      type: "RumMetricComputeAggregationType",
-      required: true,
+    "aggregationType": {
+      "baseName": "aggregation_type",
+      "type": "RumMetricComputeAggregationType",
+      "required": true,
     },
-    includePercentiles: {
-      baseName: "include_percentiles",
-      type: "boolean",
+    "includePercentiles": {
+      "baseName": "include_percentiles",
+      "type": "boolean",
     },
-    path: {
-      baseName: "path",
-      type: "string",
+    "path": {
+      "baseName": "path",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class RumMetricCompute {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RumMetricCompute.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,23 +5,28 @@
  */
 import { AWSLogsLambda } from "./AWSLogsLambda";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A list of all Datadog-AWS logs integrations available in your Datadog organization.
- */
+*/
 export class AWSLogsListResponse {
   /**
    * Your AWS Account ID without dashes.
-   */
+  */
   "accountId"?: string;
   /**
    * List of ARNs configured in your Datadog account.
-   */
+  */
   "lambdas"?: Array<AWSLogsLambda>;
   /**
    * Array of services IDs.
-   */
+  */
   "services"?: Array<string>;
 
   /**
@@ -29,7 +34,7 @@ export class AWSLogsListResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,17 +45,17 @@ export class AWSLogsListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    accountId: {
-      baseName: "account_id",
-      type: "string",
+    "accountId": {
+      "baseName": "account_id",
+      "type": "string",
     },
-    lambdas: {
-      baseName: "lambdas",
-      type: "Array<AWSLogsLambda>",
+    "lambdas": {
+      "baseName": "lambdas",
+      "type": "Array<AWSLogsLambda>",
     },
-    services: {
-      baseName: "services",
-      type: "Array<string>",
+    "services": {
+      "baseName": "services",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class AWSLogsListResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSLogsListResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,13 +6,15 @@
 import { AuthNMappingRelationshipToRole } from "./AuthNMappingRelationshipToRole";
 import { AuthNMappingRelationshipToTeam } from "./AuthNMappingRelationshipToTeam";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Relationship of AuthN Mapping create object to a Role or Team.
- */
+*/
 
-export type AuthNMappingCreateRelationships =
-  | AuthNMappingRelationshipToRole
-  | AuthNMappingRelationshipToTeam
-  | UnparsedObject;
+export type AuthNMappingCreateRelationships = AuthNMappingRelationshipToRole | AuthNMappingRelationshipToTeam | UnparsedObject;

@@ -6,23 +6,28 @@
 import { EscalationRelationships } from "./EscalationRelationships";
 import { EscalationType } from "./EscalationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Represents an escalation policy step.
- */
+*/
 export class Escalation {
   /**
    * Unique identifier of the escalation step.
-   */
+  */
   "id"?: string;
   /**
    * Contains the relationships of an escalation object, including its responders.
-   */
+  */
   "relationships"?: EscalationRelationships;
   /**
    * Represents the resource type for individual steps in an escalation policy used during incident response.
-   */
+  */
   "type": EscalationType;
 
   /**
@@ -30,7 +35,7 @@ export class Escalation {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class Escalation {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "EscalationRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "EscalationRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "EscalationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "EscalationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class Escalation {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return Escalation.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * HTTP authentication strategy.
- */
+*/
 
-export type ObservabilityPipelineHttpClientDestinationAuthStrategy =
-  | typeof NONE
-  | typeof BASIC
-  | typeof BEARER
-  | UnparsedObject;
-export const NONE = "none";
-export const BASIC = "basic";
-export const BEARER = "bearer";
+export type ObservabilityPipelineHttpClientDestinationAuthStrategy = typeof NONE| typeof BASIC| typeof BEARER | UnparsedObject;
+export const NONE = 'none';
+export const BASIC = 'basic';
+export const BEARER = 'bearer';

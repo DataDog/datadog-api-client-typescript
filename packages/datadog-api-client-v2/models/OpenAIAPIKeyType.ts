@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of the `OpenAIAPIKey` object.
- */
+*/
 
 export type OpenAIAPIKeyType = typeof OPENAIAPIKEY | UnparsedObject;
-export const OPENAIAPIKEY = "OpenAIAPIKey";
+export const OPENAIAPIKEY = 'OpenAIAPIKey';

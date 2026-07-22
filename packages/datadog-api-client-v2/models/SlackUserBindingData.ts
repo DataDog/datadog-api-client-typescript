@@ -5,19 +5,24 @@
  */
 import { SlackUserBindingType } from "./SlackUserBindingType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Slack team ID data from a response.
- */
+*/
 export class SlackUserBindingData {
   /**
    * The Slack team ID.
-   */
+  */
   "id"?: string;
   /**
    * Slack user binding resource type.
-   */
+  */
   "type"?: SlackUserBindingType;
 
   /**
@@ -25,7 +30,7 @@ export class SlackUserBindingData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class SlackUserBindingData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SlackUserBindingType",
+    "type": {
+      "baseName": "type",
+      "type": "SlackUserBindingType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class SlackUserBindingData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SlackUserBindingData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

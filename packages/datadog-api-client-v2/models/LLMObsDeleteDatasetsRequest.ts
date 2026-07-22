@@ -5,15 +5,20 @@
  */
 import { LLMObsDeleteDatasetsDataRequest } from "./LLMObsDeleteDatasetsDataRequest";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request to delete one or more LLM Observability datasets.
- */
+*/
 export class LLMObsDeleteDatasetsRequest {
   /**
    * Data object for deleting LLM Observability datasets.
-   */
+  */
   "data": LLMObsDeleteDatasetsDataRequest;
 
   /**
@@ -21,7 +26,7 @@ export class LLMObsDeleteDatasetsRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class LLMObsDeleteDatasetsRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "LLMObsDeleteDatasetsDataRequest",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "LLMObsDeleteDatasetsDataRequest",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class LLMObsDeleteDatasetsRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDeleteDatasetsRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

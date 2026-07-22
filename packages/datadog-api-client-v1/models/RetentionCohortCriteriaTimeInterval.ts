@@ -6,19 +6,24 @@
 import { CalendarInterval } from "./CalendarInterval";
 import { RetentionCohortCriteriaTimeIntervalType } from "./RetentionCohortCriteriaTimeIntervalType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Time interval for cohort criteria.
- */
+*/
 export class RetentionCohortCriteriaTimeInterval {
   /**
    * Type of time interval for cohort criteria.
-   */
+  */
   "type": RetentionCohortCriteriaTimeIntervalType;
   /**
    * Calendar interval definition.
-   */
+  */
   "value": CalendarInterval;
 
   /**
@@ -30,24 +35,50 @@ export class RetentionCohortCriteriaTimeInterval {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    type: {
-      baseName: "type",
-      type: "RetentionCohortCriteriaTimeIntervalType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "RetentionCohortCriteriaTimeIntervalType",
+      "required": true,
     },
-    value: {
-      baseName: "value",
-      type: "CalendarInterval",
-      required: true,
-    },
+    "value": {
+      "baseName": "value",
+      "type": "CalendarInterval",
+      "required": true,
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RetentionCohortCriteriaTimeInterval.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

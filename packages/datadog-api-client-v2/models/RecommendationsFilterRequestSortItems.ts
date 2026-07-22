@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A single sort clause applied to the cost recommendations result set.
- */
+*/
 export class RecommendationsFilterRequestSortItems {
   /**
    * Field to sort by (for example, `potential_daily_savings.amount`).
-   */
+  */
   "expression"?: string;
   /**
    * Sort direction, either `ASC` or `DESC`.
-   */
+  */
   "order"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class RecommendationsFilterRequestSortItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class RecommendationsFilterRequestSortItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    expression: {
-      baseName: "expression",
-      type: "string",
+    "expression": {
+      "baseName": "expression",
+      "type": "string",
     },
-    order: {
-      baseName: "order",
-      type: "string",
+    "order": {
+      "baseName": "order",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class RecommendationsFilterRequestSortItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RecommendationsFilterRequestSortItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

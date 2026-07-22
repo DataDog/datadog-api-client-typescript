@@ -6,19 +6,24 @@
 import { CompletionCondition } from "./CompletionCondition";
 import { RetryStrategy } from "./RetryStrategy";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Used to create conditions before running subsequent actions.
- */
+*/
 export class CompletionGate {
   /**
    * The definition of `CompletionCondition` object.
-   */
+  */
   "completionCondition": CompletionCondition;
   /**
    * The definition of `RetryStrategy` object.
-   */
+  */
   "retryStrategy": RetryStrategy;
 
   /**
@@ -26,7 +31,7 @@ export class CompletionGate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class CompletionGate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    completionCondition: {
-      baseName: "completionCondition",
-      type: "CompletionCondition",
-      required: true,
+    "completionCondition": {
+      "baseName": "completionCondition",
+      "type": "CompletionCondition",
+      "required": true,
     },
-    retryStrategy: {
-      baseName: "retryStrategy",
-      type: "RetryStrategy",
-      required: true,
+    "retryStrategy": {
+      "baseName": "retryStrategy",
+      "type": "RetryStrategy",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class CompletionGate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CompletionGate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

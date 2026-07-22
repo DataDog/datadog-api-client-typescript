@@ -5,15 +5,20 @@
  */
 import { DatastoreData } from "./DatastoreData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A datastore's complete configuration and metadata.
- */
+*/
 export class Datastore {
   /**
    * Core information about a datastore, including its unique identifier and attributes.
-   */
+  */
   "data"?: DatastoreData;
 
   /**
@@ -21,7 +26,7 @@ export class Datastore {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class Datastore {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "DatastoreData",
+    "data": {
+      "baseName": "data",
+      "type": "DatastoreData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class Datastore {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return Datastore.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

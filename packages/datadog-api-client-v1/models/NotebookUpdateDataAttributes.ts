@@ -9,35 +9,40 @@ import { NotebookStatus } from "./NotebookStatus";
 import { NotebookTemplateVariable } from "./NotebookTemplateVariable";
 import { NotebookUpdateCell } from "./NotebookUpdateCell";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data attributes of a notebook.
- */
+*/
 export class NotebookUpdateDataAttributes {
   /**
    * List of cells to display in the notebook.
-   */
+  */
   "cells": Array<NotebookUpdateCell>;
   /**
    * Metadata associated with the notebook.
-   */
+  */
   "metadata"?: NotebookMetadata;
   /**
    * The name of the notebook.
-   */
+  */
   "name": string;
   /**
    * Publication status of the notebook. For now, always "published".
-   */
+  */
   "status"?: NotebookStatus;
   /**
    * List of template variables for this notebook.
-   */
+  */
   "templateVariables"?: Array<NotebookTemplateVariable>;
   /**
    * Notebook global timeframe.
-   */
+  */
   "time": NotebookGlobalTime;
 
   /**
@@ -45,7 +50,7 @@ export class NotebookUpdateDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -56,32 +61,32 @@ export class NotebookUpdateDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    cells: {
-      baseName: "cells",
-      type: "Array<NotebookUpdateCell>",
-      required: true,
+    "cells": {
+      "baseName": "cells",
+      "type": "Array<NotebookUpdateCell>",
+      "required": true,
     },
-    metadata: {
-      baseName: "metadata",
-      type: "NotebookMetadata",
+    "metadata": {
+      "baseName": "metadata",
+      "type": "NotebookMetadata",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    status: {
-      baseName: "status",
-      type: "NotebookStatus",
+    "status": {
+      "baseName": "status",
+      "type": "NotebookStatus",
     },
-    templateVariables: {
-      baseName: "template_variables",
-      type: "Array<NotebookTemplateVariable>",
+    "templateVariables": {
+      "baseName": "template_variables",
+      "type": "Array<NotebookTemplateVariable>",
     },
-    time: {
-      baseName: "time",
-      type: "NotebookGlobalTime",
-      required: true,
+    "time": {
+      "baseName": "time",
+      "type": "NotebookGlobalTime",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -93,8 +98,34 @@ export class NotebookUpdateDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return NotebookUpdateDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

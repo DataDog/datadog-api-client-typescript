@@ -5,15 +5,20 @@
  */
 import { TeamRoutingRulesDataRelationshipsRulesDataItems } from "./TeamRoutingRulesDataRelationshipsRulesDataItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Holds references to a set of routing rules in a relationship.
- */
+*/
 export class TeamRoutingRulesDataRelationshipsRules {
   /**
    * An array of references to the routing rules associated with this team.
-   */
+  */
   "data"?: Array<TeamRoutingRulesDataRelationshipsRulesDataItems>;
 
   /**
@@ -21,7 +26,7 @@ export class TeamRoutingRulesDataRelationshipsRules {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class TeamRoutingRulesDataRelationshipsRules {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<TeamRoutingRulesDataRelationshipsRulesDataItems>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<TeamRoutingRulesDataRelationshipsRulesDataItems>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class TeamRoutingRulesDataRelationshipsRules {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamRoutingRulesDataRelationshipsRules.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,19 +5,24 @@
  */
 import { SyntheticsTestOptionsSchedulingTimeframe } from "./SyntheticsTestOptionsSchedulingTimeframe";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object containing timeframes and timezone used for advanced scheduling.
- */
+*/
 export class SyntheticsTestOptionsScheduling {
   /**
    * Array containing objects describing the scheduling pattern to apply to each day.
-   */
+  */
   "timeframes": Array<SyntheticsTestOptionsSchedulingTimeframe>;
   /**
    * Timezone in which the timeframe is based.
-   */
+  */
   "timezone": string;
 
   /**
@@ -25,7 +30,7 @@ export class SyntheticsTestOptionsScheduling {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class SyntheticsTestOptionsScheduling {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    timeframes: {
-      baseName: "timeframes",
-      type: "Array<SyntheticsTestOptionsSchedulingTimeframe>",
-      required: true,
+    "timeframes": {
+      "baseName": "timeframes",
+      "type": "Array<SyntheticsTestOptionsSchedulingTimeframe>",
+      "required": true,
     },
-    timezone: {
-      baseName: "timezone",
-      type: "string",
-      required: true,
+    "timezone": {
+      "baseName": "timezone",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class SyntheticsTestOptionsScheduling {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestOptionsScheduling.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Product-specific filters for the dataset.
- */
+*/
 export class FiltersPerProduct {
   /**
    * Defines the list of tag-based filters used to restrict access to telemetry data for a specific product.
    * These filters act as access control rules. Each filter must follow the tag query syntax used by
    * Datadog (such as `@tag.key:value`), and only one tag or attribute may be used to define the access strategy
    * per telemetry type.
-   */
+  */
   "filters": Array<string>;
   /**
    * Name of the product the dataset is for. Possible values are 'apm', 'rum',
    * 'metrics', 'logs', 'error_tracking', 'cloud_cost', 'sd_repoinfo', and 'secruntime'.
-   */
+  */
   "product": string;
 
   /**
@@ -28,7 +33,7 @@ export class FiltersPerProduct {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,15 +44,15 @@ export class FiltersPerProduct {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    filters: {
-      baseName: "filters",
-      type: "Array<string>",
-      required: true,
+    "filters": {
+      "baseName": "filters",
+      "type": "Array<string>",
+      "required": true,
     },
-    product: {
-      baseName: "product",
-      type: "string",
-      required: true,
+    "product": {
+      "baseName": "product",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -59,8 +64,34 @@ export class FiltersPerProduct {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FiltersPerProduct.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

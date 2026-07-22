@@ -6,19 +6,24 @@
 import { ComparisonCustomTimeframe } from "./ComparisonCustomTimeframe";
 import { ComparisonDurationType } from "./ComparisonDurationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The comparison period. Use a preset `type` value or set `type` to `custom_timeframe` and provide `custom_timeframe` with explicit millisecond epoch bounds.
- */
+*/
 export class ComparisonDuration {
   /**
    * Fixed time range for a `custom_timeframe` comparison.
-   */
+  */
   "customTimeframe"?: ComparisonCustomTimeframe;
   /**
    * The comparison window type.
-   */
+  */
   "type": ComparisonDurationType;
 
   /**
@@ -26,7 +31,7 @@ export class ComparisonDuration {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class ComparisonDuration {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    customTimeframe: {
-      baseName: "custom_timeframe",
-      type: "ComparisonCustomTimeframe",
+    "customTimeframe": {
+      "baseName": "custom_timeframe",
+      "type": "ComparisonCustomTimeframe",
     },
-    type: {
-      baseName: "type",
-      type: "ComparisonDurationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ComparisonDurationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class ComparisonDuration {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ComparisonDuration.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

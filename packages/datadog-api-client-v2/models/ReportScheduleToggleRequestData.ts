@@ -6,19 +6,24 @@
 import { ReportScheduleToggleRequestAttributes } from "./ReportScheduleToggleRequestAttributes";
 import { ReportScheduleType } from "./ReportScheduleType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The JSON:API data object for a report schedule toggle request.
- */
+*/
 export class ReportScheduleToggleRequestData {
   /**
    * The status to set on the report schedule.
-   */
+  */
   "attributes": ReportScheduleToggleRequestAttributes;
   /**
    * JSON:API resource type for report schedules.
-   */
+  */
   "type": ReportScheduleType;
 
   /**
@@ -26,7 +31,7 @@ export class ReportScheduleToggleRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class ReportScheduleToggleRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ReportScheduleToggleRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ReportScheduleToggleRequestAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ReportScheduleType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ReportScheduleType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class ReportScheduleToggleRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ReportScheduleToggleRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

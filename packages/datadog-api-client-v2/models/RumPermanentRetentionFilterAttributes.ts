@@ -6,27 +6,32 @@
 import { RumCrossProductSampling } from "./RumCrossProductSampling";
 import { RumPermanentRetentionFilterEditability } from "./RumPermanentRetentionFilterEditability";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes of a permanent RUM retention filter.
- */
+*/
 export class RumPermanentRetentionFilterAttributes {
   /**
    * The configuration for cross-product retention filters.
-   */
+  */
   "crossProductSampling"?: RumCrossProductSampling;
   /**
    * A description of what the filter retains.
-   */
+  */
   "description"?: string;
   /**
    * Indicates which cross-product fields of a permanent RUM retention filter can be updated.
-   */
+  */
   "editability"?: RumPermanentRetentionFilterEditability;
   /**
    * The display name of the permanent retention filter.
-   */
+  */
   "name"?: string;
 
   /**
@@ -34,7 +39,7 @@ export class RumPermanentRetentionFilterAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -45,21 +50,21 @@ export class RumPermanentRetentionFilterAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    crossProductSampling: {
-      baseName: "cross_product_sampling",
-      type: "RumCrossProductSampling",
+    "crossProductSampling": {
+      "baseName": "cross_product_sampling",
+      "type": "RumCrossProductSampling",
     },
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    editability: {
-      baseName: "editability",
-      type: "RumPermanentRetentionFilterEditability",
+    "editability": {
+      "baseName": "editability",
+      "type": "RumPermanentRetentionFilterEditability",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,8 +76,34 @@ export class RumPermanentRetentionFilterAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RumPermanentRetentionFilterAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

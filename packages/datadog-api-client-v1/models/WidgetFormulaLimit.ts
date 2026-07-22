@@ -5,19 +5,24 @@
  */
 import { QuerySortOrder } from "./QuerySortOrder";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Options for limiting results returned.
- */
+*/
 export class WidgetFormulaLimit {
   /**
    * Number of results to return.
-   */
+  */
   "count"?: number;
   /**
    * Direction of sort.
-   */
+  */
   "order"?: QuerySortOrder;
 
   /**
@@ -25,7 +30,7 @@ export class WidgetFormulaLimit {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,14 +41,14 @@ export class WidgetFormulaLimit {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    count: {
-      baseName: "count",
-      type: "number",
-      format: "int64",
+    "count": {
+      "baseName": "count",
+      "type": "number",
+      "format": "int64",
     },
-    order: {
-      baseName: "order",
-      type: "QuerySortOrder",
+    "order": {
+      "baseName": "order",
+      "type": "QuerySortOrder",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class WidgetFormulaLimit {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return WidgetFormulaLimit.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

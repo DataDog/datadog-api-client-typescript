@@ -5,23 +5,28 @@
  */
 import { StatusPagesComponentDataAttributesStatus } from "./StatusPagesComponentDataAttributesStatus";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A component affected at the time of a degradation update.
- */
+*/
 export class DegradationDataAttributesUpdatesItemsComponentsAffectedItems {
   /**
    * Identifier of the component affected at the time of the update.
-   */
+  */
   "id": string;
   /**
    * The name of the component affected at the time of the update.
-   */
+  */
   "name"?: string;
   /**
    * The status of the component.
-   */
+  */
   "status": StatusPagesComponentDataAttributesStatus;
 
   /**
@@ -29,7 +34,7 @@ export class DegradationDataAttributesUpdatesItemsComponentsAffectedItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,20 +45,20 @@ export class DegradationDataAttributesUpdatesItemsComponentsAffectedItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    status: {
-      baseName: "status",
-      type: "StatusPagesComponentDataAttributesStatus",
-      required: true,
+    "status": {
+      "baseName": "status",
+      "type": "StatusPagesComponentDataAttributesStatus",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class DegradationDataAttributesUpdatesItemsComponentsAffectedItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DegradationDataAttributesUpdatesItemsComponentsAffectedItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

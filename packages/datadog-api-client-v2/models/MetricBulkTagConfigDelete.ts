@@ -6,23 +6,28 @@
 import { MetricBulkConfigureTagsType } from "./MetricBulkConfigureTagsType";
 import { MetricBulkTagConfigDeleteAttributes } from "./MetricBulkTagConfigDeleteAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request object to bulk delete all tag configurations for metrics matching the given prefix.
- */
+*/
 export class MetricBulkTagConfigDelete {
   /**
    * Optional parameters for bulk deleting metric tag configurations.
-   */
+  */
   "attributes"?: MetricBulkTagConfigDeleteAttributes;
   /**
    * A text prefix to match against metric names.
-   */
+  */
   "id": string;
   /**
    * The metric bulk configure tags resource.
-   */
+  */
   "type": MetricBulkConfigureTagsType;
 
   /**
@@ -30,7 +35,7 @@ export class MetricBulkTagConfigDelete {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class MetricBulkTagConfigDelete {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "MetricBulkTagConfigDeleteAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "MetricBulkTagConfigDeleteAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "MetricBulkConfigureTagsType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "MetricBulkConfigureTagsType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class MetricBulkTagConfigDelete {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricBulkTagConfigDelete.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

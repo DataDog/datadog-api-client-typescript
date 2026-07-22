@@ -6,19 +6,24 @@
 import { EntityContextEntity } from "./EntityContextEntity";
 import { EntityContextResponseMeta } from "./EntityContextResponseMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response from the entity context endpoint, containing the matching entities and pagination metadata.
- */
+*/
 export class EntityContextResponse {
   /**
    * The list of entities matching the query.
-   */
+  */
   "data": Array<EntityContextEntity>;
   /**
    * Metadata returned alongside the entity context response.
-   */
+  */
   "meta": EntityContextResponseMeta;
 
   /**
@@ -26,7 +31,7 @@ export class EntityContextResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class EntityContextResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<EntityContextEntity>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<EntityContextEntity>",
+      "required": true,
     },
-    meta: {
-      baseName: "meta",
-      type: "EntityContextResponseMeta",
-      required: true,
+    "meta": {
+      "baseName": "meta",
+      "type": "EntityContextResponseMeta",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class EntityContextResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EntityContextResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

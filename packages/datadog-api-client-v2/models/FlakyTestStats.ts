@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Test statistics for the flaky test.
- */
+*/
 export class FlakyTestStats {
   /**
    * The failure rate percentage of the test for the past 7 days. This is the number of failed test runs divided by the total number of test runs (excluding skipped test runs).
-   */
+  */
   "failureRatePct"?: number;
 
   /**
@@ -20,7 +25,7 @@ export class FlakyTestStats {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,10 +36,10 @@ export class FlakyTestStats {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    failureRatePct: {
-      baseName: "failure_rate_pct",
-      type: "number",
-      format: "double",
+    "failureRatePct": {
+      "baseName": "failure_rate_pct",
+      "type": "number",
+      "format": "double",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class FlakyTestStats {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FlakyTestStats.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

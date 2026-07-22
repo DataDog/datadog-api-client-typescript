@@ -4,21 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The installation status of the related integration.
- */
+*/
 
-export type SecurityMonitoringContentPackIntegrationStatus =
-  | typeof INSTALLED
-  | typeof AVAILABLE
-  | typeof PARTIALLY_INSTALLED
-  | typeof DETECTED
-  | typeof ERROR
-  | UnparsedObject;
-export const INSTALLED = "installed";
-export const AVAILABLE = "available";
-export const PARTIALLY_INSTALLED = "partially_installed";
-export const DETECTED = "detected";
-export const ERROR = "error";
+export type SecurityMonitoringContentPackIntegrationStatus = typeof INSTALLED| typeof AVAILABLE| typeof PARTIALLY_INSTALLED| typeof DETECTED| typeof ERROR | UnparsedObject;
+export const INSTALLED = 'installed';
+export const AVAILABLE = 'available';
+export const PARTIALLY_INSTALLED = 'partially_installed';
+export const DETECTED = 'detected';
+export const ERROR = 'error';

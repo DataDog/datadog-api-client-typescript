@@ -5,15 +5,20 @@
  */
 import { RUMApplicationUpdate } from "./RUMApplicationUpdate";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * RUM application update request.
- */
+*/
 export class RUMApplicationUpdateRequest {
   /**
    * RUM application update.
-   */
+  */
   "data": RUMApplicationUpdate;
 
   /**
@@ -21,7 +26,7 @@ export class RUMApplicationUpdateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class RUMApplicationUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "RUMApplicationUpdate",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "RUMApplicationUpdate",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class RUMApplicationUpdateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RUMApplicationUpdateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `RulesetRespDataAttributesCreated` object.
- */
+*/
 export class RulesetRespDataAttributesCreated {
   /**
    * The `created` `nanos`.
-   */
+  */
   "nanos"?: number;
   /**
    * The `created` `seconds`.
-   */
+  */
   "seconds"?: number;
 
   /**
@@ -24,7 +29,7 @@ export class RulesetRespDataAttributesCreated {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,15 +40,15 @@ export class RulesetRespDataAttributesCreated {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    nanos: {
-      baseName: "nanos",
-      type: "number",
-      format: "int32",
+    "nanos": {
+      "baseName": "nanos",
+      "type": "number",
+      "format": "int32",
     },
-    seconds: {
-      baseName: "seconds",
-      type: "number",
-      format: "int64",
+    "seconds": {
+      "baseName": "seconds",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class RulesetRespDataAttributesCreated {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RulesetRespDataAttributesCreated.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

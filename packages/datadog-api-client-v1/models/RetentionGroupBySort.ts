@@ -5,15 +5,20 @@
  */
 import { WidgetSort } from "./WidgetSort";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Sort configuration for retention group by.
- */
+*/
 export class RetentionGroupBySort {
   /**
    * Widget sorting methods.
-   */
+  */
   "order"?: WidgetSort;
 
   /**
@@ -25,18 +30,44 @@ export class RetentionGroupBySort {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    order: {
-      baseName: "order",
-      type: "WidgetSort",
-    },
+    "order": {
+      "baseName": "order",
+      "type": "WidgetSort",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RetentionGroupBySort.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

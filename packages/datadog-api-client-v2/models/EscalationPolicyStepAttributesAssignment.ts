@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Specifies how this escalation step will assign targets (example `default` or `round-robin`).
- */
+*/
 
-export type EscalationPolicyStepAttributesAssignment =
-  | typeof DEFAULT
-  | typeof ROUND_ROBIN
-  | UnparsedObject;
-export const DEFAULT = "default";
-export const ROUND_ROBIN = "round-robin";
+export type EscalationPolicyStepAttributesAssignment = typeof DEFAULT| typeof ROUND_ROBIN | UnparsedObject;
+export const DEFAULT = 'default';
+export const ROUND_ROBIN = 'round-robin';

@@ -6,23 +6,28 @@
 import { SecurityMonitoringSignalMetadataType } from "./SecurityMonitoringSignalMetadataType";
 import { SecurityMonitoringSignalTriageAttributes } from "./SecurityMonitoringSignalTriageAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data containing the updated triage attributes of the signal.
- */
+*/
 export class SecurityMonitoringSignalTriageUpdateData {
   /**
    * Attributes describing a triage state update operation over a security signal.
-   */
+  */
   "attributes"?: SecurityMonitoringSignalTriageAttributes;
   /**
    * The unique ID of the security signal.
-   */
+  */
   "id"?: string;
   /**
    * The type of event.
-   */
+  */
   "type"?: SecurityMonitoringSignalMetadataType;
 
   /**
@@ -30,7 +35,7 @@ export class SecurityMonitoringSignalTriageUpdateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class SecurityMonitoringSignalTriageUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SecurityMonitoringSignalTriageAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SecurityMonitoringSignalTriageAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SecurityMonitoringSignalMetadataType",
+    "type": {
+      "baseName": "type",
+      "type": "SecurityMonitoringSignalMetadataType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class SecurityMonitoringSignalTriageUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringSignalTriageUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

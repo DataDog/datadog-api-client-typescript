@@ -10,17 +10,15 @@ import { CommitmentsAwsSPCommitment } from "./CommitmentsAwsSPCommitment";
 import { CommitmentsAzureComputeSPCommitment } from "./CommitmentsAzureComputeSPCommitment";
 import { CommitmentsAzureVMRICommitment } from "./CommitmentsAzureVMRICommitment";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A commitment item, which varies based on the provider, product, and commitment type.
- */
+*/
 
-export type CommitmentsListItem =
-  | CommitmentsAwsEC2RICommitment
-  | CommitmentsAwsRDSRICommitment
-  | CommitmentsAwsElasticacheRICommitment
-  | CommitmentsAwsSPCommitment
-  | CommitmentsAzureVMRICommitment
-  | CommitmentsAzureComputeSPCommitment
-  | UnparsedObject;
+export type CommitmentsListItem = CommitmentsAwsEC2RICommitment | CommitmentsAwsRDSRICommitment | CommitmentsAwsElasticacheRICommitment | CommitmentsAwsSPCommitment | CommitmentsAzureVMRICommitment | CommitmentsAzureComputeSPCommitment | UnparsedObject;

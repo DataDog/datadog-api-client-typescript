@@ -7,14 +7,15 @@ import { StatusPageAsIncluded } from "./StatusPageAsIncluded";
 import { StatusPagesComponentGroup } from "./StatusPagesComponentGroup";
 import { StatusPagesUser } from "./StatusPagesUser";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * An included resource related to a component.
- */
+*/
 
-export type StatusPagesComponentArrayIncluded =
-  | StatusPagesUser
-  | StatusPageAsIncluded
-  | StatusPagesComponentGroup
-  | UnparsedObject;
+export type StatusPagesComponentArrayIncluded = StatusPagesUser | StatusPageAsIncluded | StatusPagesComponentGroup | UnparsedObject;

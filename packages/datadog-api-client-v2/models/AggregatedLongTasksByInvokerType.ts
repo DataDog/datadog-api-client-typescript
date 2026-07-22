@@ -6,35 +6,40 @@
 import { LongTaskStatsPerView } from "./LongTaskStatsPerView";
 import { TopLongTaskInvoker } from "./TopLongTaskInvoker";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Aggregated long task statistics for a single invoker type.
- */
+*/
 export class AggregatedLongTasksByInvokerType {
   /**
    * Number of sampled views where this invoker type had long tasks contributing to the criteria metric.
-   */
+  */
   "criteriaViewOccurrences"?: number;
   /**
    * Rank-product impact score combining view frequency and blocking time severity.
-   */
+  */
   "impactScore"?: number;
   /**
    * Category of the long task invoker (for example, resolve-promise, user-callback).
-   */
+  */
   "invokerType": string;
   /**
    * Statistical distributions of long task metrics computed per view across sampled views.
-   */
+  */
   "statsPerView": LongTaskStatsPerView;
   /**
    * Top invokers within this invoker type, sorted by impact score descending.
-   */
+  */
   "topInvokers": Array<TopLongTaskInvoker>;
   /**
    * Number of sampled views where this invoker type had any long tasks.
-   */
+  */
   "viewOccurrences": number;
 
   /**
@@ -42,7 +47,7 @@ export class AggregatedLongTasksByInvokerType {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -53,36 +58,36 @@ export class AggregatedLongTasksByInvokerType {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    criteriaViewOccurrences: {
-      baseName: "criteria_view_occurrences",
-      type: "number",
-      format: "int32",
+    "criteriaViewOccurrences": {
+      "baseName": "criteria_view_occurrences",
+      "type": "number",
+      "format": "int32",
     },
-    impactScore: {
-      baseName: "impact_score",
-      type: "number",
-      format: "double",
+    "impactScore": {
+      "baseName": "impact_score",
+      "type": "number",
+      "format": "double",
     },
-    invokerType: {
-      baseName: "invoker_type",
-      type: "string",
-      required: true,
+    "invokerType": {
+      "baseName": "invoker_type",
+      "type": "string",
+      "required": true,
     },
-    statsPerView: {
-      baseName: "stats_per_view",
-      type: "LongTaskStatsPerView",
-      required: true,
+    "statsPerView": {
+      "baseName": "stats_per_view",
+      "type": "LongTaskStatsPerView",
+      "required": true,
     },
-    topInvokers: {
-      baseName: "top_invokers",
-      type: "Array<TopLongTaskInvoker>",
-      required: true,
+    "topInvokers": {
+      "baseName": "top_invokers",
+      "type": "Array<TopLongTaskInvoker>",
+      "required": true,
     },
-    viewOccurrences: {
-      baseName: "view_occurrences",
-      type: "number",
-      required: true,
-      format: "int32",
+    "viewOccurrences": {
+      "baseName": "view_occurrences",
+      "type": "number",
+      "required": true,
+      "format": "int32",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -94,8 +99,34 @@ export class AggregatedLongTasksByInvokerType {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AggregatedLongTasksByInvokerType.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

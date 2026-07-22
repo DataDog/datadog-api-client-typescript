@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * TLS mode. Must be `with_client_cert`.
- */
+*/
 
-export type ObservabilityPipelineWebsocketSourceTlsWithClientCertMode =
-  | typeof WITH_CLIENT_CERT
-  | UnparsedObject;
-export const WITH_CLIENT_CERT = "with_client_cert";
+export type ObservabilityPipelineWebsocketSourceTlsWithClientCertMode = typeof WITH_CLIENT_CERT | UnparsedObject;
+export const WITH_CLIENT_CERT = 'with_client_cert';

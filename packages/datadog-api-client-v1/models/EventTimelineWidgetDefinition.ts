@@ -7,43 +7,48 @@ import { EventTimelineWidgetDefinitionType } from "./EventTimelineWidgetDefiniti
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The event timeline is a widget version of the timeline that appears at the top of the Event Stream view. Only available on FREE layout dashboards.
- */
+*/
 export class EventTimelineWidgetDefinition {
   /**
    * The description of the widget.
-   */
+  */
   "description"?: string;
   /**
    * Query to filter the event timeline with.
-   */
+  */
   "query": string;
   /**
    * The execution method for multi-value filters. Can be either and or or.
-   */
+  */
   "tagsExecution"?: string;
   /**
    * Time setting for the widget.
-   */
+  */
   "time"?: WidgetTime;
   /**
    * Title of the widget.
-   */
+  */
   "title"?: string;
   /**
    * How to align the text on the widget.
-   */
+  */
   "titleAlign"?: WidgetTextAlign;
   /**
    * Size of the title.
-   */
+  */
   "titleSize"?: string;
   /**
    * Type of the event timeline widget.
-   */
+  */
   "type": EventTimelineWidgetDefinitionType;
 
   /**
@@ -51,7 +56,7 @@ export class EventTimelineWidgetDefinition {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -62,39 +67,39 @@ export class EventTimelineWidgetDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    query: {
-      baseName: "query",
-      type: "string",
-      required: true,
+    "query": {
+      "baseName": "query",
+      "type": "string",
+      "required": true,
     },
-    tagsExecution: {
-      baseName: "tags_execution",
-      type: "string",
+    "tagsExecution": {
+      "baseName": "tags_execution",
+      "type": "string",
     },
-    time: {
-      baseName: "time",
-      type: "WidgetTime",
+    "time": {
+      "baseName": "time",
+      "type": "WidgetTime",
     },
-    title: {
-      baseName: "title",
-      type: "string",
+    "title": {
+      "baseName": "title",
+      "type": "string",
     },
-    titleAlign: {
-      baseName: "title_align",
-      type: "WidgetTextAlign",
+    "titleAlign": {
+      "baseName": "title_align",
+      "type": "WidgetTextAlign",
     },
-    titleSize: {
-      baseName: "title_size",
-      type: "string",
+    "titleSize": {
+      "baseName": "title_size",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "EventTimelineWidgetDefinitionType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "EventTimelineWidgetDefinitionType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -106,8 +111,34 @@ export class EventTimelineWidgetDefinition {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EventTimelineWidgetDefinition.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

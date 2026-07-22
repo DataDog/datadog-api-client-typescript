@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Bounding box of an element on the page.
- */
+*/
 export class SyntheticsTestResultBounds {
   /**
    * Height in pixels.
-   */
+  */
   "height"?: number;
   /**
    * Width in pixels.
-   */
+  */
   "width"?: number;
   /**
    * Horizontal position in pixels.
-   */
+  */
   "x"?: number;
   /**
    * Vertical position in pixels.
-   */
+  */
   "y"?: number;
 
   /**
@@ -32,7 +37,7 @@ export class SyntheticsTestResultBounds {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,25 +48,25 @@ export class SyntheticsTestResultBounds {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    height: {
-      baseName: "height",
-      type: "number",
-      format: "int64",
+    "height": {
+      "baseName": "height",
+      "type": "number",
+      "format": "int64",
     },
-    width: {
-      baseName: "width",
-      type: "number",
-      format: "int64",
+    "width": {
+      "baseName": "width",
+      "type": "number",
+      "format": "int64",
     },
-    x: {
-      baseName: "x",
-      type: "number",
-      format: "int64",
+    "x": {
+      "baseName": "x",
+      "type": "number",
+      "format": "int64",
     },
-    y: {
-      baseName: "y",
-      type: "number",
-      format: "int64",
+    "y": {
+      "baseName": "y",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -73,8 +78,34 @@ export class SyntheticsTestResultBounds {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultBounds.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

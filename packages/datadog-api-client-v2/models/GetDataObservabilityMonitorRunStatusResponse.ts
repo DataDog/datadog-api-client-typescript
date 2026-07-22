@@ -5,15 +5,20 @@
  */
 import { GetDataObservabilityMonitorRunStatusResponseData } from "./GetDataObservabilityMonitorRunStatusResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The response for getting the status of a data observability monitor run.
- */
+*/
 export class GetDataObservabilityMonitorRunStatusResponse {
   /**
    * The data object for a data observability monitor run status response.
-   */
+  */
   "data": GetDataObservabilityMonitorRunStatusResponseData;
 
   /**
@@ -21,7 +26,7 @@ export class GetDataObservabilityMonitorRunStatusResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class GetDataObservabilityMonitorRunStatusResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "GetDataObservabilityMonitorRunStatusResponseData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "GetDataObservabilityMonitorRunStatusResponseData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class GetDataObservabilityMonitorRunStatusResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GetDataObservabilityMonitorRunStatusResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -8,15 +8,15 @@ import { ScheduleOnCallResponderData } from "./ScheduleOnCallResponderData";
 import { ShiftData } from "./ShiftData";
 import { User } from "./User";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Represents a union of related resources included in the response, such as responder groups, shifts, schedules, and users.
- */
+*/
 
-export type ScheduleOnCallRespondersIncluded =
-  | ScheduleOnCallResponderData
-  | ShiftData
-  | ScheduleData
-  | User
-  | UnparsedObject;
+export type ScheduleOnCallRespondersIncluded = ScheduleOnCallResponderData | ShiftData | ScheduleData | User | UnparsedObject;

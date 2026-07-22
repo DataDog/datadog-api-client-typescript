@@ -4,16 +4,21 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response metadata object.
- */
+*/
 export class MetricTagCardinalitiesMeta {
   /**
    * The name of metric for which the tag cardinalities are returned.
    * This matches the metric name provided in the request.
-   */
+  */
   "metricName"?: string;
 
   /**
@@ -21,7 +26,7 @@ export class MetricTagCardinalitiesMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class MetricTagCardinalitiesMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    metricName: {
-      baseName: "metric_name",
-      type: "string",
+    "metricName": {
+      "baseName": "metric_name",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class MetricTagCardinalitiesMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricTagCardinalitiesMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

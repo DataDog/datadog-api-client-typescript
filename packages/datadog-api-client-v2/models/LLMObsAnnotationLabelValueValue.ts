@@ -4,15 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The value for this label. Must comply with the label schema type constraints.
- */
+*/
 
-export type LLMObsAnnotationLabelValueValue =
-  | number
-  | string
-  | Array<string>
-  | boolean
-  | UnparsedObject;
+export type LLMObsAnnotationLabelValueValue = number | string | Array<string> | boolean | UnparsedObject;

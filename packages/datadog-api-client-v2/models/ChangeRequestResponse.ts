@@ -6,19 +6,24 @@
 import { ChangeRequestIncludedItem } from "./ChangeRequestIncludedItem";
 import { ChangeRequestResponseData } from "./ChangeRequestResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object for a change request.
- */
+*/
 export class ChangeRequestResponse {
   /**
    * Data object for a change request response.
-   */
+  */
   "data": ChangeRequestResponseData;
   /**
    * Included resources related to the change request.
-   */
+  */
   "included"?: Array<ChangeRequestIncludedItem>;
 
   /**
@@ -26,7 +31,7 @@ export class ChangeRequestResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class ChangeRequestResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ChangeRequestResponseData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "ChangeRequestResponseData",
+      "required": true,
     },
-    included: {
-      baseName: "included",
-      type: "Array<ChangeRequestIncludedItem>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<ChangeRequestIncludedItem>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class ChangeRequestResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ChangeRequestResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

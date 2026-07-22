@@ -6,23 +6,28 @@
 import { DORAFailureType } from "./DORAFailureType";
 import { DORAIncidentObjectAttributes } from "./DORAIncidentObjectAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A DORA incident event.
- */
+*/
 export class DORAIncidentObject {
   /**
    * The attributes of the incident event.
-   */
+  */
   "attributes"?: DORAIncidentObjectAttributes;
   /**
    * The ID of the incident event.
-   */
+  */
   "id"?: string;
   /**
    * JSON:API type for DORA incident events.
-   */
+  */
   "type"?: DORAFailureType;
 
   /**
@@ -30,7 +35,7 @@ export class DORAIncidentObject {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class DORAIncidentObject {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "DORAIncidentObjectAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "DORAIncidentObjectAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "DORAFailureType",
+    "type": {
+      "baseName": "type",
+      "type": "DORAFailureType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class DORAIncidentObject {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DORAIncidentObject.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

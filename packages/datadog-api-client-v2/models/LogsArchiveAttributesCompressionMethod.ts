@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of compression for the archive.
- */
+*/
 
-export type LogsArchiveAttributesCompressionMethod =
-  | typeof GZIP
-  | typeof ZSTD
-  | UnparsedObject;
-export const GZIP = "GZIP";
-export const ZSTD = "ZSTD";
+export type LogsArchiveAttributesCompressionMethod = typeof GZIP| typeof ZSTD | UnparsedObject;
+export const GZIP = 'GZIP';
+export const ZSTD = 'ZSTD';

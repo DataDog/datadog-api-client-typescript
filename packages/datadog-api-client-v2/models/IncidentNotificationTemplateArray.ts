@@ -7,23 +7,28 @@ import { IncidentNotificationTemplateArrayMeta } from "./IncidentNotificationTem
 import { IncidentNotificationTemplateIncludedItems } from "./IncidentNotificationTemplateIncludedItems";
 import { IncidentNotificationTemplateResponseData } from "./IncidentNotificationTemplateResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response with notification templates.
- */
+*/
 export class IncidentNotificationTemplateArray {
   /**
    * The `NotificationTemplateArray` `data`.
-   */
+  */
   "data": Array<IncidentNotificationTemplateResponseData>;
   /**
    * Related objects that are included in the response.
-   */
+  */
   "included"?: Array<IncidentNotificationTemplateIncludedItems>;
   /**
    * Response metadata.
-   */
+  */
   "meta"?: IncidentNotificationTemplateArrayMeta;
 
   /**
@@ -31,7 +36,7 @@ export class IncidentNotificationTemplateArray {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,18 +47,18 @@ export class IncidentNotificationTemplateArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<IncidentNotificationTemplateResponseData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<IncidentNotificationTemplateResponseData>",
+      "required": true,
     },
-    included: {
-      baseName: "included",
-      type: "Array<IncidentNotificationTemplateIncludedItems>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<IncidentNotificationTemplateIncludedItems>",
     },
-    meta: {
-      baseName: "meta",
-      type: "IncidentNotificationTemplateArrayMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "IncidentNotificationTemplateArrayMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class IncidentNotificationTemplateArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentNotificationTemplateArray.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

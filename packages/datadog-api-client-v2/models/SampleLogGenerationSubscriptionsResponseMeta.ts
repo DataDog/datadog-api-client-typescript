@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metadata returned alongside a list of sample log generation subscriptions.
- */
+*/
 export class SampleLogGenerationSubscriptionsResponseMeta {
   /**
    * The total number of subscriptions matching the request, irrespective of pagination.
-   */
+  */
   "totalSubscriptions": number;
 
   /**
@@ -20,7 +25,7 @@ export class SampleLogGenerationSubscriptionsResponseMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,11 +36,11 @@ export class SampleLogGenerationSubscriptionsResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    totalSubscriptions: {
-      baseName: "total_subscriptions",
-      type: "number",
-      required: true,
-      format: "int32",
+    "totalSubscriptions": {
+      "baseName": "total_subscriptions",
+      "type": "number",
+      "required": true,
+      "format": "int32",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class SampleLogGenerationSubscriptionsResponseMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SampleLogGenerationSubscriptionsResponseMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

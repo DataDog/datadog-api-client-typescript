@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Pagination metadata for a List Workflows response.
- */
+*/
 export class ListWorkflowsResponseMetaPage {
   /**
    * The total number of workflows in the organization.
-   */
+  */
   "totalCount"?: number;
   /**
    * The total number of workflows matching the applied filters.
-   */
+  */
   "totalFilteredCount"?: number;
 
   /**
@@ -24,7 +29,7 @@ export class ListWorkflowsResponseMetaPage {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,15 +40,15 @@ export class ListWorkflowsResponseMetaPage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    totalCount: {
-      baseName: "totalCount",
-      type: "number",
-      format: "int64",
+    "totalCount": {
+      "baseName": "totalCount",
+      "type": "number",
+      "format": "int64",
     },
-    totalFilteredCount: {
-      baseName: "totalFilteredCount",
-      type: "number",
-      format: "int64",
+    "totalFilteredCount": {
+      "baseName": "totalFilteredCount",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class ListWorkflowsResponseMetaPage {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListWorkflowsResponseMetaPage.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,19 +6,24 @@
 import { EscalationPolicyData } from "./EscalationPolicyData";
 import { EscalationPolicyIncluded } from "./EscalationPolicyIncluded";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Represents a complete escalation policy response, including policy data and optionally included related resources.
- */
+*/
 export class EscalationPolicy {
   /**
    * Represents the data for a single escalation policy, including its attributes, ID, relationships, and resource type.
-   */
+  */
   "data"?: EscalationPolicyData;
   /**
    * Provides any included related resources, such as steps or targets, returned with the policy.
-   */
+  */
   "included"?: Array<EscalationPolicyIncluded>;
 
   /**
@@ -26,7 +31,7 @@ export class EscalationPolicy {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class EscalationPolicy {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "EscalationPolicyData",
+    "data": {
+      "baseName": "data",
+      "type": "EscalationPolicyData",
     },
-    included: {
-      baseName: "included",
-      type: "Array<EscalationPolicyIncluded>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<EscalationPolicyIncluded>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class EscalationPolicy {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EscalationPolicy.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

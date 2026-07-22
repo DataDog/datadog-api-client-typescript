@@ -6,23 +6,28 @@
 import { ArbitraryRuleStatusResponseDataAttributes } from "./ArbitraryRuleStatusResponseDataAttributes";
 import { ArbitraryRuleStatusResponseDataType } from "./ArbitraryRuleStatusResponseDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Processing status for a custom allocation rule.
- */
+*/
 export class ArbitraryRuleStatusResponseData {
   /**
    * Processing status for a custom allocation rule.
-   */
+  */
   "attributes": ArbitraryRuleStatusResponseDataAttributes;
   /**
    * The unique identifier of the custom allocation rule.
-   */
+  */
   "id": string;
   /**
    * Custom allocation rule status resource type.
-   */
+  */
   "type": ArbitraryRuleStatusResponseDataType;
 
   /**
@@ -30,7 +35,7 @@ export class ArbitraryRuleStatusResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class ArbitraryRuleStatusResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ArbitraryRuleStatusResponseDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ArbitraryRuleStatusResponseDataAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ArbitraryRuleStatusResponseDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ArbitraryRuleStatusResponseDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class ArbitraryRuleStatusResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ArbitraryRuleStatusResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

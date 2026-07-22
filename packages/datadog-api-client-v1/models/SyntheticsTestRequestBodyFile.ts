@@ -4,39 +4,44 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object describing a file to be used as part of the request in the test.
- */
+*/
 export class SyntheticsTestRequestBodyFile {
   /**
    * Bucket key of the file.
-   */
+  */
   "bucketKey"?: string;
   /**
    * Content of the file.
-   */
+  */
   "content"?: string;
   /**
    * Encoding of the file content. The only supported value is `base64`, indicating the `content` field contains base64-encoded data.
-   */
+  */
   "encoding"?: string;
   /**
    * Name of the file.
-   */
+  */
   "name"?: string;
   /**
    * Original name of the file.
-   */
+  */
   "originalFileName"?: string;
   /**
    * Size of the file.
-   */
+  */
   "size"?: number;
   /**
    * Type of the file.
-   */
+  */
   "type"?: string;
 
   /**
@@ -44,7 +49,7 @@ export class SyntheticsTestRequestBodyFile {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -55,34 +60,34 @@ export class SyntheticsTestRequestBodyFile {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    bucketKey: {
-      baseName: "bucketKey",
-      type: "string",
+    "bucketKey": {
+      "baseName": "bucketKey",
+      "type": "string",
     },
-    content: {
-      baseName: "content",
-      type: "string",
+    "content": {
+      "baseName": "content",
+      "type": "string",
     },
-    encoding: {
-      baseName: "encoding",
-      type: "string",
+    "encoding": {
+      "baseName": "encoding",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    originalFileName: {
-      baseName: "originalFileName",
-      type: "string",
+    "originalFileName": {
+      "baseName": "originalFileName",
+      "type": "string",
     },
-    size: {
-      baseName: "size",
-      type: "number",
-      format: "int64",
+    "size": {
+      "baseName": "size",
+      "type": "number",
+      "format": "int64",
     },
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -94,8 +99,34 @@ export class SyntheticsTestRequestBodyFile {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestRequestBodyFile.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

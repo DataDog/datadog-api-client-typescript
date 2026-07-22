@@ -5,15 +5,20 @@
  */
 import { LLMObsExperimentationAnalyticsDataResponse } from "./LLMObsExperimentationAnalyticsDataResponse";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response to an analytics query.
- */
+*/
 export class LLMObsExperimentationAnalyticsResponse {
   /**
    * JSON:API data object for an analytics response.
-   */
+  */
   "data": LLMObsExperimentationAnalyticsDataResponse;
 
   /**
@@ -21,7 +26,7 @@ export class LLMObsExperimentationAnalyticsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class LLMObsExperimentationAnalyticsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "LLMObsExperimentationAnalyticsDataResponse",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "LLMObsExperimentationAnalyticsDataResponse",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class LLMObsExperimentationAnalyticsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsExperimentationAnalyticsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

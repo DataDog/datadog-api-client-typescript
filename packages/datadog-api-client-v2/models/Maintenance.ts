@@ -6,19 +6,24 @@
 import { DegradationIncluded } from "./DegradationIncluded";
 import { MaintenanceData } from "./MaintenanceData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object for a single maintenance.
- */
+*/
 export class Maintenance {
   /**
    * The data object for a maintenance.
-   */
+  */
   "data"?: MaintenanceData;
   /**
    * The included related resources of a maintenance. Client must explicitly request these resources by name in the `include` query parameter.
-   */
+  */
   "included"?: Array<DegradationIncluded>;
 
   /**
@@ -26,7 +31,7 @@ export class Maintenance {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class Maintenance {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "MaintenanceData",
+    "data": {
+      "baseName": "data",
+      "type": "MaintenanceData",
     },
-    included: {
-      baseName: "included",
-      type: "Array<DegradationIncluded>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<DegradationIncluded>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class Maintenance {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return Maintenance.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

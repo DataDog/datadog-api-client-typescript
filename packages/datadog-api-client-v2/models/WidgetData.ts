@@ -6,27 +6,32 @@
 import { WidgetAttributes } from "./WidgetAttributes";
 import { WidgetRelationships } from "./WidgetRelationships";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A widget resource object.
- */
+*/
 export class WidgetData {
   /**
    * Attributes of a widget resource.
-   */
+  */
   "attributes": WidgetAttributes;
   /**
    * The unique identifier of the widget.
-   */
+  */
   "id": string;
   /**
    * Relationships of the widget resource.
-   */
+  */
   "relationships"?: WidgetRelationships;
   /**
    * Widgets resource type.
-   */
+  */
   "type": string;
 
   /**
@@ -34,7 +39,7 @@ export class WidgetData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -45,24 +50,24 @@ export class WidgetData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "WidgetAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "WidgetAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "WidgetRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "WidgetRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "string",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,8 +79,34 @@ export class WidgetData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return WidgetData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { ScheduleTargetPosition } from "./ScheduleTargetPosition";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Schedule-specific configuration for an escalation target.
- */
+*/
 export class EscalationPolicyStepTargetConfigSchedule {
   /**
    * Specifies the position of a schedule target (example `previous`, `current`, or `next`).
-   */
+  */
   "position"?: ScheduleTargetPosition;
 
   /**
@@ -21,7 +26,7 @@ export class EscalationPolicyStepTargetConfigSchedule {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class EscalationPolicyStepTargetConfigSchedule {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    position: {
-      baseName: "position",
-      type: "ScheduleTargetPosition",
+    "position": {
+      "baseName": "position",
+      "type": "ScheduleTargetPosition",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class EscalationPolicyStepTargetConfigSchedule {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EscalationPolicyStepTargetConfigSchedule.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,23 +6,28 @@
 import { TeamSyncAttributes } from "./TeamSyncAttributes";
 import { TeamSyncBulkType } from "./TeamSyncBulkType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A configuration governing syncing between Datadog teams and teams from an external system.
- */
+*/
 export class TeamSyncData {
   /**
    * Team sync attributes.
-   */
+  */
   "attributes": TeamSyncAttributes;
   /**
    * The sync's identifier
-   */
+  */
   "id"?: string;
   /**
    * Team sync bulk type.
-   */
+  */
   "type": TeamSyncBulkType;
 
   /**
@@ -30,7 +35,7 @@ export class TeamSyncData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class TeamSyncData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "TeamSyncAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "TeamSyncAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "TeamSyncBulkType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TeamSyncBulkType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class TeamSyncData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamSyncData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

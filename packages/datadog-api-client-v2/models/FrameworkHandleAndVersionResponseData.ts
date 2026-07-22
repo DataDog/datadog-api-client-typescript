@@ -6,23 +6,28 @@
 import { CustomFrameworkDataHandleAndVersion } from "./CustomFrameworkDataHandleAndVersion";
 import { CustomFrameworkType } from "./CustomFrameworkType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Contains type and attributes for custom frameworks.
- */
+*/
 export class FrameworkHandleAndVersionResponseData {
   /**
    * Framework Handle and Version.
-   */
+  */
   "attributes": CustomFrameworkDataHandleAndVersion;
   /**
    * The ID of the custom framework.
-   */
+  */
   "id": string;
   /**
    * The type of the resource. The value must be `custom_framework`.
-   */
+  */
   "type": CustomFrameworkType;
 
   /**
@@ -30,7 +35,7 @@ export class FrameworkHandleAndVersionResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class FrameworkHandleAndVersionResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CustomFrameworkDataHandleAndVersion",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CustomFrameworkDataHandleAndVersion",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CustomFrameworkType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CustomFrameworkType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class FrameworkHandleAndVersionResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FrameworkHandleAndVersionResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

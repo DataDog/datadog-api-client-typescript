@@ -5,15 +5,20 @@
  */
 import { PreviewEntityResponseData } from "./PreviewEntityResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object containing an array of entity data items.
- */
+*/
 export class EntityResponseArray {
   /**
    * Array of entity response data items.
-   */
+  */
   "data": Array<PreviewEntityResponseData>;
 
   /**
@@ -21,7 +26,7 @@ export class EntityResponseArray {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class EntityResponseArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<PreviewEntityResponseData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<PreviewEntityResponseData>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class EntityResponseArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EntityResponseArray.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

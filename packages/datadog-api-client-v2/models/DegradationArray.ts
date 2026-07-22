@@ -7,23 +7,28 @@ import { DegradationData } from "./DegradationData";
 import { DegradationIncluded } from "./DegradationIncluded";
 import { PaginationMeta } from "./PaginationMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object for a list of degradations.
- */
+*/
 export class DegradationArray {
   /**
    * A list of degradation data objects.
-   */
+  */
   "data": Array<DegradationData>;
   /**
    * The included related resources of a degradation. Client must explicitly request these resources by name in the `include` query parameter.
-   */
+  */
   "included"?: Array<DegradationIncluded>;
   /**
    * Response metadata.
-   */
+  */
   "meta"?: PaginationMeta;
 
   /**
@@ -31,7 +36,7 @@ export class DegradationArray {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,18 +47,18 @@ export class DegradationArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<DegradationData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<DegradationData>",
+      "required": true,
     },
-    included: {
-      baseName: "included",
-      type: "Array<DegradationIncluded>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<DegradationIncluded>",
     },
-    meta: {
-      baseName: "meta",
-      type: "PaginationMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "PaginationMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class DegradationArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DegradationArray.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -7,27 +7,32 @@ import { RelationshipToRule } from "./RelationshipToRule";
 import { RuleAttributes } from "./RuleAttributes";
 import { RuleType } from "./RuleType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Create rule response data.
- */
+*/
 export class CreateRuleResponseData {
   /**
    * Details of a rule.
-   */
+  */
   "attributes"?: RuleAttributes;
   /**
    * The unique ID for a scorecard rule.
-   */
+  */
   "id"?: string;
   /**
    * Scorecard create rule response relationship.
-   */
+  */
   "relationships"?: RelationshipToRule;
   /**
    * The JSON:API type for scorecard rules.
-   */
+  */
   "type"?: RuleType;
 
   /**
@@ -35,7 +40,7 @@ export class CreateRuleResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,21 +51,21 @@ export class CreateRuleResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RuleAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "RuleAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "RelationshipToRule",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "RelationshipToRule",
     },
-    type: {
-      baseName: "type",
-      type: "RuleType",
+    "type": {
+      "baseName": "type",
+      "type": "RuleType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -72,8 +77,34 @@ export class CreateRuleResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateRuleResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

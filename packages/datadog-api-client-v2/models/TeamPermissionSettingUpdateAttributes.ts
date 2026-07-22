@@ -5,15 +5,20 @@
  */
 import { TeamPermissionSettingValue } from "./TeamPermissionSettingValue";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Team permission setting update attributes
- */
+*/
 export class TeamPermissionSettingUpdateAttributes {
   /**
    * What type of user is allowed to perform the specified action
-   */
+  */
   "value"?: TeamPermissionSettingValue;
 
   /**
@@ -21,7 +26,7 @@ export class TeamPermissionSettingUpdateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class TeamPermissionSettingUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    value: {
-      baseName: "value",
-      type: "TeamPermissionSettingValue",
+    "value": {
+      "baseName": "value",
+      "type": "TeamPermissionSettingValue",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class TeamPermissionSettingUpdateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamPermissionSettingUpdateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

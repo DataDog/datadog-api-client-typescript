@@ -5,15 +5,20 @@
  */
 import { WorklflowGetInstanceResponseData } from "./WorklflowGetInstanceResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The state of the given workflow instance.
- */
+*/
 export class WorklflowGetInstanceResponse {
   /**
    * The data of the instance response.
-   */
+  */
   "data"?: WorklflowGetInstanceResponseData;
 
   /**
@@ -21,7 +26,7 @@ export class WorklflowGetInstanceResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class WorklflowGetInstanceResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "WorklflowGetInstanceResponseData",
+    "data": {
+      "baseName": "data",
+      "type": "WorklflowGetInstanceResponseData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class WorklflowGetInstanceResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return WorklflowGetInstanceResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

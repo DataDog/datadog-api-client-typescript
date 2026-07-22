@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * JSON:API resource type for custom attribute configurations.
- */
+*/
 
-export type CustomAttributeConfigResourceType =
-  | typeof CUSTOM_ATTRIBUTE
-  | UnparsedObject;
-export const CUSTOM_ATTRIBUTE = "custom_attribute";
+export type CustomAttributeConfigResourceType = typeof CUSTOM_ATTRIBUTE | UnparsedObject;
+export const CUSTOM_ATTRIBUTE = 'custom_attribute';

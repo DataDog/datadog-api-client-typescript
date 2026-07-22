@@ -5,15 +5,20 @@
  */
 import { StatuspageAccountCreateData } from "./StatuspageAccountCreateData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Create request for a Statuspage account.
- */
+*/
 export class StatuspageAccountCreateRequest {
   /**
    * Statuspage account data for a create request.
-   */
+  */
   "data": StatuspageAccountCreateData;
 
   /**
@@ -21,7 +26,7 @@ export class StatuspageAccountCreateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class StatuspageAccountCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "StatuspageAccountCreateData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "StatuspageAccountCreateData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class StatuspageAccountCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return StatuspageAccountCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

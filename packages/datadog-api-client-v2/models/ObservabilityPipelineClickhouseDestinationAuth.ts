@@ -5,24 +5,29 @@
  */
 import { ObservabilityPipelineClickhouseDestinationAuthStrategy } from "./ObservabilityPipelineClickhouseDestinationAuthStrategy";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * HTTP Basic Authentication credentials for the ClickHouse destination.
  * When `strategy` is `basic`, provide `username_key` and `password_key` that reference environment variables or secrets containing the credentials.
- */
+*/
 export class ObservabilityPipelineClickhouseDestinationAuth {
   /**
    * Name of the environment variable or secret that contains the ClickHouse password.
-   */
+  */
   "passwordKey"?: string;
   /**
    * The authentication strategy for ClickHouse HTTP requests. Only `basic` is supported.
-   */
+  */
   "strategy": ObservabilityPipelineClickhouseDestinationAuthStrategy;
   /**
    * Name of the environment variable or secret that contains the ClickHouse username.
-   */
+  */
   "usernameKey"?: string;
 
   /**
@@ -30,7 +35,7 @@ export class ObservabilityPipelineClickhouseDestinationAuth {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class ObservabilityPipelineClickhouseDestinationAuth {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    passwordKey: {
-      baseName: "password_key",
-      type: "string",
+    "passwordKey": {
+      "baseName": "password_key",
+      "type": "string",
     },
-    strategy: {
-      baseName: "strategy",
-      type: "ObservabilityPipelineClickhouseDestinationAuthStrategy",
-      required: true,
+    "strategy": {
+      "baseName": "strategy",
+      "type": "ObservabilityPipelineClickhouseDestinationAuthStrategy",
+      "required": true,
     },
-    usernameKey: {
-      baseName: "username_key",
-      type: "string",
+    "usernameKey": {
+      "baseName": "username_key",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class ObservabilityPipelineClickhouseDestinationAuth {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineClickhouseDestinationAuth.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

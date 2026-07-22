@@ -5,15 +5,20 @@
  */
 import { GoogleChatAppNamedSpaceResponseData } from "./GoogleChatAppNamedSpaceResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response with Google Chat space information.
- */
+*/
 export class GoogleChatAppNamedSpaceResponse {
   /**
    * Google Chat space data from a response.
-   */
+  */
   "data": GoogleChatAppNamedSpaceResponseData;
 
   /**
@@ -21,7 +26,7 @@ export class GoogleChatAppNamedSpaceResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class GoogleChatAppNamedSpaceResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "GoogleChatAppNamedSpaceResponseData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "GoogleChatAppNamedSpaceResponseData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class GoogleChatAppNamedSpaceResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GoogleChatAppNamedSpaceResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

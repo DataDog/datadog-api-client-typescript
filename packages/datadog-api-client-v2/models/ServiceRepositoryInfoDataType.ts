@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The resource type for service repository info objects.
- */
+*/
 
-export type ServiceRepositoryInfoDataType =
-  | typeof SERVICE_REPOSITORY_INFO
-  | UnparsedObject;
-export const SERVICE_REPOSITORY_INFO = "service_repository_info";
+export type ServiceRepositoryInfoDataType = typeof SERVICE_REPOSITORY_INFO | UnparsedObject;
+export const SERVICE_REPOSITORY_INFO = 'service_repository_info';

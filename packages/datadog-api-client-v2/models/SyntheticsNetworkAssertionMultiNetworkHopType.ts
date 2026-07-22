@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of the multi-network hop assertion.
- */
+*/
 
-export type SyntheticsNetworkAssertionMultiNetworkHopType =
-  | typeof MULTI_NETWORK_HOP
-  | UnparsedObject;
-export const MULTI_NETWORK_HOP = "multiNetworkHop";
+export type SyntheticsNetworkAssertionMultiNetworkHopType = typeof MULTI_NETWORK_HOP | UnparsedObject;
+export const MULTI_NETWORK_HOP = 'multiNetworkHop';

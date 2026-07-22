@@ -6,19 +6,24 @@
 import { ApplicationSecurityPolicyCreateAttributes } from "./ApplicationSecurityPolicyCreateAttributes";
 import { ApplicationSecurityPolicyType } from "./ApplicationSecurityPolicyType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object for a single WAF policy.
- */
+*/
 export class ApplicationSecurityPolicyCreateData {
   /**
    * Create a new WAF policy.
-   */
+  */
   "attributes": ApplicationSecurityPolicyCreateAttributes;
   /**
    * The type of the resource. The value should always be `policy`.
-   */
+  */
   "type": ApplicationSecurityPolicyType;
 
   /**
@@ -26,7 +31,7 @@ export class ApplicationSecurityPolicyCreateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class ApplicationSecurityPolicyCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ApplicationSecurityPolicyCreateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ApplicationSecurityPolicyCreateAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ApplicationSecurityPolicyType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ApplicationSecurityPolicyType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class ApplicationSecurityPolicyCreateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ApplicationSecurityPolicyCreateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

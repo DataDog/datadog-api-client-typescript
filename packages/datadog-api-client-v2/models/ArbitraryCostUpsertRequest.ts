@@ -5,15 +5,20 @@
  */
 import { ArbitraryCostUpsertRequestData } from "./ArbitraryCostUpsertRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `ArbitraryCostUpsertRequest` object.
- */
+*/
 export class ArbitraryCostUpsertRequest {
   /**
    * The definition of `ArbitraryCostUpsertRequestData` object.
-   */
+  */
   "data"?: ArbitraryCostUpsertRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class ArbitraryCostUpsertRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class ArbitraryCostUpsertRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ArbitraryCostUpsertRequestData",
+    "data": {
+      "baseName": "data",
+      "type": "ArbitraryCostUpsertRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class ArbitraryCostUpsertRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ArbitraryCostUpsertRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

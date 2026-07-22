@@ -5,15 +5,20 @@
  */
 import { SecurityMonitoringIntegrationConfigData } from "./SecurityMonitoringIntegrationConfigData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a list of entity context sync configurations.
- */
+*/
 export class SecurityMonitoringIntegrationConfigsResponse {
   /**
    * The list of integration configurations.
-   */
+  */
   "data": Array<SecurityMonitoringIntegrationConfigData>;
 
   /**
@@ -21,7 +26,7 @@ export class SecurityMonitoringIntegrationConfigsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class SecurityMonitoringIntegrationConfigsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<SecurityMonitoringIntegrationConfigData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<SecurityMonitoringIntegrationConfigData>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class SecurityMonitoringIntegrationConfigsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringIntegrationConfigsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

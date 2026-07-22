@@ -6,19 +6,24 @@
 import { DeploymentRuleDataType } from "./DeploymentRuleDataType";
 import { UpdateDeploymentRuleParamsDataAttributes } from "./UpdateDeploymentRuleParamsDataAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Parameters for updating a deployment rule.
- */
+*/
 export class UpdateDeploymentRuleParamsData {
   /**
    * Parameters for updating a deployment rule.
-   */
+  */
   "attributes": UpdateDeploymentRuleParamsDataAttributes;
   /**
    * Deployment rule resource type.
-   */
+  */
   "type": DeploymentRuleDataType;
 
   /**
@@ -26,7 +31,7 @@ export class UpdateDeploymentRuleParamsData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class UpdateDeploymentRuleParamsData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "UpdateDeploymentRuleParamsDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "UpdateDeploymentRuleParamsDataAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "DeploymentRuleDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "DeploymentRuleDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class UpdateDeploymentRuleParamsData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateDeploymentRuleParamsData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

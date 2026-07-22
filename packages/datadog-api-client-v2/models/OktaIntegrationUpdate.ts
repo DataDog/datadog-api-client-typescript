@@ -6,19 +6,24 @@
 import { OktaCredentialsUpdate } from "./OktaCredentialsUpdate";
 import { OktaIntegrationType } from "./OktaIntegrationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `OktaIntegrationUpdate` object.
- */
+*/
 export class OktaIntegrationUpdate {
   /**
    * The definition of the `OktaCredentialsUpdate` object.
-   */
+  */
   "credentials"?: OktaCredentialsUpdate;
   /**
    * The definition of the `OktaIntegrationType` object.
-   */
+  */
   "type": OktaIntegrationType;
 
   /**
@@ -26,7 +31,7 @@ export class OktaIntegrationUpdate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class OktaIntegrationUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    credentials: {
-      baseName: "credentials",
-      type: "OktaCredentialsUpdate",
+    "credentials": {
+      "baseName": "credentials",
+      "type": "OktaCredentialsUpdate",
     },
-    type: {
-      baseName: "type",
-      type: "OktaIntegrationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "OktaIntegrationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class OktaIntegrationUpdate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OktaIntegrationUpdate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

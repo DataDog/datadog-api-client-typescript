@@ -6,23 +6,28 @@
 import { DueDateFrom } from "./DueDateFrom";
 import { DueDatePerSeverityItem } from "./DueDatePerSeverityItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The action to take when the due date rule matches a finding.
- */
+*/
 export class DueDateRuleAction {
   /**
    * A list of severity-to-due-date mappings. Each severity may appear at most once.
-   */
+  */
   "dueDaysPerSeverity": Array<DueDatePerSeverityItem>;
   /**
    * The reference point from which the due date is calculated. When `fix_available` is selected but not applicable to the finding type, `first_seen` is used instead.
-   */
+  */
   "dueFrom": DueDateFrom;
   /**
    * An optional description providing more context for the due date assignment.
-   */
+  */
   "reasonDescription"?: string;
 
   /**
@@ -30,7 +35,7 @@ export class DueDateRuleAction {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class DueDateRuleAction {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    dueDaysPerSeverity: {
-      baseName: "due_days_per_severity",
-      type: "Array<DueDatePerSeverityItem>",
-      required: true,
+    "dueDaysPerSeverity": {
+      "baseName": "due_days_per_severity",
+      "type": "Array<DueDatePerSeverityItem>",
+      "required": true,
     },
-    dueFrom: {
-      baseName: "due_from",
-      type: "DueDateFrom",
-      required: true,
+    "dueFrom": {
+      "baseName": "due_from",
+      "type": "DueDateFrom",
+      "required": true,
     },
-    reasonDescription: {
-      baseName: "reason_description",
-      type: "string",
+    "reasonDescription": {
+      "baseName": "reason_description",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class DueDateRuleAction {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DueDateRuleAction.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

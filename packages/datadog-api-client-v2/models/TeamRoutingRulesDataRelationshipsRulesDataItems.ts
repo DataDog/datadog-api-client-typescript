@@ -5,19 +5,24 @@
  */
 import { TeamRoutingRulesDataRelationshipsRulesDataItemsType } from "./TeamRoutingRulesDataRelationshipsRulesDataItemsType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Defines a relationship item to link a routing rule by its ID and type.
- */
+*/
 export class TeamRoutingRulesDataRelationshipsRulesDataItems {
   /**
    * Specifies the unique identifier for the related routing rule.
-   */
+  */
   "id": string;
   /**
    * Indicates that the resource is of type 'team_routing_rules'.
-   */
+  */
   "type": TeamRoutingRulesDataRelationshipsRulesDataItemsType;
 
   /**
@@ -25,7 +30,7 @@ export class TeamRoutingRulesDataRelationshipsRulesDataItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class TeamRoutingRulesDataRelationshipsRulesDataItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "TeamRoutingRulesDataRelationshipsRulesDataItemsType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TeamRoutingRulesDataRelationshipsRulesDataItemsType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class TeamRoutingRulesDataRelationshipsRulesDataItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamRoutingRulesDataRelationshipsRulesDataItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

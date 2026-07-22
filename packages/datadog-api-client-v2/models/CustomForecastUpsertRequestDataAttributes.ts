@@ -5,20 +5,25 @@
  */
 import { CustomForecastEntry } from "./CustomForecastEntry";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a custom forecast upsert request.
- */
+*/
 export class CustomForecastUpsertRequestDataAttributes {
   /**
    * The UUID of the budget that this custom forecast belongs to.
-   */
+  */
   "budgetUid": string;
   /**
    * Monthly custom forecast entries. An empty list deletes any existing
    * custom forecast for the budget.
-   */
+  */
   "entries": Array<CustomForecastEntry>;
 
   /**
@@ -26,7 +31,7 @@ export class CustomForecastUpsertRequestDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class CustomForecastUpsertRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    budgetUid: {
-      baseName: "budget_uid",
-      type: "string",
-      required: true,
+    "budgetUid": {
+      "baseName": "budget_uid",
+      "type": "string",
+      "required": true,
     },
-    entries: {
-      baseName: "entries",
-      type: "Array<CustomForecastEntry>",
-      required: true,
+    "entries": {
+      "baseName": "entries",
+      "type": "Array<CustomForecastEntry>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class CustomForecastUpsertRequestDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomForecastUpsertRequestDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

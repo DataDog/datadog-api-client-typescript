@@ -5,19 +5,24 @@
  */
 import { DowntimeScheduleRecurrenceCreateUpdateRequest } from "./DowntimeScheduleRecurrenceCreateUpdateRequest";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A recurring downtime schedule definition.
- */
+*/
 export class DowntimeScheduleRecurrencesCreateRequest {
   /**
    * A list of downtime recurrences.
-   */
+  */
   "recurrences": Array<DowntimeScheduleRecurrenceCreateUpdateRequest>;
   /**
    * The timezone in which to schedule the downtime.
-   */
+  */
   "timezone"?: string;
 
   /**
@@ -25,7 +30,7 @@ export class DowntimeScheduleRecurrencesCreateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,14 +41,14 @@ export class DowntimeScheduleRecurrencesCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    recurrences: {
-      baseName: "recurrences",
-      type: "Array<DowntimeScheduleRecurrenceCreateUpdateRequest>",
-      required: true,
+    "recurrences": {
+      "baseName": "recurrences",
+      "type": "Array<DowntimeScheduleRecurrenceCreateUpdateRequest>",
+      "required": true,
     },
-    timezone: {
-      baseName: "timezone",
-      type: "string",
+    "timezone": {
+      "baseName": "timezone",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class DowntimeScheduleRecurrencesCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DowntimeScheduleRecurrencesCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

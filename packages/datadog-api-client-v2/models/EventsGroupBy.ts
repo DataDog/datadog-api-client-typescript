@@ -5,24 +5,29 @@
  */
 import { EventsGroupBySort } from "./EventsGroupBySort";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A dimension on which to split a query's results.
- */
+*/
 export class EventsGroupBy {
   /**
    * The facet by which to split groups.
-   */
+  */
   "facet": string;
   /**
    * The maximum buckets to return for this group by. Note: at most 10000 buckets are allowed.
    * If grouping by multiple facets, the product of limits must not exceed 10000.
-   */
+  */
   "limit"?: number;
   /**
    * The dimension by which to sort a query's results.
-   */
+  */
   "sort"?: EventsGroupBySort;
 
   /**
@@ -30,7 +35,7 @@ export class EventsGroupBy {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class EventsGroupBy {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    facet: {
-      baseName: "facet",
-      type: "string",
-      required: true,
+    "facet": {
+      "baseName": "facet",
+      "type": "string",
+      "required": true,
     },
-    limit: {
-      baseName: "limit",
-      type: "number",
-      format: "int32",
+    "limit": {
+      "baseName": "limit",
+      "type": "number",
+      "format": "int32",
     },
-    sort: {
-      baseName: "sort",
-      type: "EventsGroupBySort",
+    "sort": {
+      "baseName": "sort",
+      "type": "EventsGroupBySort",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class EventsGroupBy {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EventsGroupBy.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

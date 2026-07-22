@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The tags resource type.
- */
+*/
 
 export type AppTagsType = typeof TAGS | UnparsedObject;
-export const TAGS = "tags";
+export const TAGS = 'tags';

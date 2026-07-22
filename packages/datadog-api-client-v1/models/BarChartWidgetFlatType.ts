@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Bar chart widget flat display type.
- */
+*/
 
 export type BarChartWidgetFlatType = typeof FLAT | UnparsedObject;
-export const FLAT = "flat";
+export const FLAT = 'flat';

@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The order to use, ascending or descending.
- */
+*/
 
-export type CIAppSortOrder =
-  | typeof ASCENDING
-  | typeof DESCENDING
-  | UnparsedObject;
-export const ASCENDING = "asc";
-export const DESCENDING = "desc";
+export type CIAppSortOrder = typeof ASCENDING| typeof DESCENDING | UnparsedObject;
+export const ASCENDING = 'asc';
+export const DESCENDING = 'desc';

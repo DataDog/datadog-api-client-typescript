@@ -6,19 +6,24 @@
 import { GoogleChatTargetAudienceType } from "./GoogleChatTargetAudienceType";
 import { GoogleChatTargetAudienceUpdateRequestAttributes } from "./GoogleChatTargetAudienceUpdateRequestAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for an update target audience request.
- */
+*/
 export class GoogleChatTargetAudienceUpdateRequestData {
   /**
    * Attributes for updating a Google Chat target audience.
-   */
+  */
   "attributes": GoogleChatTargetAudienceUpdateRequestAttributes;
   /**
    * Google Chat target audience resource type.
-   */
+  */
   "type": GoogleChatTargetAudienceType;
 
   /**
@@ -26,7 +31,7 @@ export class GoogleChatTargetAudienceUpdateRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class GoogleChatTargetAudienceUpdateRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "GoogleChatTargetAudienceUpdateRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "GoogleChatTargetAudienceUpdateRequestAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "GoogleChatTargetAudienceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "GoogleChatTargetAudienceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class GoogleChatTargetAudienceUpdateRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GoogleChatTargetAudienceUpdateRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

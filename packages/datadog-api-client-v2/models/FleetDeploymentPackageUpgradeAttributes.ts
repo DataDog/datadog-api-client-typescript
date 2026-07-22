@@ -5,19 +5,24 @@
  */
 import { FleetDeploymentPackage } from "./FleetDeploymentPackage";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for creating a new package upgrade deployment.
- */
+*/
 export class FleetDeploymentPackageUpgradeAttributes {
   /**
    * Query used to filter and select target hosts for the deployment. Uses the Datadog query syntax.
-   */
+  */
   "filterQuery"?: string;
   /**
    * List of packages and their target versions to deploy to the selected hosts.
-   */
+  */
   "targetPackages": Array<FleetDeploymentPackage>;
 
   /**
@@ -25,7 +30,7 @@ export class FleetDeploymentPackageUpgradeAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,14 +41,14 @@ export class FleetDeploymentPackageUpgradeAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    filterQuery: {
-      baseName: "filter_query",
-      type: "string",
+    "filterQuery": {
+      "baseName": "filter_query",
+      "type": "string",
     },
-    targetPackages: {
-      baseName: "target_packages",
-      type: "Array<FleetDeploymentPackage>",
-      required: true,
+    "targetPackages": {
+      "baseName": "target_packages",
+      "type": "Array<FleetDeploymentPackage>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class FleetDeploymentPackageUpgradeAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FleetDeploymentPackageUpgradeAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

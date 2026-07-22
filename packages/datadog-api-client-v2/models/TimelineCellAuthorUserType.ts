@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of timeline cell author. Currently only `USER` is supported.
- */
+*/
 
 export type TimelineCellAuthorUserType = typeof USER | UnparsedObject;
-export const USER = "USER";
+export const USER = 'USER';

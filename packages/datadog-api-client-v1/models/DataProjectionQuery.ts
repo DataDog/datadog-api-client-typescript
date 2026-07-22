@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Query configuration for a data projection request.
- */
+*/
 export class DataProjectionQuery {
   /**
    * Data source for the query.
-   */
+  */
   "dataSource": string;
   /**
    * List of indexes to query.
-   */
+  */
   "indexes"?: Array<string>;
   /**
    * The query string to filter events.
-   */
+  */
   "queryString": string;
   /**
    * Storage location for the query.
-   */
+  */
   "storage"?: string;
 
   /**
@@ -32,7 +37,7 @@ export class DataProjectionQuery {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,23 +48,23 @@ export class DataProjectionQuery {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    dataSource: {
-      baseName: "data_source",
-      type: "string",
-      required: true,
+    "dataSource": {
+      "baseName": "data_source",
+      "type": "string",
+      "required": true,
     },
-    indexes: {
-      baseName: "indexes",
-      type: "Array<string>",
+    "indexes": {
+      "baseName": "indexes",
+      "type": "Array<string>",
     },
-    queryString: {
-      baseName: "query_string",
-      type: "string",
-      required: true,
+    "queryString": {
+      "baseName": "query_string",
+      "type": "string",
+      "required": true,
     },
-    storage: {
-      baseName: "storage",
-      type: "string",
+    "storage": {
+      "baseName": "storage",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,8 +76,34 @@ export class DataProjectionQuery {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DataProjectionQuery.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,12 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Use `"*"` to query all indexes.
- */
+*/
 
-export type FormulaAndFunctionProductAnalyticsExtendedQueryDefinitionIndexesItems =
-  typeof ALL | UnparsedObject;
-export const ALL = "*";
+export type FormulaAndFunctionProductAnalyticsExtendedQueryDefinitionIndexesItems = typeof ALL | UnparsedObject;
+export const ALL = '*';

@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Represent validation endpoint responses.
- */
+*/
 export class AuthenticationValidationResponse {
   /**
    * Return `true` if the authentication response is valid.
-   */
+  */
   "valid"?: boolean;
 
   /**
@@ -20,7 +25,7 @@ export class AuthenticationValidationResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,9 +36,9 @@ export class AuthenticationValidationResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    valid: {
-      baseName: "valid",
-      type: "boolean",
+    "valid": {
+      "baseName": "valid",
+      "type": "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,8 +50,34 @@ export class AuthenticationValidationResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AuthenticationValidationResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

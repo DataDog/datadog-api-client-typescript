@@ -5,15 +5,20 @@
  */
 import { AttachJiraIssueRequestData } from "./AttachJiraIssueRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request for attaching security findings to a Jira issue.
- */
+*/
 export class AttachJiraIssueRequest {
   /**
    * Data of the Jira issue to attach security findings to.
-   */
+  */
   "data"?: AttachJiraIssueRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class AttachJiraIssueRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class AttachJiraIssueRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "AttachJiraIssueRequestData",
+    "data": {
+      "baseName": "data",
+      "type": "AttachJiraIssueRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class AttachJiraIssueRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AttachJiraIssueRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

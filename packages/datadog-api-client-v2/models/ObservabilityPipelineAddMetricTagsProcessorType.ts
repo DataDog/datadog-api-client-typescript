@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The processor type. The value must be `add_metric_tags`.
- */
+*/
 
-export type ObservabilityPipelineAddMetricTagsProcessorType =
-  | typeof ADD_METRIC_TAGS
-  | UnparsedObject;
-export const ADD_METRIC_TAGS = "add_metric_tags";
+export type ObservabilityPipelineAddMetricTagsProcessorType = typeof ADD_METRIC_TAGS | UnparsedObject;
+export const ADD_METRIC_TAGS = 'add_metric_tags';

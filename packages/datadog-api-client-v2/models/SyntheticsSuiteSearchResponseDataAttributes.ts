@@ -5,19 +5,24 @@
  */
 import { SyntheticsSuite } from "./SyntheticsSuite";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Synthetics suite search response data attributes
- */
+*/
 export class SyntheticsSuiteSearchResponseDataAttributes {
   /**
    * List of Synthetic suites matching the search query.
-   */
+  */
   "suites"?: Array<SyntheticsSuite>;
   /**
    * Total number of Synthetic suites matching the search query.
-   */
+  */
   "total"?: number;
 
   /**
@@ -25,7 +30,7 @@ export class SyntheticsSuiteSearchResponseDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,14 +41,14 @@ export class SyntheticsSuiteSearchResponseDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    suites: {
-      baseName: "suites",
-      type: "Array<SyntheticsSuite>",
+    "suites": {
+      "baseName": "suites",
+      "type": "Array<SyntheticsSuite>",
     },
-    total: {
-      baseName: "total",
-      type: "number",
-      format: "int32",
+    "total": {
+      "baseName": "total",
+      "type": "number",
+      "format": "int32",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class SyntheticsSuiteSearchResponseDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsSuiteSearchResponseDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

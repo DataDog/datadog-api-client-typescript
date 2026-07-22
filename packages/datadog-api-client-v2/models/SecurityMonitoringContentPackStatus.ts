@@ -4,23 +4,21 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The current operational status of a content pack.
- */
+*/
 
-export type SecurityMonitoringContentPackStatus =
-  | typeof INSTALL
-  | typeof ACTIVATE
-  | typeof INITIALIZING
-  | typeof ACTIVE
-  | typeof WARNING
-  | typeof BROKEN
-  | UnparsedObject;
-export const INSTALL = "install";
-export const ACTIVATE = "activate";
-export const INITIALIZING = "initializing";
-export const ACTIVE = "active";
-export const WARNING = "warning";
-export const BROKEN = "broken";
+export type SecurityMonitoringContentPackStatus = typeof INSTALL| typeof ACTIVATE| typeof INITIALIZING| typeof ACTIVE| typeof WARNING| typeof BROKEN | UnparsedObject;
+export const INSTALL = 'install';
+export const ACTIVATE = 'activate';
+export const INITIALIZING = 'initializing';
+export const ACTIVE = 'active';
+export const WARNING = 'warning';
+export const BROKEN = 'broken';

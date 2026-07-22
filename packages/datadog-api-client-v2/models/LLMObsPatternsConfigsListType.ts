@@ -4,14 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Resource type of a list of LLM Observability patterns configurations.
- */
+*/
 
-export type LLMObsPatternsConfigsListType =
-  | typeof LIST_TOPIC_DISCOVERY_CONFIGS_RESPONSE
-  | UnparsedObject;
-export const LIST_TOPIC_DISCOVERY_CONFIGS_RESPONSE =
-  "list_topic_discovery_configs_response";
+export type LLMObsPatternsConfigsListType = typeof LIST_TOPIC_DISCOVERY_CONFIGS_RESPONSE | UnparsedObject;
+export const LIST_TOPIC_DISCOVERY_CONFIGS_RESPONSE = 'list_topic_discovery_configs_response';

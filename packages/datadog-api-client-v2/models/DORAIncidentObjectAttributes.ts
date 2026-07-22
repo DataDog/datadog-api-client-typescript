@@ -5,51 +5,56 @@
  */
 import { DORAGitInfo } from "./DORAGitInfo";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes of the incident event.
- */
+*/
 export class DORAIncidentObjectAttributes {
   /**
    * A list of user-defined tags. The tags must follow the `key:value` pattern. Up to 100 may be added per event.
-   */
+  */
   "customTags"?: Array<string>;
   /**
    * Environment name that was impacted by the incident.
-   */
+  */
   "env"?: string;
   /**
    * The time when the incident finished.
-   */
+  */
   "finishedAt"?: Date;
   /**
    * Git info for DORA Metrics events.
-   */
+  */
   "git"?: DORAGitInfo;
   /**
    * Incident name.
-   */
+  */
   "name"?: string;
   /**
    * Service names impacted by the incident.
-   */
+  */
   "services"?: Array<string>;
   /**
    * Incident severity.
-   */
+  */
   "severity"?: string;
   /**
    * The time when the incident started.
-   */
+  */
   "startedAt"?: Date;
   /**
    * Name of the team owning the services impacted.
-   */
+  */
   "team"?: string;
   /**
    * Version to correlate with APM Deployment Tracking.
-   */
+  */
   "version"?: string;
 
   /**
@@ -57,7 +62,7 @@ export class DORAIncidentObjectAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -68,47 +73,47 @@ export class DORAIncidentObjectAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    customTags: {
-      baseName: "custom_tags",
-      type: "Array<string>",
+    "customTags": {
+      "baseName": "custom_tags",
+      "type": "Array<string>",
     },
-    env: {
-      baseName: "env",
-      type: "string",
+    "env": {
+      "baseName": "env",
+      "type": "string",
     },
-    finishedAt: {
-      baseName: "finished_at",
-      type: "Date",
-      format: "date-time",
+    "finishedAt": {
+      "baseName": "finished_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    git: {
-      baseName: "git",
-      type: "DORAGitInfo",
+    "git": {
+      "baseName": "git",
+      "type": "DORAGitInfo",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    services: {
-      baseName: "services",
-      type: "Array<string>",
+    "services": {
+      "baseName": "services",
+      "type": "Array<string>",
     },
-    severity: {
-      baseName: "severity",
-      type: "string",
+    "severity": {
+      "baseName": "severity",
+      "type": "string",
     },
-    startedAt: {
-      baseName: "started_at",
-      type: "Date",
-      format: "date-time",
+    "startedAt": {
+      "baseName": "started_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    team: {
-      baseName: "team",
-      type: "string",
+    "team": {
+      "baseName": "team",
+      "type": "string",
     },
-    version: {
-      baseName: "version",
-      type: "string",
+    "version": {
+      "baseName": "version",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -120,8 +125,34 @@ export class DORAIncidentObjectAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DORAIncidentObjectAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,11 +5,16 @@
  */
 import { TableRowResourceIdentifier } from "./TableRowResourceIdentifier";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationship data containing the list of matching rows.
- */
+*/
 export class BatchRowsQueryResponseDataRelationshipsRows {
   "data"?: Array<TableRowResourceIdentifier>;
 
@@ -18,7 +23,7 @@ export class BatchRowsQueryResponseDataRelationshipsRows {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -29,9 +34,9 @@ export class BatchRowsQueryResponseDataRelationshipsRows {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<TableRowResourceIdentifier>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<TableRowResourceIdentifier>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -43,8 +48,34 @@ export class BatchRowsQueryResponseDataRelationshipsRows {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return BatchRowsQueryResponseDataRelationshipsRows.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

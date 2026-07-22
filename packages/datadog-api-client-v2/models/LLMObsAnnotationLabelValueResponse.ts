@@ -7,7 +7,12 @@ import { LLMObsAnnotationAssessment } from "./LLMObsAnnotationAssessment";
 import { LLMObsAnnotationLabelValueValue } from "./LLMObsAnnotationLabelValueValue";
 import { LLMObsLabelSchemaType } from "./LLMObsLabelSchemaType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A single label value entry in an annotation response.
@@ -15,31 +20,31 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * `name_when_saved` to mirror the schema state at the time the annotation
  * was created — these help clients display values correctly when the schema
  * has since changed.
- */
+*/
 export class LLMObsAnnotationLabelValueResponse {
   /**
    * Assessment result for a label value.
-   */
+  */
   "assessment"?: LLMObsAnnotationAssessment;
   /**
    * ID of the label schema this value corresponds to.
-   */
+  */
   "labelSchemaId": string;
   /**
    * Name of the label schema at the time the annotation was created.
-   */
+  */
   "nameWhenSaved"?: string;
   /**
    * Free text reasoning for this label value.
-   */
+  */
   "reasoning"?: string;
   /**
    * Type of a label in an annotation queue label schema.
-   */
+  */
   "type"?: LLMObsLabelSchemaType;
   /**
    * The value for this label. Must comply with the label schema type constraints.
-   */
+  */
   "value": LLMObsAnnotationLabelValueValue;
 
   /**
@@ -47,7 +52,7 @@ export class LLMObsAnnotationLabelValueResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -58,31 +63,31 @@ export class LLMObsAnnotationLabelValueResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    assessment: {
-      baseName: "assessment",
-      type: "LLMObsAnnotationAssessment",
+    "assessment": {
+      "baseName": "assessment",
+      "type": "LLMObsAnnotationAssessment",
     },
-    labelSchemaId: {
-      baseName: "label_schema_id",
-      type: "string",
-      required: true,
+    "labelSchemaId": {
+      "baseName": "label_schema_id",
+      "type": "string",
+      "required": true,
     },
-    nameWhenSaved: {
-      baseName: "name_when_saved",
-      type: "string",
+    "nameWhenSaved": {
+      "baseName": "name_when_saved",
+      "type": "string",
     },
-    reasoning: {
-      baseName: "reasoning",
-      type: "string",
+    "reasoning": {
+      "baseName": "reasoning",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "LLMObsLabelSchemaType",
+    "type": {
+      "baseName": "type",
+      "type": "LLMObsLabelSchemaType",
     },
-    value: {
-      baseName: "value",
-      type: "LLMObsAnnotationLabelValueValue",
-      required: true,
+    "value": {
+      "baseName": "value",
+      "type": "LLMObsAnnotationLabelValueValue",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -94,8 +99,34 @@ export class LLMObsAnnotationLabelValueResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsAnnotationLabelValueResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

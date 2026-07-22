@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * List connections response resource type.
- */
+*/
 
-export type ListConnectionsResponseDataType =
-  | typeof LIST_CONNECTIONS_RESPONSE
-  | UnparsedObject;
-export const LIST_CONNECTIONS_RESPONSE = "list_connections_response";
+export type ListConnectionsResponseDataType = typeof LIST_CONNECTIONS_RESPONSE | UnparsedObject;
+export const LIST_CONNECTIONS_RESPONSE = 'list_connections_response';

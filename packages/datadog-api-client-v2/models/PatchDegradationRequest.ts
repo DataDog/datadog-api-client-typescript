@@ -5,15 +5,20 @@
  */
 import { PatchDegradationRequestData } from "./PatchDegradationRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request object for updating a degradation.
- */
+*/
 export class PatchDegradationRequest {
   /**
    * The data object for updating a degradation.
-   */
+  */
   "data"?: PatchDegradationRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class PatchDegradationRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class PatchDegradationRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "PatchDegradationRequestData",
+    "data": {
+      "baseName": "data",
+      "type": "PatchDegradationRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class PatchDegradationRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PatchDegradationRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

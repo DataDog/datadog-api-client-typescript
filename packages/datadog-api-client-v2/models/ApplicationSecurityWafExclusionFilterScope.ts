@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Deploy on services based on their environment and/or service name.
- */
+*/
 export class ApplicationSecurityWafExclusionFilterScope {
   /**
    * Deploy on this environment.
-   */
+  */
   "env"?: string;
   /**
    * Deploy on this service.
-   */
+  */
   "service"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class ApplicationSecurityWafExclusionFilterScope {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class ApplicationSecurityWafExclusionFilterScope {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    env: {
-      baseName: "env",
-      type: "string",
+    "env": {
+      "baseName": "env",
+      "type": "string",
     },
-    service: {
-      baseName: "service",
-      type: "string",
+    "service": {
+      "baseName": "service",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class ApplicationSecurityWafExclusionFilterScope {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ApplicationSecurityWafExclusionFilterScope.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

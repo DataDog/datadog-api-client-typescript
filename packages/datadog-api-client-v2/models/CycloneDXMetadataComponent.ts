@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The asset that was scanned (for example, a host or container image).
- */
+*/
 export class CycloneDXMetadataComponent {
   /**
    * A unique reference identifier for this metadata component. If set, must match a `bom-ref` in `components`.
-   */
+  */
   "bomRef"?: string;
   /**
    * The name or identifier of the scanned asset (for example, an instance ID or hostname).
-   */
+  */
   "name": string;
   /**
    * The type of the scanned asset.
-   */
+  */
   "type"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class CycloneDXMetadataComponent {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,18 +44,18 @@ export class CycloneDXMetadataComponent {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    bomRef: {
-      baseName: "bom-ref",
-      type: "string",
+    "bomRef": {
+      "baseName": "bom-ref",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class CycloneDXMetadataComponent {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CycloneDXMetadataComponent.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

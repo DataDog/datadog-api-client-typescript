@@ -6,19 +6,24 @@
 import { MaintenanceWindowResourceType } from "./MaintenanceWindowResourceType";
 import { MaintenanceWindowUpdateAttributes } from "./MaintenanceWindowUpdateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for updating a maintenance window.
- */
+*/
 export class MaintenanceWindowUpdate {
   /**
    * Attributes that can be updated on a maintenance window. All fields are optional; only provided fields are changed.
-   */
+  */
   "attributes"?: MaintenanceWindowUpdateAttributes;
   /**
    * JSON:API resource type for maintenance windows.
-   */
+  */
   "type": MaintenanceWindowResourceType;
 
   /**
@@ -26,7 +31,7 @@ export class MaintenanceWindowUpdate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class MaintenanceWindowUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "MaintenanceWindowUpdateAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "MaintenanceWindowUpdateAttributes",
     },
-    type: {
-      baseName: "type",
-      type: "MaintenanceWindowResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "MaintenanceWindowResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class MaintenanceWindowUpdate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MaintenanceWindowUpdate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

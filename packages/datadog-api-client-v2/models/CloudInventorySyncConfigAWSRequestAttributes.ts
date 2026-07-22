@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * AWS settings for the S3 bucket Storage Management reads inventory reports from.
- */
+*/
 export class CloudInventorySyncConfigAWSRequestAttributes {
   /**
    * AWS account ID that owns the inventory bucket.
-   */
+  */
   "awsAccountId": string;
   /**
    * Name of the S3 bucket containing inventory files.
-   */
+  */
   "destinationBucketName": string;
   /**
    * AWS Region of the inventory bucket.
-   */
+  */
   "destinationBucketRegion": string;
   /**
    * Object key prefix where inventory reports are written. Omit or set to `/` when reports are written at the bucket root.
-   */
+  */
   "destinationPrefix"?: string;
 
   /**
@@ -32,7 +37,7 @@ export class CloudInventorySyncConfigAWSRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,24 +48,24 @@ export class CloudInventorySyncConfigAWSRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    awsAccountId: {
-      baseName: "aws_account_id",
-      type: "string",
-      required: true,
+    "awsAccountId": {
+      "baseName": "aws_account_id",
+      "type": "string",
+      "required": true,
     },
-    destinationBucketName: {
-      baseName: "destination_bucket_name",
-      type: "string",
-      required: true,
+    "destinationBucketName": {
+      "baseName": "destination_bucket_name",
+      "type": "string",
+      "required": true,
     },
-    destinationBucketRegion: {
-      baseName: "destination_bucket_region",
-      type: "string",
-      required: true,
+    "destinationBucketRegion": {
+      "baseName": "destination_bucket_region",
+      "type": "string",
+      "required": true,
     },
-    destinationPrefix: {
-      baseName: "destination_prefix",
-      type: "string",
+    "destinationPrefix": {
+      "baseName": "destination_prefix",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -72,8 +77,34 @@ export class CloudInventorySyncConfigAWSRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CloudInventorySyncConfigAWSRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,35 +6,40 @@
 import { LLMObsAnnotationItem } from "./LLMObsAnnotationItem";
 import { LLMObsTraceInteractionType } from "./LLMObsTraceInteractionType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A trace, experiment trace, or session interaction with its associated annotations.
- */
+*/
 export class LLMObsTraceAnnotatedInteractionItem {
   /**
    * List of annotations for this interaction.
-   */
+  */
   "annotations": Array<LLMObsAnnotationItem>;
   /**
    * Upstream entity identifier supplied by the caller.
-   */
+  */
   "contentId": string;
   /**
    * Timestamp when the interaction was added to the queue.
-   */
+  */
   "createdAt": Date;
   /**
    * Unique identifier of the interaction.
-   */
+  */
   "id": string;
   /**
    * Timestamp when the interaction was last updated.
-   */
+  */
   "modifiedAt": Date;
   /**
    * Type of an upstream-entity interaction.
-   */
+  */
   "type": LLMObsTraceInteractionType;
 
   /**
@@ -42,7 +47,7 @@ export class LLMObsTraceAnnotatedInteractionItem {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -53,37 +58,37 @@ export class LLMObsTraceAnnotatedInteractionItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    annotations: {
-      baseName: "annotations",
-      type: "Array<LLMObsAnnotationItem>",
-      required: true,
+    "annotations": {
+      "baseName": "annotations",
+      "type": "Array<LLMObsAnnotationItem>",
+      "required": true,
     },
-    contentId: {
-      baseName: "content_id",
-      type: "string",
-      required: true,
+    "contentId": {
+      "baseName": "content_id",
+      "type": "string",
+      "required": true,
     },
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "modifiedAt": {
+      "baseName": "modified_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    type: {
-      baseName: "type",
-      type: "LLMObsTraceInteractionType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LLMObsTraceInteractionType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -95,8 +100,34 @@ export class LLMObsTraceAnnotatedInteractionItem {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsTraceAnnotatedInteractionItem.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

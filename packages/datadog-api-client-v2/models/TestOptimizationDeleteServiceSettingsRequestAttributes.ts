@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for deleting Test Optimization service settings.
- */
+*/
 export class TestOptimizationDeleteServiceSettingsRequestAttributes {
   /**
    * The environment name. If omitted, defaults to `none`.
-   */
+  */
   "env"?: string;
   /**
    * The repository identifier.
-   */
+  */
   "repositoryId": string;
   /**
    * The service name.
-   */
+  */
   "serviceName": string;
 
   /**
@@ -28,7 +33,7 @@ export class TestOptimizationDeleteServiceSettingsRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,19 +44,19 @@ export class TestOptimizationDeleteServiceSettingsRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    env: {
-      baseName: "env",
-      type: "string",
+    "env": {
+      "baseName": "env",
+      "type": "string",
     },
-    repositoryId: {
-      baseName: "repository_id",
-      type: "string",
-      required: true,
+    "repositoryId": {
+      "baseName": "repository_id",
+      "type": "string",
+      "required": true,
     },
-    serviceName: {
-      baseName: "service_name",
-      type: "string",
-      required: true,
+    "serviceName": {
+      "baseName": "service_name",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class TestOptimizationDeleteServiceSettingsRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TestOptimizationDeleteServiceSettingsRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

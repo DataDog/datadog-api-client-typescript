@@ -5,15 +5,20 @@
  */
 import { CreateCaseRequestData } from "./CreateCaseRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * List of requests to create cases for security findings.
- */
+*/
 export class CreateCaseRequestArray {
   /**
    * Array of case creation request data objects.
-   */
+  */
   "data": Array<CreateCaseRequestData>;
 
   /**
@@ -21,7 +26,7 @@ export class CreateCaseRequestArray {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CreateCaseRequestArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<CreateCaseRequestData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<CreateCaseRequestData>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CreateCaseRequestArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateCaseRequestArray.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

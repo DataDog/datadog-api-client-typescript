@@ -12,43 +12,48 @@ import { IntegrationOnCall } from "./IntegrationOnCall";
 import { IntegrationServiceNow } from "./IntegrationServiceNow";
 import { ProjectNotificationSettings } from "./ProjectNotificationSettings";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Project settings.
- */
+*/
 export class ProjectSettings {
   /**
    * Auto-close inactive cases settings.
-   */
+  */
   "autoCloseInactiveCases"?: AutoCloseInactiveCases;
   /**
    * Auto-transition assigned cases settings.
-   */
+  */
   "autoTransitionAssignedCases"?: AutoTransitionAssignedCases;
   /**
    * Incident integration settings.
-   */
+  */
   "integrationIncident"?: IntegrationIncident;
   /**
    * Jira integration settings.
-   */
+  */
   "integrationJira"?: IntegrationJira;
   /**
    * Monitor integration settings.
-   */
+  */
   "integrationMonitor"?: IntegrationMonitor;
   /**
    * On-Call integration settings.
-   */
+  */
   "integrationOnCall"?: IntegrationOnCall;
   /**
    * ServiceNow integration settings.
-   */
+  */
   "integrationServiceNow"?: IntegrationServiceNow;
   /**
    * Project notification settings.
-   */
+  */
   "notification"?: ProjectNotificationSettings;
 
   /**
@@ -56,7 +61,7 @@ export class ProjectSettings {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -67,37 +72,37 @@ export class ProjectSettings {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    autoCloseInactiveCases: {
-      baseName: "auto_close_inactive_cases",
-      type: "AutoCloseInactiveCases",
+    "autoCloseInactiveCases": {
+      "baseName": "auto_close_inactive_cases",
+      "type": "AutoCloseInactiveCases",
     },
-    autoTransitionAssignedCases: {
-      baseName: "auto_transition_assigned_cases",
-      type: "AutoTransitionAssignedCases",
+    "autoTransitionAssignedCases": {
+      "baseName": "auto_transition_assigned_cases",
+      "type": "AutoTransitionAssignedCases",
     },
-    integrationIncident: {
-      baseName: "integration_incident",
-      type: "IntegrationIncident",
+    "integrationIncident": {
+      "baseName": "integration_incident",
+      "type": "IntegrationIncident",
     },
-    integrationJira: {
-      baseName: "integration_jira",
-      type: "IntegrationJira",
+    "integrationJira": {
+      "baseName": "integration_jira",
+      "type": "IntegrationJira",
     },
-    integrationMonitor: {
-      baseName: "integration_monitor",
-      type: "IntegrationMonitor",
+    "integrationMonitor": {
+      "baseName": "integration_monitor",
+      "type": "IntegrationMonitor",
     },
-    integrationOnCall: {
-      baseName: "integration_on_call",
-      type: "IntegrationOnCall",
+    "integrationOnCall": {
+      "baseName": "integration_on_call",
+      "type": "IntegrationOnCall",
     },
-    integrationServiceNow: {
-      baseName: "integration_service_now",
-      type: "IntegrationServiceNow",
+    "integrationServiceNow": {
+      "baseName": "integration_service_now",
+      "type": "IntegrationServiceNow",
     },
-    notification: {
-      baseName: "notification",
-      type: "ProjectNotificationSettings",
+    "notification": {
+      "baseName": "notification",
+      "type": "ProjectNotificationSettings",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -109,8 +114,34 @@ export class ProjectSettings {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProjectSettings.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -7,23 +7,28 @@ import { SecurityFindingsData } from "./SecurityFindingsData";
 import { SecurityFindingsLinks } from "./SecurityFindingsLinks";
 import { SecurityFindingsMeta } from "./SecurityFindingsMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The expected response schema when listing security findings.
- */
+*/
 export class ListSecurityFindingsResponse {
   /**
    * Array of security findings matching the search query.
-   */
+  */
   "data"?: Array<SecurityFindingsData>;
   /**
    * Links for pagination.
-   */
+  */
   "links"?: SecurityFindingsLinks;
   /**
    * Metadata about the response.
-   */
+  */
   "meta"?: SecurityFindingsMeta;
 
   /**
@@ -31,7 +36,7 @@ export class ListSecurityFindingsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,17 +47,17 @@ export class ListSecurityFindingsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<SecurityFindingsData>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<SecurityFindingsData>",
     },
-    links: {
-      baseName: "links",
-      type: "SecurityFindingsLinks",
+    "links": {
+      "baseName": "links",
+      "type": "SecurityFindingsLinks",
     },
-    meta: {
-      baseName: "meta",
-      type: "SecurityFindingsMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "SecurityFindingsMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class ListSecurityFindingsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListSecurityFindingsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

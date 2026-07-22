@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of the Synthetic suite, `suite`.
- */
+*/
 
 export type SyntheticsSuiteType = typeof SUITE | UnparsedObject;
-export const SUITE = "suite";
+export const SUITE = 'suite';

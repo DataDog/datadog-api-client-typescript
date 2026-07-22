@@ -5,19 +5,24 @@
  */
 import { WildcardWidgetSpecificationType } from "./WildcardWidgetSpecificationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Vega or Vega-Lite specification for custom visualization rendering. See https://vega.github.io/vega-lite/ for the full grammar reference.
- */
+*/
 export class WildcardWidgetSpecification {
   /**
    * The Vega or Vega-Lite JSON specification object.
-   */
+  */
   "contents": any;
   /**
    * Type of specification used by the wildcard widget.
-   */
+  */
   "type": WildcardWidgetSpecificationType;
 
   /**
@@ -25,7 +30,7 @@ export class WildcardWidgetSpecification {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class WildcardWidgetSpecification {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    contents: {
-      baseName: "contents",
-      type: "any",
-      required: true,
+    "contents": {
+      "baseName": "contents",
+      "type": "any",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "WildcardWidgetSpecificationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "WildcardWidgetSpecificationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class WildcardWidgetSpecification {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return WildcardWidgetSpecification.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

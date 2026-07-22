@@ -6,23 +6,28 @@
 import { AnalysisRequestDataAttributes } from "./AnalysisRequestDataAttributes";
 import { AnalysisRequestDataType } from "./AnalysisRequestDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The primary data object in the analysis request.
- */
+*/
 export class AnalysisRequestData {
   /**
    * The attributes of the analysis request, containing the source code and rules to apply.
-   */
+  */
   "attributes": AnalysisRequestDataAttributes;
   /**
    * An optional identifier for the analysis request resource.
-   */
+  */
   "id"?: string;
   /**
    * Analysis request resource type.
-   */
+  */
   "type": AnalysisRequestDataType;
 
   /**
@@ -30,7 +35,7 @@ export class AnalysisRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class AnalysisRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AnalysisRequestDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AnalysisRequestDataAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "AnalysisRequestDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AnalysisRequestDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class AnalysisRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AnalysisRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

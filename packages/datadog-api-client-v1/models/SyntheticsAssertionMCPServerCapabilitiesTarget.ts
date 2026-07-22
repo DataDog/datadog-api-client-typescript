@@ -7,23 +7,28 @@ import { SyntheticsAssertionMCPServerCapabilitiesType } from "./SyntheticsAssert
 import { SyntheticsAssertionOperator } from "./SyntheticsAssertionOperator";
 import { SyntheticsMCPServerCapability } from "./SyntheticsMCPServerCapability";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An assertion that checks that an MCP server advertises the expected capabilities.
- */
+*/
 export class SyntheticsAssertionMCPServerCapabilitiesTarget {
   /**
    * Assertion operator to apply.
-   */
+  */
   "operator": SyntheticsAssertionOperator;
   /**
    * List of MCP server capabilities to assert against.
-   */
+  */
   "target": Array<SyntheticsMCPServerCapability>;
   /**
    * Type of the assertion.
-   */
+  */
   "type": SyntheticsAssertionMCPServerCapabilitiesType;
 
   /**
@@ -31,7 +36,7 @@ export class SyntheticsAssertionMCPServerCapabilitiesTarget {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,20 +47,20 @@ export class SyntheticsAssertionMCPServerCapabilitiesTarget {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    operator: {
-      baseName: "operator",
-      type: "SyntheticsAssertionOperator",
-      required: true,
+    "operator": {
+      "baseName": "operator",
+      "type": "SyntheticsAssertionOperator",
+      "required": true,
     },
-    target: {
-      baseName: "target",
-      type: "Array<SyntheticsMCPServerCapability>",
-      required: true,
+    "target": {
+      "baseName": "target",
+      "type": "Array<SyntheticsMCPServerCapability>",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "SyntheticsAssertionMCPServerCapabilitiesType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SyntheticsAssertionMCPServerCapabilitiesType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class SyntheticsAssertionMCPServerCapabilitiesTarget {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsAssertionMCPServerCapabilitiesTarget.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

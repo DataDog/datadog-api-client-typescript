@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Request type for user journey funnel widget.
- */
+*/
 
-export type ProductAnalyticsFunnelRequestType =
-  | typeof USER_JOURNEY_FUNNEL
-  | UnparsedObject;
-export const USER_JOURNEY_FUNNEL = "user_journey_funnel";
+export type ProductAnalyticsFunnelRequestType = typeof USER_JOURNEY_FUNNEL | UnparsedObject;
+export const USER_JOURNEY_FUNNEL = 'user_journey_funnel';

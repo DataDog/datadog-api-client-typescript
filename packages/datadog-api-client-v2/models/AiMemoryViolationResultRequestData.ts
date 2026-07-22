@@ -6,23 +6,28 @@
 import { AiMemoryViolationResultDataType } from "./AiMemoryViolationResultDataType";
 import { AiMemoryViolationResultRequestAttributes } from "./AiMemoryViolationResultRequestAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request data for creating an AI memory violation result.
- */
+*/
 export class AiMemoryViolationResultRequestData {
   /**
    * Attributes for creating an AI memory violation result.
-   */
+  */
   "attributes"?: AiMemoryViolationResultRequestAttributes;
   /**
    * The violation result identifier.
-   */
+  */
   "id"?: string;
   /**
    * AI memory violation result resource type.
-   */
+  */
   "type"?: AiMemoryViolationResultDataType;
 
   /**
@@ -30,7 +35,7 @@ export class AiMemoryViolationResultRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class AiMemoryViolationResultRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AiMemoryViolationResultRequestAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AiMemoryViolationResultRequestAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "AiMemoryViolationResultDataType",
+    "type": {
+      "baseName": "type",
+      "type": "AiMemoryViolationResultDataType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class AiMemoryViolationResultRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AiMemoryViolationResultRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

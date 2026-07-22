@@ -9,71 +9,76 @@ import { IssueCaseInsight } from "./IssueCaseInsight";
 import { IssueCaseJiraIssue } from "./IssueCaseJiraIssue";
 import { IssueCaseLinearIssue } from "./IssueCaseLinearIssue";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object containing the information of a case.
- */
+*/
 export class IssueCaseAttributes {
   /**
    * Timestamp of when the case was archived.
-   */
+  */
   "archivedAt"?: Date;
   /**
    * Timestamp of when the case was closed.
-   */
+  */
   "closedAt"?: Date;
   /**
    * Timestamp of when the case was created.
-   */
+  */
   "createdAt"?: Date;
   /**
    * Source of the case creation.
-   */
+  */
   "creationSource"?: string;
   /**
    * Description of the case.
-   */
+  */
   "description"?: string;
   /**
    * Due date of the case.
-   */
+  */
   "dueDate"?: string;
   /**
    * Insights of the case.
-   */
+  */
   "insights"?: Array<IssueCaseInsight>;
   /**
    * Jira issue of the case.
-   */
+  */
   "jiraIssue"?: IssueCaseJiraIssue;
   /**
    * Key of the case.
-   */
+  */
   "key"?: string;
   /**
    * Linear issue of the case.
-   */
+  */
   "linearIssue"?: IssueCaseLinearIssue;
   /**
    * Timestamp of when the case was last modified.
-   */
+  */
   "modifiedAt"?: Date;
   /**
    * Case priority
-   */
+  */
   "priority"?: CasePriority;
   /**
    * Deprecated way of representing the case status, which only supports OPEN, IN_PROGRESS, and CLOSED statuses. Use `status_name` instead.
-   */
+  */
   "status"?: CaseStatus;
   /**
    * Title of the case.
-   */
+  */
   "title"?: string;
   /**
    * Type of the case.
-   */
+  */
   "type"?: string;
 
   /**
@@ -81,7 +86,7 @@ export class IssueCaseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -92,69 +97,69 @@ export class IssueCaseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    archivedAt: {
-      baseName: "archived_at",
-      type: "Date",
-      format: "date-time",
+    "archivedAt": {
+      "baseName": "archived_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    closedAt: {
-      baseName: "closed_at",
-      type: "Date",
-      format: "date-time",
+    "closedAt": {
+      "baseName": "closed_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    creationSource: {
-      baseName: "creation_source",
-      type: "string",
+    "creationSource": {
+      "baseName": "creation_source",
+      "type": "string",
     },
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    dueDate: {
-      baseName: "due_date",
-      type: "string",
+    "dueDate": {
+      "baseName": "due_date",
+      "type": "string",
     },
-    insights: {
-      baseName: "insights",
-      type: "Array<IssueCaseInsight>",
+    "insights": {
+      "baseName": "insights",
+      "type": "Array<IssueCaseInsight>",
     },
-    jiraIssue: {
-      baseName: "jira_issue",
-      type: "IssueCaseJiraIssue",
+    "jiraIssue": {
+      "baseName": "jira_issue",
+      "type": "IssueCaseJiraIssue",
     },
-    key: {
-      baseName: "key",
-      type: "string",
+    "key": {
+      "baseName": "key",
+      "type": "string",
     },
-    linearIssue: {
-      baseName: "linear_issue",
-      type: "IssueCaseLinearIssue",
+    "linearIssue": {
+      "baseName": "linear_issue",
+      "type": "IssueCaseLinearIssue",
     },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "Date",
-      format: "date-time",
+    "modifiedAt": {
+      "baseName": "modified_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    priority: {
-      baseName: "priority",
-      type: "CasePriority",
+    "priority": {
+      "baseName": "priority",
+      "type": "CasePriority",
     },
-    status: {
-      baseName: "status",
-      type: "CaseStatus",
+    "status": {
+      "baseName": "status",
+      "type": "CaseStatus",
     },
-    title: {
-      baseName: "title",
-      type: "string",
+    "title": {
+      "baseName": "title",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -166,8 +171,34 @@ export class IssueCaseAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IssueCaseAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

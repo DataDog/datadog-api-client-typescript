@@ -6,23 +6,28 @@
 import { CostTagKeyAttributes } from "./CostTagKeyAttributes";
 import { CostTagKeyType } from "./CostTagKeyType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A Cloud Cost Management tag key.
- */
+*/
 export class CostTagKey {
   /**
    * Attributes of a Cloud Cost Management tag key.
-   */
+  */
   "attributes": CostTagKeyAttributes;
   /**
    * The tag key identifier.
-   */
+  */
   "id": string;
   /**
    * Type of the Cloud Cost Management tag key resource.
-   */
+  */
   "type": CostTagKeyType;
 
   /**
@@ -30,7 +35,7 @@ export class CostTagKey {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class CostTagKey {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CostTagKeyAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CostTagKeyAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CostTagKeyType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CostTagKeyType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class CostTagKey {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CostTagKey.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

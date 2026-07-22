@@ -6,29 +6,34 @@
 import { ObservabilityPipelineDatadogAgentSourceType } from "./ObservabilityPipelineDatadogAgentSourceType";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The `datadog_agent` source collects logs/metrics from the Datadog Agent.
- *
+ * 
  * **Supported pipeline types:** logs, metrics
- */
+*/
 export class ObservabilityPipelineDatadogAgentSource {
   /**
    * Name of the environment variable or secret that holds the listen address for the Datadog Agent source.
-   */
+  */
   "addressKey"?: string;
   /**
    * The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
-   */
+  */
   "id": string;
   /**
    * Configuration for enabling TLS encryption between the pipeline component and external services.
-   */
+  */
   "tls"?: ObservabilityPipelineTls;
   /**
    * The source type. The value should always be `datadog_agent`.
-   */
+  */
   "type": ObservabilityPipelineDatadogAgentSourceType;
 
   /**
@@ -36,7 +41,7 @@ export class ObservabilityPipelineDatadogAgentSource {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,23 +52,23 @@ export class ObservabilityPipelineDatadogAgentSource {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    addressKey: {
-      baseName: "address_key",
-      type: "string",
+    "addressKey": {
+      "baseName": "address_key",
+      "type": "string",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    tls: {
-      baseName: "tls",
-      type: "ObservabilityPipelineTls",
+    "tls": {
+      "baseName": "tls",
+      "type": "ObservabilityPipelineTls",
     },
-    type: {
-      baseName: "type",
-      type: "ObservabilityPipelineDatadogAgentSourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ObservabilityPipelineDatadogAgentSourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -75,8 +80,34 @@ export class ObservabilityPipelineDatadogAgentSource {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineDatadogAgentSource.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

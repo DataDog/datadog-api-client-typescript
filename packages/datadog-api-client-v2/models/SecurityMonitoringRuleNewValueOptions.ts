@@ -6,32 +6,37 @@
 import { SecurityMonitoringRuleNewValueOptionsLearningMethod } from "./SecurityMonitoringRuleNewValueOptionsLearningMethod";
 import { SecurityMonitoringRuleNewValueOptionsLearningThreshold } from "./SecurityMonitoringRuleNewValueOptionsLearningThreshold";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Options on new value detection method.
- */
+*/
 export class SecurityMonitoringRuleNewValueOptions {
   /**
    * The duration in days after which a learned value is forgotten.
-   */
+  */
   "forgetAfter"?: number;
   /**
    * When set to true, Datadog uses previous values that fall within the defined learning window to construct the baseline, enabling the system to establish an accurate baseline more rapidly rather than relying solely on gradual learning over time.
-   */
+  */
   "instantaneousBaseline"?: boolean;
   /**
    * The duration in days during which values are learned, and after which signals will be generated for values that
    * weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned.
-   */
+  */
   "learningDuration"?: number;
   /**
    * The learning method used to determine when signals should be generated for values that weren't learned.
-   */
+  */
   "learningMethod"?: SecurityMonitoringRuleNewValueOptionsLearningMethod;
   /**
    * A number of occurrences after which signals will be generated for values that weren't learned.
-   */
+  */
   "learningThreshold"?: SecurityMonitoringRuleNewValueOptionsLearningThreshold;
 
   /**
@@ -39,7 +44,7 @@ export class SecurityMonitoringRuleNewValueOptions {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -50,25 +55,25 @@ export class SecurityMonitoringRuleNewValueOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    forgetAfter: {
-      baseName: "forgetAfter",
-      type: "number",
+    "forgetAfter": {
+      "baseName": "forgetAfter",
+      "type": "number",
     },
-    instantaneousBaseline: {
-      baseName: "instantaneousBaseline",
-      type: "boolean",
+    "instantaneousBaseline": {
+      "baseName": "instantaneousBaseline",
+      "type": "boolean",
     },
-    learningDuration: {
-      baseName: "learningDuration",
-      type: "number",
+    "learningDuration": {
+      "baseName": "learningDuration",
+      "type": "number",
     },
-    learningMethod: {
-      baseName: "learningMethod",
-      type: "SecurityMonitoringRuleNewValueOptionsLearningMethod",
+    "learningMethod": {
+      "baseName": "learningMethod",
+      "type": "SecurityMonitoringRuleNewValueOptionsLearningMethod",
     },
-    learningThreshold: {
-      baseName: "learningThreshold",
-      type: "SecurityMonitoringRuleNewValueOptionsLearningThreshold",
+    "learningThreshold": {
+      "baseName": "learningThreshold",
+      "type": "SecurityMonitoringRuleNewValueOptionsLearningThreshold",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -80,8 +85,34 @@ export class SecurityMonitoringRuleNewValueOptions {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringRuleNewValueOptions.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

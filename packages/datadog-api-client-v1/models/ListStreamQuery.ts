@@ -12,72 +12,77 @@ import { ListStreamSource } from "./ListStreamSource";
 import { WidgetEventSize } from "./WidgetEventSize";
 import { WidgetFieldSort } from "./WidgetFieldSort";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Updated list stream widget.
- */
+*/
 export class ListStreamQuery {
   /**
    * Filter by assignee UUIDs. Usable only with `issue_stream`.
-   */
+  */
   "assigneeUuids"?: Array<string>;
   /**
    * Specifies the field for logs pattern clustering. Usable only with logs_pattern_stream.
-   */
+  */
   "clusteringPatternFieldPath"?: string;
   /**
    * Compute configuration for the List Stream Widget. Compute can be used only with the logs_transaction_stream (from 1 to 5 items) list stream source.
-   */
+  */
   "compute"?: Array<ListStreamComputeItems>;
   /**
    * Source from which to query items to display in the stream. apm_issue_stream, rum_issue_stream, and logs_issue_stream are deprecated. Use issue_stream instead.
-   */
+  */
   "dataSource": ListStreamSource;
   /**
    * Size to use to display an event.
-   */
+  */
   "eventSize"?: WidgetEventSize;
   /**
    * Group by configuration for the List Stream Widget. Group by can be used only with logs_pattern_stream (up to 4 items) or logs_transaction_stream (one group by item is required) list stream source.
-   */
+  */
   "groupBy"?: Array<ListStreamGroupByItems>;
   /**
    * List of indexes.
-   */
+  */
   "indexes"?: Array<string>;
   /**
    * Persona filter for the `issue_stream` data source.
-   */
+  */
   "persona"?: ListStreamIssuePersona;
   /**
    * Widget query.
-   */
+  */
   "queryString": string;
   /**
    * Which column and order to sort by
-   */
+  */
   "sort"?: WidgetFieldSort;
   /**
    * Filter by issue states. Usable only with `issue_stream`.
-   */
+  */
   "states"?: Array<ListStreamIssueState>;
   /**
    * Option for storage location. Feature in Private Beta.
-   */
+  */
   "storage"?: string;
   /**
    * Filter by suspected causes. Usable only with `issue_stream`.
-   */
+  */
   "suspectedCauses"?: Array<string>;
   /**
    * Filter by team handles. Usable only with `issue_stream`.
-   */
+  */
   "teamHandles"?: Array<string>;
   /**
    * Version of the query for the logs transaction stream widget. When omitted, v1 query behavior is
    * preserved. Set to `sequential_query` to use v2 behavior. **This feature is in Preview.**
-   */
+  */
   "version"?: ListStreamQueryVersion;
 
   /**
@@ -85,7 +90,7 @@ export class ListStreamQuery {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -96,67 +101,67 @@ export class ListStreamQuery {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    assigneeUuids: {
-      baseName: "assignee_uuids",
-      type: "Array<string>",
+    "assigneeUuids": {
+      "baseName": "assignee_uuids",
+      "type": "Array<string>",
     },
-    clusteringPatternFieldPath: {
-      baseName: "clustering_pattern_field_path",
-      type: "string",
+    "clusteringPatternFieldPath": {
+      "baseName": "clustering_pattern_field_path",
+      "type": "string",
     },
-    compute: {
-      baseName: "compute",
-      type: "Array<ListStreamComputeItems>",
+    "compute": {
+      "baseName": "compute",
+      "type": "Array<ListStreamComputeItems>",
     },
-    dataSource: {
-      baseName: "data_source",
-      type: "ListStreamSource",
-      required: true,
+    "dataSource": {
+      "baseName": "data_source",
+      "type": "ListStreamSource",
+      "required": true,
     },
-    eventSize: {
-      baseName: "event_size",
-      type: "WidgetEventSize",
+    "eventSize": {
+      "baseName": "event_size",
+      "type": "WidgetEventSize",
     },
-    groupBy: {
-      baseName: "group_by",
-      type: "Array<ListStreamGroupByItems>",
+    "groupBy": {
+      "baseName": "group_by",
+      "type": "Array<ListStreamGroupByItems>",
     },
-    indexes: {
-      baseName: "indexes",
-      type: "Array<string>",
+    "indexes": {
+      "baseName": "indexes",
+      "type": "Array<string>",
     },
-    persona: {
-      baseName: "persona",
-      type: "ListStreamIssuePersona",
+    "persona": {
+      "baseName": "persona",
+      "type": "ListStreamIssuePersona",
     },
-    queryString: {
-      baseName: "query_string",
-      type: "string",
-      required: true,
+    "queryString": {
+      "baseName": "query_string",
+      "type": "string",
+      "required": true,
     },
-    sort: {
-      baseName: "sort",
-      type: "WidgetFieldSort",
+    "sort": {
+      "baseName": "sort",
+      "type": "WidgetFieldSort",
     },
-    states: {
-      baseName: "states",
-      type: "Array<ListStreamIssueState>",
+    "states": {
+      "baseName": "states",
+      "type": "Array<ListStreamIssueState>",
     },
-    storage: {
-      baseName: "storage",
-      type: "string",
+    "storage": {
+      "baseName": "storage",
+      "type": "string",
     },
-    suspectedCauses: {
-      baseName: "suspected_causes",
-      type: "Array<string>",
+    "suspectedCauses": {
+      "baseName": "suspected_causes",
+      "type": "Array<string>",
     },
-    teamHandles: {
-      baseName: "team_handles",
-      type: "Array<string>",
+    "teamHandles": {
+      "baseName": "team_handles",
+      "type": "Array<string>",
     },
-    version: {
-      baseName: "version",
-      type: "ListStreamQueryVersion",
+    "version": {
+      "baseName": "version",
+      "type": "ListStreamQueryVersion",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -168,8 +173,34 @@ export class ListStreamQuery {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListStreamQuery.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { AppKeyRegistrationData } from "./AppKeyRegistrationData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The response object after creating an app key registration.
- */
+*/
 export class RegisterAppKeyResponse {
   /**
    * Data related to the app key registration.
-   */
+  */
   "data"?: AppKeyRegistrationData;
 
   /**
@@ -21,7 +26,7 @@ export class RegisterAppKeyResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class RegisterAppKeyResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "AppKeyRegistrationData",
+    "data": {
+      "baseName": "data",
+      "type": "AppKeyRegistrationData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class RegisterAppKeyResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RegisterAppKeyResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,35 +5,40 @@
  */
 import { SalesforceIncidentsTemplatePriority } from "./SalesforceIncidentsTemplatePriority";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Salesforce incident template attributes returned by the API.
- */
+*/
 export class SalesforceIncidentsTemplateResponseAttributes {
   /**
    * Long-form description body for Salesforce incidents created from this template.
-   */
+  */
   "description"?: string;
   /**
    * Human-readable name for this incident template.
-   */
+  */
   "name"?: string;
   /**
    * The Salesforce user ID that owns incidents created from this template.
-   */
+  */
   "ownerId"?: string;
   /**
    * Priority of the Salesforce incident created from this template.
-   */
+  */
   "priority"?: SalesforceIncidentsTemplatePriority;
   /**
    * The Datadog-assigned ID of the Salesforce organization this template belongs to.
-   */
+  */
   "salesforceOrgId"?: string;
   /**
    * Subject line for Salesforce incidents created from this template.
-   */
+  */
   "subject"?: string;
 
   /**
@@ -41,7 +46,7 @@ export class SalesforceIncidentsTemplateResponseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -52,30 +57,30 @@ export class SalesforceIncidentsTemplateResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    ownerId: {
-      baseName: "owner_id",
-      type: "string",
+    "ownerId": {
+      "baseName": "owner_id",
+      "type": "string",
     },
-    priority: {
-      baseName: "priority",
-      type: "SalesforceIncidentsTemplatePriority",
+    "priority": {
+      "baseName": "priority",
+      "type": "SalesforceIncidentsTemplatePriority",
     },
-    salesforceOrgId: {
-      baseName: "salesforce_org_id",
-      type: "string",
-      format: "uuid",
+    "salesforceOrgId": {
+      "baseName": "salesforce_org_id",
+      "type": "string",
+      "format": "uuid",
     },
-    subject: {
-      baseName: "subject",
-      type: "string",
+    "subject": {
+      "baseName": "subject",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -87,8 +92,34 @@ export class SalesforceIncidentsTemplateResponseAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SalesforceIncidentsTemplateResponseAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

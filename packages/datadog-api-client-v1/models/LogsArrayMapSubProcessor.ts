@@ -8,17 +8,17 @@ import { LogsArrayMapAttributeRemapper } from "./LogsArrayMapAttributeRemapper";
 import { LogsArrayMapCategorySubProcessor } from "./LogsArrayMapCategorySubProcessor";
 import { LogsArrayMapStringBuilderSubProcessor } from "./LogsArrayMapStringBuilderSubProcessor";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A sub-processor used inside an array-map processor.
  * Allowed types: `attribute-remapper`, `string-builder-processor`,
  * `arithmetic-processor`, `category-processor`.
- */
+*/
 
-export type LogsArrayMapSubProcessor =
-  | LogsArrayMapAttributeRemapper
-  | LogsArrayMapArithmeticSubProcessor
-  | LogsArrayMapStringBuilderSubProcessor
-  | LogsArrayMapCategorySubProcessor
-  | UnparsedObject;
+export type LogsArrayMapSubProcessor = LogsArrayMapAttributeRemapper | LogsArrayMapArithmeticSubProcessor | LogsArrayMapStringBuilderSubProcessor | LogsArrayMapCategorySubProcessor | UnparsedObject;

@@ -5,15 +5,20 @@
  */
 import { ServiceNowUserData } from "./ServiceNowUserData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing ServiceNow users
- */
+*/
 export class ServiceNowUsersResponse {
   /**
    * Array of ServiceNow user data objects
-   */
+  */
   "data": Array<ServiceNowUserData>;
 
   /**
@@ -21,7 +26,7 @@ export class ServiceNowUsersResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class ServiceNowUsersResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<ServiceNowUserData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<ServiceNowUserData>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class ServiceNowUsersResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceNowUsersResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,19 +6,24 @@
 import { ServiceNowTemplateCreateRequestAttributes } from "./ServiceNowTemplateCreateRequestAttributes";
 import { ServiceNowTemplateType } from "./ServiceNowTemplateType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for creating a ServiceNow template
- */
+*/
 export class ServiceNowTemplateCreateRequestData {
   /**
    * Attributes for creating a ServiceNow template
-   */
+  */
   "attributes": ServiceNowTemplateCreateRequestAttributes;
   /**
    * Type identifier for ServiceNow template resources
-   */
+  */
   "type": ServiceNowTemplateType;
 
   /**
@@ -26,7 +31,7 @@ export class ServiceNowTemplateCreateRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class ServiceNowTemplateCreateRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ServiceNowTemplateCreateRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ServiceNowTemplateCreateRequestAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ServiceNowTemplateType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ServiceNowTemplateType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class ServiceNowTemplateCreateRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceNowTemplateCreateRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

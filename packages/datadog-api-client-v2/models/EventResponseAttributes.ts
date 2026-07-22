@@ -5,27 +5,32 @@
  */
 import { EventAttributes } from "./EventAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The object description of an event response attribute.
- */
+*/
 export class EventResponseAttributes {
   /**
    * Object description of attributes from your event.
-   */
+  */
   "attributes"?: EventAttributes;
   /**
    * The message of the event.
-   */
+  */
   "message"?: string;
   /**
    * An array of tags associated with the event.
-   */
+  */
   "tags"?: Array<string>;
   /**
    * The timestamp of the event.
-   */
+  */
   "timestamp"?: Date;
 
   /**
@@ -33,7 +38,7 @@ export class EventResponseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -44,22 +49,22 @@ export class EventResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "EventAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "EventAttributes",
     },
-    message: {
-      baseName: "message",
-      type: "string",
+    "message": {
+      "baseName": "message",
+      "type": "string",
     },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
+    "tags": {
+      "baseName": "tags",
+      "type": "Array<string>",
     },
-    timestamp: {
-      baseName: "timestamp",
-      type: "Date",
-      format: "date-time",
+    "timestamp": {
+      "baseName": "timestamp",
+      "type": "Date",
+      "format": "date-time",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,8 +76,34 @@ export class EventResponseAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EventResponseAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

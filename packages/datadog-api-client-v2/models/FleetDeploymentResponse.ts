@@ -6,19 +6,24 @@
 import { FleetDeployment } from "./FleetDeployment";
 import { FleetDeploymentResponseMeta } from "./FleetDeploymentResponseMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a single deployment.
- */
+*/
 export class FleetDeploymentResponse {
   /**
    * A deployment that defines automated configuration changes for a fleet of hosts.
-   */
+  */
   "data"?: FleetDeployment;
   /**
    * Metadata for a single deployment response, including pagination information for hosts.
-   */
+  */
   "meta"?: FleetDeploymentResponseMeta;
 
   /**
@@ -26,7 +31,7 @@ export class FleetDeploymentResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class FleetDeploymentResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "FleetDeployment",
+    "data": {
+      "baseName": "data",
+      "type": "FleetDeployment",
     },
-    meta: {
-      baseName: "meta",
-      type: "FleetDeploymentResponseMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "FleetDeploymentResponseMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class FleetDeploymentResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FleetDeploymentResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

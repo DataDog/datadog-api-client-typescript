@@ -4,16 +4,21 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes associated with the archive order.
- */
+*/
 export class LogsArchiveOrderAttributes {
   /**
    * An ordered array of `<ARCHIVE_ID>` strings, the order of archive IDs in the array
    * define the overall archives order for Datadog.
-   */
+  */
   "archiveIds": Array<string>;
 
   /**
@@ -21,7 +26,7 @@ export class LogsArchiveOrderAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class LogsArchiveOrderAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    archiveIds: {
-      baseName: "archive_ids",
-      type: "Array<string>",
-      required: true,
+    "archiveIds": {
+      "baseName": "archive_ids",
+      "type": "Array<string>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class LogsArchiveOrderAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogsArchiveOrderAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

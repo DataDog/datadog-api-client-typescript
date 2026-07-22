@@ -5,15 +5,20 @@
  */
 import { LogsAPIError } from "./LogsAPIError";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response returned by the Logs API when errors occur.
- */
+*/
 export class LogsAPIErrorResponse {
   /**
    * Error returned by the Logs API
-   */
+  */
   "error"?: LogsAPIError;
 
   /**
@@ -21,7 +26,7 @@ export class LogsAPIErrorResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class LogsAPIErrorResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    error: {
-      baseName: "error",
-      type: "LogsAPIError",
+    "error": {
+      "baseName": "error",
+      "type": "LogsAPIError",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class LogsAPIErrorResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogsAPIErrorResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

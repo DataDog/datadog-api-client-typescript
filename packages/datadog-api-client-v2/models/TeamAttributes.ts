@@ -4,63 +4,68 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Team attributes
- */
+*/
 export class TeamAttributes {
   /**
    * Unicode representation of the avatar for the team, limited to a single grapheme
-   */
+  */
   "avatar"?: string;
   /**
    * Banner selection for the team
-   */
+  */
   "banner"?: number;
   /**
    * Creation date of the team
-   */
+  */
   "createdAt"?: Date;
   /**
    * Free-form markdown description/content for the team's homepage
-   */
+  */
   "description"?: string;
   /**
    * The team's identifier
-   */
+  */
   "handle": string;
   /**
    * Collection of hidden modules for the team
-   */
+  */
   "hiddenModules"?: Array<string>;
   /**
    * Whether the team is managed from an external source
-   */
+  */
   "isManaged"?: boolean;
   /**
    * The number of links belonging to the team
-   */
+  */
   "linkCount"?: number;
   /**
    * Modification date of the team
-   */
+  */
   "modifiedAt"?: Date;
   /**
    * The name of the team
-   */
+  */
   "name": string;
   /**
    * A brief summary of the team, derived from the `description`
-   */
+  */
   "summary"?: string;
   /**
    * The number of users belonging to the team
-   */
+  */
   "userCount"?: number;
   /**
    * Collection of visible modules for the team
-   */
+  */
   "visibleModules"?: Array<string>;
 
   /**
@@ -68,7 +73,7 @@ export class TeamAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -79,64 +84,64 @@ export class TeamAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    avatar: {
-      baseName: "avatar",
-      type: "string",
+    "avatar": {
+      "baseName": "avatar",
+      "type": "string",
     },
-    banner: {
-      baseName: "banner",
-      type: "number",
-      format: "int64",
+    "banner": {
+      "baseName": "banner",
+      "type": "number",
+      "format": "int64",
     },
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    handle: {
-      baseName: "handle",
-      type: "string",
-      required: true,
+    "handle": {
+      "baseName": "handle",
+      "type": "string",
+      "required": true,
     },
-    hiddenModules: {
-      baseName: "hidden_modules",
-      type: "Array<string>",
+    "hiddenModules": {
+      "baseName": "hidden_modules",
+      "type": "Array<string>",
     },
-    isManaged: {
-      baseName: "is_managed",
-      type: "boolean",
+    "isManaged": {
+      "baseName": "is_managed",
+      "type": "boolean",
     },
-    linkCount: {
-      baseName: "link_count",
-      type: "number",
-      format: "int32",
+    "linkCount": {
+      "baseName": "link_count",
+      "type": "number",
+      "format": "int32",
     },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "Date",
-      format: "date-time",
+    "modifiedAt": {
+      "baseName": "modified_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    summary: {
-      baseName: "summary",
-      type: "string",
+    "summary": {
+      "baseName": "summary",
+      "type": "string",
     },
-    userCount: {
-      baseName: "user_count",
-      type: "number",
-      format: "int32",
+    "userCount": {
+      "baseName": "user_count",
+      "type": "number",
+      "format": "int32",
     },
-    visibleModules: {
-      baseName: "visible_modules",
-      type: "Array<string>",
+    "visibleModules": {
+      "baseName": "visible_modules",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -148,8 +153,34 @@ export class TeamAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

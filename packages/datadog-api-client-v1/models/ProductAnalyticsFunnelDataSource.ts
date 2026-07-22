@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Data source for user journey funnel queries.
- */
+*/
 
-export type ProductAnalyticsFunnelDataSource =
-  | typeof PRODUCT_ANALYTICS_JOURNEY
-  | UnparsedObject;
-export const PRODUCT_ANALYTICS_JOURNEY = "product_analytics_journey";
+export type ProductAnalyticsFunnelDataSource = typeof PRODUCT_ANALYTICS_JOURNEY | UnparsedObject;
+export const PRODUCT_ANALYTICS_JOURNEY = 'product_analytics_journey';

@@ -6,23 +6,28 @@
 import { LLMObsDatasetDraftStateDataAttributes } from "./LLMObsDatasetDraftStateDataAttributes";
 import { LLMObsDatasetDraftStateType } from "./LLMObsDatasetDraftStateType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for an LLM Observability dataset draft state.
- */
+*/
 export class LLMObsDatasetDraftStateData {
   /**
    * Attributes of an LLM Observability dataset draft state.
-   */
+  */
   "attributes": LLMObsDatasetDraftStateDataAttributes;
   /**
    * Unique identifier of the dataset draft state. Matches the dataset ID.
-   */
+  */
   "id": string;
   /**
    * Resource type of an LLM Observability dataset draft state.
-   */
+  */
   "type": LLMObsDatasetDraftStateType;
 
   /**
@@ -30,7 +35,7 @@ export class LLMObsDatasetDraftStateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class LLMObsDatasetDraftStateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LLMObsDatasetDraftStateDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "LLMObsDatasetDraftStateDataAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LLMObsDatasetDraftStateType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LLMObsDatasetDraftStateType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class LLMObsDatasetDraftStateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDatasetDraftStateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A test case associated with a custom rule revision, used to validate rule behavior.
- */
+*/
 export class CustomRuleRevisionTest {
   /**
    * Expected violation count
-   */
+  */
   "annotationCount": number;
   /**
    * Test code
-   */
+  */
   "code": string;
   /**
    * Test filename
-   */
+  */
   "filename": string;
 
   /**
@@ -28,7 +33,7 @@ export class CustomRuleRevisionTest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,21 +44,21 @@ export class CustomRuleRevisionTest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    annotationCount: {
-      baseName: "annotation_count",
-      type: "number",
-      required: true,
-      format: "int64",
+    "annotationCount": {
+      "baseName": "annotation_count",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    code: {
-      baseName: "code",
-      type: "string",
-      required: true,
+    "code": {
+      "baseName": "code",
+      "type": "string",
+      "required": true,
     },
-    filename: {
-      baseName: "filename",
-      type: "string",
-      required: true,
+    "filename": {
+      "baseName": "filename",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class CustomRuleRevisionTest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomRuleRevisionTest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

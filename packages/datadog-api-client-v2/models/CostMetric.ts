@@ -5,19 +5,24 @@
  */
 import { CostMetricType } from "./CostMetricType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A Cloud Cost Management metric that has data for the requested period.
- */
+*/
 export class CostMetric {
   /**
    * The metric name, for example `aws.cost.net.amortized`.
-   */
+  */
   "id": string;
   /**
    * Type of the Cloud Cost Management available metric resource.
-   */
+  */
   "type": CostMetricType;
 
   /**
@@ -25,7 +30,7 @@ export class CostMetric {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class CostMetric {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CostMetricType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CostMetricType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class CostMetric {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CostMetric.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

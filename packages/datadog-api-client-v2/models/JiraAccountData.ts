@@ -6,23 +6,28 @@
 import { JiraAccountAttributes } from "./JiraAccountAttributes";
 import { JiraAccountType } from "./JiraAccountType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for a Jira account
- */
+*/
 export class JiraAccountData {
   /**
    * Attributes of a Jira account
-   */
+  */
   "attributes": JiraAccountAttributes;
   /**
    * Unique identifier for the Jira account
-   */
+  */
   "id": string;
   /**
    * Type identifier for Jira account resources
-   */
+  */
   "type": JiraAccountType;
 
   /**
@@ -30,7 +35,7 @@ export class JiraAccountData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class JiraAccountData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "JiraAccountAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "JiraAccountAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "JiraAccountType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "JiraAccountType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class JiraAccountData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return JiraAccountData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,19 +6,24 @@
 import { MaintenanceWindowCreateAttributes } from "./MaintenanceWindowCreateAttributes";
 import { MaintenanceWindowResourceType } from "./MaintenanceWindowResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for creating a maintenance window.
- */
+*/
 export class MaintenanceWindowCreate {
   /**
    * Attributes required to create a maintenance window.
-   */
+  */
   "attributes": MaintenanceWindowCreateAttributes;
   /**
    * JSON:API resource type for maintenance windows.
-   */
+  */
   "type": MaintenanceWindowResourceType;
 
   /**
@@ -26,7 +31,7 @@ export class MaintenanceWindowCreate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class MaintenanceWindowCreate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "MaintenanceWindowCreateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "MaintenanceWindowCreateAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "MaintenanceWindowResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "MaintenanceWindowResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class MaintenanceWindowCreate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MaintenanceWindowCreate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

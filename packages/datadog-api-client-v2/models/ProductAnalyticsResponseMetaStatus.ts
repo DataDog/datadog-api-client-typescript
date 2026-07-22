@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The execution status of a Product Analytics query.
- */
+*/
 
-export type ProductAnalyticsResponseMetaStatus =
-  | typeof DONE
-  | typeof RUNNING
-  | typeof TIMEOUT
-  | UnparsedObject;
-export const DONE = "done";
-export const RUNNING = "running";
-export const TIMEOUT = "timeout";
+export type ProductAnalyticsResponseMetaStatus = typeof DONE| typeof RUNNING| typeof TIMEOUT | UnparsedObject;
+export const DONE = 'done';
+export const RUNNING = 'running';
+export const TIMEOUT = 'timeout';

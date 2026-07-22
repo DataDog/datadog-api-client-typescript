@@ -4,31 +4,36 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Static library vulnerability location.
- */
+*/
 export class DependencyLocation {
   /**
    * Location column end.
-   */
+  */
   "columnEnd": number;
   /**
    * Location column start.
-   */
+  */
   "columnStart": number;
   /**
    * Location file name.
-   */
+  */
   "fileName": string;
   /**
    * Location line end.
-   */
+  */
   "lineEnd": number;
   /**
    * Location line start.
-   */
+  */
   "lineStart": number;
 
   /**
@@ -36,7 +41,7 @@ export class DependencyLocation {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,34 +52,34 @@ export class DependencyLocation {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    columnEnd: {
-      baseName: "column_end",
-      type: "number",
-      required: true,
-      format: "int64",
+    "columnEnd": {
+      "baseName": "column_end",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    columnStart: {
-      baseName: "column_start",
-      type: "number",
-      required: true,
-      format: "int64",
+    "columnStart": {
+      "baseName": "column_start",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    fileName: {
-      baseName: "file_name",
-      type: "string",
-      required: true,
+    "fileName": {
+      "baseName": "file_name",
+      "type": "string",
+      "required": true,
     },
-    lineEnd: {
-      baseName: "line_end",
-      type: "number",
-      required: true,
-      format: "int64",
+    "lineEnd": {
+      "baseName": "line_end",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    lineStart: {
-      baseName: "line_start",
-      type: "number",
-      required: true,
-      format: "int64",
+    "lineStart": {
+      "baseName": "line_start",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -86,8 +91,34 @@ export class DependencyLocation {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DependencyLocation.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

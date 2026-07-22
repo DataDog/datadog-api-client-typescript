@@ -6,23 +6,28 @@
 import { AiCustomRuleRevisionDataType } from "./AiCustomRuleRevisionDataType";
 import { AiCustomRuleRevisionRequestAttributes } from "./AiCustomRuleRevisionRequestAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request data for creating an AI custom rule revision.
- */
+*/
 export class AiCustomRuleRevisionRequestData {
   /**
    * Attributes for creating an AI custom rule revision.
-   */
+  */
   "attributes"?: AiCustomRuleRevisionRequestAttributes;
   /**
    * The revision identifier.
-   */
+  */
   "id"?: string;
   /**
    * AI custom rule revision resource type.
-   */
+  */
   "type"?: AiCustomRuleRevisionDataType;
 
   /**
@@ -30,7 +35,7 @@ export class AiCustomRuleRevisionRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class AiCustomRuleRevisionRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AiCustomRuleRevisionRequestAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AiCustomRuleRevisionRequestAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "AiCustomRuleRevisionDataType",
+    "type": {
+      "baseName": "type",
+      "type": "AiCustomRuleRevisionDataType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class AiCustomRuleRevisionRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AiCustomRuleRevisionRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

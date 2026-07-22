@@ -5,15 +5,20 @@
  */
 import { UpdateCampaignRequestData } from "./UpdateCampaignRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request to update a campaign.
- */
+*/
 export class UpdateCampaignRequest {
   /**
    * Data for updating a campaign.
-   */
+  */
   "data": UpdateCampaignRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class UpdateCampaignRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class UpdateCampaignRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "UpdateCampaignRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "UpdateCampaignRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class UpdateCampaignRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateCampaignRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

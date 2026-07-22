@@ -6,23 +6,28 @@
 import { SecurityMonitoringRuleConvertBulkAttributes } from "./SecurityMonitoringRuleConvertBulkAttributes";
 import { SecurityMonitoringRuleConvertBulkDataType } from "./SecurityMonitoringRuleConvertBulkDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for bulk converting security monitoring rules to Terraform.
- */
+*/
 export class SecurityMonitoringRuleConvertBulkData {
   /**
    * Attributes for bulk converting security monitoring rules to Terraform.
-   */
+  */
   "attributes": SecurityMonitoringRuleConvertBulkAttributes;
   /**
    * Request ID.
-   */
+  */
   "id"?: string;
   /**
    * The type of the resource.
-   */
+  */
   "type": SecurityMonitoringRuleConvertBulkDataType;
 
   /**
@@ -30,7 +35,7 @@ export class SecurityMonitoringRuleConvertBulkData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class SecurityMonitoringRuleConvertBulkData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SecurityMonitoringRuleConvertBulkAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SecurityMonitoringRuleConvertBulkAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SecurityMonitoringRuleConvertBulkDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SecurityMonitoringRuleConvertBulkDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class SecurityMonitoringRuleConvertBulkData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringRuleConvertBulkData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

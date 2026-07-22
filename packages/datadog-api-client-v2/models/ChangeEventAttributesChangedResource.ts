@@ -5,19 +5,24 @@
  */
 import { ChangeEventAttributesChangedResourceType } from "./ChangeEventAttributesChangedResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A uniquely identified resource.
- */
+*/
 export class ChangeEventAttributesChangedResource {
   /**
    * The name of the changed resource.
-   */
+  */
   "name"?: string;
   /**
    * The type of the changed resource.
-   */
+  */
   "type"?: ChangeEventAttributesChangedResourceType;
 
   /**
@@ -25,7 +30,7 @@ export class ChangeEventAttributesChangedResource {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class ChangeEventAttributesChangedResource {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "ChangeEventAttributesChangedResourceType",
+    "type": {
+      "baseName": "type",
+      "type": "ChangeEventAttributesChangedResourceType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class ChangeEventAttributesChangedResource {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ChangeEventAttributesChangedResource.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

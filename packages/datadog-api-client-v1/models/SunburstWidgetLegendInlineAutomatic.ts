@@ -5,23 +5,28 @@
  */
 import { SunburstWidgetLegendInlineAutomaticType } from "./SunburstWidgetLegendInlineAutomaticType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Configuration of inline or automatic legends.
- */
+*/
 export class SunburstWidgetLegendInlineAutomatic {
   /**
    * Whether to hide the percentages of the groups.
-   */
+  */
   "hidePercent"?: boolean;
   /**
    * Whether to hide the values of the groups.
-   */
+  */
   "hideValue"?: boolean;
   /**
    * Whether to show the legend inline or let it be automatically generated.
-   */
+  */
   "type": SunburstWidgetLegendInlineAutomaticType;
 
   /**
@@ -29,7 +34,7 @@ export class SunburstWidgetLegendInlineAutomatic {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,18 +45,18 @@ export class SunburstWidgetLegendInlineAutomatic {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    hidePercent: {
-      baseName: "hide_percent",
-      type: "boolean",
+    "hidePercent": {
+      "baseName": "hide_percent",
+      "type": "boolean",
     },
-    hideValue: {
-      baseName: "hide_value",
-      type: "boolean",
+    "hideValue": {
+      "baseName": "hide_value",
+      "type": "boolean",
     },
-    type: {
-      baseName: "type",
-      type: "SunburstWidgetLegendInlineAutomaticType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SunburstWidgetLegendInlineAutomaticType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class SunburstWidgetLegendInlineAutomatic {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SunburstWidgetLegendInlineAutomatic.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

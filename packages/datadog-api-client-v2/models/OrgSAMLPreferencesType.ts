@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * SAML preferences resource type.
- */
+*/
 
 export type OrgSAMLPreferencesType = typeof SAML_PREFERENCES | UnparsedObject;
-export const SAML_PREFERENCES = "saml_preferences";
+export const SAML_PREFERENCES = 'saml_preferences';

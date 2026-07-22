@@ -5,15 +5,20 @@
  */
 import { BulkDeleteAppsDatastoreItemsRequestData } from "./BulkDeleteAppsDatastoreItemsRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request to delete items from a datastore.
- */
+*/
 export class BulkDeleteAppsDatastoreItemsRequest {
   /**
    * Data wrapper containing the data needed to delete items from a datastore.
-   */
+  */
   "data"?: BulkDeleteAppsDatastoreItemsRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class BulkDeleteAppsDatastoreItemsRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class BulkDeleteAppsDatastoreItemsRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "BulkDeleteAppsDatastoreItemsRequestData",
+    "data": {
+      "baseName": "data",
+      "type": "BulkDeleteAppsDatastoreItemsRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class BulkDeleteAppsDatastoreItemsRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return BulkDeleteAppsDatastoreItemsRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -7,27 +7,32 @@ import { SyntheticsTestResultRelationships } from "./SyntheticsTestResultRelatio
 import { SyntheticsTestResultSummaryAttributes } from "./SyntheticsTestResultSummaryAttributes";
 import { SyntheticsTestResultSummaryType } from "./SyntheticsTestResultSummaryType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Wrapper object for a Synthetic test result summary.
- */
+*/
 export class SyntheticsTestResultSummaryData {
   /**
    * Attributes of a Synthetic test result summary.
-   */
+  */
   "attributes"?: SyntheticsTestResultSummaryAttributes;
   /**
    * The result ID.
-   */
+  */
   "id"?: string;
   /**
    * Relationships for a Synthetic test result.
-   */
+  */
   "relationships"?: SyntheticsTestResultRelationships;
   /**
    * Type of the Synthetic test result summary resource, `result_summary`.
-   */
+  */
   "type"?: SyntheticsTestResultSummaryType;
 
   /**
@@ -35,7 +40,7 @@ export class SyntheticsTestResultSummaryData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,21 +51,21 @@ export class SyntheticsTestResultSummaryData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SyntheticsTestResultSummaryAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SyntheticsTestResultSummaryAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "SyntheticsTestResultRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "SyntheticsTestResultRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "SyntheticsTestResultSummaryType",
+    "type": {
+      "baseName": "type",
+      "type": "SyntheticsTestResultSummaryType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -72,8 +77,34 @@ export class SyntheticsTestResultSummaryData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultSummaryData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

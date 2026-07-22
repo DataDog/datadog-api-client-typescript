@@ -5,15 +5,20 @@
  */
 import { SalesforceIncidentsTemplateUpdateData } from "./SalesforceIncidentsTemplateUpdateData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Update request for a Salesforce incident template.
- */
+*/
 export class SalesforceIncidentsTemplateUpdateRequest {
   /**
    * Salesforce incident template data for an update request.
-   */
+  */
   "data": SalesforceIncidentsTemplateUpdateData;
 
   /**
@@ -21,7 +26,7 @@ export class SalesforceIncidentsTemplateUpdateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class SalesforceIncidentsTemplateUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SalesforceIncidentsTemplateUpdateData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "SalesforceIncidentsTemplateUpdateData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class SalesforceIncidentsTemplateUpdateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SalesforceIncidentsTemplateUpdateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

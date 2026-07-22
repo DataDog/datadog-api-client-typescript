@@ -5,23 +5,28 @@
  */
 import { GetIoCIndicatorResponseAttributes } from "./GetIoCIndicatorResponseAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * IoC indicator response data object.
- */
+*/
 export class GetIoCIndicatorResponseData {
   /**
    * Attributes of the get indicator response.
-   */
+  */
   "attributes"?: GetIoCIndicatorResponseAttributes;
   /**
    * Unique identifier for the response.
-   */
+  */
   "id"?: string;
   /**
    * Response type identifier.
-   */
+  */
   "type"?: string;
 
   /**
@@ -29,7 +34,7 @@ export class GetIoCIndicatorResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,17 +45,17 @@ export class GetIoCIndicatorResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "GetIoCIndicatorResponseAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "GetIoCIndicatorResponseAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class GetIoCIndicatorResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GetIoCIndicatorResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

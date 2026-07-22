@@ -5,15 +5,20 @@
  */
 import { CostTagDescriptionUpsertRequestData } from "./CostTagDescriptionUpsertRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request body for creating or updating a Cloud Cost Management tag key description.
- */
+*/
 export class CostTagDescriptionUpsertRequest {
   /**
    * Resource envelope carrying the tag key description being upserted. The `id` is informational; the authoritative tag key is taken from the URL path.
-   */
+  */
   "data": CostTagDescriptionUpsertRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class CostTagDescriptionUpsertRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CostTagDescriptionUpsertRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CostTagDescriptionUpsertRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "CostTagDescriptionUpsertRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CostTagDescriptionUpsertRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CostTagDescriptionUpsertRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

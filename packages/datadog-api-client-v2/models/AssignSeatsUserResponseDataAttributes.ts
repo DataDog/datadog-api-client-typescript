@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of the assign seats response, including the list of users assigned and the product code.
- */
+*/
 export class AssignSeatsUserResponseDataAttributes {
   /**
    * The list of user IDs to which the seats were assigned.
-   */
+  */
   "assignedIds"?: Array<string>;
   /**
    * The product code for which the seats were assigned.
-   */
+  */
   "productCode"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class AssignSeatsUserResponseDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class AssignSeatsUserResponseDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    assignedIds: {
-      baseName: "assigned_ids",
-      type: "Array<string>",
+    "assignedIds": {
+      "baseName": "assigned_ids",
+      "type": "Array<string>",
     },
-    productCode: {
-      baseName: "product_code",
-      type: "string",
+    "productCode": {
+      "baseName": "product_code",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class AssignSeatsUserResponseDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AssignSeatsUserResponseDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

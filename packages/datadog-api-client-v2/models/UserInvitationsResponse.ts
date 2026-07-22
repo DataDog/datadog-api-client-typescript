@@ -5,15 +5,20 @@
  */
 import { UserInvitationResponseData } from "./UserInvitationResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * User invitations as returned by the API.
- */
+*/
 export class UserInvitationsResponse {
   /**
    * Array of user invitations.
-   */
+  */
   "data"?: Array<UserInvitationResponseData>;
 
   /**
@@ -21,7 +26,7 @@ export class UserInvitationsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class UserInvitationsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<UserInvitationResponseData>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<UserInvitationResponseData>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class UserInvitationsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UserInvitationsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

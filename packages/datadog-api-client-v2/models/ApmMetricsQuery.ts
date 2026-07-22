@@ -7,63 +7,68 @@ import { ApmMetricsDataSource } from "./ApmMetricsDataSource";
 import { ApmMetricsSpanKind } from "./ApmMetricsSpanKind";
 import { ApmMetricsStat } from "./ApmMetricsStat";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A query for APM trace metrics such as hits, errors, and latency percentiles, aggregated across services.
- */
+*/
 export class ApmMetricsQuery {
   /**
    * Organization UUIDs to query when using [cross-organization visibility](/account_management/org_settings/cross_org_visibility/). Limited to one organization UUID.
-   */
+  */
   "crossOrgUuids"?: Array<string>;
   /**
    * A data source for APM metrics queries.
-   */
+  */
   "dataSource": ApmMetricsDataSource;
   /**
    * Optional fields to group the query results by.
-   */
+  */
   "groupBy"?: Array<string>;
   /**
    * The variable name for use in formulas.
-   */
+  */
   "name": string;
   /**
    * Optional operation mode to aggregate across operation names.
-   */
+  */
   "operationMode"?: string;
   /**
    * Name of operation on service. If not provided, the primary operation name is used.
-   */
+  */
   "operationName"?: string;
   /**
    * Tags to query for a specific downstream entity (peer.service, peer.db_instance, peer.s3, peer.s3.bucket, etc.).
-   */
+  */
   "peerTags"?: Array<string>;
   /**
    * Additional filters for the query using metrics query syntax (for example, env, primary_tag).
-   */
+  */
   "queryFilter"?: string;
   /**
    * The resource hash for exact matching.
-   */
+  */
   "resourceHash"?: string;
   /**
    * The full name of a specific resource to filter by.
-   */
+  */
   "resourceName"?: string;
   /**
    * The service name to filter by.
-   */
+  */
   "service"?: string;
   /**
    * Describes the relationship between the span, its parents, and its children in a trace.
-   */
+  */
   "spanKind"?: ApmMetricsSpanKind;
   /**
    * The APM metric statistic to query.
-   */
+  */
   "stat": ApmMetricsStat;
 
   /**
@@ -71,7 +76,7 @@ export class ApmMetricsQuery {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -82,60 +87,60 @@ export class ApmMetricsQuery {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    crossOrgUuids: {
-      baseName: "cross_org_uuids",
-      type: "Array<string>",
+    "crossOrgUuids": {
+      "baseName": "cross_org_uuids",
+      "type": "Array<string>",
     },
-    dataSource: {
-      baseName: "data_source",
-      type: "ApmMetricsDataSource",
-      required: true,
+    "dataSource": {
+      "baseName": "data_source",
+      "type": "ApmMetricsDataSource",
+      "required": true,
     },
-    groupBy: {
-      baseName: "group_by",
-      type: "Array<string>",
+    "groupBy": {
+      "baseName": "group_by",
+      "type": "Array<string>",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    operationMode: {
-      baseName: "operation_mode",
-      type: "string",
+    "operationMode": {
+      "baseName": "operation_mode",
+      "type": "string",
     },
-    operationName: {
-      baseName: "operation_name",
-      type: "string",
+    "operationName": {
+      "baseName": "operation_name",
+      "type": "string",
     },
-    peerTags: {
-      baseName: "peer_tags",
-      type: "Array<string>",
+    "peerTags": {
+      "baseName": "peer_tags",
+      "type": "Array<string>",
     },
-    queryFilter: {
-      baseName: "query_filter",
-      type: "string",
+    "queryFilter": {
+      "baseName": "query_filter",
+      "type": "string",
     },
-    resourceHash: {
-      baseName: "resource_hash",
-      type: "string",
+    "resourceHash": {
+      "baseName": "resource_hash",
+      "type": "string",
     },
-    resourceName: {
-      baseName: "resource_name",
-      type: "string",
+    "resourceName": {
+      "baseName": "resource_name",
+      "type": "string",
     },
-    service: {
-      baseName: "service",
-      type: "string",
+    "service": {
+      "baseName": "service",
+      "type": "string",
     },
-    spanKind: {
-      baseName: "span_kind",
-      type: "ApmMetricsSpanKind",
+    "spanKind": {
+      "baseName": "span_kind",
+      "type": "ApmMetricsSpanKind",
     },
-    stat: {
-      baseName: "stat",
-      type: "ApmMetricsStat",
-      required: true,
+    "stat": {
+      "baseName": "stat",
+      "type": "ApmMetricsStat",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -147,8 +152,34 @@ export class ApmMetricsQuery {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ApmMetricsQuery.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

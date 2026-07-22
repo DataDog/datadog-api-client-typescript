@@ -6,23 +6,28 @@
 import { GcpScanOptionsDataAttributes } from "./GcpScanOptionsDataAttributes";
 import { GcpScanOptionsDataType } from "./GcpScanOptionsDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Single GCP scan options entry.
- */
+*/
 export class GcpScanOptionsData {
   /**
    * Attributes for GCP scan options configuration.
-   */
+  */
   "attributes"?: GcpScanOptionsDataAttributes;
   /**
    * The GCP project ID.
-   */
+  */
   "id": string;
   /**
    * GCP scan options resource type.
-   */
+  */
   "type": GcpScanOptionsDataType;
 
   /**
@@ -30,7 +35,7 @@ export class GcpScanOptionsData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class GcpScanOptionsData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "GcpScanOptionsDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "GcpScanOptionsDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "GcpScanOptionsDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "GcpScanOptionsDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class GcpScanOptionsData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GcpScanOptionsData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

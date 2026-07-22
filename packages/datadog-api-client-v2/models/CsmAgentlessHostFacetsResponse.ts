@@ -5,15 +5,20 @@
  */
 import { CsmAgentlessHostFacetData } from "./CsmAgentlessHostFacetData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The response returned when listing facets for agentless hosts.
- */
+*/
 export class CsmAgentlessHostFacetsResponse {
   /**
    * The list of available facets for agentless hosts.
-   */
+  */
   "data": Array<CsmAgentlessHostFacetData>;
 
   /**
@@ -21,7 +26,7 @@ export class CsmAgentlessHostFacetsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CsmAgentlessHostFacetsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<CsmAgentlessHostFacetData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<CsmAgentlessHostFacetData>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CsmAgentlessHostFacetsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CsmAgentlessHostFacetsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

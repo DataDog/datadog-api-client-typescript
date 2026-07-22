@@ -4,20 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * An optional parameter that sets how permissive anomaly detection is.
  * Higher values require higher deviations before triggering a signal.
- */
+*/
 
-export type SecurityMonitoringRuleAnomalyDetectionOptionsDetectionTolerance =
-  | typeof ONE
-  | typeof TWO
-  | typeof THREE
-  | typeof FOUR
-  | typeof FIVE
-  | UnparsedObject;
+export type SecurityMonitoringRuleAnomalyDetectionOptionsDetectionTolerance = typeof ONE| typeof TWO| typeof THREE| typeof FOUR| typeof FIVE | UnparsedObject;
 export const ONE = 1;
 export const TWO = 2;
 export const THREE = 3;

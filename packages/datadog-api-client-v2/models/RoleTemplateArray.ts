@@ -5,15 +5,20 @@
  */
 import { RoleTemplateData } from "./RoleTemplateData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `RoleTemplateArray` object.
- */
+*/
 export class RoleTemplateArray {
   /**
    * The `RoleTemplateArray` `data`.
-   */
+  */
   "data": Array<RoleTemplateData>;
 
   /**
@@ -21,7 +26,7 @@ export class RoleTemplateArray {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class RoleTemplateArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<RoleTemplateData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<RoleTemplateData>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class RoleTemplateArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RoleTemplateArray.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

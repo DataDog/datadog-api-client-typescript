@@ -4,35 +4,40 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A unit definition for metric values.
- */
+*/
 export class ProductAnalyticsUnit {
   /**
    * The unit family (e.g., time, bytes).
-   */
+  */
   "family"?: string;
   /**
    * Numeric identifier for the unit.
-   */
+  */
   "id"?: number;
   /**
    * The full name of the unit (e.g., nanosecond).
-   */
+  */
   "name"?: string;
   /**
    * Plural form of the unit name (e.g., nanoseconds).
-   */
+  */
   "plural"?: string;
   /**
    * Conversion factor relative to the base unit of the family.
-   */
+  */
   "scaleFactor"?: number;
   /**
    * Abbreviated unit name (e.g., ns).
-   */
+  */
   "shortName"?: string;
 
   /**
@@ -40,7 +45,7 @@ export class ProductAnalyticsUnit {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -51,31 +56,31 @@ export class ProductAnalyticsUnit {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    family: {
-      baseName: "family",
-      type: "string",
+    "family": {
+      "baseName": "family",
+      "type": "string",
     },
-    id: {
-      baseName: "id",
-      type: "number",
-      format: "int64",
+    "id": {
+      "baseName": "id",
+      "type": "number",
+      "format": "int64",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    plural: {
-      baseName: "plural",
-      type: "string",
+    "plural": {
+      "baseName": "plural",
+      "type": "string",
     },
-    scaleFactor: {
-      baseName: "scale_factor",
-      type: "number",
-      format: "double",
+    "scaleFactor": {
+      "baseName": "scale_factor",
+      "type": "number",
+      "format": "double",
     },
-    shortName: {
-      baseName: "short_name",
-      type: "string",
+    "shortName": {
+      "baseName": "short_name",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -87,8 +92,34 @@ export class ProductAnalyticsUnit {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProductAnalyticsUnit.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

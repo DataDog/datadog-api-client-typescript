@@ -6,23 +6,28 @@
 import { CIAppPipelineEventAttributes } from "./CIAppPipelineEventAttributes";
 import { CIAppPipelineEventTypeName } from "./CIAppPipelineEventTypeName";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object description of a pipeline event after being processed and stored by Datadog.
- */
+*/
 export class CIAppPipelineEvent {
   /**
    * JSON object containing all event attributes and their associated values.
-   */
+  */
   "attributes"?: CIAppPipelineEventAttributes;
   /**
    * Unique ID of the event.
-   */
+  */
   "id"?: string;
   /**
    * Type of the event.
-   */
+  */
   "type"?: CIAppPipelineEventTypeName;
 
   /**
@@ -30,7 +35,7 @@ export class CIAppPipelineEvent {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class CIAppPipelineEvent {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CIAppPipelineEventAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CIAppPipelineEventAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "CIAppPipelineEventTypeName",
+    "type": {
+      "baseName": "type",
+      "type": "CIAppPipelineEventTypeName",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class CIAppPipelineEvent {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CIAppPipelineEvent.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

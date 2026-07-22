@@ -5,15 +5,20 @@
  */
 import { GetMappingResponseDataAttributesAttributesItems } from "./GetMappingResponseDataAttributesAttributesItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of the get mapping response, containing the list of configured entity attributes.
- */
+*/
 export class GetMappingResponseDataAttributes {
   /**
    * The list of entity attributes and their mapping configurations.
-   */
+  */
   "attributes"?: Array<GetMappingResponseDataAttributesAttributesItems>;
 
   /**
@@ -21,7 +26,7 @@ export class GetMappingResponseDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class GetMappingResponseDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "Array<GetMappingResponseDataAttributesAttributesItems>",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "Array<GetMappingResponseDataAttributesAttributesItems>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class GetMappingResponseDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GetMappingResponseDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

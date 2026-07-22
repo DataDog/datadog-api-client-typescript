@@ -5,15 +5,20 @@
  */
 import { LLMObsDataDeletionResponseData } from "./LLMObsDataDeletionResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing details of a submitted LLM Observability data deletion request.
- */
+*/
 export class LLMObsDataDeletionResponse {
   /**
    * Data object for an LLM Observability data deletion response.
-   */
+  */
   "data": LLMObsDataDeletionResponseData;
 
   /**
@@ -21,7 +26,7 @@ export class LLMObsDataDeletionResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class LLMObsDataDeletionResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "LLMObsDataDeletionResponseData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "LLMObsDataDeletionResponseData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class LLMObsDataDeletionResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDataDeletionResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

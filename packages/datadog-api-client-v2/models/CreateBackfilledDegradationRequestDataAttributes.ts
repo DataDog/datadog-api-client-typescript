@@ -5,19 +5,24 @@
  */
 import { CreateBackfilledDegradationRequestDataAttributesUpdatesItems } from "./CreateBackfilledDegradationRequestDataAttributesUpdatesItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The supported attributes for creating a backfilled degradation.
- */
+*/
 export class CreateBackfilledDegradationRequestDataAttributes {
   /**
    * The title of the backfilled degradation.
-   */
+  */
   "title": string;
   /**
    * The list of status updates describing the timeline of the degradation.
-   */
+  */
   "updates": Array<CreateBackfilledDegradationRequestDataAttributesUpdatesItems>;
 
   /**
@@ -25,7 +30,7 @@ export class CreateBackfilledDegradationRequestDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class CreateBackfilledDegradationRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    title: {
-      baseName: "title",
-      type: "string",
-      required: true,
+    "title": {
+      "baseName": "title",
+      "type": "string",
+      "required": true,
     },
-    updates: {
-      baseName: "updates",
-      type: "Array<CreateBackfilledDegradationRequestDataAttributesUpdatesItems>",
-      required: true,
+    "updates": {
+      "baseName": "updates",
+      "type": "Array<CreateBackfilledDegradationRequestDataAttributesUpdatesItems>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class CreateBackfilledDegradationRequestDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateBackfilledDegradationRequestDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

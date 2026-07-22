@@ -5,15 +5,20 @@
  */
 import { RelationshipToAccessTokenOwner } from "./RelationshipToAccessTokenOwner";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Resources related to the access token entry in the mixed list response.
- */
+*/
 export class AccessTokenListItemRelationships {
   /**
    * Relationship to the access token's owner.
-   */
+  */
   "ownedBy"?: RelationshipToAccessTokenOwner;
 
   /**
@@ -21,7 +26,7 @@ export class AccessTokenListItemRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class AccessTokenListItemRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    ownedBy: {
-      baseName: "owned_by",
-      type: "RelationshipToAccessTokenOwner",
+    "ownedBy": {
+      "baseName": "owned_by",
+      "type": "RelationshipToAccessTokenOwner",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class AccessTokenListItemRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AccessTokenListItemRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

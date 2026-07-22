@@ -6,19 +6,24 @@
 import { StatuspageAccountType } from "./StatuspageAccountType";
 import { StatuspageAccountUpdateAttributes } from "./StatuspageAccountUpdateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Statuspage account data for an update request.
- */
+*/
 export class StatuspageAccountUpdateData {
   /**
    * The Statuspage account attributes for an update request.
-   */
+  */
   "attributes": StatuspageAccountUpdateAttributes;
   /**
    * Statuspage account resource type.
-   */
+  */
   "type": StatuspageAccountType;
 
   /**
@@ -26,7 +31,7 @@ export class StatuspageAccountUpdateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class StatuspageAccountUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "StatuspageAccountUpdateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "StatuspageAccountUpdateAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "StatuspageAccountType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "StatuspageAccountType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class StatuspageAccountUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return StatuspageAccountUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

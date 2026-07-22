@@ -6,13 +6,15 @@
 import { CreateEmailNotificationChannelConfig } from "./CreateEmailNotificationChannelConfig";
 import { CreatePhoneNotificationChannelConfig } from "./CreatePhoneNotificationChannelConfig";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Defines the configuration for creating an On-Call notification channel
- */
+*/
 
-export type CreateNotificationChannelConfig =
-  | CreatePhoneNotificationChannelConfig
-  | CreateEmailNotificationChannelConfig
-  | UnparsedObject;
+export type CreateNotificationChannelConfig = CreatePhoneNotificationChannelConfig | CreateEmailNotificationChannelConfig | UnparsedObject;

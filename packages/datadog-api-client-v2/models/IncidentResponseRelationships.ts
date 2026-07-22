@@ -11,47 +11,52 @@ import { RelationshipToIncidentResponders } from "./RelationshipToIncidentRespon
 import { RelationshipToIncidentUserDefinedFields } from "./RelationshipToIncidentUserDefinedFields";
 import { RelationshipToUser } from "./RelationshipToUser";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The incident's relationships from a response.
- */
+*/
 export class IncidentResponseRelationships {
   /**
    * A relationship reference for attachments.
-   */
+  */
   "attachments"?: RelationshipToIncidentAttachment;
   /**
    * Relationship to user.
-   */
+  */
   "commanderUser"?: NullableRelationshipToUser;
   /**
    * Relationship to user.
-   */
+  */
   "createdByUser"?: RelationshipToUser;
   /**
    * Relationship to user.
-   */
+  */
   "declaredByUser"?: RelationshipToUser;
   /**
    * Relationship to impacts.
-   */
+  */
   "impacts"?: RelationshipToIncidentImpacts;
   /**
    * A relationship reference for multiple integration metadata objects.
-   */
+  */
   "integrations"?: RelationshipToIncidentIntegrationMetadatas;
   /**
    * Relationship to user.
-   */
+  */
   "lastModifiedByUser"?: RelationshipToUser;
   /**
    * Relationship to incident responders.
-   */
+  */
   "responders"?: RelationshipToIncidentResponders;
   /**
    * Relationship to incident user defined fields.
-   */
+  */
   "userDefinedFields"?: RelationshipToIncidentUserDefinedFields;
 
   /**
@@ -59,7 +64,7 @@ export class IncidentResponseRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -70,41 +75,41 @@ export class IncidentResponseRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attachments: {
-      baseName: "attachments",
-      type: "RelationshipToIncidentAttachment",
+    "attachments": {
+      "baseName": "attachments",
+      "type": "RelationshipToIncidentAttachment",
     },
-    commanderUser: {
-      baseName: "commander_user",
-      type: "NullableRelationshipToUser",
+    "commanderUser": {
+      "baseName": "commander_user",
+      "type": "NullableRelationshipToUser",
     },
-    createdByUser: {
-      baseName: "created_by_user",
-      type: "RelationshipToUser",
+    "createdByUser": {
+      "baseName": "created_by_user",
+      "type": "RelationshipToUser",
     },
-    declaredByUser: {
-      baseName: "declared_by_user",
-      type: "RelationshipToUser",
+    "declaredByUser": {
+      "baseName": "declared_by_user",
+      "type": "RelationshipToUser",
     },
-    impacts: {
-      baseName: "impacts",
-      type: "RelationshipToIncidentImpacts",
+    "impacts": {
+      "baseName": "impacts",
+      "type": "RelationshipToIncidentImpacts",
     },
-    integrations: {
-      baseName: "integrations",
-      type: "RelationshipToIncidentIntegrationMetadatas",
+    "integrations": {
+      "baseName": "integrations",
+      "type": "RelationshipToIncidentIntegrationMetadatas",
     },
-    lastModifiedByUser: {
-      baseName: "last_modified_by_user",
-      type: "RelationshipToUser",
+    "lastModifiedByUser": {
+      "baseName": "last_modified_by_user",
+      "type": "RelationshipToUser",
     },
-    responders: {
-      baseName: "responders",
-      type: "RelationshipToIncidentResponders",
+    "responders": {
+      "baseName": "responders",
+      "type": "RelationshipToIncidentResponders",
     },
-    userDefinedFields: {
-      baseName: "user_defined_fields",
-      type: "RelationshipToIncidentUserDefinedFields",
+    "userDefinedFields": {
+      "baseName": "user_defined_fields",
+      "type": "RelationshipToIncidentUserDefinedFields",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -116,8 +121,34 @@ export class IncidentResponseRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentResponseRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

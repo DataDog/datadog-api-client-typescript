@@ -6,23 +6,28 @@
 import { SecurityMonitoringDatasetVersionHistoryAttributes } from "./SecurityMonitoringDatasetVersionHistoryAttributes";
 import { SecurityMonitoringDatasetVersionHistoryType } from "./SecurityMonitoringDatasetVersionHistoryType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data wrapper of a dataset version history response.
- */
+*/
 export class SecurityMonitoringDatasetVersionHistoryData {
   /**
    * The attributes of a dataset version history response.
-   */
+  */
   "attributes": SecurityMonitoringDatasetVersionHistoryAttributes;
   /**
    * The UUID of the dataset.
-   */
+  */
   "id": string;
   /**
    * The type of resource for a dataset version history response.
-   */
+  */
   "type": SecurityMonitoringDatasetVersionHistoryType;
 
   /**
@@ -30,7 +35,7 @@ export class SecurityMonitoringDatasetVersionHistoryData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class SecurityMonitoringDatasetVersionHistoryData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SecurityMonitoringDatasetVersionHistoryAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SecurityMonitoringDatasetVersionHistoryAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "SecurityMonitoringDatasetVersionHistoryType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SecurityMonitoringDatasetVersionHistoryType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class SecurityMonitoringDatasetVersionHistoryData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringDatasetVersionHistoryData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * JSON:API type for service settings response.
  * The value must always be `test_optimization_service_settings`.
- */
+*/
 
-export type TestOptimizationServiceSettingsType =
-  | typeof TEST_OPTIMIZATION_SERVICE_SETTINGS
-  | UnparsedObject;
-export const TEST_OPTIMIZATION_SERVICE_SETTINGS =
-  "test_optimization_service_settings";
+export type TestOptimizationServiceSettingsType = typeof TEST_OPTIMIZATION_SERVICE_SETTINGS | UnparsedObject;
+export const TEST_OPTIMIZATION_SERVICE_SETTINGS = 'test_optimization_service_settings';

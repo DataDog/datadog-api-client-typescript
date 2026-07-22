@@ -5,10 +5,15 @@
  */
 import { ScheduleUser } from "./ScheduleUser";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Included data for shift operations.
- */
+*/
 
 export type ShiftIncluded = ScheduleUser | UnparsedObject;

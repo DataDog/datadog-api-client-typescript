@@ -6,23 +6,28 @@
 import { AiCustomRuleRevisionDataType } from "./AiCustomRuleRevisionDataType";
 import { AiCustomRuleRevisionResponseAttributes } from "./AiCustomRuleRevisionResponseAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response data for an AI custom rule revision.
- */
+*/
 export class AiCustomRuleRevisionResponseData {
   /**
    * Response attributes of an AI custom rule revision.
-   */
+  */
   "attributes": AiCustomRuleRevisionResponseAttributes;
   /**
    * The revision identifier.
-   */
+  */
   "id": string;
   /**
    * AI custom rule revision resource type.
-   */
+  */
   "type": AiCustomRuleRevisionDataType;
 
   /**
@@ -30,7 +35,7 @@ export class AiCustomRuleRevisionResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class AiCustomRuleRevisionResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AiCustomRuleRevisionResponseAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AiCustomRuleRevisionResponseAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "AiCustomRuleRevisionDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AiCustomRuleRevisionDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class AiCustomRuleRevisionResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AiCustomRuleRevisionResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

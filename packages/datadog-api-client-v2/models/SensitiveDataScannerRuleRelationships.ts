@@ -6,19 +6,24 @@
 import { SensitiveDataScannerGroupData } from "./SensitiveDataScannerGroupData";
 import { SensitiveDataScannerStandardPatternData } from "./SensitiveDataScannerStandardPatternData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationships of a scanning rule.
- */
+*/
 export class SensitiveDataScannerRuleRelationships {
   /**
    * A scanning group data.
-   */
+  */
   "group"?: SensitiveDataScannerGroupData;
   /**
    * A standard pattern.
-   */
+  */
   "standardPattern"?: SensitiveDataScannerStandardPatternData;
 
   /**
@@ -26,7 +31,7 @@ export class SensitiveDataScannerRuleRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class SensitiveDataScannerRuleRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    group: {
-      baseName: "group",
-      type: "SensitiveDataScannerGroupData",
+    "group": {
+      "baseName": "group",
+      "type": "SensitiveDataScannerGroupData",
     },
-    standardPattern: {
-      baseName: "standard_pattern",
-      type: "SensitiveDataScannerStandardPatternData",
+    "standardPattern": {
+      "baseName": "standard_pattern",
+      "type": "SensitiveDataScannerStandardPatternData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class SensitiveDataScannerRuleRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SensitiveDataScannerRuleRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

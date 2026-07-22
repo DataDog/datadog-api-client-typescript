@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Indicates that the action pages an escalation policy. This action can be set once per routing rule item, and is mutually exclusive with the top-level `policy_id` field on the routing rule.
- */
+*/
 
-export type RoutingRuleEscalationPolicyActionType =
-  | typeof ESCALATION_POLICY
-  | UnparsedObject;
-export const ESCALATION_POLICY = "escalation_policy";
+export type RoutingRuleEscalationPolicyActionType = typeof ESCALATION_POLICY | UnparsedObject;
+export const ESCALATION_POLICY = 'escalation_policy';

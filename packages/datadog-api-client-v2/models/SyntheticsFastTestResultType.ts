@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * JSON:API type for a fast test result.
- */
+*/
 
 export type SyntheticsFastTestResultType = typeof RESULT | UnparsedObject;
-export const RESULT = "result";
+export const RESULT = 'result';

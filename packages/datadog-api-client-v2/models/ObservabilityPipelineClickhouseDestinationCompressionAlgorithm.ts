@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The compression algorithm applied to outbound HTTP requests.
- */
+*/
 
-export type ObservabilityPipelineClickhouseDestinationCompressionAlgorithm =
-  | typeof GZIP
-  | typeof NONE
-  | UnparsedObject;
-export const GZIP = "gzip";
-export const NONE = "none";
+export type ObservabilityPipelineClickhouseDestinationCompressionAlgorithm = typeof GZIP| typeof NONE | UnparsedObject;
+export const GZIP = 'gzip';
+export const NONE = 'none';

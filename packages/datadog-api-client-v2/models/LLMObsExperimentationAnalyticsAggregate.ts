@@ -8,39 +8,44 @@ import { LLMObsExperimentationAnalyticsGroupBy } from "./LLMObsExperimentationAn
 import { LLMObsExperimentationAnalyticsSearch } from "./LLMObsExperimentationAnalyticsSearch";
 import { LLMObsExperimentationAnalyticsTimeRange } from "./LLMObsExperimentationAnalyticsTimeRange";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Analytics aggregation parameters.
- */
+*/
 export class LLMObsExperimentationAnalyticsAggregate {
   /**
    * List of metric computations to perform.
-   */
+  */
   "compute": Array<LLMObsExperimentationAnalyticsCompute>;
   /**
    * Filter to a specific dataset version.
-   */
+  */
   "datasetVersion"?: number;
   /**
    * Fields to group results by.
-   */
+  */
   "groupBy"?: Array<LLMObsExperimentationAnalyticsGroupBy>;
   /**
    * Data indexes to query. At least one is required.
-   */
+  */
   "indexes": Array<string>;
   /**
    * Maximum number of results to return.
-   */
+  */
   "limit"?: number;
   /**
    * Search query for filtering analytics data.
-   */
+  */
   "search": LLMObsExperimentationAnalyticsSearch;
   /**
    * Unix-millisecond time range for filtering analytics data.
-   */
+  */
   "time"?: LLMObsExperimentationAnalyticsTimeRange;
 
   /**
@@ -48,7 +53,7 @@ export class LLMObsExperimentationAnalyticsAggregate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -59,38 +64,38 @@ export class LLMObsExperimentationAnalyticsAggregate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    compute: {
-      baseName: "compute",
-      type: "Array<LLMObsExperimentationAnalyticsCompute>",
-      required: true,
+    "compute": {
+      "baseName": "compute",
+      "type": "Array<LLMObsExperimentationAnalyticsCompute>",
+      "required": true,
     },
-    datasetVersion: {
-      baseName: "dataset_version",
-      type: "number",
-      format: "int64",
+    "datasetVersion": {
+      "baseName": "dataset_version",
+      "type": "number",
+      "format": "int64",
     },
-    groupBy: {
-      baseName: "group_by",
-      type: "Array<LLMObsExperimentationAnalyticsGroupBy>",
+    "groupBy": {
+      "baseName": "group_by",
+      "type": "Array<LLMObsExperimentationAnalyticsGroupBy>",
     },
-    indexes: {
-      baseName: "indexes",
-      type: "Array<string>",
-      required: true,
+    "indexes": {
+      "baseName": "indexes",
+      "type": "Array<string>",
+      "required": true,
     },
-    limit: {
-      baseName: "limit",
-      type: "number",
-      format: "int32",
+    "limit": {
+      "baseName": "limit",
+      "type": "number",
+      "format": "int32",
     },
-    search: {
-      baseName: "search",
-      type: "LLMObsExperimentationAnalyticsSearch",
-      required: true,
+    "search": {
+      "baseName": "search",
+      "type": "LLMObsExperimentationAnalyticsSearch",
+      "required": true,
     },
-    time: {
-      baseName: "time",
-      type: "LLMObsExperimentationAnalyticsTimeRange",
+    "time": {
+      "baseName": "time",
+      "type": "LLMObsExperimentationAnalyticsTimeRange",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -102,8 +107,34 @@ export class LLMObsExperimentationAnalyticsAggregate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsExperimentationAnalyticsAggregate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

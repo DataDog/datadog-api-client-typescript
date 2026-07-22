@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Fields to which the scope rule applies.
- */
+*/
 export class ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions {
   /**
    * List of log attribute names (field paths) to which the scope applies. Only these fields are included in or excluded from pattern matching.
-   */
+  */
   "fields": Array<string>;
 
   /**
@@ -20,7 +25,7 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,10 +36,10 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    fields: {
-      baseName: "fields",
-      type: "Array<string>",
-      required: true,
+    "fields": {
+      "baseName": "fields",
+      "type": "Array<string>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

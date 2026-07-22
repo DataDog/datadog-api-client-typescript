@@ -6,19 +6,24 @@
 import { AttachmentData } from "./AttachmentData";
 import { AttachmentIncluded } from "./AttachmentIncluded";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A list of incident attachments.
- */
+*/
 export class AttachmentArray {
   /**
    * An array of attachment data objects.
-   */
+  */
   "data": Array<AttachmentData>;
   /**
    * A list of related objects included in the response.
-   */
+  */
   "included"?: Array<AttachmentIncluded>;
 
   /**
@@ -26,7 +31,7 @@ export class AttachmentArray {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class AttachmentArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<AttachmentData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<AttachmentData>",
+      "required": true,
     },
-    included: {
-      baseName: "included",
-      type: "Array<AttachmentIncluded>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<AttachmentIncluded>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class AttachmentArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AttachmentArray.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

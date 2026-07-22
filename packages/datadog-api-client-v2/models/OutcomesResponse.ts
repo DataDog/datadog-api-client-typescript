@@ -7,23 +7,28 @@ import { OutcomesResponseDataItem } from "./OutcomesResponseDataItem";
 import { OutcomesResponseIncludedItem } from "./OutcomesResponseIncludedItem";
 import { OutcomesResponseLinks } from "./OutcomesResponseLinks";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Scorecard outcomes - the result of a rule for a service.
- */
+*/
 export class OutcomesResponse {
   /**
    * List of rule outcomes.
-   */
+  */
   "data"?: Array<OutcomesResponseDataItem>;
   /**
    * Array of rule details.
-   */
+  */
   "included"?: Array<OutcomesResponseIncludedItem>;
   /**
    * Links attributes.
-   */
+  */
   "links"?: OutcomesResponseLinks;
 
   /**
@@ -31,7 +36,7 @@ export class OutcomesResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,17 +47,17 @@ export class OutcomesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<OutcomesResponseDataItem>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<OutcomesResponseDataItem>",
     },
-    included: {
-      baseName: "included",
-      type: "Array<OutcomesResponseIncludedItem>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<OutcomesResponseIncludedItem>",
     },
-    links: {
-      baseName: "links",
-      type: "OutcomesResponseLinks",
+    "links": {
+      "baseName": "links",
+      "type": "OutcomesResponseLinks",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class OutcomesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OutcomesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { SampleLogGenerationSubscriptionCreateData } from "./SampleLogGenerationSubscriptionCreateData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request body to create a sample log generation subscription for a single content pack.
- */
+*/
 export class SampleLogGenerationSubscriptionCreateRequest {
   /**
    * The subscription request body.
-   */
+  */
   "data": SampleLogGenerationSubscriptionCreateData;
 
   /**
@@ -21,7 +26,7 @@ export class SampleLogGenerationSubscriptionCreateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class SampleLogGenerationSubscriptionCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SampleLogGenerationSubscriptionCreateData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "SampleLogGenerationSubscriptionCreateData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class SampleLogGenerationSubscriptionCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SampleLogGenerationSubscriptionCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

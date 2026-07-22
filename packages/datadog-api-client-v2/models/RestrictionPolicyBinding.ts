@@ -4,22 +4,27 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Specifies which principals are associated with a relation.
- */
+*/
 export class RestrictionPolicyBinding {
   /**
    * An array of principals. A principal is a subject or group of subjects.
    * Each principal is formatted as `type:id`. Supported types: `role`, `team`, `user`, and `org`.
    * The org ID can be obtained through the api/v2/current_user API.
    * The user principal type accepts service account IDs.
-   */
+  */
   "principals": Array<string>;
   /**
    * The role/level of access.
-   */
+  */
   "relation": string;
 
   /**
@@ -27,7 +32,7 @@ export class RestrictionPolicyBinding {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -38,15 +43,15 @@ export class RestrictionPolicyBinding {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    principals: {
-      baseName: "principals",
-      type: "Array<string>",
-      required: true,
+    "principals": {
+      "baseName": "principals",
+      "type": "Array<string>",
+      "required": true,
     },
-    relation: {
-      baseName: "relation",
-      type: "string",
-      required: true,
+    "relation": {
+      "baseName": "relation",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -58,8 +63,34 @@ export class RestrictionPolicyBinding {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RestrictionPolicyBinding.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

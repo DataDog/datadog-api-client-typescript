@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of the custom forecast resource. Must be `custom_forecast`.
- */
+*/
 
 export type CustomForecastType = typeof CUSTOM_FORECAST | UnparsedObject;
-export const CUSTOM_FORECAST = "custom_forecast";
+export const CUSTOM_FORECAST = 'custom_forecast';

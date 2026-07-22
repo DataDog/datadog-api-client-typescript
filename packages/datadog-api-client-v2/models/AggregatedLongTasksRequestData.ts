@@ -6,19 +6,24 @@
 import { AggregatedLongTasksRequestAttributes } from "./AggregatedLongTasksRequestAttributes";
 import { AggregatedLongTasksRequestType } from "./AggregatedLongTasksRequestType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data envelope for an aggregated long tasks request.
- */
+*/
 export class AggregatedLongTasksRequestData {
   /**
    * Attributes for an aggregated long tasks query.
-   */
+  */
   "attributes": AggregatedLongTasksRequestAttributes;
   /**
    * The JSON:API type for aggregated long tasks requests.
-   */
+  */
   "type": AggregatedLongTasksRequestType;
 
   /**
@@ -26,7 +31,7 @@ export class AggregatedLongTasksRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class AggregatedLongTasksRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AggregatedLongTasksRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AggregatedLongTasksRequestAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "AggregatedLongTasksRequestType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AggregatedLongTasksRequestType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class AggregatedLongTasksRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AggregatedLongTasksRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

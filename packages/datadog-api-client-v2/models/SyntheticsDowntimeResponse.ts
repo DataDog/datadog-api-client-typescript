@@ -5,15 +5,20 @@
  */
 import { SyntheticsDowntimeData } from "./SyntheticsDowntimeData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a single Synthetics downtime.
- */
+*/
 export class SyntheticsDowntimeResponse {
   /**
    * A Synthetics downtime object.
-   */
+  */
   "data": SyntheticsDowntimeData;
 
   /**
@@ -21,7 +26,7 @@ export class SyntheticsDowntimeResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class SyntheticsDowntimeResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SyntheticsDowntimeData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "SyntheticsDowntimeData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class SyntheticsDowntimeResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsDowntimeResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

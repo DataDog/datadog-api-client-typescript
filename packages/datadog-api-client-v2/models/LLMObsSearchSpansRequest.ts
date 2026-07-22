@@ -5,15 +5,20 @@
  */
 import { LLMObsSearchSpansRequestData } from "./LLMObsSearchSpansRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request body for searching LLM Observability spans.
- */
+*/
 export class LLMObsSearchSpansRequest {
   /**
    * Data object for an LLM Observability spans search request.
-   */
+  */
   "data": LLMObsSearchSpansRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class LLMObsSearchSpansRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class LLMObsSearchSpansRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "LLMObsSearchSpansRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "LLMObsSearchSpansRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class LLMObsSearchSpansRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsSearchSpansRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

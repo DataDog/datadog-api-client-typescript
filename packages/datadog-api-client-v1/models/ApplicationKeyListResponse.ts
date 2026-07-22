@@ -5,15 +5,20 @@
  */
 import { ApplicationKey } from "./ApplicationKey";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An application key response.
- */
+*/
 export class ApplicationKeyListResponse {
   /**
    * Array of application keys.
-   */
+  */
   "applicationKeys"?: Array<ApplicationKey>;
 
   /**
@@ -21,7 +26,7 @@ export class ApplicationKeyListResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class ApplicationKeyListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    applicationKeys: {
-      baseName: "application_keys",
-      type: "Array<ApplicationKey>",
+    "applicationKeys": {
+      "baseName": "application_keys",
+      "type": "Array<ApplicationKey>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class ApplicationKeyListResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ApplicationKeyListResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

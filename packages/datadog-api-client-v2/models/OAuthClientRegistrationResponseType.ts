@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * OAuth 2.0 response type that a registered client may use.
- */
+*/
 
 export type OAuthClientRegistrationResponseType = typeof CODE | UnparsedObject;
-export const CODE = "code";
+export const CODE = 'code';

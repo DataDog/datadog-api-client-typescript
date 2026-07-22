@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Ruleset status resource type.
- */
+*/
 
 export type RulesetStatusRespDataType = typeof RULESET_STATUS | UnparsedObject;
-export const RULESET_STATUS = "ruleset_status";
+export const RULESET_STATUS = 'ruleset_status';

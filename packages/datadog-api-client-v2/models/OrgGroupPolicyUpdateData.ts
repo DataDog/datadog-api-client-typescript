@@ -6,23 +6,28 @@
 import { OrgGroupPolicyType } from "./OrgGroupPolicyType";
 import { OrgGroupPolicyUpdateAttributes } from "./OrgGroupPolicyUpdateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for updating an org group policy.
- */
+*/
 export class OrgGroupPolicyUpdateData {
   /**
    * Attributes for updating an org group policy.
-   */
+  */
   "attributes": OrgGroupPolicyUpdateAttributes;
   /**
    * The ID of the policy.
-   */
+  */
   "id": string;
   /**
    * Org group policies resource type.
-   */
+  */
   "type": OrgGroupPolicyType;
 
   /**
@@ -30,7 +35,7 @@ export class OrgGroupPolicyUpdateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,21 +46,21 @@ export class OrgGroupPolicyUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "OrgGroupPolicyUpdateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "OrgGroupPolicyUpdateAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    type: {
-      baseName: "type",
-      type: "OrgGroupPolicyType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "OrgGroupPolicyType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class OrgGroupPolicyUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgGroupPolicyUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

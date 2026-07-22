@@ -6,26 +6,31 @@
 import { FlakyTestAttributes } from "./FlakyTestAttributes";
 import { FlakyTestType } from "./FlakyTestType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A flaky test object.
- */
+*/
 export class FlakyTest {
   /**
    * Attributes of a flaky test.
-   */
+  */
   "attributes"?: FlakyTestAttributes;
   /**
    * Test's ID. This ID is the hash of the test's Fully Qualified Name and Git repository ID. It is the
    * value of the `@test.fingerprint_fqn` facet on test events, which you can search on in the Test
    * Optimization Explorer to locate a specific test. To filter search results by this ID, use the
    * `fingerprint_fqn` search key.
-   */
+  */
   "id"?: string;
   /**
    * The type of the flaky test from Flaky Test Management.
-   */
+  */
   "type"?: FlakyTestType;
 
   /**
@@ -33,7 +38,7 @@ export class FlakyTest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -44,17 +49,17 @@ export class FlakyTest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "FlakyTestAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "FlakyTestAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "FlakyTestType",
+    "type": {
+      "baseName": "type",
+      "type": "FlakyTestType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class FlakyTest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FlakyTest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

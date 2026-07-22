@@ -5,15 +5,20 @@
  */
 import { ProductAnalyticsUnit } from "./ProductAnalyticsUnit";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metadata associated with a scalar response column, including optional unit information.
- */
+*/
 export class ProductAnalyticsScalarColumnMeta {
   /**
    * Unit definitions for the column values, if applicable.
-   */
+  */
   "unit"?: Array<ProductAnalyticsUnit>;
 
   /**
@@ -21,7 +26,7 @@ export class ProductAnalyticsScalarColumnMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class ProductAnalyticsScalarColumnMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    unit: {
-      baseName: "unit",
-      type: "Array<ProductAnalyticsUnit>",
+    "unit": {
+      "baseName": "unit",
+      "type": "Array<ProductAnalyticsUnit>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class ProductAnalyticsScalarColumnMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProductAnalyticsScalarColumnMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

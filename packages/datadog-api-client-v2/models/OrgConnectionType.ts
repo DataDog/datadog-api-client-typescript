@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Org connection type.
- */
+*/
 
 export type OrgConnectionType = typeof ORG_CONNECTION | UnparsedObject;
-export const ORG_CONNECTION = "org_connection";
+export const ORG_CONNECTION = 'org_connection';

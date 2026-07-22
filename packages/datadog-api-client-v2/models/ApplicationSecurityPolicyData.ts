@@ -7,27 +7,32 @@ import { ApplicationSecurityPolicyAttributes } from "./ApplicationSecurityPolicy
 import { ApplicationSecurityPolicyMetadata } from "./ApplicationSecurityPolicyMetadata";
 import { ApplicationSecurityPolicyType } from "./ApplicationSecurityPolicyType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object for a single WAF policy.
- */
+*/
 export class ApplicationSecurityPolicyData {
   /**
    * A WAF policy.
-   */
+  */
   "attributes"?: ApplicationSecurityPolicyAttributes;
   /**
    * The ID of the policy.
-   */
+  */
   "id"?: string;
   /**
    * Metadata associated with the WAF policy.
-   */
+  */
   "meta"?: ApplicationSecurityPolicyMetadata;
   /**
    * The type of the resource. The value should always be `policy`.
-   */
+  */
   "type"?: ApplicationSecurityPolicyType;
 
   /**
@@ -35,7 +40,7 @@ export class ApplicationSecurityPolicyData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,21 +51,21 @@ export class ApplicationSecurityPolicyData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ApplicationSecurityPolicyAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ApplicationSecurityPolicyAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    meta: {
-      baseName: "meta",
-      type: "ApplicationSecurityPolicyMetadata",
+    "meta": {
+      "baseName": "meta",
+      "type": "ApplicationSecurityPolicyMetadata",
     },
-    type: {
-      baseName: "type",
-      type: "ApplicationSecurityPolicyType",
+    "type": {
+      "baseName": "type",
+      "type": "ApplicationSecurityPolicyType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -72,8 +77,34 @@ export class ApplicationSecurityPolicyData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ApplicationSecurityPolicyData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

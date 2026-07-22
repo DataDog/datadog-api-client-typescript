@@ -5,15 +5,20 @@
  */
 import { OAuth2WellKnownSitesData } from "./OAuth2WellKnownSitesData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response payload containing the list of public OAuth2 sites for discovery.
- */
+*/
 export class OAuth2WellKnownSitesResponse {
   /**
    * Data object containing OAuth2 well-known sites information.
-   */
+  */
   "data": OAuth2WellKnownSitesData;
 
   /**
@@ -21,7 +26,7 @@ export class OAuth2WellKnownSitesResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class OAuth2WellKnownSitesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "OAuth2WellKnownSitesData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "OAuth2WellKnownSitesData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class OAuth2WellKnownSitesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OAuth2WellKnownSitesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

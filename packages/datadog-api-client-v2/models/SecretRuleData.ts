@@ -6,23 +6,28 @@
 import { SecretRuleDataAttributes } from "./SecretRuleDataAttributes";
 import { SecretRuleDataType } from "./SecretRuleDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data object representing a secret detection rule, including its attributes and resource type.
- */
+*/
 export class SecretRuleData {
   /**
    * The attributes of a secret detection rule, including its pattern, priority, and validation configuration.
-   */
+  */
   "attributes"?: SecretRuleDataAttributes;
   /**
    * The unique identifier of the secret rule resource.
-   */
+  */
   "id"?: string;
   /**
    * Secret rule resource type.
-   */
+  */
   "type": SecretRuleDataType;
 
   /**
@@ -30,7 +35,7 @@ export class SecretRuleData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class SecretRuleData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SecretRuleDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SecretRuleDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SecretRuleDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SecretRuleDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class SecretRuleData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecretRuleData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

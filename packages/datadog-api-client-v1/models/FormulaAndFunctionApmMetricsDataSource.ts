@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Data source for APM metrics queries.
- */
+*/
 
-export type FormulaAndFunctionApmMetricsDataSource =
-  | typeof APM_METRICS
-  | UnparsedObject;
-export const APM_METRICS = "apm_metrics";
+export type FormulaAndFunctionApmMetricsDataSource = typeof APM_METRICS | UnparsedObject;
+export const APM_METRICS = 'apm_metrics';

@@ -4,14 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * JSON:API resource type for the entity integration configuration create or update request. Always `entity_integration_config_requests`.
- */
+*/
 
-export type EntityIntegrationConfigRequestType =
-  | typeof ENTITY_INTEGRATION_CONFIG_REQUESTS
-  | UnparsedObject;
-export const ENTITY_INTEGRATION_CONFIG_REQUESTS =
-  "entity_integration_config_requests";
+export type EntityIntegrationConfigRequestType = typeof ENTITY_INTEGRATION_CONFIG_REQUESTS | UnparsedObject;
+export const ENTITY_INTEGRATION_CONFIG_REQUESTS = 'entity_integration_config_requests';

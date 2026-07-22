@@ -5,15 +5,20 @@
  */
 import { MaintenanceDataRelationshipsStatusPageData } from "./MaintenanceDataRelationshipsStatusPageData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The status page the maintenance belongs to.
- */
+*/
 export class MaintenanceDataRelationshipsStatusPage {
   /**
    * The data object identifying the status page associated with a maintenance.
-   */
+  */
   "data": MaintenanceDataRelationshipsStatusPageData;
 
   /**
@@ -21,7 +26,7 @@ export class MaintenanceDataRelationshipsStatusPage {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class MaintenanceDataRelationshipsStatusPage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "MaintenanceDataRelationshipsStatusPageData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "MaintenanceDataRelationshipsStatusPageData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class MaintenanceDataRelationshipsStatusPage {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MaintenanceDataRelationshipsStatusPage.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

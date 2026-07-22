@@ -6,26 +6,31 @@
 import { DowntimeScheduleCurrentDowntimeResponse } from "./DowntimeScheduleCurrentDowntimeResponse";
 import { DowntimeScheduleRecurrenceResponse } from "./DowntimeScheduleRecurrenceResponse";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A recurring downtime schedule definition.
- */
+*/
 export class DowntimeScheduleRecurrencesResponse {
   /**
    * The most recent actual start and end dates for a recurring downtime. For a canceled downtime,
    * this is the previously occurring downtime. For active downtimes, this is the ongoing downtime, and for scheduled
    * downtimes it is the upcoming downtime.
-   */
+  */
   "currentDowntime"?: DowntimeScheduleCurrentDowntimeResponse;
   /**
    * A list of downtime recurrences.
-   */
+  */
   "recurrences": Array<DowntimeScheduleRecurrenceResponse>;
   /**
    * The timezone in which to schedule the downtime. This affects recurring start and end dates.
    * Must match `display_timezone`.
-   */
+  */
   "timezone"?: string;
 
   /**
@@ -33,7 +38,7 @@ export class DowntimeScheduleRecurrencesResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -44,18 +49,18 @@ export class DowntimeScheduleRecurrencesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    currentDowntime: {
-      baseName: "current_downtime",
-      type: "DowntimeScheduleCurrentDowntimeResponse",
+    "currentDowntime": {
+      "baseName": "current_downtime",
+      "type": "DowntimeScheduleCurrentDowntimeResponse",
     },
-    recurrences: {
-      baseName: "recurrences",
-      type: "Array<DowntimeScheduleRecurrenceResponse>",
-      required: true,
+    "recurrences": {
+      "baseName": "recurrences",
+      "type": "Array<DowntimeScheduleRecurrenceResponse>",
+      "required": true,
     },
-    timezone: {
-      baseName: "timezone",
-      type: "string",
+    "timezone": {
+      "baseName": "timezone",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class DowntimeScheduleRecurrencesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DowntimeScheduleRecurrencesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

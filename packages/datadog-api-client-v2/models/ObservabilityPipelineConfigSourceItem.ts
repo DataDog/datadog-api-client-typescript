@@ -22,29 +22,15 @@ import { ObservabilityPipelineSumoLogicSource } from "./ObservabilityPipelineSum
 import { ObservabilityPipelineSyslogNgSource } from "./ObservabilityPipelineSyslogNgSource";
 import { ObservabilityPipelineWebsocketSource } from "./ObservabilityPipelineWebsocketSource";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A data source for the pipeline.
- */
+*/
 
-export type ObservabilityPipelineConfigSourceItem =
-  | ObservabilityPipelineDatadogAgentSource
-  | ObservabilityPipelineAmazonDataFirehoseSource
-  | ObservabilityPipelineAmazonS3Source
-  | ObservabilityPipelineFluentBitSource
-  | ObservabilityPipelineFluentdSource
-  | ObservabilityPipelineGooglePubSubSource
-  | ObservabilityPipelineHttpClientSource
-  | ObservabilityPipelineHttpServerSource
-  | ObservabilityPipelineKafkaSource
-  | ObservabilityPipelineLogstashSource
-  | ObservabilityPipelineRsyslogSource
-  | ObservabilityPipelineSocketSource
-  | ObservabilityPipelineSplunkHecSource
-  | ObservabilityPipelineSplunkTcpSource
-  | ObservabilityPipelineSumoLogicSource
-  | ObservabilityPipelineSyslogNgSource
-  | ObservabilityPipelineWebsocketSource
-  | ObservabilityPipelineOpentelemetrySource
-  | UnparsedObject;
+export type ObservabilityPipelineConfigSourceItem = ObservabilityPipelineDatadogAgentSource | ObservabilityPipelineAmazonDataFirehoseSource | ObservabilityPipelineAmazonS3Source | ObservabilityPipelineFluentBitSource | ObservabilityPipelineFluentdSource | ObservabilityPipelineGooglePubSubSource | ObservabilityPipelineHttpClientSource | ObservabilityPipelineHttpServerSource | ObservabilityPipelineKafkaSource | ObservabilityPipelineLogstashSource | ObservabilityPipelineRsyslogSource | ObservabilityPipelineSocketSource | ObservabilityPipelineSplunkHecSource | ObservabilityPipelineSplunkTcpSource | ObservabilityPipelineSumoLogicSource | ObservabilityPipelineSyslogNgSource | ObservabilityPipelineWebsocketSource | ObservabilityPipelineOpentelemetrySource | UnparsedObject;

@@ -6,43 +6,48 @@
 import { CreateSnapshotAdditionalConfig } from "./CreateSnapshotAdditionalConfig";
 import { CreateSnapshotTTL } from "./CreateSnapshotTTL";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for snapshot creation.
- */
+*/
 export class CreateSnapshotDataAttributesRequest {
   /**
    * Additional configuration options for snapshot creation.
-   */
+  */
   "additionalConfig"?: CreateSnapshotAdditionalConfig;
   /**
    * End of the time window for the snapshot, in milliseconds since Unix epoch.
-   */
+  */
   "end": number;
   /**
    * The height of the rendered snapshot in pixels.
-   */
+  */
   "height"?: number;
   /**
    * Whether the snapshot requires authentication to view. Authenticated snapshots are scoped to the creating organization.
-   */
+  */
   "isAuthenticated"?: boolean;
   /**
    * Start of the time window for the snapshot, in milliseconds since Unix epoch.
-   */
+  */
   "start": number;
   /**
    * The time-to-live for the snapshot. This value corresponds to storage lifecycle policies that automatically delete the snapshot after the specified period.
-   */
+  */
   "ttl"?: CreateSnapshotTTL;
   /**
    * The widget definition to render as a snapshot. Must include a valid `type` field and non-empty `requests` array.
-   */
-  "widgetDefinition": { [key: string]: any };
+  */
+  "widgetDefinition": { [key: string]: any; };
   /**
    * The width of the rendered snapshot in pixels.
-   */
+  */
   "width"?: number;
 
   /**
@@ -50,7 +55,7 @@ export class CreateSnapshotDataAttributesRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -61,44 +66,44 @@ export class CreateSnapshotDataAttributesRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    additionalConfig: {
-      baseName: "additional_config",
-      type: "CreateSnapshotAdditionalConfig",
+    "additionalConfig": {
+      "baseName": "additional_config",
+      "type": "CreateSnapshotAdditionalConfig",
     },
-    end: {
-      baseName: "end",
-      type: "number",
-      required: true,
-      format: "int64",
+    "end": {
+      "baseName": "end",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    height: {
-      baseName: "height",
-      type: "number",
-      format: "int64",
+    "height": {
+      "baseName": "height",
+      "type": "number",
+      "format": "int64",
     },
-    isAuthenticated: {
-      baseName: "is_authenticated",
-      type: "boolean",
+    "isAuthenticated": {
+      "baseName": "is_authenticated",
+      "type": "boolean",
     },
-    start: {
-      baseName: "start",
-      type: "number",
-      required: true,
-      format: "int64",
+    "start": {
+      "baseName": "start",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    ttl: {
-      baseName: "ttl",
-      type: "CreateSnapshotTTL",
+    "ttl": {
+      "baseName": "ttl",
+      "type": "CreateSnapshotTTL",
     },
-    widgetDefinition: {
-      baseName: "widget_definition",
-      type: "{ [key: string]: any; }",
-      required: true,
+    "widgetDefinition": {
+      "baseName": "widget_definition",
+      "type": "{ [key: string]: any; }",
+      "required": true,
     },
-    width: {
-      baseName: "width",
-      type: "number",
-      format: "int64",
+    "width": {
+      "baseName": "width",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -110,8 +115,34 @@ export class CreateSnapshotDataAttributesRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateSnapshotDataAttributesRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

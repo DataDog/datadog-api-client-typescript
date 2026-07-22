@@ -5,27 +5,32 @@
  */
 import { PostmortemCell } from "./PostmortemCell";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Postmortem attachment attributes
- */
+*/
 export class PostmortemAttachmentRequestAttributes {
   /**
    * The cells of the postmortem
-   */
+  */
   "cells"?: Array<PostmortemCell>;
   /**
    * The content of the postmortem
-   */
+  */
   "content"?: string;
   /**
    * The ID of the postmortem template
-   */
+  */
   "postmortemTemplateId"?: string;
   /**
    * The title of the postmortem
-   */
+  */
   "title"?: string;
 
   /**
@@ -33,7 +38,7 @@ export class PostmortemAttachmentRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -44,21 +49,21 @@ export class PostmortemAttachmentRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    cells: {
-      baseName: "cells",
-      type: "Array<PostmortemCell>",
+    "cells": {
+      "baseName": "cells",
+      "type": "Array<PostmortemCell>",
     },
-    content: {
-      baseName: "content",
-      type: "string",
+    "content": {
+      "baseName": "content",
+      "type": "string",
     },
-    postmortemTemplateId: {
-      baseName: "postmortem_template_id",
-      type: "string",
+    "postmortemTemplateId": {
+      "baseName": "postmortem_template_id",
+      "type": "string",
     },
-    title: {
-      baseName: "title",
-      type: "string",
+    "title": {
+      "baseName": "title",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -70,8 +75,34 @@ export class PostmortemAttachmentRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PostmortemAttachmentRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

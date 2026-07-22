@@ -5,23 +5,28 @@
  */
 import { StatusPagesComponentDataRelationshipsGroupData } from "./StatusPagesComponentDataRelationshipsGroupData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The group the component belongs to.
- */
+*/
 export class StatusPagesComponentDataRelationshipsGroup {
   /**
    * The data object identifying the group the component belongs to.
-   */
-  "data": StatusPagesComponentDataRelationshipsGroupData | null;
+  */
+  "data": StatusPagesComponentDataRelationshipsGroupData|null;
 
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class StatusPagesComponentDataRelationshipsGroup {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "StatusPagesComponentDataRelationshipsGroupData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "StatusPagesComponentDataRelationshipsGroupData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class StatusPagesComponentDataRelationshipsGroup {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return StatusPagesComponentDataRelationshipsGroup.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

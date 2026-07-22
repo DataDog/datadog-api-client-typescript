@@ -6,13 +6,15 @@
 import { BarChartWidgetFlat } from "./BarChartWidgetFlat";
 import { BarChartWidgetStacked } from "./BarChartWidgetStacked";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Bar chart widget display options.
- */
+*/
 
-export type BarChartWidgetDisplay =
-  | BarChartWidgetStacked
-  | BarChartWidgetFlat
-  | UnparsedObject;
+export type BarChartWidgetDisplay = BarChartWidgetStacked | BarChartWidgetFlat | UnparsedObject;

@@ -6,23 +6,28 @@
 import { SyntheticsApiMultistepParentTestAttributes } from "./SyntheticsApiMultistepParentTestAttributes";
 import { SyntheticsApiMultistepParentTestType } from "./SyntheticsApiMultistepParentTestType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for a parent API multistep test.
- */
+*/
 export class SyntheticsApiMultistepParentTestData {
   /**
    * Attributes of a parent API multistep test.
-   */
+  */
   "attributes"?: SyntheticsApiMultistepParentTestAttributes;
   /**
    * The public ID of the parent test.
-   */
+  */
   "id"?: string;
   /**
    * Type of the parent test resource.
-   */
+  */
   "type"?: SyntheticsApiMultistepParentTestType;
 
   /**
@@ -30,7 +35,7 @@ export class SyntheticsApiMultistepParentTestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class SyntheticsApiMultistepParentTestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SyntheticsApiMultistepParentTestAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SyntheticsApiMultistepParentTestAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SyntheticsApiMultistepParentTestType",
+    "type": {
+      "baseName": "type",
+      "type": "SyntheticsApiMultistepParentTestType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class SyntheticsApiMultistepParentTestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsApiMultistepParentTestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

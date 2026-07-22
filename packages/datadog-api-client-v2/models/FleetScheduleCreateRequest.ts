@@ -5,15 +5,20 @@
  */
 import { FleetScheduleCreate } from "./FleetScheduleCreate";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request payload for creating a new schedule.
- */
+*/
 export class FleetScheduleCreateRequest {
   /**
    * Data for creating a new schedule.
-   */
+  */
   "data": FleetScheduleCreate;
 
   /**
@@ -21,7 +26,7 @@ export class FleetScheduleCreateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class FleetScheduleCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "FleetScheduleCreate",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "FleetScheduleCreate",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class FleetScheduleCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FleetScheduleCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

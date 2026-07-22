@@ -6,23 +6,28 @@
 import { ObservabilityPipelineBufferOptionsMemoryType } from "./ObservabilityPipelineBufferOptionsMemoryType";
 import { ObservabilityPipelineBufferOptionsWhenFull } from "./ObservabilityPipelineBufferOptionsWhenFull";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Options for configuring a memory buffer by byte size.
- */
+*/
 export class ObservabilityPipelineMemoryBufferOptions {
   /**
    * Maximum size of the memory buffer.
-   */
+  */
   "maxSize": number;
   /**
    * The type of the buffer that will be configured, a memory buffer.
-   */
+  */
   "type"?: ObservabilityPipelineBufferOptionsMemoryType;
   /**
    * Behavior when the buffer is full (block and stop accepting new events, or drop new events)
-   */
+  */
   "whenFull"?: ObservabilityPipelineBufferOptionsWhenFull;
 
   /**
@@ -30,7 +35,7 @@ export class ObservabilityPipelineMemoryBufferOptions {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class ObservabilityPipelineMemoryBufferOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    maxSize: {
-      baseName: "max_size",
-      type: "number",
-      required: true,
-      format: "int64",
+    "maxSize": {
+      "baseName": "max_size",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    type: {
-      baseName: "type",
-      type: "ObservabilityPipelineBufferOptionsMemoryType",
+    "type": {
+      "baseName": "type",
+      "type": "ObservabilityPipelineBufferOptionsMemoryType",
     },
-    whenFull: {
-      baseName: "when_full",
-      type: "ObservabilityPipelineBufferOptionsWhenFull",
+    "whenFull": {
+      "baseName": "when_full",
+      "type": "ObservabilityPipelineBufferOptionsWhenFull",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class ObservabilityPipelineMemoryBufferOptions {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineMemoryBufferOptions.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

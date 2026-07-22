@@ -5,15 +5,20 @@
  */
 import { UsageProfilingHour } from "./UsageProfilingHour";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing the number of profiled hosts for each hour for a given organization.
- */
+*/
 export class UsageProfilingResponse {
   /**
    * Get hourly usage for profiled hosts.
-   */
+  */
   "usage"?: Array<UsageProfilingHour>;
 
   /**
@@ -21,7 +26,7 @@ export class UsageProfilingResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class UsageProfilingResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageProfilingHour>",
+    "usage": {
+      "baseName": "usage",
+      "type": "Array<UsageProfilingHour>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class UsageProfilingResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageProfilingResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

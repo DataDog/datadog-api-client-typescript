@@ -6,15 +6,17 @@
 import { ProductAnalyticsEventQuery } from "./ProductAnalyticsEventQuery";
 import { ProductAnalyticsOccurrenceQuery } from "./ProductAnalyticsOccurrenceQuery";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A query definition discriminated by the `data_source` field.
  * Use `product_analytics` for standard event queries, or
  * `product_analytics_occurrence` for occurrence-filtered queries.
- */
+*/
 
-export type ProductAnalyticsBaseQuery =
-  | ProductAnalyticsEventQuery
-  | ProductAnalyticsOccurrenceQuery
-  | UnparsedObject;
+export type ProductAnalyticsBaseQuery = ProductAnalyticsEventQuery | ProductAnalyticsOccurrenceQuery | UnparsedObject;

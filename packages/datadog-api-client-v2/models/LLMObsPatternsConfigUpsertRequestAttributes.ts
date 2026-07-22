@@ -4,55 +4,60 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for creating or updating an LLM Observability patterns configuration.
- */
+*/
 export class LLMObsPatternsConfigUpsertRequestAttributes {
   /**
    * Integration account ID for a bring-your-own-model configuration.
-   */
+  */
   "accountId"?: string;
   /**
    * The ID of an existing configuration to update. If omitted, a new configuration is created.
-   */
+  */
   "configId"?: string;
   /**
    * Query that selects the spans the patterns run analyzes.
-   */
+  */
   "evpQuery": string;
   /**
    * Depth of the topic hierarchy to generate.
-   */
+  */
   "hierarchyDepth": number;
   /**
    * Integration provider for a bring-your-own-model configuration.
-   */
+  */
   "integrationProvider"?: string;
   /**
    * Model name for a bring-your-own-model configuration.
-   */
+  */
   "modelName"?: string;
   /**
    * Name of the configuration.
-   */
+  */
   "name": string;
   /**
    * Maximum number of records to process for the run.
-   */
+  */
   "numRecords": number;
   /**
    * Fraction of matching spans to sample for the run.
-   */
+  */
   "samplingRatio": number;
   /**
    * Scope of the configuration.
-   */
+  */
   "scope"?: string;
   /**
    * Template used to guide topic generation.
-   */
+  */
   "template"?: string;
 
   /**
@@ -60,7 +65,7 @@ export class LLMObsPatternsConfigUpsertRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -71,57 +76,57 @@ export class LLMObsPatternsConfigUpsertRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    accountId: {
-      baseName: "account_id",
-      type: "string",
+    "accountId": {
+      "baseName": "account_id",
+      "type": "string",
     },
-    configId: {
-      baseName: "config_id",
-      type: "string",
+    "configId": {
+      "baseName": "config_id",
+      "type": "string",
     },
-    evpQuery: {
-      baseName: "evp_query",
-      type: "string",
-      required: true,
+    "evpQuery": {
+      "baseName": "evp_query",
+      "type": "string",
+      "required": true,
     },
-    hierarchyDepth: {
-      baseName: "hierarchy_depth",
-      type: "number",
-      required: true,
-      format: "int32",
+    "hierarchyDepth": {
+      "baseName": "hierarchy_depth",
+      "type": "number",
+      "required": true,
+      "format": "int32",
     },
-    integrationProvider: {
-      baseName: "integration_provider",
-      type: "string",
+    "integrationProvider": {
+      "baseName": "integration_provider",
+      "type": "string",
     },
-    modelName: {
-      baseName: "model_name",
-      type: "string",
+    "modelName": {
+      "baseName": "model_name",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    numRecords: {
-      baseName: "num_records",
-      type: "number",
-      required: true,
-      format: "int32",
+    "numRecords": {
+      "baseName": "num_records",
+      "type": "number",
+      "required": true,
+      "format": "int32",
     },
-    samplingRatio: {
-      baseName: "sampling_ratio",
-      type: "number",
-      required: true,
-      format: "double",
+    "samplingRatio": {
+      "baseName": "sampling_ratio",
+      "type": "number",
+      "required": true,
+      "format": "double",
     },
-    scope: {
-      baseName: "scope",
-      type: "string",
+    "scope": {
+      "baseName": "scope",
+      "type": "string",
     },
-    template: {
-      baseName: "template",
-      type: "string",
+    "template": {
+      "baseName": "template",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -133,8 +138,34 @@ export class LLMObsPatternsConfigUpsertRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsPatternsConfigUpsertRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

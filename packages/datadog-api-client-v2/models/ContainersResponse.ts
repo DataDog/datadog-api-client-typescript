@@ -7,23 +7,28 @@ import { ContainerItem } from "./ContainerItem";
 import { ContainerMeta } from "./ContainerMeta";
 import { ContainersResponseLinks } from "./ContainersResponseLinks";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * List of containers.
- */
+*/
 export class ContainersResponse {
   /**
    * Array of Container objects.
-   */
+  */
   "data"?: Array<ContainerItem>;
   /**
    * Pagination links.
-   */
+  */
   "links"?: ContainersResponseLinks;
   /**
    * Response metadata object.
-   */
+  */
   "meta"?: ContainerMeta;
 
   /**
@@ -31,7 +36,7 @@ export class ContainersResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,17 +47,17 @@ export class ContainersResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<ContainerItem>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<ContainerItem>",
     },
-    links: {
-      baseName: "links",
-      type: "ContainersResponseLinks",
+    "links": {
+      "baseName": "links",
+      "type": "ContainersResponseLinks",
     },
-    meta: {
-      baseName: "meta",
-      type: "ContainerMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "ContainerMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class ContainersResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ContainersResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

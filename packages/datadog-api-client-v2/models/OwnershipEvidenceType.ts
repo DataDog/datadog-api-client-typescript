@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of the ownership evidence resource. The value should always be `ownership_evidence`.
- */
+*/
 
 export type OwnershipEvidenceType = typeof OWNERSHIP_EVIDENCE | UnparsedObject;
-export const OWNERSHIP_EVIDENCE = "ownership_evidence";
+export const OWNERSHIP_EVIDENCE = 'ownership_evidence';

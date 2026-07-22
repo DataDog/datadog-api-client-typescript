@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type identifier for ServiceNow instance resources
- */
+*/
 
 export type ServiceNowInstanceType = typeof INSTANCE | UnparsedObject;
-export const INSTANCE = "instance";
+export const INSTANCE = 'instance';

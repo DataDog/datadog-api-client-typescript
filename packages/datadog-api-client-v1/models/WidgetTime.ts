@@ -7,14 +7,15 @@ import { WidgetLegacyLiveSpan } from "./WidgetLegacyLiveSpan";
 import { WidgetNewFixedSpan } from "./WidgetNewFixedSpan";
 import { WidgetNewLiveSpan } from "./WidgetNewLiveSpan";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Time setting for the widget.
- */
+*/
 
-export type WidgetTime =
-  | WidgetLegacyLiveSpan
-  | WidgetNewLiveSpan
-  | WidgetNewFixedSpan
-  | UnparsedObject;
+export type WidgetTime = WidgetLegacyLiveSpan | WidgetNewLiveSpan | WidgetNewFixedSpan | UnparsedObject;

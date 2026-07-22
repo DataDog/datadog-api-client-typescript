@@ -6,27 +6,32 @@
 import { BudgetWithEntriesDataAttributesEntriesItemsCosts } from "./BudgetWithEntriesDataAttributesEntriesItemsCosts";
 import { BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems } from "./BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A single monthly budget entry defining the allocated amount and optional tag filters for a specific month.
- */
+*/
 export class BudgetWithEntriesDataAttributesEntriesItems {
   /**
    * The budgeted amount for this entry.
-   */
+  */
   "amount"?: number;
   /**
    * Cost data for a single budget entry.
-   */
+  */
   "costs"?: BudgetWithEntriesDataAttributesEntriesItemsCosts;
   /**
    * The month this budget entry applies to, in YYYYMM format.
-   */
+  */
   "month"?: number;
   /**
    * The list of tag filters that scope this budget entry to specific resources.
-   */
+  */
   "tagFilters"?: Array<BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems>;
 
   /**
@@ -34,7 +39,7 @@ export class BudgetWithEntriesDataAttributesEntriesItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -45,23 +50,23 @@ export class BudgetWithEntriesDataAttributesEntriesItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    amount: {
-      baseName: "amount",
-      type: "number",
-      format: "double",
+    "amount": {
+      "baseName": "amount",
+      "type": "number",
+      "format": "double",
     },
-    costs: {
-      baseName: "costs",
-      type: "BudgetWithEntriesDataAttributesEntriesItemsCosts",
+    "costs": {
+      "baseName": "costs",
+      "type": "BudgetWithEntriesDataAttributesEntriesItemsCosts",
     },
-    month: {
-      baseName: "month",
-      type: "number",
-      format: "int64",
+    "month": {
+      "baseName": "month",
+      "type": "number",
+      "format": "int64",
     },
-    tagFilters: {
-      baseName: "tag_filters",
-      type: "Array<BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems>",
+    "tagFilters": {
+      "baseName": "tag_filters",
+      "type": "Array<BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -73,8 +78,34 @@ export class BudgetWithEntriesDataAttributesEntriesItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return BudgetWithEntriesDataAttributesEntriesItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Authentication protocol used by the auth method.
- */
+*/
 
-export type WebhooksAuthMethodProtocol =
-  | typeof OAUTH2_CLIENT_CREDENTIALS
-  | UnparsedObject;
-export const OAUTH2_CLIENT_CREDENTIALS = "oauth2-client-credentials";
+export type WebhooksAuthMethodProtocol = typeof OAUTH2_CLIENT_CREDENTIALS | UnparsedObject;
+export const OAUTH2_CLIENT_CREDENTIALS = 'oauth2-client-credentials';

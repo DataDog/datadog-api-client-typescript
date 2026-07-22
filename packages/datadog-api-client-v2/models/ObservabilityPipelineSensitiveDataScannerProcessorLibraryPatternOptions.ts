@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Options for selecting a predefined library pattern and enabling keyword support.
- */
+*/
 export class ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions {
   /**
    * Human-readable description providing context about a sensitive data scanner rule
-   */
+  */
   "description"?: string;
   /**
    * Identifier for a predefined pattern from the sensitive data scanner pattern library.
-   */
+  */
   "id": string;
   /**
    * Whether to augment the pattern with recommended keywords (optional).
-   */
+  */
   "useRecommendedKeywords"?: boolean;
 
   /**
@@ -28,7 +33,7 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOpt
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,18 +44,18 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOpt
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    useRecommendedKeywords: {
-      baseName: "use_recommended_keywords",
-      type: "boolean",
+    "useRecommendedKeywords": {
+      "baseName": "use_recommended_keywords",
+      "type": "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOpt
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

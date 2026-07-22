@@ -5,19 +5,24 @@
  */
 import { ViewershipHistorySessionDataType } from "./ViewershipHistorySessionDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A session identifier data object used for bulk playlist operations.
- */
+*/
 export class SessionIdData {
   /**
    * Unique identifier of the RUM replay session.
-   */
+  */
   "id"?: string;
   /**
    * Rum replay session resource type.
-   */
+  */
   "type": ViewershipHistorySessionDataType;
 
   /**
@@ -25,7 +30,7 @@ export class SessionIdData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,14 +41,14 @@ export class SessionIdData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "ViewershipHistorySessionDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ViewershipHistorySessionDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class SessionIdData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SessionIdData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

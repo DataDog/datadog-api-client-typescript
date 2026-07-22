@@ -6,19 +6,24 @@
 import { CaseNotificationRuleCreateAttributes } from "./CaseNotificationRuleCreateAttributes";
 import { CaseNotificationRuleResourceType } from "./CaseNotificationRuleResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Notification rule create
- */
+*/
 export class CaseNotificationRuleCreate {
   /**
    * Notification rule creation attributes
-   */
+  */
   "attributes": CaseNotificationRuleCreateAttributes;
   /**
    * Notification rule resource type
-   */
+  */
   "type": CaseNotificationRuleResourceType;
 
   /**
@@ -26,7 +31,7 @@ export class CaseNotificationRuleCreate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class CaseNotificationRuleCreate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CaseNotificationRuleCreateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CaseNotificationRuleCreateAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CaseNotificationRuleResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CaseNotificationRuleResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class CaseNotificationRuleCreate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseNotificationRuleCreate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

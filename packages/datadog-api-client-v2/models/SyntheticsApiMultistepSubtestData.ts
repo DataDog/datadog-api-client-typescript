@@ -6,23 +6,28 @@
 import { SyntheticsApiMultistepSubtestAttributes } from "./SyntheticsApiMultistepSubtestAttributes";
 import { SyntheticsApiMultistepSubtestType } from "./SyntheticsApiMultistepSubtestType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for a Synthetic API multistep subtest.
- */
+*/
 export class SyntheticsApiMultistepSubtestData {
   /**
    * Attributes of a Synthetic API multistep subtest.
-   */
+  */
   "attributes"?: SyntheticsApiMultistepSubtestAttributes;
   /**
    * The public ID of the subtest.
-   */
+  */
   "id"?: string;
   /**
    * Type of the subtest resource.
-   */
+  */
   "type"?: SyntheticsApiMultistepSubtestType;
 
   /**
@@ -30,7 +35,7 @@ export class SyntheticsApiMultistepSubtestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class SyntheticsApiMultistepSubtestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SyntheticsApiMultistepSubtestAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SyntheticsApiMultistepSubtestAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SyntheticsApiMultistepSubtestType",
+    "type": {
+      "baseName": "type",
+      "type": "SyntheticsApiMultistepSubtestType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class SyntheticsApiMultistepSubtestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsApiMultistepSubtestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { AggregatedSignalsProblemsRequestData } from "./AggregatedSignalsProblemsRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request body for the aggregated signals and problems endpoint.
- */
+*/
 export class AggregatedSignalsProblemsRequest {
   /**
    * Data envelope for an aggregated signals and problems request.
-   */
+  */
   "data": AggregatedSignalsProblemsRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class AggregatedSignalsProblemsRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class AggregatedSignalsProblemsRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "AggregatedSignalsProblemsRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "AggregatedSignalsProblemsRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class AggregatedSignalsProblemsRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AggregatedSignalsProblemsRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

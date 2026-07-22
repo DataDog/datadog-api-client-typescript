@@ -5,15 +5,20 @@
  */
 import { UnassignSeatsUserRequestData } from "./UnassignSeatsUserRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The request body for unassigning seats from users for a product code.
- */
+*/
 export class UnassignSeatsUserRequest {
   /**
    * The request data object containing attributes for unassigning seats from users.
-   */
+  */
   "data"?: UnassignSeatsUserRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class UnassignSeatsUserRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class UnassignSeatsUserRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "UnassignSeatsUserRequestData",
+    "data": {
+      "baseName": "data",
+      "type": "UnassignSeatsUserRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class UnassignSeatsUserRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UnassignSeatsUserRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Status group of the case.
- */
+*/
 
-export type CaseStatusGroup =
-  | typeof SG_OPEN
-  | typeof SG_IN_PROGRESS
-  | typeof SG_CLOSED
-  | UnparsedObject;
-export const SG_OPEN = "SG_OPEN";
-export const SG_IN_PROGRESS = "SG_IN_PROGRESS";
-export const SG_CLOSED = "SG_CLOSED";
+export type CaseStatusGroup = typeof SG_OPEN| typeof SG_IN_PROGRESS| typeof SG_CLOSED | UnparsedObject;
+export const SG_OPEN = 'SG_OPEN';
+export const SG_IN_PROGRESS = 'SG_IN_PROGRESS';
+export const SG_CLOSED = 'SG_CLOSED';

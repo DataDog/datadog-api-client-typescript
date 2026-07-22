@@ -6,19 +6,24 @@
 import { StatuspageUrlSettingCreateAttributes } from "./StatuspageUrlSettingCreateAttributes";
 import { StatuspageUrlSettingType } from "./StatuspageUrlSettingType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Statuspage URL setting data for a create request.
- */
+*/
 export class StatuspageUrlSettingCreateData {
   /**
    * The Statuspage URL setting attributes for a create request.
-   */
+  */
   "attributes": StatuspageUrlSettingCreateAttributes;
   /**
    * Statuspage URL setting resource type.
-   */
+  */
   "type": StatuspageUrlSettingType;
 
   /**
@@ -26,7 +31,7 @@ export class StatuspageUrlSettingCreateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class StatuspageUrlSettingCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "StatuspageUrlSettingCreateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "StatuspageUrlSettingCreateAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "StatuspageUrlSettingType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "StatuspageUrlSettingType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class StatuspageUrlSettingCreateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return StatuspageUrlSettingCreateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

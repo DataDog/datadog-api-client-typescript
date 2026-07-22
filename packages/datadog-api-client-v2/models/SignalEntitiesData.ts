@@ -6,23 +6,28 @@
 import { SignalEntitiesAttributes } from "./SignalEntitiesAttributes";
 import { SignalEntitiesType } from "./SignalEntitiesType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Entities related to a security signal.
- */
+*/
 export class SignalEntitiesData {
   /**
    * Attributes containing the entities related to the signal.
-   */
+  */
   "attributes": SignalEntitiesAttributes;
   /**
    * The signal ID the entities are associated with.
-   */
+  */
   "id": string;
   /**
    * The type of the resource. The value should always be `entities`.
-   */
+  */
   "type": SignalEntitiesType;
 
   /**
@@ -30,7 +35,7 @@ export class SignalEntitiesData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class SignalEntitiesData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SignalEntitiesAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SignalEntitiesAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "SignalEntitiesType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SignalEntitiesType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class SignalEntitiesData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SignalEntitiesData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

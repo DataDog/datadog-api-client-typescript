@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Degradation updates resource type.
- */
+*/
 
-export type PatchDegradationUpdateRequestDataType =
-  | typeof DEGRADATION_UPDATES
-  | UnparsedObject;
-export const DEGRADATION_UPDATES = "degradation_updates";
+export type PatchDegradationUpdateRequestDataType = typeof DEGRADATION_UPDATES | UnparsedObject;
+export const DEGRADATION_UPDATES = 'degradation_updates';

@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Browser information for the device used to run the test.
- */
+*/
 export class SyntheticsTestResultDeviceBrowser {
   /**
    * Browser type (for example, `chrome`, `firefox`).
-   */
+  */
   "type"?: string;
   /**
    * User agent string reported by the browser.
-   */
+  */
   "userAgent"?: string;
   /**
    * Browser version.
-   */
+  */
   "version"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class SyntheticsTestResultDeviceBrowser {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class SyntheticsTestResultDeviceBrowser {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
-    userAgent: {
-      baseName: "user_agent",
-      type: "string",
+    "userAgent": {
+      "baseName": "user_agent",
+      "type": "string",
     },
-    version: {
-      baseName: "version",
-      type: "string",
+    "version": {
+      "baseName": "version",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class SyntheticsTestResultDeviceBrowser {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultDeviceBrowser.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

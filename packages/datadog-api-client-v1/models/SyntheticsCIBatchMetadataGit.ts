@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Git information.
- */
+*/
 export class SyntheticsCIBatchMetadataGit {
   /**
    * Branch name.
-   */
+  */
   "branch"?: string;
   /**
    * The commit SHA.
-   */
+  */
   "commitSha"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class SyntheticsCIBatchMetadataGit {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class SyntheticsCIBatchMetadataGit {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    branch: {
-      baseName: "branch",
-      type: "string",
+    "branch": {
+      "baseName": "branch",
+      "type": "string",
     },
-    commitSha: {
-      baseName: "commitSha",
-      type: "string",
+    "commitSha": {
+      "baseName": "commitSha",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class SyntheticsCIBatchMetadataGit {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsCIBatchMetadataGit.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

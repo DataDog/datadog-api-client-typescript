@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Indicates that the resource is of type 'team_routing_rules'.
- */
+*/
 
-export type TeamRoutingRulesDataRelationshipsRulesDataItemsType =
-  | typeof TEAM_ROUTING_RULES
-  | UnparsedObject;
-export const TEAM_ROUTING_RULES = "team_routing_rules";
+export type TeamRoutingRulesDataRelationshipsRulesDataItemsType = typeof TEAM_ROUTING_RULES | UnparsedObject;
+export const TEAM_ROUTING_RULES = 'team_routing_rules';

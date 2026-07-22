@@ -6,23 +6,28 @@
 import { Allocation } from "./Allocation";
 import { AllocationDataType } from "./AllocationDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data wrapper for targeting rule allocation responses.
- */
+*/
 export class AllocationDataResponse {
   /**
    * Targeting rule (allocation) details for a feature flag environment.
-   */
+  */
   "attributes": Allocation;
   /**
    * The unique identifier of the targeting rule allocation.
-   */
+  */
   "id": string;
   /**
    * The resource type.
-   */
+  */
   "type": AllocationDataType;
 
   /**
@@ -30,7 +35,7 @@ export class AllocationDataResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,21 +46,21 @@ export class AllocationDataResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "Allocation",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "Allocation",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    type: {
-      baseName: "type",
-      type: "AllocationDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AllocationDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class AllocationDataResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AllocationDataResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

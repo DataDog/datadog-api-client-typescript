@@ -6,23 +6,28 @@
 import { LLMObsAnnotatedInteractionsByTraceDataAttributesResponse } from "./LLMObsAnnotatedInteractionsByTraceDataAttributesResponse";
 import { LLMObsAnnotatedInteractionsByTraceType } from "./LLMObsAnnotatedInteractionsByTraceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for the cross-queue annotated interactions response.
- */
+*/
 export class LLMObsAnnotatedInteractionsByTraceDataResponse {
   /**
    * Attributes of the cross-queue annotated interactions response.
-   */
+  */
   "attributes": LLMObsAnnotatedInteractionsByTraceDataAttributesResponse;
   /**
    * Opaque identifier for the response object.
-   */
+  */
   "id": string;
   /**
    * Resource type for cross-queue annotated interactions lookup.
-   */
+  */
   "type": LLMObsAnnotatedInteractionsByTraceType;
 
   /**
@@ -30,7 +35,7 @@ export class LLMObsAnnotatedInteractionsByTraceDataResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class LLMObsAnnotatedInteractionsByTraceDataResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LLMObsAnnotatedInteractionsByTraceDataAttributesResponse",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "LLMObsAnnotatedInteractionsByTraceDataAttributesResponse",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LLMObsAnnotatedInteractionsByTraceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LLMObsAnnotatedInteractionsByTraceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class LLMObsAnnotatedInteractionsByTraceDataResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsAnnotatedInteractionsByTraceDataResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

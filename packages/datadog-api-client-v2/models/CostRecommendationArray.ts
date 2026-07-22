@@ -6,19 +6,24 @@
 import { CostRecommendationData } from "./CostRecommendationData";
 import { RecommendationsPageMeta } from "./RecommendationsPageMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A page of cost recommendations with pagination metadata.
- */
+*/
 export class CostRecommendationArray {
   /**
    * The list of cost recommendations on this page.
-   */
+  */
   "data": Array<CostRecommendationData>;
   /**
    * Top-level JSON:API meta object for paginated cost recommendation responses.
-   */
+  */
   "meta"?: RecommendationsPageMeta;
 
   /**
@@ -26,7 +31,7 @@ export class CostRecommendationArray {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class CostRecommendationArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<CostRecommendationData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<CostRecommendationData>",
+      "required": true,
     },
-    meta: {
-      baseName: "meta",
-      type: "RecommendationsPageMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "RecommendationsPageMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class CostRecommendationArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CostRecommendationArray.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

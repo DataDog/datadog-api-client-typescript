@@ -5,15 +5,20 @@
  */
 import { LogsByRetentionOrgUsage } from "./LogsByRetentionOrgUsage";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Indexed logs usage summary for each organization for each retention period with usage.
- */
+*/
 export class LogsByRetentionOrgs {
   /**
    * Indexed logs usage summary for each organization.
-   */
+  */
   "usage"?: Array<LogsByRetentionOrgUsage>;
 
   /**
@@ -21,7 +26,7 @@ export class LogsByRetentionOrgs {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class LogsByRetentionOrgs {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<LogsByRetentionOrgUsage>",
+    "usage": {
+      "baseName": "usage",
+      "type": "Array<LogsByRetentionOrgUsage>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class LogsByRetentionOrgs {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogsByRetentionOrgs.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of the AI-generated Cloud Cost Management tag description resource.
- */
+*/
 
-export type GeneratedCostTagDescriptionType =
-  | typeof COST_GENERATED_TAG_DESCRIPTION
-  | UnparsedObject;
-export const COST_GENERATED_TAG_DESCRIPTION = "cost_generated_tag_description";
+export type GeneratedCostTagDescriptionType = typeof COST_GENERATED_TAG_DESCRIPTION | UnparsedObject;
+export const COST_GENERATED_TAG_DESCRIPTION = 'cost_generated_tag_description';

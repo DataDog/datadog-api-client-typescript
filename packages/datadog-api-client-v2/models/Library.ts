@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Vulnerability library.
- */
+*/
 export class Library {
   /**
    * Related library or package names (such as child packages or affected binary paths).
-   */
+  */
   "additionalNames"?: Array<string>;
   /**
    * Vulnerability library name.
-   */
+  */
   "name": string;
   /**
    * Vulnerability library version.
-   */
+  */
   "version"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class Library {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,18 +44,18 @@ export class Library {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    additionalNames: {
-      baseName: "additional_names",
-      type: "Array<string>",
+    "additionalNames": {
+      "baseName": "additional_names",
+      "type": "Array<string>",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    version: {
-      baseName: "version",
-      type: "string",
+    "version": {
+      "baseName": "version",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class Library {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return Library.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

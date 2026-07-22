@@ -5,23 +5,28 @@
  */
 import { IncidentUserDefinedRolePolicy } from "./IncidentUserDefinedRolePolicy";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for creating an incident user-defined role.
- */
+*/
 export class IncidentUserDefinedRoleDataAttributesRequest {
   /**
    * A description of the user-defined role.
-   */
+  */
   "description"?: string;
   /**
    * The name of the user-defined role.
-   */
+  */
   "name": string;
   /**
    * Policy configuration for a user-defined role.
-   */
+  */
   "policy"?: IncidentUserDefinedRolePolicy;
 
   /**
@@ -29,7 +34,7 @@ export class IncidentUserDefinedRoleDataAttributesRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,18 +45,18 @@ export class IncidentUserDefinedRoleDataAttributesRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    policy: {
-      baseName: "policy",
-      type: "IncidentUserDefinedRolePolicy",
+    "policy": {
+      "baseName": "policy",
+      "type": "IncidentUserDefinedRolePolicy",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class IncidentUserDefinedRoleDataAttributesRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentUserDefinedRoleDataAttributesRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

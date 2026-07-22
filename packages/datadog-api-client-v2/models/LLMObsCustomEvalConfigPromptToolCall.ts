@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A tool call within a prompt message.
- */
+*/
 export class LLMObsCustomEvalConfigPromptToolCall {
   /**
    * JSON-encoded arguments for the tool call.
-   */
+  */
   "arguments"?: string;
   /**
    * Unique identifier of the tool call.
-   */
+  */
   "id"?: string;
   /**
    * Name of the tool being called.
-   */
+  */
   "name"?: string;
   /**
    * Type of the tool call.
-   */
+  */
   "type"?: string;
 
   /**
@@ -32,7 +37,7 @@ export class LLMObsCustomEvalConfigPromptToolCall {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,21 +48,21 @@ export class LLMObsCustomEvalConfigPromptToolCall {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    arguments: {
-      baseName: "arguments",
-      type: "string",
+    "arguments": {
+      "baseName": "arguments",
+      "type": "string",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -69,8 +74,34 @@ export class LLMObsCustomEvalConfigPromptToolCall {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsCustomEvalConfigPromptToolCall.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

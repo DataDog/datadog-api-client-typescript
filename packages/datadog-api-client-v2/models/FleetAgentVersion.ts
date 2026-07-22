@@ -6,23 +6,28 @@
 import { FleetAgentVersionAttributes } from "./FleetAgentVersionAttributes";
 import { FleetAgentVersionResourceType } from "./FleetAgentVersionResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Represents an available Datadog Agent version.
- */
+*/
 export class FleetAgentVersion {
   /**
    * Attributes of an available Datadog Agent version.
-   */
+  */
   "attributes"?: FleetAgentVersionAttributes;
   /**
    * Unique identifier for the Agent version (same as version).
-   */
+  */
   "id": string;
   /**
    * The type of Agent version resource.
-   */
+  */
   "type": FleetAgentVersionResourceType;
 
   /**
@@ -30,7 +35,7 @@ export class FleetAgentVersion {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class FleetAgentVersion {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "FleetAgentVersionAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "FleetAgentVersionAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "FleetAgentVersionResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "FleetAgentVersionResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class FleetAgentVersion {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FleetAgentVersion.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

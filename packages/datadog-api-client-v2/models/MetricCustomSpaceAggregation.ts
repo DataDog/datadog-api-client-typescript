@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A space aggregation for use in query.
- */
+*/
 
-export type MetricCustomSpaceAggregation =
-  | typeof AVG
-  | typeof MAX
-  | typeof MIN
-  | typeof SUM
-  | UnparsedObject;
-export const AVG = "avg";
-export const MAX = "max";
-export const MIN = "min";
-export const SUM = "sum";
+export type MetricCustomSpaceAggregation = typeof AVG| typeof MAX| typeof MIN| typeof SUM | UnparsedObject;
+export const AVG = 'avg';
+export const MAX = 'max';
+export const MIN = 'min';
+export const SUM = 'sum';

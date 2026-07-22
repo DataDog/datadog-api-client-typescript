@@ -6,23 +6,28 @@
 import { CoverageSummaryAttributes } from "./CoverageSummaryAttributes";
 import { CoverageSummaryType } from "./CoverageSummaryType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for coverage summary response.
- */
+*/
 export class CoverageSummaryData {
   /**
    * Attributes object for code coverage summary response.
-   */
+  */
   "attributes"?: CoverageSummaryAttributes;
   /**
    * Unique identifier for the coverage summary (base64-hashed).
-   */
+  */
   "id"?: string;
   /**
    * JSON:API type for coverage summary response. The value must always be `ci_app_coverage_summary`.
-   */
+  */
   "type"?: CoverageSummaryType;
 
   /**
@@ -30,7 +35,7 @@ export class CoverageSummaryData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class CoverageSummaryData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CoverageSummaryAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CoverageSummaryAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "CoverageSummaryType",
+    "type": {
+      "baseName": "type",
+      "type": "CoverageSummaryType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class CoverageSummaryData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CoverageSummaryData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

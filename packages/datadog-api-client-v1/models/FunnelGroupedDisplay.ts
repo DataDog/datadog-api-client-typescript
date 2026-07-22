@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Display mode for grouped funnel results.
- */
+*/
 
-export type FunnelGroupedDisplay =
-  | typeof STACKED
-  | typeof SIDE_BY_SIDE
-  | UnparsedObject;
-export const STACKED = "stacked";
-export const SIDE_BY_SIDE = "side_by_side";
+export type FunnelGroupedDisplay = typeof STACKED| typeof SIDE_BY_SIDE | UnparsedObject;
+export const STACKED = 'stacked';
+export const SIDE_BY_SIDE = 'side_by_side';

@@ -5,19 +5,24 @@
  */
 import { ObservabilityPipelineSocketDestinationFramingCharacterDelimitedMethod } from "./ObservabilityPipelineSocketDestinationFramingCharacterDelimitedMethod";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Each log event is separated using the specified delimiter character.
- */
+*/
 export class ObservabilityPipelineSocketDestinationFramingCharacterDelimited {
   /**
    * A single ASCII character used as a delimiter.
-   */
+  */
   "delimiter": string;
   /**
    * The definition of `ObservabilityPipelineSocketDestinationFramingCharacterDelimitedMethod` object.
-   */
+  */
   "method": ObservabilityPipelineSocketDestinationFramingCharacterDelimitedMethod;
 
   /**
@@ -25,7 +30,7 @@ export class ObservabilityPipelineSocketDestinationFramingCharacterDelimited {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class ObservabilityPipelineSocketDestinationFramingCharacterDelimited {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    delimiter: {
-      baseName: "delimiter",
-      type: "string",
-      required: true,
+    "delimiter": {
+      "baseName": "delimiter",
+      "type": "string",
+      "required": true,
     },
-    method: {
-      baseName: "method",
-      type: "ObservabilityPipelineSocketDestinationFramingCharacterDelimitedMethod",
-      required: true,
+    "method": {
+      "baseName": "method",
+      "type": "ObservabilityPipelineSocketDestinationFramingCharacterDelimitedMethod",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class ObservabilityPipelineSocketDestinationFramingCharacterDelimited {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineSocketDestinationFramingCharacterDelimited.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

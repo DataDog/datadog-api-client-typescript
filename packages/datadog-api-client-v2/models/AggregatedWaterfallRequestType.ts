@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The JSON:API type for aggregated waterfall requests.
- */
+*/
 
-export type AggregatedWaterfallRequestType =
-  | typeof AGGREGATED_WATERFALL
-  | UnparsedObject;
-export const AGGREGATED_WATERFALL = "aggregated_waterfall";
+export type AggregatedWaterfallRequestType = typeof AGGREGATED_WATERFALL | UnparsedObject;
+export const AGGREGATED_WATERFALL = 'aggregated_waterfall';

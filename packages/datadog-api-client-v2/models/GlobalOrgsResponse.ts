@@ -7,23 +7,28 @@ import { GlobalOrgData } from "./GlobalOrgData";
 import { GlobalOrgsLinks } from "./GlobalOrgsLinks";
 import { GlobalOrgsMeta } from "./GlobalOrgsMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing organizations across regions for the authenticated user.
- */
+*/
 export class GlobalOrgsResponse {
   /**
    * Organizations across regions for the authenticated user.
-   */
+  */
   "data": Array<GlobalOrgData>;
   /**
    * Pagination links.
-   */
+  */
   "links"?: GlobalOrgsLinks;
   /**
    * Response metadata object.
-   */
+  */
   "meta"?: GlobalOrgsMeta;
 
   /**
@@ -31,7 +36,7 @@ export class GlobalOrgsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,18 +47,18 @@ export class GlobalOrgsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<GlobalOrgData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<GlobalOrgData>",
+      "required": true,
     },
-    links: {
-      baseName: "links",
-      type: "GlobalOrgsLinks",
+    "links": {
+      "baseName": "links",
+      "type": "GlobalOrgsLinks",
     },
-    meta: {
-      baseName: "meta",
-      type: "GlobalOrgsMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "GlobalOrgsMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class GlobalOrgsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GlobalOrgsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

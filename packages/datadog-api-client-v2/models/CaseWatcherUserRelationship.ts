@@ -5,15 +5,20 @@
  */
 import { UserRelationshipData } from "./UserRelationshipData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The user relationship for a case watcher.
- */
+*/
 export class CaseWatcherUserRelationship {
   /**
    * Relationship to user object.
-   */
+  */
   "data": UserRelationshipData;
 
   /**
@@ -21,7 +26,7 @@ export class CaseWatcherUserRelationship {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CaseWatcherUserRelationship {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "UserRelationshipData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "UserRelationshipData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CaseWatcherUserRelationship {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseWatcherUserRelationship.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

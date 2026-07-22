@@ -5,19 +5,24 @@
  */
 import { WorkflowUserRelationshipType } from "./WorkflowUserRelationshipType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `WorkflowUserRelationshipData` object.
- */
+*/
 export class WorkflowUserRelationshipData {
   /**
    * The user identifier
-   */
+  */
   "id": string;
   /**
    * The definition of `WorkflowUserRelationshipType` object.
-   */
+  */
   "type": WorkflowUserRelationshipType;
 
   /**
@@ -25,7 +30,7 @@ export class WorkflowUserRelationshipData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class WorkflowUserRelationshipData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "WorkflowUserRelationshipType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "WorkflowUserRelationshipType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class WorkflowUserRelationshipData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return WorkflowUserRelationshipData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of the resource, always `rum_rate_limit_config`.
- */
+*/
 
-export type RumRateLimitConfigType =
-  | typeof RUM_RATE_LIMIT_CONFIG
-  | UnparsedObject;
-export const RUM_RATE_LIMIT_CONFIG = "rum_rate_limit_config";
+export type RumRateLimitConfigType = typeof RUM_RATE_LIMIT_CONFIG | UnparsedObject;
+export const RUM_RATE_LIMIT_CONFIG = 'rum_rate_limit_config';

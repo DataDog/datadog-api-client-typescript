@@ -5,15 +5,20 @@
  */
 import { EntityResponseDataRelationshipsRelatedEntitiesDataItems } from "./EntityResponseDataRelationshipsRelatedEntitiesDataItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Related entities relationship containing a list of entity references related to this entity.
- */
+*/
 export class EntityResponseDataRelationshipsRelatedEntities {
   /**
    * List of related entity relationship data items.
-   */
+  */
   "data"?: Array<EntityResponseDataRelationshipsRelatedEntitiesDataItems>;
 
   /**
@@ -21,7 +26,7 @@ export class EntityResponseDataRelationshipsRelatedEntities {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class EntityResponseDataRelationshipsRelatedEntities {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<EntityResponseDataRelationshipsRelatedEntitiesDataItems>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<EntityResponseDataRelationshipsRelatedEntitiesDataItems>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class EntityResponseDataRelationshipsRelatedEntities {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EntityResponseDataRelationshipsRelatedEntities.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

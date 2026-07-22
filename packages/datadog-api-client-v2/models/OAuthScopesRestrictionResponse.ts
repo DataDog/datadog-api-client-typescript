@@ -5,15 +5,20 @@
  */
 import { OAuthScopesRestrictionResponseData } from "./OAuthScopesRestrictionResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response payload describing the scopes restriction of an OAuth2 client.
- */
+*/
 export class OAuthScopesRestrictionResponse {
   /**
    * Data object of an OAuth2 client scopes restriction response.
-   */
+  */
   "data": OAuthScopesRestrictionResponseData;
 
   /**
@@ -21,7 +26,7 @@ export class OAuthScopesRestrictionResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class OAuthScopesRestrictionResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "OAuthScopesRestrictionResponseData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "OAuthScopesRestrictionResponseData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class OAuthScopesRestrictionResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OAuthScopesRestrictionResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

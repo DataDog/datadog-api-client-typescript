@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * JSON:API resource type for case automation rules.
- */
+*/
 
 export type CaseAutomationRuleResourceType = typeof RULE | UnparsedObject;
-export const RULE = "rule";
+export const RULE = 'rule';

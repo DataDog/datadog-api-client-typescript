@@ -6,23 +6,28 @@
 import { LLMObsCustomEvalConfigAttributes } from "./LLMObsCustomEvalConfigAttributes";
 import { LLMObsCustomEvalConfigType } from "./LLMObsCustomEvalConfigType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for a custom LLM Observability evaluator configuration.
- */
+*/
 export class LLMObsCustomEvalConfigData {
   /**
    * Attributes of a custom LLM Observability evaluator configuration.
-   */
+  */
   "attributes": LLMObsCustomEvalConfigAttributes;
   /**
    * Unique name identifier of the evaluator configuration.
-   */
+  */
   "id": string;
   /**
    * Type of the custom LLM Observability evaluator configuration resource.
-   */
+  */
   "type": LLMObsCustomEvalConfigType;
 
   /**
@@ -30,7 +35,7 @@ export class LLMObsCustomEvalConfigData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class LLMObsCustomEvalConfigData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LLMObsCustomEvalConfigAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "LLMObsCustomEvalConfigAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LLMObsCustomEvalConfigType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LLMObsCustomEvalConfigType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class LLMObsCustomEvalConfigData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsCustomEvalConfigData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

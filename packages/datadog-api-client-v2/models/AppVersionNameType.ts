@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The version-name resource type.
- */
+*/
 
 export type AppVersionNameType = typeof VERSIONNAMES | UnparsedObject;
-export const VERSIONNAMES = "versionNames";
+export const VERSIONNAMES = 'versionNames';

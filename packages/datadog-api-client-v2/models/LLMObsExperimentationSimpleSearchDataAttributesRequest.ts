@@ -9,31 +9,36 @@ import { LLMObsExperimentationInclude } from "./LLMObsExperimentationInclude";
 import { LLMObsExperimentationNumberPage } from "./LLMObsExperimentationNumberPage";
 import { LLMObsExperimentationSortField } from "./LLMObsExperimentationSortField";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for an experimentation simple search request.
- */
+*/
 export class LLMObsExperimentationSimpleSearchDataAttributesRequest {
   /**
    * Options to control content preview truncation.
-   */
+  */
   "contentPreview"?: LLMObsExperimentationContentPreview;
   /**
    * Filter criteria for an experimentation search request.
-   */
+  */
   "filter": LLMObsExperimentationFilter;
   /**
    * Additional data to include in the response.
-   */
+  */
   "include"?: LLMObsExperimentationInclude;
   /**
    * Offset-based pagination parameters for simple search.
-   */
+  */
   "page"?: LLMObsExperimentationNumberPage;
   /**
    * Sort order for results.
-   */
+  */
   "sort"?: Array<LLMObsExperimentationSortField>;
 
   /**
@@ -41,7 +46,7 @@ export class LLMObsExperimentationSimpleSearchDataAttributesRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -52,26 +57,26 @@ export class LLMObsExperimentationSimpleSearchDataAttributesRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    contentPreview: {
-      baseName: "content_preview",
-      type: "LLMObsExperimentationContentPreview",
+    "contentPreview": {
+      "baseName": "content_preview",
+      "type": "LLMObsExperimentationContentPreview",
     },
-    filter: {
-      baseName: "filter",
-      type: "LLMObsExperimentationFilter",
-      required: true,
+    "filter": {
+      "baseName": "filter",
+      "type": "LLMObsExperimentationFilter",
+      "required": true,
     },
-    include: {
-      baseName: "include",
-      type: "LLMObsExperimentationInclude",
+    "include": {
+      "baseName": "include",
+      "type": "LLMObsExperimentationInclude",
     },
-    page: {
-      baseName: "page",
-      type: "LLMObsExperimentationNumberPage",
+    "page": {
+      "baseName": "page",
+      "type": "LLMObsExperimentationNumberPage",
     },
-    sort: {
-      baseName: "sort",
-      type: "Array<LLMObsExperimentationSortField>",
+    "sort": {
+      "baseName": "sort",
+      "type": "Array<LLMObsExperimentationSortField>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -83,8 +88,34 @@ export class LLMObsExperimentationSimpleSearchDataAttributesRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsExperimentationSimpleSearchDataAttributesRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * JSON:API resource type for a print-only report.
- */
+*/
 
 export type PrintReportType = typeof REPORT | UnparsedObject;
-export const REPORT = "report";
+export const REPORT = 'report';

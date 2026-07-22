@@ -6,19 +6,24 @@
 import { TicketCreationRuleAttributesCreate } from "./TicketCreationRuleAttributesCreate";
 import { TicketCreationRuleType } from "./TicketCreationRuleType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data object for a ticket creation rule create or update request.
- */
+*/
 export class TicketCreationRuleDataCreate {
   /**
    * Attributes for creating or updating a ticket creation rule.
-   */
+  */
   "attributes": TicketCreationRuleAttributesCreate;
   /**
    * The JSON:API type for ticket creation rules.
-   */
+  */
   "type": TicketCreationRuleType;
 
   /**
@@ -26,7 +31,7 @@ export class TicketCreationRuleDataCreate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class TicketCreationRuleDataCreate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "TicketCreationRuleAttributesCreate",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "TicketCreationRuleAttributesCreate",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "TicketCreationRuleType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TicketCreationRuleType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class TicketCreationRuleDataCreate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TicketCreationRuleDataCreate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

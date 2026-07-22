@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * External team resource type.
- */
+*/
 
 export type ConnectedTeamRefDataType = typeof GITHUB_TEAM | UnparsedObject;
-export const GITHUB_TEAM = "github_team";
+export const GITHUB_TEAM = 'github_team';

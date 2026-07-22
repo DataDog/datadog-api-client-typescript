@@ -7,27 +7,32 @@ import { CaseDataType } from "./CaseDataType";
 import { FindingCaseResponseDataAttributes } from "./FindingCaseResponseDataAttributes";
 import { FindingCaseResponseDataRelationships } from "./FindingCaseResponseDataRelationships";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data of the case.
- */
+*/
 export class FindingCaseResponseData {
   /**
    * Attributes of the case.
-   */
+  */
   "attributes"?: FindingCaseResponseDataAttributes;
   /**
    * Unique identifier of the case.
-   */
+  */
   "id"?: string;
   /**
    * Relationships of the case.
-   */
+  */
   "relationships"?: FindingCaseResponseDataRelationships;
   /**
    * Cases resource type.
-   */
+  */
   "type": CaseDataType;
 
   /**
@@ -35,7 +40,7 @@ export class FindingCaseResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,22 +51,22 @@ export class FindingCaseResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "FindingCaseResponseDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "FindingCaseResponseDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "FindingCaseResponseDataRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "FindingCaseResponseDataRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "CaseDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CaseDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -73,8 +78,34 @@ export class FindingCaseResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FindingCaseResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

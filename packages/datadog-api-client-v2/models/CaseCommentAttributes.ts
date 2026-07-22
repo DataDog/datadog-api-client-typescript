@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Case comment attributes
- */
+*/
 export class CaseCommentAttributes {
   /**
    * The `CaseCommentAttributes` `message`.
-   */
+  */
   "comment": string;
 
   /**
@@ -20,7 +25,7 @@ export class CaseCommentAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,10 +36,10 @@ export class CaseCommentAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    comment: {
-      baseName: "comment",
-      type: "string",
-      required: true,
+    "comment": {
+      "baseName": "comment",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class CaseCommentAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseCommentAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

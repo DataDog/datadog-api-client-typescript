@@ -6,23 +6,28 @@
 import { EntityResponseIncludedOncallType } from "./EntityResponseIncludedOncallType";
 import { EntityResponseIncludedRelatedOncallAttributes } from "./EntityResponseIncludedRelatedOncallAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Included oncall.
- */
+*/
 export class EntityResponseIncludedOncall {
   /**
    * Included related oncall attributes.
-   */
+  */
   "attributes"?: EntityResponseIncludedRelatedOncallAttributes;
   /**
    * Oncall ID.
-   */
+  */
   "id"?: string;
   /**
    * Oncall type.
-   */
+  */
   "type"?: EntityResponseIncludedOncallType;
 
   /**
@@ -30,7 +35,7 @@ export class EntityResponseIncludedOncall {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class EntityResponseIncludedOncall {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "EntityResponseIncludedRelatedOncallAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "EntityResponseIncludedRelatedOncallAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "EntityResponseIncludedOncallType",
+    "type": {
+      "baseName": "type",
+      "type": "EntityResponseIncludedOncallType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class EntityResponseIncludedOncall {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EntityResponseIncludedOncall.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type for the Synthetics suites search response, `suites_search`.
- */
+*/
 
 export type SuiteSearchResponseType = typeof SUITES_SEARCH | UnparsedObject;
-export const SUITES_SEARCH = "suites_search";
+export const SUITES_SEARCH = 'suites_search';

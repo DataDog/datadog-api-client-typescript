@@ -6,19 +6,24 @@
 import { RumSdkConfigMatchOption } from "./RumSdkConfigMatchOption";
 import { RumSdkConfigTracingUrlPropagatorType } from "./RumSdkConfigTracingUrlPropagatorType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Configuration for a URL that should have distributed tracing enabled.
- */
+*/
 export class RumSdkConfigTracingUrlConfig {
   /**
    * A match option used for URL or origin pattern matching.
-   */
+  */
   "match": RumSdkConfigMatchOption;
   /**
    * The list of trace propagator types to use for this URL.
-   */
+  */
   "propagatorTypes": Array<RumSdkConfigTracingUrlPropagatorType>;
 
   /**
@@ -26,7 +31,7 @@ export class RumSdkConfigTracingUrlConfig {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class RumSdkConfigTracingUrlConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    match: {
-      baseName: "match",
-      type: "RumSdkConfigMatchOption",
-      required: true,
+    "match": {
+      "baseName": "match",
+      "type": "RumSdkConfigMatchOption",
+      "required": true,
     },
-    propagatorTypes: {
-      baseName: "propagator_types",
-      type: "Array<RumSdkConfigTracingUrlPropagatorType>",
-      required: true,
+    "propagatorTypes": {
+      "baseName": "propagator_types",
+      "type": "Array<RumSdkConfigTracingUrlPropagatorType>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class RumSdkConfigTracingUrlConfig {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RumSdkConfigTracingUrlConfig.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,19 +5,24 @@
  */
 import { RetentionReturnCriteriaTimeInterval } from "./RetentionReturnCriteriaTimeInterval";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Return criteria for retention queries.
- */
+*/
 export class RetentionReturnCriteria {
   /**
    * Base query for Product Analytics.
-   */
+  */
   "baseQuery": any;
   /**
    * Time interval for return criteria.
-   */
+  */
   "timeInterval"?: RetentionReturnCriteriaTimeInterval;
 
   /**
@@ -29,23 +34,49 @@ export class RetentionReturnCriteria {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    baseQuery: {
-      baseName: "base_query",
-      type: "any",
-      required: true,
+    "baseQuery": {
+      "baseName": "base_query",
+      "type": "any",
+      "required": true,
     },
-    timeInterval: {
-      baseName: "time_interval",
-      type: "RetentionReturnCriteriaTimeInterval",
-    },
+    "timeInterval": {
+      "baseName": "time_interval",
+      "type": "RetentionReturnCriteriaTimeInterval",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RetentionReturnCriteria.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

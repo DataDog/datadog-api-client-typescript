@@ -5,15 +5,20 @@
  */
 import { TenancyProductsData } from "./TenancyProductsData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a list of OCI tenancy product resources with their product enablement status.
- */
+*/
 export class TenancyProductsList {
   /**
    * List of OCI tenancy product resource objects.
-   */
+  */
   "data": Array<TenancyProductsData>;
 
   /**
@@ -21,7 +26,7 @@ export class TenancyProductsList {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class TenancyProductsList {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<TenancyProductsData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<TenancyProductsData>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class TenancyProductsList {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TenancyProductsList.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

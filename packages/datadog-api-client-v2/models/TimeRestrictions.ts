@@ -5,19 +5,24 @@
  */
 import { TimeRestriction } from "./TimeRestriction";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Time restrictions during which the routing rule is active. Outside of these hours, the rule does not match and routing continues to subsequent rules. This is mutually exclusive with the action-level `support_hours` field.
- */
+*/
 export class TimeRestrictions {
   /**
    * Defines the list of time-based restrictions.
-   */
+  */
   "restrictions": Array<TimeRestriction>;
   /**
    * Specifies the time zone applicable to the restrictions.
-   */
+  */
   "timeZone": string;
 
   /**
@@ -25,7 +30,7 @@ export class TimeRestrictions {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class TimeRestrictions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    restrictions: {
-      baseName: "restrictions",
-      type: "Array<TimeRestriction>",
-      required: true,
+    "restrictions": {
+      "baseName": "restrictions",
+      "type": "Array<TimeRestriction>",
+      "required": true,
     },
-    timeZone: {
-      baseName: "time_zone",
-      type: "string",
-      required: true,
+    "timeZone": {
+      "baseName": "time_zone",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class TimeRestrictions {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TimeRestrictions.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

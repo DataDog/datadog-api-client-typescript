@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Endpoint info extracted from an `OpenAPI` specification.
- */
+*/
 export class OpenAPIEndpoint {
   /**
    * The endpoint method.
-   */
+  */
   "method"?: string;
   /**
    * The endpoint path.
-   */
+  */
   "path"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class OpenAPIEndpoint {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class OpenAPIEndpoint {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    method: {
-      baseName: "method",
-      type: "string",
+    "method": {
+      "baseName": "method",
+      "type": "string",
     },
-    path: {
-      baseName: "path",
-      type: "string",
+    "path": {
+      "baseName": "path",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class OpenAPIEndpoint {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OpenAPIEndpoint.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

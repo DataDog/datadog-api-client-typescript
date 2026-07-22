@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The action to take when the session quota is reached.
- */
+*/
 
-export type RumRateLimitQuotaReachedAction =
-  | typeof STOP
-  | typeof SLOWDOWN
-  | UnparsedObject;
-export const STOP = "stop";
-export const SLOWDOWN = "slowdown";
+export type RumRateLimitQuotaReachedAction = typeof STOP| typeof SLOWDOWN | UnparsedObject;
+export const STOP = 'stop';
+export const SLOWDOWN = 'slowdown';

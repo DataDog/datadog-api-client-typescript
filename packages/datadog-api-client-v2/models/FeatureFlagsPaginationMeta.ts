@@ -5,15 +5,20 @@
  */
 import { FeatureFlagsPaginationMetaPage } from "./FeatureFlagsPaginationMetaPage";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Pagination metadata for feature flags.
- */
+*/
 export class FeatureFlagsPaginationMeta {
   /**
    * Pagination metadata for feature flags list responses.
-   */
+  */
   "page"?: FeatureFlagsPaginationMetaPage;
 
   /**
@@ -21,7 +26,7 @@ export class FeatureFlagsPaginationMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class FeatureFlagsPaginationMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    page: {
-      baseName: "page",
-      type: "FeatureFlagsPaginationMetaPage",
+    "page": {
+      "baseName": "page",
+      "type": "FeatureFlagsPaginationMetaPage",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class FeatureFlagsPaginationMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FeatureFlagsPaginationMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

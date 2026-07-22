@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Type of aggregation performed in the monitor query.
- */
+*/
 export class MonitorOptionsAggregation {
   /**
    * Group to break down the monitor on.
-   */
+  */
   "groupBy"?: string;
   /**
    * Metric name used in the monitor.
-   */
+  */
   "metric"?: string;
   /**
    * Metric type used in the monitor.
-   */
+  */
   "type"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class MonitorOptionsAggregation {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class MonitorOptionsAggregation {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    groupBy: {
-      baseName: "group_by",
-      type: "string",
+    "groupBy": {
+      "baseName": "group_by",
+      "type": "string",
     },
-    metric: {
-      baseName: "metric",
-      type: "string",
+    "metric": {
+      "baseName": "metric",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class MonitorOptionsAggregation {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorOptionsAggregation.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

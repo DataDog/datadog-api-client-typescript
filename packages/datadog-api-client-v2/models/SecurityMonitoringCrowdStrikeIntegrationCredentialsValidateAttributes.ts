@@ -6,23 +6,28 @@
 import { SecurityMonitoringIntegrationConfigCrowdStrikeSecrets } from "./SecurityMonitoringIntegrationConfigCrowdStrikeSecrets";
 import { SecurityMonitoringIntegrationTypeCrowdStrike } from "./SecurityMonitoringIntegrationTypeCrowdStrike";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The CrowdStrike credentials to validate against the external entity source.
- */
+*/
 export class SecurityMonitoringCrowdStrikeIntegrationCredentialsValidateAttributes {
   /**
    * The domain associated with the external entity source.
-   */
+  */
   "domain": string;
   /**
    * The source type for a CrowdStrike entity context sync.
-   */
+  */
   "integrationType": SecurityMonitoringIntegrationTypeCrowdStrike;
   /**
    * Credentials for a CrowdStrike entity context sync.
-   */
+  */
   "secrets": SecurityMonitoringIntegrationConfigCrowdStrikeSecrets;
 
   /**
@@ -30,7 +35,7 @@ export class SecurityMonitoringCrowdStrikeIntegrationCredentialsValidateAttribut
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class SecurityMonitoringCrowdStrikeIntegrationCredentialsValidateAttribut
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    domain: {
-      baseName: "domain",
-      type: "string",
-      required: true,
+    "domain": {
+      "baseName": "domain",
+      "type": "string",
+      "required": true,
     },
-    integrationType: {
-      baseName: "integration_type",
-      type: "SecurityMonitoringIntegrationTypeCrowdStrike",
-      required: true,
+    "integrationType": {
+      "baseName": "integration_type",
+      "type": "SecurityMonitoringIntegrationTypeCrowdStrike",
+      "required": true,
     },
-    secrets: {
-      baseName: "secrets",
-      type: "SecurityMonitoringIntegrationConfigCrowdStrikeSecrets",
-      required: true,
+    "secrets": {
+      "baseName": "secrets",
+      "type": "SecurityMonitoringIntegrationConfigCrowdStrikeSecrets",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class SecurityMonitoringCrowdStrikeIntegrationCredentialsValidateAttribut
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringCrowdStrikeIntegrationCredentialsValidateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

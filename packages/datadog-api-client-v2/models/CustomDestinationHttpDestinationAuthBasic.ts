@@ -5,23 +5,28 @@
  */
 import { CustomDestinationHttpDestinationAuthBasicType } from "./CustomDestinationHttpDestinationAuthBasicType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Basic access authentication.
- */
+*/
 export class CustomDestinationHttpDestinationAuthBasic {
   /**
    * The password of the authentication. This field is not returned by the API.
-   */
+  */
   "password": string;
   /**
    * Type of the basic access authentication.
-   */
+  */
   "type": CustomDestinationHttpDestinationAuthBasicType;
   /**
    * The username of the authentication. This field is not returned by the API.
-   */
+  */
   "username": string;
 
   /**
@@ -29,7 +34,7 @@ export class CustomDestinationHttpDestinationAuthBasic {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,20 +45,20 @@ export class CustomDestinationHttpDestinationAuthBasic {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    password: {
-      baseName: "password",
-      type: "string",
-      required: true,
+    "password": {
+      "baseName": "password",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CustomDestinationHttpDestinationAuthBasicType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CustomDestinationHttpDestinationAuthBasicType",
+      "required": true,
     },
-    username: {
-      baseName: "username",
-      type: "string",
-      required: true,
+    "username": {
+      "baseName": "username",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class CustomDestinationHttpDestinationAuthBasic {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomDestinationHttpDestinationAuthBasic.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

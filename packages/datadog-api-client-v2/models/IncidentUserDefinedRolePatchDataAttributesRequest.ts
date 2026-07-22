@@ -5,23 +5,28 @@
  */
 import { IncidentUserDefinedRolePolicy } from "./IncidentUserDefinedRolePolicy";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for updating an incident user-defined role.
- */
+*/
 export class IncidentUserDefinedRolePatchDataAttributesRequest {
   /**
    * A description of the user-defined role.
-   */
+  */
   "description"?: string;
   /**
    * The name of the user-defined role.
-   */
+  */
   "name"?: string;
   /**
    * Policy configuration for a user-defined role.
-   */
+  */
   "policy"?: IncidentUserDefinedRolePolicy;
 
   /**
@@ -29,7 +34,7 @@ export class IncidentUserDefinedRolePatchDataAttributesRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,17 +45,17 @@ export class IncidentUserDefinedRolePatchDataAttributesRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    policy: {
-      baseName: "policy",
-      type: "IncidentUserDefinedRolePolicy",
+    "policy": {
+      "baseName": "policy",
+      "type": "IncidentUserDefinedRolePolicy",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class IncidentUserDefinedRolePatchDataAttributesRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentUserDefinedRolePatchDataAttributesRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

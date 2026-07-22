@@ -5,15 +5,20 @@
  */
 import { IncidentIntegrationMetadataPatchData } from "./IncidentIntegrationMetadataPatchData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Patch request for an incident integration metadata.
- */
+*/
 export class IncidentIntegrationMetadataPatchRequest {
   /**
    * Incident integration metadata data for a patch request.
-   */
+  */
   "data": IncidentIntegrationMetadataPatchData;
 
   /**
@@ -21,7 +26,7 @@ export class IncidentIntegrationMetadataPatchRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class IncidentIntegrationMetadataPatchRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "IncidentIntegrationMetadataPatchData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "IncidentIntegrationMetadataPatchData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class IncidentIntegrationMetadataPatchRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentIntegrationMetadataPatchRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

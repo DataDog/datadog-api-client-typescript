@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * AWS Bedrock-specific options for LLM provider configuration.
- */
+*/
 export class LLMObsCustomEvalConfigBedrockOptions {
   /**
    * AWS region for Bedrock.
-   */
+  */
   "region"?: string;
 
   /**
@@ -20,7 +25,7 @@ export class LLMObsCustomEvalConfigBedrockOptions {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,9 +36,9 @@ export class LLMObsCustomEvalConfigBedrockOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    region: {
-      baseName: "region",
-      type: "string",
+    "region": {
+      "baseName": "region",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,8 +50,34 @@ export class LLMObsCustomEvalConfigBedrockOptions {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsCustomEvalConfigBedrockOptions.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

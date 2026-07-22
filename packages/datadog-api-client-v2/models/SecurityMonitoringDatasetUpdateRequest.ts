@@ -5,15 +5,20 @@
  */
 import { SecurityMonitoringDatasetUpdateData } from "./SecurityMonitoringDatasetUpdateData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request body for updating a Cloud SIEM dataset.
- */
+*/
 export class SecurityMonitoringDatasetUpdateRequest {
   /**
    * The data wrapper of a dataset update request.
-   */
+  */
   "data": SecurityMonitoringDatasetUpdateData;
 
   /**
@@ -21,7 +26,7 @@ export class SecurityMonitoringDatasetUpdateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class SecurityMonitoringDatasetUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SecurityMonitoringDatasetUpdateData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "SecurityMonitoringDatasetUpdateData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class SecurityMonitoringDatasetUpdateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringDatasetUpdateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,23 +6,28 @@
 import { ModelLabProjectArtifactsAttributes } from "./ModelLabProjectArtifactsAttributes";
 import { ModelLabProjectArtifactsType } from "./ModelLabProjectArtifactsType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A project artifacts JSON:API resource object.
- */
+*/
 export class ModelLabProjectArtifactsData {
   /**
    * Artifact listing for a Model Lab project.
-   */
+  */
   "attributes": ModelLabProjectArtifactsAttributes;
   /**
    * The unique identifier of the project artifacts resource.
-   */
+  */
   "id": string;
   /**
    * The JSON:API type for a project artifacts resource.
-   */
+  */
   "type": ModelLabProjectArtifactsType;
 
   /**
@@ -30,7 +35,7 @@ export class ModelLabProjectArtifactsData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class ModelLabProjectArtifactsData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ModelLabProjectArtifactsAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ModelLabProjectArtifactsAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ModelLabProjectArtifactsType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ModelLabProjectArtifactsType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class ModelLabProjectArtifactsData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ModelLabProjectArtifactsData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

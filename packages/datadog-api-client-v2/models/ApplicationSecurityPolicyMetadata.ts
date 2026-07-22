@@ -4,35 +4,40 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metadata associated with the WAF policy.
- */
+*/
 export class ApplicationSecurityPolicyMetadata {
   /**
    * The date and time the WAF policy was created.
-   */
+  */
   "addedAt"?: Date;
   /**
    * The handle of the user who created the WAF policy.
-   */
+  */
   "addedBy"?: string;
   /**
    * The name of the user who created the WAF policy.
-   */
+  */
   "addedByName"?: string;
   /**
    * The date and time the WAF policy was last updated.
-   */
+  */
   "modifiedAt"?: Date;
   /**
    * The handle of the user who last updated the WAF policy.
-   */
+  */
   "modifiedBy"?: string;
   /**
    * The name of the user who last updated the WAF policy.
-   */
+  */
   "modifiedByName"?: string;
 
   /**
@@ -40,7 +45,7 @@ export class ApplicationSecurityPolicyMetadata {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -51,31 +56,31 @@ export class ApplicationSecurityPolicyMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    addedAt: {
-      baseName: "added_at",
-      type: "Date",
-      format: "date-time",
+    "addedAt": {
+      "baseName": "added_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    addedBy: {
-      baseName: "added_by",
-      type: "string",
+    "addedBy": {
+      "baseName": "added_by",
+      "type": "string",
     },
-    addedByName: {
-      baseName: "added_by_name",
-      type: "string",
+    "addedByName": {
+      "baseName": "added_by_name",
+      "type": "string",
     },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "Date",
-      format: "date-time",
+    "modifiedAt": {
+      "baseName": "modified_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    modifiedBy: {
-      baseName: "modified_by",
-      type: "string",
+    "modifiedBy": {
+      "baseName": "modified_by",
+      "type": "string",
     },
-    modifiedByName: {
-      baseName: "modified_by_name",
-      type: "string",
+    "modifiedByName": {
+      "baseName": "modified_by_name",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -87,8 +92,34 @@ export class ApplicationSecurityPolicyMetadata {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ApplicationSecurityPolicyMetadata.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

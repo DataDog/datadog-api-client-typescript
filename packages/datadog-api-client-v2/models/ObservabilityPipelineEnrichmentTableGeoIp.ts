@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Uses a GeoIP database to enrich logs based on an IP field.
- */
+*/
 export class ObservabilityPipelineEnrichmentTableGeoIp {
   /**
    * Path to the IP field in the log.
-   */
+  */
   "keyField": string;
   /**
    * Locale used to resolve geographical names.
-   */
+  */
   "locale": string;
   /**
    * Path to the GeoIP database file.
-   */
+  */
   "path": string;
 
   /**
@@ -28,7 +33,7 @@ export class ObservabilityPipelineEnrichmentTableGeoIp {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,20 +44,20 @@ export class ObservabilityPipelineEnrichmentTableGeoIp {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    keyField: {
-      baseName: "key_field",
-      type: "string",
-      required: true,
+    "keyField": {
+      "baseName": "key_field",
+      "type": "string",
+      "required": true,
     },
-    locale: {
-      baseName: "locale",
-      type: "string",
-      required: true,
+    "locale": {
+      "baseName": "locale",
+      "type": "string",
+      "required": true,
     },
-    path: {
-      baseName: "path",
-      type: "string",
-      required: true,
+    "path": {
+      "baseName": "path",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class ObservabilityPipelineEnrichmentTableGeoIp {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineEnrichmentTableGeoIp.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

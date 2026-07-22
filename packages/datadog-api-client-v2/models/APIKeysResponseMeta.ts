@@ -5,19 +5,24 @@
  */
 import { APIKeysResponseMetaPage } from "./APIKeysResponseMetaPage";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Additional information related to api keys response.
- */
+*/
 export class APIKeysResponseMeta {
   /**
    * Max allowed number of API keys.
-   */
+  */
   "maxAllowed"?: number;
   /**
    * Additional information related to the API keys response.
-   */
+  */
   "page"?: APIKeysResponseMetaPage;
 
   /**
@@ -25,7 +30,7 @@ export class APIKeysResponseMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,14 +41,14 @@ export class APIKeysResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    maxAllowed: {
-      baseName: "max_allowed",
-      type: "number",
-      format: "int64",
+    "maxAllowed": {
+      "baseName": "max_allowed",
+      "type": "number",
+      "format": "int64",
     },
-    page: {
-      baseName: "page",
-      type: "APIKeysResponseMetaPage",
+    "page": {
+      "baseName": "page",
+      "type": "APIKeysResponseMetaPage",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class APIKeysResponseMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return APIKeysResponseMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

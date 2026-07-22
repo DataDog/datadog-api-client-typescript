@@ -5,15 +5,20 @@
  */
 import { SnapshotData } from "./SnapshotData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A single heatmap snapshot resource returned by create or update operations.
- */
+*/
 export class Snapshot {
   /**
    * Data object representing a heatmap snapshot, including its identifier, type, and attributes.
-   */
+  */
   "data"?: SnapshotData;
 
   /**
@@ -21,7 +26,7 @@ export class Snapshot {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class Snapshot {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SnapshotData",
+    "data": {
+      "baseName": "data",
+      "type": "SnapshotData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class Snapshot {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return Snapshot.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

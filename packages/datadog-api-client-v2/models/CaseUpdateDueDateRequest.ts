@@ -5,15 +5,20 @@
  */
 import { CaseUpdateDueDate } from "./CaseUpdateDueDate";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request payload for updating a case's due date.
- */
+*/
 export class CaseUpdateDueDateRequest {
   /**
    * Data object for updating a case's due date.
-   */
+  */
   "data": CaseUpdateDueDate;
 
   /**
@@ -21,7 +26,7 @@ export class CaseUpdateDueDateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CaseUpdateDueDateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CaseUpdateDueDate",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "CaseUpdateDueDate",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CaseUpdateDueDateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseUpdateDueDateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

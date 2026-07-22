@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for an integration.
- */
+*/
 export class IntegrationAttributes {
   /**
    * List of categories associated with the integration.
-   */
+  */
   "categories": Array<string>;
   /**
    * A description of the integration.
-   */
+  */
   "description": string;
   /**
    * Whether the integration is installed.
-   */
+  */
   "installed": boolean;
   /**
    * The name of the integration.
-   */
+  */
   "title": string;
 
   /**
@@ -32,7 +37,7 @@ export class IntegrationAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,25 +48,25 @@ export class IntegrationAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    categories: {
-      baseName: "categories",
-      type: "Array<string>",
-      required: true,
+    "categories": {
+      "baseName": "categories",
+      "type": "Array<string>",
+      "required": true,
     },
-    description: {
-      baseName: "description",
-      type: "string",
-      required: true,
+    "description": {
+      "baseName": "description",
+      "type": "string",
+      "required": true,
     },
-    installed: {
-      baseName: "installed",
-      type: "boolean",
-      required: true,
+    "installed": {
+      "baseName": "installed",
+      "type": "boolean",
+      "required": true,
     },
-    title: {
-      baseName: "title",
-      type: "string",
-      required: true,
+    "title": {
+      "baseName": "title",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -73,8 +78,34 @@ export class IntegrationAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IntegrationAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

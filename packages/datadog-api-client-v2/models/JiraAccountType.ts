@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type identifier for Jira account resources
- */
+*/
 
 export type JiraAccountType = typeof JIRA_ACCOUNT | UnparsedObject;
-export const JIRA_ACCOUNT = "jira-account";
+export const JIRA_ACCOUNT = 'jira-account';

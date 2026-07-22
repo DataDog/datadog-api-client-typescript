@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Additional information for creating a workflow instance.
- */
+*/
 export class WorkflowInstanceCreateMeta {
   /**
    * The input parameters to the workflow.
-   */
-  "payload"?: { [key: string]: any };
+  */
+  "payload"?: { [key: string]: any; };
 
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,9 +36,9 @@ export class WorkflowInstanceCreateMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    payload: {
-      baseName: "payload",
-      type: "{ [key: string]: any; }",
+    "payload": {
+      "baseName": "payload",
+      "type": "{ [key: string]: any; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,8 +50,34 @@ export class WorkflowInstanceCreateMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return WorkflowInstanceCreateMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

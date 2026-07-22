@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A field with a single value selected.
- */
+*/
 export class IncidentImportFieldAttributesSingleValue {
   /**
    * The single value selected for this field.
-   */
+  */
   "value"?: string;
 
   /**
@@ -24,18 +29,44 @@ export class IncidentImportFieldAttributesSingleValue {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    value: {
-      baseName: "value",
-      type: "string",
-    },
+    "value": {
+      "baseName": "value",
+      "type": "string",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentImportFieldAttributesSingleValue.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

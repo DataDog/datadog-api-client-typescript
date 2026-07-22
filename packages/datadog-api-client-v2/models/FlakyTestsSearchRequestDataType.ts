@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of `FlakyTestsSearchRequestDataType` object.
- */
+*/
 
-export type FlakyTestsSearchRequestDataType =
-  | typeof SEARCH_FLAKY_TESTS_REQUEST
-  | UnparsedObject;
-export const SEARCH_FLAKY_TESTS_REQUEST = "search_flaky_tests_request";
+export type FlakyTestsSearchRequestDataType = typeof SEARCH_FLAKY_TESTS_REQUEST | UnparsedObject;
+export const SEARCH_FLAKY_TESTS_REQUEST = 'search_flaky_tests_request';

@@ -5,23 +5,28 @@
  */
 import { MonitorFormulaAndFunctionAggregateQueryJoinType } from "./MonitorFormulaAndFunctionAggregateQueryJoinType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Join condition for aggregate augmented queries.
- */
+*/
 export class MonitorFormulaAndFunctionAggregateQueryJoinCondition {
   /**
    * Attribute from the augment query to join on.
-   */
+  */
   "augmentAttribute": string;
   /**
    * Attribute from the base query to join on.
-   */
+  */
   "baseAttribute": string;
   /**
    * Join type for aggregate query join conditions.
-   */
+  */
   "joinType": MonitorFormulaAndFunctionAggregateQueryJoinType;
 
   /**
@@ -33,29 +38,55 @@ export class MonitorFormulaAndFunctionAggregateQueryJoinCondition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    augmentAttribute: {
-      baseName: "augment_attribute",
-      type: "string",
-      required: true,
+    "augmentAttribute": {
+      "baseName": "augment_attribute",
+      "type": "string",
+      "required": true,
     },
-    baseAttribute: {
-      baseName: "base_attribute",
-      type: "string",
-      required: true,
+    "baseAttribute": {
+      "baseName": "base_attribute",
+      "type": "string",
+      "required": true,
     },
-    joinType: {
-      baseName: "join_type",
-      type: "MonitorFormulaAndFunctionAggregateQueryJoinType",
-      required: true,
-    },
+    "joinType": {
+      "baseName": "join_type",
+      "type": "MonitorFormulaAndFunctionAggregateQueryJoinType",
+      "required": true,
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorFormulaAndFunctionAggregateQueryJoinCondition.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

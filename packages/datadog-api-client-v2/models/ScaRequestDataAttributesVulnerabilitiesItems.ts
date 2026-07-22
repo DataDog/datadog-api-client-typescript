@@ -5,23 +5,28 @@
  */
 import { ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems } from "./ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A vulnerability entry from the Software Bill of Materials (SBOM), describing a known security issue and the components it affects.
- */
+*/
 export class ScaRequestDataAttributesVulnerabilitiesItems {
   /**
    * The list of components affected by this vulnerability.
-   */
+  */
   "affects"?: Array<ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems>;
   /**
    * The unique BOM reference identifier for this vulnerability entry.
-   */
+  */
   "bomRef"?: string;
   /**
    * The vulnerability identifier (e.g., CVE ID or similar).
-   */
+  */
   "id"?: string;
 
   /**
@@ -29,7 +34,7 @@ export class ScaRequestDataAttributesVulnerabilitiesItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,17 +45,17 @@ export class ScaRequestDataAttributesVulnerabilitiesItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    affects: {
-      baseName: "affects",
-      type: "Array<ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems>",
+    "affects": {
+      "baseName": "affects",
+      "type": "Array<ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems>",
     },
-    bomRef: {
-      baseName: "bom_ref",
-      type: "string",
+    "bomRef": {
+      "baseName": "bom_ref",
+      "type": "string",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class ScaRequestDataAttributesVulnerabilitiesItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ScaRequestDataAttributesVulnerabilitiesItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

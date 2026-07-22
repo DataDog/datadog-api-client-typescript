@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * GCP scan options resource type.
- */
+*/
 
-export type GcpScanOptionsInputUpdateDataType =
-  | typeof GCP_SCAN_OPTIONS
-  | UnparsedObject;
-export const GCP_SCAN_OPTIONS = "gcp_scan_options";
+export type GcpScanOptionsInputUpdateDataType = typeof GCP_SCAN_OPTIONS | UnparsedObject;
+export const GCP_SCAN_OPTIONS = 'gcp_scan_options';

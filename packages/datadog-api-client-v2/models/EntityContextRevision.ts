@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A single historical revision of an entity, including the time range during which the revision was observed.
- */
+*/
 export class EntityContextRevision {
   /**
    * The set of attributes recorded for the entity at this revision. The keys depend on the kind of entity.
-   */
-  "attributes": { [key: string]: any };
+  */
+  "attributes": { [key: string]: any; };
   /**
    * The first time the entity was observed at this revision.
-   */
+  */
   "firstSeenAt": Date;
   /**
    * The last time the entity was observed at this revision.
-   */
+  */
   "lastSeenAt": Date;
 
   /**
@@ -28,7 +33,7 @@ export class EntityContextRevision {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,22 +44,22 @@ export class EntityContextRevision {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "{ [key: string]: any; }",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "{ [key: string]: any; }",
+      "required": true,
     },
-    firstSeenAt: {
-      baseName: "first_seen_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "firstSeenAt": {
+      "baseName": "first_seen_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    lastSeenAt: {
-      baseName: "last_seen_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "lastSeenAt": {
+      "baseName": "last_seen_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class EntityContextRevision {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EntityContextRevision.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,19 +6,24 @@
 import { LogsArchiveOrderAttributes } from "./LogsArchiveOrderAttributes";
 import { LogsArchiveOrderDefinitionType } from "./LogsArchiveOrderDefinitionType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of an archive order.
- */
+*/
 export class LogsArchiveOrderDefinition {
   /**
    * The attributes associated with the archive order.
-   */
+  */
   "attributes": LogsArchiveOrderAttributes;
   /**
    * Type of the archive order definition.
-   */
+  */
   "type": LogsArchiveOrderDefinitionType;
 
   /**
@@ -26,7 +31,7 @@ export class LogsArchiveOrderDefinition {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class LogsArchiveOrderDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LogsArchiveOrderAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "LogsArchiveOrderAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LogsArchiveOrderDefinitionType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LogsArchiveOrderDefinitionType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class LogsArchiveOrderDefinition {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogsArchiveOrderDefinition.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

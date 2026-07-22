@@ -6,19 +6,24 @@
 import { AnnotationCreateAttributes } from "./AnnotationCreateAttributes";
 import { AnnotationType } from "./AnnotationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for creating an annotation.
- */
+*/
 export class AnnotationRequestData {
   /**
    * Attributes for creating or updating an annotation.
-   */
+  */
   "attributes": AnnotationCreateAttributes;
   /**
    * Annotation resource type.
-   */
+  */
   "type": AnnotationType;
 
   /**
@@ -26,7 +31,7 @@ export class AnnotationRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class AnnotationRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AnnotationCreateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AnnotationCreateAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "AnnotationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AnnotationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class AnnotationRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AnnotationRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Per-product utilization data in a scalar utilization response.
- */
+*/
 export class CommitmentsUtilizationScalarProductBreakdownEntry {
   /**
    * The cloud product name.
-   */
+  */
   "product": string;
   /**
    * The utilization percentage for the product.
-   */
+  */
   "utilization": number;
 
   /**
@@ -24,7 +29,7 @@ export class CommitmentsUtilizationScalarProductBreakdownEntry {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,16 +40,16 @@ export class CommitmentsUtilizationScalarProductBreakdownEntry {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    product: {
-      baseName: "product",
-      type: "string",
-      required: true,
+    "product": {
+      "baseName": "product",
+      "type": "string",
+      "required": true,
     },
-    utilization: {
-      baseName: "utilization",
-      type: "number",
-      required: true,
-      format: "double",
+    "utilization": {
+      "baseName": "utilization",
+      "type": "number",
+      "required": true,
+      "format": "double",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class CommitmentsUtilizationScalarProductBreakdownEntry {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CommitmentsUtilizationScalarProductBreakdownEntry.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

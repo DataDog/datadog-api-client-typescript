@@ -5,15 +5,20 @@
  */
 import { RelationshipItem } from "./RelationshipItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Entity to oncalls relationship.
- */
+*/
 export class EntityToOncalls {
   /**
    * Relationships.
-   */
+  */
   "data"?: Array<RelationshipItem>;
 
   /**
@@ -21,7 +26,7 @@ export class EntityToOncalls {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class EntityToOncalls {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<RelationshipItem>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<RelationshipItem>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class EntityToOncalls {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EntityToOncalls.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

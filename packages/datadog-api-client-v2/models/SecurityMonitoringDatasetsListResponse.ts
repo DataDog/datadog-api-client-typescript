@@ -6,19 +6,24 @@
 import { SecurityMonitoringDatasetData } from "./SecurityMonitoringDatasetData";
 import { SecurityMonitoringDatasetsListMeta } from "./SecurityMonitoringDatasetsListMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a paginated list of Cloud SIEM datasets.
- */
+*/
 export class SecurityMonitoringDatasetsListResponse {
   /**
    * A list of dataset data items.
-   */
+  */
   "data": Array<SecurityMonitoringDatasetData>;
   /**
    * Metadata returned with a list of datasets.
-   */
+  */
   "meta": SecurityMonitoringDatasetsListMeta;
 
   /**
@@ -26,7 +31,7 @@ export class SecurityMonitoringDatasetsListResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class SecurityMonitoringDatasetsListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<SecurityMonitoringDatasetData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<SecurityMonitoringDatasetData>",
+      "required": true,
     },
-    meta: {
-      baseName: "meta",
-      type: "SecurityMonitoringDatasetsListMeta",
-      required: true,
+    "meta": {
+      "baseName": "meta",
+      "type": "SecurityMonitoringDatasetsListMeta",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class SecurityMonitoringDatasetsListResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringDatasetsListResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

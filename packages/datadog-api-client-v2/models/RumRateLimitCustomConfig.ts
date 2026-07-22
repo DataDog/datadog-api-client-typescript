@@ -6,31 +6,36 @@
 import { RumRateLimitQuotaReachedAction } from "./RumRateLimitQuotaReachedAction";
 import { RumRateLimitWindowType } from "./RumRateLimitWindowType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The configuration used when `mode` is `custom`.
- */
+*/
 export class RumRateLimitCustomConfig {
   /**
    * The time of day when the daily quota resets, in `HH:MM` 24-hour format.
-   */
+  */
   "dailyResetTime": string;
   /**
    * The timezone offset used for the daily reset time, in `±HH:MM` format.
-   */
+  */
   "dailyResetTimezone": string;
   /**
    * The action to take when the session quota is reached.
-   */
+  */
   "quotaReachedAction": RumRateLimitQuotaReachedAction;
   /**
    * The maximum number of sessions allowed within the window.
-   */
+  */
   "sessionLimit": number;
   /**
    * The window type over which the session limit is enforced.
-   */
+  */
   "windowType": RumRateLimitWindowType;
 
   /**
@@ -38,7 +43,7 @@ export class RumRateLimitCustomConfig {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -49,31 +54,31 @@ export class RumRateLimitCustomConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    dailyResetTime: {
-      baseName: "daily_reset_time",
-      type: "string",
-      required: true,
+    "dailyResetTime": {
+      "baseName": "daily_reset_time",
+      "type": "string",
+      "required": true,
     },
-    dailyResetTimezone: {
-      baseName: "daily_reset_timezone",
-      type: "string",
-      required: true,
+    "dailyResetTimezone": {
+      "baseName": "daily_reset_timezone",
+      "type": "string",
+      "required": true,
     },
-    quotaReachedAction: {
-      baseName: "quota_reached_action",
-      type: "RumRateLimitQuotaReachedAction",
-      required: true,
+    "quotaReachedAction": {
+      "baseName": "quota_reached_action",
+      "type": "RumRateLimitQuotaReachedAction",
+      "required": true,
     },
-    sessionLimit: {
-      baseName: "session_limit",
-      type: "number",
-      required: true,
-      format: "int64",
+    "sessionLimit": {
+      "baseName": "session_limit",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    windowType: {
-      baseName: "window_type",
-      type: "RumRateLimitWindowType",
-      required: true,
+    "windowType": {
+      "baseName": "window_type",
+      "type": "RumRateLimitWindowType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -85,8 +90,34 @@ export class RumRateLimitCustomConfig {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RumRateLimitCustomConfig.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

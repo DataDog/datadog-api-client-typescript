@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Members resource type.
- */
+*/
 
-export type LayerRelationshipsMembersDataItemsType =
-  | typeof MEMBERS
-  | UnparsedObject;
-export const MEMBERS = "members";
+export type LayerRelationshipsMembersDataItemsType = typeof MEMBERS | UnparsedObject;
+export const MEMBERS = 'members';

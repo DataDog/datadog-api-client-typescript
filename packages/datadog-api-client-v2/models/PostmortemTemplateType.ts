@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Postmortem template resource type
- */
+*/
 
-export type PostmortemTemplateType =
-  | typeof POSTMORTEM_TEMPLATE
-  | UnparsedObject;
-export const POSTMORTEM_TEMPLATE = "postmortem_template";
+export type PostmortemTemplateType = typeof POSTMORTEM_TEMPLATE | UnparsedObject;
+export const POSTMORTEM_TEMPLATE = 'postmortem_template';

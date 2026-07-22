@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Options for defining a custom regex pattern.
- */
+*/
 export class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions {
   /**
    * Human-readable description providing context about a sensitive data scanner rule
-   */
+  */
   "description"?: string;
   /**
    * A regular expression used to detect sensitive values. Must be a valid regex.
-   */
+  */
   "rule": string;
 
   /**
@@ -24,7 +29,7 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOpti
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,14 +40,14 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOpti
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    rule: {
-      baseName: "rule",
-      type: "string",
-      required: true,
+    "rule": {
+      "baseName": "rule",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOpti
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { JiraAccountRelationship } from "./JiraAccountRelationship";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationships of a Jira issue template
- */
+*/
 export class JiraIssueTemplateDataRelationships {
   /**
    * Relationship to a Jira account
-   */
+  */
   "jiraAccount": JiraAccountRelationship;
 
   /**
@@ -21,7 +26,7 @@ export class JiraIssueTemplateDataRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class JiraIssueTemplateDataRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    jiraAccount: {
-      baseName: "jira-account",
-      type: "JiraAccountRelationship",
-      required: true,
+    "jiraAccount": {
+      "baseName": "jira-account",
+      "type": "JiraAccountRelationship",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class JiraIssueTemplateDataRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return JiraIssueTemplateDataRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

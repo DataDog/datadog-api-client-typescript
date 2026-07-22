@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The authentication strategy for ClickHouse HTTP requests. Only `basic` is supported.
- */
+*/
 
-export type ObservabilityPipelineClickhouseDestinationAuthStrategy =
-  | typeof BASIC
-  | UnparsedObject;
-export const BASIC = "basic";
+export type ObservabilityPipelineClickhouseDestinationAuthStrategy = typeof BASIC | UnparsedObject;
+export const BASIC = 'basic';

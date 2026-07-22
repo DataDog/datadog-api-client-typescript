@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Details of the CI pipeline.
- */
+*/
 export class SyntheticsTestResultCIPipeline {
   /**
    * Pipeline identifier.
-   */
+  */
   "id"?: string;
   /**
    * Pipeline name.
-   */
+  */
   "name"?: string;
   /**
    * Pipeline number.
-   */
+  */
   "number"?: number;
   /**
    * Pipeline URL.
-   */
+  */
   "url"?: string;
 
   /**
@@ -32,7 +37,7 @@ export class SyntheticsTestResultCIPipeline {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,22 +48,22 @@ export class SyntheticsTestResultCIPipeline {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    number: {
-      baseName: "number",
-      type: "number",
-      format: "int64",
+    "number": {
+      "baseName": "number",
+      "type": "number",
+      "format": "int64",
     },
-    url: {
-      baseName: "url",
-      type: "string",
+    "url": {
+      "baseName": "url",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -70,8 +75,34 @@ export class SyntheticsTestResultCIPipeline {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultCIPipeline.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,19 +5,24 @@
  */
 import { ListStreamComputeAggregation } from "./ListStreamComputeAggregation";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * List of facets and aggregations which to compute.
- */
+*/
 export class ListStreamComputeItems {
   /**
    * Aggregation value.
-   */
+  */
   "aggregation": ListStreamComputeAggregation;
   /**
    * Facet name.
-   */
+  */
   "facet"?: string;
 
   /**
@@ -25,7 +30,7 @@ export class ListStreamComputeItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,14 +41,14 @@ export class ListStreamComputeItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregation: {
-      baseName: "aggregation",
-      type: "ListStreamComputeAggregation",
-      required: true,
+    "aggregation": {
+      "baseName": "aggregation",
+      "type": "ListStreamComputeAggregation",
+      "required": true,
     },
-    facet: {
-      baseName: "facet",
-      type: "string",
+    "facet": {
+      "baseName": "facet",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class ListStreamComputeItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListStreamComputeItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,19 +6,24 @@
 import { ProductAnalyticsResponseMeta } from "./ProductAnalyticsResponseMeta";
 import { ProductAnalyticsScalarResponseData } from "./ProductAnalyticsScalarResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response for a scalar analytics query.
- */
+*/
 export class ProductAnalyticsScalarResponse {
   /**
    * Data object for a scalar response.
-   */
+  */
   "data"?: ProductAnalyticsScalarResponseData;
   /**
    * Metadata for a Product Analytics query response.
-   */
+  */
   "meta"?: ProductAnalyticsResponseMeta;
 
   /**
@@ -26,7 +31,7 @@ export class ProductAnalyticsScalarResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class ProductAnalyticsScalarResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ProductAnalyticsScalarResponseData",
+    "data": {
+      "baseName": "data",
+      "type": "ProductAnalyticsScalarResponseData",
     },
-    meta: {
-      baseName: "meta",
-      type: "ProductAnalyticsResponseMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "ProductAnalyticsResponseMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class ProductAnalyticsScalarResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProductAnalyticsScalarResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

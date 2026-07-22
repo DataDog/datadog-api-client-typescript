@@ -5,36 +5,41 @@
  */
 import { SyntheticsBrowserVariableType } from "./SyntheticsBrowserVariableType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object defining a variable that can be used in your browser test.
  * See the [Recording Steps documentation](https://docs.datadoghq.com/synthetics/browser_tests/actions/?tab=testanelementontheactivepage#variables).
- */
+*/
 export class SyntheticsBrowserVariable {
   /**
    * Example for the variable.
-   */
+  */
   "example"?: string;
   /**
    * ID for the variable. Global variables require an ID.
-   */
+  */
   "id"?: string;
   /**
    * Name of the variable.
-   */
+  */
   "name": string;
   /**
    * Pattern of the variable.
-   */
+  */
   "pattern"?: string;
   /**
    * Determines whether or not the browser test variable is obfuscated. Can only be used with browser variables of type `text`.
-   */
+  */
   "secure"?: boolean;
   /**
    * Type of browser test variable.
-   */
+  */
   "type": SyntheticsBrowserVariableType;
 
   /**
@@ -42,7 +47,7 @@ export class SyntheticsBrowserVariable {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -53,31 +58,31 @@ export class SyntheticsBrowserVariable {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    example: {
-      baseName: "example",
-      type: "string",
+    "example": {
+      "baseName": "example",
+      "type": "string",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    pattern: {
-      baseName: "pattern",
-      type: "string",
+    "pattern": {
+      "baseName": "pattern",
+      "type": "string",
     },
-    secure: {
-      baseName: "secure",
-      type: "boolean",
+    "secure": {
+      "baseName": "secure",
+      "type": "boolean",
     },
-    type: {
-      baseName: "type",
-      type: "SyntheticsBrowserVariableType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SyntheticsBrowserVariableType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -89,8 +94,34 @@ export class SyntheticsBrowserVariable {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsBrowserVariable.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

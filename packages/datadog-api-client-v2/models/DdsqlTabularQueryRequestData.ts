@@ -6,19 +6,24 @@
 import { DdsqlTabularQueryRequestAttributes } from "./DdsqlTabularQueryRequestAttributes";
 import { DdsqlTabularQueryRequestType } from "./DdsqlTabularQueryRequestType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * JSON:API resource object for a DDSQL tabular query execution request.
- */
+*/
 export class DdsqlTabularQueryRequestData {
   /**
    * Attributes describing the DDSQL query to execute.
-   */
+  */
   "attributes": DdsqlTabularQueryRequestAttributes;
   /**
    * JSON:API resource type for a DDSQL tabular query request.
-   */
+  */
   "type": DdsqlTabularQueryRequestType;
 
   /**
@@ -26,7 +31,7 @@ export class DdsqlTabularQueryRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class DdsqlTabularQueryRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "DdsqlTabularQueryRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "DdsqlTabularQueryRequestAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "DdsqlTabularQueryRequestType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "DdsqlTabularQueryRequestType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class DdsqlTabularQueryRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DdsqlTabularQueryRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

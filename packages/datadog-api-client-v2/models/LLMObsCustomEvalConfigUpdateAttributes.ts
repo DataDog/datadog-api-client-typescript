@@ -7,31 +7,36 @@ import { LLMObsCustomEvalConfigLLMJudgeConfig } from "./LLMObsCustomEvalConfigLL
 import { LLMObsCustomEvalConfigLLMProvider } from "./LLMObsCustomEvalConfigLLMProvider";
 import { LLMObsCustomEvalConfigTarget } from "./LLMObsCustomEvalConfigTarget";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for creating or updating a custom LLM Observability evaluator configuration.
- */
+*/
 export class LLMObsCustomEvalConfigUpdateAttributes {
   /**
    * Category of the evaluator.
-   */
+  */
   "category"?: string;
   /**
    * Name of the custom evaluator. If provided, must match the eval_name path parameter.
-   */
+  */
   "evalName"?: string;
   /**
    * LLM judge configuration for a custom evaluator.
-   */
+  */
   "llmJudgeConfig"?: LLMObsCustomEvalConfigLLMJudgeConfig;
   /**
    * LLM provider configuration for a custom evaluator.
-   */
+  */
   "llmProvider"?: LLMObsCustomEvalConfigLLMProvider;
   /**
    * Target application configuration for a custom evaluator.
-   */
+  */
   "target": LLMObsCustomEvalConfigTarget;
 
   /**
@@ -39,7 +44,7 @@ export class LLMObsCustomEvalConfigUpdateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -50,26 +55,26 @@ export class LLMObsCustomEvalConfigUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    category: {
-      baseName: "category",
-      type: "string",
+    "category": {
+      "baseName": "category",
+      "type": "string",
     },
-    evalName: {
-      baseName: "eval_name",
-      type: "string",
+    "evalName": {
+      "baseName": "eval_name",
+      "type": "string",
     },
-    llmJudgeConfig: {
-      baseName: "llm_judge_config",
-      type: "LLMObsCustomEvalConfigLLMJudgeConfig",
+    "llmJudgeConfig": {
+      "baseName": "llm_judge_config",
+      "type": "LLMObsCustomEvalConfigLLMJudgeConfig",
     },
-    llmProvider: {
-      baseName: "llm_provider",
-      type: "LLMObsCustomEvalConfigLLMProvider",
+    "llmProvider": {
+      "baseName": "llm_provider",
+      "type": "LLMObsCustomEvalConfigLLMProvider",
     },
-    target: {
-      baseName: "target",
-      type: "LLMObsCustomEvalConfigTarget",
-      required: true,
+    "target": {
+      "baseName": "target",
+      "type": "LLMObsCustomEvalConfigTarget",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -81,8 +86,34 @@ export class LLMObsCustomEvalConfigUpdateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsCustomEvalConfigUpdateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

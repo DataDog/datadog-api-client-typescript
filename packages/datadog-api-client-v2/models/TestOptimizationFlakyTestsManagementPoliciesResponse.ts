@@ -5,15 +5,20 @@
  */
 import { TestOptimizationFlakyTestsManagementPoliciesData } from "./TestOptimizationFlakyTestsManagementPoliciesData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object containing Flaky Tests Management policies for a repository.
- */
+*/
 export class TestOptimizationFlakyTestsManagementPoliciesResponse {
   /**
    * Data object for Flaky Tests Management policies response.
-   */
+  */
   "data"?: TestOptimizationFlakyTestsManagementPoliciesData;
 
   /**
@@ -21,7 +26,7 @@ export class TestOptimizationFlakyTestsManagementPoliciesResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class TestOptimizationFlakyTestsManagementPoliciesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "TestOptimizationFlakyTestsManagementPoliciesData",
+    "data": {
+      "baseName": "data",
+      "type": "TestOptimizationFlakyTestsManagementPoliciesData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class TestOptimizationFlakyTestsManagementPoliciesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TestOptimizationFlakyTestsManagementPoliciesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

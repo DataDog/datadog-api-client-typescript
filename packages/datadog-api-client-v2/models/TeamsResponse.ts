@@ -8,27 +8,32 @@ import { TeamIncluded } from "./TeamIncluded";
 import { TeamsResponseLinks } from "./TeamsResponseLinks";
 import { TeamsResponseMeta } from "./TeamsResponseMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response with multiple teams
- */
+*/
 export class TeamsResponse {
   /**
    * Teams response data
-   */
+  */
   "data"?: Array<Team>;
   /**
    * Resources related to the team
-   */
+  */
   "included"?: Array<TeamIncluded>;
   /**
    * Teams response links.
-   */
+  */
   "links"?: TeamsResponseLinks;
   /**
    * Teams response metadata.
-   */
+  */
   "meta"?: TeamsResponseMeta;
 
   /**
@@ -36,7 +41,7 @@ export class TeamsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,21 +52,21 @@ export class TeamsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<Team>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<Team>",
     },
-    included: {
-      baseName: "included",
-      type: "Array<TeamIncluded>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<TeamIncluded>",
     },
-    links: {
-      baseName: "links",
-      type: "TeamsResponseLinks",
+    "links": {
+      "baseName": "links",
+      "type": "TeamsResponseLinks",
     },
-    meta: {
-      baseName: "meta",
-      type: "TeamsResponseMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "TeamsResponseMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -73,8 +78,34 @@ export class TeamsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

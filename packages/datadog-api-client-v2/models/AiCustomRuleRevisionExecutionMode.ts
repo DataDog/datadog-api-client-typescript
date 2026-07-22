@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The execution mode for an AI rule revision.
- */
+*/
 
-export type AiCustomRuleRevisionExecutionMode =
-  | typeof AUTO
-  | typeof MANUAL
-  | typeof ALWAYS
-  | UnparsedObject;
-export const AUTO = "auto";
-export const MANUAL = "manual";
-export const ALWAYS = "always";
+export type AiCustomRuleRevisionExecutionMode = typeof AUTO| typeof MANUAL| typeof ALWAYS | UnparsedObject;
+export const AUTO = 'auto';
+export const MANUAL = 'manual';
+export const ALWAYS = 'always';

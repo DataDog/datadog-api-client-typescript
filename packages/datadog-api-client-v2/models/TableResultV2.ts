@@ -5,15 +5,20 @@
  */
 import { TableResultV2Data } from "./TableResultV2Data";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A reference table resource containing its full configuration and state.
- */
+*/
 export class TableResultV2 {
   /**
    * The data object containing the reference table configuration and state.
-   */
+  */
   "data"?: TableResultV2Data;
 
   /**
@@ -21,7 +26,7 @@ export class TableResultV2 {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class TableResultV2 {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "TableResultV2Data",
+    "data": {
+      "baseName": "data",
+      "type": "TableResultV2Data",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class TableResultV2 {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TableResultV2.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

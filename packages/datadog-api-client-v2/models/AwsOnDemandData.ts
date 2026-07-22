@@ -6,23 +6,28 @@
 import { AwsOnDemandAttributes } from "./AwsOnDemandAttributes";
 import { AwsOnDemandType } from "./AwsOnDemandType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Single AWS on demand task.
- */
+*/
 export class AwsOnDemandData {
   /**
    * Attributes for the AWS on demand task.
-   */
+  */
   "attributes"?: AwsOnDemandAttributes;
   /**
    * The UUID of the task.
-   */
+  */
   "id"?: string;
   /**
    * The type of the on demand task. The value should always be `aws_resource`.
-   */
+  */
   "type"?: AwsOnDemandType;
 
   /**
@@ -30,7 +35,7 @@ export class AwsOnDemandData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class AwsOnDemandData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AwsOnDemandAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AwsOnDemandAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "AwsOnDemandType",
+    "type": {
+      "baseName": "type",
+      "type": "AwsOnDemandType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class AwsOnDemandData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AwsOnDemandData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

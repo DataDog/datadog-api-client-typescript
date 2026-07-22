@@ -6,13 +6,15 @@
 import { StatusPageAsIncluded } from "./StatusPageAsIncluded";
 import { StatusPagesUser } from "./StatusPagesUser";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * An included resource related to a degradation or maintenance.
- */
+*/
 
-export type DegradationIncluded =
-  | StatusPagesUser
-  | StatusPageAsIncluded
-  | UnparsedObject;
+export type DegradationIncluded = StatusPagesUser | StatusPageAsIncluded | UnparsedObject;

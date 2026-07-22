@@ -8,35 +8,40 @@ import { SecureEmbedSelectableTemplateVariable } from "./SecureEmbedSelectableTe
 import { SecureEmbedStatus } from "./SecureEmbedStatus";
 import { SecureEmbedViewingPreferences } from "./SecureEmbedViewingPreferences";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for creating a secure embed shared dashboard.
- */
+*/
 export class SecureEmbedCreateRequestAttributes {
   /**
    * Default time range configuration for the secure embed.
-   */
+  */
   "globalTime": SecureEmbedGlobalTime;
   /**
    * Whether viewers can change the time range.
-   */
+  */
   "globalTimeSelectable": boolean;
   /**
    * Template variables viewers can modify.
-   */
+  */
   "selectableTemplateVars": Array<SecureEmbedSelectableTemplateVariable>;
   /**
    * The status of the secure embed share. Active means the shared dashboard is available. Paused means it is not.
-   */
+  */
   "status": SecureEmbedStatus;
   /**
    * Display title for the shared dashboard.
-   */
+  */
   "title": string;
   /**
    * Display settings for the secure embed shared dashboard.
-   */
+  */
   "viewingPreferences": SecureEmbedViewingPreferences;
 
   /**
@@ -44,7 +49,7 @@ export class SecureEmbedCreateRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -55,35 +60,35 @@ export class SecureEmbedCreateRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    globalTime: {
-      baseName: "global_time",
-      type: "SecureEmbedGlobalTime",
-      required: true,
+    "globalTime": {
+      "baseName": "global_time",
+      "type": "SecureEmbedGlobalTime",
+      "required": true,
     },
-    globalTimeSelectable: {
-      baseName: "global_time_selectable",
-      type: "boolean",
-      required: true,
+    "globalTimeSelectable": {
+      "baseName": "global_time_selectable",
+      "type": "boolean",
+      "required": true,
     },
-    selectableTemplateVars: {
-      baseName: "selectable_template_vars",
-      type: "Array<SecureEmbedSelectableTemplateVariable>",
-      required: true,
+    "selectableTemplateVars": {
+      "baseName": "selectable_template_vars",
+      "type": "Array<SecureEmbedSelectableTemplateVariable>",
+      "required": true,
     },
-    status: {
-      baseName: "status",
-      type: "SecureEmbedStatus",
-      required: true,
+    "status": {
+      "baseName": "status",
+      "type": "SecureEmbedStatus",
+      "required": true,
     },
-    title: {
-      baseName: "title",
-      type: "string",
-      required: true,
+    "title": {
+      "baseName": "title",
+      "type": "string",
+      "required": true,
     },
-    viewingPreferences: {
-      baseName: "viewing_preferences",
-      type: "SecureEmbedViewingPreferences",
-      required: true,
+    "viewingPreferences": {
+      "baseName": "viewing_preferences",
+      "type": "SecureEmbedViewingPreferences",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -95,8 +100,34 @@ export class SecureEmbedCreateRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecureEmbedCreateRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

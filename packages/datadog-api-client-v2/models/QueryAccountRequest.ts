@@ -5,15 +5,20 @@
  */
 import { QueryAccountRequestData } from "./QueryAccountRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request body for querying accounts with optional filtering, column selection, and sorting.
- */
+*/
 export class QueryAccountRequest {
   /**
    * The data object containing the resource type and attributes for querying accounts.
-   */
+  */
   "data"?: QueryAccountRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class QueryAccountRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class QueryAccountRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "QueryAccountRequestData",
+    "data": {
+      "baseName": "data",
+      "type": "QueryAccountRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class QueryAccountRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return QueryAccountRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

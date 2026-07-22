@@ -5,15 +5,20 @@
  */
 import { SecurityAutomationRulesPageInfo } from "./SecurityAutomationRulesPageInfo";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metadata for the list of automation rules.
- */
+*/
 export class SecurityAutomationRulesMeta {
   /**
    * Pagination information for the list of automation rules.
-   */
+  */
   "page": SecurityAutomationRulesPageInfo;
 
   /**
@@ -21,7 +26,7 @@ export class SecurityAutomationRulesMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class SecurityAutomationRulesMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    page: {
-      baseName: "page",
-      type: "SecurityAutomationRulesPageInfo",
-      required: true,
+    "page": {
+      "baseName": "page",
+      "type": "SecurityAutomationRulesPageInfo",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class SecurityAutomationRulesMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityAutomationRulesMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

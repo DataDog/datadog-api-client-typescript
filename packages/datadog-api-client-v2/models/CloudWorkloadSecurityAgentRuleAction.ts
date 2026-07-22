@@ -8,31 +8,36 @@ import { CloudWorkloadSecurityAgentRuleActionMetadata } from "./CloudWorkloadSec
 import { CloudWorkloadSecurityAgentRuleActionSet } from "./CloudWorkloadSecurityAgentRuleActionSet";
 import { CloudWorkloadSecurityAgentRuleKill } from "./CloudWorkloadSecurityAgentRuleKill";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The action the rule can perform if triggered
- */
+*/
 export class CloudWorkloadSecurityAgentRuleAction {
   /**
    * SECL expression used to target the container to apply the action on
-   */
+  */
   "filter"?: string;
   /**
    * Hash file specified by the field attribute
-   */
+  */
   "hash"?: CloudWorkloadSecurityAgentRuleActionHash;
   /**
    * Kill system call applied on the container matching the rule
-   */
+  */
   "kill"?: CloudWorkloadSecurityAgentRuleKill;
   /**
    * The metadata action applied on the scope matching the rule
-   */
+  */
   "metadata"?: CloudWorkloadSecurityAgentRuleActionMetadata;
   /**
    * The set action applied on the scope matching the rule
-   */
+  */
   "set"?: CloudWorkloadSecurityAgentRuleActionSet;
 
   /**
@@ -40,7 +45,7 @@ export class CloudWorkloadSecurityAgentRuleAction {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -51,25 +56,25 @@ export class CloudWorkloadSecurityAgentRuleAction {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    filter: {
-      baseName: "filter",
-      type: "string",
+    "filter": {
+      "baseName": "filter",
+      "type": "string",
     },
-    hash: {
-      baseName: "hash",
-      type: "CloudWorkloadSecurityAgentRuleActionHash",
+    "hash": {
+      "baseName": "hash",
+      "type": "CloudWorkloadSecurityAgentRuleActionHash",
     },
-    kill: {
-      baseName: "kill",
-      type: "CloudWorkloadSecurityAgentRuleKill",
+    "kill": {
+      "baseName": "kill",
+      "type": "CloudWorkloadSecurityAgentRuleKill",
     },
-    metadata: {
-      baseName: "metadata",
-      type: "CloudWorkloadSecurityAgentRuleActionMetadata",
+    "metadata": {
+      "baseName": "metadata",
+      "type": "CloudWorkloadSecurityAgentRuleActionMetadata",
     },
-    set: {
-      baseName: "set",
-      type: "CloudWorkloadSecurityAgentRuleActionSet",
+    "set": {
+      "baseName": "set",
+      "type": "CloudWorkloadSecurityAgentRuleActionSet",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -81,8 +86,34 @@ export class CloudWorkloadSecurityAgentRuleAction {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CloudWorkloadSecurityAgentRuleAction.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

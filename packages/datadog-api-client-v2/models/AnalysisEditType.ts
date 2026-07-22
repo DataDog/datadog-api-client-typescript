@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of code edit to apply when fixing a violation.
- */
+*/
 
-export type AnalysisEditType =
-  | typeof ADD
-  | typeof UPDATE
-  | typeof REMOVE
-  | UnparsedObject;
-export const ADD = "ADD";
-export const UPDATE = "UPDATE";
-export const REMOVE = "REMOVE";
+export type AnalysisEditType = typeof ADD| typeof UPDATE| typeof REMOVE | UnparsedObject;
+export const ADD = 'ADD';
+export const UPDATE = 'UPDATE';
+export const REMOVE = 'REMOVE';

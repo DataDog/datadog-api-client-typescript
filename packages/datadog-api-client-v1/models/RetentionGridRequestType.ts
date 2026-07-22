@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Request type for retention grid widget.
- */
+*/
 
 export type RetentionGridRequestType = typeof RETENTION_GRID | UnparsedObject;
-export const RETENTION_GRID = "retention_grid";
+export const RETENTION_GRID = 'retention_grid';

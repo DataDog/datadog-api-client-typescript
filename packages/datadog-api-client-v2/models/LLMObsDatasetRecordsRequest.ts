@@ -5,15 +5,20 @@
  */
 import { LLMObsDatasetRecordsDataRequest } from "./LLMObsDatasetRecordsDataRequest";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request to append records to an LLM Observability dataset.
- */
+*/
 export class LLMObsDatasetRecordsRequest {
   /**
    * Data object for appending records to an LLM Observability dataset.
-   */
+  */
   "data": LLMObsDatasetRecordsDataRequest;
 
   /**
@@ -21,7 +26,7 @@ export class LLMObsDatasetRecordsRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class LLMObsDatasetRecordsRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "LLMObsDatasetRecordsDataRequest",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "LLMObsDatasetRecordsDataRequest",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class LLMObsDatasetRecordsRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDatasetRecordsRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

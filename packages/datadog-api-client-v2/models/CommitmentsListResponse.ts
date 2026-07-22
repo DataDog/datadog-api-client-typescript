@@ -6,19 +6,24 @@
 import { CommitmentsListItem } from "./CommitmentsListItem";
 import { CommitmentsListMeta } from "./CommitmentsListMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a list of cloud commitment details.
- */
+*/
 export class CommitmentsListResponse {
   /**
    * Array of commitment items.
-   */
+  */
   "commitments": Array<CommitmentsListItem>;
   /**
    * Metadata for a commitments list response.
-   */
+  */
   "meta"?: CommitmentsListMeta;
 
   /**
@@ -26,7 +31,7 @@ export class CommitmentsListResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class CommitmentsListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    commitments: {
-      baseName: "commitments",
-      type: "Array<CommitmentsListItem>",
-      required: true,
+    "commitments": {
+      "baseName": "commitments",
+      "type": "Array<CommitmentsListItem>",
+      "required": true,
     },
-    meta: {
-      baseName: "meta",
-      type: "CommitmentsListMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "CommitmentsListMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class CommitmentsListResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CommitmentsListResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

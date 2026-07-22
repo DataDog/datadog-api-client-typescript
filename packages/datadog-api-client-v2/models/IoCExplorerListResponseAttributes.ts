@@ -7,23 +7,28 @@ import { IoCExplorerListResponseMetadata } from "./IoCExplorerListResponseMetada
 import { IoCExplorerListResponsePaging } from "./IoCExplorerListResponsePaging";
 import { IoCIndicator } from "./IoCIndicator";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of the IoC Explorer list response.
- */
+*/
 export class IoCExplorerListResponseAttributes {
   /**
    * List of indicators of compromise.
-   */
+  */
   "data"?: Array<IoCIndicator>;
   /**
    * Response metadata.
-   */
+  */
   "metadata"?: IoCExplorerListResponseMetadata;
   /**
    * Pagination information.
-   */
+  */
   "paging"?: IoCExplorerListResponsePaging;
 
   /**
@@ -31,7 +36,7 @@ export class IoCExplorerListResponseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,17 +47,17 @@ export class IoCExplorerListResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<IoCIndicator>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<IoCIndicator>",
     },
-    metadata: {
-      baseName: "metadata",
-      type: "IoCExplorerListResponseMetadata",
+    "metadata": {
+      "baseName": "metadata",
+      "type": "IoCExplorerListResponseMetadata",
     },
-    paging: {
-      baseName: "paging",
-      type: "IoCExplorerListResponsePaging",
+    "paging": {
+      "baseName": "paging",
+      "type": "IoCExplorerListResponsePaging",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class IoCExplorerListResponseAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IoCExplorerListResponseAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

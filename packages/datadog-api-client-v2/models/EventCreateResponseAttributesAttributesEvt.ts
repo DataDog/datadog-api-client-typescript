@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * JSON object of event system attributes.
- */
+*/
 export class EventCreateResponseAttributesAttributesEvt {
   /**
    * Event identifier. This field is deprecated and will be removed in a future version. Use the `uid` field instead.
-   */
+  */
   "id"?: string;
   /**
    * A unique identifier for the event. You can use this identifier to query or reference the event.
-   */
+  */
   "uid"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class EventCreateResponseAttributesAttributesEvt {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class EventCreateResponseAttributesAttributesEvt {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    uid: {
-      baseName: "uid",
-      type: "string",
+    "uid": {
+      "baseName": "uid",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class EventCreateResponseAttributesAttributesEvt {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EventCreateResponseAttributesAttributesEvt.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

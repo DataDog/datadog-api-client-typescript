@@ -6,23 +6,28 @@
 import { RelationshipToIncidentType } from "./RelationshipToIncidentType";
 import { RelationshipToUser } from "./RelationshipToUser";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationships of an incident user-defined field.
- */
+*/
 export class IncidentUserDefinedFieldRelationships {
   /**
    * Relationship to user.
-   */
+  */
   "createdByUser": RelationshipToUser;
   /**
    * Relationship to an incident type.
-   */
+  */
   "incidentType": RelationshipToIncidentType;
   /**
    * Relationship to user.
-   */
+  */
   "lastModifiedByUser": RelationshipToUser;
 
   /**
@@ -30,7 +35,7 @@ export class IncidentUserDefinedFieldRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class IncidentUserDefinedFieldRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdByUser: {
-      baseName: "created_by_user",
-      type: "RelationshipToUser",
-      required: true,
+    "createdByUser": {
+      "baseName": "created_by_user",
+      "type": "RelationshipToUser",
+      "required": true,
     },
-    incidentType: {
-      baseName: "incident_type",
-      type: "RelationshipToIncidentType",
-      required: true,
+    "incidentType": {
+      "baseName": "incident_type",
+      "type": "RelationshipToIncidentType",
+      "required": true,
     },
-    lastModifiedByUser: {
-      baseName: "last_modified_by_user",
-      type: "RelationshipToUser",
-      required: true,
+    "lastModifiedByUser": {
+      "baseName": "last_modified_by_user",
+      "type": "RelationshipToUser",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class IncidentUserDefinedFieldRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentUserDefinedFieldRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

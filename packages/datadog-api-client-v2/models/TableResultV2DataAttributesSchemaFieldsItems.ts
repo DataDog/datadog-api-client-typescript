@@ -5,19 +5,24 @@
  */
 import { ReferenceTableSchemaFieldType } from "./ReferenceTableSchemaFieldType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A single field (column) in the reference table schema to be returned.
- */
+*/
 export class TableResultV2DataAttributesSchemaFieldsItems {
   /**
    * The field name.
-   */
+  */
   "name": string;
   /**
    * The field type for reference table schema fields.
-   */
+  */
   "type": ReferenceTableSchemaFieldType;
 
   /**
@@ -25,7 +30,7 @@ export class TableResultV2DataAttributesSchemaFieldsItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class TableResultV2DataAttributesSchemaFieldsItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ReferenceTableSchemaFieldType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ReferenceTableSchemaFieldType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class TableResultV2DataAttributesSchemaFieldsItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TableResultV2DataAttributesSchemaFieldsItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

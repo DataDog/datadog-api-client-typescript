@@ -6,19 +6,24 @@
 import { AllocationDataType } from "./AllocationDataType";
 import { UpsertAllocationRequest } from "./UpsertAllocationRequest";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data wrapper for allocation request payloads.
- */
+*/
 export class AllocationDataRequest {
   /**
    * Request to create or update a targeting rule (allocation) for a feature flag environment.
-   */
+  */
   "attributes": UpsertAllocationRequest;
   /**
    * The resource type.
-   */
+  */
   "type": AllocationDataType;
 
   /**
@@ -26,7 +31,7 @@ export class AllocationDataRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class AllocationDataRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "UpsertAllocationRequest",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "UpsertAllocationRequest",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "AllocationDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AllocationDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class AllocationDataRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AllocationDataRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Issue state filter for the `issue_stream` data source.
- */
+*/
 
-export type ListStreamIssueState =
-  | typeof OPEN
-  | typeof IGNORED
-  | typeof ACKNOWLEDGED
-  | typeof RESOLVED
-  | UnparsedObject;
-export const OPEN = "OPEN";
-export const IGNORED = "IGNORED";
-export const ACKNOWLEDGED = "ACKNOWLEDGED";
-export const RESOLVED = "RESOLVED";
+export type ListStreamIssueState = typeof OPEN| typeof IGNORED| typeof ACKNOWLEDGED| typeof RESOLVED | UnparsedObject;
+export const OPEN = 'OPEN';
+export const IGNORED = 'IGNORED';
+export const ACKNOWLEDGED = 'ACKNOWLEDGED';
+export const RESOLVED = 'RESOLVED';

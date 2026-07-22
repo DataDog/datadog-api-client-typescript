@@ -5,23 +5,28 @@
  */
 import { DeploymentRulesOptions } from "./DeploymentRulesOptions";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Parameters for updating a deployment rule.
- */
+*/
 export class UpdateDeploymentRuleParamsDataAttributes {
   /**
    * Whether to run this rule in dry-run mode.
-   */
+  */
   "dryRun": boolean;
   /**
    * The name of the deployment rule.
-   */
+  */
   "name": string;
   /**
    * Options for deployment rule response representing either faulty deployment detection or monitor options.
-   */
+  */
   "options": DeploymentRulesOptions;
 
   /**
@@ -29,7 +34,7 @@ export class UpdateDeploymentRuleParamsDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,20 +45,20 @@ export class UpdateDeploymentRuleParamsDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    dryRun: {
-      baseName: "dry_run",
-      type: "boolean",
-      required: true,
+    "dryRun": {
+      "baseName": "dry_run",
+      "type": "boolean",
+      "required": true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    options: {
-      baseName: "options",
-      type: "DeploymentRulesOptions",
-      required: true,
+    "options": {
+      "baseName": "options",
+      "type": "DeploymentRulesOptions",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class UpdateDeploymentRuleParamsDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateDeploymentRuleParamsDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

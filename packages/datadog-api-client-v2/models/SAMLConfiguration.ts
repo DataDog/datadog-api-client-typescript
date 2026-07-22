@@ -7,27 +7,32 @@ import { SAMLConfigurationAttributes } from "./SAMLConfigurationAttributes";
 import { SAMLConfigurationRelationships } from "./SAMLConfigurationRelationships";
 import { SAMLConfigurationsType } from "./SAMLConfigurationsType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A SAML configuration object.
- */
+*/
 export class SAMLConfiguration {
   /**
    * Attributes of a SAML configuration.
-   */
+  */
   "attributes"?: SAMLConfigurationAttributes;
   /**
    * The UUID of the SAML configuration.
-   */
+  */
   "id": string;
   /**
    * Relationships of a SAML configuration.
-   */
+  */
   "relationships"?: SAMLConfigurationRelationships;
   /**
    * SAML configurations resource type.
-   */
+  */
   "type": SAMLConfigurationsType;
 
   /**
@@ -35,7 +40,7 @@ export class SAMLConfiguration {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,23 +51,23 @@ export class SAMLConfiguration {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SAMLConfigurationAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SAMLConfigurationAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "SAMLConfigurationRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "SAMLConfigurationRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "SAMLConfigurationsType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SAMLConfigurationsType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,8 +79,34 @@ export class SAMLConfiguration {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SAMLConfiguration.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

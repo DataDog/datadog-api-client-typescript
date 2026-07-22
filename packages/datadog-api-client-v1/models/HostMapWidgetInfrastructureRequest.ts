@@ -11,54 +11,59 @@ import { HostMapWidgetNodeType } from "./HostMapWidgetNodeType";
 import { HostMapWidgetScalarRequest } from "./HostMapWidgetScalarRequest";
 import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Infrastructure-backed request for the host map widget. Supports entity-based
  * visualization with metric query enrichments, tag-based filtering, flexible grouping,
  * and hierarchical views.
- */
+*/
 export class HostMapWidgetInfrastructureRequest {
   /**
    * Infrastructure-backed host map child request (leaf node, no further nesting supported).
-   */
+  */
   "child"?: HostMapWidgetInfrastructureRequestLeaf;
   /**
    * List of conditional formatting rules applied to fill values.
-   */
+  */
   "conditionalFormats"?: Array<WidgetConditionalFormat>;
   /**
    * Metric or event queries joined to the entity set. Each formula specifies a visual dimension.
-   */
+  */
   "enrichments": Array<HostMapWidgetScalarRequest>;
   /**
    * Filter string for the entity set in tag format (for example, `env:prod`).
-   */
+  */
   "filter"?: string;
   /**
    * Defines how entities are grouped into tiles. The ordering of entries implies
    * the grouping hierarchy.
-   */
+  */
   "groupBy"?: Array<HostMapWidgetGroupBy>;
   /**
    * Whether to hide entities that have no group assignment.
-   */
+  */
   "noGroupHosts"?: boolean;
   /**
    * Whether to hide entities that have no enrichment data.
-   */
+  */
   "noMetricHosts"?: boolean;
   /**
    * Which type of infrastructure entity to visualize in the host map.
-   */
+  */
   "nodeType": HostMapWidgetNodeType;
   /**
    * Identifies this as an infrastructure-backed host map request.
-   */
+  */
   "requestType": HostMapWidgetInfrastructureRequestRequestType;
   /**
    * Style configuration for the infrastructure host map.
-   */
+  */
   "style"?: HostMapWidgetInfrastructureStyle;
 
   /**
@@ -66,7 +71,7 @@ export class HostMapWidgetInfrastructureRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -77,48 +82,48 @@ export class HostMapWidgetInfrastructureRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    child: {
-      baseName: "child",
-      type: "HostMapWidgetInfrastructureRequestLeaf",
+    "child": {
+      "baseName": "child",
+      "type": "HostMapWidgetInfrastructureRequestLeaf",
     },
-    conditionalFormats: {
-      baseName: "conditional_formats",
-      type: "Array<WidgetConditionalFormat>",
+    "conditionalFormats": {
+      "baseName": "conditional_formats",
+      "type": "Array<WidgetConditionalFormat>",
     },
-    enrichments: {
-      baseName: "enrichments",
-      type: "Array<HostMapWidgetScalarRequest>",
-      required: true,
+    "enrichments": {
+      "baseName": "enrichments",
+      "type": "Array<HostMapWidgetScalarRequest>",
+      "required": true,
     },
-    filter: {
-      baseName: "filter",
-      type: "string",
+    "filter": {
+      "baseName": "filter",
+      "type": "string",
     },
-    groupBy: {
-      baseName: "group_by",
-      type: "Array<HostMapWidgetGroupBy>",
+    "groupBy": {
+      "baseName": "group_by",
+      "type": "Array<HostMapWidgetGroupBy>",
     },
-    noGroupHosts: {
-      baseName: "no_group_hosts",
-      type: "boolean",
+    "noGroupHosts": {
+      "baseName": "no_group_hosts",
+      "type": "boolean",
     },
-    noMetricHosts: {
-      baseName: "no_metric_hosts",
-      type: "boolean",
+    "noMetricHosts": {
+      "baseName": "no_metric_hosts",
+      "type": "boolean",
     },
-    nodeType: {
-      baseName: "node_type",
-      type: "HostMapWidgetNodeType",
-      required: true,
+    "nodeType": {
+      "baseName": "node_type",
+      "type": "HostMapWidgetNodeType",
+      "required": true,
     },
-    requestType: {
-      baseName: "request_type",
-      type: "HostMapWidgetInfrastructureRequestRequestType",
-      required: true,
+    "requestType": {
+      "baseName": "request_type",
+      "type": "HostMapWidgetInfrastructureRequestRequestType",
+      "required": true,
     },
-    style: {
-      baseName: "style",
-      type: "HostMapWidgetInfrastructureStyle",
+    "style": {
+      "baseName": "style",
+      "type": "HostMapWidgetInfrastructureStyle",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -130,8 +135,34 @@ export class HostMapWidgetInfrastructureRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return HostMapWidgetInfrastructureRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

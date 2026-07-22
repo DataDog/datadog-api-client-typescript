@@ -6,19 +6,24 @@
 import { IncidentNotificationTemplateIncludedItems } from "./IncidentNotificationTemplateIncludedItems";
 import { IncidentNotificationTemplateResponseData } from "./IncidentNotificationTemplateResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response with a notification template.
- */
+*/
 export class IncidentNotificationTemplate {
   /**
    * Notification template data from a response.
-   */
+  */
   "data": IncidentNotificationTemplateResponseData;
   /**
    * Related objects that are included in the response.
-   */
+  */
   "included"?: Array<IncidentNotificationTemplateIncludedItems>;
 
   /**
@@ -26,7 +31,7 @@ export class IncidentNotificationTemplate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class IncidentNotificationTemplate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "IncidentNotificationTemplateResponseData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "IncidentNotificationTemplateResponseData",
+      "required": true,
     },
-    included: {
-      baseName: "included",
-      type: "Array<IncidentNotificationTemplateIncludedItems>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<IncidentNotificationTemplateIncludedItems>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class IncidentNotificationTemplate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentNotificationTemplate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

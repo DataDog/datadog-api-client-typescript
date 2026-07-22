@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of the policy. Only `org_config` is supported, indicating a policy backed by an organization configuration setting.
- */
+*/
 
 export type OrgGroupPolicyPolicyType = typeof ORG_CONFIG | UnparsedObject;
-export const ORG_CONFIG = "org_config";
+export const ORG_CONFIG = 'org_config';

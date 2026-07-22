@@ -6,19 +6,24 @@
 import { StatsigCredentialsUpdate } from "./StatsigCredentialsUpdate";
 import { StatsigIntegrationType } from "./StatsigIntegrationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `StatsigIntegrationUpdate` object.
- */
+*/
 export class StatsigIntegrationUpdate {
   /**
    * The definition of the `StatsigCredentialsUpdate` object.
-   */
+  */
   "credentials"?: StatsigCredentialsUpdate;
   /**
    * The definition of the `StatsigIntegrationType` object.
-   */
+  */
   "type": StatsigIntegrationType;
 
   /**
@@ -26,7 +31,7 @@ export class StatsigIntegrationUpdate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class StatsigIntegrationUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    credentials: {
-      baseName: "credentials",
-      type: "StatsigCredentialsUpdate",
+    "credentials": {
+      "baseName": "credentials",
+      "type": "StatsigCredentialsUpdate",
     },
-    type: {
-      baseName: "type",
-      type: "StatsigIntegrationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "StatsigIntegrationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class StatsigIntegrationUpdate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return StatsigIntegrationUpdate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,23 +6,28 @@
 import { GCPSTSDelegateAccountAttributes } from "./GCPSTSDelegateAccountAttributes";
 import { GCPSTSDelegateAccountType } from "./GCPSTSDelegateAccountType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Datadog principal service account info.
- */
+*/
 export class GCPSTSDelegateAccount {
   /**
    * Your delegate account attributes.
-   */
+  */
   "attributes"?: GCPSTSDelegateAccountAttributes;
   /**
    * The ID of the delegate service account.
-   */
+  */
   "id"?: string;
   /**
    * The type of account.
-   */
+  */
   "type"?: GCPSTSDelegateAccountType;
 
   /**
@@ -30,7 +35,7 @@ export class GCPSTSDelegateAccount {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class GCPSTSDelegateAccount {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "GCPSTSDelegateAccountAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "GCPSTSDelegateAccountAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "GCPSTSDelegateAccountType",
+    "type": {
+      "baseName": "type",
+      "type": "GCPSTSDelegateAccountType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class GCPSTSDelegateAccount {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GCPSTSDelegateAccount.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

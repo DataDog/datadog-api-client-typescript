@@ -6,23 +6,28 @@
 import { NotificationRulePreviewResponseAttributes } from "./NotificationRulePreviewResponseAttributes";
 import { NotificationRulePreviewResponseType } from "./NotificationRulePreviewResponseType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The notification preview response data.
- */
+*/
 export class NotificationRulePreviewResponseData {
   /**
    * Attributes of the notification preview response.
-   */
+  */
   "attributes": NotificationRulePreviewResponseAttributes;
   /**
    * The ID of the notification preview response.
-   */
+  */
   "id"?: string;
   /**
    * The type of the notification preview response.
-   */
+  */
   "type": NotificationRulePreviewResponseType;
 
   /**
@@ -30,7 +35,7 @@ export class NotificationRulePreviewResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class NotificationRulePreviewResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "NotificationRulePreviewResponseAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "NotificationRulePreviewResponseAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "NotificationRulePreviewResponseType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "NotificationRulePreviewResponseType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class NotificationRulePreviewResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return NotificationRulePreviewResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

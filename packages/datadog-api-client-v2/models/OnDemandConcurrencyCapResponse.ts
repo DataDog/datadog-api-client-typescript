@@ -5,15 +5,20 @@
  */
 import { OnDemandConcurrencyCap } from "./OnDemandConcurrencyCap";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * On-demand concurrency cap response.
- */
+*/
 export class OnDemandConcurrencyCapResponse {
   /**
    * On-demand concurrency cap.
-   */
+  */
   "data"?: OnDemandConcurrencyCap;
 
   /**
@@ -21,7 +26,7 @@ export class OnDemandConcurrencyCapResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class OnDemandConcurrencyCapResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "OnDemandConcurrencyCap",
+    "data": {
+      "baseName": "data",
+      "type": "OnDemandConcurrencyCap",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class OnDemandConcurrencyCapResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OnDemandConcurrencyCapResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

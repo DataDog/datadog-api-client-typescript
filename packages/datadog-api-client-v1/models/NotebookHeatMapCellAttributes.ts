@@ -8,27 +8,32 @@ import { NotebookCellTime } from "./NotebookCellTime";
 import { NotebookGraphSize } from "./NotebookGraphSize";
 import { NotebookSplitBy } from "./NotebookSplitBy";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes of a notebook `heatmap` cell.
- */
+*/
 export class NotebookHeatMapCellAttributes {
   /**
    * The heat map visualization shows metrics aggregated across many tags, such as hosts. The more hosts that have a particular value, the darker that square is.
-   */
+  */
   "definition": HeatMapWidgetDefinition;
   /**
    * The size of the graph.
-   */
+  */
   "graphSize"?: NotebookGraphSize;
   /**
    * Object describing how to split the graph to display multiple visualizations per request.
-   */
+  */
   "splitBy"?: NotebookSplitBy;
   /**
    * Timeframe for the notebook cell. When 'null', the notebook global time is used.
-   */
+  */
   "time"?: NotebookCellTime;
 
   /**
@@ -36,7 +41,7 @@ export class NotebookHeatMapCellAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,22 +52,22 @@ export class NotebookHeatMapCellAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    definition: {
-      baseName: "definition",
-      type: "HeatMapWidgetDefinition",
-      required: true,
+    "definition": {
+      "baseName": "definition",
+      "type": "HeatMapWidgetDefinition",
+      "required": true,
     },
-    graphSize: {
-      baseName: "graph_size",
-      type: "NotebookGraphSize",
+    "graphSize": {
+      "baseName": "graph_size",
+      "type": "NotebookGraphSize",
     },
-    splitBy: {
-      baseName: "split_by",
-      type: "NotebookSplitBy",
+    "splitBy": {
+      "baseName": "split_by",
+      "type": "NotebookSplitBy",
     },
-    time: {
-      baseName: "time",
-      type: "NotebookCellTime",
+    "time": {
+      "baseName": "time",
+      "type": "NotebookCellTime",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,8 +79,34 @@ export class NotebookHeatMapCellAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return NotebookHeatMapCellAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

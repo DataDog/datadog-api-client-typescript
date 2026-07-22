@@ -5,15 +5,20 @@
  */
 import { ServiceDefinitionData } from "./ServiceDefinitionData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Get service definition response.
- */
+*/
 export class ServiceDefinitionGetResponse {
   /**
    * Service definition data.
-   */
+  */
   "data"?: ServiceDefinitionData;
 
   /**
@@ -21,7 +26,7 @@ export class ServiceDefinitionGetResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class ServiceDefinitionGetResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ServiceDefinitionData",
+    "data": {
+      "baseName": "data",
+      "type": "ServiceDefinitionData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class ServiceDefinitionGetResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceDefinitionGetResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

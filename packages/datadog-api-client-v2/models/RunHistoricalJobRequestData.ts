@@ -6,19 +6,24 @@
 import { RunHistoricalJobRequestAttributes } from "./RunHistoricalJobRequestAttributes";
 import { RunHistoricalJobRequestDataType } from "./RunHistoricalJobRequestDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for running a historical job request.
- */
+*/
 export class RunHistoricalJobRequestData {
   /**
    * Run a historical job request.
-   */
+  */
   "attributes"?: RunHistoricalJobRequestAttributes;
   /**
    * Type of data.
-   */
+  */
   "type"?: RunHistoricalJobRequestDataType;
 
   /**
@@ -26,7 +31,7 @@ export class RunHistoricalJobRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class RunHistoricalJobRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RunHistoricalJobRequestAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "RunHistoricalJobRequestAttributes",
     },
-    type: {
-      baseName: "type",
-      type: "RunHistoricalJobRequestDataType",
+    "type": {
+      "baseName": "type",
+      "type": "RunHistoricalJobRequestDataType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class RunHistoricalJobRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RunHistoricalJobRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

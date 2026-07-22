@@ -5,15 +5,20 @@
  */
 import { UsageSyntheticsHour } from "./UsageSyntheticsHour";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing the number of Synthetics API tests run for each hour for a given organization.
- */
+*/
 export class UsageSyntheticsResponse {
   /**
    * Array with the number of hourly Synthetics test run for a given organization.
-   */
+  */
   "usage"?: Array<UsageSyntheticsHour>;
 
   /**
@@ -21,7 +26,7 @@ export class UsageSyntheticsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class UsageSyntheticsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageSyntheticsHour>",
+    "usage": {
+      "baseName": "usage",
+      "type": "Array<UsageSyntheticsHour>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class UsageSyntheticsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageSyntheticsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

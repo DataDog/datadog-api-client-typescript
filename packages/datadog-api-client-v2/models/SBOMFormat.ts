@@ -4,12 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The SBOM standard
- */
+*/
 
-export type SBOMFormat = typeof CYCLONEDX | typeof SPDX | UnparsedObject;
-export const CYCLONEDX = "CycloneDX";
-export const SPDX = "SPDX";
+export type SBOMFormat = typeof CYCLONEDX| typeof SPDX | UnparsedObject;
+export const CYCLONEDX = 'CycloneDX';
+export const SPDX = 'SPDX';

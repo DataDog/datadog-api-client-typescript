@@ -4,20 +4,25 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Pagination metadata for a version history response.
- */
+*/
 export class SyntheticsTestVersionHistoryMeta {
   /**
    * The version number to use as the `last_version_number` query parameter
    * to fetch the next page. `null` indicates there are no more pages.
-   */
+  */
   "nextLastVersionNumber"?: number;
   /**
    * The number of days that version history is retained.
-   */
+  */
   "retentionPeriodInDays"?: number;
 
   /**
@@ -25,7 +30,7 @@ export class SyntheticsTestVersionHistoryMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class SyntheticsTestVersionHistoryMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    nextLastVersionNumber: {
-      baseName: "next_last_version_number",
-      type: "number",
-      format: "int64",
+    "nextLastVersionNumber": {
+      "baseName": "next_last_version_number",
+      "type": "number",
+      "format": "int64",
     },
-    retentionPeriodInDays: {
-      baseName: "retention_period_in_days",
-      type: "number",
-      format: "int64",
+    "retentionPeriodInDays": {
+      "baseName": "retention_period_in_days",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class SyntheticsTestVersionHistoryMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestVersionHistoryMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

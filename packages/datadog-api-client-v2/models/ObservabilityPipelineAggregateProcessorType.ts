@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The processor type. The value must be `aggregate`.
- */
+*/
 
-export type ObservabilityPipelineAggregateProcessorType =
-  | typeof AGGREGATE
-  | UnparsedObject;
-export const AGGREGATE = "aggregate";
+export type ObservabilityPipelineAggregateProcessorType = typeof AGGREGATE | UnparsedObject;
+export const AGGREGATE = 'aggregate';

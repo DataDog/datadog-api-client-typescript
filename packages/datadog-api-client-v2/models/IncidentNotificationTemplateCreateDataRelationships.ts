@@ -5,15 +5,20 @@
  */
 import { RelationshipToIncidentType } from "./RelationshipToIncidentType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `NotificationTemplateCreateDataRelationships` object.
- */
+*/
 export class IncidentNotificationTemplateCreateDataRelationships {
   /**
    * Relationship to an incident type.
-   */
+  */
   "incidentType"?: RelationshipToIncidentType;
 
   /**
@@ -21,7 +26,7 @@ export class IncidentNotificationTemplateCreateDataRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class IncidentNotificationTemplateCreateDataRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    incidentType: {
-      baseName: "incident_type",
-      type: "RelationshipToIncidentType",
+    "incidentType": {
+      "baseName": "incident_type",
+      "type": "RelationshipToIncidentType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class IncidentNotificationTemplateCreateDataRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentNotificationTemplateCreateDataRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

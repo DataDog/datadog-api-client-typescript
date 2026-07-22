@@ -6,23 +6,28 @@
 import { OAuth2WellKnownSitesAttributes } from "./OAuth2WellKnownSitesAttributes";
 import { OAuth2WellKnownSitesEnvType } from "./OAuth2WellKnownSitesEnvType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object containing OAuth2 well-known sites information.
- */
+*/
 export class OAuth2WellKnownSitesData {
   /**
    * Attributes containing the list of public OAuth2 sites.
-   */
+  */
   "attributes": OAuth2WellKnownSitesAttributes;
   /**
    * Environment identifier.
-   */
+  */
   "id": string;
   /**
    * JSON:API resource type for OAuth2 well-known sites environment.
-   */
+  */
   "type": OAuth2WellKnownSitesEnvType;
 
   /**
@@ -30,7 +35,7 @@ export class OAuth2WellKnownSitesData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class OAuth2WellKnownSitesData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "OAuth2WellKnownSitesAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "OAuth2WellKnownSitesAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "OAuth2WellKnownSitesEnvType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "OAuth2WellKnownSitesEnvType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class OAuth2WellKnownSitesData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OAuth2WellKnownSitesData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

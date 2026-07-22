@@ -7,27 +7,32 @@ import { ScheduleOnCallResponderDataAttributes } from "./ScheduleOnCallResponder
 import { ScheduleOnCallResponderDataRelationships } from "./ScheduleOnCallResponderDataRelationships";
 import { ScheduleOnCallResponderDataType } from "./ScheduleOnCallResponderDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Represents one position's (previous, current, or next) group of on-call responder shifts. Positions with no matching shift are omitted entirely from the response.
- */
+*/
 export class ScheduleOnCallResponderData {
   /**
    * Attributes for one position's (previous, current, or next) group of on-call responder shifts.
-   */
+  */
   "attributes"?: ScheduleOnCallResponderDataAttributes;
   /**
    * Unique identifier of this responder group.
-   */
+  */
   "id"?: string;
   /**
    * Relationships for a single position's (previous, current, or next) responder group.
-   */
+  */
   "relationships"?: ScheduleOnCallResponderDataRelationships;
   /**
    * Represents the resource type for a single position's (previous, current, or next) group of on-call responder shifts.
-   */
+  */
   "type": ScheduleOnCallResponderDataType;
 
   /**
@@ -35,7 +40,7 @@ export class ScheduleOnCallResponderData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,22 +51,22 @@ export class ScheduleOnCallResponderData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ScheduleOnCallResponderDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ScheduleOnCallResponderDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "ScheduleOnCallResponderDataRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "ScheduleOnCallResponderDataRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "ScheduleOnCallResponderDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ScheduleOnCallResponderDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -73,8 +78,34 @@ export class ScheduleOnCallResponderData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ScheduleOnCallResponderData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

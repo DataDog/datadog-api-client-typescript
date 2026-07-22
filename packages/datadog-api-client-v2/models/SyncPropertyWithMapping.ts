@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Sync property with mapping configuration.
- */
+*/
 export class SyncPropertyWithMapping {
   /**
    * Map of source values to destination values for synchronization.
-   */
-  "mapping"?: { [key: string]: string };
+  */
+  "mapping"?: { [key: string]: string; };
   /**
    * Map of source names to display names used during synchronization.
-   */
-  "nameMapping"?: { [key: string]: string };
+  */
+  "nameMapping"?: { [key: string]: string; };
   /**
    * The direction and type of synchronization for this property.
-   */
+  */
   "syncType"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class SyncPropertyWithMapping {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class SyncPropertyWithMapping {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    mapping: {
-      baseName: "mapping",
-      type: "{ [key: string]: string; }",
+    "mapping": {
+      "baseName": "mapping",
+      "type": "{ [key: string]: string; }",
     },
-    nameMapping: {
-      baseName: "name_mapping",
-      type: "{ [key: string]: string; }",
+    "nameMapping": {
+      "baseName": "name_mapping",
+      "type": "{ [key: string]: string; }",
     },
-    syncType: {
-      baseName: "sync_type",
-      type: "string",
+    "syncType": {
+      "baseName": "sync_type",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class SyncPropertyWithMapping {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyncPropertyWithMapping.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

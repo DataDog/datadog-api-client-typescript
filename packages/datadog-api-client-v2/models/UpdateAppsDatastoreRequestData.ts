@@ -6,23 +6,28 @@
 import { DatastoreDataType } from "./DatastoreDataType";
 import { UpdateAppsDatastoreRequestDataAttributes } from "./UpdateAppsDatastoreRequestDataAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data wrapper containing the datastore identifier and the attributes to update.
- */
+*/
 export class UpdateAppsDatastoreRequestData {
   /**
    * Attributes that can be updated on a datastore.
-   */
+  */
   "attributes"?: UpdateAppsDatastoreRequestDataAttributes;
   /**
    * The unique identifier of the datastore to update.
-   */
+  */
   "id"?: string;
   /**
    * The resource type for datastores.
-   */
+  */
   "type": DatastoreDataType;
 
   /**
@@ -30,7 +35,7 @@ export class UpdateAppsDatastoreRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class UpdateAppsDatastoreRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "UpdateAppsDatastoreRequestDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "UpdateAppsDatastoreRequestDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "DatastoreDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "DatastoreDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class UpdateAppsDatastoreRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateAppsDatastoreRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

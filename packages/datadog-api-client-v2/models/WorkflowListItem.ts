@@ -7,27 +7,32 @@ import { WorkflowDataRelationships } from "./WorkflowDataRelationships";
 import { WorkflowDataType } from "./WorkflowDataType";
 import { WorkflowListItemAttributes } from "./WorkflowListItemAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A workflow returned by the list workflows endpoint.
- */
+*/
 export class WorkflowListItem {
   /**
    * Attributes of a workflow returned in a list response.
-   */
+  */
   "attributes": WorkflowListItemAttributes;
   /**
    * The workflow identifier.
-   */
+  */
   "id"?: string;
   /**
    * The definition of `WorkflowDataRelationships` object.
-   */
+  */
   "relationships"?: WorkflowDataRelationships;
   /**
    * The definition of `WorkflowDataType` object.
-   */
+  */
   "type": WorkflowDataType;
 
   /**
@@ -35,7 +40,7 @@ export class WorkflowListItem {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,23 +51,23 @@ export class WorkflowListItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "WorkflowListItemAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "WorkflowListItemAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "WorkflowDataRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "WorkflowDataRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "WorkflowDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "WorkflowDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,8 +79,34 @@ export class WorkflowListItem {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return WorkflowListItem.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+
