@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Latency statistics for a network probe.
- */
+*/
 export class SyntheticsTestResultNetworkLatency {
   /**
    * Average latency in milliseconds.
-   */
+  */
   "avg"?: number;
   /**
    * Maximum latency in milliseconds.
-   */
+  */
   "max"?: number;
   /**
    * Minimum latency in milliseconds.
-   */
+  */
   "min"?: number;
 
   /**
@@ -28,7 +33,7 @@ export class SyntheticsTestResultNetworkLatency {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,20 +44,20 @@ export class SyntheticsTestResultNetworkLatency {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    avg: {
-      baseName: "avg",
-      type: "number",
-      format: "double",
+    "avg": {
+      "baseName": "avg",
+      "type": "number",
+      "format": "double",
     },
-    max: {
-      baseName: "max",
-      type: "number",
-      format: "double",
+    "max": {
+      "baseName": "max",
+      "type": "number",
+      "format": "double",
     },
-    min: {
-      baseName: "min",
-      type: "number",
-      format: "double",
+    "min": {
+      "baseName": "min",
+      "type": "number",
+      "format": "double",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class SyntheticsTestResultNetworkLatency {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultNetworkLatency.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

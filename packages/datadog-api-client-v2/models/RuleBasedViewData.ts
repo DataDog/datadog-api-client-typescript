@@ -6,23 +6,28 @@
 import { RuleBasedViewAttributes } from "./RuleBasedViewAttributes";
 import { RuleBasedViewType } from "./RuleBasedViewType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data envelope for the rule-based view response.
- */
+*/
 export class RuleBasedViewData {
   /**
    * Attributes of the rule-based view.
-   */
+  */
   "attributes": RuleBasedViewAttributes;
   /**
    * Unique identifier of the rule-based view document.
-   */
+  */
   "id": string;
   /**
    * The type of the resource. The value should always be `rule_based_view`.
-   */
+  */
   "type": RuleBasedViewType;
 
   /**
@@ -30,7 +35,7 @@ export class RuleBasedViewData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class RuleBasedViewData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RuleBasedViewAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "RuleBasedViewAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "RuleBasedViewType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "RuleBasedViewType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class RuleBasedViewData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RuleBasedViewData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

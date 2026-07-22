@@ -4,31 +4,36 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a partial application key.
- */
+*/
 export class PartialApplicationKeyAttributes {
   /**
    * Creation date of the application key.
-   */
+  */
   "createdAt"?: string;
   /**
    * The last four characters of the application key.
-   */
+  */
   "last4"?: string;
   /**
    * Last usage timestamp of the application key.
-   */
+  */
   "lastUsedAt"?: string;
   /**
    * Name of the application key.
-   */
+  */
   "name"?: string;
   /**
    * Array of scopes to grant the application key.
-   */
+  */
   "scopes"?: Array<string>;
 
   /**
@@ -36,7 +41,7 @@ export class PartialApplicationKeyAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,25 +52,25 @@ export class PartialApplicationKeyAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "created_at",
-      type: "string",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "string",
     },
-    last4: {
-      baseName: "last4",
-      type: "string",
+    "last4": {
+      "baseName": "last4",
+      "type": "string",
     },
-    lastUsedAt: {
-      baseName: "last_used_at",
-      type: "string",
+    "lastUsedAt": {
+      "baseName": "last_used_at",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    scopes: {
-      baseName: "scopes",
-      type: "Array<string>",
+    "scopes": {
+      "baseName": "scopes",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -77,8 +82,34 @@ export class PartialApplicationKeyAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PartialApplicationKeyAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

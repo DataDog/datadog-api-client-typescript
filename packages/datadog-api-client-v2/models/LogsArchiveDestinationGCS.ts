@@ -6,27 +6,32 @@
 import { LogsArchiveDestinationGCSType } from "./LogsArchiveDestinationGCSType";
 import { LogsArchiveIntegrationGCS } from "./LogsArchiveIntegrationGCS";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The GCS archive destination.
- */
+*/
 export class LogsArchiveDestinationGCS {
   /**
    * The bucket where the archive will be stored.
-   */
+  */
   "bucket": string;
   /**
    * The GCS archive's integration destination.
-   */
+  */
   "integration": LogsArchiveIntegrationGCS;
   /**
    * The archive path.
-   */
+  */
   "path"?: string;
   /**
    * Type of the GCS archive destination.
-   */
+  */
   "type": LogsArchiveDestinationGCSType;
 
   /**
@@ -34,7 +39,7 @@ export class LogsArchiveDestinationGCS {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -45,24 +50,24 @@ export class LogsArchiveDestinationGCS {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    bucket: {
-      baseName: "bucket",
-      type: "string",
-      required: true,
+    "bucket": {
+      "baseName": "bucket",
+      "type": "string",
+      "required": true,
     },
-    integration: {
-      baseName: "integration",
-      type: "LogsArchiveIntegrationGCS",
-      required: true,
+    "integration": {
+      "baseName": "integration",
+      "type": "LogsArchiveIntegrationGCS",
+      "required": true,
     },
-    path: {
-      baseName: "path",
-      type: "string",
+    "path": {
+      "baseName": "path",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "LogsArchiveDestinationGCSType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LogsArchiveDestinationGCSType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,8 +79,34 @@ export class LogsArchiveDestinationGCS {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogsArchiveDestinationGCS.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

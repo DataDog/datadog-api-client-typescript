@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type identifier for a faulty deployment detection rule.
- */
+*/
 
-export type DeploymentGatesFDDRuleType =
-  | typeof FAULTY_DEPLOYMENT_DETECTION
-  | UnparsedObject;
-export const FAULTY_DEPLOYMENT_DETECTION = "faulty_deployment_detection";
+export type DeploymentGatesFDDRuleType = typeof FAULTY_DEPLOYMENT_DETECTION | UnparsedObject;
+export const FAULTY_DEPLOYMENT_DETECTION = 'faulty_deployment_detection';

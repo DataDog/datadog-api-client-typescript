@@ -5,19 +5,24 @@
  */
 import { SampleLogGenerationDuration } from "./SampleLogGenerationDuration";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes for creating sample log generation subscriptions for multiple content packs.
- */
+*/
 export class SampleLogGenerationBulkSubscriptionAttributes {
   /**
    * The identifiers of the Cloud SIEM content packs to subscribe to. At most five content packs can be requested in a single call.
-   */
+  */
   "contentPackIds": Array<string>;
   /**
    * How long the subscription should remain active before expiring.
-   */
+  */
   "duration"?: SampleLogGenerationDuration;
 
   /**
@@ -25,7 +30,7 @@ export class SampleLogGenerationBulkSubscriptionAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,14 +41,14 @@ export class SampleLogGenerationBulkSubscriptionAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    contentPackIds: {
-      baseName: "content_pack_ids",
-      type: "Array<string>",
-      required: true,
+    "contentPackIds": {
+      "baseName": "content_pack_ids",
+      "type": "Array<string>",
+      "required": true,
     },
-    duration: {
-      baseName: "duration",
-      type: "SampleLogGenerationDuration",
+    "duration": {
+      "baseName": "duration",
+      "type": "SampleLogGenerationDuration",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class SampleLogGenerationBulkSubscriptionAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SampleLogGenerationBulkSubscriptionAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

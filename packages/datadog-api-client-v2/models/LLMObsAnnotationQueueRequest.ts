@@ -5,15 +5,20 @@
  */
 import { LLMObsAnnotationQueueDataRequest } from "./LLMObsAnnotationQueueDataRequest";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request to create an LLM Observability annotation queue.
- */
+*/
 export class LLMObsAnnotationQueueRequest {
   /**
    * Data object for creating an LLM Observability annotation queue.
-   */
+  */
   "data": LLMObsAnnotationQueueDataRequest;
 
   /**
@@ -21,7 +26,7 @@ export class LLMObsAnnotationQueueRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class LLMObsAnnotationQueueRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "LLMObsAnnotationQueueDataRequest",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "LLMObsAnnotationQueueDataRequest",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class LLMObsAnnotationQueueRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsAnnotationQueueRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

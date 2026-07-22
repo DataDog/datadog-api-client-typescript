@@ -5,15 +5,20 @@
  */
 import { SecureEmbedCreateRequestData } from "./SecureEmbedCreateRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request to create a secure embed shared dashboard.
- */
+*/
 export class SecureEmbedCreateRequest {
   /**
    * Data object for creating a secure embed.
-   */
+  */
   "data": SecureEmbedCreateRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class SecureEmbedCreateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class SecureEmbedCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SecureEmbedCreateRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "SecureEmbedCreateRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class SecureEmbedCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecureEmbedCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

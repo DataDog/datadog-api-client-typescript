@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Status of a Synthetic test result.
- */
+*/
 
-export type SyntheticsTestResultStatus =
-  | typeof PASSED
-  | typeof FAILED
-  | typeof NO_DATA
-  | UnparsedObject;
-export const PASSED = "passed";
-export const FAILED = "failed";
-export const NO_DATA = "no_data";
+export type SyntheticsTestResultStatus = typeof PASSED| typeof FAILED| typeof NO_DATA | UnparsedObject;
+export const PASSED = 'passed';
+export const FAILED = 'failed';
+export const NO_DATA = 'no_data';

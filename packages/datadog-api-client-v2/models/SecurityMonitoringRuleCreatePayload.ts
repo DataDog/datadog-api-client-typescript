@@ -7,14 +7,15 @@ import { CloudConfigurationRuleCreatePayload } from "./CloudConfigurationRuleCre
 import { SecurityMonitoringSignalRuleCreatePayload } from "./SecurityMonitoringSignalRuleCreatePayload";
 import { SecurityMonitoringStandardRuleCreatePayload } from "./SecurityMonitoringStandardRuleCreatePayload";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Create a new rule.
- */
+*/
 
-export type SecurityMonitoringRuleCreatePayload =
-  | SecurityMonitoringStandardRuleCreatePayload
-  | SecurityMonitoringSignalRuleCreatePayload
-  | CloudConfigurationRuleCreatePayload
-  | UnparsedObject;
+export type SecurityMonitoringRuleCreatePayload = SecurityMonitoringStandardRuleCreatePayload | SecurityMonitoringSignalRuleCreatePayload | CloudConfigurationRuleCreatePayload | UnparsedObject;

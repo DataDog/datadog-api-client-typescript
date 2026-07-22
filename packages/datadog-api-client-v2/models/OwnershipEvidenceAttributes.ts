@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes of an ownership evidence response.
- */
+*/
 export class OwnershipEvidenceAttributes {
   /**
    * The list of evidence versions associated with an inference.
-   */
-  "evidenceVersions": Array<{ [key: string]: any }> | null;
+  */
+  "evidenceVersions": Array<{ [key: string]: any; }>|null;
 
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,10 +36,10 @@ export class OwnershipEvidenceAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    evidenceVersions: {
-      baseName: "evidence_versions",
-      type: "Array<{ [key: string]: any; }>",
-      required: true,
+    "evidenceVersions": {
+      "baseName": "evidence_versions",
+      "type": "Array<{ [key: string]: any; }>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class OwnershipEvidenceAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OwnershipEvidenceAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

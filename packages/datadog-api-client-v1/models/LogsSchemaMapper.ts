@@ -6,13 +6,15 @@
 import { LogsSchemaCategoryMapper } from "./LogsSchemaCategoryMapper";
 import { LogsSchemaRemapper } from "./LogsSchemaRemapper";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Configuration of the schema processor mapper to use.
- */
+*/
 
-export type LogsSchemaMapper =
-  | LogsSchemaRemapper
-  | LogsSchemaCategoryMapper
-  | UnparsedObject;
+export type LogsSchemaMapper = LogsSchemaRemapper | LogsSchemaCategoryMapper | UnparsedObject;

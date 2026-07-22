@@ -6,23 +6,28 @@
 import { OrgConfigReadAttributes } from "./OrgConfigReadAttributes";
 import { OrgConfigType } from "./OrgConfigType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A single Org Config.
- */
+*/
 export class OrgConfigRead {
   /**
    * Readable attributes of an Org Config.
-   */
+  */
   "attributes": OrgConfigReadAttributes;
   /**
    * A unique identifier for an Org Config.
-   */
+  */
   "id": string;
   /**
    * Data type of an Org Config.
-   */
+  */
   "type": OrgConfigType;
 
   /**
@@ -30,7 +35,7 @@ export class OrgConfigRead {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class OrgConfigRead {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "OrgConfigReadAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "OrgConfigReadAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "OrgConfigType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "OrgConfigType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class OrgConfigRead {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgConfigRead.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

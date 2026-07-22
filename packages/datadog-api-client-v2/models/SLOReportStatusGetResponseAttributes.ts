@@ -5,15 +5,20 @@
  */
 import { SLOReportStatus } from "./SLOReportStatus";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes portion of the SLO report status response.
- */
+*/
 export class SLOReportStatusGetResponseAttributes {
   /**
    * The status of the SLO report job.
-   */
+  */
   "status"?: SLOReportStatus;
 
   /**
@@ -21,7 +26,7 @@ export class SLOReportStatusGetResponseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class SLOReportStatusGetResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    status: {
-      baseName: "status",
-      type: "SLOReportStatus",
+    "status": {
+      "baseName": "status",
+      "type": "SLOReportStatus",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class SLOReportStatusGetResponseAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SLOReportStatusGetResponseAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

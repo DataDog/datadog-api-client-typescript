@@ -4,35 +4,40 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Trigger data
- */
+*/
 export class CaseNotificationRuleTriggerData {
   /**
    * Change type (added, removed, changed)
-   */
+  */
   "changeType"?: string;
   /**
    * Field name for attribute value changed trigger
-   */
+  */
   "field"?: string;
   /**
    * Status ID to transition from
-   */
+  */
   "fromStatus"?: string;
   /**
    * Status name to transition from
-   */
+  */
   "fromStatusName"?: string;
   /**
    * Status ID to transition to
-   */
+  */
   "toStatus"?: string;
   /**
    * Status name to transition to
-   */
+  */
   "toStatusName"?: string;
 
   /**
@@ -40,7 +45,7 @@ export class CaseNotificationRuleTriggerData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -51,29 +56,29 @@ export class CaseNotificationRuleTriggerData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    changeType: {
-      baseName: "change_type",
-      type: "string",
+    "changeType": {
+      "baseName": "change_type",
+      "type": "string",
     },
-    field: {
-      baseName: "field",
-      type: "string",
+    "field": {
+      "baseName": "field",
+      "type": "string",
     },
-    fromStatus: {
-      baseName: "from_status",
-      type: "string",
+    "fromStatus": {
+      "baseName": "from_status",
+      "type": "string",
     },
-    fromStatusName: {
-      baseName: "from_status_name",
-      type: "string",
+    "fromStatusName": {
+      "baseName": "from_status_name",
+      "type": "string",
     },
-    toStatus: {
-      baseName: "to_status",
-      type: "string",
+    "toStatus": {
+      "baseName": "to_status",
+      "type": "string",
     },
-    toStatusName: {
-      baseName: "to_status_name",
-      type: "string",
+    "toStatusName": {
+      "baseName": "to_status_name",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -85,8 +90,34 @@ export class CaseNotificationRuleTriggerData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseNotificationRuleTriggerData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

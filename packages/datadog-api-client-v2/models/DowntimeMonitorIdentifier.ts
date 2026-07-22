@@ -6,13 +6,15 @@
 import { DowntimeMonitorIdentifierId } from "./DowntimeMonitorIdentifierId";
 import { DowntimeMonitorIdentifierTags } from "./DowntimeMonitorIdentifierTags";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Monitor identifier for the downtime.
- */
+*/
 
-export type DowntimeMonitorIdentifier =
-  | DowntimeMonitorIdentifierId
-  | DowntimeMonitorIdentifierTags
-  | UnparsedObject;
+export type DowntimeMonitorIdentifier = DowntimeMonitorIdentifierId | DowntimeMonitorIdentifierTags | UnparsedObject;

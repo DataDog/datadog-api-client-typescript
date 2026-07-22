@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of match pattern, either a literal string or a regex.
- */
+*/
 
-export type RumSdkConfigMatchOptionSerializedType =
-  | typeof STRING
-  | typeof REGEX
-  | UnparsedObject;
-export const STRING = "string";
-export const REGEX = "regex";
+export type RumSdkConfigMatchOptionSerializedType = typeof STRING| typeof REGEX | UnparsedObject;
+export const STRING = 'string';
+export const REGEX = 'regex';

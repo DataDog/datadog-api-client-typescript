@@ -6,33 +6,38 @@
 import { ObservabilityPipelineMtlsServerTls } from "./ObservabilityPipelineMtlsServerTls";
 import { ObservabilityPipelineOpentelemetrySourceType } from "./ObservabilityPipelineOpentelemetrySourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The `opentelemetry` source receives telemetry data using the OpenTelemetry Protocol (OTLP) over gRPC and HTTP.
- *
+ * 
  * **Supported pipeline types:** logs, metrics
- */
+*/
 export class ObservabilityPipelineOpentelemetrySource {
   /**
    * Environment variable name containing the gRPC server address for receiving OTLP data. Must be a valid environment variable name (alphanumeric characters and underscores only).
-   */
+  */
   "grpcAddressKey"?: string;
   /**
    * Environment variable name containing the HTTP server address for receiving OTLP data. Must be a valid environment variable name (alphanumeric characters and underscores only).
-   */
+  */
   "httpAddressKey"?: string;
   /**
    * The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
-   */
+  */
   "id": string;
   /**
    * Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
-   */
+  */
   "tls"?: ObservabilityPipelineMtlsServerTls;
   /**
    * The source type. The value should always be `opentelemetry`.
-   */
+  */
   "type": ObservabilityPipelineOpentelemetrySourceType;
 
   /**
@@ -40,7 +45,7 @@ export class ObservabilityPipelineOpentelemetrySource {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -51,27 +56,27 @@ export class ObservabilityPipelineOpentelemetrySource {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    grpcAddressKey: {
-      baseName: "grpc_address_key",
-      type: "string",
+    "grpcAddressKey": {
+      "baseName": "grpc_address_key",
+      "type": "string",
     },
-    httpAddressKey: {
-      baseName: "http_address_key",
-      type: "string",
+    "httpAddressKey": {
+      "baseName": "http_address_key",
+      "type": "string",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    tls: {
-      baseName: "tls",
-      type: "ObservabilityPipelineMtlsServerTls",
+    "tls": {
+      "baseName": "tls",
+      "type": "ObservabilityPipelineMtlsServerTls",
     },
-    type: {
-      baseName: "type",
-      type: "ObservabilityPipelineOpentelemetrySourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ObservabilityPipelineOpentelemetrySourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -83,8 +88,34 @@ export class ObservabilityPipelineOpentelemetrySource {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineOpentelemetrySource.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

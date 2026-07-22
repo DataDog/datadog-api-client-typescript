@@ -5,15 +5,20 @@
  */
 import { GlobalVariableData } from "./GlobalVariableData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Global variable response.
- */
+*/
 export class GlobalVariableResponse {
   /**
    * Synthetics global variable data. Wrapper around the global variable object.
-   */
+  */
   "data"?: GlobalVariableData;
 
   /**
@@ -21,7 +26,7 @@ export class GlobalVariableResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class GlobalVariableResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "GlobalVariableData",
+    "data": {
+      "baseName": "data",
+      "type": "GlobalVariableData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class GlobalVariableResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GlobalVariableResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

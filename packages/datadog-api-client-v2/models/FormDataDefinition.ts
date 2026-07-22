@@ -5,31 +5,36 @@
  */
 import { FormDataDefinitionType } from "./FormDataDefinitionType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A JSON Schema definition that describes the form's data fields.
- */
+*/
 export class FormDataDefinition {
   /**
    * A description shown to form respondents.
-   */
+  */
   "description"?: string;
   /**
    * A map of field names to their JSON Schema definitions.
-   */
-  "properties"?: { [key: string]: any };
+  */
+  "properties"?: { [key: string]: any; };
   /**
    * List of field names that must be answered.
-   */
+  */
   "required"?: Array<string>;
   /**
    * The title of the form schema.
-   */
+  */
   "title"?: string;
   /**
    * The root schema type.
-   */
+  */
   "type"?: FormDataDefinitionType;
 
   /**
@@ -37,7 +42,7 @@ export class FormDataDefinition {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -48,25 +53,25 @@ export class FormDataDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    properties: {
-      baseName: "properties",
-      type: "{ [key: string]: any; }",
+    "properties": {
+      "baseName": "properties",
+      "type": "{ [key: string]: any; }",
     },
-    required: {
-      baseName: "required",
-      type: "Array<string>",
+    "required": {
+      "baseName": "required",
+      "type": "Array<string>",
     },
-    title: {
-      baseName: "title",
-      type: "string",
+    "title": {
+      "baseName": "title",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "FormDataDefinitionType",
+    "type": {
+      "baseName": "type",
+      "type": "FormDataDefinitionType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -78,8 +83,34 @@ export class FormDataDefinition {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FormDataDefinition.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

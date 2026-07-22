@@ -6,19 +6,24 @@
 import { LLMObsDatasetRecordsUpdateDataAttributesRequest } from "./LLMObsDatasetRecordsUpdateDataAttributesRequest";
 import { LLMObsRecordType } from "./LLMObsRecordType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for updating records in an LLM Observability dataset.
- */
+*/
 export class LLMObsDatasetRecordsUpdateDataRequest {
   /**
    * Attributes for updating records in an LLM Observability dataset.
-   */
+  */
   "attributes": LLMObsDatasetRecordsUpdateDataAttributesRequest;
   /**
    * Resource type of LLM Observability dataset records.
-   */
+  */
   "type": LLMObsRecordType;
 
   /**
@@ -26,7 +31,7 @@ export class LLMObsDatasetRecordsUpdateDataRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class LLMObsDatasetRecordsUpdateDataRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LLMObsDatasetRecordsUpdateDataAttributesRequest",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "LLMObsDatasetRecordsUpdateDataAttributesRequest",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LLMObsRecordType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LLMObsRecordType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class LLMObsDatasetRecordsUpdateDataRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDatasetRecordsUpdateDataRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

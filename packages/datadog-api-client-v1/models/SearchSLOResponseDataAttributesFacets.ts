@@ -6,43 +6,48 @@
 import { SearchSLOResponseDataAttributesFacetsObjectInt } from "./SearchSLOResponseDataAttributesFacetsObjectInt";
 import { SearchSLOResponseDataAttributesFacetsObjectString } from "./SearchSLOResponseDataAttributesFacetsObjectString";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Facets
- */
+*/
 export class SearchSLOResponseDataAttributesFacets {
   /**
    * All tags associated with an SLO.
-   */
+  */
   "allTags"?: Array<SearchSLOResponseDataAttributesFacetsObjectString>;
   /**
    * Creator of an SLO.
-   */
+  */
   "creatorName"?: Array<SearchSLOResponseDataAttributesFacetsObjectString>;
   /**
    * Tags with the `env` tag key.
-   */
+  */
   "envTags"?: Array<SearchSLOResponseDataAttributesFacetsObjectString>;
   /**
    * Tags with the `service` tag key.
-   */
+  */
   "serviceTags"?: Array<SearchSLOResponseDataAttributesFacetsObjectString>;
   /**
    * Type of SLO.
-   */
+  */
   "sloType"?: Array<SearchSLOResponseDataAttributesFacetsObjectInt>;
   /**
    * SLO Target
-   */
+  */
   "target"?: Array<SearchSLOResponseDataAttributesFacetsObjectInt>;
   /**
    * Tags with the `team` tag key.
-   */
+  */
   "teamTags"?: Array<SearchSLOResponseDataAttributesFacetsObjectString>;
   /**
    * Timeframes of SLOs.
-   */
+  */
   "timeframe"?: Array<SearchSLOResponseDataAttributesFacetsObjectString>;
 
   /**
@@ -50,7 +55,7 @@ export class SearchSLOResponseDataAttributesFacets {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -61,37 +66,37 @@ export class SearchSLOResponseDataAttributesFacets {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    allTags: {
-      baseName: "all_tags",
-      type: "Array<SearchSLOResponseDataAttributesFacetsObjectString>",
+    "allTags": {
+      "baseName": "all_tags",
+      "type": "Array<SearchSLOResponseDataAttributesFacetsObjectString>",
     },
-    creatorName: {
-      baseName: "creator_name",
-      type: "Array<SearchSLOResponseDataAttributesFacetsObjectString>",
+    "creatorName": {
+      "baseName": "creator_name",
+      "type": "Array<SearchSLOResponseDataAttributesFacetsObjectString>",
     },
-    envTags: {
-      baseName: "env_tags",
-      type: "Array<SearchSLOResponseDataAttributesFacetsObjectString>",
+    "envTags": {
+      "baseName": "env_tags",
+      "type": "Array<SearchSLOResponseDataAttributesFacetsObjectString>",
     },
-    serviceTags: {
-      baseName: "service_tags",
-      type: "Array<SearchSLOResponseDataAttributesFacetsObjectString>",
+    "serviceTags": {
+      "baseName": "service_tags",
+      "type": "Array<SearchSLOResponseDataAttributesFacetsObjectString>",
     },
-    sloType: {
-      baseName: "slo_type",
-      type: "Array<SearchSLOResponseDataAttributesFacetsObjectInt>",
+    "sloType": {
+      "baseName": "slo_type",
+      "type": "Array<SearchSLOResponseDataAttributesFacetsObjectInt>",
     },
-    target: {
-      baseName: "target",
-      type: "Array<SearchSLOResponseDataAttributesFacetsObjectInt>",
+    "target": {
+      "baseName": "target",
+      "type": "Array<SearchSLOResponseDataAttributesFacetsObjectInt>",
     },
-    teamTags: {
-      baseName: "team_tags",
-      type: "Array<SearchSLOResponseDataAttributesFacetsObjectString>",
+    "teamTags": {
+      "baseName": "team_tags",
+      "type": "Array<SearchSLOResponseDataAttributesFacetsObjectString>",
     },
-    timeframe: {
-      baseName: "timeframe",
-      type: "Array<SearchSLOResponseDataAttributesFacetsObjectString>",
+    "timeframe": {
+      "baseName": "timeframe",
+      "type": "Array<SearchSLOResponseDataAttributesFacetsObjectString>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -103,8 +108,34 @@ export class SearchSLOResponseDataAttributesFacets {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SearchSLOResponseDataAttributesFacets.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

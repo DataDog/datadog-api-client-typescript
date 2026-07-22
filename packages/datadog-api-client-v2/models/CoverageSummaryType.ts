@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * JSON:API type for coverage summary response. The value must always be `ci_app_coverage_summary`.
- */
+*/
 
-export type CoverageSummaryType =
-  | typeof CI_APP_COVERAGE_SUMMARY
-  | UnparsedObject;
-export const CI_APP_COVERAGE_SUMMARY = "ci_app_coverage_summary";
+export type CoverageSummaryType = typeof CI_APP_COVERAGE_SUMMARY | UnparsedObject;
+export const CI_APP_COVERAGE_SUMMARY = 'ci_app_coverage_summary';

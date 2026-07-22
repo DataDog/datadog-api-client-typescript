@@ -5,15 +5,20 @@
  */
 import { AllocationDataResponse } from "./AllocationDataResponse";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a single targeting rule (allocation).
- */
+*/
 export class AllocationResponse {
   /**
    * Data wrapper for targeting rule allocation responses.
-   */
+  */
   "data": AllocationDataResponse;
 
   /**
@@ -21,7 +26,7 @@ export class AllocationResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class AllocationResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "AllocationDataResponse",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "AllocationDataResponse",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class AllocationResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AllocationResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,19 +6,24 @@
 import { DeploymentMetadata } from "./DeploymentMetadata";
 import { DeploymentRelationshipData } from "./DeploymentRelationshipData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Information pointing to the app's publication status.
- */
+*/
 export class DeploymentRelationship {
   /**
    * Data object containing the deployment ID.
-   */
+  */
   "data"?: DeploymentRelationshipData;
   /**
    * Metadata object containing the publication creation information.
-   */
+  */
   "meta"?: DeploymentMetadata;
 
   /**
@@ -26,7 +31,7 @@ export class DeploymentRelationship {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class DeploymentRelationship {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "DeploymentRelationshipData",
+    "data": {
+      "baseName": "data",
+      "type": "DeploymentRelationshipData",
     },
-    meta: {
-      baseName: "meta",
-      type: "DeploymentMetadata",
+    "meta": {
+      "baseName": "meta",
+      "type": "DeploymentMetadata",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class DeploymentRelationship {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DeploymentRelationship.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

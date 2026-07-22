@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Field to sort overrides by.
- */
+*/
 
-export type OrgGroupPolicyOverrideSortOption =
-  | typeof ID
-  | typeof MINUS_ID
-  | typeof ORG_UUID
-  | typeof MINUS_ORG_UUID
-  | UnparsedObject;
-export const ID = "id";
-export const MINUS_ID = "-id";
-export const ORG_UUID = "org_uuid";
-export const MINUS_ORG_UUID = "-org_uuid";
+export type OrgGroupPolicyOverrideSortOption = typeof ID| typeof MINUS_ID| typeof ORG_UUID| typeof MINUS_ORG_UUID | UnparsedObject;
+export const ID = 'id';
+export const MINUS_ID = '-id';
+export const ORG_UUID = 'org_uuid';
+export const MINUS_ORG_UUID = '-org_uuid';

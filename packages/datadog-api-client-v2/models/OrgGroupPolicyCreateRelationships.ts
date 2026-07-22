@@ -5,15 +5,20 @@
  */
 import { OrgGroupRelationshipToOne } from "./OrgGroupRelationshipToOne";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationships for creating a policy.
- */
+*/
 export class OrgGroupPolicyCreateRelationships {
   /**
    * Relationship to a single org group.
-   */
+  */
   "orgGroup": OrgGroupRelationshipToOne;
 
   /**
@@ -21,7 +26,7 @@ export class OrgGroupPolicyCreateRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class OrgGroupPolicyCreateRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    orgGroup: {
-      baseName: "org_group",
-      type: "OrgGroupRelationshipToOne",
-      required: true,
+    "orgGroup": {
+      "baseName": "org_group",
+      "type": "OrgGroupRelationshipToOne",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class OrgGroupPolicyCreateRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgGroupPolicyCreateRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

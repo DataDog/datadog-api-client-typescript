@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A valid value for an incident user-defined field.
- */
+*/
 export class IncidentUserDefinedFieldValidValue {
   /**
    * A detailed description of the valid value.
-   */
+  */
   "description"?: string;
   /**
    * The human-readable display name for this value.
-   */
+  */
   "displayName": string;
   /**
    * A short description of the valid value.
-   */
+  */
   "shortDescription"?: string;
   /**
    * The identifier that is stored when this option is selected.
-   */
+  */
   "value": string;
 
   /**
@@ -32,7 +37,7 @@ export class IncidentUserDefinedFieldValidValue {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,23 +48,23 @@ export class IncidentUserDefinedFieldValidValue {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    displayName: {
-      baseName: "display_name",
-      type: "string",
-      required: true,
+    "displayName": {
+      "baseName": "display_name",
+      "type": "string",
+      "required": true,
     },
-    shortDescription: {
-      baseName: "short_description",
-      type: "string",
+    "shortDescription": {
+      "baseName": "short_description",
+      "type": "string",
     },
-    value: {
-      baseName: "value",
-      type: "string",
-      required: true,
+    "value": {
+      "baseName": "value",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,8 +76,34 @@ export class IncidentUserDefinedFieldValidValue {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentUserDefinedFieldValidValue.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

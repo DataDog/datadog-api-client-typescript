@@ -6,19 +6,24 @@
 import { GlobalIncidentSettingsAttributesRequest } from "./GlobalIncidentSettingsAttributesRequest";
 import { GlobalIncidentSettingsType } from "./GlobalIncidentSettingsType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object in the global incident settings request.
- */
+*/
 export class GlobalIncidentSettingsDataRequest {
   /**
    * Global incident settings attributes
-   */
+  */
   "attributes"?: GlobalIncidentSettingsAttributesRequest;
   /**
    * Global incident settings resource type
-   */
+  */
   "type": GlobalIncidentSettingsType;
 
   /**
@@ -26,7 +31,7 @@ export class GlobalIncidentSettingsDataRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class GlobalIncidentSettingsDataRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "GlobalIncidentSettingsAttributesRequest",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "GlobalIncidentSettingsAttributesRequest",
     },
-    type: {
-      baseName: "type",
-      type: "GlobalIncidentSettingsType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "GlobalIncidentSettingsType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class GlobalIncidentSettingsDataRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GlobalIncidentSettingsDataRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -8,31 +8,36 @@ import { UserJourneyFormulaCompute } from "./UserJourneyFormulaCompute";
 import { UserJourneyFormulaGroupBy } from "./UserJourneyFormulaGroupBy";
 import { UserJourneySearch } from "./UserJourneySearch";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A formula and functions User Journey query for defining funnel, timeseries, and scalar visualizations over journey data.
- */
+*/
 export class FormulaAndFunctionUserJourneyQueryDefinition {
   /**
    * Compute configuration for User Journey formula queries.
-   */
+  */
   "compute": UserJourneyFormulaCompute;
   /**
    * Data source for user journey funnel queries.
-   */
+  */
   "dataSource": ProductAnalyticsFunnelDataSource;
   /**
    * Group by configuration.
-   */
+  */
   "groupBy"?: Array<UserJourneyFormulaGroupBy>;
   /**
    * Name of the query for use in formulas.
-   */
+  */
   "name": string;
   /**
    * User journey search configuration.
-   */
+  */
   "search": UserJourneySearch;
 
   /**
@@ -40,7 +45,7 @@ export class FormulaAndFunctionUserJourneyQueryDefinition {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -51,29 +56,29 @@ export class FormulaAndFunctionUserJourneyQueryDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    compute: {
-      baseName: "compute",
-      type: "UserJourneyFormulaCompute",
-      required: true,
+    "compute": {
+      "baseName": "compute",
+      "type": "UserJourneyFormulaCompute",
+      "required": true,
     },
-    dataSource: {
-      baseName: "data_source",
-      type: "ProductAnalyticsFunnelDataSource",
-      required: true,
+    "dataSource": {
+      "baseName": "data_source",
+      "type": "ProductAnalyticsFunnelDataSource",
+      "required": true,
     },
-    groupBy: {
-      baseName: "group_by",
-      type: "Array<UserJourneyFormulaGroupBy>",
+    "groupBy": {
+      "baseName": "group_by",
+      "type": "Array<UserJourneyFormulaGroupBy>",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    search: {
-      baseName: "search",
-      type: "UserJourneySearch",
-      required: true,
+    "search": {
+      "baseName": "search",
+      "type": "UserJourneySearch",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -85,8 +90,34 @@ export class FormulaAndFunctionUserJourneyQueryDefinition {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FormulaAndFunctionUserJourneyQueryDefinition.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

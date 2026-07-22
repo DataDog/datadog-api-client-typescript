@@ -5,19 +5,24 @@
  */
 import { DatastoreItemsDataType } from "./DatastoreItemsDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data containing the identifier of the datastore item that was successfully deleted.
- */
+*/
 export class DeleteAppsDatastoreItemResponseData {
   /**
    * The unique identifier of the item that was deleted.
-   */
+  */
   "id"?: string;
   /**
    * The resource type for datastore items.
-   */
+  */
   "type": DatastoreItemsDataType;
 
   /**
@@ -25,7 +30,7 @@ export class DeleteAppsDatastoreItemResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,14 +41,14 @@ export class DeleteAppsDatastoreItemResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "DatastoreItemsDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "DatastoreItemsDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class DeleteAppsDatastoreItemResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DeleteAppsDatastoreItemResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,19 +5,24 @@
  */
 import { GreyNoiseAPIKeyType } from "./GreyNoiseAPIKeyType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `GreyNoiseAPIKey` object.
- */
+*/
 export class GreyNoiseAPIKey {
   /**
    * The `GreyNoiseAPIKey` `api_key`.
-   */
+  */
   "apiKey": string;
   /**
    * The definition of the `GreyNoiseAPIKey` object.
-   */
+  */
   "type": GreyNoiseAPIKeyType;
 
   /**
@@ -25,7 +30,7 @@ export class GreyNoiseAPIKey {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class GreyNoiseAPIKey {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    apiKey: {
-      baseName: "api_key",
-      type: "string",
-      required: true,
+    "apiKey": {
+      "baseName": "api_key",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "GreyNoiseAPIKeyType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "GreyNoiseAPIKeyType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class GreyNoiseAPIKey {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GreyNoiseAPIKey.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

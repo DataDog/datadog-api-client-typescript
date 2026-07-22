@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Resource type of an LLM Observability project.
- */
+*/
 
 export type LLMObsProjectType = typeof PROJECTS | UnparsedObject;
-export const PROJECTS = "projects";
+export const PROJECTS = 'projects';

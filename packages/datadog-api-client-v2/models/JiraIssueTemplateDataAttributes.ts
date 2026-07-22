@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a Jira issue template
- */
+*/
 export class JiraIssueTemplateDataAttributes {
   /**
    * Custom fields for the Jira issue template
-   */
-  "fields": { [key: string]: any };
+  */
+  "fields": { [key: string]: any; };
   /**
    * The ID of the Jira issue type
-   */
+  */
   "issueTypeId": string;
   /**
    * The name of the issue template
-   */
+  */
   "name": string;
   /**
    * The ID of the Jira project
-   */
+  */
   "projectId": string;
 
   /**
@@ -32,7 +37,7 @@ export class JiraIssueTemplateDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,25 +48,25 @@ export class JiraIssueTemplateDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    fields: {
-      baseName: "fields",
-      type: "{ [key: string]: any; }",
-      required: true,
+    "fields": {
+      "baseName": "fields",
+      "type": "{ [key: string]: any; }",
+      "required": true,
     },
-    issueTypeId: {
-      baseName: "issue_type_id",
-      type: "string",
-      required: true,
+    "issueTypeId": {
+      "baseName": "issue_type_id",
+      "type": "string",
+      "required": true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    projectId: {
-      baseName: "project_id",
-      type: "string",
-      required: true,
+    "projectId": {
+      "baseName": "project_id",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -73,8 +78,34 @@ export class JiraIssueTemplateDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return JiraIssueTemplateDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

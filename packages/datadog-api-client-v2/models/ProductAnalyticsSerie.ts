@@ -5,23 +5,28 @@
  */
 import { ProductAnalyticsUnit } from "./ProductAnalyticsUnit";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A series in a timeseries response.
- */
+*/
 export class ProductAnalyticsSerie {
   /**
    * The group-by tag values that identify this series.
-   */
+  */
   "groupTags"?: Array<string>;
   /**
    * The index of the query that produced this series.
-   */
+  */
   "queryIndex"?: number;
   /**
    * Unit definitions for the series values.
-   */
+  */
   "unit"?: Array<ProductAnalyticsUnit>;
 
   /**
@@ -29,7 +34,7 @@ export class ProductAnalyticsSerie {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,18 +45,18 @@ export class ProductAnalyticsSerie {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    groupTags: {
-      baseName: "group_tags",
-      type: "Array<string>",
+    "groupTags": {
+      "baseName": "group_tags",
+      "type": "Array<string>",
     },
-    queryIndex: {
-      baseName: "query_index",
-      type: "number",
-      format: "int64",
+    "queryIndex": {
+      "baseName": "query_index",
+      "type": "number",
+      "format": "int64",
     },
-    unit: {
-      baseName: "unit",
-      type: "Array<ProductAnalyticsUnit>",
+    "unit": {
+      "baseName": "unit",
+      "type": "Array<ProductAnalyticsUnit>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class ProductAnalyticsSerie {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProductAnalyticsSerie.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The state of the credentials configured on the entity context sync.
- */
+*/
 
-export type SecurityMonitoringIntegrationConfigState =
-  | typeof VALID
-  | typeof INVALID
-  | typeof INITIALIZING
-  | UnparsedObject;
-export const VALID = "valid";
-export const INVALID = "invalid";
-export const INITIALIZING = "initializing";
+export type SecurityMonitoringIntegrationConfigState = typeof VALID| typeof INVALID| typeof INITIALIZING | UnparsedObject;
+export const VALID = 'valid';
+export const INVALID = 'invalid';
+export const INITIALIZING = 'initializing';

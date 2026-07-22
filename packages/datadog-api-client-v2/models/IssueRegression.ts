@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Regression information for an issue that was previously resolved and then reopened.
- */
+*/
 export class IssueRegression {
   /**
    * Timestamp when the issue was reopened (regressed).
-   */
+  */
   "regressedAt": Date;
   /**
    * Application version where the regression was observed.
-   */
+  */
   "regressedAtVersion"?: string;
   /**
    * Timestamp when the issue was resolved before the regression.
-   */
+  */
   "resolvedAt": Date;
 
   /**
@@ -28,7 +33,7 @@ export class IssueRegression {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,21 +44,21 @@ export class IssueRegression {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    regressedAt: {
-      baseName: "regressed_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "regressedAt": {
+      "baseName": "regressed_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    regressedAtVersion: {
-      baseName: "regressed_at_version",
-      type: "string",
+    "regressedAtVersion": {
+      "baseName": "regressed_at_version",
+      "type": "string",
     },
-    resolvedAt: {
-      baseName: "resolved_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "resolvedAt": {
+      "baseName": "resolved_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class IssueRegression {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IssueRegression.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

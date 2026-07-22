@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Layout type of the group.
- */
+*/
 
 export type WidgetLayoutType = typeof ORDERED | UnparsedObject;
-export const ORDERED = "ordered";
+export const ORDERED = 'ordered';

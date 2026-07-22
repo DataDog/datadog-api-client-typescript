@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for requesting code coverage summary for a commit.
- */
+*/
 export class CommitCoverageSummaryRequestAttributes {
   /**
    * The commit SHA (40-character hexadecimal string).
-   */
+  */
   "commitSha": string;
   /**
    * Deprecated: use `repository_url` instead. The repository URL.
-   */
+  */
   "repositoryId"?: string;
   /**
    * The repository URL. Accepts a full URL with or without a scheme (for example, `https://github.com/org/repo` or `github.com/org/repo`).
-   */
+  */
   "repositoryUrl"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class CommitCoverageSummaryRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,18 +44,18 @@ export class CommitCoverageSummaryRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    commitSha: {
-      baseName: "commit_sha",
-      type: "string",
-      required: true,
+    "commitSha": {
+      "baseName": "commit_sha",
+      "type": "string",
+      "required": true,
     },
-    repositoryId: {
-      baseName: "repository_id",
-      type: "string",
+    "repositoryId": {
+      "baseName": "repository_id",
+      "type": "string",
     },
-    repositoryUrl: {
-      baseName: "repository_url",
-      type: "string",
+    "repositoryUrl": {
+      "baseName": "repository_url",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class CommitCoverageSummaryRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CommitCoverageSummaryRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

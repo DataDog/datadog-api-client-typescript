@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object describing a timeframe.
- */
+*/
 export class SyntheticsTestOptionsSchedulingTimeframe {
   /**
    * Number representing the day of the week.
-   */
+  */
   "day": number;
   /**
    * The hour of the day on which scheduling starts.
-   */
+  */
   "from": string;
   /**
    * The hour of the day on which scheduling ends.
-   */
+  */
   "to": string;
 
   /**
@@ -28,7 +33,7 @@ export class SyntheticsTestOptionsSchedulingTimeframe {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,21 +44,21 @@ export class SyntheticsTestOptionsSchedulingTimeframe {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    day: {
-      baseName: "day",
-      type: "number",
-      required: true,
-      format: "int32",
+    "day": {
+      "baseName": "day",
+      "type": "number",
+      "required": true,
+      "format": "int32",
     },
-    from: {
-      baseName: "from",
-      type: "string",
-      required: true,
+    "from": {
+      "baseName": "from",
+      "type": "string",
+      "required": true,
     },
-    to: {
-      baseName: "to",
-      type: "string",
-      required: true,
+    "to": {
+      "baseName": "to",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class SyntheticsTestOptionsSchedulingTimeframe {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestOptionsSchedulingTimeframe.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

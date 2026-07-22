@@ -6,19 +6,24 @@
 import { LLMObsExperimentMetric } from "./LLMObsExperimentMetric";
 import { LLMObsExperimentSpan } from "./LLMObsExperimentSpan";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for pushing experiment events including spans and metrics.
- */
+*/
 export class LLMObsExperimentEventsDataAttributesRequest {
   /**
    * List of metrics to push for the experiment.
-   */
+  */
   "metrics"?: Array<LLMObsExperimentMetric>;
   /**
    * List of spans to push for the experiment.
-   */
+  */
   "spans"?: Array<LLMObsExperimentSpan>;
 
   /**
@@ -26,7 +31,7 @@ export class LLMObsExperimentEventsDataAttributesRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class LLMObsExperimentEventsDataAttributesRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    metrics: {
-      baseName: "metrics",
-      type: "Array<LLMObsExperimentMetric>",
+    "metrics": {
+      "baseName": "metrics",
+      "type": "Array<LLMObsExperimentMetric>",
     },
-    spans: {
-      baseName: "spans",
-      type: "Array<LLMObsExperimentSpan>",
+    "spans": {
+      "baseName": "spans",
+      "type": "Array<LLMObsExperimentSpan>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class LLMObsExperimentEventsDataAttributesRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsExperimentEventsDataAttributesRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

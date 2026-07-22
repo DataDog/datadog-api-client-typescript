@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The JSON:API type for agentless host facet resources. The value should always be `agentless_host_facet`.
- */
+*/
 
-export type CsmAgentlessHostFacetType =
-  | typeof AGENTLESS_HOST_FACET
-  | UnparsedObject;
-export const AGENTLESS_HOST_FACET = "agentless_host_facet";
+export type CsmAgentlessHostFacetType = typeof AGENTLESS_HOST_FACET | UnparsedObject;
+export const AGENTLESS_HOST_FACET = 'agentless_host_facet';

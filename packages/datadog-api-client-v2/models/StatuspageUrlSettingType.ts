@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Statuspage URL setting resource type.
- */
+*/
 
-export type StatuspageUrlSettingType =
-  | typeof STATUSPAGE_URL_SETTING
-  | UnparsedObject;
-export const STATUSPAGE_URL_SETTING = "statuspage-url-setting";
+export type StatuspageUrlSettingType = typeof STATUSPAGE_URL_SETTING | UnparsedObject;
+export const STATUSPAGE_URL_SETTING = 'statuspage-url-setting';

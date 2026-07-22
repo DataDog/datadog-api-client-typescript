@@ -6,19 +6,24 @@
 import { LaunchDarklyCredentials } from "./LaunchDarklyCredentials";
 import { LaunchDarklyIntegrationType } from "./LaunchDarklyIntegrationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `LaunchDarklyIntegration` object.
- */
+*/
 export class LaunchDarklyIntegration {
   /**
    * The definition of the `LaunchDarklyCredentials` object.
-   */
+  */
   "credentials": LaunchDarklyCredentials;
   /**
    * The definition of the `LaunchDarklyIntegrationType` object.
-   */
+  */
   "type": LaunchDarklyIntegrationType;
 
   /**
@@ -26,7 +31,7 @@ export class LaunchDarklyIntegration {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class LaunchDarklyIntegration {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    credentials: {
-      baseName: "credentials",
-      type: "LaunchDarklyCredentials",
-      required: true,
+    "credentials": {
+      "baseName": "credentials",
+      "type": "LaunchDarklyCredentials",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LaunchDarklyIntegrationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LaunchDarklyIntegrationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class LaunchDarklyIntegration {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LaunchDarklyIntegration.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

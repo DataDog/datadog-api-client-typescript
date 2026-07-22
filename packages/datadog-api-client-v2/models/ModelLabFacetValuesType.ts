@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The JSON:API type for a facet values resource.
- */
+*/
 
 export type ModelLabFacetValuesType = typeof FACET_VALUES | UnparsedObject;
-export const FACET_VALUES = "facet_values";
+export const FACET_VALUES = 'facet_values';

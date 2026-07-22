@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Defines a grouping dimension for the infrastructure host map.
- */
+*/
 export class HostMapWidgetGroupBy {
   /**
    * Column name from the entity table (for example, `cloud_provider`, `tags`, `labels`).
-   */
+  */
   "column": string;
   /**
    * Key within the column for nested attribute types (for example, `service` within `tags`).
-   */
+  */
   "key"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class HostMapWidgetGroupBy {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,14 +40,14 @@ export class HostMapWidgetGroupBy {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    column: {
-      baseName: "column",
-      type: "string",
-      required: true,
+    "column": {
+      "baseName": "column",
+      "type": "string",
+      "required": true,
     },
-    key: {
-      baseName: "key",
-      type: "string",
+    "key": {
+      "baseName": "key",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class HostMapWidgetGroupBy {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return HostMapWidgetGroupBy.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

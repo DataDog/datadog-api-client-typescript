@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response from the delete monitor call.
- */
+*/
 export class DeletedMonitor {
   /**
    * ID of the deleted monitor.
-   */
+  */
   "deletedMonitorId"?: number;
 
   /**
@@ -20,7 +25,7 @@ export class DeletedMonitor {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,10 +36,10 @@ export class DeletedMonitor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    deletedMonitorId: {
-      baseName: "deleted_monitor_id",
-      type: "number",
-      format: "int64",
+    "deletedMonitorId": {
+      "baseName": "deleted_monitor_id",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class DeletedMonitor {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DeletedMonitor.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

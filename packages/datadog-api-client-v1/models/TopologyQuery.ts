@@ -5,23 +5,28 @@
  */
 import { TopologyQueryDataSource } from "./TopologyQueryDataSource";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Query to service-based topology data sources like the service map or data streams.
- */
+*/
 export class TopologyQuery {
   /**
    * Name of the data source
-   */
+  */
   "dataSource"?: TopologyQueryDataSource;
   /**
    * Your environment and primary tag (or * if enabled for your account).
-   */
+  */
   "filters"?: Array<string>;
   /**
    * Name of the service
-   */
+  */
   "service"?: string;
 
   /**
@@ -29,7 +34,7 @@ export class TopologyQuery {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,17 +45,17 @@ export class TopologyQuery {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    dataSource: {
-      baseName: "data_source",
-      type: "TopologyQueryDataSource",
+    "dataSource": {
+      "baseName": "data_source",
+      "type": "TopologyQueryDataSource",
     },
-    filters: {
-      baseName: "filters",
-      type: "Array<string>",
+    "filters": {
+      "baseName": "filters",
+      "type": "Array<string>",
     },
-    service: {
-      baseName: "service",
-      type: "string",
+    "service": {
+      "baseName": "service",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class TopologyQuery {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TopologyQuery.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

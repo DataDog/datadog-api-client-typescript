@@ -4,23 +4,21 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A capability advertised by an MCP server.
- */
+*/
 
-export type SyntheticsMCPServerCapability =
-  | typeof COMPLETIONS
-  | typeof EXPERIMENTAL
-  | typeof LOGGING
-  | typeof PROMPTS
-  | typeof RESOURCES
-  | typeof TOOLS
-  | UnparsedObject;
-export const COMPLETIONS = "completions";
-export const EXPERIMENTAL = "experimental";
-export const LOGGING = "logging";
-export const PROMPTS = "prompts";
-export const RESOURCES = "resources";
-export const TOOLS = "tools";
+export type SyntheticsMCPServerCapability = typeof COMPLETIONS| typeof EXPERIMENTAL| typeof LOGGING| typeof PROMPTS| typeof RESOURCES| typeof TOOLS | UnparsedObject;
+export const COMPLETIONS = 'completions';
+export const EXPERIMENTAL = 'experimental';
+export const LOGGING = 'logging';
+export const PROMPTS = 'prompts';
+export const RESOURCES = 'resources';
+export const TOOLS = 'tools';

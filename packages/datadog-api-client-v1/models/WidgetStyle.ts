@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Widget style definition.
- */
+*/
 export class WidgetStyle {
   /**
    * Color palette to apply to the widget.
-   */
+  */
   "palette"?: string;
 
   /**
@@ -20,7 +25,7 @@ export class WidgetStyle {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,9 +36,9 @@ export class WidgetStyle {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    palette: {
-      baseName: "palette",
-      type: "string",
+    "palette": {
+      "baseName": "palette",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,8 +50,34 @@ export class WidgetStyle {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return WidgetStyle.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

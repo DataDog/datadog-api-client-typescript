@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes that can be updated on a case view. All fields are optional; only provided fields are changed.
- */
+*/
 export class CaseViewUpdateAttributes {
   /**
    * The name of the view.
-   */
+  */
   "name"?: string;
   /**
    * The identifier of a notification rule linked to this view. When set, users subscribed to the view receive alerts for matching cases.
-   */
+  */
   "npRuleId"?: string;
   /**
    * The query used to filter cases in this view.
-   */
+  */
   "query"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class CaseViewUpdateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class CaseViewUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    npRuleId: {
-      baseName: "np_rule_id",
-      type: "string",
+    "npRuleId": {
+      "baseName": "np_rule_id",
+      "type": "string",
     },
-    query: {
-      baseName: "query",
-      type: "string",
+    "query": {
+      "baseName": "query",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class CaseViewUpdateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseViewUpdateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

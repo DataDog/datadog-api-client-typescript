@@ -4,31 +4,36 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of an org group policy override.
- */
+*/
 export class OrgGroupPolicyOverrideAttributes {
   /**
    * The override content as key-value pairs.
-   */
-  "content"?: { [key: string]: any };
+  */
+  "content"?: { [key: string]: any; };
   /**
    * Timestamp when the override was created.
-   */
+  */
   "createdAt": Date;
   /**
    * Timestamp when the override was last modified.
-   */
+  */
   "modifiedAt": Date;
   /**
    * The site of the organization that has the override.
-   */
+  */
   "orgSite": string;
   /**
    * The UUID of the organization that has the override.
-   */
+  */
   "orgUuid": string;
 
   /**
@@ -36,7 +41,7 @@ export class OrgGroupPolicyOverrideAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,32 +52,32 @@ export class OrgGroupPolicyOverrideAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    content: {
-      baseName: "content",
-      type: "{ [key: string]: any; }",
+    "content": {
+      "baseName": "content",
+      "type": "{ [key: string]: any; }",
     },
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "modifiedAt": {
+      "baseName": "modified_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    orgSite: {
-      baseName: "org_site",
-      type: "string",
-      required: true,
+    "orgSite": {
+      "baseName": "org_site",
+      "type": "string",
+      "required": true,
     },
-    orgUuid: {
-      baseName: "org_uuid",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "orgUuid": {
+      "baseName": "org_uuid",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -84,8 +89,34 @@ export class OrgGroupPolicyOverrideAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgGroupPolicyOverrideAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

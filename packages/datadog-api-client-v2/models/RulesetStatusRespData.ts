@@ -6,23 +6,28 @@
 import { RulesetStatusRespDataAttributes } from "./RulesetStatusRespDataAttributes";
 import { RulesetStatusRespDataType } from "./RulesetStatusRespDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Processing status for a tag pipeline ruleset.
- */
+*/
 export class RulesetStatusRespData {
   /**
    * Processing status for a tag pipeline ruleset.
-   */
+  */
   "attributes": RulesetStatusRespDataAttributes;
   /**
    * The unique identifier of the ruleset.
-   */
+  */
   "id": string;
   /**
    * Ruleset status resource type.
-   */
+  */
   "type": RulesetStatusRespDataType;
 
   /**
@@ -30,7 +35,7 @@ export class RulesetStatusRespData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class RulesetStatusRespData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RulesetStatusRespDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "RulesetStatusRespDataAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "RulesetStatusRespDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "RulesetStatusRespDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class RulesetStatusRespData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RulesetStatusRespData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

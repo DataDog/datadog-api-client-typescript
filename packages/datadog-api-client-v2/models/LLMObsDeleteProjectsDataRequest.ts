@@ -6,19 +6,24 @@
 import { LLMObsDeleteProjectsDataAttributesRequest } from "./LLMObsDeleteProjectsDataAttributesRequest";
 import { LLMObsProjectType } from "./LLMObsProjectType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for deleting LLM Observability projects.
- */
+*/
 export class LLMObsDeleteProjectsDataRequest {
   /**
    * Attributes for deleting LLM Observability projects.
-   */
+  */
   "attributes": LLMObsDeleteProjectsDataAttributesRequest;
   /**
    * Resource type of an LLM Observability project.
-   */
+  */
   "type": LLMObsProjectType;
 
   /**
@@ -26,7 +31,7 @@ export class LLMObsDeleteProjectsDataRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class LLMObsDeleteProjectsDataRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LLMObsDeleteProjectsDataAttributesRequest",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "LLMObsDeleteProjectsDataAttributesRequest",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LLMObsProjectType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LLMObsProjectType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class LLMObsDeleteProjectsDataRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDeleteProjectsDataRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

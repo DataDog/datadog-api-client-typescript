@@ -5,15 +5,20 @@
  */
 import { OpsgenieAccountCreateData } from "./OpsgenieAccountCreateData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Create request for an Opsgenie account.
- */
+*/
 export class OpsgenieAccountCreateRequest {
   /**
    * Opsgenie account data for a create request.
-   */
+  */
   "data": OpsgenieAccountCreateData;
 
   /**
@@ -21,7 +26,7 @@ export class OpsgenieAccountCreateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class OpsgenieAccountCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "OpsgenieAccountCreateData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "OpsgenieAccountCreateData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class OpsgenieAccountCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OpsgenieAccountCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

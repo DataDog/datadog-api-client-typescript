@@ -5,17 +5,22 @@
  */
 import { AWSLambdaForwarderConfig } from "./AWSLambdaForwarderConfig";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * AWS Logs Collection config.
- */
+*/
 export class AWSLogsConfig {
   /**
    * Log Autosubscription configuration for Datadog Forwarder Lambda functions.
    * Automatically set up triggers for existing and new logs for some services,
    * ensuring no logs from new resources are missed and saving time spent on manual configuration.
-   */
+  */
   "lambdaForwarder"?: AWSLambdaForwarderConfig;
 
   /**
@@ -23,7 +28,7 @@ export class AWSLogsConfig {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -34,9 +39,9 @@ export class AWSLogsConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    lambdaForwarder: {
-      baseName: "lambda_forwarder",
-      type: "AWSLambdaForwarderConfig",
+    "lambdaForwarder": {
+      "baseName": "lambda_forwarder",
+      "type": "AWSLambdaForwarderConfig",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -48,8 +53,34 @@ export class AWSLogsConfig {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSLogsConfig.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

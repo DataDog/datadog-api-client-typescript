@@ -7,23 +7,28 @@ import { OrgConnectionCreateAttributes } from "./OrgConnectionCreateAttributes";
 import { OrgConnectionCreateRelationships } from "./OrgConnectionCreateRelationships";
 import { OrgConnectionType } from "./OrgConnectionType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Org connection creation data.
- */
+*/
 export class OrgConnectionCreate {
   /**
    * Attributes for creating an org connection.
-   */
+  */
   "attributes": OrgConnectionCreateAttributes;
   /**
    * Relationships for org connection creation.
-   */
+  */
   "relationships": OrgConnectionCreateRelationships;
   /**
    * Org connection type.
-   */
+  */
   "type": OrgConnectionType;
 
   /**
@@ -31,7 +36,7 @@ export class OrgConnectionCreate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,20 +47,20 @@ export class OrgConnectionCreate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "OrgConnectionCreateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "OrgConnectionCreateAttributes",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "OrgConnectionCreateRelationships",
-      required: true,
+    "relationships": {
+      "baseName": "relationships",
+      "type": "OrgConnectionCreateRelationships",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "OrgConnectionType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "OrgConnectionType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class OrgConnectionCreate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgConnectionCreate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

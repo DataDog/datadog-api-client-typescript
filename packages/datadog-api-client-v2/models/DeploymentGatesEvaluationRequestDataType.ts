@@ -4,14 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * JSON:API type for a deployment gate evaluation request.
- */
+*/
 
-export type DeploymentGatesEvaluationRequestDataType =
-  | typeof DEPLOYMENT_GATES_EVALUATION_REQUEST
-  | UnparsedObject;
-export const DEPLOYMENT_GATES_EVALUATION_REQUEST =
-  "deployment_gates_evaluation_request";
+export type DeploymentGatesEvaluationRequestDataType = typeof DEPLOYMENT_GATES_EVALUATION_REQUEST | UnparsedObject;
+export const DEPLOYMENT_GATES_EVALUATION_REQUEST = 'deployment_gates_evaluation_request';

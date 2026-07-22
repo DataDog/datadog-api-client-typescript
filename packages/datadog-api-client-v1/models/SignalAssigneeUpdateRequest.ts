@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes describing an assignee update operation over a security signal.
- */
+*/
 export class SignalAssigneeUpdateRequest {
   /**
    * The UUID of the user being assigned. Use empty string to return signal to unassigned.
-   */
+  */
   "assignee": string;
   /**
    * Version of the updated signal. If server side version is higher, update will be rejected.
-   */
+  */
   "version"?: number;
 
   /**
@@ -24,7 +29,7 @@ export class SignalAssigneeUpdateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,14 +40,14 @@ export class SignalAssigneeUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    assignee: {
-      baseName: "assignee",
-      type: "string",
-      required: true,
+    "assignee": {
+      "baseName": "assignee",
+      "type": "string",
+      "required": true,
     },
-    version: {
-      baseName: "version",
-      type: "number",
+    "version": {
+      "baseName": "version",
+      "type": "number",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class SignalAssigneeUpdateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SignalAssigneeUpdateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

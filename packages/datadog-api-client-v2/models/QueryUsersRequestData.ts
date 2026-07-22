@@ -6,23 +6,28 @@
 import { QueryUsersRequestDataAttributes } from "./QueryUsersRequestDataAttributes";
 import { QueryUsersRequestDataType } from "./QueryUsersRequestDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data object containing the resource type and attributes for querying users.
- */
+*/
 export class QueryUsersRequestData {
   /**
    * Attributes for filtering and shaping the user query results.
-   */
+  */
   "attributes"?: QueryUsersRequestDataAttributes;
   /**
    * Unique identifier for the query users request resource.
-   */
+  */
   "id"?: string;
   /**
    * Query users request resource type.
-   */
+  */
   "type": QueryUsersRequestDataType;
 
   /**
@@ -30,7 +35,7 @@ export class QueryUsersRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class QueryUsersRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "QueryUsersRequestDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "QueryUsersRequestDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "QueryUsersRequestDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "QueryUsersRequestDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class QueryUsersRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return QueryUsersRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,23 +6,28 @@
 import { SnapshotDataAttributes } from "./SnapshotDataAttributes";
 import { SnapshotUpdateRequestDataType } from "./SnapshotUpdateRequestDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object representing a heatmap snapshot, including its identifier, type, and attributes.
- */
+*/
 export class SnapshotData {
   /**
    * Attributes of a heatmap snapshot, including view context, device information, and audit metadata.
-   */
+  */
   "attributes"?: SnapshotDataAttributes;
   /**
    * Unique identifier of the heatmap snapshot.
-   */
+  */
   "id"?: string;
   /**
    * Snapshots resource type.
-   */
+  */
   "type": SnapshotUpdateRequestDataType;
 
   /**
@@ -30,7 +35,7 @@ export class SnapshotData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class SnapshotData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SnapshotDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SnapshotDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SnapshotUpdateRequestDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SnapshotUpdateRequestDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class SnapshotData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SnapshotData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

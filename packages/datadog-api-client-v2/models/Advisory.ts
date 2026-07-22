@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Advisory.
- */
+*/
 export class Advisory {
   /**
    * Advisory base severity.
-   */
+  */
   "baseSeverity": string;
   /**
    * Advisory id.
-   */
+  */
   "id": string;
   /**
    * Advisory Datadog severity.
-   */
+  */
   "severity"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class Advisory {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,19 +44,19 @@ export class Advisory {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    baseSeverity: {
-      baseName: "base_severity",
-      type: "string",
-      required: true,
+    "baseSeverity": {
+      "baseName": "base_severity",
+      "type": "string",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    severity: {
-      baseName: "severity",
-      type: "string",
+    "severity": {
+      "baseName": "severity",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class Advisory {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return Advisory.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

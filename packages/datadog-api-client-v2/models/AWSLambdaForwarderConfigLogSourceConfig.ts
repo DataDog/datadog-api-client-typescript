@@ -5,15 +5,20 @@
  */
 import { AWSLogSourceTagFilter } from "./AWSLogSourceTagFilter";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Log source configuration.
- */
+*/
 export class AWSLambdaForwarderConfigLogSourceConfig {
   /**
    * List of AWS log source tag filters. Defaults to `[]`.
-   */
+  */
   "tagFilters"?: Array<AWSLogSourceTagFilter>;
 
   /**
@@ -21,7 +26,7 @@ export class AWSLambdaForwarderConfigLogSourceConfig {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class AWSLambdaForwarderConfigLogSourceConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    tagFilters: {
-      baseName: "tag_filters",
-      type: "Array<AWSLogSourceTagFilter>",
+    "tagFilters": {
+      "baseName": "tag_filters",
+      "type": "Array<AWSLogSourceTagFilter>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class AWSLambdaForwarderConfigLogSourceConfig {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSLambdaForwarderConfigLogSourceConfig.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

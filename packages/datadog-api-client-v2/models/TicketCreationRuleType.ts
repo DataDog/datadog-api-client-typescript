@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The JSON:API type for ticket creation rules.
- */
+*/
 
-export type TicketCreationRuleType =
-  | typeof TICKET_CREATION_RULES
-  | UnparsedObject;
-export const TICKET_CREATION_RULES = "ticket_creation_rules";
+export type TicketCreationRuleType = typeof TICKET_CREATION_RULES | UnparsedObject;
+export const TICKET_CREATION_RULES = 'ticket_creation_rules';

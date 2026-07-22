@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of scope the rate limit configuration applies to.
- */
+*/
 
 export type RumRateLimitScopeType = typeof APPLICATION | UnparsedObject;
-export const APPLICATION = "application";
+export const APPLICATION = 'application';

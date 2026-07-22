@@ -5,15 +5,20 @@
  */
 import { ServiceNowTicketCreateData } from "./ServiceNowTicketCreateData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * ServiceNow ticket creation request
- */
+*/
 export class ServiceNowTicketCreateRequest {
   /**
    * ServiceNow ticket creation data
-   */
+  */
   "data": ServiceNowTicketCreateData;
 
   /**
@@ -21,7 +26,7 @@ export class ServiceNowTicketCreateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class ServiceNowTicketCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ServiceNowTicketCreateData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "ServiceNowTicketCreateData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class ServiceNowTicketCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceNowTicketCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

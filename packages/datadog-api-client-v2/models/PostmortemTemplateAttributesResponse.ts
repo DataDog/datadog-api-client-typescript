@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a postmortem template returned in a response.
- */
+*/
 export class PostmortemTemplateAttributesResponse {
   /**
    * When the template was created
-   */
+  */
   "createdAt": Date;
   /**
    * When the template was last modified
-   */
+  */
   "modifiedAt": Date;
   /**
    * The name of the template
-   */
+  */
   "name": string;
 
   /**
@@ -28,7 +33,7 @@ export class PostmortemTemplateAttributesResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,22 +44,22 @@ export class PostmortemTemplateAttributesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "createdAt",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "createdAt": {
+      "baseName": "createdAt",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    modifiedAt: {
-      baseName: "modifiedAt",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "modifiedAt": {
+      "baseName": "modifiedAt",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class PostmortemTemplateAttributesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PostmortemTemplateAttributesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

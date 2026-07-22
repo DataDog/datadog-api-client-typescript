@@ -5,15 +5,20 @@
  */
 import { RelationshipToUser } from "./RelationshipToUser";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Powerpack relationship object.
- */
+*/
 export class PowerpackRelationships {
   /**
    * Relationship to user.
-   */
+  */
   "author"?: RelationshipToUser;
 
   /**
@@ -21,7 +26,7 @@ export class PowerpackRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class PowerpackRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    author: {
-      baseName: "author",
-      type: "RelationshipToUser",
+    "author": {
+      "baseName": "author",
+      "type": "RelationshipToUser",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class PowerpackRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PowerpackRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

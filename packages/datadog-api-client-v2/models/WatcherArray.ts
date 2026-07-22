@@ -5,15 +5,20 @@
  */
 import { WatcherData } from "./WatcherData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A list of users who have watched a RUM replay session.
- */
+*/
 export class WatcherArray {
   /**
    * Array of watcher data objects.
-   */
+  */
   "data": Array<WatcherData>;
 
   /**
@@ -21,7 +26,7 @@ export class WatcherArray {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class WatcherArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<WatcherData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<WatcherData>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class WatcherArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return WatcherArray.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

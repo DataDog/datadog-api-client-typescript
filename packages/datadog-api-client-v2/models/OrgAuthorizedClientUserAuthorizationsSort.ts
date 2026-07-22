@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Field to sort user authorizations by.
- */
+*/
 
-export type OrgAuthorizedClientUserAuthorizationsSort =
-  | typeof USER_NAME
-  | typeof USER_EMAIL
-  | typeof OAUTH2_CLIENT_NAME
-  | UnparsedObject;
-export const USER_NAME = "user.name";
-export const USER_EMAIL = "user.email";
-export const OAUTH2_CLIENT_NAME = "oauth2_client.name";
+export type OrgAuthorizedClientUserAuthorizationsSort = typeof USER_NAME| typeof USER_EMAIL| typeof OAUTH2_CLIENT_NAME | UnparsedObject;
+export const USER_NAME = 'user.name';
+export const USER_EMAIL = 'user.email';
+export const OAUTH2_CLIENT_NAME = 'oauth2_client.name';

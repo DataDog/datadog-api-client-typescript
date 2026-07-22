@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A Git user (author or committer).
- */
+*/
 export class SyntheticsTestResultGitUser {
   /**
    * Timestamp of the commit action for this user.
-   */
+  */
   "date"?: string;
   /**
    * Email address of the Git user.
-   */
+  */
   "email"?: string;
   /**
    * Name of the Git user.
-   */
+  */
   "name"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class SyntheticsTestResultGitUser {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class SyntheticsTestResultGitUser {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    date: {
-      baseName: "date",
-      type: "string",
+    "date": {
+      "baseName": "date",
+      "type": "string",
     },
-    email: {
-      baseName: "email",
-      type: "string",
+    "email": {
+      "baseName": "email",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class SyntheticsTestResultGitUser {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultGitUser.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

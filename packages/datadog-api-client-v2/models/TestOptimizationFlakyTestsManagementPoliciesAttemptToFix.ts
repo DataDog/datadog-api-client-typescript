@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Configuration for the attempt-to-fix Flaky Tests Management policy.
- */
+*/
 export class TestOptimizationFlakyTestsManagementPoliciesAttemptToFix {
   /**
    * Number of retries when attempting to fix a flaky test. Must be greater than 0.
-   */
+  */
   "retries"?: number;
 
   /**
@@ -20,7 +25,7 @@ export class TestOptimizationFlakyTestsManagementPoliciesAttemptToFix {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,10 +36,10 @@ export class TestOptimizationFlakyTestsManagementPoliciesAttemptToFix {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    retries: {
-      baseName: "retries",
-      type: "number",
-      format: "int64",
+    "retries": {
+      "baseName": "retries",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class TestOptimizationFlakyTestsManagementPoliciesAttemptToFix {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TestOptimizationFlakyTestsManagementPoliciesAttemptToFix.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

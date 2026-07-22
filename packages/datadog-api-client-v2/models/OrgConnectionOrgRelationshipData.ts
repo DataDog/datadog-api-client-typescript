@@ -5,23 +5,28 @@
  */
 import { OrgConnectionOrgRelationshipDataType } from "./OrgConnectionOrgRelationshipDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `OrgConnectionOrgRelationshipData` object.
- */
+*/
 export class OrgConnectionOrgRelationshipData {
   /**
    * Org UUID.
-   */
+  */
   "id"?: string;
   /**
    * Org name.
-   */
+  */
   "name"?: string;
   /**
    * The type of the organization relationship.
-   */
+  */
   "type"?: OrgConnectionOrgRelationshipDataType;
 
   /**
@@ -29,7 +34,7 @@ export class OrgConnectionOrgRelationshipData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,17 +45,17 @@ export class OrgConnectionOrgRelationshipData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "OrgConnectionOrgRelationshipDataType",
+    "type": {
+      "baseName": "type",
+      "type": "OrgConnectionOrgRelationshipDataType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class OrgConnectionOrgRelationshipData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgConnectionOrgRelationshipData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

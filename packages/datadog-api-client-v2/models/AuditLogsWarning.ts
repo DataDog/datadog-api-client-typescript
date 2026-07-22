@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Warning message indicating something that went wrong with the query.
- */
+*/
 export class AuditLogsWarning {
   /**
    * Unique code for this type of warning.
-   */
+  */
   "code"?: string;
   /**
    * Detailed explanation of this specific warning.
-   */
+  */
   "detail"?: string;
   /**
    * Short human-readable summary of the warning.
-   */
+  */
   "title"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class AuditLogsWarning {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class AuditLogsWarning {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    code: {
-      baseName: "code",
-      type: "string",
+    "code": {
+      "baseName": "code",
+      "type": "string",
     },
-    detail: {
-      baseName: "detail",
-      type: "string",
+    "detail": {
+      "baseName": "detail",
+      "type": "string",
     },
-    title: {
-      baseName: "title",
-      type: "string",
+    "title": {
+      "baseName": "title",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class AuditLogsWarning {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AuditLogsWarning.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

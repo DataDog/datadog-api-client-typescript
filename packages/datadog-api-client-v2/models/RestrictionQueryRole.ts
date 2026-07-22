@@ -6,23 +6,28 @@
 import { RestrictionQueryRoleAttribute } from "./RestrictionQueryRoleAttribute";
 import { RolesType } from "./RolesType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Partial role object.
- */
+*/
 export class RestrictionQueryRole {
   /**
    * Attributes of the role for a restriction query.
-   */
+  */
   "attributes": RestrictionQueryRoleAttribute;
   /**
    * ID of the role.
-   */
+  */
   "id": string;
   /**
    * Roles type.
-   */
+  */
   "type": RolesType;
 
   /**
@@ -30,7 +35,7 @@ export class RestrictionQueryRole {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class RestrictionQueryRole {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RestrictionQueryRoleAttribute",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "RestrictionQueryRoleAttribute",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "RolesType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "RolesType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class RestrictionQueryRole {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RestrictionQueryRole.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

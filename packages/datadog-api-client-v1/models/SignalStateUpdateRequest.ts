@@ -6,27 +6,32 @@
 import { SignalArchiveReason } from "./SignalArchiveReason";
 import { SignalTriageState } from "./SignalTriageState";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes describing the change of state for a given state.
- */
+*/
 export class SignalStateUpdateRequest {
   /**
    * Optional comment to explain why a signal is being archived.
-   */
+  */
   "archiveComment"?: string;
   /**
    * Reason why a signal has been archived.
-   */
+  */
   "archiveReason"?: SignalArchiveReason;
   /**
    * The new triage state of the signal.
-   */
+  */
   "state": SignalTriageState;
   /**
    * Version of the updated signal. If server side version is higher, update will be rejected.
-   */
+  */
   "version"?: number;
 
   /**
@@ -34,7 +39,7 @@ export class SignalStateUpdateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -45,22 +50,22 @@ export class SignalStateUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    archiveComment: {
-      baseName: "archiveComment",
-      type: "string",
+    "archiveComment": {
+      "baseName": "archiveComment",
+      "type": "string",
     },
-    archiveReason: {
-      baseName: "archiveReason",
-      type: "SignalArchiveReason",
+    "archiveReason": {
+      "baseName": "archiveReason",
+      "type": "SignalArchiveReason",
     },
-    state: {
-      baseName: "state",
-      type: "SignalTriageState",
-      required: true,
+    "state": {
+      "baseName": "state",
+      "type": "SignalTriageState",
+      "required": true,
     },
-    version: {
-      baseName: "version",
-      type: "number",
+    "version": {
+      "baseName": "version",
+      "type": "number",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -72,8 +77,34 @@ export class SignalStateUpdateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SignalStateUpdateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

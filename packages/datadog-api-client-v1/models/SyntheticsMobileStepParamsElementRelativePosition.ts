@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Position of the action relative to the element.
- */
+*/
 export class SyntheticsMobileStepParamsElementRelativePosition {
   /**
    * The `relativePosition` on the `x` axis for the element.
-   */
+  */
   "x"?: number;
   /**
    * The `relativePosition` on the `y` axis for the element.
-   */
+  */
   "y"?: number;
 
   /**
@@ -24,7 +29,7 @@ export class SyntheticsMobileStepParamsElementRelativePosition {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,15 +40,15 @@ export class SyntheticsMobileStepParamsElementRelativePosition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    x: {
-      baseName: "x",
-      type: "number",
-      format: "double",
+    "x": {
+      "baseName": "x",
+      "type": "number",
+      "format": "double",
     },
-    y: {
-      baseName: "y",
-      type: "number",
-      format: "double",
+    "y": {
+      "baseName": "y",
+      "type": "number",
+      "format": "double",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class SyntheticsMobileStepParamsElementRelativePosition {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsMobileStepParamsElementRelativePosition.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { ResolveVulnerableSymbolsRequestData } from "./ResolveVulnerableSymbolsRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The top-level request object for resolving vulnerable symbols in a set of packages.
- */
+*/
 export class ResolveVulnerableSymbolsRequest {
   /**
    * The data object in a request to resolve vulnerable symbols, containing the package PURLs and request type.
-   */
+  */
   "data"?: ResolveVulnerableSymbolsRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class ResolveVulnerableSymbolsRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class ResolveVulnerableSymbolsRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ResolveVulnerableSymbolsRequestData",
+    "data": {
+      "baseName": "data",
+      "type": "ResolveVulnerableSymbolsRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class ResolveVulnerableSymbolsRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ResolveVulnerableSymbolsRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

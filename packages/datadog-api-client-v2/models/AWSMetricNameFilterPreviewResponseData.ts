@@ -6,26 +6,31 @@
 import { AWSMetricNameFilterPreviewResponseAttributes } from "./AWSMetricNameFilterPreviewResponseAttributes";
 import { AWSMetricNameFilterPreviewType } from "./AWSMetricNameFilterPreviewType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * AWS metric name filter preview response data.
- */
+*/
 export class AWSMetricNameFilterPreviewResponseData {
   /**
    * AWS metric name filter preview response attributes.
-   */
+  */
   "attributes": AWSMetricNameFilterPreviewResponseAttributes;
   /**
    * Unique Datadog ID of the AWS Account Integration Config.
    * To get the config ID for an account, use the
    * [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations)
    * endpoint and query by AWS Account ID.
-   */
+  */
   "id": string;
   /**
    * The `AWSMetricNameFilterPreviewResponseData` `type`.
-   */
+  */
   "type": AWSMetricNameFilterPreviewType;
 
   /**
@@ -33,7 +38,7 @@ export class AWSMetricNameFilterPreviewResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -44,20 +49,20 @@ export class AWSMetricNameFilterPreviewResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AWSMetricNameFilterPreviewResponseAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AWSMetricNameFilterPreviewResponseAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "AWSMetricNameFilterPreviewType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AWSMetricNameFilterPreviewType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -69,8 +74,34 @@ export class AWSMetricNameFilterPreviewResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSMetricNameFilterPreviewResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

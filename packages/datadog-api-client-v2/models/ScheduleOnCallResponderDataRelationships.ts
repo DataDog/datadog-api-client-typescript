@@ -5,15 +5,20 @@
  */
 import { ScheduleOnCallResponderDataRelationshipsShifts } from "./ScheduleOnCallResponderDataRelationshipsShifts";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationships for a single position's (previous, current, or next) responder group.
- */
+*/
 export class ScheduleOnCallResponderDataRelationships {
   /**
    * Defines the list of shifts satisfying this responder group's position. Multiple shifts occur when a schedule has multiple concurrent on-call responders at that position.
-   */
+  */
   "shifts"?: ScheduleOnCallResponderDataRelationshipsShifts;
 
   /**
@@ -21,7 +26,7 @@ export class ScheduleOnCallResponderDataRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class ScheduleOnCallResponderDataRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    shifts: {
-      baseName: "shifts",
-      type: "ScheduleOnCallResponderDataRelationshipsShifts",
+    "shifts": {
+      "baseName": "shifts",
+      "type": "ScheduleOnCallResponderDataRelationshipsShifts",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class ScheduleOnCallResponderDataRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ScheduleOnCallResponderDataRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,19 +5,24 @@
  */
 import { ScheduleOnCallRespondersDataRelationshipsRespondersDataItemsType } from "./ScheduleOnCallRespondersDataRelationshipsRespondersDataItemsType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Represents a reference to one position's (previous, current, or next) responder group.
- */
+*/
 export class ScheduleOnCallRespondersDataRelationshipsRespondersDataItems {
   /**
    * Unique identifier of the responder group.
-   */
+  */
   "id": string;
   /**
    * Identifies the resource type for a responder group linked to a schedule's on-call responders lookup.
-   */
+  */
   "type": ScheduleOnCallRespondersDataRelationshipsRespondersDataItemsType;
 
   /**
@@ -25,7 +30,7 @@ export class ScheduleOnCallRespondersDataRelationshipsRespondersDataItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class ScheduleOnCallRespondersDataRelationshipsRespondersDataItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ScheduleOnCallRespondersDataRelationshipsRespondersDataItemsType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ScheduleOnCallRespondersDataRelationshipsRespondersDataItemsType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class ScheduleOnCallRespondersDataRelationshipsRespondersDataItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ScheduleOnCallRespondersDataRelationshipsRespondersDataItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

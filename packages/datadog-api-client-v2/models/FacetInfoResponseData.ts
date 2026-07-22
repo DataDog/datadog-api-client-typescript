@@ -6,23 +6,28 @@
 import { FacetInfoResponseDataAttributes } from "./FacetInfoResponseDataAttributes";
 import { FacetInfoResponseDataType } from "./FacetInfoResponseDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data object containing the resource type and attributes for the facet info response.
- */
+*/
 export class FacetInfoResponseData {
   /**
    * Attributes of the facet info response, containing the facet result data.
-   */
+  */
   "attributes"?: FacetInfoResponseDataAttributes;
   /**
    * Unique identifier for the facet info response resource.
-   */
+  */
   "id"?: string;
   /**
    * Users facet info resource type.
-   */
+  */
   "type": FacetInfoResponseDataType;
 
   /**
@@ -30,7 +35,7 @@ export class FacetInfoResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class FacetInfoResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "FacetInfoResponseDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "FacetInfoResponseDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "FacetInfoResponseDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "FacetInfoResponseDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class FacetInfoResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FacetInfoResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

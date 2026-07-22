@@ -5,15 +5,20 @@
  */
 import { CaseLinkCreate } from "./CaseLinkCreate";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request payload for creating a link between two entities.
- */
+*/
 export class CaseLinkCreateRequest {
   /**
    * Data object for creating a case link.
-   */
+  */
   "data": CaseLinkCreate;
 
   /**
@@ -21,7 +26,7 @@ export class CaseLinkCreateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CaseLinkCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CaseLinkCreate",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "CaseLinkCreate",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CaseLinkCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseLinkCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

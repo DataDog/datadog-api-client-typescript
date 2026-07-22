@@ -5,17 +5,22 @@
  */
 import { SLOCountDefinition } from "./SLOCountDefinition";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A metric SLI specification.
- */
+*/
 export class SLOCountSpec {
   /**
    * A count-based (metric) SLI specification, composed of three parts: the good events formula,
    * the bad or total events formula, and the underlying queries.
    * Exactly one of `total_events_formula` or `bad_events_formula` must be provided.
-   */
+  */
   "count": SLOCountDefinition;
 
   /**
@@ -27,19 +32,45 @@ export class SLOCountSpec {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    count: {
-      baseName: "count",
-      type: "SLOCountDefinition",
-      required: true,
-    },
+    "count": {
+      "baseName": "count",
+      "type": "SLOCountDefinition",
+      "required": true,
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SLOCountSpec.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

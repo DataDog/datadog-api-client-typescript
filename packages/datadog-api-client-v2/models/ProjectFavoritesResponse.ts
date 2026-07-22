@@ -5,15 +5,20 @@
  */
 import { ProjectFavorite } from "./ProjectFavorite";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing the list of projects the current user has favorited.
- */
+*/
 export class ProjectFavoritesResponse {
   /**
    * List of project favorites.
-   */
+  */
   "data": Array<ProjectFavorite>;
 
   /**
@@ -21,7 +26,7 @@ export class ProjectFavoritesResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class ProjectFavoritesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<ProjectFavorite>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<ProjectFavorite>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class ProjectFavoritesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProjectFavoritesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

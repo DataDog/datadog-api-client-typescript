@@ -4,35 +4,40 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Definition of a custom attribute field to import from a data source connection.
- */
+*/
 export class CreateConnectionRequestDataAttributesFieldsItems {
   /**
    * Human-readable explanation of what the field represents.
-   */
+  */
   "description"?: string;
   /**
    * The human-readable label for the field shown in the UI.
-   */
+  */
   "displayName"?: string;
   /**
    * List of group labels used to categorize the field.
-   */
+  */
   "groups"?: Array<string>;
   /**
    * The unique identifier for the field within the connection.
-   */
+  */
   "id": string;
   /**
    * The name of the column or attribute in the source data system that maps to this field.
-   */
+  */
   "sourceName": string;
   /**
    * The data type of the field (for example, string or number).
-   */
+  */
   "type": string;
 
   /**
@@ -40,7 +45,7 @@ export class CreateConnectionRequestDataAttributesFieldsItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -51,32 +56,32 @@ export class CreateConnectionRequestDataAttributesFieldsItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    displayName: {
-      baseName: "display_name",
-      type: "string",
+    "displayName": {
+      "baseName": "display_name",
+      "type": "string",
     },
-    groups: {
-      baseName: "groups",
-      type: "Array<string>",
+    "groups": {
+      "baseName": "groups",
+      "type": "Array<string>",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    sourceName: {
-      baseName: "source_name",
-      type: "string",
-      required: true,
+    "sourceName": {
+      "baseName": "source_name",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "string",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -88,8 +93,34 @@ export class CreateConnectionRequestDataAttributesFieldsItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateConnectionRequestDataAttributesFieldsItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

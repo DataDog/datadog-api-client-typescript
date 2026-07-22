@@ -5,15 +5,20 @@
  */
 import { AwsCurConfigResponseData } from "./AwsCurConfigResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `AwsCurConfigResponse` object.
- */
+*/
 export class AwsCurConfigResponse {
   /**
    * The definition of `AwsCurConfigResponseData` object.
-   */
+  */
   "data"?: AwsCurConfigResponseData;
 
   /**
@@ -21,7 +26,7 @@ export class AwsCurConfigResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class AwsCurConfigResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "AwsCurConfigResponseData",
+    "data": {
+      "baseName": "data",
+      "type": "AwsCurConfigResponseData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class AwsCurConfigResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AwsCurConfigResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

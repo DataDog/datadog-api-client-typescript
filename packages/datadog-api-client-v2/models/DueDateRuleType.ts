@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The JSON:API type for due date rules.
- */
+*/
 
 export type DueDateRuleType = typeof DUE_DATE_RULES | UnparsedObject;
-export const DUE_DATE_RULES = "due_date_rules";
+export const DUE_DATE_RULES = 'due_date_rules';

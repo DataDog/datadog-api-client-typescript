@@ -6,23 +6,28 @@
 import { SecurityFilterAttributes } from "./SecurityFilterAttributes";
 import { SecurityFilterType } from "./SecurityFilterType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The security filter's properties.
- */
+*/
 export class SecurityFilter {
   /**
    * The object describing a security filter.
-   */
+  */
   "attributes"?: SecurityFilterAttributes;
   /**
    * The ID of the security filter.
-   */
+  */
   "id"?: string;
   /**
    * The type of the resource. The value should always be `security_filters`.
-   */
+  */
   "type"?: SecurityFilterType;
 
   /**
@@ -30,7 +35,7 @@ export class SecurityFilter {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class SecurityFilter {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SecurityFilterAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SecurityFilterAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SecurityFilterType",
+    "type": {
+      "baseName": "type",
+      "type": "SecurityFilterType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class SecurityFilter {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityFilter.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

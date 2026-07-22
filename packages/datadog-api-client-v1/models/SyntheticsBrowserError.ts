@@ -5,27 +5,32 @@
  */
 import { SyntheticsBrowserErrorType } from "./SyntheticsBrowserErrorType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Error response object for a browser test.
- */
+*/
 export class SyntheticsBrowserError {
   /**
    * Description of the error.
-   */
+  */
   "description": string;
   /**
    * Name of the error.
-   */
+  */
   "name": string;
   /**
    * Status Code of the error.
-   */
+  */
   "status"?: number;
   /**
    * Error type returned by a browser test.
-   */
+  */
   "type": SyntheticsBrowserErrorType;
 
   /**
@@ -33,7 +38,7 @@ export class SyntheticsBrowserError {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -44,25 +49,25 @@ export class SyntheticsBrowserError {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
-      required: true,
+    "description": {
+      "baseName": "description",
+      "type": "string",
+      "required": true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    status: {
-      baseName: "status",
-      type: "number",
-      format: "int64",
+    "status": {
+      "baseName": "status",
+      "type": "number",
+      "format": "int64",
     },
-    type: {
-      baseName: "type",
-      type: "SyntheticsBrowserErrorType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SyntheticsBrowserErrorType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,8 +79,34 @@ export class SyntheticsBrowserError {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsBrowserError.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

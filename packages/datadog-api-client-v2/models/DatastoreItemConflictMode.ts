@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * How to handle conflicts when inserting items that already exist in the datastore.
- */
+*/
 
-export type DatastoreItemConflictMode =
-  | typeof FAIL_ON_CONFLICT
-  | typeof OVERWRITE_ON_CONFLICT
-  | UnparsedObject;
-export const FAIL_ON_CONFLICT = "fail_on_conflict";
-export const OVERWRITE_ON_CONFLICT = "overwrite_on_conflict";
+export type DatastoreItemConflictMode = typeof FAIL_ON_CONFLICT| typeof OVERWRITE_ON_CONFLICT | UnparsedObject;
+export const FAIL_ON_CONFLICT = 'fail_on_conflict';
+export const OVERWRITE_ON_CONFLICT = 'overwrite_on_conflict';

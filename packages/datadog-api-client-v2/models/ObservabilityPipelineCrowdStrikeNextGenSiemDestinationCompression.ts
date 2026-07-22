@@ -5,19 +5,24 @@
  */
 import { ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompressionAlgorithm } from "./ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompressionAlgorithm";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Compression configuration for log events.
- */
+*/
 export class ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression {
   /**
    * Compression algorithm for log events.
-   */
+  */
   "algorithm": ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompressionAlgorithm;
   /**
    * Compression level.
-   */
+  */
   "level"?: number;
 
   /**
@@ -25,7 +30,7 @@ export class ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    algorithm: {
-      baseName: "algorithm",
-      type: "ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompressionAlgorithm",
-      required: true,
+    "algorithm": {
+      "baseName": "algorithm",
+      "type": "ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompressionAlgorithm",
+      "required": true,
     },
-    level: {
-      baseName: "level",
-      type: "number",
-      format: "int64",
+    "level": {
+      "baseName": "level",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

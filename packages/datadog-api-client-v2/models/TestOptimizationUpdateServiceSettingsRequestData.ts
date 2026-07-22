@@ -6,22 +6,27 @@
 import { TestOptimizationUpdateServiceSettingsRequestAttributes } from "./TestOptimizationUpdateServiceSettingsRequestAttributes";
 import { TestOptimizationUpdateServiceSettingsRequestDataType } from "./TestOptimizationUpdateServiceSettingsRequestDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for update service settings request.
- */
+*/
 export class TestOptimizationUpdateServiceSettingsRequestData {
   /**
    * Attributes for updating Test Optimization service settings.
    * All non-required fields are optional; only provided fields will be updated.
    * Setting a field to `null` is a no-op. To reset a setting to inherit from the repository level, use the corresponding `<setting>_inherit` field.
-   */
+  */
   "attributes": TestOptimizationUpdateServiceSettingsRequestAttributes;
   /**
    * JSON:API type for update service settings request.
    * The value must always be `test_optimization_update_service_settings_request`.
-   */
+  */
   "type": TestOptimizationUpdateServiceSettingsRequestDataType;
 
   /**
@@ -29,7 +34,7 @@ export class TestOptimizationUpdateServiceSettingsRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,15 +45,15 @@ export class TestOptimizationUpdateServiceSettingsRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "TestOptimizationUpdateServiceSettingsRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "TestOptimizationUpdateServiceSettingsRequestAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "TestOptimizationUpdateServiceSettingsRequestDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TestOptimizationUpdateServiceSettingsRequestDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -60,8 +65,34 @@ export class TestOptimizationUpdateServiceSettingsRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TestOptimizationUpdateServiceSettingsRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

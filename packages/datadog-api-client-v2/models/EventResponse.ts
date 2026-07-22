@@ -6,23 +6,28 @@
 import { EventResponseAttributes } from "./EventResponseAttributes";
 import { EventType } from "./EventType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The object description of an event after being processed and stored by Datadog.
- */
+*/
 export class EventResponse {
   /**
    * The object description of an event response attribute.
-   */
+  */
   "attributes"?: EventResponseAttributes;
   /**
    * the unique ID of the event.
-   */
+  */
   "id"?: string;
   /**
    * Type of the event.
-   */
+  */
   "type"?: EventType;
 
   /**
@@ -30,7 +35,7 @@ export class EventResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class EventResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "EventResponseAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "EventResponseAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "EventType",
+    "type": {
+      "baseName": "type",
+      "type": "EventType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class EventResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EventResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

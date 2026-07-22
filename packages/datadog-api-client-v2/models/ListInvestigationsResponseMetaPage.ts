@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Pagination metadata.
- */
+*/
 export class ListInvestigationsResponseMetaPage {
   /**
    * Maximum number of results per page.
-   */
+  */
   "limit": number;
   /**
    * Offset of the current page.
-   */
+  */
   "offset": number;
   /**
    * Total number of investigations.
-   */
+  */
   "total": number;
 
   /**
@@ -28,7 +33,7 @@ export class ListInvestigationsResponseMetaPage {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,23 +44,23 @@ export class ListInvestigationsResponseMetaPage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    limit: {
-      baseName: "limit",
-      type: "number",
-      required: true,
-      format: "int64",
+    "limit": {
+      "baseName": "limit",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    offset: {
-      baseName: "offset",
-      type: "number",
-      required: true,
-      format: "int64",
+    "offset": {
+      "baseName": "offset",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    total: {
-      baseName: "total",
-      type: "number",
-      required: true,
-      format: "int64",
+    "total": {
+      "baseName": "total",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class ListInvestigationsResponseMetaPage {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListInvestigationsResponseMetaPage.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

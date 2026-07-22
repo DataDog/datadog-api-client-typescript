@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The organization ID, integration identifier, and integration-specific configuration payload for an entity integration configuration.
- */
+*/
 export class EntityIntegrationConfigAttributes {
   /**
    * Integration-specific configuration payload. The shape of this object depends on the integration identified by the path parameter. For `github`, the object must contain an `enabled_repos` array. For `jira`, it must contain an `enabled_projects` array. For `pagerduty`, it must contain an `accounts` array.
-   */
-  "config": { [key: string]: any };
+  */
+  "config": { [key: string]: any; };
   /**
    * The identifier of the integration this configuration applies to (for example, `github`, `jira`, or `pagerduty`).
-   */
+  */
   "integrationId": string;
   /**
    * The Datadog organization identifier that owns this configuration.
-   */
+  */
   "orgId": number;
 
   /**
@@ -28,7 +33,7 @@ export class EntityIntegrationConfigAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,21 +44,21 @@ export class EntityIntegrationConfigAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    config: {
-      baseName: "config",
-      type: "{ [key: string]: any; }",
-      required: true,
+    "config": {
+      "baseName": "config",
+      "type": "{ [key: string]: any; }",
+      "required": true,
     },
-    integrationId: {
-      baseName: "integration_id",
-      type: "string",
-      required: true,
+    "integrationId": {
+      "baseName": "integration_id",
+      "type": "string",
+      "required": true,
     },
-    orgId: {
-      baseName: "org_id",
-      type: "number",
-      required: true,
-      format: "int64",
+    "orgId": {
+      "baseName": "org_id",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class EntityIntegrationConfigAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EntityIntegrationConfigAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

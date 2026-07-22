@@ -5,19 +5,24 @@
  */
 import { FastlyService } from "./FastlyService";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes object of a Fastly account.
- */
+*/
 export class FastlyAccounResponseAttributes {
   /**
    * The name of the Fastly account.
-   */
+  */
   "name": string;
   /**
    * A list of services belonging to the parent account.
-   */
+  */
   "services"?: Array<FastlyService>;
 
   /**
@@ -25,7 +30,7 @@ export class FastlyAccounResponseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,14 +41,14 @@ export class FastlyAccounResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    services: {
-      baseName: "services",
-      type: "Array<FastlyService>",
+    "services": {
+      "baseName": "services",
+      "type": "Array<FastlyService>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class FastlyAccounResponseAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FastlyAccounResponseAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

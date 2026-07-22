@@ -5,15 +5,20 @@
  */
 import { DueDateRuleDataCreate } from "./DueDateRuleDataCreate";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The body of a due date rule create request.
- */
+*/
 export class DueDateRuleCreateRequest {
   /**
    * The data object for a due date rule create or update request.
-   */
+  */
   "data": DueDateRuleDataCreate;
 
   /**
@@ -21,7 +26,7 @@ export class DueDateRuleCreateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class DueDateRuleCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "DueDateRuleDataCreate",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "DueDateRuleDataCreate",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class DueDateRuleCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DueDateRuleCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

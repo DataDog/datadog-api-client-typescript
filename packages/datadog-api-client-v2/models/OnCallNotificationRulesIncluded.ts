@@ -5,12 +5,15 @@
  */
 import { NotificationChannelData } from "./NotificationChannelData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Represents additional included resources for a on-call notification rules
- */
+*/
 
-export type OnCallNotificationRulesIncluded =
-  | NotificationChannelData
-  | UnparsedObject;
+export type OnCallNotificationRulesIncluded = NotificationChannelData | UnparsedObject;

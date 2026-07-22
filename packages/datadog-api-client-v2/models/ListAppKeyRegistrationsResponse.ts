@@ -6,19 +6,24 @@
 import { AppKeyRegistrationData } from "./AppKeyRegistrationData";
 import { ListAppKeyRegistrationsResponseMeta } from "./ListAppKeyRegistrationsResponseMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A paginated list of app key registrations.
- */
+*/
 export class ListAppKeyRegistrationsResponse {
   /**
    * An array of app key registrations.
-   */
+  */
   "data"?: Array<AppKeyRegistrationData>;
   /**
    * The definition of `ListAppKeyRegistrationsResponseMeta` object.
-   */
+  */
   "meta"?: ListAppKeyRegistrationsResponseMeta;
 
   /**
@@ -26,7 +31,7 @@ export class ListAppKeyRegistrationsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class ListAppKeyRegistrationsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<AppKeyRegistrationData>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<AppKeyRegistrationData>",
     },
-    meta: {
-      baseName: "meta",
-      type: "ListAppKeyRegistrationsResponseMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "ListAppKeyRegistrationsResponseMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class ListAppKeyRegistrationsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListAppKeyRegistrationsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

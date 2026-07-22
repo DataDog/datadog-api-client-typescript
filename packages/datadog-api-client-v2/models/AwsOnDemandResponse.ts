@@ -5,15 +5,20 @@
  */
 import { AwsOnDemandData } from "./AwsOnDemandData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object that includes an AWS on demand task.
- */
+*/
 export class AwsOnDemandResponse {
   /**
    * Single AWS on demand task.
-   */
+  */
   "data"?: AwsOnDemandData;
 
   /**
@@ -21,7 +26,7 @@ export class AwsOnDemandResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class AwsOnDemandResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "AwsOnDemandData",
+    "data": {
+      "baseName": "data",
+      "type": "AwsOnDemandData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class AwsOnDemandResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AwsOnDemandResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

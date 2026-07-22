@@ -6,23 +6,28 @@
 import { GoogleChatOrganizationHandleResponseAttributes } from "./GoogleChatOrganizationHandleResponseAttributes";
 import { GoogleChatOrganizationHandleType } from "./GoogleChatOrganizationHandleType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Organization handle data from a response.
- */
+*/
 export class GoogleChatOrganizationHandleResponseData {
   /**
    * Organization handle attributes.
-   */
+  */
   "attributes"?: GoogleChatOrganizationHandleResponseAttributes;
   /**
    * The ID of the organization handle.
-   */
+  */
   "id"?: string;
   /**
    * Organization handle resource type.
-   */
+  */
   "type"?: GoogleChatOrganizationHandleType;
 
   /**
@@ -30,7 +35,7 @@ export class GoogleChatOrganizationHandleResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class GoogleChatOrganizationHandleResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "GoogleChatOrganizationHandleResponseAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "GoogleChatOrganizationHandleResponseAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "GoogleChatOrganizationHandleType",
+    "type": {
+      "baseName": "type",
+      "type": "GoogleChatOrganizationHandleType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class GoogleChatOrganizationHandleResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GoogleChatOrganizationHandleResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

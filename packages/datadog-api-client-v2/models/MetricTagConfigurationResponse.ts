@@ -5,15 +5,20 @@
  */
 import { MetricTagConfiguration } from "./MetricTagConfiguration";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object which includes a single metric's tag configuration.
- */
+*/
 export class MetricTagConfigurationResponse {
   /**
    * Object for a single metric tag configuration.
-   */
+  */
   "data"?: MetricTagConfiguration;
 
   /**
@@ -21,7 +26,7 @@ export class MetricTagConfigurationResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class MetricTagConfigurationResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "MetricTagConfiguration",
+    "data": {
+      "baseName": "data",
+      "type": "MetricTagConfiguration",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class MetricTagConfigurationResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricTagConfigurationResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

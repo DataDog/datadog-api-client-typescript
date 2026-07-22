@@ -5,15 +5,20 @@
  */
 import { WorkflowListInstancesResponseMetaPage } from "./WorkflowListInstancesResponseMetaPage";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metadata about the instances list
- */
+*/
 export class WorkflowListInstancesResponseMeta {
   /**
    * Page information for the list instances response.
-   */
+  */
   "page"?: WorkflowListInstancesResponseMetaPage;
 
   /**
@@ -21,7 +26,7 @@ export class WorkflowListInstancesResponseMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class WorkflowListInstancesResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    page: {
-      baseName: "page",
-      type: "WorkflowListInstancesResponseMetaPage",
+    "page": {
+      "baseName": "page",
+      "type": "WorkflowListInstancesResponseMetaPage",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class WorkflowListInstancesResponseMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return WorkflowListInstancesResponseMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

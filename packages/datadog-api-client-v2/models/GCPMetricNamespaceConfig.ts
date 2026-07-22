@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Configuration for a GCP metric namespace.
- */
+*/
 export class GCPMetricNamespaceConfig {
   /**
    * When disabled, Datadog does not collect metrics that are related to this GCP metric namespace.
-   */
+  */
   "disabled"?: boolean;
   /**
    * When enabled, Datadog applies these additional filters to limit metric collection. A metric is collected only if it does not match all exclusion filters and matches at least one allow filter.
-   */
+  */
   "filters"?: Array<string>;
   /**
    * The id of the GCP metric namespace.
-   */
+  */
   "id"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class GCPMetricNamespaceConfig {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class GCPMetricNamespaceConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    disabled: {
-      baseName: "disabled",
-      type: "boolean",
+    "disabled": {
+      "baseName": "disabled",
+      "type": "boolean",
     },
-    filters: {
-      baseName: "filters",
-      type: "Array<string>",
+    "filters": {
+      "baseName": "filters",
+      "type": "Array<string>",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class GCPMetricNamespaceConfig {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GCPMetricNamespaceConfig.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

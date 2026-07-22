@@ -8,47 +8,52 @@ import { DegradationDataAttributesComponentsAffectedItems } from "./DegradationD
 import { DegradationDataAttributesSource } from "./DegradationDataAttributesSource";
 import { DegradationDataAttributesUpdatesItems } from "./DegradationDataAttributesUpdatesItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes of a degradation.
- */
+*/
 export class DegradationDataAttributes {
   /**
    * Components affected by the degradation.
-   */
+  */
   "componentsAffected"?: Array<DegradationDataAttributesComponentsAffectedItems>;
   /**
    * Timestamp of when the degradation was created.
-   */
+  */
   "createdAt"?: Date;
   /**
    * Description of the degradation.
-   */
+  */
   "description"?: string;
   /**
    * Whether the degradation was backfilled.
-   */
+  */
   "isBackfilled"?: boolean;
   /**
    * Timestamp of when the degradation was last modified.
-   */
+  */
   "modifiedAt"?: Date;
   /**
    * The source of the degradation.
-   */
+  */
   "source"?: DegradationDataAttributesSource;
   /**
    * The status of the degradation.
-   */
+  */
   "status"?: CreateDegradationRequestDataAttributesStatus;
   /**
    * Title of the degradation.
-   */
+  */
   "title"?: string;
   /**
    * Past updates made to the degradation.
-   */
+  */
   "updates"?: Array<DegradationDataAttributesUpdatesItems>;
 
   /**
@@ -56,7 +61,7 @@ export class DegradationDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -67,43 +72,43 @@ export class DegradationDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    componentsAffected: {
-      baseName: "components_affected",
-      type: "Array<DegradationDataAttributesComponentsAffectedItems>",
+    "componentsAffected": {
+      "baseName": "components_affected",
+      "type": "Array<DegradationDataAttributesComponentsAffectedItems>",
     },
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    isBackfilled: {
-      baseName: "is_backfilled",
-      type: "boolean",
+    "isBackfilled": {
+      "baseName": "is_backfilled",
+      "type": "boolean",
     },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "Date",
-      format: "date-time",
+    "modifiedAt": {
+      "baseName": "modified_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    source: {
-      baseName: "source",
-      type: "DegradationDataAttributesSource",
+    "source": {
+      "baseName": "source",
+      "type": "DegradationDataAttributesSource",
     },
-    status: {
-      baseName: "status",
-      type: "CreateDegradationRequestDataAttributesStatus",
+    "status": {
+      "baseName": "status",
+      "type": "CreateDegradationRequestDataAttributesStatus",
     },
-    title: {
-      baseName: "title",
-      type: "string",
+    "title": {
+      "baseName": "title",
+      "type": "string",
     },
-    updates: {
-      baseName: "updates",
-      type: "Array<DegradationDataAttributesUpdatesItems>",
+    "updates": {
+      "baseName": "updates",
+      "type": "Array<DegradationDataAttributesUpdatesItems>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -115,8 +120,34 @@ export class DegradationDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DegradationDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

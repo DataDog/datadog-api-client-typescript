@@ -5,15 +5,20 @@
  */
 import { CreateTableRequestData } from "./CreateTableRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request body for creating a new reference table from a local file or cloud storage.
- */
+*/
 export class CreateTableRequest {
   /**
    * The data object containing the table definition.
-   */
+  */
   "data"?: CreateTableRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class CreateTableRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class CreateTableRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CreateTableRequestData",
+    "data": {
+      "baseName": "data",
+      "type": "CreateTableRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class CreateTableRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateTableRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

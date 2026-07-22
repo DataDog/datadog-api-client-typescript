@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Details of a rule.
- */
+*/
 export class OutcomesResponseIncludedRuleAttributes {
   /**
    * Name of the rule.
-   */
+  */
   "name"?: string;
   /**
    * The scorecard name to which this rule must belong.
-   */
+  */
   "scorecardName"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class OutcomesResponseIncludedRuleAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class OutcomesResponseIncludedRuleAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    scorecardName: {
-      baseName: "scorecard_name",
-      type: "string",
+    "scorecardName": {
+      "baseName": "scorecard_name",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class OutcomesResponseIncludedRuleAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OutcomesResponseIncludedRuleAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

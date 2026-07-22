@@ -4,51 +4,56 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for updating a campaign.
- */
+*/
 export class UpdateCampaignRequestAttributes {
   /**
    * The description of the campaign.
-   */
+  */
   "description"?: string;
   /**
    * The due date of the campaign.
-   */
+  */
   "dueDate"?: Date;
   /**
    * Entity scope query to filter entities for this campaign.
-   */
+  */
   "entityScope"?: string;
   /**
    * Guidance for the campaign.
-   */
+  */
   "guidance"?: string;
   /**
    * The unique key for the campaign.
-   */
+  */
   "key"?: string;
   /**
    * The name of the campaign.
-   */
+  */
   "name": string;
   /**
    * The UUID of the campaign owner.
-   */
+  */
   "ownerId": string;
   /**
    * Array of rule IDs associated with this campaign.
-   */
+  */
   "ruleIds": Array<string>;
   /**
    * The start date of the campaign.
-   */
+  */
   "startDate": Date;
   /**
    * The status of the campaign.
-   */
+  */
   "status": string;
 
   /**
@@ -56,7 +61,7 @@ export class UpdateCampaignRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -67,52 +72,52 @@ export class UpdateCampaignRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    dueDate: {
-      baseName: "due_date",
-      type: "Date",
-      format: "date-time",
+    "dueDate": {
+      "baseName": "due_date",
+      "type": "Date",
+      "format": "date-time",
     },
-    entityScope: {
-      baseName: "entity_scope",
-      type: "string",
+    "entityScope": {
+      "baseName": "entity_scope",
+      "type": "string",
     },
-    guidance: {
-      baseName: "guidance",
-      type: "string",
+    "guidance": {
+      "baseName": "guidance",
+      "type": "string",
     },
-    key: {
-      baseName: "key",
-      type: "string",
+    "key": {
+      "baseName": "key",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    ownerId: {
-      baseName: "owner_id",
-      type: "string",
-      required: true,
+    "ownerId": {
+      "baseName": "owner_id",
+      "type": "string",
+      "required": true,
     },
-    ruleIds: {
-      baseName: "rule_ids",
-      type: "Array<string>",
-      required: true,
+    "ruleIds": {
+      "baseName": "rule_ids",
+      "type": "Array<string>",
+      "required": true,
     },
-    startDate: {
-      baseName: "start_date",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "startDate": {
+      "baseName": "start_date",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    status: {
-      baseName: "status",
-      type: "string",
-      required: true,
+    "status": {
+      "baseName": "status",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -124,8 +129,34 @@ export class UpdateCampaignRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateCampaignRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Change request decision resource type.
- */
+*/
 
-export type ChangeRequestDecisionResourceType =
-  | typeof CHANGE_REQUEST_DECISION
-  | UnparsedObject;
-export const CHANGE_REQUEST_DECISION = "change_request_decision";
+export type ChangeRequestDecisionResourceType = typeof CHANGE_REQUEST_DECISION | UnparsedObject;
+export const CHANGE_REQUEST_DECISION = 'change_request_decision';

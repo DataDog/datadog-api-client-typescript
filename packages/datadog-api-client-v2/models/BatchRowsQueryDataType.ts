@@ -4,14 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Resource type identifier for batch queries of reference table rows.
- */
+*/
 
-export type BatchRowsQueryDataType =
-  | typeof REFERENCE_TABLES_BATCH_ROWS_QUERY
-  | UnparsedObject;
-export const REFERENCE_TABLES_BATCH_ROWS_QUERY =
-  "reference-tables-batch-rows-query";
+export type BatchRowsQueryDataType = typeof REFERENCE_TABLES_BATCH_ROWS_QUERY | UnparsedObject;
+export const REFERENCE_TABLES_BATCH_ROWS_QUERY = 'reference-tables-batch-rows-query';

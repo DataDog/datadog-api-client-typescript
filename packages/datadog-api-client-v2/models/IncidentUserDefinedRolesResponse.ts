@@ -6,19 +6,24 @@
 import { IncidentUserDefinedRoleDataResponse } from "./IncidentUserDefinedRoleDataResponse";
 import { IncidentUserDefinedRoleIncludedItem } from "./IncidentUserDefinedRoleIncludedItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response with a list of incident user-defined roles.
- */
+*/
 export class IncidentUserDefinedRolesResponse {
   /**
    * List of incident user-defined role data objects.
-   */
+  */
   "data": Array<IncidentUserDefinedRoleDataResponse>;
   /**
    * Included resources for an incident user-defined role response.
-   */
+  */
   "included"?: Array<IncidentUserDefinedRoleIncludedItem>;
 
   /**
@@ -26,7 +31,7 @@ export class IncidentUserDefinedRolesResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class IncidentUserDefinedRolesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<IncidentUserDefinedRoleDataResponse>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<IncidentUserDefinedRoleDataResponse>",
+      "required": true,
     },
-    included: {
-      baseName: "included",
-      type: "Array<IncidentUserDefinedRoleIncludedItem>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<IncidentUserDefinedRoleIncludedItem>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class IncidentUserDefinedRolesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentUserDefinedRolesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

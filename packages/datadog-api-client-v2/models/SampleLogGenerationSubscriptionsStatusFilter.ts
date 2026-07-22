@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Filter that controls whether to return only active subscriptions or every subscription on record.
- */
+*/
 
-export type SampleLogGenerationSubscriptionsStatusFilter =
-  | typeof ACTIVE
-  | typeof ALL
-  | UnparsedObject;
-export const ACTIVE = "active";
-export const ALL = "all";
+export type SampleLogGenerationSubscriptionsStatusFilter = typeof ACTIVE| typeof ALL | UnparsedObject;
+export const ACTIVE = 'active';
+export const ALL = 'all';

@@ -7,27 +7,32 @@ import { SampleLogGenerationBulkSubscriptionItemMeta } from "./SampleLogGenerati
 import { SampleLogGenerationSubscriptionAttributes } from "./SampleLogGenerationSubscriptionAttributes";
 import { SampleLogGenerationSubscriptionResourceType } from "./SampleLogGenerationSubscriptionResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A single result entry returned by the bulk subscription endpoint.
- */
+*/
 export class SampleLogGenerationBulkSubscriptionResultItem {
   /**
    * The attributes describing a sample log generation subscription.
-   */
+  */
   "attributes": SampleLogGenerationSubscriptionAttributes;
   /**
    * The unique identifier of the subscription, when one was created.
-   */
+  */
   "id": string;
   /**
    * Per-item status returned for a bulk subscription request.
-   */
+  */
   "meta": SampleLogGenerationBulkSubscriptionItemMeta;
   /**
    * The type of the resource. The value should always be `subscriptions`.
-   */
+  */
   "type": SampleLogGenerationSubscriptionResourceType;
 
   /**
@@ -35,7 +40,7 @@ export class SampleLogGenerationBulkSubscriptionResultItem {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,25 +51,25 @@ export class SampleLogGenerationBulkSubscriptionResultItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SampleLogGenerationSubscriptionAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SampleLogGenerationSubscriptionAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    meta: {
-      baseName: "meta",
-      type: "SampleLogGenerationBulkSubscriptionItemMeta",
-      required: true,
+    "meta": {
+      "baseName": "meta",
+      "type": "SampleLogGenerationBulkSubscriptionItemMeta",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "SampleLogGenerationSubscriptionResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SampleLogGenerationSubscriptionResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -76,8 +81,34 @@ export class SampleLogGenerationBulkSubscriptionResultItem {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SampleLogGenerationBulkSubscriptionResultItem.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

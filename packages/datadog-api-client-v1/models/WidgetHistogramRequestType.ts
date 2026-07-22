@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Request type for distribution of point values for distribution metrics. Query space aggregator must be `histogram:<metric name>` for points distributions.
- */
+*/
 
 export type WidgetHistogramRequestType = typeof HISTOGRAM | UnparsedObject;
-export const HISTOGRAM = "histogram";
+export const HISTOGRAM = 'histogram';

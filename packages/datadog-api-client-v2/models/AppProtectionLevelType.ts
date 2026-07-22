@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The protection-level resource type.
- */
+*/
 
 export type AppProtectionLevelType = typeof PROTECTIONLEVEL | UnparsedObject;
-export const PROTECTIONLEVEL = "protectionLevel";
+export const PROTECTIONLEVEL = 'protectionLevel';

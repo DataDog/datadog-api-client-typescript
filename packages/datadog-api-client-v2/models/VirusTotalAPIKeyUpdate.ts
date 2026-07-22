@@ -5,19 +5,24 @@
  */
 import { VirusTotalAPIKeyType } from "./VirusTotalAPIKeyType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `VirusTotalAPIKey` object.
- */
+*/
 export class VirusTotalAPIKeyUpdate {
   /**
    * The `VirusTotalAPIKeyUpdate` `api_key`.
-   */
+  */
   "apiKey"?: string;
   /**
    * The definition of the `VirusTotalAPIKey` object.
-   */
+  */
   "type": VirusTotalAPIKeyType;
 
   /**
@@ -25,7 +30,7 @@ export class VirusTotalAPIKeyUpdate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,14 +41,14 @@ export class VirusTotalAPIKeyUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    apiKey: {
-      baseName: "api_key",
-      type: "string",
+    "apiKey": {
+      "baseName": "api_key",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "VirusTotalAPIKeyType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "VirusTotalAPIKeyType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class VirusTotalAPIKeyUpdate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return VirusTotalAPIKeyUpdate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

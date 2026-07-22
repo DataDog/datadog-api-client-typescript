@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data about the canceled instance.
- */
+*/
 export class WorklflowCancelInstanceResponseData {
   /**
    * The id of the canceled instance
-   */
+  */
   "id"?: string;
 
   /**
@@ -20,7 +25,7 @@ export class WorklflowCancelInstanceResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,9 +36,9 @@ export class WorklflowCancelInstanceResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,8 +50,34 @@ export class WorklflowCancelInstanceResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return WorklflowCancelInstanceResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

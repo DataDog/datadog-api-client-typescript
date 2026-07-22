@@ -5,15 +5,20 @@
  */
 import { InputSchemaParameters } from "./InputSchemaParameters";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A list of input parameters for the workflow. These can be used as dynamic runtime values in your workflow.
- */
+*/
 export class InputSchema {
   /**
    * The `InputSchema` `parameters`.
-   */
+  */
   "parameters"?: Array<InputSchemaParameters>;
 
   /**
@@ -21,7 +26,7 @@ export class InputSchema {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class InputSchema {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    parameters: {
-      baseName: "parameters",
-      type: "Array<InputSchemaParameters>",
+    "parameters": {
+      "baseName": "parameters",
+      "type": "Array<InputSchemaParameters>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class InputSchema {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return InputSchema.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

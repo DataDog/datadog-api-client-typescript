@@ -5,15 +5,20 @@
  */
 import { DeleteAppsResponseDataItems } from "./DeleteAppsResponseDataItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The response object after multiple apps are successfully deleted.
- */
+*/
 export class DeleteAppsResponse {
   /**
    * An array of objects containing the IDs of the deleted apps.
-   */
+  */
   "data"?: Array<DeleteAppsResponseDataItems>;
 
   /**
@@ -21,7 +26,7 @@ export class DeleteAppsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class DeleteAppsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<DeleteAppsResponseDataItems>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<DeleteAppsResponseDataItems>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class DeleteAppsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DeleteAppsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

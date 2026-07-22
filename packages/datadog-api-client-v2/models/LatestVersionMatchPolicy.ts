@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The policy for matching the latest form version during an upsert operation.
- */
+*/
 
-export type LatestVersionMatchPolicy =
-  | typeof NONE
-  | typeof IF_ETAG_MATCH
-  | UnparsedObject;
-export const NONE = "none";
-export const IF_ETAG_MATCH = "if_etag_match";
+export type LatestVersionMatchPolicy = typeof NONE| typeof IF_ETAG_MATCH | UnparsedObject;
+export const NONE = 'none';
+export const IF_ETAG_MATCH = 'if_etag_match';

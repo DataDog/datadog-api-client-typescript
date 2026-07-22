@@ -6,19 +6,24 @@
 import { GoogleChatCreateOrganizationHandleRequestData } from "./GoogleChatCreateOrganizationHandleRequestData";
 import { GoogleChatOrganizationHandleType } from "./GoogleChatOrganizationHandleType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Create organization handle request.
- */
+*/
 export class GoogleChatCreateOrganizationHandleRequest {
   /**
    * Organization handle data for a create request.
-   */
+  */
   "data": GoogleChatCreateOrganizationHandleRequestData;
   /**
    * Organization handle resource type.
-   */
+  */
   "type": GoogleChatOrganizationHandleType;
 
   /**
@@ -26,7 +31,7 @@ export class GoogleChatCreateOrganizationHandleRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class GoogleChatCreateOrganizationHandleRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "GoogleChatCreateOrganizationHandleRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "GoogleChatCreateOrganizationHandleRequestData",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "GoogleChatOrganizationHandleType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "GoogleChatOrganizationHandleType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class GoogleChatCreateOrganizationHandleRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GoogleChatCreateOrganizationHandleRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,19 +5,24 @@
  */
 import { AnalysisEdit } from "./AnalysisEdit";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A fix suggestion for a rule violation, consisting of one or more edit operations.
- */
+*/
 export class AnalysisFix {
   /**
    * A human-readable description of what the fix does.
-   */
+  */
   "description": string;
   /**
    * The list of edit operations that constitute the fix.
-   */
+  */
   "edits": Array<AnalysisEdit>;
 
   /**
@@ -25,7 +30,7 @@ export class AnalysisFix {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class AnalysisFix {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
-      required: true,
+    "description": {
+      "baseName": "description",
+      "type": "string",
+      "required": true,
     },
-    edits: {
-      baseName: "edits",
-      type: "Array<AnalysisEdit>",
-      required: true,
+    "edits": {
+      "baseName": "edits",
+      "type": "Array<AnalysisEdit>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class AnalysisFix {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AnalysisFix.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

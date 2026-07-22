@@ -5,19 +5,24 @@
  */
 import { FormTrigger } from "./FormTrigger";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Schema for a Form-based trigger.
- */
+*/
 export class FormTriggerWrapper {
   /**
    * Trigger a workflow from a Form.
-   */
+  */
   "formTrigger": FormTrigger;
   /**
    * A list of steps that run first after a trigger fires.
-   */
+  */
   "startStepNames"?: Array<string>;
 
   /**
@@ -25,7 +30,7 @@ export class FormTriggerWrapper {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,14 +41,14 @@ export class FormTriggerWrapper {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    formTrigger: {
-      baseName: "formTrigger",
-      type: "FormTrigger",
-      required: true,
+    "formTrigger": {
+      "baseName": "formTrigger",
+      "type": "FormTrigger",
+      "required": true,
     },
-    startStepNames: {
-      baseName: "startStepNames",
-      type: "Array<string>",
+    "startStepNames": {
+      "baseName": "startStepNames",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class FormTriggerWrapper {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FormTriggerWrapper.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Azure OpenAI-specific metadata for an integration account or inference request.
- */
+*/
 export class LLMObsAzureOpenAIMetadata {
   /**
    * The Azure OpenAI deployment ID.
-   */
+  */
   "deploymentId"?: string;
   /**
    * The model version deployed in Azure.
-   */
+  */
   "modelVersion"?: string;
   /**
    * The Azure OpenAI resource name.
-   */
+  */
   "resourceName"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class LLMObsAzureOpenAIMetadata {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class LLMObsAzureOpenAIMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    deploymentId: {
-      baseName: "deployment_id",
-      type: "string",
+    "deploymentId": {
+      "baseName": "deployment_id",
+      "type": "string",
     },
-    modelVersion: {
-      baseName: "model_version",
-      type: "string",
+    "modelVersion": {
+      "baseName": "model_version",
+      "type": "string",
     },
-    resourceName: {
-      baseName: "resource_name",
-      type: "string",
+    "resourceName": {
+      "baseName": "resource_name",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class LLMObsAzureOpenAIMetadata {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsAzureOpenAIMetadata.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

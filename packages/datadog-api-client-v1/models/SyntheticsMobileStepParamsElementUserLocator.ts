@@ -5,19 +5,24 @@
  */
 import { SyntheticsMobileStepParamsElementUserLocatorValuesItems } from "./SyntheticsMobileStepParamsElementUserLocatorValuesItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * User locator to find the element.
- */
+*/
 export class SyntheticsMobileStepParamsElementUserLocator {
   /**
    * Whether if the test should fail if the element cannot be found.
-   */
+  */
   "failTestOnCannotLocate"?: boolean;
   /**
    * Values of the user locator.
-   */
+  */
   "values"?: Array<SyntheticsMobileStepParamsElementUserLocatorValuesItems>;
 
   /**
@@ -25,7 +30,7 @@ export class SyntheticsMobileStepParamsElementUserLocator {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class SyntheticsMobileStepParamsElementUserLocator {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    failTestOnCannotLocate: {
-      baseName: "failTestOnCannotLocate",
-      type: "boolean",
+    "failTestOnCannotLocate": {
+      "baseName": "failTestOnCannotLocate",
+      "type": "boolean",
     },
-    values: {
-      baseName: "values",
-      type: "Array<SyntheticsMobileStepParamsElementUserLocatorValuesItems>",
+    "values": {
+      "baseName": "values",
+      "type": "Array<SyntheticsMobileStepParamsElementUserLocatorValuesItems>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class SyntheticsMobileStepParamsElementUserLocator {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsMobileStepParamsElementUserLocator.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

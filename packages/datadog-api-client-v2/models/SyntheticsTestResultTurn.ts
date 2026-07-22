@@ -6,39 +6,44 @@
 import { SyntheticsTestResultBucketKeys } from "./SyntheticsTestResultBucketKeys";
 import { SyntheticsTestResultTurnStep } from "./SyntheticsTestResultTurnStep";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A turn in a goal-based browser test, grouping steps and reasoning.
- */
+*/
 export class SyntheticsTestResultTurn {
   /**
    * Storage bucket keys for artifacts produced during a step or test.
-   */
+  */
   "bucketKeys"?: SyntheticsTestResultBucketKeys;
   /**
    * Name of the turn.
-   */
+  */
   "name"?: string;
   /**
    * Agent reasoning produced for this turn.
-   */
+  */
   "reasoning"?: string;
   /**
    * Status of the turn (for example, `passed`, `failed`).
-   */
+  */
   "status"?: string;
   /**
    * Steps executed during the turn.
-   */
+  */
   "steps"?: Array<SyntheticsTestResultTurnStep>;
   /**
    * Unix timestamp (ms) of when the turn finished.
-   */
+  */
   "turnFinishedAt"?: number;
   /**
    * Unix timestamp (ms) of when the turn started.
-   */
+  */
   "turnStartedAt"?: number;
 
   /**
@@ -46,7 +51,7 @@ export class SyntheticsTestResultTurn {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -57,35 +62,35 @@ export class SyntheticsTestResultTurn {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    bucketKeys: {
-      baseName: "bucket_keys",
-      type: "SyntheticsTestResultBucketKeys",
+    "bucketKeys": {
+      "baseName": "bucket_keys",
+      "type": "SyntheticsTestResultBucketKeys",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    reasoning: {
-      baseName: "reasoning",
-      type: "string",
+    "reasoning": {
+      "baseName": "reasoning",
+      "type": "string",
     },
-    status: {
-      baseName: "status",
-      type: "string",
+    "status": {
+      "baseName": "status",
+      "type": "string",
     },
-    steps: {
-      baseName: "steps",
-      type: "Array<SyntheticsTestResultTurnStep>",
+    "steps": {
+      "baseName": "steps",
+      "type": "Array<SyntheticsTestResultTurnStep>",
     },
-    turnFinishedAt: {
-      baseName: "turn_finished_at",
-      type: "number",
-      format: "int64",
+    "turnFinishedAt": {
+      "baseName": "turn_finished_at",
+      "type": "number",
+      "format": "int64",
     },
-    turnStartedAt: {
-      baseName: "turn_started_at",
-      type: "number",
-      format: "int64",
+    "turnStartedAt": {
+      "baseName": "turn_started_at",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -97,8 +102,34 @@ export class SyntheticsTestResultTurn {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultTurn.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

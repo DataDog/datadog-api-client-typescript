@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Statistical distribution (average, min, max) of a long task metric across sampled views.
- */
+*/
 export class LongTaskMetricStats {
   /**
    * Average value across sampled views.
-   */
+  */
   "average": number;
   /**
    * Maximum value across sampled views.
-   */
+  */
   "max": number;
   /**
    * Minimum value across sampled views.
-   */
+  */
   "min": number;
 
   /**
@@ -28,7 +33,7 @@ export class LongTaskMetricStats {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,23 +44,23 @@ export class LongTaskMetricStats {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    average: {
-      baseName: "average",
-      type: "number",
-      required: true,
-      format: "double",
+    "average": {
+      "baseName": "average",
+      "type": "number",
+      "required": true,
+      "format": "double",
     },
-    max: {
-      baseName: "max",
-      type: "number",
-      required: true,
-      format: "double",
+    "max": {
+      "baseName": "max",
+      "type": "number",
+      "required": true,
+      "format": "double",
     },
-    min: {
-      baseName: "min",
-      type: "number",
-      required: true,
-      format: "double",
+    "min": {
+      "baseName": "min",
+      "type": "number",
+      "required": true,
+      "format": "double",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class LongTaskMetricStats {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LongTaskMetricStats.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

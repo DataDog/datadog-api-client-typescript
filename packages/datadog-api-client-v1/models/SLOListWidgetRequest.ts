@@ -6,19 +6,24 @@
 import { SLOListWidgetQuery } from "./SLOListWidgetQuery";
 import { SLOListWidgetRequestType } from "./SLOListWidgetRequestType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Updated SLO List widget.
- */
+*/
 export class SLOListWidgetRequest {
   /**
    * Updated SLO List widget.
-   */
+  */
   "query": SLOListWidgetQuery;
   /**
    * Widget request type.
-   */
+  */
   "requestType": SLOListWidgetRequestType;
 
   /**
@@ -26,7 +31,7 @@ export class SLOListWidgetRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class SLOListWidgetRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    query: {
-      baseName: "query",
-      type: "SLOListWidgetQuery",
-      required: true,
+    "query": {
+      "baseName": "query",
+      "type": "SLOListWidgetQuery",
+      "required": true,
     },
-    requestType: {
-      baseName: "request_type",
-      type: "SLOListWidgetRequestType",
-      required: true,
+    "requestType": {
+      "baseName": "request_type",
+      "type": "SLOListWidgetRequestType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class SLOListWidgetRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SLOListWidgetRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,23 +5,28 @@
  */
 import { CustomCostsFileMetadataWithContent } from "./CustomCostsFileMetadataWithContent";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * JSON API format of for a Custom Costs file with content.
- */
+*/
 export class CustomCostsFileMetadataWithContentHighLevel {
   /**
    * Schema of a cost file's metadata.
-   */
+  */
   "attributes"?: CustomCostsFileMetadataWithContent;
   /**
    * ID of the Custom Costs metadata.
-   */
+  */
   "id"?: string;
   /**
    * Type of the Custom Costs file metadata.
-   */
+  */
   "type"?: string;
 
   /**
@@ -29,7 +34,7 @@ export class CustomCostsFileMetadataWithContentHighLevel {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,17 +45,17 @@ export class CustomCostsFileMetadataWithContentHighLevel {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CustomCostsFileMetadataWithContent",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CustomCostsFileMetadataWithContent",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class CustomCostsFileMetadataWithContentHighLevel {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomCostsFileMetadataWithContentHighLevel.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

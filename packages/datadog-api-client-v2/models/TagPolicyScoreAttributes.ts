@@ -4,28 +4,33 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a tag policy compliance score.
- */
+*/
 export class TagPolicyScoreAttributes {
   /**
    * The compliance score for the policy over the requested time window, as a percentage
    * between 0 and 100. `null` indicates that no relevant telemetry was found.
-   */
-  "score": number | null;
+  */
+  "score": number|null;
   /**
    * End of the time window the score was computed over, as a Unix timestamp in milliseconds.
-   */
+  */
   "tsEnd": number;
   /**
    * Start of the time window the score was computed over, as a Unix timestamp in milliseconds.
-   */
+  */
   "tsStart": number;
   /**
    * The version of the tag policy that the score was computed against.
-   */
+  */
   "version": number;
 
   /**
@@ -33,7 +38,7 @@ export class TagPolicyScoreAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -44,29 +49,29 @@ export class TagPolicyScoreAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    score: {
-      baseName: "score",
-      type: "number",
-      required: true,
-      format: "double",
+    "score": {
+      "baseName": "score",
+      "type": "number",
+      "required": true,
+      "format": "double",
     },
-    tsEnd: {
-      baseName: "ts_end",
-      type: "number",
-      required: true,
-      format: "int64",
+    "tsEnd": {
+      "baseName": "ts_end",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    tsStart: {
-      baseName: "ts_start",
-      type: "number",
-      required: true,
-      format: "int64",
+    "tsStart": {
+      "baseName": "ts_start",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    version: {
-      baseName: "version",
-      type: "number",
-      required: true,
-      format: "int64",
+    "version": {
+      "baseName": "version",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -78,8 +83,34 @@ export class TagPolicyScoreAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TagPolicyScoreAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Contains the continuation token for navigating to the next page of rows.
- */
+*/
 export class ListRowsResponseMetaPage {
   /**
    * Opaque token to pass as the `page[continuation_token]` query parameter to fetch the next page of results. Only present when more rows are available.
-   */
+  */
   "nextContinuationToken"?: string;
 
   /**
@@ -20,7 +25,7 @@ export class ListRowsResponseMetaPage {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,9 +36,9 @@ export class ListRowsResponseMetaPage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    nextContinuationToken: {
-      baseName: "next_continuation_token",
-      type: "string",
+    "nextContinuationToken": {
+      "baseName": "next_continuation_token",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,8 +50,34 @@ export class ListRowsResponseMetaPage {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListRowsResponseMetaPage.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

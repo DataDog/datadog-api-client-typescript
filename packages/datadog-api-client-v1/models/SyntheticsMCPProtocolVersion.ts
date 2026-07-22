@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The MCP protocol version used by the step. See https://modelcontextprotocol.io/specification.
- */
+*/
 
-export type SyntheticsMCPProtocolVersion =
-  | typeof VERSION_2025_06_18
-  | UnparsedObject;
-export const VERSION_2025_06_18 = "2025-06-18";
+export type SyntheticsMCPProtocolVersion = typeof VERSION_2025_06_18 | UnparsedObject;
+export const VERSION_2025_06_18 = '2025-06-18';

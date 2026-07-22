@@ -4,31 +4,36 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a user who has watched a RUM replay session, including contact information and watch statistics.
- */
+*/
 export class WatcherDataAttributes {
   /**
    * Email handle of the user who watched the session.
-   */
+  */
   "handle": string;
   /**
    * URL or identifier of the watcher's avatar icon.
-   */
+  */
   "icon"?: string;
   /**
    * Timestamp when the watcher last viewed the session.
-   */
+  */
   "lastWatchedAt": Date;
   /**
    * Display name of the user who watched the session.
-   */
+  */
   "name"?: string;
   /**
    * Total number of times the user has watched the session.
-   */
+  */
   "watchCount": number;
 
   /**
@@ -36,7 +41,7 @@ export class WatcherDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,30 +52,30 @@ export class WatcherDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    handle: {
-      baseName: "handle",
-      type: "string",
-      required: true,
+    "handle": {
+      "baseName": "handle",
+      "type": "string",
+      "required": true,
     },
-    icon: {
-      baseName: "icon",
-      type: "string",
+    "icon": {
+      "baseName": "icon",
+      "type": "string",
     },
-    lastWatchedAt: {
-      baseName: "last_watched_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "lastWatchedAt": {
+      "baseName": "last_watched_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    watchCount: {
-      baseName: "watch_count",
-      type: "number",
-      required: true,
-      format: "int32",
+    "watchCount": {
+      "baseName": "watch_count",
+      "type": "number",
+      "required": true,
+      "format": "int32",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -82,8 +87,34 @@ export class WatcherDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return WatcherDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

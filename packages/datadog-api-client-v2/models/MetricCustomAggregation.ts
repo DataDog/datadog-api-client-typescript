@@ -6,19 +6,24 @@
 import { MetricCustomSpaceAggregation } from "./MetricCustomSpaceAggregation";
 import { MetricCustomTimeAggregation } from "./MetricCustomTimeAggregation";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A time and space aggregation combination for use in query.
- */
+*/
 export class MetricCustomAggregation {
   /**
    * A space aggregation for use in query.
-   */
+  */
   "space": MetricCustomSpaceAggregation;
   /**
    * A time aggregation for use in query.
-   */
+  */
   "time": MetricCustomTimeAggregation;
 
   /**
@@ -26,7 +31,7 @@ export class MetricCustomAggregation {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class MetricCustomAggregation {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    space: {
-      baseName: "space",
-      type: "MetricCustomSpaceAggregation",
-      required: true,
+    "space": {
+      "baseName": "space",
+      "type": "MetricCustomSpaceAggregation",
+      "required": true,
     },
-    time: {
-      baseName: "time",
-      type: "MetricCustomTimeAggregation",
-      required: true,
+    "time": {
+      "baseName": "time",
+      "type": "MetricCustomTimeAggregation",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class MetricCustomAggregation {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricCustomAggregation.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

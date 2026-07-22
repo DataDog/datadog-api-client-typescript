@@ -7,24 +7,29 @@ import { RumRateLimitAdaptiveConfig } from "./RumRateLimitAdaptiveConfig";
 import { RumRateLimitCustomConfig } from "./RumRateLimitCustomConfig";
 import { RumRateLimitMode } from "./RumRateLimitMode";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The RUM rate limit configuration properties to create or update.
- */
+*/
 export class RumRateLimitConfigUpdateAttributes {
   /**
    * The configuration used when `mode` is `adaptive`.
-   */
+  */
   "adaptive"?: RumRateLimitAdaptiveConfig;
   /**
    * The configuration used when `mode` is `custom`.
-   */
+  */
   "custom"?: RumRateLimitCustomConfig;
   /**
    * The rate limit mode. `custom` enforces a fixed session limit, while
    * `adaptive` dynamically adjusts retention.
-   */
+  */
   "mode": RumRateLimitMode;
 
   /**
@@ -32,7 +37,7 @@ export class RumRateLimitConfigUpdateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,18 +48,18 @@ export class RumRateLimitConfigUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    adaptive: {
-      baseName: "adaptive",
-      type: "RumRateLimitAdaptiveConfig",
+    "adaptive": {
+      "baseName": "adaptive",
+      "type": "RumRateLimitAdaptiveConfig",
     },
-    custom: {
-      baseName: "custom",
-      type: "RumRateLimitCustomConfig",
+    "custom": {
+      "baseName": "custom",
+      "type": "RumRateLimitCustomConfig",
     },
-    mode: {
-      baseName: "mode",
-      type: "RumRateLimitMode",
-      required: true,
+    "mode": {
+      "baseName": "mode",
+      "type": "RumRateLimitMode",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class RumRateLimitConfigUpdateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RumRateLimitConfigUpdateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

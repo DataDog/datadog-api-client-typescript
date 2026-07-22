@@ -6,23 +6,28 @@
 import { OrgGroupPolicyConfigAttributes } from "./OrgGroupPolicyConfigAttributes";
 import { OrgGroupPolicyConfigType } from "./OrgGroupPolicyConfigType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An org group policy config resource.
- */
+*/
 export class OrgGroupPolicyConfigData {
   /**
    * Attributes of an org group policy config.
-   */
+  */
   "attributes": OrgGroupPolicyConfigAttributes;
   /**
    * The identifier of the policy config (uses the config name).
-   */
+  */
   "id": string;
   /**
    * Org group policy configs resource type.
-   */
+  */
   "type": OrgGroupPolicyConfigType;
 
   /**
@@ -30,7 +35,7 @@ export class OrgGroupPolicyConfigData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class OrgGroupPolicyConfigData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "OrgGroupPolicyConfigAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "OrgGroupPolicyConfigAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "OrgGroupPolicyConfigType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "OrgGroupPolicyConfigType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class OrgGroupPolicyConfigData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgGroupPolicyConfigData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

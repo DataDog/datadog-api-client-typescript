@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Dimension of the point plot.
- */
+*/
 
-export type PointPlotDimension =
-  | typeof GROUP
-  | typeof TIME
-  | typeof Y
-  | typeof RADIUS
-  | UnparsedObject;
-export const GROUP = "group";
-export const TIME = "time";
-export const Y = "y";
-export const RADIUS = "radius";
+export type PointPlotDimension = typeof GROUP| typeof TIME| typeof Y| typeof RADIUS | UnparsedObject;
+export const GROUP = 'group';
+export const TIME = 'time';
+export const Y = 'y';
+export const RADIUS = 'radius';

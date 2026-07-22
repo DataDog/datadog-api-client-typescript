@@ -6,23 +6,28 @@
 import { StatusPagesUserAttributes } from "./StatusPagesUserAttributes";
 import { StatusPagesUserType } from "./StatusPagesUserType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The included Datadog user resource.
- */
+*/
 export class StatusPagesUser {
   /**
    * Attributes of the Datadog user.
-   */
+  */
   "attributes"?: StatusPagesUserAttributes;
   /**
    * The ID of the Datadog user.
-   */
+  */
   "id"?: string;
   /**
    * Users resource type.
-   */
+  */
   "type": StatusPagesUserType;
 
   /**
@@ -30,7 +35,7 @@ export class StatusPagesUser {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class StatusPagesUser {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "StatusPagesUserAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "StatusPagesUserAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "format": "uuid",
     },
-    type: {
-      baseName: "type",
-      type: "StatusPagesUserType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "StatusPagesUserType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class StatusPagesUser {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return StatusPagesUser.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

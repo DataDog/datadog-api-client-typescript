@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Service owner's contacts information.
- */
+*/
 export class ServiceDefinitionV2Dot2Contact {
   /**
    * Contact value.
-   */
+  */
   "contact": string;
   /**
    * Contact Name.
-   */
+  */
   "name"?: string;
   /**
    * Contact type. Datadog recognizes the following types: `email`, `slack`, and `microsoft-teams`.
-   */
+  */
   "type": string;
 
   /**
@@ -28,7 +33,7 @@ export class ServiceDefinitionV2Dot2Contact {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,19 +44,19 @@ export class ServiceDefinitionV2Dot2Contact {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    contact: {
-      baseName: "contact",
-      type: "string",
-      required: true,
+    "contact": {
+      "baseName": "contact",
+      "type": "string",
+      "required": true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "string",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class ServiceDefinitionV2Dot2Contact {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceDefinitionV2Dot2Contact.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

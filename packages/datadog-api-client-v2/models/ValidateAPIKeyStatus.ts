@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Status of the validation. Always `ok` when both the API key and the application key are valid.
- */
+*/
 
 export type ValidateAPIKeyStatus = typeof OK | UnparsedObject;
-export const OK = "ok";
+export const OK = 'ok';

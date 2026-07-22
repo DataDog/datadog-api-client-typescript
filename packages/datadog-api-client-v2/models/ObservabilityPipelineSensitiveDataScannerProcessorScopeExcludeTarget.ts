@@ -4,12 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Excludes specific fields from processing.
- */
+*/
 
-export type ObservabilityPipelineSensitiveDataScannerProcessorScopeExcludeTarget =
-  typeof EXCLUDE | UnparsedObject;
-export const EXCLUDE = "exclude";
+export type ObservabilityPipelineSensitiveDataScannerProcessorScopeExcludeTarget = typeof EXCLUDE | UnparsedObject;
+export const EXCLUDE = 'exclude';

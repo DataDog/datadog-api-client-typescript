@@ -7,27 +7,32 @@ import { PersonalAccessTokenAttributes } from "./PersonalAccessTokenAttributes";
 import { PersonalAccessTokenRelationships } from "./PersonalAccessTokenRelationships";
 import { PersonalAccessTokensType } from "./PersonalAccessTokensType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Datadog access token.
- */
+*/
 export class PersonalAccessToken {
   /**
    * Attributes of an access token.
-   */
+  */
   "attributes"?: PersonalAccessTokenAttributes;
   /**
    * ID of the access token.
-   */
+  */
   "id"?: string;
   /**
    * Resources related to the access token.
-   */
+  */
   "relationships"?: PersonalAccessTokenRelationships;
   /**
    * Personal access tokens resource type.
-   */
+  */
   "type"?: PersonalAccessTokensType;
 
   /**
@@ -35,7 +40,7 @@ export class PersonalAccessToken {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,21 +51,21 @@ export class PersonalAccessToken {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "PersonalAccessTokenAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "PersonalAccessTokenAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "PersonalAccessTokenRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "PersonalAccessTokenRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "PersonalAccessTokensType",
+    "type": {
+      "baseName": "type",
+      "type": "PersonalAccessTokensType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -72,8 +77,34 @@ export class PersonalAccessToken {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PersonalAccessToken.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

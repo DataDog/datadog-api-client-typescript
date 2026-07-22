@@ -5,27 +5,32 @@
  */
 import { SyntheticsUptime } from "./SyntheticsUptime";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object containing the uptime for a Synthetic test ID.
- */
+*/
 export class SyntheticsTestUptime {
   /**
    * Timestamp in seconds for the start of uptime.
-   */
+  */
   "fromTs"?: number;
   /**
    * Object containing the uptime information.
-   */
+  */
   "overall"?: SyntheticsUptime;
   /**
    * A Synthetic test ID.
-   */
+  */
   "publicId"?: string;
   /**
    * Timestamp in seconds for the end of uptime.
-   */
+  */
   "toTs"?: number;
 
   /**
@@ -33,7 +38,7 @@ export class SyntheticsTestUptime {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -44,23 +49,23 @@ export class SyntheticsTestUptime {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    fromTs: {
-      baseName: "from_ts",
-      type: "number",
-      format: "int64",
+    "fromTs": {
+      "baseName": "from_ts",
+      "type": "number",
+      "format": "int64",
     },
-    overall: {
-      baseName: "overall",
-      type: "SyntheticsUptime",
+    "overall": {
+      "baseName": "overall",
+      "type": "SyntheticsUptime",
     },
-    publicId: {
-      baseName: "public_id",
-      type: "string",
+    "publicId": {
+      "baseName": "public_id",
+      "type": "string",
     },
-    toTs: {
-      baseName: "to_ts",
-      type: "number",
-      format: "int64",
+    "toTs": {
+      "baseName": "to_ts",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -72,8 +77,34 @@ export class SyntheticsTestUptime {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestUptime.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

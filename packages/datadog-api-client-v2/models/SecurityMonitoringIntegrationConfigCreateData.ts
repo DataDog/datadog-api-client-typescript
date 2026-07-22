@@ -6,19 +6,24 @@
 import { SecurityMonitoringIntegrationConfigCreateAttributes } from "./SecurityMonitoringIntegrationConfigCreateAttributes";
 import { SecurityMonitoringIntegrationConfigResourceType } from "./SecurityMonitoringIntegrationConfigResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The entity context sync configuration to create.
- */
+*/
 export class SecurityMonitoringIntegrationConfigCreateData {
   /**
    * The attributes of the entity context sync configuration to create.
-   */
+  */
   "attributes": SecurityMonitoringIntegrationConfigCreateAttributes;
   /**
    * The type of the resource. The value should always be `integration_config`.
-   */
+  */
   "type": SecurityMonitoringIntegrationConfigResourceType;
 
   /**
@@ -26,7 +31,7 @@ export class SecurityMonitoringIntegrationConfigCreateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class SecurityMonitoringIntegrationConfigCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SecurityMonitoringIntegrationConfigCreateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SecurityMonitoringIntegrationConfigCreateAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "SecurityMonitoringIntegrationConfigResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SecurityMonitoringIntegrationConfigResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class SecurityMonitoringIntegrationConfigCreateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringIntegrationConfigCreateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

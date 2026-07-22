@@ -11,49 +11,54 @@ import { AWSRegions } from "./AWSRegions";
 import { AWSResourcesConfig } from "./AWSResourcesConfig";
 import { AWSTracesConfig } from "./AWSTracesConfig";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The AWS Account Integration Config to be created.
- */
+*/
 export class AWSAccountCreateRequestAttributes {
   /**
    * Tags to apply to all hosts and metrics reporting for this account. Defaults to `[]`.
-   */
+  */
   "accountTags"?: Array<string>;
   /**
    * AWS Authentication config.
-   */
+  */
   "authConfig": AWSAuthConfig;
   /**
    * AWS Account ID.
-   */
+  */
   "awsAccountId": string;
   /**
    * AWS partition your AWS account is scoped to. Defaults to `aws`.
    * See [Partitions](https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/partitions.html)
    * in the AWS documentation for more information.
-   */
+  */
   "awsPartition": AWSAccountPartition;
   /**
    * AWS Regions to collect data from. Defaults to `include_all`.
-   */
+  */
   "awsRegions"?: AWSRegions;
   /**
    * AWS Logs Collection config.
-   */
+  */
   "logsConfig"?: AWSLogsConfig;
   /**
    * AWS Metrics Collection config.
-   */
+  */
   "metricsConfig"?: AWSMetricsConfig;
   /**
    * AWS Resources Collection config.
-   */
+  */
   "resourcesConfig"?: AWSResourcesConfig;
   /**
    * AWS Traces Collection config.
-   */
+  */
   "tracesConfig"?: AWSTracesConfig;
 
   /**
@@ -61,7 +66,7 @@ export class AWSAccountCreateRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -72,44 +77,44 @@ export class AWSAccountCreateRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    accountTags: {
-      baseName: "account_tags",
-      type: "Array<string>",
+    "accountTags": {
+      "baseName": "account_tags",
+      "type": "Array<string>",
     },
-    authConfig: {
-      baseName: "auth_config",
-      type: "AWSAuthConfig",
-      required: true,
+    "authConfig": {
+      "baseName": "auth_config",
+      "type": "AWSAuthConfig",
+      "required": true,
     },
-    awsAccountId: {
-      baseName: "aws_account_id",
-      type: "string",
-      required: true,
+    "awsAccountId": {
+      "baseName": "aws_account_id",
+      "type": "string",
+      "required": true,
     },
-    awsPartition: {
-      baseName: "aws_partition",
-      type: "AWSAccountPartition",
-      required: true,
+    "awsPartition": {
+      "baseName": "aws_partition",
+      "type": "AWSAccountPartition",
+      "required": true,
     },
-    awsRegions: {
-      baseName: "aws_regions",
-      type: "AWSRegions",
+    "awsRegions": {
+      "baseName": "aws_regions",
+      "type": "AWSRegions",
     },
-    logsConfig: {
-      baseName: "logs_config",
-      type: "AWSLogsConfig",
+    "logsConfig": {
+      "baseName": "logs_config",
+      "type": "AWSLogsConfig",
     },
-    metricsConfig: {
-      baseName: "metrics_config",
-      type: "AWSMetricsConfig",
+    "metricsConfig": {
+      "baseName": "metrics_config",
+      "type": "AWSMetricsConfig",
     },
-    resourcesConfig: {
-      baseName: "resources_config",
-      type: "AWSResourcesConfig",
+    "resourcesConfig": {
+      "baseName": "resources_config",
+      "type": "AWSResourcesConfig",
     },
-    tracesConfig: {
-      baseName: "traces_config",
-      type: "AWSTracesConfig",
+    "tracesConfig": {
+      "baseName": "traces_config",
+      "type": "AWSTracesConfig",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -121,8 +126,34 @@ export class AWSAccountCreateRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSAccountCreateRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

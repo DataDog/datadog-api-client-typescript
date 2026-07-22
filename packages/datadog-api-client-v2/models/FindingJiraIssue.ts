@@ -5,23 +5,28 @@
  */
 import { FindingJiraIssueResult } from "./FindingJiraIssueResult";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Jira issue associated with the case.
- */
+*/
 export class FindingJiraIssue {
   /**
    * Error message if the Jira issue creation failed.
-   */
+  */
   "errorMessage"?: string;
   /**
    * Result of the Jira issue creation.
-   */
+  */
   "result"?: FindingJiraIssueResult;
   /**
    * Status of the Jira issue creation. Can be "COMPLETED" if the Jira issue was created successfully, or "FAILED" if the Jira issue creation failed.
-   */
+  */
   "status"?: string;
 
   /**
@@ -29,7 +34,7 @@ export class FindingJiraIssue {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,17 +45,17 @@ export class FindingJiraIssue {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    errorMessage: {
-      baseName: "error_message",
-      type: "string",
+    "errorMessage": {
+      "baseName": "error_message",
+      "type": "string",
     },
-    result: {
-      baseName: "result",
-      type: "FindingJiraIssueResult",
+    "result": {
+      "baseName": "result",
+      "type": "FindingJiraIssueResult",
     },
-    status: {
-      baseName: "status",
-      type: "string",
+    "status": {
+      "baseName": "status",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class FindingJiraIssue {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FindingJiraIssue.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

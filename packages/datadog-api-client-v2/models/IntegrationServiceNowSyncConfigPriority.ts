@@ -4,31 +4,36 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Priority synchronization configuration for ServiceNow integration.
- */
+*/
 export class IntegrationServiceNowSyncConfigPriority {
   /**
    * Mapping of case priority values to ServiceNow impact values.
-   */
-  "impactMapping"?: { [key: string]: string };
+  */
+  "impactMapping"?: { [key: string]: string; };
   /**
    * The type of synchronization to apply for priority.
-   */
+  */
   "syncType"?: string;
   /**
    * Mapping of case priority values to ServiceNow urgency values.
-   */
-  "urgencyMapping"?: { [key: string]: string };
+  */
+  "urgencyMapping"?: { [key: string]: string; };
 
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class IntegrationServiceNowSyncConfigPriority {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    impactMapping: {
-      baseName: "impact_mapping",
-      type: "{ [key: string]: string; }",
+    "impactMapping": {
+      "baseName": "impact_mapping",
+      "type": "{ [key: string]: string; }",
     },
-    syncType: {
-      baseName: "sync_type",
-      type: "string",
+    "syncType": {
+      "baseName": "sync_type",
+      "type": "string",
     },
-    urgencyMapping: {
-      baseName: "urgency_mapping",
-      type: "{ [key: string]: string; }",
+    "urgencyMapping": {
+      "baseName": "urgency_mapping",
+      "type": "{ [key: string]: string; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class IntegrationServiceNowSyncConfigPriority {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IntegrationServiceNowSyncConfigPriority.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

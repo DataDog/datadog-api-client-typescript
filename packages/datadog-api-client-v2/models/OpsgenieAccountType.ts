@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Opsgenie account resource type.
- */
+*/
 
 export type OpsgenieAccountType = typeof OPSGENIE_ACCOUNT | UnparsedObject;
-export const OPSGENIE_ACCOUNT = "opsgenie-account";
+export const OPSGENIE_ACCOUNT = 'opsgenie-account';

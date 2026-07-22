@@ -7,23 +7,28 @@ import { PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail 
 import { PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail } from "./PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail";
 import { PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail } from "./PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Cloud storage access configuration for the reference table data file.
- */
+*/
 export class PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails {
   /**
    * Amazon Web Services S3 storage access configuration.
-   */
+  */
   "awsDetail"?: PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail;
   /**
    * Azure Blob Storage access configuration.
-   */
+  */
   "azureDetail"?: PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail;
   /**
    * Google Cloud Platform storage access configuration.
-   */
+  */
   "gcpDetail"?: PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail;
 
   /**
@@ -31,7 +36,7 @@ export class PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,17 +47,17 @@ export class PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    awsDetail: {
-      baseName: "aws_detail",
-      type: "PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail",
+    "awsDetail": {
+      "baseName": "aws_detail",
+      "type": "PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail",
     },
-    azureDetail: {
-      baseName: "azure_detail",
-      type: "PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail",
+    "azureDetail": {
+      "baseName": "azure_detail",
+      "type": "PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail",
     },
-    gcpDetail: {
-      baseName: "gcp_detail",
-      type: "PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail",
+    "gcpDetail": {
+      "baseName": "gcp_detail",
+      "type": "PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

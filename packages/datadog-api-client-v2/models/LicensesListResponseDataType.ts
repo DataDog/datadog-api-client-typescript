@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type identifier for license list responses.
- */
+*/
 
-export type LicensesListResponseDataType =
-  | typeof LICENSEREQUEST
-  | UnparsedObject;
-export const LICENSEREQUEST = "licenserequest";
+export type LicensesListResponseDataType = typeof LICENSEREQUEST | UnparsedObject;
+export const LICENSEREQUEST = 'licenserequest';

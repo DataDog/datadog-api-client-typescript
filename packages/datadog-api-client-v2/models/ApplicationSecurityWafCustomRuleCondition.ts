@@ -6,19 +6,24 @@
 import { ApplicationSecurityWafCustomRuleConditionOperator } from "./ApplicationSecurityWafCustomRuleConditionOperator";
 import { ApplicationSecurityWafCustomRuleConditionParameters } from "./ApplicationSecurityWafCustomRuleConditionParameters";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * One condition of the WAF Custom Rule.
- */
+*/
 export class ApplicationSecurityWafCustomRuleCondition {
   /**
    * Operator to use for the WAF Condition.
-   */
+  */
   "operator": ApplicationSecurityWafCustomRuleConditionOperator;
   /**
    * The scope of the WAF custom rule.
-   */
+  */
   "parameters": ApplicationSecurityWafCustomRuleConditionParameters;
 
   /**
@@ -26,7 +31,7 @@ export class ApplicationSecurityWafCustomRuleCondition {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class ApplicationSecurityWafCustomRuleCondition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    operator: {
-      baseName: "operator",
-      type: "ApplicationSecurityWafCustomRuleConditionOperator",
-      required: true,
+    "operator": {
+      "baseName": "operator",
+      "type": "ApplicationSecurityWafCustomRuleConditionOperator",
+      "required": true,
     },
-    parameters: {
-      baseName: "parameters",
-      type: "ApplicationSecurityWafCustomRuleConditionParameters",
-      required: true,
+    "parameters": {
+      "baseName": "parameters",
+      "type": "ApplicationSecurityWafCustomRuleConditionParameters",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class ApplicationSecurityWafCustomRuleCondition {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ApplicationSecurityWafCustomRuleCondition.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,19 +6,24 @@
 import { AppVersionNameType } from "./AppVersionNameType";
 import { UpdateAppVersionNameRequestDataAttributes } from "./UpdateAppVersionNameRequestDataAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for naming a specific app version.
- */
+*/
 export class UpdateAppVersionNameRequestData {
   /**
    * Attributes for naming a specific app version.
-   */
+  */
   "attributes"?: UpdateAppVersionNameRequestDataAttributes;
   /**
    * The version-name resource type.
-   */
+  */
   "type"?: AppVersionNameType;
 
   /**
@@ -26,7 +31,7 @@ export class UpdateAppVersionNameRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class UpdateAppVersionNameRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "UpdateAppVersionNameRequestDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "UpdateAppVersionNameRequestDataAttributes",
     },
-    type: {
-      baseName: "type",
-      type: "AppVersionNameType",
+    "type": {
+      "baseName": "type",
+      "type": "AppVersionNameType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class UpdateAppVersionNameRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateAppVersionNameRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { SyntheticsSuiteSearchResponseData } from "./SyntheticsSuiteSearchResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Synthetics suite search response
- */
+*/
 export class SyntheticsSuiteSearchResponse {
   /**
    * Synthetics suite search response data
-   */
+  */
   "data"?: SyntheticsSuiteSearchResponseData;
 
   /**
@@ -21,7 +26,7 @@ export class SyntheticsSuiteSearchResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class SyntheticsSuiteSearchResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SyntheticsSuiteSearchResponseData",
+    "data": {
+      "baseName": "data",
+      "type": "SyntheticsSuiteSearchResponseData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class SyntheticsSuiteSearchResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsSuiteSearchResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

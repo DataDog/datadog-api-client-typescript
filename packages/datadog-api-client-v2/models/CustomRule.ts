@@ -5,27 +5,32 @@
  */
 import { CustomRuleRevision } from "./CustomRuleRevision";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A custom static analysis rule within a ruleset.
- */
+*/
 export class CustomRule {
   /**
    * Creation timestamp
-   */
+  */
   "createdAt": Date;
   /**
    * Creator identifier
-   */
+  */
   "createdBy": string;
   /**
    * A specific revision of a custom static analysis rule.
-   */
+  */
   "lastRevision": CustomRuleRevision;
   /**
    * Rule name
-   */
+  */
   "name": string;
 
   /**
@@ -33,7 +38,7 @@ export class CustomRule {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -44,26 +49,26 @@ export class CustomRule {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    createdBy: {
-      baseName: "created_by",
-      type: "string",
-      required: true,
+    "createdBy": {
+      "baseName": "created_by",
+      "type": "string",
+      "required": true,
     },
-    lastRevision: {
-      baseName: "last_revision",
-      type: "CustomRuleRevision",
-      required: true,
+    "lastRevision": {
+      "baseName": "last_revision",
+      "type": "CustomRuleRevision",
+      "required": true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -75,8 +80,34 @@ export class CustomRule {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomRule.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

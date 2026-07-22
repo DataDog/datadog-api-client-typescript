@@ -5,15 +5,20 @@
  */
 import { UsageSDSHour } from "./UsageSDSHour";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing the Sensitive Data Scanner usage for each hour for a given organization.
- */
+*/
 export class UsageSDSResponse {
   /**
    * Get hourly usage for Sensitive Data Scanner.
-   */
+  */
   "usage"?: Array<UsageSDSHour>;
 
   /**
@@ -21,7 +26,7 @@ export class UsageSDSResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class UsageSDSResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageSDSHour>",
+    "usage": {
+      "baseName": "usage",
+      "type": "Array<UsageSDSHour>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class UsageSDSResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageSDSResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

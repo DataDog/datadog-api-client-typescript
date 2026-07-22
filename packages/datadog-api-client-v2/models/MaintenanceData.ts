@@ -7,27 +7,32 @@ import { MaintenanceDataAttributes } from "./MaintenanceDataAttributes";
 import { MaintenanceDataRelationships } from "./MaintenanceDataRelationships";
 import { PatchMaintenanceRequestDataType } from "./PatchMaintenanceRequestDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data object for a maintenance.
- */
+*/
 export class MaintenanceData {
   /**
    * The attributes of a maintenance.
-   */
+  */
   "attributes"?: MaintenanceDataAttributes;
   /**
    * The ID of the maintenance.
-   */
+  */
   "id"?: string;
   /**
    * The relationships of a maintenance.
-   */
+  */
   "relationships"?: MaintenanceDataRelationships;
   /**
    * Maintenances resource type.
-   */
+  */
   "type": PatchMaintenanceRequestDataType;
 
   /**
@@ -35,7 +40,7 @@ export class MaintenanceData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,23 +51,23 @@ export class MaintenanceData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "MaintenanceDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "MaintenanceDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "format": "uuid",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "MaintenanceDataRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "MaintenanceDataRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "PatchMaintenanceRequestDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "PatchMaintenanceRequestDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,8 +79,34 @@ export class MaintenanceData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MaintenanceData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

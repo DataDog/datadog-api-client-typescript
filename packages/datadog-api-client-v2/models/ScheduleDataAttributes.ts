@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Provides core properties of a schedule object such as its name and time zone.
- */
+*/
 export class ScheduleDataAttributes {
   /**
    * A short name for the schedule.
-   */
+  */
   "name"?: string;
   /**
    * A list of tags associated with the schedule.
-   */
+  */
   "tags"?: Array<string>;
   /**
    * The time zone in which this schedule operates.
-   */
+  */
   "timeZone"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class ScheduleDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class ScheduleDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
+    "tags": {
+      "baseName": "tags",
+      "type": "Array<string>",
     },
-    timeZone: {
-      baseName: "time_zone",
-      type: "string",
+    "timeZone": {
+      "baseName": "time_zone",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class ScheduleDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ScheduleDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,16 +4,21 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Links attributes.
- */
+*/
 export class LogsListResponseLinks {
   /**
    * Link for the next set of results. Note that the request can also be made using the
    * POST endpoint.
-   */
+  */
   "next"?: string;
 
   /**
@@ -21,7 +26,7 @@ export class LogsListResponseLinks {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class LogsListResponseLinks {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    next: {
-      baseName: "next",
-      type: "string",
+    "next": {
+      "baseName": "next",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class LogsListResponseLinks {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogsListResponseLinks.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

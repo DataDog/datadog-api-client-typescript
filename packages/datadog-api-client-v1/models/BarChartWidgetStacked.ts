@@ -6,19 +6,24 @@
 import { BarChartWidgetLegend } from "./BarChartWidgetLegend";
 import { BarChartWidgetStackedType } from "./BarChartWidgetStackedType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Bar chart widget stacked display options.
- */
+*/
 export class BarChartWidgetStacked {
   /**
    * Bar chart widget stacked legend behavior.
-   */
+  */
   "legend"?: BarChartWidgetLegend;
   /**
    * Bar chart widget stacked display type.
-   */
+  */
   "type": BarChartWidgetStackedType;
 
   /**
@@ -26,7 +31,7 @@ export class BarChartWidgetStacked {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class BarChartWidgetStacked {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    legend: {
-      baseName: "legend",
-      type: "BarChartWidgetLegend",
+    "legend": {
+      "baseName": "legend",
+      "type": "BarChartWidgetLegend",
     },
-    type: {
-      baseName: "type",
-      type: "BarChartWidgetStackedType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "BarChartWidgetStackedType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class BarChartWidgetStacked {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return BarChartWidgetStacked.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

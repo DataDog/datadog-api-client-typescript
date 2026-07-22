@@ -6,23 +6,28 @@
 import { ApplicationKeysType } from "./ApplicationKeysType";
 import { ApplicationKeyUpdateAttributes } from "./ApplicationKeyUpdateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object used to update an application key.
- */
+*/
 export class ApplicationKeyUpdateData {
   /**
    * Attributes used to update an application Key.
-   */
+  */
   "attributes": ApplicationKeyUpdateAttributes;
   /**
    * ID of the application key.
-   */
+  */
   "id": string;
   /**
    * Application Keys resource type.
-   */
+  */
   "type": ApplicationKeysType;
 
   /**
@@ -30,7 +35,7 @@ export class ApplicationKeyUpdateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class ApplicationKeyUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ApplicationKeyUpdateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ApplicationKeyUpdateAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ApplicationKeysType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ApplicationKeysType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class ApplicationKeyUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ApplicationKeyUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

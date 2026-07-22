@@ -4,39 +4,44 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object containing details about a parent suite of a Synthetic test.
- */
+*/
 export class SyntheticsTestParentSuiteAttributes {
   /**
    * The name of the child test within the suite.
-   */
+  */
   "childName"?: string;
   /**
    * The public ID of the child test within the suite.
-   */
+  */
   "childPublicId"?: string;
   /**
    * The associated monitor ID.
-   */
+  */
   "monitorId"?: number;
   /**
    * Name of the parent suite.
-   */
+  */
   "name"?: string;
   /**
    * The overall state of the parent suite.
-   */
+  */
   "overallState"?: number;
   /**
    * Timestamp of when the overall state was last modified.
-   */
+  */
   "overallStateModified"?: string;
   /**
    * The public ID of the parent suite.
-   */
+  */
   "publicId"?: string;
 
   /**
@@ -44,7 +49,7 @@ export class SyntheticsTestParentSuiteAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -55,35 +60,35 @@ export class SyntheticsTestParentSuiteAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    childName: {
-      baseName: "child_name",
-      type: "string",
+    "childName": {
+      "baseName": "child_name",
+      "type": "string",
     },
-    childPublicId: {
-      baseName: "child_public_id",
-      type: "string",
+    "childPublicId": {
+      "baseName": "child_public_id",
+      "type": "string",
     },
-    monitorId: {
-      baseName: "monitor_id",
-      type: "number",
-      format: "int64",
+    "monitorId": {
+      "baseName": "monitor_id",
+      "type": "number",
+      "format": "int64",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    overallState: {
-      baseName: "overall_state",
-      type: "number",
-      format: "int64",
+    "overallState": {
+      "baseName": "overall_state",
+      "type": "number",
+      "format": "int64",
     },
-    overallStateModified: {
-      baseName: "overall_state_modified",
-      type: "string",
+    "overallStateModified": {
+      "baseName": "overall_state_modified",
+      "type": "string",
     },
-    publicId: {
-      baseName: "public_id",
-      type: "string",
+    "publicId": {
+      "baseName": "public_id",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -95,8 +100,34 @@ export class SyntheticsTestParentSuiteAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestParentSuiteAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

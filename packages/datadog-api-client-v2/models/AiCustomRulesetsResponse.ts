@@ -5,15 +5,20 @@
  */
 import { AiCustomRulesetResponseData } from "./AiCustomRulesetResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a list of AI custom rulesets.
- */
+*/
 export class AiCustomRulesetsResponse {
   /**
    * The list of AI custom rulesets.
-   */
+  */
   "data": Array<AiCustomRulesetResponseData>;
 
   /**
@@ -21,7 +26,7 @@ export class AiCustomRulesetsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class AiCustomRulesetsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<AiCustomRulesetResponseData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<AiCustomRulesetResponseData>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class AiCustomRulesetsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AiCustomRulesetsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

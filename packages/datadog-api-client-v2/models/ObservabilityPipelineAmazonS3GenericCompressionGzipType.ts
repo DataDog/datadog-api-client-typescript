@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The compression type. Always `gzip`.
- */
+*/
 
-export type ObservabilityPipelineAmazonS3GenericCompressionGzipType =
-  | typeof GZIP
-  | UnparsedObject;
-export const GZIP = "gzip";
+export type ObservabilityPipelineAmazonS3GenericCompressionGzipType = typeof GZIP | UnparsedObject;
+export const GZIP = 'gzip';

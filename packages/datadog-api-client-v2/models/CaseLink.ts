@@ -6,23 +6,28 @@
 import { CaseLinkAttributes } from "./CaseLinkAttributes";
 import { CaseLinkResourceType } from "./CaseLinkResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A directional link representing a relationship between two entities. At least one entity must be a case.
- */
+*/
 export class CaseLink {
   /**
    * Attributes describing a directional relationship between two entities (cases, incidents, or pages).
-   */
+  */
   "attributes": CaseLinkAttributes;
   /**
    * The case link identifier.
-   */
+  */
   "id": string;
   /**
    * JSON:API resource type for case links.
-   */
+  */
   "type": CaseLinkResourceType;
 
   /**
@@ -30,7 +35,7 @@ export class CaseLink {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class CaseLink {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CaseLinkAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CaseLinkAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CaseLinkResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CaseLinkResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class CaseLink {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseLink.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

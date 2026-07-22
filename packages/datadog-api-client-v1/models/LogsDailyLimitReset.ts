@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object containing options to override the default daily limit reset time.
- */
+*/
 export class LogsDailyLimitReset {
   /**
    * String in `HH:00` format representing the time of day the daily limit should be reset. The hours must be between 00 and 23 (inclusive).
-   */
+  */
   "resetTime"?: string;
   /**
    * String in `(-|+)HH:00` format representing the UTC offset to apply to the given reset time. The hours must be between -12 and +14 (inclusive).
-   */
+  */
   "resetUtcOffset"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class LogsDailyLimitReset {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class LogsDailyLimitReset {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    resetTime: {
-      baseName: "reset_time",
-      type: "string",
+    "resetTime": {
+      "baseName": "reset_time",
+      "type": "string",
     },
-    resetUtcOffset: {
-      baseName: "reset_utc_offset",
-      type: "string",
+    "resetUtcOffset": {
+      "baseName": "reset_utc_offset",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class LogsDailyLimitReset {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogsDailyLimitReset.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,51 +4,56 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A variable used or extracted during a test.
- */
+*/
 export class SyntheticsTestResultVariable {
   /**
    * Error encountered when evaluating the variable.
-   */
+  */
   "err"?: string;
   /**
    * Human-readable error message for variable evaluation.
-   */
+  */
   "errorMessage"?: string;
   /**
    * Example value for the variable.
-   */
+  */
   "example"?: string;
   /**
    * Variable identifier.
-   */
+  */
   "id"?: string;
   /**
    * Variable name.
-   */
+  */
   "name"?: string;
   /**
    * Pattern used to extract the variable.
-   */
+  */
   "pattern"?: string;
   /**
    * Whether the variable holds a secure value.
-   */
+  */
   "secure"?: boolean;
   /**
    * Variable type.
-   */
+  */
   "type"?: string;
   /**
    * Evaluated value of the variable.
-   */
+  */
   "val"?: string;
   /**
    * Current value of the variable.
-   */
+  */
   "value"?: string;
 
   /**
@@ -56,7 +61,7 @@ export class SyntheticsTestResultVariable {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -67,45 +72,45 @@ export class SyntheticsTestResultVariable {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    err: {
-      baseName: "err",
-      type: "string",
+    "err": {
+      "baseName": "err",
+      "type": "string",
     },
-    errorMessage: {
-      baseName: "error_message",
-      type: "string",
+    "errorMessage": {
+      "baseName": "error_message",
+      "type": "string",
     },
-    example: {
-      baseName: "example",
-      type: "string",
+    "example": {
+      "baseName": "example",
+      "type": "string",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    pattern: {
-      baseName: "pattern",
-      type: "string",
+    "pattern": {
+      "baseName": "pattern",
+      "type": "string",
     },
-    secure: {
-      baseName: "secure",
-      type: "boolean",
+    "secure": {
+      "baseName": "secure",
+      "type": "boolean",
     },
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
-    val: {
-      baseName: "val",
-      type: "string",
+    "val": {
+      "baseName": "val",
+      "type": "string",
     },
-    value: {
-      baseName: "value",
-      type: "string",
+    "value": {
+      "baseName": "value",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -117,8 +122,34 @@ export class SyntheticsTestResultVariable {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultVariable.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

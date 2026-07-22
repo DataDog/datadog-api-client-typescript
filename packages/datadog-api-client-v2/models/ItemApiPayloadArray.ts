@@ -6,19 +6,24 @@
 import { ItemApiPayloadData } from "./ItemApiPayloadData";
 import { ItemApiPayloadMeta } from "./ItemApiPayloadMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A collection of datastore items with pagination and schema metadata.
- */
+*/
 export class ItemApiPayloadArray {
   /**
    * An array of datastore items with their content and metadata.
-   */
+  */
   "data": Array<ItemApiPayloadData>;
   /**
    * Additional metadata about a collection of datastore items, including pagination and schema information.
-   */
+  */
   "meta"?: ItemApiPayloadMeta;
 
   /**
@@ -26,7 +31,7 @@ export class ItemApiPayloadArray {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class ItemApiPayloadArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<ItemApiPayloadData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<ItemApiPayloadData>",
+      "required": true,
     },
-    meta: {
-      baseName: "meta",
-      type: "ItemApiPayloadMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "ItemApiPayloadMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class ItemApiPayloadArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ItemApiPayloadArray.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

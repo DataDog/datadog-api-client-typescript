@@ -7,27 +7,32 @@ import { RoleCreateAttributes } from "./RoleCreateAttributes";
 import { RoleResponseRelationships } from "./RoleResponseRelationships";
 import { RolesType } from "./RolesType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Role object returned by the API.
- */
+*/
 export class RoleCreateResponseData {
   /**
    * Attributes of the created role.
-   */
+  */
   "attributes"?: RoleCreateAttributes;
   /**
    * The unique identifier of the role.
-   */
+  */
   "id"?: string;
   /**
    * Relationships of the role object returned by the API.
-   */
+  */
   "relationships"?: RoleResponseRelationships;
   /**
    * Roles type.
-   */
+  */
   "type": RolesType;
 
   /**
@@ -35,7 +40,7 @@ export class RoleCreateResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,22 +51,22 @@ export class RoleCreateResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RoleCreateAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "RoleCreateAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "RoleResponseRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "RoleResponseRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "RolesType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "RolesType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -73,8 +78,34 @@ export class RoleCreateResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RoleCreateResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

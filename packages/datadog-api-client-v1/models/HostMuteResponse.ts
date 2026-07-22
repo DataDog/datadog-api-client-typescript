@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response with the list of muted host for your organization.
- */
+*/
 export class HostMuteResponse {
   /**
    * Action applied to the hosts.
-   */
+  */
   "action"?: string;
   /**
    * POSIX timestamp in seconds when the host is unmuted.
-   */
+  */
   "end"?: number;
   /**
    * The host name.
-   */
+  */
   "hostname"?: string;
   /**
    * Message associated with the mute.
-   */
+  */
   "message"?: string;
 
   /**
@@ -32,7 +37,7 @@ export class HostMuteResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,22 +48,22 @@ export class HostMuteResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    action: {
-      baseName: "action",
-      type: "string",
+    "action": {
+      "baseName": "action",
+      "type": "string",
     },
-    end: {
-      baseName: "end",
-      type: "number",
-      format: "int64",
+    "end": {
+      "baseName": "end",
+      "type": "number",
+      "format": "int64",
     },
-    hostname: {
-      baseName: "hostname",
-      type: "string",
+    "hostname": {
+      "baseName": "hostname",
+      "type": "string",
     },
-    message: {
-      baseName: "message",
-      type: "string",
+    "message": {
+      "baseName": "message",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -70,8 +75,34 @@ export class HostMuteResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return HostMuteResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Meta for the response from the List Custom Costs endpoints.
- */
+*/
 export class CustomCostListResponseMeta {
   /**
    * Number of Custom Costs files per status.
-   */
-  "countByStatus"?: { [key: string]: number };
+  */
+  "countByStatus"?: { [key: string]: number; };
   /**
    * List of available providers.
-   */
+  */
   "providers"?: Array<string>;
   /**
    * Number of Custom Costs files returned by the List Custom Costs endpoint
-   */
+  */
   "totalFilteredCount"?: number;
   /**
    * Version of Custom Costs file
-   */
+  */
   "version"?: string;
 
   /**
@@ -32,7 +37,7 @@ export class CustomCostListResponseMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,22 +48,22 @@ export class CustomCostListResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    countByStatus: {
-      baseName: "count_by_status",
-      type: "{ [key: string]: number; }",
+    "countByStatus": {
+      "baseName": "count_by_status",
+      "type": "{ [key: string]: number; }",
     },
-    providers: {
-      baseName: "providers",
-      type: "Array<string>",
+    "providers": {
+      "baseName": "providers",
+      "type": "Array<string>",
     },
-    totalFilteredCount: {
-      baseName: "total_filtered_count",
-      type: "number",
-      format: "int64",
+    "totalFilteredCount": {
+      "baseName": "total_filtered_count",
+      "type": "number",
+      "format": "int64",
     },
-    version: {
-      baseName: "version",
-      type: "string",
+    "version": {
+      "baseName": "version",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -70,8 +75,34 @@ export class CustomCostListResponseMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomCostListResponseMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

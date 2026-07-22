@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Pagination information for a collection of datastore items.
- */
+*/
 export class ItemApiPayloadMetaPage {
   /**
    * Whether there are additional pages of items beyond the current page.
-   */
+  */
   "hasMore"?: boolean;
   /**
    * The total number of items in the datastore, ignoring any filters.
-   */
+  */
   "totalCount"?: number;
   /**
    * The total number of items that match the current filter criteria.
-   */
+  */
   "totalFilteredCount"?: number;
 
   /**
@@ -28,7 +33,7 @@ export class ItemApiPayloadMetaPage {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,19 +44,19 @@ export class ItemApiPayloadMetaPage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    hasMore: {
-      baseName: "hasMore",
-      type: "boolean",
+    "hasMore": {
+      "baseName": "hasMore",
+      "type": "boolean",
     },
-    totalCount: {
-      baseName: "totalCount",
-      type: "number",
-      format: "int64",
+    "totalCount": {
+      "baseName": "totalCount",
+      "type": "number",
+      "format": "int64",
     },
-    totalFilteredCount: {
-      baseName: "totalFilteredCount",
-      type: "number",
-      format: "int64",
+    "totalFilteredCount": {
+      "baseName": "totalFilteredCount",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class ItemApiPayloadMetaPage {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ItemApiPayloadMetaPage.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

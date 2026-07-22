@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for deleting LLM Observability datasets.
- */
+*/
 export class LLMObsDeleteDatasetsDataAttributesRequest {
   /**
    * List of dataset IDs to delete.
-   */
+  */
   "datasetIds": Array<string>;
 
   /**
@@ -20,7 +25,7 @@ export class LLMObsDeleteDatasetsDataAttributesRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,10 +36,10 @@ export class LLMObsDeleteDatasetsDataAttributesRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    datasetIds: {
-      baseName: "dataset_ids",
-      type: "Array<string>",
-      required: true,
+    "datasetIds": {
+      "baseName": "dataset_ids",
+      "type": "Array<string>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class LLMObsDeleteDatasetsDataAttributesRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDeleteDatasetsDataAttributesRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

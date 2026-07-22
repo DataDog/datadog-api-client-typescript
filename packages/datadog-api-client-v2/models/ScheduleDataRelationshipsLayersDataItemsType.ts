@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Layers resource type.
- */
+*/
 
-export type ScheduleDataRelationshipsLayersDataItemsType =
-  | typeof LAYERS
-  | UnparsedObject;
-export const LAYERS = "layers";
+export type ScheduleDataRelationshipsLayersDataItemsType = typeof LAYERS | UnparsedObject;
+export const LAYERS = 'layers';

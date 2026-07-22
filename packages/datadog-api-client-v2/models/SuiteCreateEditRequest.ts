@@ -5,15 +5,20 @@
  */
 import { SuiteCreateEdit } from "./SuiteCreateEdit";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request body for creating or editing a Synthetic test suite.
- */
+*/
 export class SuiteCreateEditRequest {
   /**
    * Data object for creating or editing a Synthetic test suite.
-   */
+  */
   "data": SuiteCreateEdit;
 
   /**
@@ -21,7 +26,7 @@ export class SuiteCreateEditRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class SuiteCreateEditRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SuiteCreateEdit",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "SuiteCreateEdit",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class SuiteCreateEditRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SuiteCreateEditRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

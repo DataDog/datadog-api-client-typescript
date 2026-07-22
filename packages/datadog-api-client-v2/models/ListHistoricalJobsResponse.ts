@@ -6,19 +6,24 @@
 import { HistoricalJobListMeta } from "./HistoricalJobListMeta";
 import { HistoricalJobResponseData } from "./HistoricalJobResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * List of historical jobs.
- */
+*/
 export class ListHistoricalJobsResponse {
   /**
    * Array containing the list of historical jobs.
-   */
+  */
   "data"?: Array<HistoricalJobResponseData>;
   /**
    * Metadata about the list of jobs.
-   */
+  */
   "meta"?: HistoricalJobListMeta;
 
   /**
@@ -26,7 +31,7 @@ export class ListHistoricalJobsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class ListHistoricalJobsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<HistoricalJobResponseData>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<HistoricalJobResponseData>",
     },
-    meta: {
-      baseName: "meta",
-      type: "HistoricalJobListMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "HistoricalJobListMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class ListHistoricalJobsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListHistoricalJobsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

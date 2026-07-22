@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `UrlParamUpdate` object.
- */
+*/
 export class UrlParamUpdate {
   /**
    * Should the header be deleted.
-   */
+  */
   "deleted"?: boolean;
   /**
    * Name for tokens.
-   */
+  */
   "name": string;
   /**
    * The `UrlParamUpdate` `value`.
-   */
+  */
   "value"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class UrlParamUpdate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,18 +44,18 @@ export class UrlParamUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    deleted: {
-      baseName: "deleted",
-      type: "boolean",
+    "deleted": {
+      "baseName": "deleted",
+      "type": "boolean",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    value: {
-      baseName: "value",
-      type: "string",
+    "value": {
+      "baseName": "value",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class UrlParamUpdate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UrlParamUpdate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

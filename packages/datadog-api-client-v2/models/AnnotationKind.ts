@@ -4,16 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Kind of annotation. `pointInTime` annotations mark a single moment in time,
  * while `timeRegion` annotations span a window of time and require an `end_time`.
- */
+*/
 
-export type AnnotationKind =
-  | typeof POINT_IN_TIME
-  | typeof TIME_REGION
-  | UnparsedObject;
-export const POINT_IN_TIME = "pointInTime";
-export const TIME_REGION = "timeRegion";
+export type AnnotationKind = typeof POINT_IN_TIME| typeof TIME_REGION | UnparsedObject;
+export const POINT_IN_TIME = 'pointInTime';
+export const TIME_REGION = 'timeRegion';

@@ -5,15 +5,20 @@
  */
 import { SyntheticsLocation } from "./SyntheticsLocation";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * List of Synthetic locations.
- */
+*/
 export class SyntheticsLocations {
   /**
    * List of Synthetic locations.
-   */
+  */
   "locations"?: Array<SyntheticsLocation>;
 
   /**
@@ -21,7 +26,7 @@ export class SyntheticsLocations {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class SyntheticsLocations {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    locations: {
-      baseName: "locations",
-      type: "Array<SyntheticsLocation>",
+    "locations": {
+      "baseName": "locations",
+      "type": "Array<SyntheticsLocation>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class SyntheticsLocations {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsLocations.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

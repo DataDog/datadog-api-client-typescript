@@ -6,23 +6,28 @@
 import { LLMObsPromptVersionListDataAttributes } from "./LLMObsPromptVersionListDataAttributes";
 import { LLMObsPromptVersionType } from "./LLMObsPromptVersionType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for a prompt version returned in a list.
- */
+*/
 export class LLMObsPromptVersionListData {
   /**
    * Attributes of a prompt version returned in a list, excluding its template.
-   */
+  */
   "attributes": LLMObsPromptVersionListDataAttributes;
   /**
    * Unique identifier of the prompt version.
-   */
+  */
   "id": string;
   /**
    * Resource type of an LLM Observability prompt version.
-   */
+  */
   "type": LLMObsPromptVersionType;
 
   /**
@@ -30,7 +35,7 @@ export class LLMObsPromptVersionListData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class LLMObsPromptVersionListData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LLMObsPromptVersionListDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "LLMObsPromptVersionListDataAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LLMObsPromptVersionType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LLMObsPromptVersionType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class LLMObsPromptVersionListData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsPromptVersionListData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

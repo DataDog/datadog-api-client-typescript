@@ -6,23 +6,28 @@
 import { PrunedTraceAttributes } from "./PrunedTraceAttributes";
 import { PrunedTraceType } from "./PrunedTraceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A pruned trace resource document.
- */
+*/
 export class PrunedTraceData {
   /**
    * The attributes of a pruned trace returned by the Get pruned trace by ID endpoint.
-   */
+  */
   "attributes": PrunedTraceAttributes;
   /**
    * The full 128-bit trace ID, encoded as a 32-character hexadecimal string.
-   */
+  */
   "id": string;
   /**
    * The type of the pruned trace resource. The value is always `pruned_trace`.
-   */
+  */
   "type": PrunedTraceType;
 
   /**
@@ -30,7 +35,7 @@ export class PrunedTraceData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class PrunedTraceData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "PrunedTraceAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "PrunedTraceAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "PrunedTraceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "PrunedTraceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class PrunedTraceData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PrunedTraceData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

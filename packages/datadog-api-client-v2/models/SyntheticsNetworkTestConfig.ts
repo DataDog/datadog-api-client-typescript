@@ -6,19 +6,24 @@
 import { SyntheticsNetworkAssertion } from "./SyntheticsNetworkAssertion";
 import { SyntheticsNetworkTestRequest } from "./SyntheticsNetworkTestRequest";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Configuration object for a Network Path test.
- */
+*/
 export class SyntheticsNetworkTestConfig {
   /**
    * Array of assertions used for the test.
-   */
+  */
   "assertions"?: Array<SyntheticsNetworkAssertion>;
   /**
    * Object describing the request for a Network Path test.
-   */
+  */
   "request"?: SyntheticsNetworkTestRequest;
 
   /**
@@ -26,7 +31,7 @@ export class SyntheticsNetworkTestConfig {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class SyntheticsNetworkTestConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    assertions: {
-      baseName: "assertions",
-      type: "Array<SyntheticsNetworkAssertion>",
+    "assertions": {
+      "baseName": "assertions",
+      "type": "Array<SyntheticsNetworkAssertion>",
     },
-    request: {
-      baseName: "request",
-      type: "SyntheticsNetworkTestRequest",
+    "request": {
+      "baseName": "request",
+      "type": "SyntheticsNetworkTestRequest",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class SyntheticsNetworkTestConfig {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsNetworkTestConfig.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

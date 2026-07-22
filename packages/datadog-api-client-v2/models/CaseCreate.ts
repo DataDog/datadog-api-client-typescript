@@ -7,23 +7,28 @@ import { CaseCreateAttributes } from "./CaseCreateAttributes";
 import { CaseCreateRelationships } from "./CaseCreateRelationships";
 import { CaseResourceType } from "./CaseResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Case creation data
- */
+*/
 export class CaseCreate {
   /**
    * Case creation attributes
-   */
+  */
   "attributes": CaseCreateAttributes;
   /**
    * Relationships formed with the case on creation
-   */
+  */
   "relationships"?: CaseCreateRelationships;
   /**
    * JSON:API resource type for cases.
-   */
+  */
   "type": CaseResourceType;
 
   /**
@@ -31,7 +36,7 @@ export class CaseCreate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,19 +47,19 @@ export class CaseCreate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CaseCreateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CaseCreateAttributes",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "CaseCreateRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "CaseCreateRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "CaseResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CaseResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class CaseCreate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseCreate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

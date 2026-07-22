@@ -5,31 +5,36 @@
  */
 import { AnalysisRequestRule } from "./AnalysisRequestRule";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes of the analysis request, containing the source code and rules to apply.
- */
+*/
 export class AnalysisRequestDataAttributes {
   /**
    * The base64-encoded source code to analyze.
-   */
+  */
   "code": string;
   /**
    * The encoding of the source code file (must be `utf-8`).
-   */
+  */
   "fileEncoding": string;
   /**
    * The name of the file being analyzed.
-   */
+  */
   "filename": string;
   /**
    * The programming language of the source code.
-   */
+  */
   "language": string;
   /**
    * The list of static analysis rules to apply during analysis.
-   */
+  */
   "rules": Array<AnalysisRequestRule>;
 
   /**
@@ -37,7 +42,7 @@ export class AnalysisRequestDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -48,30 +53,30 @@ export class AnalysisRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    code: {
-      baseName: "code",
-      type: "string",
-      required: true,
+    "code": {
+      "baseName": "code",
+      "type": "string",
+      "required": true,
     },
-    fileEncoding: {
-      baseName: "file_encoding",
-      type: "string",
-      required: true,
+    "fileEncoding": {
+      "baseName": "file_encoding",
+      "type": "string",
+      "required": true,
     },
-    filename: {
-      baseName: "filename",
-      type: "string",
-      required: true,
+    "filename": {
+      "baseName": "filename",
+      "type": "string",
+      "required": true,
     },
-    language: {
-      baseName: "language",
-      type: "string",
-      required: true,
+    "language": {
+      "baseName": "language",
+      "type": "string",
+      "required": true,
     },
-    rules: {
-      baseName: "rules",
-      type: "Array<AnalysisRequestRule>",
-      required: true,
+    "rules": {
+      "baseName": "rules",
+      "type": "Array<AnalysisRequestRule>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -83,8 +88,34 @@ export class AnalysisRequestDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AnalysisRequestDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

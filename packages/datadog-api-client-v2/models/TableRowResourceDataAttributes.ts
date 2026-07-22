@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Column values for this row in the reference table.
- */
+*/
 export class TableRowResourceDataAttributes {
   /**
    * Key-value pairs representing the row data, where keys are field names from the schema.
-   */
+  */
   "values"?: any;
 
   /**
@@ -24,18 +29,44 @@ export class TableRowResourceDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    values: {
-      baseName: "values",
-      type: "any",
-    },
+    "values": {
+      "baseName": "values",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TableRowResourceDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

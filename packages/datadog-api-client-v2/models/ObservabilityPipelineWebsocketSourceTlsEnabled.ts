@@ -5,15 +5,20 @@
  */
 import { ObservabilityPipelineWebsocketSourceTlsEnabledMode } from "./ObservabilityPipelineWebsocketSourceTlsEnabledMode";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * TLS configuration that enables encryption without a client certificate. Use this for standard `wss://` connections that do not require mutual TLS.
- */
+*/
 export class ObservabilityPipelineWebsocketSourceTlsEnabled {
   /**
    * TLS mode. Must be `enabled`.
-   */
+  */
   "mode": ObservabilityPipelineWebsocketSourceTlsEnabledMode;
 
   /**
@@ -21,7 +26,7 @@ export class ObservabilityPipelineWebsocketSourceTlsEnabled {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class ObservabilityPipelineWebsocketSourceTlsEnabled {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    mode: {
-      baseName: "mode",
-      type: "ObservabilityPipelineWebsocketSourceTlsEnabledMode",
-      required: true,
+    "mode": {
+      "baseName": "mode",
+      "type": "ObservabilityPipelineWebsocketSourceTlsEnabledMode",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class ObservabilityPipelineWebsocketSourceTlsEnabled {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineWebsocketSourceTlsEnabled.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

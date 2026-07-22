@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of logs User-Agent parser.
- */
+*/
 
 export type LogsUserAgentParserType = typeof USER_AGENT_PARSER | UnparsedObject;
-export const USER_AGENT_PARSER = "user-agent-parser";
+export const USER_AGENT_PARSER = 'user-agent-parser';

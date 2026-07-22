@@ -5,15 +5,20 @@
  */
 import { ChangeRequestUserRelationship } from "./ChangeRequestUserRelationship";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationships for creating a change request decision.
- */
+*/
 export class ChangeRequestDecisionCreateRelationships {
   /**
    * Relationship to a user.
-   */
+  */
   "requestedUser"?: ChangeRequestUserRelationship;
 
   /**
@@ -21,7 +26,7 @@ export class ChangeRequestDecisionCreateRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class ChangeRequestDecisionCreateRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    requestedUser: {
-      baseName: "requested_user",
-      type: "ChangeRequestUserRelationship",
+    "requestedUser": {
+      "baseName": "requested_user",
+      "type": "ChangeRequestUserRelationship",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class ChangeRequestDecisionCreateRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ChangeRequestDecisionCreateRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

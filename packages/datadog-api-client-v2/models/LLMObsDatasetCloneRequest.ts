@@ -5,15 +5,20 @@
  */
 import { LLMObsDatasetCloneDataRequest } from "./LLMObsDatasetCloneDataRequest";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request to clone an LLM Observability dataset.
- */
+*/
 export class LLMObsDatasetCloneRequest {
   /**
    * Data object for cloning an LLM Observability dataset.
-   */
+  */
   "data": LLMObsDatasetCloneDataRequest;
 
   /**
@@ -21,7 +26,7 @@ export class LLMObsDatasetCloneRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class LLMObsDatasetCloneRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "LLMObsDatasetCloneDataRequest",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "LLMObsDatasetCloneDataRequest",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class LLMObsDatasetCloneRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDatasetCloneRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

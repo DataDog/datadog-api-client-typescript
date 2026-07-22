@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Slack notification settings for the team
- */
+*/
 export class TeamNotificationRuleAttributesSlack {
   /**
    * Channel for Slack notification
-   */
+  */
   "channel"?: string;
   /**
    * Workspace for Slack notification
-   */
+  */
   "workspace"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class TeamNotificationRuleAttributesSlack {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class TeamNotificationRuleAttributesSlack {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    channel: {
-      baseName: "channel",
-      type: "string",
+    "channel": {
+      "baseName": "channel",
+      "type": "string",
     },
-    workspace: {
-      baseName: "workspace",
-      type: "string",
+    "workspace": {
+      "baseName": "workspace",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class TeamNotificationRuleAttributesSlack {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamNotificationRuleAttributesSlack.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

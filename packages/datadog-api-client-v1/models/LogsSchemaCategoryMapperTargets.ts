@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Name of the target attributes which value is defined by the matching category.
- */
+*/
 export class LogsSchemaCategoryMapperTargets {
   /**
    * ID of the field to map log attributes to.
-   */
+  */
   "id"?: string;
   /**
    * Name of the field to map log attributes to.
-   */
+  */
   "name"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class LogsSchemaCategoryMapperTargets {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class LogsSchemaCategoryMapperTargets {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class LogsSchemaCategoryMapperTargets {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogsSchemaCategoryMapperTargets.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

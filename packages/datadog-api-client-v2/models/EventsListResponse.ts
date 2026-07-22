@@ -7,23 +7,28 @@ import { EventResponse } from "./EventResponse";
 import { EventsListResponseLinks } from "./EventsListResponseLinks";
 import { EventsResponseMetadata } from "./EventsResponseMetadata";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The response object with all events matching the request and pagination information.
- */
+*/
 export class EventsListResponse {
   /**
    * An array of events matching the request.
-   */
+  */
   "data"?: Array<EventResponse>;
   /**
    * Links attributes.
-   */
+  */
   "links"?: EventsListResponseLinks;
   /**
    * The metadata associated with a request.
-   */
+  */
   "meta"?: EventsResponseMetadata;
 
   /**
@@ -31,7 +36,7 @@ export class EventsListResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,17 +47,17 @@ export class EventsListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<EventResponse>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<EventResponse>",
     },
-    links: {
-      baseName: "links",
-      type: "EventsListResponseLinks",
+    "links": {
+      "baseName": "links",
+      "type": "EventsListResponseLinks",
     },
-    meta: {
-      baseName: "meta",
-      type: "EventsResponseMetadata",
+    "meta": {
+      "baseName": "meta",
+      "type": "EventsResponseMetadata",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class EventsListResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EventsListResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

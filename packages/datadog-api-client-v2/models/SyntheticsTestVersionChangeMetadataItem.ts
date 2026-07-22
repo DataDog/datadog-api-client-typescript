@@ -5,19 +5,24 @@
  */
 import { SyntheticsTestVersionActionMetadata } from "./SyntheticsTestVersionActionMetadata";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object describing a single change within a version.
- */
+*/
 export class SyntheticsTestVersionChangeMetadataItem {
   /**
    * The action that was performed (for example, `updated` or `created`).
-   */
+  */
   "action"?: string;
   /**
    * Object containing metadata about a change action.
-   */
+  */
   "actionMetadata"?: SyntheticsTestVersionActionMetadata;
 
   /**
@@ -25,7 +30,7 @@ export class SyntheticsTestVersionChangeMetadataItem {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class SyntheticsTestVersionChangeMetadataItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    action: {
-      baseName: "action",
-      type: "string",
+    "action": {
+      "baseName": "action",
+      "type": "string",
     },
-    actionMetadata: {
-      baseName: "action_metadata",
-      type: "SyntheticsTestVersionActionMetadata",
+    "actionMetadata": {
+      "baseName": "action_metadata",
+      "type": "SyntheticsTestVersionActionMetadata",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class SyntheticsTestVersionChangeMetadataItem {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestVersionChangeMetadataItem.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

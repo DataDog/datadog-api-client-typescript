@@ -6,19 +6,24 @@
 import { SecureEmbedUpdateRequestAttributes } from "./SecureEmbedUpdateRequestAttributes";
 import { SecureEmbedUpdateRequestType } from "./SecureEmbedUpdateRequestType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for updating a secure embed.
- */
+*/
 export class SecureEmbedUpdateRequestData {
   /**
    * Attributes for updating a secure embed shared dashboard. All fields are optional.
-   */
+  */
   "attributes": SecureEmbedUpdateRequestAttributes;
   /**
    * Resource type for secure embed update requests.
-   */
+  */
   "type": SecureEmbedUpdateRequestType;
 
   /**
@@ -26,7 +31,7 @@ export class SecureEmbedUpdateRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class SecureEmbedUpdateRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SecureEmbedUpdateRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SecureEmbedUpdateRequestAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "SecureEmbedUpdateRequestType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SecureEmbedUpdateRequestType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class SecureEmbedUpdateRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecureEmbedUpdateRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,23 +6,28 @@
 import { OpsgenieAccountType } from "./OpsgenieAccountType";
 import { OpsgenieAccountUpdateAttributes } from "./OpsgenieAccountUpdateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Opsgenie account data for an update request.
- */
+*/
 export class OpsgenieAccountUpdateData {
   /**
    * The Opsgenie account attributes for an update request.
-   */
+  */
   "attributes": OpsgenieAccountUpdateAttributes;
   /**
    * The ID of the Opsgenie account.
-   */
+  */
   "id": string;
   /**
    * Opsgenie account resource type.
-   */
+  */
   "type": OpsgenieAccountType;
 
   /**
@@ -30,7 +35,7 @@ export class OpsgenieAccountUpdateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class OpsgenieAccountUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "OpsgenieAccountUpdateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "OpsgenieAccountUpdateAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "OpsgenieAccountType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "OpsgenieAccountType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class OpsgenieAccountUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OpsgenieAccountUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

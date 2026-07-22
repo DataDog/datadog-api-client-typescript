@@ -5,15 +5,20 @@
  */
 import { SlackUserBindingData } from "./SlackUserBindingData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response with a list of Slack user bindings.
- */
+*/
 export class SlackUserBindingsResponse {
   /**
    * An array of Slack user bindings.
-   */
+  */
   "data": Array<SlackUserBindingData>;
 
   /**
@@ -21,7 +26,7 @@ export class SlackUserBindingsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class SlackUserBindingsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<SlackUserBindingData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<SlackUserBindingData>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class SlackUserBindingsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SlackUserBindingsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

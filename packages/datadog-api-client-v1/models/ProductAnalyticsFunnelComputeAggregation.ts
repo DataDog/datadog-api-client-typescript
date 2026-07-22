@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Aggregation type for user journey funnel compute.
- */
+*/
 
-export type ProductAnalyticsFunnelComputeAggregation =
-  | typeof CARDINALITY
-  | typeof COUNT
-  | UnparsedObject;
-export const CARDINALITY = "cardinality";
-export const COUNT = "count";
+export type ProductAnalyticsFunnelComputeAggregation = typeof CARDINALITY| typeof COUNT | UnparsedObject;
+export const CARDINALITY = 'cardinality';
+export const COUNT = 'count';

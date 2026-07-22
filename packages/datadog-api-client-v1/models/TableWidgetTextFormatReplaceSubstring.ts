@@ -5,23 +5,28 @@
  */
 import { TableWidgetTextFormatReplaceSubstringType } from "./TableWidgetTextFormatReplaceSubstringType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Match Sub-string definition.
- */
+*/
 export class TableWidgetTextFormatReplaceSubstring {
   /**
    * Text that will be replaced.
-   */
+  */
   "substring": string;
   /**
    * Table widget text format replace sub-string type.
-   */
+  */
   "type": TableWidgetTextFormatReplaceSubstringType;
   /**
    * Text that will replace original sub-string.
-   */
+  */
   "_with": string;
 
   /**
@@ -29,7 +34,7 @@ export class TableWidgetTextFormatReplaceSubstring {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,20 +45,20 @@ export class TableWidgetTextFormatReplaceSubstring {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    substring: {
-      baseName: "substring",
-      type: "string",
-      required: true,
+    "substring": {
+      "baseName": "substring",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "TableWidgetTextFormatReplaceSubstringType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TableWidgetTextFormatReplaceSubstringType",
+      "required": true,
     },
-    _with: {
-      baseName: "with",
-      type: "string",
-      required: true,
+    "_with": {
+      "baseName": "with",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class TableWidgetTextFormatReplaceSubstring {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TableWidgetTextFormatReplaceSubstring.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

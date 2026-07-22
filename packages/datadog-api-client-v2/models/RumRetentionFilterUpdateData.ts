@@ -6,23 +6,28 @@
 import { RumRetentionFilterType } from "./RumRetentionFilterType";
 import { RumRetentionFilterUpdateAttributes } from "./RumRetentionFilterUpdateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The new RUM retention filter properties to update.
- */
+*/
 export class RumRetentionFilterUpdateData {
   /**
    * The object describing attributes of a RUM retention filter to update.
-   */
+  */
   "attributes": RumRetentionFilterUpdateAttributes;
   /**
    * ID of retention filter in UUID.
-   */
+  */
   "id": string;
   /**
    * The type of the resource. The value should always be retention_filters.
-   */
+  */
   "type": RumRetentionFilterType;
 
   /**
@@ -30,7 +35,7 @@ export class RumRetentionFilterUpdateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class RumRetentionFilterUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RumRetentionFilterUpdateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "RumRetentionFilterUpdateAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "RumRetentionFilterType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "RumRetentionFilterType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class RumRetentionFilterUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RumRetentionFilterUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

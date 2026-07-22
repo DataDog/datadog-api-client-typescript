@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The behavior when the tag already exists.
- */
+*/
 
-export type DataAttributesRulesItemsIfTagExists =
-  | typeof APPEND
-  | typeof DO_NOT_APPLY
-  | typeof REPLACE
-  | UnparsedObject;
-export const APPEND = "append";
-export const DO_NOT_APPLY = "do_not_apply";
-export const REPLACE = "replace";
+export type DataAttributesRulesItemsIfTagExists = typeof APPEND| typeof DO_NOT_APPLY| typeof REPLACE | UnparsedObject;
+export const APPEND = 'append';
+export const DO_NOT_APPLY = 'do_not_apply';
+export const REPLACE = 'replace';

@@ -5,15 +5,20 @@
  */
 import { LLMObsAnnotatedInteractionsByTraceDataResponse } from "./LLMObsAnnotatedInteractionsByTraceDataResponse";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing annotated interactions across all queues for the requested content IDs.
- */
+*/
 export class LLMObsAnnotatedInteractionsByTraceResponse {
   /**
    * Data object for the cross-queue annotated interactions response.
-   */
+  */
   "data": LLMObsAnnotatedInteractionsByTraceDataResponse;
 
   /**
@@ -21,7 +26,7 @@ export class LLMObsAnnotatedInteractionsByTraceResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class LLMObsAnnotatedInteractionsByTraceResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "LLMObsAnnotatedInteractionsByTraceDataResponse",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "LLMObsAnnotatedInteractionsByTraceDataResponse",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class LLMObsAnnotatedInteractionsByTraceResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsAnnotatedInteractionsByTraceResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

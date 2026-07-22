@@ -7,27 +7,32 @@ import { ProductAnalyticsAudienceAccountSubquery } from "./ProductAnalyticsAudie
 import { ProductAnalyticsAudienceSegmentSubquery } from "./ProductAnalyticsAudienceSegmentSubquery";
 import { ProductAnalyticsAudienceUserSubquery } from "./ProductAnalyticsAudienceUserSubquery";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Audience filter definitions for targeting specific user segments.
- */
+*/
 export class ProductAnalyticsAudienceFilters {
   /**
    * Account audience queries.
-   */
+  */
   "accounts"?: Array<ProductAnalyticsAudienceAccountSubquery>;
   /**
    * Boolean formula combining audience queries by name.
-   */
+  */
   "formula"?: string;
   /**
    * Segment audience queries.
-   */
+  */
   "segments"?: Array<ProductAnalyticsAudienceSegmentSubquery>;
   /**
    * User audience queries.
-   */
+  */
   "users"?: Array<ProductAnalyticsAudienceUserSubquery>;
 
   /**
@@ -35,7 +40,7 @@ export class ProductAnalyticsAudienceFilters {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,21 +51,21 @@ export class ProductAnalyticsAudienceFilters {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    accounts: {
-      baseName: "accounts",
-      type: "Array<ProductAnalyticsAudienceAccountSubquery>",
+    "accounts": {
+      "baseName": "accounts",
+      "type": "Array<ProductAnalyticsAudienceAccountSubquery>",
     },
-    formula: {
-      baseName: "formula",
-      type: "string",
+    "formula": {
+      "baseName": "formula",
+      "type": "string",
     },
-    segments: {
-      baseName: "segments",
-      type: "Array<ProductAnalyticsAudienceSegmentSubquery>",
+    "segments": {
+      "baseName": "segments",
+      "type": "Array<ProductAnalyticsAudienceSegmentSubquery>",
     },
-    users: {
-      baseName: "users",
-      type: "Array<ProductAnalyticsAudienceUserSubquery>",
+    "users": {
+      "baseName": "users",
+      "type": "Array<ProductAnalyticsAudienceUserSubquery>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -72,8 +77,34 @@ export class ProductAnalyticsAudienceFilters {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProductAnalyticsAudienceFilters.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

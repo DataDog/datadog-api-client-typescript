@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Rum replay watch resource type.
- */
+*/
 
 export type WatchDataType = typeof RUM_REPLAY_WATCH | UnparsedObject;
-export const RUM_REPLAY_WATCH = "rum_replay_watch";
+export const RUM_REPLAY_WATCH = 'rum_replay_watch';

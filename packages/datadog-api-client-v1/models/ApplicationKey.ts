@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An application key with its associated metadata.
- */
+*/
 export class ApplicationKey {
   /**
    * Hash of an application key.
-   */
+  */
   "hash"?: string;
   /**
    * Name of an application key.
-   */
+  */
   "name"?: string;
   /**
    * Owner of an application key.
-   */
+  */
   "owner"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class ApplicationKey {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class ApplicationKey {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    hash: {
-      baseName: "hash",
-      type: "string",
+    "hash": {
+      "baseName": "hash",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    owner: {
-      baseName: "owner",
-      type: "string",
+    "owner": {
+      "baseName": "owner",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class ApplicationKey {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ApplicationKey.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

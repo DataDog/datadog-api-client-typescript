@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Pagination settings for a span search request.
- */
+*/
 export class LLMObsSpanPageQuery {
   /**
    * Cursor from the previous response to retrieve the next page.
-   */
+  */
   "cursor"?: string;
   /**
    * Maximum number of spans to return. Defaults to `10`.
-   */
+  */
   "limit"?: number;
 
   /**
@@ -24,7 +29,7 @@ export class LLMObsSpanPageQuery {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,14 +40,14 @@ export class LLMObsSpanPageQuery {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    cursor: {
-      baseName: "cursor",
-      type: "string",
+    "cursor": {
+      "baseName": "cursor",
+      "type": "string",
     },
-    limit: {
-      baseName: "limit",
-      type: "number",
-      format: "int64",
+    "limit": {
+      "baseName": "limit",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class LLMObsSpanPageQuery {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsSpanPageQuery.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,19 +5,24 @@
  */
 import { MemberTeamType } from "./MemberTeamType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A member team
- */
+*/
 export class MemberTeam {
   /**
    * The member team's identifier
-   */
+  */
   "id": string;
   /**
    * Member team type
-   */
+  */
   "type": MemberTeamType;
 
   /**
@@ -25,7 +30,7 @@ export class MemberTeam {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class MemberTeam {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "MemberTeamType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "MemberTeamType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class MemberTeam {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MemberTeam.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

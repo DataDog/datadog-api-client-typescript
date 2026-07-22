@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Snapshots resource type.
- */
+*/
 
 export type SnapshotUpdateRequestDataType = typeof SNAPSHOTS | UnparsedObject;
-export const SNAPSHOTS = "snapshots";
+export const SNAPSHOTS = 'snapshots';

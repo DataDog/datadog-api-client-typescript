@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * PagerDuty notification settings for the team
- */
+*/
 export class TeamNotificationRuleAttributesPagerduty {
   /**
    * Service name for PagerDuty
-   */
+  */
   "serviceName"?: string;
 
   /**
@@ -20,7 +25,7 @@ export class TeamNotificationRuleAttributesPagerduty {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,9 +36,9 @@ export class TeamNotificationRuleAttributesPagerduty {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    serviceName: {
-      baseName: "service_name",
-      type: "string",
+    "serviceName": {
+      "baseName": "service_name",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,8 +50,34 @@ export class TeamNotificationRuleAttributesPagerduty {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamNotificationRuleAttributesPagerduty.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

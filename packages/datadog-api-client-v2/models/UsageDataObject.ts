@@ -6,23 +6,28 @@
 import { UsageAttributesObject } from "./UsageAttributesObject";
 import { UsageTimeSeriesType } from "./UsageTimeSeriesType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Usage data.
- */
+*/
 export class UsageDataObject {
   /**
    * Usage attributes data.
-   */
+  */
   "attributes"?: UsageAttributesObject;
   /**
    * Unique ID of the response.
-   */
+  */
   "id"?: string;
   /**
    * Type of usage data.
-   */
+  */
   "type"?: UsageTimeSeriesType;
 
   /**
@@ -30,7 +35,7 @@ export class UsageDataObject {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class UsageDataObject {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "UsageAttributesObject",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "UsageAttributesObject",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "UsageTimeSeriesType",
+    "type": {
+      "baseName": "type",
+      "type": "UsageTimeSeriesType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class UsageDataObject {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageDataObject.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

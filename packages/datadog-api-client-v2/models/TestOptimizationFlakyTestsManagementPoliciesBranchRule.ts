@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Branch filtering rule for a Flaky Tests Management policy.
- */
+*/
 export class TestOptimizationFlakyTestsManagementPoliciesBranchRule {
   /**
    * List of branches to which the policy applies.
-   */
+  */
   "branches"?: Array<string>;
   /**
    * Whether this branch rule is enabled.
-   */
+  */
   "enabled"?: boolean;
   /**
    * List of branches excluded from the policy.
-   */
+  */
   "excludedBranches"?: Array<string>;
   /**
    * List of test services excluded from the policy.
-   */
+  */
   "excludedTestServices"?: Array<string>;
 
   /**
@@ -32,7 +37,7 @@ export class TestOptimizationFlakyTestsManagementPoliciesBranchRule {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,21 +48,21 @@ export class TestOptimizationFlakyTestsManagementPoliciesBranchRule {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    branches: {
-      baseName: "branches",
-      type: "Array<string>",
+    "branches": {
+      "baseName": "branches",
+      "type": "Array<string>",
     },
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
+    "enabled": {
+      "baseName": "enabled",
+      "type": "boolean",
     },
-    excludedBranches: {
-      baseName: "excluded_branches",
-      type: "Array<string>",
+    "excludedBranches": {
+      "baseName": "excluded_branches",
+      "type": "Array<string>",
     },
-    excludedTestServices: {
-      baseName: "excluded_test_services",
-      type: "Array<string>",
+    "excludedTestServices": {
+      "baseName": "excluded_test_services",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -69,8 +74,34 @@ export class TestOptimizationFlakyTestsManagementPoliciesBranchRule {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TestOptimizationFlakyTestsManagementPoliciesBranchRule.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

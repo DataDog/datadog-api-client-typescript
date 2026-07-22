@@ -4,31 +4,36 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Specification for updating an existing field in a connection, including which field to modify and the new values.
- */
+*/
 export class UpdateConnectionRequestDataAttributesFieldsToUpdateItems {
   /**
    * The identifier of the existing field to update.
-   */
+  */
   "fieldId": string;
   /**
    * The new description to set for the field.
-   */
+  */
   "updatedDescription"?: string;
   /**
    * The new human-readable display name to set for the field.
-   */
+  */
   "updatedDisplayName"?: string;
   /**
    * The new identifier to assign to the field, if renaming it.
-   */
+  */
   "updatedFieldId"?: string;
   /**
    * The updated list of group labels to associate with the field.
-   */
+  */
   "updatedGroups"?: Array<string>;
 
   /**
@@ -36,7 +41,7 @@ export class UpdateConnectionRequestDataAttributesFieldsToUpdateItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,26 +52,26 @@ export class UpdateConnectionRequestDataAttributesFieldsToUpdateItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    fieldId: {
-      baseName: "field_id",
-      type: "string",
-      required: true,
+    "fieldId": {
+      "baseName": "field_id",
+      "type": "string",
+      "required": true,
     },
-    updatedDescription: {
-      baseName: "updated_description",
-      type: "string",
+    "updatedDescription": {
+      "baseName": "updated_description",
+      "type": "string",
     },
-    updatedDisplayName: {
-      baseName: "updated_display_name",
-      type: "string",
+    "updatedDisplayName": {
+      "baseName": "updated_display_name",
+      "type": "string",
     },
-    updatedFieldId: {
-      baseName: "updated_field_id",
-      type: "string",
+    "updatedFieldId": {
+      "baseName": "updated_field_id",
+      "type": "string",
     },
-    updatedGroups: {
-      baseName: "updated_groups",
-      type: "Array<string>",
+    "updatedGroups": {
+      "baseName": "updated_groups",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -78,8 +83,34 @@ export class UpdateConnectionRequestDataAttributesFieldsToUpdateItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateConnectionRequestDataAttributesFieldsToUpdateItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

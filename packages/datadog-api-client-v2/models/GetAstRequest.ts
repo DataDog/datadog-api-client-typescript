@@ -5,15 +5,20 @@
  */
 import { GetAstRequestData } from "./GetAstRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The request payload for parsing source code into an abstract syntax tree.
- */
+*/
 export class GetAstRequest {
   /**
    * The primary data object in the get-AST request.
-   */
+  */
   "data": GetAstRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class GetAstRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class GetAstRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "GetAstRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "GetAstRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class GetAstRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GetAstRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -7,27 +7,32 @@ import { LLMObsSpanFilter } from "./LLMObsSpanFilter";
 import { LLMObsSpanPageQuery } from "./LLMObsSpanPageQuery";
 import { LLMObsSpanSearchOptions } from "./LLMObsSpanSearchOptions";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of an LLM Observability spans search request.
- */
+*/
 export class LLMObsSearchSpansRequestAttributes {
   /**
    * Filter criteria for an LLM Observability span search.
-   */
+  */
   "filter"?: LLMObsSpanFilter;
   /**
    * Additional options for a span search request.
-   */
+  */
   "options"?: LLMObsSpanSearchOptions;
   /**
    * Pagination settings for a span search request.
-   */
+  */
   "page"?: LLMObsSpanPageQuery;
   /**
    * Sort order for the results. Use `-` prefix for descending order.
-   */
+  */
   "sort"?: string;
 
   /**
@@ -35,7 +40,7 @@ export class LLMObsSearchSpansRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,21 +51,21 @@ export class LLMObsSearchSpansRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    filter: {
-      baseName: "filter",
-      type: "LLMObsSpanFilter",
+    "filter": {
+      "baseName": "filter",
+      "type": "LLMObsSpanFilter",
     },
-    options: {
-      baseName: "options",
-      type: "LLMObsSpanSearchOptions",
+    "options": {
+      "baseName": "options",
+      "type": "LLMObsSpanSearchOptions",
     },
-    page: {
-      baseName: "page",
-      type: "LLMObsSpanPageQuery",
+    "page": {
+      "baseName": "page",
+      "type": "LLMObsSpanPageQuery",
     },
-    sort: {
-      baseName: "sort",
-      type: "string",
+    "sort": {
+      "baseName": "sort",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -72,8 +77,34 @@ export class LLMObsSearchSpansRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsSearchSpansRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

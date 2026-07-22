@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Aggregated mobile scroll friction detection at view level.
- */
+*/
 export class AggregatedMobileScrollFriction {
   /**
    * Average number of frozen frames during scroll interactions.
-   */
+  */
   "avgScrollFrozenFrameCount": number;
   /**
    * Unique fingerprint identifying this detection group.
-   */
+  */
   "fingerprint": string;
   /**
    * Impact score for this detection.
-   */
+  */
   "impactScore": number;
   /**
    * Number of sampled views where this detection occurred.
-   */
+  */
   "viewOccurrences": number;
 
   /**
@@ -32,7 +37,7 @@ export class AggregatedMobileScrollFriction {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,28 +48,28 @@ export class AggregatedMobileScrollFriction {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    avgScrollFrozenFrameCount: {
-      baseName: "avg_scroll_frozen_frame_count",
-      type: "number",
-      required: true,
-      format: "int32",
+    "avgScrollFrozenFrameCount": {
+      "baseName": "avg_scroll_frozen_frame_count",
+      "type": "number",
+      "required": true,
+      "format": "int32",
     },
-    fingerprint: {
-      baseName: "fingerprint",
-      type: "string",
-      required: true,
+    "fingerprint": {
+      "baseName": "fingerprint",
+      "type": "string",
+      "required": true,
     },
-    impactScore: {
-      baseName: "impact_score",
-      type: "number",
-      required: true,
-      format: "double",
+    "impactScore": {
+      "baseName": "impact_score",
+      "type": "number",
+      "required": true,
+      "format": "double",
     },
-    viewOccurrences: {
-      baseName: "view_occurrences",
-      type: "number",
-      required: true,
-      format: "int32",
+    "viewOccurrences": {
+      "baseName": "view_occurrences",
+      "type": "number",
+      "required": true,
+      "format": "int32",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -76,8 +81,34 @@ export class AggregatedMobileScrollFriction {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AggregatedMobileScrollFriction.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

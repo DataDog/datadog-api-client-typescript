@@ -5,11 +5,16 @@
  */
 import { HamrOrgConnectionStatus } from "./HamrOrgConnectionStatus";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for a HAMR organization connection request.
- */
+*/
 export class HamrOrgConnectionAttributesRequest {
   /**
    * Status of the HAMR connection:
@@ -19,28 +24,28 @@ export class HamrOrgConnectionAttributesRequest {
    * - 3: FAILOVER - Liminal status between PASSIVE and ACTIVE
    * - 4: ACTIVE - Organization is an active failover
    * - 5: RECOVERY - Recovery operation in progress
-   */
+  */
   "hamrStatus": HamrOrgConnectionStatus;
   /**
    * Indicates whether this organization is the primary organization in the HAMR relationship.
    * If true, this is the primary organization. If false, this is the secondary/backup organization.
-   */
+  */
   "isPrimary": boolean;
   /**
    * Username or identifier of the user who last modified this HAMR connection.
-   */
+  */
   "modifiedBy": string;
   /**
    * Datacenter location of the target organization (e.g., us1, eu1, us5).
-   */
+  */
   "targetOrgDatacenter": string;
   /**
    * Name of the target organization in the HAMR relationship.
-   */
+  */
   "targetOrgName": string;
   /**
    * UUID of the target organization in the HAMR relationship.
-   */
+  */
   "targetOrgUuid": string;
 
   /**
@@ -48,7 +53,7 @@ export class HamrOrgConnectionAttributesRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -59,35 +64,35 @@ export class HamrOrgConnectionAttributesRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    hamrStatus: {
-      baseName: "hamr_status",
-      type: "HamrOrgConnectionStatus",
-      required: true,
+    "hamrStatus": {
+      "baseName": "hamr_status",
+      "type": "HamrOrgConnectionStatus",
+      "required": true,
     },
-    isPrimary: {
-      baseName: "is_primary",
-      type: "boolean",
-      required: true,
+    "isPrimary": {
+      "baseName": "is_primary",
+      "type": "boolean",
+      "required": true,
     },
-    modifiedBy: {
-      baseName: "modified_by",
-      type: "string",
-      required: true,
+    "modifiedBy": {
+      "baseName": "modified_by",
+      "type": "string",
+      "required": true,
     },
-    targetOrgDatacenter: {
-      baseName: "target_org_datacenter",
-      type: "string",
-      required: true,
+    "targetOrgDatacenter": {
+      "baseName": "target_org_datacenter",
+      "type": "string",
+      "required": true,
     },
-    targetOrgName: {
-      baseName: "target_org_name",
-      type: "string",
-      required: true,
+    "targetOrgName": {
+      "baseName": "target_org_name",
+      "type": "string",
+      "required": true,
     },
-    targetOrgUuid: {
-      baseName: "target_org_uuid",
-      type: "string",
-      required: true,
+    "targetOrgUuid": {
+      "baseName": "target_org_uuid",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -99,8 +104,34 @@ export class HamrOrgConnectionAttributesRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return HamrOrgConnectionAttributesRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

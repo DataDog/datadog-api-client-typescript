@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Color-coding direction: `increase_better` (green on rise), `decrease_better` (green on drop), or `neutral` (no color).
- */
+*/
 
-export type QueryValueWidgetComparisonDirectionality =
-  | typeof INCREASE_BETTER
-  | typeof DECREASE_BETTER
-  | typeof NEUTRAL
-  | UnparsedObject;
-export const INCREASE_BETTER = "increase_better";
-export const DECREASE_BETTER = "decrease_better";
-export const NEUTRAL = "neutral";
+export type QueryValueWidgetComparisonDirectionality = typeof INCREASE_BETTER| typeof DECREASE_BETTER| typeof NEUTRAL | UnparsedObject;
+export const INCREASE_BETTER = 'increase_better';
+export const DECREASE_BETTER = 'decrease_better';
+export const NEUTRAL = 'neutral';

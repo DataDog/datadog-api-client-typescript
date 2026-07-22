@@ -6,19 +6,24 @@
 import { IncidentAttachmentType } from "./IncidentAttachmentType";
 import { PostmortemAttachmentRequestAttributes } from "./PostmortemAttachmentRequestAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Postmortem attachment data
- */
+*/
 export class PostmortemAttachmentRequestData {
   /**
    * Postmortem attachment attributes
-   */
+  */
   "attributes": PostmortemAttachmentRequestAttributes;
   /**
    * The incident attachment resource type.
-   */
+  */
   "type": IncidentAttachmentType;
 
   /**
@@ -26,7 +31,7 @@ export class PostmortemAttachmentRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class PostmortemAttachmentRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "PostmortemAttachmentRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "PostmortemAttachmentRequestAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "IncidentAttachmentType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "IncidentAttachmentType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class PostmortemAttachmentRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PostmortemAttachmentRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

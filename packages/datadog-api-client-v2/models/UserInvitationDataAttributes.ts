@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a user invitation.
- */
+*/
 export class UserInvitationDataAttributes {
   /**
    * Creation time of the user invitation.
-   */
+  */
   "createdAt"?: Date;
   /**
    * Time of invitation expiration.
-   */
+  */
   "expiresAt"?: Date;
   /**
    * Type of invitation.
-   */
+  */
   "inviteType"?: string;
   /**
    * UUID of the user invitation.
-   */
+  */
   "uuid"?: string;
 
   /**
@@ -32,7 +37,7 @@ export class UserInvitationDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,23 +48,23 @@ export class UserInvitationDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    expiresAt: {
-      baseName: "expires_at",
-      type: "Date",
-      format: "date-time",
+    "expiresAt": {
+      "baseName": "expires_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    inviteType: {
-      baseName: "invite_type",
-      type: "string",
+    "inviteType": {
+      "baseName": "invite_type",
+      "type": "string",
     },
-    uuid: {
-      baseName: "uuid",
-      type: "string",
+    "uuid": {
+      "baseName": "uuid",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,8 +76,34 @@ export class UserInvitationDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UserInvitationDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

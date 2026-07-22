@@ -5,15 +5,20 @@
  */
 import { CaseUpdateTitle } from "./CaseUpdateTitle";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Case update title request
- */
+*/
 export class CaseUpdateTitleRequest {
   /**
    * Case update title
-   */
+  */
   "data": CaseUpdateTitle;
 
   /**
@@ -21,7 +26,7 @@ export class CaseUpdateTitleRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CaseUpdateTitleRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CaseUpdateTitle",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "CaseUpdateTitle",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CaseUpdateTitleRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseUpdateTitleRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

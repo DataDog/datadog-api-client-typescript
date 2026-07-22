@@ -5,15 +5,20 @@
  */
 import { RoutingRuleRelationshipsPolicy } from "./RoutingRuleRelationshipsPolicy";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Specifies relationships for a routing rule, linking to associated policy resources.
- */
+*/
 export class RoutingRuleRelationships {
   /**
    * Defines the relationship that links a routing rule to a policy.
-   */
+  */
   "policy"?: RoutingRuleRelationshipsPolicy;
 
   /**
@@ -21,7 +26,7 @@ export class RoutingRuleRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class RoutingRuleRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    policy: {
-      baseName: "policy",
-      type: "RoutingRuleRelationshipsPolicy",
+    "policy": {
+      "baseName": "policy",
+      "type": "RoutingRuleRelationshipsPolicy",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class RoutingRuleRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RoutingRuleRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Service account resource type.
- */
+*/
 
 export type ServiceAccountType = typeof SERVICE_ACCOUNT | UnparsedObject;
-export const SERVICE_ACCOUNT = "service_account";
+export const SERVICE_ACCOUNT = 'service_account';

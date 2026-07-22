@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The tag indexing rule exemption resource type.
- */
+*/
 
-export type TagIndexingRuleExemptionType =
-  | typeof TAG_INDEXING_RULE_EXEMPTIONS
-  | UnparsedObject;
-export const TAG_INDEXING_RULE_EXEMPTIONS = "tag_indexing_rule_exemptions";
+export type TagIndexingRuleExemptionType = typeof TAG_INDEXING_RULE_EXEMPTIONS | UnparsedObject;
+export const TAG_INDEXING_RULE_EXEMPTIONS = 'tag_indexing_rule_exemptions';

@@ -12,19 +12,15 @@ import { JVMSourcemapData } from "./JVMSourcemapData";
 import { NDKSourcemapData } from "./NDKSourcemapData";
 import { ReactNativeSourcemapData } from "./ReactNativeSourcemapData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A source map data object representing one of the supported map kinds.
- */
+*/
 
-export type SourcemapItem =
-  | JSSourcemapData
-  | ReactNativeSourcemapData
-  | IOSSourcemapData
-  | JVMSourcemapData
-  | FlutterSourcemapData
-  | ELFSourcemapData
-  | NDKSourcemapData
-  | IL2CPPSourcemapData
-  | UnparsedObject;
+export type SourcemapItem = JSSourcemapData | ReactNativeSourcemapData | IOSSourcemapData | JVMSourcemapData | FlutterSourcemapData | ELFSourcemapData | NDKSourcemapData | IL2CPPSourcemapData | UnparsedObject;

@@ -5,23 +5,28 @@
  */
 import { RestrictionQueryAttributes } from "./RestrictionQueryAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Restriction query object returned by the API.
- */
+*/
 export class RestrictionQueryWithoutRelationships {
   /**
    * Attributes of the restriction query.
-   */
+  */
   "attributes"?: RestrictionQueryAttributes;
   /**
    * ID of the restriction query.
-   */
+  */
   "id"?: string;
   /**
    * Restriction queries type.
-   */
+  */
   "type"?: string;
 
   /**
@@ -29,7 +34,7 @@ export class RestrictionQueryWithoutRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,17 +45,17 @@ export class RestrictionQueryWithoutRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RestrictionQueryAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "RestrictionQueryAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class RestrictionQueryWithoutRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RestrictionQueryWithoutRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

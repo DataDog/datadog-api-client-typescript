@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The datastore configuration for a form.
- */
+*/
 export class FormDatastoreConfigAttributes {
   /**
    * The ID of the datastore.
-   */
+  */
   "datastoreId": string;
   /**
    * The name of the primary column in the datastore.
-   */
+  */
   "primaryColumnName": string;
   /**
    * The strategy used to generate primary keys in the datastore.
-   */
+  */
   "primaryKeyGenerationStrategy": string;
 
   /**
@@ -28,7 +33,7 @@ export class FormDatastoreConfigAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,21 +44,21 @@ export class FormDatastoreConfigAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    datastoreId: {
-      baseName: "datastore_id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "datastoreId": {
+      "baseName": "datastore_id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    primaryColumnName: {
-      baseName: "primary_column_name",
-      type: "string",
-      required: true,
+    "primaryColumnName": {
+      "baseName": "primary_column_name",
+      "type": "string",
+      "required": true,
     },
-    primaryKeyGenerationStrategy: {
-      baseName: "primary_key_generation_strategy",
-      type: "string",
-      required: true,
+    "primaryKeyGenerationStrategy": {
+      "baseName": "primary_key_generation_strategy",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class FormDatastoreConfigAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FormDatastoreConfigAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

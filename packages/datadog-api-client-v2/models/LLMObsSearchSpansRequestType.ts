@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Resource type for an LLM Observability spans search request.
- */
+*/
 
 export type LLMObsSearchSpansRequestType = typeof SPANS | UnparsedObject;
-export const SPANS = "spans";
+export const SPANS = 'spans';

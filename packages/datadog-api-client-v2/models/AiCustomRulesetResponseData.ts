@@ -6,23 +6,28 @@
 import { AiCustomRulesetDataType } from "./AiCustomRulesetDataType";
 import { AiCustomRulesetResponseAttributes } from "./AiCustomRulesetResponseAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response data for an AI custom ruleset.
- */
+*/
 export class AiCustomRulesetResponseData {
   /**
    * Response attributes of an AI custom ruleset.
-   */
+  */
   "attributes": AiCustomRulesetResponseAttributes;
   /**
    * The ruleset identifier.
-   */
+  */
   "id": string;
   /**
    * AI custom ruleset resource type.
-   */
+  */
   "type": AiCustomRulesetDataType;
 
   /**
@@ -30,7 +35,7 @@ export class AiCustomRulesetResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class AiCustomRulesetResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AiCustomRulesetResponseAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AiCustomRulesetResponseAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "AiCustomRulesetDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AiCustomRulesetDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class AiCustomRulesetResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AiCustomRulesetResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

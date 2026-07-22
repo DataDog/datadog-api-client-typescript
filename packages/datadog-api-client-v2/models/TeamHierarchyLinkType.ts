@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Team hierarchy link type
- */
+*/
 
-export type TeamHierarchyLinkType =
-  | typeof TEAM_HIERARCHY_LINKS
-  | UnparsedObject;
-export const TEAM_HIERARCHY_LINKS = "team_hierarchy_links";
+export type TeamHierarchyLinkType = typeof TEAM_HIERARCHY_LINKS | UnparsedObject;
+export const TEAM_HIERARCHY_LINKS = 'team_hierarchy_links';

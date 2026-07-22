@@ -5,27 +5,32 @@
  */
 import { SecurityMonitoringDatasetVersionEntry } from "./SecurityMonitoringDatasetVersionEntry";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes of a dataset version history response.
- */
+*/
 export class SecurityMonitoringDatasetVersionHistoryAttributes {
   /**
    * The total number of versions available for this dataset.
-   */
+  */
   "count": number;
   /**
    * A map from version number (as a string) to the dataset state at that version.
-   */
-  "data": { [key: string]: SecurityMonitoringDatasetVersionEntry };
+  */
+  "data": { [key: string]: SecurityMonitoringDatasetVersionEntry; };
 
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,16 +41,16 @@ export class SecurityMonitoringDatasetVersionHistoryAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    count: {
-      baseName: "count",
-      type: "number",
-      required: true,
-      format: "int64",
+    "count": {
+      "baseName": "count",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    data: {
-      baseName: "data",
-      type: "{ [key: string]: SecurityMonitoringDatasetVersionEntry; }",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "{ [key: string]: SecurityMonitoringDatasetVersionEntry; }",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class SecurityMonitoringDatasetVersionHistoryAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringDatasetVersionHistoryAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

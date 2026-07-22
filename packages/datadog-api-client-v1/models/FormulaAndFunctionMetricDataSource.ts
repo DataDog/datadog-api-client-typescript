@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Data source for metrics queries.
- */
+*/
 
-export type FormulaAndFunctionMetricDataSource =
-  | typeof METRICS
-  | UnparsedObject;
-export const METRICS = "metrics";
+export type FormulaAndFunctionMetricDataSource = typeof METRICS | UnparsedObject;
+export const METRICS = 'metrics';

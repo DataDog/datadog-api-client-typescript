@@ -5,15 +5,20 @@
  */
 import { OpsgenieAccountResponseData } from "./OpsgenieAccountResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response with a list of Opsgenie accounts.
- */
+*/
 export class OpsgenieAccountsResponse {
   /**
    * An array of Opsgenie accounts.
-   */
+  */
   "data": Array<OpsgenieAccountResponseData>;
 
   /**
@@ -21,7 +26,7 @@ export class OpsgenieAccountsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class OpsgenieAccountsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<OpsgenieAccountResponseData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<OpsgenieAccountResponseData>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class OpsgenieAccountsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OpsgenieAccountsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

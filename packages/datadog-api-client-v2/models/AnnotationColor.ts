@@ -4,23 +4,21 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Color used to render the annotation in the UI.
- */
+*/
 
-export type AnnotationColor =
-  | typeof GRAY
-  | typeof BLUE
-  | typeof PURPLE
-  | typeof GREEN
-  | typeof YELLOW
-  | typeof RED
-  | UnparsedObject;
-export const GRAY = "gray";
-export const BLUE = "blue";
-export const PURPLE = "purple";
-export const GREEN = "green";
-export const YELLOW = "yellow";
-export const RED = "red";
+export type AnnotationColor = typeof GRAY| typeof BLUE| typeof PURPLE| typeof GREEN| typeof YELLOW| typeof RED | UnparsedObject;
+export const GRAY = 'gray';
+export const BLUE = 'blue';
+export const PURPLE = 'purple';
+export const GREEN = 'green';
+export const YELLOW = 'yellow';
+export const RED = 'red';

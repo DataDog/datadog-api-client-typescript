@@ -5,19 +5,24 @@
  */
 import { ObservabilityPipelineReduceProcessorMergeStrategyStrategy } from "./ObservabilityPipelineReduceProcessorMergeStrategyStrategy";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Defines how a specific field should be merged across grouped events.
- */
+*/
 export class ObservabilityPipelineReduceProcessorMergeStrategy {
   /**
    * The field path in the log event.
-   */
+  */
   "path": string;
   /**
    * The merge strategy to apply.
-   */
+  */
   "strategy": ObservabilityPipelineReduceProcessorMergeStrategyStrategy;
 
   /**
@@ -25,7 +30,7 @@ export class ObservabilityPipelineReduceProcessorMergeStrategy {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class ObservabilityPipelineReduceProcessorMergeStrategy {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    path: {
-      baseName: "path",
-      type: "string",
-      required: true,
+    "path": {
+      "baseName": "path",
+      "type": "string",
+      "required": true,
     },
-    strategy: {
-      baseName: "strategy",
-      type: "ObservabilityPipelineReduceProcessorMergeStrategyStrategy",
-      required: true,
+    "strategy": {
+      "baseName": "strategy",
+      "type": "ObservabilityPipelineReduceProcessorMergeStrategyStrategy",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class ObservabilityPipelineReduceProcessorMergeStrategy {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineReduceProcessorMergeStrategy.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

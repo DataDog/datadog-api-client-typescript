@@ -4,31 +4,36 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Configuration options for writing to Elasticsearch Data Streams instead of a fixed index.
- */
+*/
 export class ObservabilityPipelineElasticsearchDestinationDataStream {
   /**
    * When `true`, automatically routes events to the appropriate data stream based on the event content.
-   */
+  */
   "autoRouting"?: boolean;
   /**
    * The data stream dataset. This groups events by their source or application.
-   */
+  */
   "dataset"?: string;
   /**
    * The data stream type. This determines how events are categorized within the data stream.
-   */
+  */
   "dtype"?: string;
   /**
    * The data stream namespace. This separates events into different environments or domains.
-   */
+  */
   "namespace"?: string;
   /**
    * When `true`, synchronizes data stream fields with the Elasticsearch index mapping.
-   */
+  */
   "syncFields"?: boolean;
 
   /**
@@ -36,7 +41,7 @@ export class ObservabilityPipelineElasticsearchDestinationDataStream {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,25 +52,25 @@ export class ObservabilityPipelineElasticsearchDestinationDataStream {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    autoRouting: {
-      baseName: "auto_routing",
-      type: "boolean",
+    "autoRouting": {
+      "baseName": "auto_routing",
+      "type": "boolean",
     },
-    dataset: {
-      baseName: "dataset",
-      type: "string",
+    "dataset": {
+      "baseName": "dataset",
+      "type": "string",
     },
-    dtype: {
-      baseName: "dtype",
-      type: "string",
+    "dtype": {
+      "baseName": "dtype",
+      "type": "string",
     },
-    namespace: {
-      baseName: "namespace",
-      type: "string",
+    "namespace": {
+      "baseName": "namespace",
+      "type": "string",
     },
-    syncFields: {
-      baseName: "sync_fields",
-      type: "boolean",
+    "syncFields": {
+      "baseName": "sync_fields",
+      "type": "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -77,8 +82,34 @@ export class ObservabilityPipelineElasticsearchDestinationDataStream {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineElasticsearchDestinationDataStream.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

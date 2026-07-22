@@ -5,19 +5,24 @@
  */
 import { GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsDataType } from "./GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The resource identifier and type for a static analysis rule.
- */
+*/
 export class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData {
   /**
    * The unique identifier of the rule resource.
-   */
+  */
   "id"?: string;
   /**
    * Rules resource type.
-   */
+  */
   "type": GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsDataType;
 
   /**
@@ -25,7 +30,7 @@ export class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsDat
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,14 +41,14 @@ export class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsDat
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsDat
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

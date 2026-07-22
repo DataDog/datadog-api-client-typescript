@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A tag filter that scopes a custom forecast entry to specific resource tags.
- */
+*/
 export class CustomForecastEntryTagFilter {
   /**
    * The tag key to filter on.
-   */
+  */
   "tagKey": string;
   /**
    * The tag value to filter on.
-   */
+  */
   "tagValue": string;
 
   /**
@@ -24,7 +29,7 @@ export class CustomForecastEntryTagFilter {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,15 +40,15 @@ export class CustomForecastEntryTagFilter {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    tagKey: {
-      baseName: "tag_key",
-      type: "string",
-      required: true,
+    "tagKey": {
+      "baseName": "tag_key",
+      "type": "string",
+      "required": true,
     },
-    tagValue: {
-      baseName: "tag_value",
-      type: "string",
-      required: true,
+    "tagValue": {
+      "baseName": "tag_value",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class CustomForecastEntryTagFilter {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomForecastEntryTagFilter.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

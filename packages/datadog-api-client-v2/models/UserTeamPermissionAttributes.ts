@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * User team permission attributes
- */
+*/
 export class UserTeamPermissionAttributes {
   /**
    * Object of team permission actions and boolean values that a logged in user can perform on this team.
-   */
+  */
   "permissions"?: any;
 
   /**
@@ -20,7 +25,7 @@ export class UserTeamPermissionAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,9 +36,9 @@ export class UserTeamPermissionAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    permissions: {
-      baseName: "permissions",
-      type: "any",
+    "permissions": {
+      "baseName": "permissions",
+      "type": "any",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,8 +50,34 @@ export class UserTeamPermissionAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UserTeamPermissionAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

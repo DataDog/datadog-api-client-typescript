@@ -6,19 +6,24 @@
 import { FormVersionType } from "./FormVersionType";
 import { UpsertAndPublishFormVersionDataAttributes } from "./UpsertAndPublishFormVersionDataAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data for upserting and publishing a form version.
- */
+*/
 export class UpsertAndPublishFormVersionData {
   /**
    * The attributes for upserting and publishing a form version.
-   */
+  */
   "attributes": UpsertAndPublishFormVersionDataAttributes;
   /**
    * The resource type for a form version.
-   */
+  */
   "type": FormVersionType;
 
   /**
@@ -26,7 +31,7 @@ export class UpsertAndPublishFormVersionData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class UpsertAndPublishFormVersionData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "UpsertAndPublishFormVersionDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "UpsertAndPublishFormVersionDataAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "FormVersionType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "FormVersionType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class UpsertAndPublishFormVersionData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpsertAndPublishFormVersionData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

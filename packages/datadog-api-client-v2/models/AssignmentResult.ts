@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Per-finding outcome of an assign or unassign operation.
- */
+*/
 export class AssignmentResult {
   /**
    * Human-readable explanation of the outcome.
-   */
+  */
   "detail": string;
   /**
    * Unique identifier of the security finding.
-   */
+  */
   "findingId": string;
   /**
    * HTTP-like status code describing the outcome for this finding.
-   */
+  */
   "status": number;
   /**
    * Short label describing the outcome for this finding.
-   */
+  */
   "title": string;
 
   /**
@@ -32,7 +37,7 @@ export class AssignmentResult {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,26 +48,26 @@ export class AssignmentResult {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    detail: {
-      baseName: "detail",
-      type: "string",
-      required: true,
+    "detail": {
+      "baseName": "detail",
+      "type": "string",
+      "required": true,
     },
-    findingId: {
-      baseName: "finding_id",
-      type: "string",
-      required: true,
+    "findingId": {
+      "baseName": "finding_id",
+      "type": "string",
+      "required": true,
     },
-    status: {
-      baseName: "status",
-      type: "number",
-      required: true,
-      format: "int32",
+    "status": {
+      "baseName": "status",
+      "type": "number",
+      "required": true,
+      "format": "int32",
     },
-    title: {
-      baseName: "title",
-      type: "string",
-      required: true,
+    "title": {
+      "baseName": "title",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,8 +79,34 @@ export class AssignmentResult {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AssignmentResult.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

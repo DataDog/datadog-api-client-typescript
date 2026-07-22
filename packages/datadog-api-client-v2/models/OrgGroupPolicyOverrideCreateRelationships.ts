@@ -6,19 +6,24 @@
 import { OrgGroupPolicyRelationshipToOne } from "./OrgGroupPolicyRelationshipToOne";
 import { OrgGroupRelationshipToOne } from "./OrgGroupRelationshipToOne";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationships for creating a policy override.
- */
+*/
 export class OrgGroupPolicyOverrideCreateRelationships {
   /**
    * Relationship to a single org group.
-   */
+  */
   "orgGroup": OrgGroupRelationshipToOne;
   /**
    * Relationship to a single org group policy.
-   */
+  */
   "orgGroupPolicy": OrgGroupPolicyRelationshipToOne;
 
   /**
@@ -26,7 +31,7 @@ export class OrgGroupPolicyOverrideCreateRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class OrgGroupPolicyOverrideCreateRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    orgGroup: {
-      baseName: "org_group",
-      type: "OrgGroupRelationshipToOne",
-      required: true,
+    "orgGroup": {
+      "baseName": "org_group",
+      "type": "OrgGroupRelationshipToOne",
+      "required": true,
     },
-    orgGroupPolicy: {
-      baseName: "org_group_policy",
-      type: "OrgGroupPolicyRelationshipToOne",
-      required: true,
+    "orgGroupPolicy": {
+      "baseName": "org_group_policy",
+      "type": "OrgGroupPolicyRelationshipToOne",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class OrgGroupPolicyOverrideCreateRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgGroupPolicyOverrideCreateRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

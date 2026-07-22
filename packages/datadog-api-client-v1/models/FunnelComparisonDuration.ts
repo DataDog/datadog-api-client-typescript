@@ -6,19 +6,24 @@
 import { FunnelComparisonCustomTimeframe } from "./FunnelComparisonCustomTimeframe";
 import { FunnelComparisonDurationType } from "./FunnelComparisonDurationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Comparison time configuration for funnel widgets.
- */
+*/
 export class FunnelComparisonDuration {
   /**
    * Custom timeframe for funnel comparison.
-   */
+  */
   "customTimeframe"?: FunnelComparisonCustomTimeframe;
   /**
    * Type of comparison duration.
-   */
+  */
   "type": FunnelComparisonDurationType;
 
   /**
@@ -30,23 +35,49 @@ export class FunnelComparisonDuration {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    customTimeframe: {
-      baseName: "custom_timeframe",
-      type: "FunnelComparisonCustomTimeframe",
+    "customTimeframe": {
+      "baseName": "custom_timeframe",
+      "type": "FunnelComparisonCustomTimeframe",
     },
-    type: {
-      baseName: "type",
-      type: "FunnelComparisonDurationType",
-      required: true,
-    },
+    "type": {
+      "baseName": "type",
+      "type": "FunnelComparisonDurationType",
+      "required": true,
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FunnelComparisonDuration.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

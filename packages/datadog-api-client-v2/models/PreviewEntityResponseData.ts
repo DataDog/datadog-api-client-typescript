@@ -7,27 +7,32 @@ import { EntityResponseDataAttributes } from "./EntityResponseDataAttributes";
 import { EntityResponseDataRelationships } from "./EntityResponseDataRelationships";
 import { EntityResponseDataType } from "./EntityResponseDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Entity data returned in a preview response, including attributes, relationships, and type.
- */
+*/
 export class PreviewEntityResponseData {
   /**
    * Entity response attributes containing core entity metadata fields.
-   */
+  */
   "attributes"?: EntityResponseDataAttributes;
   /**
    * Entity unique identifier.
-   */
+  */
   "id"?: string;
   /**
    * Entity relationships including incidents, oncalls, schemas, and related entities.
-   */
+  */
   "relationships"?: EntityResponseDataRelationships;
   /**
    * Entity resource type.
-   */
+  */
   "type": EntityResponseDataType;
 
   /**
@@ -35,7 +40,7 @@ export class PreviewEntityResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,22 +51,22 @@ export class PreviewEntityResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "EntityResponseDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "EntityResponseDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "EntityResponseDataRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "EntityResponseDataRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "EntityResponseDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "EntityResponseDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -73,8 +78,34 @@ export class PreviewEntityResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PreviewEntityResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

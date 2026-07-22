@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A single value and its occurrence count for a facet.
- */
+*/
 export class CsmHostFacetInfoItem {
   /**
    * The number of resources with this facet value.
-   */
+  */
   "count": number;
   /**
    * The facet value.
-   */
+  */
   "value": string;
 
   /**
@@ -24,7 +29,7 @@ export class CsmHostFacetInfoItem {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,16 +40,16 @@ export class CsmHostFacetInfoItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    count: {
-      baseName: "count",
-      type: "number",
-      required: true,
-      format: "int64",
+    "count": {
+      "baseName": "count",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    value: {
-      baseName: "value",
-      type: "string",
-      required: true,
+    "value": {
+      "baseName": "value",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class CsmHostFacetInfoItem {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CsmHostFacetInfoItem.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

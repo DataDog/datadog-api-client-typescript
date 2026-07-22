@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Schema for a Workflow-based trigger.
- */
+*/
 export class WorkflowTriggerWrapper {
   /**
    * A list of steps that run first after a trigger fires.
-   */
+  */
   "startStepNames"?: Array<string>;
   /**
    * Trigger a workflow from the Datadog UI. Only required if no other trigger exists.
-   */
+  */
   "workflowTrigger": any;
 
   /**
@@ -24,7 +29,7 @@ export class WorkflowTriggerWrapper {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,14 +40,14 @@ export class WorkflowTriggerWrapper {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    startStepNames: {
-      baseName: "startStepNames",
-      type: "Array<string>",
+    "startStepNames": {
+      "baseName": "startStepNames",
+      "type": "Array<string>",
     },
-    workflowTrigger: {
-      baseName: "workflowTrigger",
-      type: "any",
-      required: true,
+    "workflowTrigger": {
+      "baseName": "workflowTrigger",
+      "type": "any",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class WorkflowTriggerWrapper {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return WorkflowTriggerWrapper.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

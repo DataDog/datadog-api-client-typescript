@@ -5,15 +5,20 @@
  */
 import { SecureEmbedUpdateResponseData } from "./SecureEmbedUpdateResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response for updating a secure embed shared dashboard.
- */
+*/
 export class SecureEmbedUpdateResponse {
   /**
    * Data object for a secure embed update response.
-   */
+  */
   "data": SecureEmbedUpdateResponseData;
 
   /**
@@ -21,7 +26,7 @@ export class SecureEmbedUpdateResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class SecureEmbedUpdateResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SecureEmbedUpdateResponseData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "SecureEmbedUpdateResponseData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class SecureEmbedUpdateResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecureEmbedUpdateResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

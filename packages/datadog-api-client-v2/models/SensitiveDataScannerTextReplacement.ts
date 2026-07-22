@@ -5,24 +5,29 @@
  */
 import { SensitiveDataScannerTextReplacementType } from "./SensitiveDataScannerTextReplacementType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object describing how the scanned event will be replaced.
- */
+*/
 export class SensitiveDataScannerTextReplacement {
   /**
    * Required if type == 'partial_replacement_from_beginning'
    * or 'partial_replacement_from_end'. It must be > 0.
-   */
+  */
   "numberOfChars"?: number;
   /**
    * Required if type == 'replacement_string'.
-   */
+  */
   "replacementString"?: string;
   /**
    * Only valid when type == `replacement_string`. When enabled, matches can be unmasked in logs by users with ‘Data Scanner Unmask’ permission. As a security best practice, avoid masking for highly-sensitive, long-lived data.
-   */
+  */
   "shouldSaveMatch"?: boolean;
   /**
    * Type of the replacement text. None means no replacement.
@@ -31,7 +36,7 @@ export class SensitiveDataScannerTextReplacement {
    * allows a user to partially replace the data from the beginning, and
    * partial_replacement_from_end on the other hand, allows to replace data from
    * the end.
-   */
+  */
   "type"?: SensitiveDataScannerTextReplacementType;
 
   /**
@@ -39,7 +44,7 @@ export class SensitiveDataScannerTextReplacement {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -50,22 +55,22 @@ export class SensitiveDataScannerTextReplacement {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    numberOfChars: {
-      baseName: "number_of_chars",
-      type: "number",
-      format: "int64",
+    "numberOfChars": {
+      "baseName": "number_of_chars",
+      "type": "number",
+      "format": "int64",
     },
-    replacementString: {
-      baseName: "replacement_string",
-      type: "string",
+    "replacementString": {
+      "baseName": "replacement_string",
+      "type": "string",
     },
-    shouldSaveMatch: {
-      baseName: "should_save_match",
-      type: "boolean",
+    "shouldSaveMatch": {
+      "baseName": "should_save_match",
+      "type": "boolean",
     },
-    type: {
-      baseName: "type",
-      type: "SensitiveDataScannerTextReplacementType",
+    "type": {
+      "baseName": "type",
+      "type": "SensitiveDataScannerTextReplacementType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -77,8 +82,34 @@ export class SensitiveDataScannerTextReplacement {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SensitiveDataScannerTextReplacement.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

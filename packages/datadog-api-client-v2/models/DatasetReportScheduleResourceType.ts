@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of resource targeted by a dataset report schedule.
- */
+*/
 
-export type DatasetReportScheduleResourceType =
-  | typeof WIDGET_DATASET_LIST
-  | UnparsedObject;
-export const WIDGET_DATASET_LIST = "widget_dataset_list";
+export type DatasetReportScheduleResourceType = typeof WIDGET_DATASET_LIST | UnparsedObject;
+export const WIDGET_DATASET_LIST = 'widget_dataset_list';

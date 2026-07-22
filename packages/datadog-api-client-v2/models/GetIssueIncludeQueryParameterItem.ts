@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Relationship object that should be included in the response.
- */
+*/
 
-export type GetIssueIncludeQueryParameterItem =
-  | typeof ASSIGNEE
-  | typeof CASE
-  | typeof TEAM_OWNERS
-  | UnparsedObject;
-export const ASSIGNEE = "assignee";
-export const CASE = "case";
-export const TEAM_OWNERS = "team_owners";
+export type GetIssueIncludeQueryParameterItem = typeof ASSIGNEE| typeof CASE| typeof TEAM_OWNERS | UnparsedObject;
+export const ASSIGNEE = 'assignee';
+export const CASE = 'case';
+export const TEAM_OWNERS = 'team_owners';

@@ -5,15 +5,20 @@
  */
 import { StatuspageUrlSettingResponseData } from "./StatuspageUrlSettingResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response with a list of Statuspage URL settings.
- */
+*/
 export class StatuspageUrlSettingsResponse {
   /**
    * An array of Statuspage URL settings.
-   */
+  */
   "data": Array<StatuspageUrlSettingResponseData>;
 
   /**
@@ -21,7 +26,7 @@ export class StatuspageUrlSettingsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class StatuspageUrlSettingsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<StatuspageUrlSettingResponseData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<StatuspageUrlSettingResponseData>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class StatuspageUrlSettingsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return StatuspageUrlSettingsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

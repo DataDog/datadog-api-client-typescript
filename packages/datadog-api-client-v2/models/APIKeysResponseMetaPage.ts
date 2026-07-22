@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Additional information related to the API keys response.
- */
+*/
 export class APIKeysResponseMetaPage {
   /**
    * Total filtered application key count.
-   */
+  */
   "totalFilteredCount"?: number;
 
   /**
@@ -20,7 +25,7 @@ export class APIKeysResponseMetaPage {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,10 +36,10 @@ export class APIKeysResponseMetaPage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    totalFilteredCount: {
-      baseName: "total_filtered_count",
-      type: "number",
-      format: "int64",
+    "totalFilteredCount": {
+      "baseName": "total_filtered_count",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class APIKeysResponseMetaPage {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return APIKeysResponseMetaPage.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

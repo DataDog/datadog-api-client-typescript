@@ -6,19 +6,24 @@
 import { ClickupCredentialsUpdate } from "./ClickupCredentialsUpdate";
 import { ClickupIntegrationType } from "./ClickupIntegrationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `ClickupIntegrationUpdate` object.
- */
+*/
 export class ClickupIntegrationUpdate {
   /**
    * The definition of the `ClickupCredentialsUpdate` object.
-   */
+  */
   "credentials"?: ClickupCredentialsUpdate;
   /**
    * The definition of the `ClickupIntegrationType` object.
-   */
+  */
   "type": ClickupIntegrationType;
 
   /**
@@ -26,7 +31,7 @@ export class ClickupIntegrationUpdate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class ClickupIntegrationUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    credentials: {
-      baseName: "credentials",
-      type: "ClickupCredentialsUpdate",
+    "credentials": {
+      "baseName": "credentials",
+      "type": "ClickupCredentialsUpdate",
     },
-    type: {
-      baseName: "type",
-      type: "ClickupIntegrationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ClickupIntegrationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class ClickupIntegrationUpdate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ClickupIntegrationUpdate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

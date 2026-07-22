@@ -7,23 +7,28 @@ import { Connection } from "./Connection";
 import { ConnectionEnvEnv } from "./ConnectionEnvEnv";
 import { ConnectionGroup } from "./ConnectionGroup";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A list of connections or connection groups used in the workflow.
- */
+*/
 export class ConnectionEnv {
   /**
    * The `ConnectionEnv` `connectionGroups`.
-   */
+  */
   "connectionGroups"?: Array<ConnectionGroup>;
   /**
    * The `ConnectionEnv` `connections`.
-   */
+  */
   "connections"?: Array<Connection>;
   /**
    * The definition of `ConnectionEnvEnv` object.
-   */
+  */
   "env": ConnectionEnvEnv;
 
   /**
@@ -31,7 +36,7 @@ export class ConnectionEnv {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,18 +47,18 @@ export class ConnectionEnv {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    connectionGroups: {
-      baseName: "connectionGroups",
-      type: "Array<ConnectionGroup>",
+    "connectionGroups": {
+      "baseName": "connectionGroups",
+      "type": "Array<ConnectionGroup>",
     },
-    connections: {
-      baseName: "connections",
-      type: "Array<Connection>",
+    "connections": {
+      "baseName": "connections",
+      "type": "Array<Connection>",
     },
-    env: {
-      baseName: "env",
-      type: "ConnectionEnvEnv",
-      required: true,
+    "env": {
+      "baseName": "env",
+      "type": "ConnectionEnvEnv",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class ConnectionEnv {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ConnectionEnv.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

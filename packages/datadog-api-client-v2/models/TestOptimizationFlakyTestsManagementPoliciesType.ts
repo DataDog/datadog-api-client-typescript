@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * JSON:API type for Flaky Tests Management policies response.
  * The value must always be `test_optimization_flaky_tests_management_policies`.
- */
+*/
 
-export type TestOptimizationFlakyTestsManagementPoliciesType =
-  | typeof TEST_OPTIMIZATION_FLAKY_TESTS_MANAGEMENT_POLICIES
-  | UnparsedObject;
-export const TEST_OPTIMIZATION_FLAKY_TESTS_MANAGEMENT_POLICIES =
-  "test_optimization_flaky_tests_management_policies";
+export type TestOptimizationFlakyTestsManagementPoliciesType = typeof TEST_OPTIMIZATION_FLAKY_TESTS_MANAGEMENT_POLICIES | UnparsedObject;
+export const TEST_OPTIMIZATION_FLAKY_TESTS_MANAGEMENT_POLICIES = 'test_optimization_flaky_tests_management_policies';

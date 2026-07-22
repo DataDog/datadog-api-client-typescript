@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Google Chat organization attributes.
- */
+*/
 export class GoogleChatOrganizationAttributes {
   /**
    * The Google Chat organization domain ID.
-   */
+  */
   "domainId"?: string;
   /**
    * The Google Chat organization domain name.
-   */
+  */
   "domainName"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class GoogleChatOrganizationAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class GoogleChatOrganizationAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    domainId: {
-      baseName: "domain_id",
-      type: "string",
+    "domainId": {
+      "baseName": "domain_id",
+      "type": "string",
     },
-    domainName: {
-      baseName: "domain_name",
-      type: "string",
+    "domainName": {
+      "baseName": "domain_name",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class GoogleChatOrganizationAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GoogleChatOrganizationAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

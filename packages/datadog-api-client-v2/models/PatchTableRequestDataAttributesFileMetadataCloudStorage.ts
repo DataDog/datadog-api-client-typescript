@@ -5,19 +5,24 @@
  */
 import { PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails } from "./PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Cloud storage file metadata for patch requests. Allows partial updates of access_details and sync_enabled.
- */
+*/
 export class PatchTableRequestDataAttributesFileMetadataCloudStorage {
   /**
    * Cloud storage access configuration for the reference table data file.
-   */
+  */
   "accessDetails"?: PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails;
   /**
    * Whether this table is synced automatically.
-   */
+  */
   "syncEnabled"?: boolean;
 
   /**
@@ -29,22 +34,48 @@ export class PatchTableRequestDataAttributesFileMetadataCloudStorage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    accessDetails: {
-      baseName: "access_details",
-      type: "PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails",
+    "accessDetails": {
+      "baseName": "access_details",
+      "type": "PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails",
     },
-    syncEnabled: {
-      baseName: "sync_enabled",
-      type: "boolean",
-    },
+    "syncEnabled": {
+      "baseName": "sync_enabled",
+      "type": "boolean",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PatchTableRequestDataAttributesFileMetadataCloudStorage.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

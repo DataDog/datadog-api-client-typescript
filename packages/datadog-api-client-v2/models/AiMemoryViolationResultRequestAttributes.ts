@@ -5,39 +5,44 @@
  */
 import { AiMemoryViolationType } from "./AiMemoryViolationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for creating an AI memory violation result.
- */
+*/
 export class AiMemoryViolationResultRequestAttributes {
   /**
    * The line number where the violation was found.
-   */
+  */
   "line": number;
   /**
    * A message explaining the violation result.
-   */
+  */
   "message": string;
   /**
    * The file path where the violation was found.
-   */
+  */
   "name": string;
   /**
    * The repository identifier.
-   */
+  */
   "repositoryId": string;
   /**
    * The rule identifier in the format ruleset/rule.
-   */
+  */
   "rule": string;
   /**
    * The git commit SHA where the violation was found.
-   */
+  */
   "sha": string;
   /**
    * The type of AI memory violation result indicating whether it is a true positive or false positive.
-   */
+  */
   "type": AiMemoryViolationType;
 
   /**
@@ -45,7 +50,7 @@ export class AiMemoryViolationResultRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -56,41 +61,41 @@ export class AiMemoryViolationResultRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    line: {
-      baseName: "line",
-      type: "number",
-      required: true,
-      format: "int64",
+    "line": {
+      "baseName": "line",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    message: {
-      baseName: "message",
-      type: "string",
-      required: true,
+    "message": {
+      "baseName": "message",
+      "type": "string",
+      "required": true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    repositoryId: {
-      baseName: "repository_id",
-      type: "string",
-      required: true,
+    "repositoryId": {
+      "baseName": "repository_id",
+      "type": "string",
+      "required": true,
     },
-    rule: {
-      baseName: "rule",
-      type: "string",
-      required: true,
+    "rule": {
+      "baseName": "rule",
+      "type": "string",
+      "required": true,
     },
-    sha: {
-      baseName: "sha",
-      type: "string",
-      required: true,
+    "sha": {
+      "baseName": "sha",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "AiMemoryViolationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AiMemoryViolationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -102,8 +107,34 @@ export class AiMemoryViolationResultRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AiMemoryViolationResultRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

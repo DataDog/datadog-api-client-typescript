@@ -6,35 +6,40 @@
 import { IntegrationIncidentFieldMappingsItems } from "./IntegrationIncidentFieldMappingsItems";
 import { IntegrationIncidentSeverityConfig } from "./IntegrationIncidentSeverityConfig";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Incident integration settings.
- */
+*/
 export class IntegrationIncident {
   /**
    * Query for auto-escalation.
-   */
+  */
   "autoEscalationQuery"?: string;
   /**
    * Default incident commander.
-   */
+  */
   "defaultIncidentCommander"?: string;
   /**
    * Whether incident integration is enabled.
-   */
+  */
   "enabled"?: boolean;
   /**
    * List of mappings between incident fields and case fields.
-   */
+  */
   "fieldMappings"?: Array<IntegrationIncidentFieldMappingsItems>;
   /**
    * Incident type.
-   */
+  */
   "incidentType"?: string;
   /**
    * Severity configuration for mapping incident priorities to case priorities.
-   */
+  */
   "severityConfig"?: IntegrationIncidentSeverityConfig;
 
   /**
@@ -42,7 +47,7 @@ export class IntegrationIncident {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -53,29 +58,29 @@ export class IntegrationIncident {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    autoEscalationQuery: {
-      baseName: "auto_escalation_query",
-      type: "string",
+    "autoEscalationQuery": {
+      "baseName": "auto_escalation_query",
+      "type": "string",
     },
-    defaultIncidentCommander: {
-      baseName: "default_incident_commander",
-      type: "string",
+    "defaultIncidentCommander": {
+      "baseName": "default_incident_commander",
+      "type": "string",
     },
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
+    "enabled": {
+      "baseName": "enabled",
+      "type": "boolean",
     },
-    fieldMappings: {
-      baseName: "field_mappings",
-      type: "Array<IntegrationIncidentFieldMappingsItems>",
+    "fieldMappings": {
+      "baseName": "field_mappings",
+      "type": "Array<IntegrationIncidentFieldMappingsItems>",
     },
-    incidentType: {
-      baseName: "incident_type",
-      type: "string",
+    "incidentType": {
+      "baseName": "incident_type",
+      "type": "string",
     },
-    severityConfig: {
-      baseName: "severity_config",
-      type: "IntegrationIncidentSeverityConfig",
+    "severityConfig": {
+      "baseName": "severity_config",
+      "type": "IntegrationIncidentSeverityConfig",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -87,8 +92,34 @@ export class IntegrationIncident {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IntegrationIncident.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

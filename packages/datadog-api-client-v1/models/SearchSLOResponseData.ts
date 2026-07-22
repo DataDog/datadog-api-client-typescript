@@ -5,19 +5,24 @@
  */
 import { SearchSLOResponseDataAttributes } from "./SearchSLOResponseDataAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data from search SLO response.
- */
+*/
 export class SearchSLOResponseData {
   /**
    * Attributes
-   */
+  */
   "attributes"?: SearchSLOResponseDataAttributes;
   /**
    * Type of service level objective result.
-   */
+  */
   "type"?: string;
 
   /**
@@ -25,7 +30,7 @@ export class SearchSLOResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class SearchSLOResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SearchSLOResponseDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SearchSLOResponseDataAttributes",
     },
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class SearchSLOResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SearchSLOResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

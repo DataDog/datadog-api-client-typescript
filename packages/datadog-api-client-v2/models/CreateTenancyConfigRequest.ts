@@ -5,15 +5,20 @@
  */
 import { CreateTenancyConfigData } from "./CreateTenancyConfigData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request body for creating a new OCI tenancy integration configuration.
- */
+*/
 export class CreateTenancyConfigRequest {
   /**
    * The data object for creating a new OCI tenancy integration configuration, including the tenancy ID, type, and configuration attributes.
-   */
+  */
   "data": CreateTenancyConfigData;
 
   /**
@@ -21,7 +26,7 @@ export class CreateTenancyConfigRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CreateTenancyConfigRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CreateTenancyConfigData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "CreateTenancyConfigData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CreateTenancyConfigRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateTenancyConfigRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,23 +6,28 @@
 import { QueryAccountRequestDataAttributes } from "./QueryAccountRequestDataAttributes";
 import { QueryAccountRequestDataType } from "./QueryAccountRequestDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data object containing the resource type and attributes for querying accounts.
- */
+*/
 export class QueryAccountRequestData {
   /**
    * Attributes for filtering and shaping the account query results.
-   */
+  */
   "attributes"?: QueryAccountRequestDataAttributes;
   /**
    * Unique identifier for the query account request resource.
-   */
+  */
   "id"?: string;
   /**
    * Query account request resource type.
-   */
+  */
   "type": QueryAccountRequestDataType;
 
   /**
@@ -30,7 +35,7 @@ export class QueryAccountRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class QueryAccountRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "QueryAccountRequestDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "QueryAccountRequestDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "QueryAccountRequestDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "QueryAccountRequestDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class QueryAccountRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return QueryAccountRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

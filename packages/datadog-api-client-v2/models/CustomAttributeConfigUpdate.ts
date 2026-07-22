@@ -6,19 +6,24 @@
 import { CustomAttributeConfigResourceType } from "./CustomAttributeConfigResourceType";
 import { CustomAttributeConfigUpdateAttributes } from "./CustomAttributeConfigUpdateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for updating a custom attribute configuration.
- */
+*/
 export class CustomAttributeConfigUpdate {
   /**
    * Attributes that can be updated on a custom attribute configuration. All fields are optional; only provided fields are changed.
-   */
+  */
   "attributes"?: CustomAttributeConfigUpdateAttributes;
   /**
    * JSON:API resource type for custom attribute configurations.
-   */
+  */
   "type": CustomAttributeConfigResourceType;
 
   /**
@@ -26,7 +31,7 @@ export class CustomAttributeConfigUpdate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class CustomAttributeConfigUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CustomAttributeConfigUpdateAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CustomAttributeConfigUpdateAttributes",
     },
-    type: {
-      baseName: "type",
-      type: "CustomAttributeConfigResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CustomAttributeConfigResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class CustomAttributeConfigUpdate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomAttributeConfigUpdate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

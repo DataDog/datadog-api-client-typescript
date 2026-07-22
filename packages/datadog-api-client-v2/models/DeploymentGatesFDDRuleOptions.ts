@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Options for a `faulty_deployment_detection` rule.
- */
+*/
 export class DeploymentGatesFDDRuleOptions {
   /**
    * Evaluation window in seconds. Maximum 7200 (2 hours).
-   */
+  */
   "duration"?: number;
   /**
    * APM resource names to exclude from analysis.
-   */
+  */
   "excludedResources"?: Array<string>;
 
   /**
@@ -24,7 +29,7 @@ export class DeploymentGatesFDDRuleOptions {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,14 +40,14 @@ export class DeploymentGatesFDDRuleOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    duration: {
-      baseName: "duration",
-      type: "number",
-      format: "int64",
+    "duration": {
+      "baseName": "duration",
+      "type": "number",
+      "format": "int64",
     },
-    excludedResources: {
-      baseName: "excluded_resources",
-      type: "Array<string>",
+    "excludedResources": {
+      "baseName": "excluded_resources",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class DeploymentGatesFDDRuleOptions {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DeploymentGatesFDDRuleOptions.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

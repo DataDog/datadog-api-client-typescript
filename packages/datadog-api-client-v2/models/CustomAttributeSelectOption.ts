@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A selectable option for a SELECT-type custom attribute.
- */
+*/
 export class CustomAttributeSelectOption {
   /**
    * Option value.
-   */
+  */
   "value": string;
 
   /**
@@ -20,7 +25,7 @@ export class CustomAttributeSelectOption {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,10 +36,10 @@ export class CustomAttributeSelectOption {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    value: {
-      baseName: "value",
-      type: "string",
-      required: true,
+    "value": {
+      "baseName": "value",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class CustomAttributeSelectOption {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomAttributeSelectOption.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

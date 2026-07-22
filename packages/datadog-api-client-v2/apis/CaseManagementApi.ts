@@ -1,16 +1,12 @@
-import {
-  BaseAPIRequestFactory,
-  RequiredError,
-} from "../../datadog-api-client-common/baseapi";
-import {
-  Configuration,
-  applySecurityAuthentication,
-} from "../../datadog-api-client-common/configuration";
+import { BaseAPIRequestFactory, RequiredError } from "../../datadog-api-client-common/baseapi";
+import { Configuration,
+  applySecurityAuthentication,} from "../../datadog-api-client-common/configuration";
 import {
   RequestContext,
   HttpMethod,
   ResponseContext,
-} from "../../datadog-api-client-common/http/http";
+    
+  } from "../../datadog-api-client-common/http/http";
 
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
@@ -74,40 +70,33 @@ import { ServiceNowTicketCreateRequest } from "../models/ServiceNowTicketCreateR
 import { TimelineResponse } from "../models/TimelineResponse";
 
 export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
-  public async addCaseInsights(
-    caseId: string,
-    body: CaseInsightsRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+
+  public async addCaseInsights(caseId: string,body: CaseInsightsRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
-      throw new RequiredError("caseId", "addCaseInsights");
+      throw new RequiredError('caseId', 'addCaseInsights');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "addCaseInsights");
+      throw new RequiredError('body', 'addCaseInsights');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/{case_id}/insights".replace(
-      "{case_id}",
-      encodeURIComponent(String(caseId))
-    );
+    const localVarPath = '/api/v2/cases/{case_id}/insights'
+      .replace('{case_id}', encodeURIComponent(String(caseId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.addCaseInsights")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = _config.getServer('v2.CaseManagementApi.addCaseInsights').makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CaseInsightsRequest", ""),
@@ -116,7 +105,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -125,31 +114,26 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async aggregateCases(
-    body: CaseAggregateRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async aggregateCases(body: CaseAggregateRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "aggregateCases");
+      throw new RequiredError('body', 'aggregateCases');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/aggregate";
+    const localVarPath = '/api/v2/cases/aggregate';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.aggregateCases")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.CaseManagementApi.aggregateCases').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CaseAggregateRequest", ""),
@@ -158,7 +142,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -167,40 +151,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async archiveCase(
-    caseId: string,
-    body: CaseEmptyRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async archiveCase(caseId: string,body: CaseEmptyRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
-      throw new RequiredError("caseId", "archiveCase");
+      throw new RequiredError('caseId', 'archiveCase');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "archiveCase");
+      throw new RequiredError('body', 'archiveCase');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/{case_id}/archive".replace(
-      "{case_id}",
-      encodeURIComponent(String(caseId))
-    );
+    const localVarPath = '/api/v2/cases/{case_id}/archive'
+      .replace('{case_id}', encodeURIComponent(String(caseId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.archiveCase")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.CaseManagementApi.archiveCase').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CaseEmptyRequest", ""),
@@ -209,7 +185,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -218,40 +194,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async assignCase(
-    caseId: string,
-    body: CaseAssignRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async assignCase(caseId: string,body: CaseAssignRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
-      throw new RequiredError("caseId", "assignCase");
+      throw new RequiredError('caseId', 'assignCase');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "assignCase");
+      throw new RequiredError('body', 'assignCase');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/{case_id}/assign".replace(
-      "{case_id}",
-      encodeURIComponent(String(caseId))
-    );
+    const localVarPath = '/api/v2/cases/{case_id}/assign'
+      .replace('{case_id}', encodeURIComponent(String(caseId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.assignCase")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.CaseManagementApi.assignCase').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CaseAssignRequest", ""),
@@ -260,7 +228,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -269,31 +237,26 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async bulkUpdateCases(
-    body: CaseBulkUpdateRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async bulkUpdateCases(body: CaseBulkUpdateRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "bulkUpdateCases");
+      throw new RequiredError('body', 'bulkUpdateCases');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/bulk";
+    const localVarPath = '/api/v2/cases/bulk';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.bulkUpdateCases")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.CaseManagementApi.bulkUpdateCases').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CaseBulkUpdateRequest", ""),
@@ -302,7 +265,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -311,40 +274,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async commentCase(
-    caseId: string,
-    body: CaseCommentRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async commentCase(caseId: string,body: CaseCommentRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
-      throw new RequiredError("caseId", "commentCase");
+      throw new RequiredError('caseId', 'commentCase');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "commentCase");
+      throw new RequiredError('body', 'commentCase');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/{case_id}/comment".replace(
-      "{case_id}",
-      encodeURIComponent(String(caseId))
-    );
+    const localVarPath = '/api/v2/cases/{case_id}/comment'
+      .replace('{case_id}', encodeURIComponent(String(caseId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.commentCase")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.CaseManagementApi.commentCase').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CaseCommentRequest", ""),
@@ -353,7 +308,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -361,49 +316,34 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async countCases(
-    queryFilter?: string,
-    groupBys?: string,
-    limit?: number,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async countCases(queryFilter?: string,groupBys?: string,limit?: number,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = "/api/v2/cases/count";
+    const localVarPath = '/api/v2/cases/count';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.countCases")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.CaseManagementApi.countCases').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
-    if (queryFilter !== undefined) {
-      requestContext.setQueryParam(
-        "query_filter",
-        ObjectSerializer.serialize(queryFilter, "string", ""),
-        ""
-      );
+  if (queryFilter !== undefined) {
+      requestContext.setQueryParam("query_filter", ObjectSerializer.serialize(queryFilter, "string", ""
+), "");
     }
-    if (groupBys !== undefined) {
-      requestContext.setQueryParam(
-        "group_bys",
-        ObjectSerializer.serialize(groupBys, "string", ""),
-        ""
-      );
+  if (groupBys !== undefined) {
+      requestContext.setQueryParam("group_bys", ObjectSerializer.serialize(groupBys, "string", ""
+), "");
     }
-    if (limit !== undefined) {
-      requestContext.setQueryParam(
-        "limit",
-        ObjectSerializer.serialize(limit, "number", "int64"),
-        ""
-      );
+  if (limit !== undefined) {
+      requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", "int64"
+), "");
     }
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -412,31 +352,26 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async createCase(
-    body: CaseCreateRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async createCase(body: CaseCreateRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "createCase");
+      throw new RequiredError('body', 'createCase');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases";
+    const localVarPath = '/api/v2/cases';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.createCase")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.CaseManagementApi.createCase').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CaseCreateRequest", ""),
@@ -445,7 +380,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -454,40 +389,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async createCaseAutomationRule(
-    projectId: string,
-    body: AutomationRuleCreateRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async createCaseAutomationRule(projectId: string,body: AutomationRuleCreateRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'projectId' is not null or undefined
     if (projectId === null || projectId === undefined) {
-      throw new RequiredError("projectId", "createCaseAutomationRule");
+      throw new RequiredError('projectId', 'createCaseAutomationRule');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "createCaseAutomationRule");
+      throw new RequiredError('body', 'createCaseAutomationRule');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/projects/{project_id}/rules".replace(
-      "{project_id}",
-      encodeURIComponent(String(projectId))
-    );
+    const localVarPath = '/api/v2/cases/projects/{project_id}/rules'
+      .replace('{project_id}', encodeURIComponent(String(projectId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.createCaseAutomationRule")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.CaseManagementApi.createCaseAutomationRule').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AutomationRuleCreateRequest", ""),
@@ -496,7 +423,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -505,41 +432,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async createCaseJiraIssue(
-    caseId: string,
-    body: JiraIssueCreateRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async createCaseJiraIssue(caseId: string,body: JiraIssueCreateRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
-      throw new RequiredError("caseId", "createCaseJiraIssue");
+      throw new RequiredError('caseId', 'createCaseJiraIssue');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "createCaseJiraIssue");
+      throw new RequiredError('body', 'createCaseJiraIssue');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/{case_id}/relationships/jira_issues".replace(
-        "{case_id}",
-        encodeURIComponent(String(caseId))
-      );
+    const localVarPath = '/api/v2/cases/{case_id}/relationships/jira_issues'
+      .replace('{case_id}', encodeURIComponent(String(caseId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.createCaseJiraIssue")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.CaseManagementApi.createCaseJiraIssue').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "JiraIssueCreateRequest", ""),
@@ -548,7 +466,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -557,31 +475,26 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async createCaseLink(
-    body: CaseLinkCreateRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async createCaseLink(body: CaseLinkCreateRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "createCaseLink");
+      throw new RequiredError('body', 'createCaseLink');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/link";
+    const localVarPath = '/api/v2/cases/link';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.createCaseLink")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.CaseManagementApi.createCaseLink').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CaseLinkCreateRequest", ""),
@@ -590,7 +503,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -599,41 +512,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async createCaseNotebook(
-    caseId: string,
-    body: NotebookCreateRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async createCaseNotebook(caseId: string,body: NotebookCreateRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
-      throw new RequiredError("caseId", "createCaseNotebook");
+      throw new RequiredError('caseId', 'createCaseNotebook');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "createCaseNotebook");
+      throw new RequiredError('body', 'createCaseNotebook');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/{case_id}/relationships/notebook".replace(
-        "{case_id}",
-        encodeURIComponent(String(caseId))
-      );
+    const localVarPath = '/api/v2/cases/{case_id}/relationships/notebook'
+      .replace('{case_id}', encodeURIComponent(String(caseId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.createCaseNotebook")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.CaseManagementApi.createCaseNotebook').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "NotebookCreateRequest", ""),
@@ -642,7 +546,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -651,41 +555,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async createCaseServiceNowTicket(
-    caseId: string,
-    body: ServiceNowTicketCreateRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async createCaseServiceNowTicket(caseId: string,body: ServiceNowTicketCreateRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
-      throw new RequiredError("caseId", "createCaseServiceNowTicket");
+      throw new RequiredError('caseId', 'createCaseServiceNowTicket');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "createCaseServiceNowTicket");
+      throw new RequiredError('body', 'createCaseServiceNowTicket');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/{case_id}/relationships/servicenow_tickets".replace(
-        "{case_id}",
-        encodeURIComponent(String(caseId))
-      );
+    const localVarPath = '/api/v2/cases/{case_id}/relationships/servicenow_tickets'
+      .replace('{case_id}', encodeURIComponent(String(caseId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.createCaseServiceNowTicket")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.CaseManagementApi.createCaseServiceNowTicket').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ServiceNowTicketCreateRequest", ""),
@@ -694,7 +589,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -703,31 +598,26 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async createCaseView(
-    body: CaseViewCreateRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async createCaseView(body: CaseViewCreateRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "createCaseView");
+      throw new RequiredError('body', 'createCaseView');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/views";
+    const localVarPath = '/api/v2/cases/views';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.createCaseView")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.CaseManagementApi.createCaseView').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CaseViewCreateRequest", ""),
@@ -736,7 +626,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -745,31 +635,26 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async createMaintenanceWindow(
-    body: MaintenanceWindowCreateRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async createMaintenanceWindow(body: MaintenanceWindowCreateRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "createMaintenanceWindow");
+      throw new RequiredError('body', 'createMaintenanceWindow');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/maintenance_windows";
+    const localVarPath = '/api/v2/maintenance_windows';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.createMaintenanceWindow")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.CaseManagementApi.createMaintenanceWindow').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "MaintenanceWindowCreateRequest", ""),
@@ -778,7 +663,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -787,31 +672,26 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async createProject(
-    body: ProjectCreateRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async createProject(body: ProjectCreateRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "createProject");
+      throw new RequiredError('body', 'createProject');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/projects";
+    const localVarPath = '/api/v2/cases/projects';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.createProject")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.CaseManagementApi.createProject').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ProjectCreateRequest", ""),
@@ -820,7 +700,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -829,41 +709,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async createProjectNotificationRule(
-    projectId: string,
-    body: CaseNotificationRuleCreateRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async createProjectNotificationRule(projectId: string,body: CaseNotificationRuleCreateRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'projectId' is not null or undefined
     if (projectId === null || projectId === undefined) {
-      throw new RequiredError("projectId", "createProjectNotificationRule");
+      throw new RequiredError('projectId', 'createProjectNotificationRule');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "createProjectNotificationRule");
+      throw new RequiredError('body', 'createProjectNotificationRule');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/projects/{project_id}/notification_rules".replace(
-        "{project_id}",
-        encodeURIComponent(String(projectId))
-      );
+    const localVarPath = '/api/v2/cases/projects/{project_id}/notification_rules'
+      .replace('{project_id}', encodeURIComponent(String(projectId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.createProjectNotificationRule")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.CaseManagementApi.createProjectNotificationRule').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CaseNotificationRuleCreateRequest", ""),
@@ -872,7 +743,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -881,37 +752,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async deleteCaseAutomationRule(
-    projectId: string,
-    ruleId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async deleteCaseAutomationRule(projectId: string,ruleId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'projectId' is not null or undefined
     if (projectId === null || projectId === undefined) {
-      throw new RequiredError("projectId", "deleteCaseAutomationRule");
+      throw new RequiredError('projectId', 'deleteCaseAutomationRule');
     }
 
     // verify required parameter 'ruleId' is not null or undefined
     if (ruleId === null || ruleId === undefined) {
-      throw new RequiredError("ruleId", "deleteCaseAutomationRule");
+      throw new RequiredError('ruleId', 'deleteCaseAutomationRule');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/projects/{project_id}/rules/{rule_id}"
-      .replace("{project_id}", encodeURIComponent(String(projectId)))
-      .replace("{rule_id}", encodeURIComponent(String(ruleId)));
+    const localVarPath = '/api/v2/cases/projects/{project_id}/rules/{rule_id}'
+      .replace('{project_id}', encodeURIComponent(String(projectId)))
+      .replace('{rule_id}', encodeURIComponent(String(ruleId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.deleteCaseAutomationRule")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config.getServer('v2.CaseManagementApi.deleteCaseAutomationRule').makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -920,37 +786,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async deleteCaseComment(
-    caseId: string,
-    cellId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async deleteCaseComment(caseId: string,cellId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
-      throw new RequiredError("caseId", "deleteCaseComment");
+      throw new RequiredError('caseId', 'deleteCaseComment');
     }
 
     // verify required parameter 'cellId' is not null or undefined
     if (cellId === null || cellId === undefined) {
-      throw new RequiredError("cellId", "deleteCaseComment");
+      throw new RequiredError('cellId', 'deleteCaseComment');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/{case_id}/comment/{cell_id}"
-      .replace("{case_id}", encodeURIComponent(String(caseId)))
-      .replace("{cell_id}", encodeURIComponent(String(cellId)));
+    const localVarPath = '/api/v2/cases/{case_id}/comment/{cell_id}'
+      .replace('{case_id}', encodeURIComponent(String(caseId)))
+      .replace('{cell_id}', encodeURIComponent(String(cellId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.deleteCaseComment")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config.getServer('v2.CaseManagementApi.deleteCaseComment').makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -958,44 +819,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async deleteCaseCustomAttribute(
-    caseId: string,
-    customAttributeKey: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async deleteCaseCustomAttribute(caseId: string,customAttributeKey: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
-      throw new RequiredError("caseId", "deleteCaseCustomAttribute");
+      throw new RequiredError('caseId', 'deleteCaseCustomAttribute');
     }
 
     // verify required parameter 'customAttributeKey' is not null or undefined
     if (customAttributeKey === null || customAttributeKey === undefined) {
-      throw new RequiredError(
-        "customAttributeKey",
-        "deleteCaseCustomAttribute"
-      );
+      throw new RequiredError('customAttributeKey', 'deleteCaseCustomAttribute');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/{case_id}/custom_attributes/{custom_attribute_key}"
-        .replace("{case_id}", encodeURIComponent(String(caseId)))
-        .replace(
-          "{custom_attribute_key}",
-          encodeURIComponent(String(customAttributeKey))
-        );
+    const localVarPath = '/api/v2/cases/{case_id}/custom_attributes/{custom_attribute_key}'
+      .replace('{case_id}', encodeURIComponent(String(caseId)))
+      .replace('{custom_attribute_key}', encodeURIComponent(String(customAttributeKey)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.deleteCaseCustomAttribute")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config.getServer('v2.CaseManagementApi.deleteCaseCustomAttribute').makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -1004,32 +853,26 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async deleteCaseLink(
-    linkId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async deleteCaseLink(linkId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'linkId' is not null or undefined
     if (linkId === null || linkId === undefined) {
-      throw new RequiredError("linkId", "deleteCaseLink");
+      throw new RequiredError('linkId', 'deleteCaseLink');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/link/{link_id}".replace(
-      "{link_id}",
-      encodeURIComponent(String(linkId))
-    );
+    const localVarPath = '/api/v2/cases/link/{link_id}'
+      .replace('{link_id}', encodeURIComponent(String(linkId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.deleteCaseLink")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config.getServer('v2.CaseManagementApi.deleteCaseLink').makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -1038,32 +881,26 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async deleteCaseView(
-    viewId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async deleteCaseView(viewId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'viewId' is not null or undefined
     if (viewId === null || viewId === undefined) {
-      throw new RequiredError("viewId", "deleteCaseView");
+      throw new RequiredError('viewId', 'deleteCaseView');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/views/{view_id}".replace(
-      "{view_id}",
-      encodeURIComponent(String(viewId))
-    );
+    const localVarPath = '/api/v2/cases/views/{view_id}'
+      .replace('{view_id}', encodeURIComponent(String(viewId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.deleteCaseView")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config.getServer('v2.CaseManagementApi.deleteCaseView').makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -1072,33 +909,26 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async deleteMaintenanceWindow(
-    maintenanceWindowId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async deleteMaintenanceWindow(maintenanceWindowId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'maintenanceWindowId' is not null or undefined
     if (maintenanceWindowId === null || maintenanceWindowId === undefined) {
-      throw new RequiredError("maintenanceWindowId", "deleteMaintenanceWindow");
+      throw new RequiredError('maintenanceWindowId', 'deleteMaintenanceWindow');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/maintenance_windows/{maintenance_window_id}".replace(
-        "{maintenance_window_id}",
-        encodeURIComponent(String(maintenanceWindowId))
-      );
+    const localVarPath = '/api/v2/maintenance_windows/{maintenance_window_id}'
+      .replace('{maintenance_window_id}', encodeURIComponent(String(maintenanceWindowId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.deleteMaintenanceWindow")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config.getServer('v2.CaseManagementApi.deleteMaintenanceWindow').makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -1107,32 +937,26 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async deleteProject(
-    projectId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async deleteProject(projectId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'projectId' is not null or undefined
     if (projectId === null || projectId === undefined) {
-      throw new RequiredError("projectId", "deleteProject");
+      throw new RequiredError('projectId', 'deleteProject');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/projects/{project_id}".replace(
-      "{project_id}",
-      encodeURIComponent(String(projectId))
-    );
+    const localVarPath = '/api/v2/cases/projects/{project_id}'
+      .replace('{project_id}', encodeURIComponent(String(projectId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.deleteProject")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config.getServer('v2.CaseManagementApi.deleteProject').makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -1141,44 +965,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async deleteProjectNotificationRule(
-    projectId: string,
-    notificationRuleId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async deleteProjectNotificationRule(projectId: string,notificationRuleId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'projectId' is not null or undefined
     if (projectId === null || projectId === undefined) {
-      throw new RequiredError("projectId", "deleteProjectNotificationRule");
+      throw new RequiredError('projectId', 'deleteProjectNotificationRule');
     }
 
     // verify required parameter 'notificationRuleId' is not null or undefined
     if (notificationRuleId === null || notificationRuleId === undefined) {
-      throw new RequiredError(
-        "notificationRuleId",
-        "deleteProjectNotificationRule"
-      );
+      throw new RequiredError('notificationRuleId', 'deleteProjectNotificationRule');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/projects/{project_id}/notification_rules/{notification_rule_id}"
-        .replace("{project_id}", encodeURIComponent(String(projectId)))
-        .replace(
-          "{notification_rule_id}",
-          encodeURIComponent(String(notificationRuleId))
-        );
+    const localVarPath = '/api/v2/cases/projects/{project_id}/notification_rules/{notification_rule_id}'
+      .replace('{project_id}', encodeURIComponent(String(projectId)))
+      .replace('{notification_rule_id}', encodeURIComponent(String(notificationRuleId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.deleteProjectNotificationRule")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config.getServer('v2.CaseManagementApi.deleteProjectNotificationRule').makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -1187,38 +999,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async disableCaseAutomationRule(
-    projectId: string,
-    ruleId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async disableCaseAutomationRule(projectId: string,ruleId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'projectId' is not null or undefined
     if (projectId === null || projectId === undefined) {
-      throw new RequiredError("projectId", "disableCaseAutomationRule");
+      throw new RequiredError('projectId', 'disableCaseAutomationRule');
     }
 
     // verify required parameter 'ruleId' is not null or undefined
     if (ruleId === null || ruleId === undefined) {
-      throw new RequiredError("ruleId", "disableCaseAutomationRule");
+      throw new RequiredError('ruleId', 'disableCaseAutomationRule');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/projects/{project_id}/rules/{rule_id}/disable"
-        .replace("{project_id}", encodeURIComponent(String(projectId)))
-        .replace("{rule_id}", encodeURIComponent(String(ruleId)));
+    const localVarPath = '/api/v2/cases/projects/{project_id}/rules/{rule_id}/disable'
+      .replace('{project_id}', encodeURIComponent(String(projectId)))
+      .replace('{rule_id}', encodeURIComponent(String(ruleId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.disableCaseAutomationRule")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.CaseManagementApi.disableCaseAutomationRule').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -1227,38 +1033,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async enableCaseAutomationRule(
-    projectId: string,
-    ruleId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async enableCaseAutomationRule(projectId: string,ruleId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'projectId' is not null or undefined
     if (projectId === null || projectId === undefined) {
-      throw new RequiredError("projectId", "enableCaseAutomationRule");
+      throw new RequiredError('projectId', 'enableCaseAutomationRule');
     }
 
     // verify required parameter 'ruleId' is not null or undefined
     if (ruleId === null || ruleId === undefined) {
-      throw new RequiredError("ruleId", "enableCaseAutomationRule");
+      throw new RequiredError('ruleId', 'enableCaseAutomationRule');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/projects/{project_id}/rules/{rule_id}/enable"
-        .replace("{project_id}", encodeURIComponent(String(projectId)))
-        .replace("{rule_id}", encodeURIComponent(String(ruleId)));
+    const localVarPath = '/api/v2/cases/projects/{project_id}/rules/{rule_id}/enable'
+      .replace('{project_id}', encodeURIComponent(String(projectId)))
+      .replace('{rule_id}', encodeURIComponent(String(ruleId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.enableCaseAutomationRule")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.CaseManagementApi.enableCaseAutomationRule').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -1267,33 +1067,26 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async favoriteCaseProject(
-    projectId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async favoriteCaseProject(projectId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'projectId' is not null or undefined
     if (projectId === null || projectId === undefined) {
-      throw new RequiredError("projectId", "favoriteCaseProject");
+      throw new RequiredError('projectId', 'favoriteCaseProject');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/projects/{project_id}/favorites".replace(
-        "{project_id}",
-        encodeURIComponent(String(projectId))
-      );
+    const localVarPath = '/api/v2/cases/projects/{project_id}/favorites'
+      .replace('{project_id}', encodeURIComponent(String(projectId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.favoriteCaseProject")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.CaseManagementApi.favoriteCaseProject').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -1302,32 +1095,26 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getCase(
-    caseId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async getCase(caseId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
-      throw new RequiredError("caseId", "getCase");
+      throw new RequiredError('caseId', 'getCase');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/{case_id}".replace(
-      "{case_id}",
-      encodeURIComponent(String(caseId))
-    );
+    const localVarPath = '/api/v2/cases/{case_id}'
+      .replace('{case_id}', encodeURIComponent(String(caseId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.getCase")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.CaseManagementApi.getCase').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -1336,37 +1123,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getCaseAutomationRule(
-    projectId: string,
-    ruleId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async getCaseAutomationRule(projectId: string,ruleId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'projectId' is not null or undefined
     if (projectId === null || projectId === undefined) {
-      throw new RequiredError("projectId", "getCaseAutomationRule");
+      throw new RequiredError('projectId', 'getCaseAutomationRule');
     }
 
     // verify required parameter 'ruleId' is not null or undefined
     if (ruleId === null || ruleId === undefined) {
-      throw new RequiredError("ruleId", "getCaseAutomationRule");
+      throw new RequiredError('ruleId', 'getCaseAutomationRule');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/projects/{project_id}/rules/{rule_id}"
-      .replace("{project_id}", encodeURIComponent(String(projectId)))
-      .replace("{rule_id}", encodeURIComponent(String(ruleId)));
+    const localVarPath = '/api/v2/cases/projects/{project_id}/rules/{rule_id}'
+      .replace('{project_id}', encodeURIComponent(String(projectId)))
+      .replace('{rule_id}', encodeURIComponent(String(ruleId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.getCaseAutomationRule")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.CaseManagementApi.getCaseAutomationRule').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -1375,32 +1157,26 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getCaseView(
-    viewId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async getCaseView(viewId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'viewId' is not null or undefined
     if (viewId === null || viewId === undefined) {
-      throw new RequiredError("viewId", "getCaseView");
+      throw new RequiredError('viewId', 'getCaseView');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/views/{view_id}".replace(
-      "{view_id}",
-      encodeURIComponent(String(viewId))
-    );
+    const localVarPath = '/api/v2/cases/views/{view_id}'
+      .replace('{view_id}', encodeURIComponent(String(viewId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.getCaseView")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.CaseManagementApi.getCaseView').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -1409,32 +1185,26 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getProject(
-    projectId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async getProject(projectId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'projectId' is not null or undefined
     if (projectId === null || projectId === undefined) {
-      throw new RequiredError("projectId", "getProject");
+      throw new RequiredError('projectId', 'getProject');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/projects/{project_id}".replace(
-      "{project_id}",
-      encodeURIComponent(String(projectId))
-    );
+    const localVarPath = '/api/v2/cases/projects/{project_id}'
+      .replace('{project_id}', encodeURIComponent(String(projectId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.getProject")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.CaseManagementApi.getProject').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -1443,33 +1213,26 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getProjectNotificationRules(
-    projectId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async getProjectNotificationRules(projectId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'projectId' is not null or undefined
     if (projectId === null || projectId === undefined) {
-      throw new RequiredError("projectId", "getProjectNotificationRules");
+      throw new RequiredError('projectId', 'getProjectNotificationRules');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/projects/{project_id}/notification_rules".replace(
-        "{project_id}",
-        encodeURIComponent(String(projectId))
-      );
+    const localVarPath = '/api/v2/cases/projects/{project_id}/notification_rules'
+      .replace('{project_id}', encodeURIComponent(String(projectId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.getProjectNotificationRules")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.CaseManagementApi.getProjectNotificationRules').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -1477,22 +1240,21 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     return requestContext;
   }
+
 
   public async getProjects(_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = "/api/v2/cases/projects";
+    const localVarPath = '/api/v2/cases/projects';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.getProjects")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.CaseManagementApi.getProjects').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -1501,41 +1263,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async linkIncident(
-    caseId: string,
-    body: RelationshipToIncidentRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async linkIncident(caseId: string,body: RelationshipToIncidentRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
-      throw new RequiredError("caseId", "linkIncident");
+      throw new RequiredError('caseId', 'linkIncident');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "linkIncident");
+      throw new RequiredError('body', 'linkIncident');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/{case_id}/relationships/incidents".replace(
-        "{case_id}",
-        encodeURIComponent(String(caseId))
-      );
+    const localVarPath = '/api/v2/cases/{case_id}/relationships/incidents'
+      .replace('{case_id}', encodeURIComponent(String(caseId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.linkIncident")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.CaseManagementApi.linkIncident').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "RelationshipToIncidentRequest", ""),
@@ -1544,7 +1297,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -1553,41 +1306,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async linkJiraIssueToCase(
-    caseId: string,
-    body: JiraIssueLinkRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async linkJiraIssueToCase(caseId: string,body: JiraIssueLinkRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
-      throw new RequiredError("caseId", "linkJiraIssueToCase");
+      throw new RequiredError('caseId', 'linkJiraIssueToCase');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "linkJiraIssueToCase");
+      throw new RequiredError('body', 'linkJiraIssueToCase');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/{case_id}/relationships/jira_issues".replace(
-        "{case_id}",
-        encodeURIComponent(String(caseId))
-      );
+    const localVarPath = '/api/v2/cases/{case_id}/relationships/jira_issues'
+      .replace('{case_id}', encodeURIComponent(String(caseId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.linkJiraIssueToCase")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const requestContext = _config.getServer('v2.CaseManagementApi.linkJiraIssueToCase').makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "JiraIssueLinkRequest", ""),
@@ -1596,7 +1340,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -1605,32 +1349,26 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async listCaseAutomationRules(
-    projectId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async listCaseAutomationRules(projectId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'projectId' is not null or undefined
     if (projectId === null || projectId === undefined) {
-      throw new RequiredError("projectId", "listCaseAutomationRules");
+      throw new RequiredError('projectId', 'listCaseAutomationRules');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/projects/{project_id}/rules".replace(
-      "{project_id}",
-      encodeURIComponent(String(projectId))
-    );
+    const localVarPath = '/api/v2/cases/projects/{project_id}/rules'
+      .replace('{project_id}', encodeURIComponent(String(projectId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.listCaseAutomationRules")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.CaseManagementApi.listCaseAutomationRules').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -1639,59 +1377,44 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async listCaseLinks(
-    entityType: string,
-    entityId: string,
-    relationship?: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async listCaseLinks(entityType: string,entityId: string,relationship?: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'entityType' is not null or undefined
     if (entityType === null || entityType === undefined) {
-      throw new RequiredError("entityType", "listCaseLinks");
+      throw new RequiredError('entityType', 'listCaseLinks');
     }
 
     // verify required parameter 'entityId' is not null or undefined
     if (entityId === null || entityId === undefined) {
-      throw new RequiredError("entityId", "listCaseLinks");
+      throw new RequiredError('entityId', 'listCaseLinks');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/link";
+    const localVarPath = '/api/v2/cases/link';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.listCaseLinks")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.CaseManagementApi.listCaseLinks').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
-    if (entityType !== undefined) {
-      requestContext.setQueryParam(
-        "entity_type",
-        ObjectSerializer.serialize(entityType, "string", ""),
-        ""
-      );
+  if (entityType !== undefined) {
+      requestContext.setQueryParam("entity_type", ObjectSerializer.serialize(entityType, "string", ""
+), "");
     }
-    if (entityId !== undefined) {
-      requestContext.setQueryParam(
-        "entity_id",
-        ObjectSerializer.serialize(entityId, "string", ""),
-        ""
-      );
+  if (entityId !== undefined) {
+      requestContext.setQueryParam("entity_id", ObjectSerializer.serialize(entityId, "string", ""
+), "");
     }
-    if (relationship !== undefined) {
-      requestContext.setQueryParam(
-        "relationship",
-        ObjectSerializer.serialize(relationship, "string", ""),
-        ""
-      );
+  if (relationship !== undefined) {
+      requestContext.setQueryParam("relationship", ObjectSerializer.serialize(relationship, "string", ""
+), "");
     }
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -1700,58 +1423,40 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async listCaseTimeline(
-    caseId: string,
-    pageSize?: number,
-    pageNumber?: number,
-    sortAscending?: boolean,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async listCaseTimeline(caseId: string,pageSize?: number,pageNumber?: number,sortAscending?: boolean,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
-      throw new RequiredError("caseId", "listCaseTimeline");
+      throw new RequiredError('caseId', 'listCaseTimeline');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/{case_id}/timelines".replace(
-      "{case_id}",
-      encodeURIComponent(String(caseId))
-    );
+    const localVarPath = '/api/v2/cases/{case_id}/timelines'
+      .replace('{case_id}', encodeURIComponent(String(caseId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.listCaseTimeline")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.CaseManagementApi.listCaseTimeline').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
-    if (pageSize !== undefined) {
-      requestContext.setQueryParam(
-        "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64"),
-        ""
-      );
+  if (pageSize !== undefined) {
+      requestContext.setQueryParam("page[size]", ObjectSerializer.serialize(pageSize, "number", "int64"
+), "");
     }
-    if (pageNumber !== undefined) {
-      requestContext.setQueryParam(
-        "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64"),
-        ""
-      );
+  if (pageNumber !== undefined) {
+      requestContext.setQueryParam("page[number]", ObjectSerializer.serialize(pageNumber, "number", "int64"
+), "");
     }
-    if (sortAscending !== undefined) {
-      requestContext.setQueryParam(
-        "sort[ascending]",
-        ObjectSerializer.serialize(sortAscending, "boolean", ""),
-        ""
-      );
+  if (sortAscending !== undefined) {
+      requestContext.setQueryParam("sort[ascending]", ObjectSerializer.serialize(sortAscending, "boolean", ""
+), "");
     }
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -1760,38 +1465,31 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async listCaseViews(
-    projectId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async listCaseViews(projectId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'projectId' is not null or undefined
     if (projectId === null || projectId === undefined) {
-      throw new RequiredError("projectId", "listCaseViews");
+      throw new RequiredError('projectId', 'listCaseViews');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/views";
+    const localVarPath = '/api/v2/cases/views';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.listCaseViews")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.CaseManagementApi.listCaseViews').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
-    if (projectId !== undefined) {
-      requestContext.setQueryParam(
-        "project_id",
-        ObjectSerializer.serialize(projectId, "string", ""),
-        ""
-      );
+  if (projectId !== undefined) {
+      requestContext.setQueryParam("project_id", ObjectSerializer.serialize(projectId, "string", ""
+), "");
     }
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -1800,32 +1498,26 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async listCaseWatchers(
-    caseId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async listCaseWatchers(caseId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
-      throw new RequiredError("caseId", "listCaseWatchers");
+      throw new RequiredError('caseId', 'listCaseWatchers');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/{case_id}/watchers".replace(
-      "{case_id}",
-      encodeURIComponent(String(caseId))
-    );
+    const localVarPath = '/api/v2/cases/{case_id}/watchers'
+      .replace('{case_id}', encodeURIComponent(String(caseId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.listCaseWatchers")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.CaseManagementApi.listCaseWatchers').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -1834,23 +1526,20 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async listMaintenanceWindows(
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async listMaintenanceWindows(_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = "/api/v2/maintenance_windows";
+    const localVarPath = '/api/v2/maintenance_windows';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.listMaintenanceWindows")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.CaseManagementApi.listMaintenanceWindows').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -1859,23 +1548,20 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async listUserCaseProjectFavorites(
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async listUserCaseProjectFavorites(_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = "/api/v2/cases/projects/favorites";
+    const localVarPath = '/api/v2/cases/projects/favorites';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.listUserCaseProjectFavorites")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.CaseManagementApi.listUserCaseProjectFavorites').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -1884,41 +1570,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async moveCaseToProject(
-    caseId: string,
-    body: ProjectRelationship,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async moveCaseToProject(caseId: string,body: ProjectRelationship,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
-      throw new RequiredError("caseId", "moveCaseToProject");
+      throw new RequiredError('caseId', 'moveCaseToProject');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "moveCaseToProject");
+      throw new RequiredError('body', 'moveCaseToProject');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/{case_id}/relationships/project".replace(
-        "{case_id}",
-        encodeURIComponent(String(caseId))
-      );
+    const localVarPath = '/api/v2/cases/{case_id}/relationships/project'
+      .replace('{case_id}', encodeURIComponent(String(caseId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.moveCaseToProject")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const requestContext = _config.getServer('v2.CaseManagementApi.moveCaseToProject').makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ProjectRelationship", ""),
@@ -1927,7 +1604,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -1936,40 +1613,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async removeCaseInsights(
-    caseId: string,
-    body: CaseInsightsRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async removeCaseInsights(caseId: string,body: CaseInsightsRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
-      throw new RequiredError("caseId", "removeCaseInsights");
+      throw new RequiredError('caseId', 'removeCaseInsights');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "removeCaseInsights");
+      throw new RequiredError('body', 'removeCaseInsights');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/{case_id}/insights".replace(
-      "{case_id}",
-      encodeURIComponent(String(caseId))
-    );
+    const localVarPath = '/api/v2/cases/{case_id}/insights'
+      .replace('{case_id}', encodeURIComponent(String(caseId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.removeCaseInsights")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config.getServer('v2.CaseManagementApi.removeCaseInsights').makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CaseInsightsRequest", ""),
@@ -1978,7 +1647,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -1987,65 +1656,42 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async searchCases(
-    pageSize?: number,
-    pageNumber?: number,
-    sortField?: CaseSortableField,
-    filter?: string,
-    sortAsc?: boolean,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async searchCases(pageSize?: number,pageNumber?: number,sortField?: CaseSortableField,filter?: string,sortAsc?: boolean,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = "/api/v2/cases";
+    const localVarPath = '/api/v2/cases';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.searchCases")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.CaseManagementApi.searchCases').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
-    if (pageSize !== undefined) {
-      requestContext.setQueryParam(
-        "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64"),
-        ""
-      );
+  if (pageSize !== undefined) {
+      requestContext.setQueryParam("page[size]", ObjectSerializer.serialize(pageSize, "number", "int64"
+), "");
     }
-    if (pageNumber !== undefined) {
-      requestContext.setQueryParam(
-        "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64"),
-        ""
-      );
+  if (pageNumber !== undefined) {
+      requestContext.setQueryParam("page[number]", ObjectSerializer.serialize(pageNumber, "number", "int64"
+), "");
     }
-    if (sortField !== undefined) {
-      requestContext.setQueryParam(
-        "sort[field]",
-        ObjectSerializer.serialize(sortField, "CaseSortableField", ""),
-        ""
-      );
+  if (sortField !== undefined) {
+      requestContext.setQueryParam("sort[field]", ObjectSerializer.serialize(sortField, "CaseSortableField", ""
+), "");
     }
-    if (filter !== undefined) {
-      requestContext.setQueryParam(
-        "filter",
-        ObjectSerializer.serialize(filter, "string", ""),
-        ""
-      );
+  if (filter !== undefined) {
+      requestContext.setQueryParam("filter", ObjectSerializer.serialize(filter, "string", ""
+), "");
     }
-    if (sortAsc !== undefined) {
-      requestContext.setQueryParam(
-        "sort[asc]",
-        ObjectSerializer.serialize(sortAsc, "boolean", ""),
-        ""
-      );
+  if (sortAsc !== undefined) {
+      requestContext.setQueryParam("sort[asc]", ObjectSerializer.serialize(sortAsc, "boolean", ""
+), "");
     }
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -2054,40 +1700,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async unarchiveCase(
-    caseId: string,
-    body: CaseEmptyRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async unarchiveCase(caseId: string,body: CaseEmptyRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
-      throw new RequiredError("caseId", "unarchiveCase");
+      throw new RequiredError('caseId', 'unarchiveCase');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "unarchiveCase");
+      throw new RequiredError('body', 'unarchiveCase');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/{case_id}/unarchive".replace(
-      "{case_id}",
-      encodeURIComponent(String(caseId))
-    );
+    const localVarPath = '/api/v2/cases/{case_id}/unarchive'
+      .replace('{case_id}', encodeURIComponent(String(caseId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.unarchiveCase")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.CaseManagementApi.unarchiveCase').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CaseEmptyRequest", ""),
@@ -2096,7 +1734,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -2105,40 +1743,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async unassignCase(
-    caseId: string,
-    body: CaseEmptyRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async unassignCase(caseId: string,body: CaseEmptyRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
-      throw new RequiredError("caseId", "unassignCase");
+      throw new RequiredError('caseId', 'unassignCase');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "unassignCase");
+      throw new RequiredError('body', 'unassignCase');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/{case_id}/unassign".replace(
-      "{case_id}",
-      encodeURIComponent(String(caseId))
-    );
+    const localVarPath = '/api/v2/cases/{case_id}/unassign'
+      .replace('{case_id}', encodeURIComponent(String(caseId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.unassignCase")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.CaseManagementApi.unassignCase').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CaseEmptyRequest", ""),
@@ -2147,7 +1777,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -2156,33 +1786,26 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async unfavoriteCaseProject(
-    projectId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async unfavoriteCaseProject(projectId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'projectId' is not null or undefined
     if (projectId === null || projectId === undefined) {
-      throw new RequiredError("projectId", "unfavoriteCaseProject");
+      throw new RequiredError('projectId', 'unfavoriteCaseProject');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/projects/{project_id}/favorites".replace(
-        "{project_id}",
-        encodeURIComponent(String(projectId))
-      );
+    const localVarPath = '/api/v2/cases/projects/{project_id}/favorites'
+      .replace('{project_id}', encodeURIComponent(String(projectId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.unfavoriteCaseProject")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config.getServer('v2.CaseManagementApi.unfavoriteCaseProject').makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -2191,33 +1814,26 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async unlinkJiraIssue(
-    caseId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async unlinkJiraIssue(caseId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
-      throw new RequiredError("caseId", "unlinkJiraIssue");
+      throw new RequiredError('caseId', 'unlinkJiraIssue');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/{case_id}/relationships/jira_issues".replace(
-        "{case_id}",
-        encodeURIComponent(String(caseId))
-      );
+    const localVarPath = '/api/v2/cases/{case_id}/relationships/jira_issues'
+      .replace('{case_id}', encodeURIComponent(String(caseId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.unlinkJiraIssue")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config.getServer('v2.CaseManagementApi.unlinkJiraIssue').makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -2226,37 +1842,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async unwatchCase(
-    caseId: string,
-    userUuid: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async unwatchCase(caseId: string,userUuid: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
-      throw new RequiredError("caseId", "unwatchCase");
+      throw new RequiredError('caseId', 'unwatchCase');
     }
 
     // verify required parameter 'userUuid' is not null or undefined
     if (userUuid === null || userUuid === undefined) {
-      throw new RequiredError("userUuid", "unwatchCase");
+      throw new RequiredError('userUuid', 'unwatchCase');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/{case_id}/watchers/{user_uuid}"
-      .replace("{case_id}", encodeURIComponent(String(caseId)))
-      .replace("{user_uuid}", encodeURIComponent(String(userUuid)));
+    const localVarPath = '/api/v2/cases/{case_id}/watchers/{user_uuid}'
+      .replace('{case_id}', encodeURIComponent(String(caseId)))
+      .replace('{user_uuid}', encodeURIComponent(String(userUuid)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.unwatchCase")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config.getServer('v2.CaseManagementApi.unwatchCase').makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -2265,40 +1876,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async updateAttributes(
-    caseId: string,
-    body: CaseUpdateAttributesRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async updateAttributes(caseId: string,body: CaseUpdateAttributesRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
-      throw new RequiredError("caseId", "updateAttributes");
+      throw new RequiredError('caseId', 'updateAttributes');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateAttributes");
+      throw new RequiredError('body', 'updateAttributes');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/{case_id}/attributes".replace(
-      "{case_id}",
-      encodeURIComponent(String(caseId))
-    );
+    const localVarPath = '/api/v2/cases/{case_id}/attributes'
+      .replace('{case_id}', encodeURIComponent(String(caseId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.updateAttributes")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.CaseManagementApi.updateAttributes').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CaseUpdateAttributesRequest", ""),
@@ -2307,7 +1910,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -2316,45 +1919,38 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async updateCaseAutomationRule(
-    projectId: string,
-    ruleId: string,
-    body: AutomationRuleUpdateRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async updateCaseAutomationRule(projectId: string,ruleId: string,body: AutomationRuleUpdateRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'projectId' is not null or undefined
     if (projectId === null || projectId === undefined) {
-      throw new RequiredError("projectId", "updateCaseAutomationRule");
+      throw new RequiredError('projectId', 'updateCaseAutomationRule');
     }
 
     // verify required parameter 'ruleId' is not null or undefined
     if (ruleId === null || ruleId === undefined) {
-      throw new RequiredError("ruleId", "updateCaseAutomationRule");
+      throw new RequiredError('ruleId', 'updateCaseAutomationRule');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateCaseAutomationRule");
+      throw new RequiredError('body', 'updateCaseAutomationRule');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/projects/{project_id}/rules/{rule_id}"
-      .replace("{project_id}", encodeURIComponent(String(projectId)))
-      .replace("{rule_id}", encodeURIComponent(String(ruleId)));
+    const localVarPath = '/api/v2/cases/projects/{project_id}/rules/{rule_id}'
+      .replace('{project_id}', encodeURIComponent(String(projectId)))
+      .replace('{rule_id}', encodeURIComponent(String(ruleId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.updateCaseAutomationRule")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = _config.getServer('v2.CaseManagementApi.updateCaseAutomationRule').makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AutomationRuleUpdateRequest", ""),
@@ -2363,7 +1959,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -2372,45 +1968,38 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async updateCaseComment(
-    caseId: string,
-    cellId: string,
-    body: CaseUpdateCommentRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async updateCaseComment(caseId: string,cellId: string,body: CaseUpdateCommentRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
-      throw new RequiredError("caseId", "updateCaseComment");
+      throw new RequiredError('caseId', 'updateCaseComment');
     }
 
     // verify required parameter 'cellId' is not null or undefined
     if (cellId === null || cellId === undefined) {
-      throw new RequiredError("cellId", "updateCaseComment");
+      throw new RequiredError('cellId', 'updateCaseComment');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateCaseComment");
+      throw new RequiredError('body', 'updateCaseComment');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/{case_id}/comment/{cell_id}"
-      .replace("{case_id}", encodeURIComponent(String(caseId)))
-      .replace("{cell_id}", encodeURIComponent(String(cellId)));
+    const localVarPath = '/api/v2/cases/{case_id}/comment/{cell_id}'
+      .replace('{case_id}', encodeURIComponent(String(caseId)))
+      .replace('{cell_id}', encodeURIComponent(String(cellId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.updateCaseComment")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = _config.getServer('v2.CaseManagementApi.updateCaseComment').makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CaseUpdateCommentRequest", ""),
@@ -2419,7 +2008,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -2428,52 +2017,38 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async updateCaseCustomAttribute(
-    caseId: string,
-    customAttributeKey: string,
-    body: CaseUpdateCustomAttributeRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async updateCaseCustomAttribute(caseId: string,customAttributeKey: string,body: CaseUpdateCustomAttributeRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
-      throw new RequiredError("caseId", "updateCaseCustomAttribute");
+      throw new RequiredError('caseId', 'updateCaseCustomAttribute');
     }
 
     // verify required parameter 'customAttributeKey' is not null or undefined
     if (customAttributeKey === null || customAttributeKey === undefined) {
-      throw new RequiredError(
-        "customAttributeKey",
-        "updateCaseCustomAttribute"
-      );
+      throw new RequiredError('customAttributeKey', 'updateCaseCustomAttribute');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateCaseCustomAttribute");
+      throw new RequiredError('body', 'updateCaseCustomAttribute');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/{case_id}/custom_attributes/{custom_attribute_key}"
-        .replace("{case_id}", encodeURIComponent(String(caseId)))
-        .replace(
-          "{custom_attribute_key}",
-          encodeURIComponent(String(customAttributeKey))
-        );
+    const localVarPath = '/api/v2/cases/{case_id}/custom_attributes/{custom_attribute_key}'
+      .replace('{case_id}', encodeURIComponent(String(caseId)))
+      .replace('{custom_attribute_key}', encodeURIComponent(String(customAttributeKey)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.updateCaseCustomAttribute")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.CaseManagementApi.updateCaseCustomAttribute').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CaseUpdateCustomAttributeRequest", ""),
@@ -2482,7 +2057,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -2491,40 +2066,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async updateCaseDescription(
-    caseId: string,
-    body: CaseUpdateDescriptionRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async updateCaseDescription(caseId: string,body: CaseUpdateDescriptionRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
-      throw new RequiredError("caseId", "updateCaseDescription");
+      throw new RequiredError('caseId', 'updateCaseDescription');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateCaseDescription");
+      throw new RequiredError('body', 'updateCaseDescription');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/{case_id}/description".replace(
-      "{case_id}",
-      encodeURIComponent(String(caseId))
-    );
+    const localVarPath = '/api/v2/cases/{case_id}/description'
+      .replace('{case_id}', encodeURIComponent(String(caseId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.updateCaseDescription")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.CaseManagementApi.updateCaseDescription').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CaseUpdateDescriptionRequest", ""),
@@ -2533,7 +2100,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -2542,40 +2109,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async updateCaseDueDate(
-    caseId: string,
-    body: CaseUpdateDueDateRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async updateCaseDueDate(caseId: string,body: CaseUpdateDueDateRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
-      throw new RequiredError("caseId", "updateCaseDueDate");
+      throw new RequiredError('caseId', 'updateCaseDueDate');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateCaseDueDate");
+      throw new RequiredError('body', 'updateCaseDueDate');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/{case_id}/due_date".replace(
-      "{case_id}",
-      encodeURIComponent(String(caseId))
-    );
+    const localVarPath = '/api/v2/cases/{case_id}/due_date'
+      .replace('{case_id}', encodeURIComponent(String(caseId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.updateCaseDueDate")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.CaseManagementApi.updateCaseDueDate').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CaseUpdateDueDateRequest", ""),
@@ -2584,7 +2143,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -2593,40 +2152,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async updateCaseResolvedReason(
-    caseId: string,
-    body: CaseUpdateResolvedReasonRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async updateCaseResolvedReason(caseId: string,body: CaseUpdateResolvedReasonRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
-      throw new RequiredError("caseId", "updateCaseResolvedReason");
+      throw new RequiredError('caseId', 'updateCaseResolvedReason');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateCaseResolvedReason");
+      throw new RequiredError('body', 'updateCaseResolvedReason');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/{case_id}/resolved_reason".replace(
-      "{case_id}",
-      encodeURIComponent(String(caseId))
-    );
+    const localVarPath = '/api/v2/cases/{case_id}/resolved_reason'
+      .replace('{case_id}', encodeURIComponent(String(caseId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.updateCaseResolvedReason")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.CaseManagementApi.updateCaseResolvedReason').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CaseUpdateResolvedReasonRequest", ""),
@@ -2635,7 +2186,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -2644,40 +2195,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async updateCaseTitle(
-    caseId: string,
-    body: CaseUpdateTitleRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async updateCaseTitle(caseId: string,body: CaseUpdateTitleRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
-      throw new RequiredError("caseId", "updateCaseTitle");
+      throw new RequiredError('caseId', 'updateCaseTitle');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateCaseTitle");
+      throw new RequiredError('body', 'updateCaseTitle');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/{case_id}/title".replace(
-      "{case_id}",
-      encodeURIComponent(String(caseId))
-    );
+    const localVarPath = '/api/v2/cases/{case_id}/title'
+      .replace('{case_id}', encodeURIComponent(String(caseId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.updateCaseTitle")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.CaseManagementApi.updateCaseTitle').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CaseUpdateTitleRequest", ""),
@@ -2686,7 +2229,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -2695,40 +2238,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async updateCaseView(
-    viewId: string,
-    body: CaseViewUpdateRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async updateCaseView(viewId: string,body: CaseViewUpdateRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'viewId' is not null or undefined
     if (viewId === null || viewId === undefined) {
-      throw new RequiredError("viewId", "updateCaseView");
+      throw new RequiredError('viewId', 'updateCaseView');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateCaseView");
+      throw new RequiredError('body', 'updateCaseView');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/views/{view_id}".replace(
-      "{view_id}",
-      encodeURIComponent(String(viewId))
-    );
+    const localVarPath = '/api/v2/cases/views/{view_id}'
+      .replace('{view_id}', encodeURIComponent(String(viewId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.updateCaseView")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = _config.getServer('v2.CaseManagementApi.updateCaseView').makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CaseViewUpdateRequest", ""),
@@ -2737,7 +2272,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -2746,41 +2281,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async updateMaintenanceWindow(
-    maintenanceWindowId: string,
-    body: MaintenanceWindowUpdateRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async updateMaintenanceWindow(maintenanceWindowId: string,body: MaintenanceWindowUpdateRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'maintenanceWindowId' is not null or undefined
     if (maintenanceWindowId === null || maintenanceWindowId === undefined) {
-      throw new RequiredError("maintenanceWindowId", "updateMaintenanceWindow");
+      throw new RequiredError('maintenanceWindowId', 'updateMaintenanceWindow');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateMaintenanceWindow");
+      throw new RequiredError('body', 'updateMaintenanceWindow');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/maintenance_windows/{maintenance_window_id}".replace(
-        "{maintenance_window_id}",
-        encodeURIComponent(String(maintenanceWindowId))
-      );
+    const localVarPath = '/api/v2/maintenance_windows/{maintenance_window_id}'
+      .replace('{maintenance_window_id}', encodeURIComponent(String(maintenanceWindowId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.updateMaintenanceWindow")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = _config.getServer('v2.CaseManagementApi.updateMaintenanceWindow').makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "MaintenanceWindowUpdateRequest", ""),
@@ -2789,7 +2315,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -2798,40 +2324,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async updatePriority(
-    caseId: string,
-    body: CaseUpdatePriorityRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async updatePriority(caseId: string,body: CaseUpdatePriorityRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
-      throw new RequiredError("caseId", "updatePriority");
+      throw new RequiredError('caseId', 'updatePriority');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updatePriority");
+      throw new RequiredError('body', 'updatePriority');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/{case_id}/priority".replace(
-      "{case_id}",
-      encodeURIComponent(String(caseId))
-    );
+    const localVarPath = '/api/v2/cases/{case_id}/priority'
+      .replace('{case_id}', encodeURIComponent(String(caseId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.updatePriority")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.CaseManagementApi.updatePriority').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CaseUpdatePriorityRequest", ""),
@@ -2840,7 +2358,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -2849,40 +2367,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async updateProject(
-    projectId: string,
-    body: ProjectUpdateRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async updateProject(projectId: string,body: ProjectUpdateRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'projectId' is not null or undefined
     if (projectId === null || projectId === undefined) {
-      throw new RequiredError("projectId", "updateProject");
+      throw new RequiredError('projectId', 'updateProject');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateProject");
+      throw new RequiredError('body', 'updateProject');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/projects/{project_id}".replace(
-      "{project_id}",
-      encodeURIComponent(String(projectId))
-    );
+    const localVarPath = '/api/v2/cases/projects/{project_id}'
+      .replace('{project_id}', encodeURIComponent(String(projectId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.updateProject")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const requestContext = _config.getServer('v2.CaseManagementApi.updateProject').makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ProjectUpdateRequest", ""),
@@ -2891,7 +2401,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -2900,52 +2410,38 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async updateProjectNotificationRule(
-    projectId: string,
-    notificationRuleId: string,
-    body: CaseNotificationRuleUpdateRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async updateProjectNotificationRule(projectId: string,notificationRuleId: string,body: CaseNotificationRuleUpdateRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'projectId' is not null or undefined
     if (projectId === null || projectId === undefined) {
-      throw new RequiredError("projectId", "updateProjectNotificationRule");
+      throw new RequiredError('projectId', 'updateProjectNotificationRule');
     }
 
     // verify required parameter 'notificationRuleId' is not null or undefined
     if (notificationRuleId === null || notificationRuleId === undefined) {
-      throw new RequiredError(
-        "notificationRuleId",
-        "updateProjectNotificationRule"
-      );
+      throw new RequiredError('notificationRuleId', 'updateProjectNotificationRule');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateProjectNotificationRule");
+      throw new RequiredError('body', 'updateProjectNotificationRule');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/projects/{project_id}/notification_rules/{notification_rule_id}"
-        .replace("{project_id}", encodeURIComponent(String(projectId)))
-        .replace(
-          "{notification_rule_id}",
-          encodeURIComponent(String(notificationRuleId))
-        );
+    const localVarPath = '/api/v2/cases/projects/{project_id}/notification_rules/{notification_rule_id}'
+      .replace('{project_id}', encodeURIComponent(String(projectId)))
+      .replace('{notification_rule_id}', encodeURIComponent(String(notificationRuleId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.updateProjectNotificationRule")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = _config.getServer('v2.CaseManagementApi.updateProjectNotificationRule').makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CaseNotificationRuleUpdateRequest", ""),
@@ -2954,7 +2450,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -2963,40 +2459,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async updateStatus(
-    caseId: string,
-    body: CaseUpdateStatusRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async updateStatus(caseId: string,body: CaseUpdateStatusRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
-      throw new RequiredError("caseId", "updateStatus");
+      throw new RequiredError('caseId', 'updateStatus');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateStatus");
+      throw new RequiredError('body', 'updateStatus');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/{case_id}/status".replace(
-      "{case_id}",
-      encodeURIComponent(String(caseId))
-    );
+    const localVarPath = '/api/v2/cases/{case_id}/status'
+      .replace('{case_id}', encodeURIComponent(String(caseId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.updateStatus")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.CaseManagementApi.updateStatus').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CaseUpdateStatusRequest", ""),
@@ -3005,7 +2493,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -3014,37 +2502,32 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async watchCase(
-    caseId: string,
-    userUuid: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async watchCase(caseId: string,userUuid: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseId' is not null or undefined
     if (caseId === null || caseId === undefined) {
-      throw new RequiredError("caseId", "watchCase");
+      throw new RequiredError('caseId', 'watchCase');
     }
 
     // verify required parameter 'userUuid' is not null or undefined
     if (userUuid === null || userUuid === undefined) {
-      throw new RequiredError("userUuid", "watchCase");
+      throw new RequiredError('userUuid', 'watchCase');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/{case_id}/watchers/{user_uuid}"
-      .replace("{case_id}", encodeURIComponent(String(caseId)))
-      .replace("{user_uuid}", encodeURIComponent(String(userUuid)));
+    const localVarPath = '/api/v2/cases/{case_id}/watchers/{user_uuid}'
+      .replace('{case_id}', encodeURIComponent(String(caseId)))
+      .replace('{user_uuid}', encodeURIComponent(String(userUuid)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementApi.watchCase")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.CaseManagementApi.watchCase').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -3055,6 +2538,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class CaseManagementApiResponseProcessor {
+
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -3062,12 +2547,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to addCaseInsights
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async addCaseInsights(
-    response: ResponseContext
-  ): Promise<CaseResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async addCaseInsights(response: ResponseContext): Promise<CaseResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -3075,16 +2556,8 @@ export class CaseManagementApiResponseProcessor {
       ) as CaseResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3093,21 +2566,12 @@ export class CaseManagementApiResponseProcessor {
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3116,30 +2580,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CaseResponse",
-        ""
+        "",
       ) as CaseResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -3148,12 +2607,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to aggregateCases
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async aggregateCases(
-    response: ResponseContext
-  ): Promise<CaseAggregateResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async aggregateCases(response: ResponseContext): Promise<CaseAggregateResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: CaseAggregateResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -3161,17 +2616,8 @@ export class CaseManagementApiResponseProcessor {
       ) as CaseAggregateResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3180,30 +2626,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CaseAggregateResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CaseAggregateResponse",
-        ""
+        "",
       ) as CaseAggregateResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -3212,10 +2653,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to archiveCase
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async archiveCase(response: ResponseContext): Promise<CaseResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async archiveCase(response: ResponseContext): Promise<CaseResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -3223,17 +2662,8 @@ export class CaseManagementApiResponseProcessor {
       ) as CaseResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3242,30 +2672,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CaseResponse",
-        ""
+        "",
       ) as CaseResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -3274,10 +2699,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to assignCase
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async assignCase(response: ResponseContext): Promise<CaseResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async assignCase(response: ResponseContext): Promise<CaseResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -3285,17 +2708,8 @@ export class CaseManagementApiResponseProcessor {
       ) as CaseResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3304,30 +2718,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CaseResponse",
-        ""
+        "",
       ) as CaseResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -3336,24 +2745,13 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to bulkUpdateCases
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async bulkUpdateCases(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async bulkUpdateCases(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       return;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3362,25 +2760,20 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -3389,12 +2782,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to commentCase
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async commentCase(
-    response: ResponseContext
-  ): Promise<TimelineResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async commentCase(response: ResponseContext): Promise<TimelineResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: TimelineResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -3402,17 +2791,8 @@ export class CaseManagementApiResponseProcessor {
       ) as TimelineResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3421,30 +2801,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TimelineResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "TimelineResponse",
-        ""
+        "",
       ) as TimelineResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -3453,12 +2828,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to countCases
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async countCases(
-    response: ResponseContext
-  ): Promise<CaseCountResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async countCases(response: ResponseContext): Promise<CaseCountResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: CaseCountResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -3466,17 +2837,8 @@ export class CaseManagementApiResponseProcessor {
       ) as CaseCountResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3485,30 +2847,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CaseCountResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CaseCountResponse",
-        ""
+        "",
       ) as CaseCountResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -3517,10 +2874,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to createCase
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createCase(response: ResponseContext): Promise<CaseResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async createCase(response: ResponseContext): Promise<CaseResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -3528,17 +2883,8 @@ export class CaseManagementApiResponseProcessor {
       ) as CaseResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3547,30 +2893,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CaseResponse",
-        ""
+        "",
       ) as CaseResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -3579,12 +2920,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to createCaseAutomationRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createCaseAutomationRule(
-    response: ResponseContext
-  ): Promise<AutomationRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async createCaseAutomationRule(response: ResponseContext): Promise<AutomationRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
       const body: AutomationRuleResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -3592,17 +2929,8 @@ export class CaseManagementApiResponseProcessor {
       ) as AutomationRuleResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3611,30 +2939,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AutomationRuleResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "AutomationRuleResponse",
-        ""
+        "",
       ) as AutomationRuleResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -3643,23 +2966,13 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to createCaseJiraIssue
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createCaseJiraIssue(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async createCaseJiraIssue(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 202) {
       return;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3668,21 +2981,12 @@ export class CaseManagementApiResponseProcessor {
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3691,25 +2995,20 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -3718,12 +3017,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to createCaseLink
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createCaseLink(
-    response: ResponseContext
-  ): Promise<CaseLinkResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async createCaseLink(response: ResponseContext): Promise<CaseLinkResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
       const body: CaseLinkResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -3731,17 +3026,8 @@ export class CaseManagementApiResponseProcessor {
       ) as CaseLinkResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3750,30 +3036,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CaseLinkResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CaseLinkResponse",
-        ""
+        "",
       ) as CaseLinkResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -3782,23 +3063,13 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to createCaseNotebook
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createCaseNotebook(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async createCaseNotebook(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3807,21 +3078,12 @@ export class CaseManagementApiResponseProcessor {
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3830,25 +3092,20 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -3857,25 +3114,13 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to createCaseServiceNowTicket
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createCaseServiceNowTicket(
-    response: ResponseContext
-  ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async createCaseServiceNowTicket(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 202) {
       return;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3884,21 +3129,12 @@ export class CaseManagementApiResponseProcessor {
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3907,25 +3143,20 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -3934,12 +3165,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to createCaseView
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createCaseView(
-    response: ResponseContext
-  ): Promise<CaseViewResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async createCaseView(response: ResponseContext): Promise<CaseViewResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
       const body: CaseViewResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -3947,17 +3174,8 @@ export class CaseManagementApiResponseProcessor {
       ) as CaseViewResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3966,30 +3184,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CaseViewResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CaseViewResponse",
-        ""
+        "",
       ) as CaseViewResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -3998,12 +3211,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to createMaintenanceWindow
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createMaintenanceWindow(
-    response: ResponseContext
-  ): Promise<MaintenanceWindowResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async createMaintenanceWindow(response: ResponseContext): Promise<MaintenanceWindowResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
       const body: MaintenanceWindowResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -4011,17 +3220,8 @@ export class CaseManagementApiResponseProcessor {
       ) as MaintenanceWindowResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -4030,30 +3230,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MaintenanceWindowResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "MaintenanceWindowResponse",
-        ""
+        "",
       ) as MaintenanceWindowResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -4062,12 +3257,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to createProject
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createProject(
-    response: ResponseContext
-  ): Promise<ProjectResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async createProject(response: ResponseContext): Promise<ProjectResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
       const body: ProjectResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -4075,17 +3266,8 @@ export class CaseManagementApiResponseProcessor {
       ) as ProjectResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -4094,30 +3276,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ProjectResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "ProjectResponse",
-        ""
+        "",
       ) as ProjectResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -4126,12 +3303,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to createProjectNotificationRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createProjectNotificationRule(
-    response: ResponseContext
-  ): Promise<CaseNotificationRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async createProjectNotificationRule(response: ResponseContext): Promise<CaseNotificationRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
       const body: CaseNotificationRuleResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -4139,17 +3312,8 @@ export class CaseManagementApiResponseProcessor {
       ) as CaseNotificationRuleResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -4158,30 +3322,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CaseNotificationRuleResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CaseNotificationRuleResponse",
-        ""
+        "",
       ) as CaseNotificationRuleResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -4190,24 +3349,13 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteCaseAutomationRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteCaseAutomationRule(
-    response: ResponseContext
-  ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async deleteCaseAutomationRule(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -4216,25 +3364,20 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -4243,24 +3386,13 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteCaseComment
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteCaseComment(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async deleteCaseComment(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -4269,25 +3401,20 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -4296,12 +3423,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteCaseCustomAttribute
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteCaseCustomAttribute(
-    response: ResponseContext
-  ): Promise<CaseResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async deleteCaseCustomAttribute(response: ResponseContext): Promise<CaseResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -4309,16 +3432,8 @@ export class CaseManagementApiResponseProcessor {
       ) as CaseResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -4327,30 +3442,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CaseResponse",
-        ""
+        "",
       ) as CaseResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -4359,24 +3469,13 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteCaseLink
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteCaseLink(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async deleteCaseLink(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -4385,25 +3484,20 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -4412,24 +3506,13 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteCaseView
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteCaseView(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async deleteCaseView(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -4438,25 +3521,20 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -4465,26 +3543,13 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteMaintenanceWindow
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteMaintenanceWindow(
-    response: ResponseContext
-  ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async deleteMaintenanceWindow(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -4493,25 +3558,20 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -4520,22 +3580,13 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteProject
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteProject(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async deleteProject(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -4544,25 +3595,20 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -4571,24 +3617,13 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteProjectNotificationRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteProjectNotificationRule(
-    response: ResponseContext
-  ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async deleteProjectNotificationRule(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -4597,25 +3632,20 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -4624,12 +3654,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to disableCaseAutomationRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async disableCaseAutomationRule(
-    response: ResponseContext
-  ): Promise<AutomationRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async disableCaseAutomationRule(response: ResponseContext): Promise<AutomationRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: AutomationRuleResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -4637,17 +3663,8 @@ export class CaseManagementApiResponseProcessor {
       ) as AutomationRuleResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -4656,30 +3673,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AutomationRuleResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "AutomationRuleResponse",
-        ""
+        "",
       ) as AutomationRuleResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -4688,12 +3700,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to enableCaseAutomationRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async enableCaseAutomationRule(
-    response: ResponseContext
-  ): Promise<AutomationRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async enableCaseAutomationRule(response: ResponseContext): Promise<AutomationRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: AutomationRuleResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -4701,17 +3709,8 @@ export class CaseManagementApiResponseProcessor {
       ) as AutomationRuleResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -4720,30 +3719,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AutomationRuleResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "AutomationRuleResponse",
-        ""
+        "",
       ) as AutomationRuleResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -4752,24 +3746,13 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to favoriteCaseProject
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async favoriteCaseProject(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async favoriteCaseProject(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -4778,25 +3761,20 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -4805,10 +3783,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to getCase
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getCase(response: ResponseContext): Promise<CaseResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getCase(response: ResponseContext): Promise<CaseResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -4816,17 +3792,8 @@ export class CaseManagementApiResponseProcessor {
       ) as CaseResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -4835,30 +3802,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CaseResponse",
-        ""
+        "",
       ) as CaseResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -4867,12 +3829,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to getCaseAutomationRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getCaseAutomationRule(
-    response: ResponseContext
-  ): Promise<AutomationRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getCaseAutomationRule(response: ResponseContext): Promise<AutomationRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: AutomationRuleResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -4880,17 +3838,8 @@ export class CaseManagementApiResponseProcessor {
       ) as AutomationRuleResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -4899,30 +3848,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AutomationRuleResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "AutomationRuleResponse",
-        ""
+        "",
       ) as AutomationRuleResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -4931,12 +3875,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to getCaseView
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getCaseView(
-    response: ResponseContext
-  ): Promise<CaseViewResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getCaseView(response: ResponseContext): Promise<CaseViewResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: CaseViewResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -4944,17 +3884,8 @@ export class CaseManagementApiResponseProcessor {
       ) as CaseViewResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -4963,30 +3894,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CaseViewResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CaseViewResponse",
-        ""
+        "",
       ) as CaseViewResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -4995,10 +3921,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to getProject
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getProject(response: ResponseContext): Promise<ProjectResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getProject(response: ResponseContext): Promise<ProjectResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: ProjectResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -5006,17 +3930,8 @@ export class CaseManagementApiResponseProcessor {
       ) as ProjectResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -5025,30 +3940,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ProjectResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "ProjectResponse",
-        ""
+        "",
       ) as ProjectResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -5057,12 +3967,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to getProjectNotificationRules
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getProjectNotificationRules(
-    response: ResponseContext
-  ): Promise<CaseNotificationRulesResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getProjectNotificationRules(response: ResponseContext): Promise<CaseNotificationRulesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: CaseNotificationRulesResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -5070,17 +3976,8 @@ export class CaseManagementApiResponseProcessor {
       ) as CaseNotificationRulesResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -5089,30 +3986,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CaseNotificationRulesResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CaseNotificationRulesResponse",
-        ""
+        "",
       ) as CaseNotificationRulesResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -5121,12 +4013,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to getProjects
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getProjects(
-    response: ResponseContext
-  ): Promise<ProjectsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getProjects(response: ResponseContext): Promise<ProjectsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: ProjectsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -5134,17 +4022,8 @@ export class CaseManagementApiResponseProcessor {
       ) as ProjectsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -5153,30 +4032,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ProjectsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "ProjectsResponse",
-        ""
+        "",
       ) as ProjectsResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -5185,10 +4059,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to linkIncident
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async linkIncident(response: ResponseContext): Promise<CaseResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async linkIncident(response: ResponseContext): Promise<CaseResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -5196,16 +4068,8 @@ export class CaseManagementApiResponseProcessor {
       ) as CaseResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -5214,21 +4078,12 @@ export class CaseManagementApiResponseProcessor {
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -5237,30 +4092,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CaseResponse",
-        ""
+        "",
       ) as CaseResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -5269,24 +4119,13 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to linkJiraIssueToCase
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async linkJiraIssueToCase(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async linkJiraIssueToCase(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 409
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 409) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -5295,21 +4134,12 @@ export class CaseManagementApiResponseProcessor {
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -5318,25 +4148,20 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -5345,12 +4170,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to listCaseAutomationRules
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listCaseAutomationRules(
-    response: ResponseContext
-  ): Promise<AutomationRulesResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async listCaseAutomationRules(response: ResponseContext): Promise<AutomationRulesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: AutomationRulesResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -5358,17 +4179,8 @@ export class CaseManagementApiResponseProcessor {
       ) as AutomationRulesResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -5377,30 +4189,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AutomationRulesResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "AutomationRulesResponse",
-        ""
+        "",
       ) as AutomationRulesResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -5409,12 +4216,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to listCaseLinks
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listCaseLinks(
-    response: ResponseContext
-  ): Promise<CaseLinksResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async listCaseLinks(response: ResponseContext): Promise<CaseLinksResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: CaseLinksResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -5422,17 +4225,8 @@ export class CaseManagementApiResponseProcessor {
       ) as CaseLinksResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -5441,30 +4235,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CaseLinksResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CaseLinksResponse",
-        ""
+        "",
       ) as CaseLinksResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -5473,12 +4262,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to listCaseTimeline
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listCaseTimeline(
-    response: ResponseContext
-  ): Promise<TimelineResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async listCaseTimeline(response: ResponseContext): Promise<TimelineResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: TimelineResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -5486,17 +4271,8 @@ export class CaseManagementApiResponseProcessor {
       ) as TimelineResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -5505,30 +4281,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TimelineResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "TimelineResponse",
-        ""
+        "",
       ) as TimelineResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -5537,12 +4308,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to listCaseViews
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listCaseViews(
-    response: ResponseContext
-  ): Promise<CaseViewsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async listCaseViews(response: ResponseContext): Promise<CaseViewsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: CaseViewsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -5550,17 +4317,8 @@ export class CaseManagementApiResponseProcessor {
       ) as CaseViewsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -5569,30 +4327,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CaseViewsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CaseViewsResponse",
-        ""
+        "",
       ) as CaseViewsResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -5601,12 +4354,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to listCaseWatchers
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listCaseWatchers(
-    response: ResponseContext
-  ): Promise<CaseWatchersResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async listCaseWatchers(response: ResponseContext): Promise<CaseWatchersResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: CaseWatchersResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -5614,17 +4363,8 @@ export class CaseManagementApiResponseProcessor {
       ) as CaseWatchersResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -5633,30 +4373,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CaseWatchersResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CaseWatchersResponse",
-        ""
+        "",
       ) as CaseWatchersResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -5665,12 +4400,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to listMaintenanceWindows
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listMaintenanceWindows(
-    response: ResponseContext
-  ): Promise<MaintenanceWindowsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async listMaintenanceWindows(response: ResponseContext): Promise<MaintenanceWindowsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: MaintenanceWindowsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -5678,17 +4409,8 @@ export class CaseManagementApiResponseProcessor {
       ) as MaintenanceWindowsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -5697,30 +4419,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MaintenanceWindowsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "MaintenanceWindowsResponse",
-        ""
+        "",
       ) as MaintenanceWindowsResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -5729,12 +4446,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to listUserCaseProjectFavorites
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listUserCaseProjectFavorites(
-    response: ResponseContext
-  ): Promise<ProjectFavoritesResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async listUserCaseProjectFavorites(response: ResponseContext): Promise<ProjectFavoritesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: ProjectFavoritesResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -5742,17 +4455,8 @@ export class CaseManagementApiResponseProcessor {
       ) as ProjectFavoritesResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -5761,30 +4465,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ProjectFavoritesResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "ProjectFavoritesResponse",
-        ""
+        "",
       ) as ProjectFavoritesResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -5793,12 +4492,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to moveCaseToProject
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async moveCaseToProject(
-    response: ResponseContext
-  ): Promise<CaseResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async moveCaseToProject(response: ResponseContext): Promise<CaseResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -5806,16 +4501,8 @@ export class CaseManagementApiResponseProcessor {
       ) as CaseResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -5824,21 +4511,12 @@ export class CaseManagementApiResponseProcessor {
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -5847,30 +4525,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CaseResponse",
-        ""
+        "",
       ) as CaseResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -5879,12 +4552,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to removeCaseInsights
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async removeCaseInsights(
-    response: ResponseContext
-  ): Promise<CaseResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async removeCaseInsights(response: ResponseContext): Promise<CaseResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -5892,16 +4561,8 @@ export class CaseManagementApiResponseProcessor {
       ) as CaseResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -5910,21 +4571,12 @@ export class CaseManagementApiResponseProcessor {
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -5933,30 +4585,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CaseResponse",
-        ""
+        "",
       ) as CaseResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -5965,10 +4612,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to searchCases
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async searchCases(response: ResponseContext): Promise<CasesResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async searchCases(response: ResponseContext): Promise<CasesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: CasesResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -5976,17 +4621,8 @@ export class CaseManagementApiResponseProcessor {
       ) as CasesResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -5995,30 +4631,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CasesResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CasesResponse",
-        ""
+        "",
       ) as CasesResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -6027,10 +4658,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to unarchiveCase
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async unarchiveCase(response: ResponseContext): Promise<CaseResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async unarchiveCase(response: ResponseContext): Promise<CaseResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -6038,17 +4667,8 @@ export class CaseManagementApiResponseProcessor {
       ) as CaseResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -6057,30 +4677,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CaseResponse",
-        ""
+        "",
       ) as CaseResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -6089,10 +4704,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to unassignCase
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async unassignCase(response: ResponseContext): Promise<CaseResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async unassignCase(response: ResponseContext): Promise<CaseResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -6100,17 +4713,8 @@ export class CaseManagementApiResponseProcessor {
       ) as CaseResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -6119,30 +4723,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CaseResponse",
-        ""
+        "",
       ) as CaseResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -6151,24 +4750,13 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to unfavoriteCaseProject
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async unfavoriteCaseProject(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async unfavoriteCaseProject(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -6177,25 +4765,20 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -6204,23 +4787,13 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to unlinkJiraIssue
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async unlinkJiraIssue(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async unlinkJiraIssue(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -6229,21 +4802,12 @@ export class CaseManagementApiResponseProcessor {
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -6252,25 +4816,20 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -6279,24 +4838,13 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to unwatchCase
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async unwatchCase(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async unwatchCase(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -6305,25 +4853,20 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -6332,12 +4875,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to updateAttributes
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateAttributes(
-    response: ResponseContext
-  ): Promise<CaseResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async updateAttributes(response: ResponseContext): Promise<CaseResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -6345,17 +4884,8 @@ export class CaseManagementApiResponseProcessor {
       ) as CaseResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -6364,30 +4894,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CaseResponse",
-        ""
+        "",
       ) as CaseResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -6396,12 +4921,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to updateCaseAutomationRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateCaseAutomationRule(
-    response: ResponseContext
-  ): Promise<AutomationRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async updateCaseAutomationRule(response: ResponseContext): Promise<AutomationRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: AutomationRuleResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -6409,17 +4930,8 @@ export class CaseManagementApiResponseProcessor {
       ) as AutomationRuleResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -6428,30 +4940,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AutomationRuleResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "AutomationRuleResponse",
-        ""
+        "",
       ) as AutomationRuleResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -6460,24 +4967,13 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to updateCaseComment
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateCaseComment(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async updateCaseComment(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       return;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -6486,25 +4982,20 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -6513,12 +5004,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to updateCaseCustomAttribute
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateCaseCustomAttribute(
-    response: ResponseContext
-  ): Promise<CaseResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async updateCaseCustomAttribute(response: ResponseContext): Promise<CaseResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -6526,17 +5013,8 @@ export class CaseManagementApiResponseProcessor {
       ) as CaseResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -6545,30 +5023,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CaseResponse",
-        ""
+        "",
       ) as CaseResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -6577,12 +5050,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to updateCaseDescription
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateCaseDescription(
-    response: ResponseContext
-  ): Promise<CaseResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async updateCaseDescription(response: ResponseContext): Promise<CaseResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -6590,17 +5059,8 @@ export class CaseManagementApiResponseProcessor {
       ) as CaseResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -6609,30 +5069,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CaseResponse",
-        ""
+        "",
       ) as CaseResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -6641,12 +5096,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to updateCaseDueDate
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateCaseDueDate(
-    response: ResponseContext
-  ): Promise<CaseResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async updateCaseDueDate(response: ResponseContext): Promise<CaseResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -6654,17 +5105,8 @@ export class CaseManagementApiResponseProcessor {
       ) as CaseResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -6673,30 +5115,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CaseResponse",
-        ""
+        "",
       ) as CaseResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -6705,12 +5142,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to updateCaseResolvedReason
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateCaseResolvedReason(
-    response: ResponseContext
-  ): Promise<CaseResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async updateCaseResolvedReason(response: ResponseContext): Promise<CaseResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -6718,17 +5151,8 @@ export class CaseManagementApiResponseProcessor {
       ) as CaseResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -6737,30 +5161,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CaseResponse",
-        ""
+        "",
       ) as CaseResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -6769,12 +5188,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to updateCaseTitle
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateCaseTitle(
-    response: ResponseContext
-  ): Promise<CaseResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async updateCaseTitle(response: ResponseContext): Promise<CaseResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -6782,17 +5197,8 @@ export class CaseManagementApiResponseProcessor {
       ) as CaseResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -6801,30 +5207,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CaseResponse",
-        ""
+        "",
       ) as CaseResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -6833,12 +5234,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to updateCaseView
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateCaseView(
-    response: ResponseContext
-  ): Promise<CaseViewResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async updateCaseView(response: ResponseContext): Promise<CaseViewResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: CaseViewResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -6846,17 +5243,8 @@ export class CaseManagementApiResponseProcessor {
       ) as CaseViewResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -6865,30 +5253,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CaseViewResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CaseViewResponse",
-        ""
+        "",
       ) as CaseViewResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -6897,12 +5280,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to updateMaintenanceWindow
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateMaintenanceWindow(
-    response: ResponseContext
-  ): Promise<MaintenanceWindowResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async updateMaintenanceWindow(response: ResponseContext): Promise<MaintenanceWindowResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: MaintenanceWindowResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -6910,17 +5289,8 @@ export class CaseManagementApiResponseProcessor {
       ) as MaintenanceWindowResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -6929,30 +5299,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MaintenanceWindowResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "MaintenanceWindowResponse",
-        ""
+        "",
       ) as MaintenanceWindowResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -6961,12 +5326,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to updatePriority
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updatePriority(
-    response: ResponseContext
-  ): Promise<CaseResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async updatePriority(response: ResponseContext): Promise<CaseResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -6974,17 +5335,8 @@ export class CaseManagementApiResponseProcessor {
       ) as CaseResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -6993,30 +5345,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CaseResponse",
-        ""
+        "",
       ) as CaseResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -7025,12 +5372,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to updateProject
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateProject(
-    response: ResponseContext
-  ): Promise<ProjectResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async updateProject(response: ResponseContext): Promise<ProjectResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: ProjectResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -7038,17 +5381,8 @@ export class CaseManagementApiResponseProcessor {
       ) as ProjectResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -7057,30 +5391,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ProjectResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "ProjectResponse",
-        ""
+        "",
       ) as ProjectResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -7089,26 +5418,13 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to updateProjectNotificationRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateProjectNotificationRule(
-    response: ResponseContext
-  ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async updateProjectNotificationRule(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -7117,25 +5433,20 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -7144,10 +5455,8 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to updateStatus
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateStatus(response: ResponseContext): Promise<CaseResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async updateStatus(response: ResponseContext): Promise<CaseResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -7155,17 +5464,8 @@ export class CaseManagementApiResponseProcessor {
       ) as CaseResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -7174,30 +5474,25 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CaseResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CaseResponse",
-        ""
+        "",
       ) as CaseResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -7206,24 +5501,13 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to watchCase
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async watchCase(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async watchCase(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
       return;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -7232,24 +5516,18 @@ export class CaseManagementApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 }
 
@@ -7258,12 +5536,12 @@ export interface CaseManagementApiAddCaseInsightsRequest {
    * Case's UUID or key
    * @type string
    */
-  caseId: string;
+  caseId: string
   /**
    * Case insights request.
    * @type CaseInsightsRequest
    */
-  body: CaseInsightsRequest;
+  body: CaseInsightsRequest
 }
 
 export interface CaseManagementApiAggregateCasesRequest {
@@ -7271,7 +5549,7 @@ export interface CaseManagementApiAggregateCasesRequest {
    * Case aggregate request payload.
    * @type CaseAggregateRequest
    */
-  body: CaseAggregateRequest;
+  body: CaseAggregateRequest
 }
 
 export interface CaseManagementApiArchiveCaseRequest {
@@ -7279,12 +5557,12 @@ export interface CaseManagementApiArchiveCaseRequest {
    * Case's UUID or key
    * @type string
    */
-  caseId: string;
+  caseId: string
   /**
    * Archive case payload
    * @type CaseEmptyRequest
    */
-  body: CaseEmptyRequest;
+  body: CaseEmptyRequest
 }
 
 export interface CaseManagementApiAssignCaseRequest {
@@ -7292,12 +5570,12 @@ export interface CaseManagementApiAssignCaseRequest {
    * Case's UUID or key
    * @type string
    */
-  caseId: string;
+  caseId: string
   /**
    * Assign case payload
    * @type CaseAssignRequest
    */
-  body: CaseAssignRequest;
+  body: CaseAssignRequest
 }
 
 export interface CaseManagementApiBulkUpdateCasesRequest {
@@ -7305,7 +5583,7 @@ export interface CaseManagementApiBulkUpdateCasesRequest {
    * Case bulk update request payload.
    * @type CaseBulkUpdateRequest
    */
-  body: CaseBulkUpdateRequest;
+  body: CaseBulkUpdateRequest
 }
 
 export interface CaseManagementApiCommentCaseRequest {
@@ -7313,12 +5591,12 @@ export interface CaseManagementApiCommentCaseRequest {
    * Case's UUID or key
    * @type string
    */
-  caseId: string;
+  caseId: string
   /**
    * Case comment payload
    * @type CaseCommentRequest
    */
-  body: CaseCommentRequest;
+  body: CaseCommentRequest
 }
 
 export interface CaseManagementApiCountCasesRequest {
@@ -7326,17 +5604,17 @@ export interface CaseManagementApiCountCasesRequest {
    * Filter query for cases.
    * @type string
    */
-  queryFilter?: string;
+  queryFilter?: string
   /**
    * Comma-separated fields to group by.
    * @type string
    */
-  groupBys?: string;
+  groupBys?: string
   /**
    * Maximum facet values to return.
    * @type number
    */
-  limit?: number;
+  limit?: number
 }
 
 export interface CaseManagementApiCreateCaseRequest {
@@ -7344,7 +5622,7 @@ export interface CaseManagementApiCreateCaseRequest {
    * Case payload
    * @type CaseCreateRequest
    */
-  body: CaseCreateRequest;
+  body: CaseCreateRequest
 }
 
 export interface CaseManagementApiCreateCaseAutomationRuleRequest {
@@ -7352,12 +5630,12 @@ export interface CaseManagementApiCreateCaseAutomationRuleRequest {
    * The UUID of the project that owns the automation rules.
    * @type string
    */
-  projectId: string;
+  projectId: string
   /**
    * Automation rule payload.
    * @type AutomationRuleCreateRequest
    */
-  body: AutomationRuleCreateRequest;
+  body: AutomationRuleCreateRequest
 }
 
 export interface CaseManagementApiCreateCaseJiraIssueRequest {
@@ -7365,12 +5643,12 @@ export interface CaseManagementApiCreateCaseJiraIssueRequest {
    * Case's UUID or key
    * @type string
    */
-  caseId: string;
+  caseId: string
   /**
    * Jira issue creation request
    * @type JiraIssueCreateRequest
    */
-  body: JiraIssueCreateRequest;
+  body: JiraIssueCreateRequest
 }
 
 export interface CaseManagementApiCreateCaseLinkRequest {
@@ -7378,7 +5656,7 @@ export interface CaseManagementApiCreateCaseLinkRequest {
    * Case link create request.
    * @type CaseLinkCreateRequest
    */
-  body: CaseLinkCreateRequest;
+  body: CaseLinkCreateRequest
 }
 
 export interface CaseManagementApiCreateCaseNotebookRequest {
@@ -7386,12 +5664,12 @@ export interface CaseManagementApiCreateCaseNotebookRequest {
    * Case's UUID or key
    * @type string
    */
-  caseId: string;
+  caseId: string
   /**
    * Notebook creation request
    * @type NotebookCreateRequest
    */
-  body: NotebookCreateRequest;
+  body: NotebookCreateRequest
 }
 
 export interface CaseManagementApiCreateCaseServiceNowTicketRequest {
@@ -7399,12 +5677,12 @@ export interface CaseManagementApiCreateCaseServiceNowTicketRequest {
    * Case's UUID or key
    * @type string
    */
-  caseId: string;
+  caseId: string
   /**
    * ServiceNow ticket creation request
    * @type ServiceNowTicketCreateRequest
    */
-  body: ServiceNowTicketCreateRequest;
+  body: ServiceNowTicketCreateRequest
 }
 
 export interface CaseManagementApiCreateCaseViewRequest {
@@ -7412,7 +5690,7 @@ export interface CaseManagementApiCreateCaseViewRequest {
    * Case view payload.
    * @type CaseViewCreateRequest
    */
-  body: CaseViewCreateRequest;
+  body: CaseViewCreateRequest
 }
 
 export interface CaseManagementApiCreateMaintenanceWindowRequest {
@@ -7420,7 +5698,7 @@ export interface CaseManagementApiCreateMaintenanceWindowRequest {
    * Maintenance window payload.
    * @type MaintenanceWindowCreateRequest
    */
-  body: MaintenanceWindowCreateRequest;
+  body: MaintenanceWindowCreateRequest
 }
 
 export interface CaseManagementApiCreateProjectRequest {
@@ -7428,7 +5706,7 @@ export interface CaseManagementApiCreateProjectRequest {
    * Project payload.
    * @type ProjectCreateRequest
    */
-  body: ProjectCreateRequest;
+  body: ProjectCreateRequest
 }
 
 export interface CaseManagementApiCreateProjectNotificationRuleRequest {
@@ -7436,12 +5714,12 @@ export interface CaseManagementApiCreateProjectNotificationRuleRequest {
    * Project UUID
    * @type string
    */
-  projectId: string;
+  projectId: string
   /**
    * Notification rule payload
    * @type CaseNotificationRuleCreateRequest
    */
-  body: CaseNotificationRuleCreateRequest;
+  body: CaseNotificationRuleCreateRequest
 }
 
 export interface CaseManagementApiDeleteCaseAutomationRuleRequest {
@@ -7449,12 +5727,12 @@ export interface CaseManagementApiDeleteCaseAutomationRuleRequest {
    * The UUID of the project that owns the automation rules.
    * @type string
    */
-  projectId: string;
+  projectId: string
   /**
    * The UUID of the automation rule.
    * @type string
    */
-  ruleId: string;
+  ruleId: string
 }
 
 export interface CaseManagementApiDeleteCaseCommentRequest {
@@ -7462,12 +5740,12 @@ export interface CaseManagementApiDeleteCaseCommentRequest {
    * Case's UUID or key
    * @type string
    */
-  caseId: string;
+  caseId: string
   /**
    * The UUID of the timeline cell (comment) to update.
    * @type string
    */
-  cellId: string;
+  cellId: string
 }
 
 export interface CaseManagementApiDeleteCaseCustomAttributeRequest {
@@ -7475,12 +5753,12 @@ export interface CaseManagementApiDeleteCaseCustomAttributeRequest {
    * Case's UUID or key
    * @type string
    */
-  caseId: string;
+  caseId: string
   /**
    * Case Custom attribute's key
    * @type string
    */
-  customAttributeKey: string;
+  customAttributeKey: string
 }
 
 export interface CaseManagementApiDeleteCaseLinkRequest {
@@ -7488,7 +5766,7 @@ export interface CaseManagementApiDeleteCaseLinkRequest {
    * The UUID of the case link.
    * @type string
    */
-  linkId: string;
+  linkId: string
 }
 
 export interface CaseManagementApiDeleteCaseViewRequest {
@@ -7496,7 +5774,7 @@ export interface CaseManagementApiDeleteCaseViewRequest {
    * The UUID of the case view.
    * @type string
    */
-  viewId: string;
+  viewId: string
 }
 
 export interface CaseManagementApiDeleteMaintenanceWindowRequest {
@@ -7504,7 +5782,7 @@ export interface CaseManagementApiDeleteMaintenanceWindowRequest {
    * The UUID of the maintenance window.
    * @type string
    */
-  maintenanceWindowId: string;
+  maintenanceWindowId: string
 }
 
 export interface CaseManagementApiDeleteProjectRequest {
@@ -7512,7 +5790,7 @@ export interface CaseManagementApiDeleteProjectRequest {
    * Project UUID.
    * @type string
    */
-  projectId: string;
+  projectId: string
 }
 
 export interface CaseManagementApiDeleteProjectNotificationRuleRequest {
@@ -7520,12 +5798,12 @@ export interface CaseManagementApiDeleteProjectNotificationRuleRequest {
    * Project UUID
    * @type string
    */
-  projectId: string;
+  projectId: string
   /**
    * Notification Rule UUID
    * @type string
    */
-  notificationRuleId: string;
+  notificationRuleId: string
 }
 
 export interface CaseManagementApiDisableCaseAutomationRuleRequest {
@@ -7533,12 +5811,12 @@ export interface CaseManagementApiDisableCaseAutomationRuleRequest {
    * The UUID of the project that owns the automation rules.
    * @type string
    */
-  projectId: string;
+  projectId: string
   /**
    * The UUID of the automation rule.
    * @type string
    */
-  ruleId: string;
+  ruleId: string
 }
 
 export interface CaseManagementApiEnableCaseAutomationRuleRequest {
@@ -7546,12 +5824,12 @@ export interface CaseManagementApiEnableCaseAutomationRuleRequest {
    * The UUID of the project that owns the automation rules.
    * @type string
    */
-  projectId: string;
+  projectId: string
   /**
    * The UUID of the automation rule.
    * @type string
    */
-  ruleId: string;
+  ruleId: string
 }
 
 export interface CaseManagementApiFavoriteCaseProjectRequest {
@@ -7559,7 +5837,7 @@ export interface CaseManagementApiFavoriteCaseProjectRequest {
    * Project UUID.
    * @type string
    */
-  projectId: string;
+  projectId: string
 }
 
 export interface CaseManagementApiGetCaseRequest {
@@ -7567,7 +5845,7 @@ export interface CaseManagementApiGetCaseRequest {
    * Case's UUID or key
    * @type string
    */
-  caseId: string;
+  caseId: string
 }
 
 export interface CaseManagementApiGetCaseAutomationRuleRequest {
@@ -7575,12 +5853,12 @@ export interface CaseManagementApiGetCaseAutomationRuleRequest {
    * The UUID of the project that owns the automation rules.
    * @type string
    */
-  projectId: string;
+  projectId: string
   /**
    * The UUID of the automation rule.
    * @type string
    */
-  ruleId: string;
+  ruleId: string
 }
 
 export interface CaseManagementApiGetCaseViewRequest {
@@ -7588,7 +5866,7 @@ export interface CaseManagementApiGetCaseViewRequest {
    * The UUID of the case view.
    * @type string
    */
-  viewId: string;
+  viewId: string
 }
 
 export interface CaseManagementApiGetProjectRequest {
@@ -7596,7 +5874,7 @@ export interface CaseManagementApiGetProjectRequest {
    * Project UUID.
    * @type string
    */
-  projectId: string;
+  projectId: string
 }
 
 export interface CaseManagementApiGetProjectNotificationRulesRequest {
@@ -7604,7 +5882,7 @@ export interface CaseManagementApiGetProjectNotificationRulesRequest {
    * Project UUID
    * @type string
    */
-  projectId: string;
+  projectId: string
 }
 
 export interface CaseManagementApiLinkIncidentRequest {
@@ -7612,12 +5890,12 @@ export interface CaseManagementApiLinkIncidentRequest {
    * Case's UUID or key
    * @type string
    */
-  caseId: string;
+  caseId: string
   /**
    * Incident link request
    * @type RelationshipToIncidentRequest
    */
-  body: RelationshipToIncidentRequest;
+  body: RelationshipToIncidentRequest
 }
 
 export interface CaseManagementApiLinkJiraIssueToCaseRequest {
@@ -7625,12 +5903,12 @@ export interface CaseManagementApiLinkJiraIssueToCaseRequest {
    * Case's UUID or key
    * @type string
    */
-  caseId: string;
+  caseId: string
   /**
    * Jira issue link request
    * @type JiraIssueLinkRequest
    */
-  body: JiraIssueLinkRequest;
+  body: JiraIssueLinkRequest
 }
 
 export interface CaseManagementApiListCaseAutomationRulesRequest {
@@ -7638,7 +5916,7 @@ export interface CaseManagementApiListCaseAutomationRulesRequest {
    * The UUID of the project that owns the automation rules.
    * @type string
    */
-  projectId: string;
+  projectId: string
 }
 
 export interface CaseManagementApiListCaseLinksRequest {
@@ -7646,17 +5924,17 @@ export interface CaseManagementApiListCaseLinksRequest {
    * The entity type to look up links for. Use `CASE` to find links for a specific case.
    * @type string
    */
-  entityType: string;
+  entityType: string
   /**
    * The UUID of the entity to look up links for.
    * @type string
    */
-  entityId: string;
+  entityId: string
   /**
    * Optional filter to only return links of a specific relationship type (for example, `BLOCKS` or `CAUSES`).
    * @type string
    */
-  relationship?: string;
+  relationship?: string
 }
 
 export interface CaseManagementApiListCaseTimelineRequest {
@@ -7664,22 +5942,22 @@ export interface CaseManagementApiListCaseTimelineRequest {
    * Case's UUID or key
    * @type string
    */
-  caseId: string;
+  caseId: string
   /**
    * Number of timeline cells to return per page.
    * @type number
    */
-  pageSize?: number;
+  pageSize?: number
   /**
    * Zero-based page number for pagination.
    * @type number
    */
-  pageNumber?: number;
+  pageNumber?: number
   /**
    * If `true`, returns timeline cells in chronological order (oldest first). Defaults to `false` (newest first).
    * @type boolean
    */
-  sortAscending?: boolean;
+  sortAscending?: boolean
 }
 
 export interface CaseManagementApiListCaseViewsRequest {
@@ -7687,7 +5965,7 @@ export interface CaseManagementApiListCaseViewsRequest {
    * Filter views by project identifier.
    * @type string
    */
-  projectId: string;
+  projectId: string
 }
 
 export interface CaseManagementApiListCaseWatchersRequest {
@@ -7695,7 +5973,7 @@ export interface CaseManagementApiListCaseWatchersRequest {
    * Case's UUID or key
    * @type string
    */
-  caseId: string;
+  caseId: string
 }
 
 export interface CaseManagementApiMoveCaseToProjectRequest {
@@ -7703,12 +5981,12 @@ export interface CaseManagementApiMoveCaseToProjectRequest {
    * Case's UUID or key
    * @type string
    */
-  caseId: string;
+  caseId: string
   /**
    * Project update request
    * @type ProjectRelationship
    */
-  body: ProjectRelationship;
+  body: ProjectRelationship
 }
 
 export interface CaseManagementApiRemoveCaseInsightsRequest {
@@ -7716,12 +5994,12 @@ export interface CaseManagementApiRemoveCaseInsightsRequest {
    * Case's UUID or key
    * @type string
    */
-  caseId: string;
+  caseId: string
   /**
    * Case insights request.
    * @type CaseInsightsRequest
    */
-  body: CaseInsightsRequest;
+  body: CaseInsightsRequest
 }
 
 export interface CaseManagementApiSearchCasesRequest {
@@ -7729,27 +6007,27 @@ export interface CaseManagementApiSearchCasesRequest {
    * Size for a given page. The maximum allowed value is 100.
    * @type number
    */
-  pageSize?: number;
+  pageSize?: number
   /**
    * Specific page number to return.
    * @type number
    */
-  pageNumber?: number;
+  pageNumber?: number
   /**
    * Specify which field to sort
    * @type CaseSortableField
    */
-  sortField?: CaseSortableField;
+  sortField?: CaseSortableField
   /**
    * Search query
    * @type string
    */
-  filter?: string;
+  filter?: string
   /**
    * Specify if order is ascending or not
    * @type boolean
    */
-  sortAsc?: boolean;
+  sortAsc?: boolean
 }
 
 export interface CaseManagementApiUnarchiveCaseRequest {
@@ -7757,12 +6035,12 @@ export interface CaseManagementApiUnarchiveCaseRequest {
    * Case's UUID or key
    * @type string
    */
-  caseId: string;
+  caseId: string
   /**
    * Unarchive case payload
    * @type CaseEmptyRequest
    */
-  body: CaseEmptyRequest;
+  body: CaseEmptyRequest
 }
 
 export interface CaseManagementApiUnassignCaseRequest {
@@ -7770,12 +6048,12 @@ export interface CaseManagementApiUnassignCaseRequest {
    * Case's UUID or key
    * @type string
    */
-  caseId: string;
+  caseId: string
   /**
    * Unassign case payload
    * @type CaseEmptyRequest
    */
-  body: CaseEmptyRequest;
+  body: CaseEmptyRequest
 }
 
 export interface CaseManagementApiUnfavoriteCaseProjectRequest {
@@ -7783,7 +6061,7 @@ export interface CaseManagementApiUnfavoriteCaseProjectRequest {
    * Project UUID.
    * @type string
    */
-  projectId: string;
+  projectId: string
 }
 
 export interface CaseManagementApiUnlinkJiraIssueRequest {
@@ -7791,7 +6069,7 @@ export interface CaseManagementApiUnlinkJiraIssueRequest {
    * Case's UUID or key
    * @type string
    */
-  caseId: string;
+  caseId: string
 }
 
 export interface CaseManagementApiUnwatchCaseRequest {
@@ -7799,12 +6077,12 @@ export interface CaseManagementApiUnwatchCaseRequest {
    * Case's UUID or key
    * @type string
    */
-  caseId: string;
+  caseId: string
   /**
    * The UUID of the user to add or remove as a watcher.
    * @type string
    */
-  userUuid: string;
+  userUuid: string
 }
 
 export interface CaseManagementApiUpdateAttributesRequest {
@@ -7812,12 +6090,12 @@ export interface CaseManagementApiUpdateAttributesRequest {
    * Case's UUID or key
    * @type string
    */
-  caseId: string;
+  caseId: string
   /**
    * Case attributes update payload
    * @type CaseUpdateAttributesRequest
    */
-  body: CaseUpdateAttributesRequest;
+  body: CaseUpdateAttributesRequest
 }
 
 export interface CaseManagementApiUpdateCaseAutomationRuleRequest {
@@ -7825,17 +6103,17 @@ export interface CaseManagementApiUpdateCaseAutomationRuleRequest {
    * The UUID of the project that owns the automation rules.
    * @type string
    */
-  projectId: string;
+  projectId: string
   /**
    * The UUID of the automation rule.
    * @type string
    */
-  ruleId: string;
+  ruleId: string
   /**
    * Automation rule payload.
    * @type AutomationRuleUpdateRequest
    */
-  body: AutomationRuleUpdateRequest;
+  body: AutomationRuleUpdateRequest
 }
 
 export interface CaseManagementApiUpdateCaseCommentRequest {
@@ -7843,17 +6121,17 @@ export interface CaseManagementApiUpdateCaseCommentRequest {
    * Case's UUID or key
    * @type string
    */
-  caseId: string;
+  caseId: string
   /**
    * The UUID of the timeline cell (comment) to update.
    * @type string
    */
-  cellId: string;
+  cellId: string
   /**
    * Case update comment payload.
    * @type CaseUpdateCommentRequest
    */
-  body: CaseUpdateCommentRequest;
+  body: CaseUpdateCommentRequest
 }
 
 export interface CaseManagementApiUpdateCaseCustomAttributeRequest {
@@ -7861,17 +6139,17 @@ export interface CaseManagementApiUpdateCaseCustomAttributeRequest {
    * Case's UUID or key
    * @type string
    */
-  caseId: string;
+  caseId: string
   /**
    * Case Custom attribute's key
    * @type string
    */
-  customAttributeKey: string;
+  customAttributeKey: string
   /**
    * Update case custom attribute payload
    * @type CaseUpdateCustomAttributeRequest
    */
-  body: CaseUpdateCustomAttributeRequest;
+  body: CaseUpdateCustomAttributeRequest
 }
 
 export interface CaseManagementApiUpdateCaseDescriptionRequest {
@@ -7879,12 +6157,12 @@ export interface CaseManagementApiUpdateCaseDescriptionRequest {
    * Case's UUID or key
    * @type string
    */
-  caseId: string;
+  caseId: string
   /**
    * Case description update payload
    * @type CaseUpdateDescriptionRequest
    */
-  body: CaseUpdateDescriptionRequest;
+  body: CaseUpdateDescriptionRequest
 }
 
 export interface CaseManagementApiUpdateCaseDueDateRequest {
@@ -7892,12 +6170,12 @@ export interface CaseManagementApiUpdateCaseDueDateRequest {
    * Case's UUID or key
    * @type string
    */
-  caseId: string;
+  caseId: string
   /**
    * Case due date update payload.
    * @type CaseUpdateDueDateRequest
    */
-  body: CaseUpdateDueDateRequest;
+  body: CaseUpdateDueDateRequest
 }
 
 export interface CaseManagementApiUpdateCaseResolvedReasonRequest {
@@ -7905,12 +6183,12 @@ export interface CaseManagementApiUpdateCaseResolvedReasonRequest {
    * Case's UUID or key
    * @type string
    */
-  caseId: string;
+  caseId: string
   /**
    * Case resolved reason update payload.
    * @type CaseUpdateResolvedReasonRequest
    */
-  body: CaseUpdateResolvedReasonRequest;
+  body: CaseUpdateResolvedReasonRequest
 }
 
 export interface CaseManagementApiUpdateCaseTitleRequest {
@@ -7918,12 +6196,12 @@ export interface CaseManagementApiUpdateCaseTitleRequest {
    * Case's UUID or key
    * @type string
    */
-  caseId: string;
+  caseId: string
   /**
    * Case title update payload
    * @type CaseUpdateTitleRequest
    */
-  body: CaseUpdateTitleRequest;
+  body: CaseUpdateTitleRequest
 }
 
 export interface CaseManagementApiUpdateCaseViewRequest {
@@ -7931,12 +6209,12 @@ export interface CaseManagementApiUpdateCaseViewRequest {
    * The UUID of the case view.
    * @type string
    */
-  viewId: string;
+  viewId: string
   /**
    * Case view payload.
    * @type CaseViewUpdateRequest
    */
-  body: CaseViewUpdateRequest;
+  body: CaseViewUpdateRequest
 }
 
 export interface CaseManagementApiUpdateMaintenanceWindowRequest {
@@ -7944,12 +6222,12 @@ export interface CaseManagementApiUpdateMaintenanceWindowRequest {
    * The UUID of the maintenance window.
    * @type string
    */
-  maintenanceWindowId: string;
+  maintenanceWindowId: string
   /**
    * Maintenance window payload.
    * @type MaintenanceWindowUpdateRequest
    */
-  body: MaintenanceWindowUpdateRequest;
+  body: MaintenanceWindowUpdateRequest
 }
 
 export interface CaseManagementApiUpdatePriorityRequest {
@@ -7957,12 +6235,12 @@ export interface CaseManagementApiUpdatePriorityRequest {
    * Case's UUID or key
    * @type string
    */
-  caseId: string;
+  caseId: string
   /**
    * Case priority update payload
    * @type CaseUpdatePriorityRequest
    */
-  body: CaseUpdatePriorityRequest;
+  body: CaseUpdatePriorityRequest
 }
 
 export interface CaseManagementApiUpdateProjectRequest {
@@ -7970,12 +6248,12 @@ export interface CaseManagementApiUpdateProjectRequest {
    * Project UUID.
    * @type string
    */
-  projectId: string;
+  projectId: string
   /**
    * Project payload.
    * @type ProjectUpdateRequest
    */
-  body: ProjectUpdateRequest;
+  body: ProjectUpdateRequest
 }
 
 export interface CaseManagementApiUpdateProjectNotificationRuleRequest {
@@ -7983,17 +6261,17 @@ export interface CaseManagementApiUpdateProjectNotificationRuleRequest {
    * Project UUID
    * @type string
    */
-  projectId: string;
+  projectId: string
   /**
    * Notification Rule UUID
    * @type string
    */
-  notificationRuleId: string;
+  notificationRuleId: string
   /**
    * Notification rule payload
    * @type CaseNotificationRuleUpdateRequest
    */
-  body: CaseNotificationRuleUpdateRequest;
+  body: CaseNotificationRuleUpdateRequest
 }
 
 export interface CaseManagementApiUpdateStatusRequest {
@@ -8001,12 +6279,12 @@ export interface CaseManagementApiUpdateStatusRequest {
    * Case's UUID or key
    * @type string
    */
-  caseId: string;
+  caseId: string
   /**
    * Case status update payload
    * @type CaseUpdateStatusRequest
    */
-  body: CaseUpdateStatusRequest;
+  body: CaseUpdateStatusRequest
 }
 
 export interface CaseManagementApiWatchCaseRequest {
@@ -8014,12 +6292,12 @@ export interface CaseManagementApiWatchCaseRequest {
    * Case's UUID or key
    * @type string
    */
-  caseId: string;
+  caseId: string
   /**
    * The UUID of the user to add or remove as a watcher.
    * @type string
    */
-  userUuid: string;
+  userUuid: string
 }
 
 export class CaseManagementApi {
@@ -8027,36 +6305,21 @@ export class CaseManagementApi {
   private responseProcessor: CaseManagementApiResponseProcessor;
   private configuration: Configuration;
 
-  public constructor(
-    configuration: Configuration,
-    requestFactory?: CaseManagementApiRequestFactory,
-    responseProcessor?: CaseManagementApiResponseProcessor
-  ) {
+  public constructor(configuration: Configuration, requestFactory?: CaseManagementApiRequestFactory, responseProcessor?: CaseManagementApiResponseProcessor) {
     this.configuration = configuration;
-    this.requestFactory =
-      requestFactory || new CaseManagementApiRequestFactory(configuration);
-    this.responseProcessor =
-      responseProcessor || new CaseManagementApiResponseProcessor();
+    this.requestFactory = requestFactory || new CaseManagementApiRequestFactory(configuration);
+    this.responseProcessor = responseProcessor || new CaseManagementApiResponseProcessor();
   }
 
   /**
    * Adds one or more insights to a case. Insights are references to related Datadog resources (such as monitors, security signals, incidents, or error tracking issues) that provide investigative context. Up to 100 insights can be added per request. Each insight requires a type (see `CaseInsightType` for allowed values), a ref (URL path to the resource), and a resource_id.
    * @param param The request object
    */
-  public addCaseInsights(
-    param: CaseManagementApiAddCaseInsightsRequest,
-    options?: Configuration
-  ): Promise<CaseResponse> {
-    const requestContextPromise = this.requestFactory.addCaseInsights(
-      param.caseId,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.addCaseInsights(responseContext);
+  public addCaseInsights(param: CaseManagementApiAddCaseInsightsRequest, options?: Configuration): Promise<CaseResponse> {
+    const requestContextPromise = this.requestFactory.addCaseInsights(param.caseId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.addCaseInsights(responseContext);
         });
     });
   }
@@ -8065,19 +6328,11 @@ export class CaseManagementApi {
    * Performs an aggregation query over cases, grouping results by specified fields and returning counts per group along with a total. Useful for dashboards and analytics.
    * @param param The request object
    */
-  public aggregateCases(
-    param: CaseManagementApiAggregateCasesRequest,
-    options?: Configuration
-  ): Promise<CaseAggregateResponse> {
-    const requestContextPromise = this.requestFactory.aggregateCases(
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.aggregateCases(responseContext);
+  public aggregateCases(param: CaseManagementApiAggregateCasesRequest, options?: Configuration): Promise<CaseAggregateResponse> {
+    const requestContextPromise = this.requestFactory.aggregateCases(param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.aggregateCases(responseContext);
         });
     });
   }
@@ -8086,20 +6341,11 @@ export class CaseManagementApi {
    * Archive case
    * @param param The request object
    */
-  public archiveCase(
-    param: CaseManagementApiArchiveCaseRequest,
-    options?: Configuration
-  ): Promise<CaseResponse> {
-    const requestContextPromise = this.requestFactory.archiveCase(
-      param.caseId,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.archiveCase(responseContext);
+  public archiveCase(param: CaseManagementApiArchiveCaseRequest, options?: Configuration): Promise<CaseResponse> {
+    const requestContextPromise = this.requestFactory.archiveCase(param.caseId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.archiveCase(responseContext);
         });
     });
   }
@@ -8108,20 +6354,11 @@ export class CaseManagementApi {
    * Assign case to a user
    * @param param The request object
    */
-  public assignCase(
-    param: CaseManagementApiAssignCaseRequest,
-    options?: Configuration
-  ): Promise<CaseResponse> {
-    const requestContextPromise = this.requestFactory.assignCase(
-      param.caseId,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.assignCase(responseContext);
+  public assignCase(param: CaseManagementApiAssignCaseRequest, options?: Configuration): Promise<CaseResponse> {
+    const requestContextPromise = this.requestFactory.assignCase(param.caseId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.assignCase(responseContext);
         });
     });
   }
@@ -8130,19 +6367,11 @@ export class CaseManagementApi {
    * Applies a single action (such as changing priority, status, assignment, or archiving) to multiple cases at once. The list of case IDs and the action type with its payload are specified in the request body.
    * @param param The request object
    */
-  public bulkUpdateCases(
-    param: CaseManagementApiBulkUpdateCasesRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.bulkUpdateCases(
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.bulkUpdateCases(responseContext);
+  public bulkUpdateCases(param: CaseManagementApiBulkUpdateCasesRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.bulkUpdateCases(param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.bulkUpdateCases(responseContext);
         });
     });
   }
@@ -8151,20 +6380,11 @@ export class CaseManagementApi {
    * Comment case
    * @param param The request object
    */
-  public commentCase(
-    param: CaseManagementApiCommentCaseRequest,
-    options?: Configuration
-  ): Promise<TimelineResponse> {
-    const requestContextPromise = this.requestFactory.commentCase(
-      param.caseId,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.commentCase(responseContext);
+  public commentCase(param: CaseManagementApiCommentCaseRequest, options?: Configuration): Promise<TimelineResponse> {
+    const requestContextPromise = this.requestFactory.commentCase(param.caseId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.commentCase(responseContext);
         });
     });
   }
@@ -8173,21 +6393,11 @@ export class CaseManagementApi {
    * Returns case counts, optionally grouped by one or more fields (for example, status, priority). Supports a query filter to narrow the scope.
    * @param param The request object
    */
-  public countCases(
-    param: CaseManagementApiCountCasesRequest = {},
-    options?: Configuration
-  ): Promise<CaseCountResponse> {
-    const requestContextPromise = this.requestFactory.countCases(
-      param.queryFilter,
-      param.groupBys,
-      param.limit,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.countCases(responseContext);
+  public countCases(param: CaseManagementApiCountCasesRequest = {}, options?: Configuration): Promise<CaseCountResponse> {
+    const requestContextPromise = this.requestFactory.countCases(param.queryFilter,param.groupBys,param.limit,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.countCases(responseContext);
         });
     });
   }
@@ -8196,19 +6406,11 @@ export class CaseManagementApi {
    * Create a Case
    * @param param The request object
    */
-  public createCase(
-    param: CaseManagementApiCreateCaseRequest,
-    options?: Configuration
-  ): Promise<CaseResponse> {
-    const requestContextPromise = this.requestFactory.createCase(
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.createCase(responseContext);
+  public createCase(param: CaseManagementApiCreateCaseRequest, options?: Configuration): Promise<CaseResponse> {
+    const requestContextPromise = this.requestFactory.createCase(param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.createCase(responseContext);
         });
     });
   }
@@ -8217,22 +6419,11 @@ export class CaseManagementApi {
    * Creates an automation rule for a project. The rule defines a trigger event (for example, case created, status transitioned) and an action to execute.
    * @param param The request object
    */
-  public createCaseAutomationRule(
-    param: CaseManagementApiCreateCaseAutomationRuleRequest,
-    options?: Configuration
-  ): Promise<AutomationRuleResponse> {
-    const requestContextPromise = this.requestFactory.createCaseAutomationRule(
-      param.projectId,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.createCaseAutomationRule(
-            responseContext
-          );
+  public createCaseAutomationRule(param: CaseManagementApiCreateCaseAutomationRuleRequest, options?: Configuration): Promise<AutomationRuleResponse> {
+    const requestContextPromise = this.requestFactory.createCaseAutomationRule(param.projectId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.createCaseAutomationRule(responseContext);
         });
     });
   }
@@ -8241,20 +6432,11 @@ export class CaseManagementApi {
    * Create a new Jira issue and link it to a case
    * @param param The request object
    */
-  public createCaseJiraIssue(
-    param: CaseManagementApiCreateCaseJiraIssueRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.createCaseJiraIssue(
-      param.caseId,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.createCaseJiraIssue(responseContext);
+  public createCaseJiraIssue(param: CaseManagementApiCreateCaseJiraIssueRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.createCaseJiraIssue(param.caseId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.createCaseJiraIssue(responseContext);
         });
     });
   }
@@ -8263,19 +6445,11 @@ export class CaseManagementApi {
    * Creates a directional link between two cases (for example, case A blocks case B). The parent and child cases and their relationship type must be specified.
    * @param param The request object
    */
-  public createCaseLink(
-    param: CaseManagementApiCreateCaseLinkRequest,
-    options?: Configuration
-  ): Promise<CaseLinkResponse> {
-    const requestContextPromise = this.requestFactory.createCaseLink(
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.createCaseLink(responseContext);
+  public createCaseLink(param: CaseManagementApiCreateCaseLinkRequest, options?: Configuration): Promise<CaseLinkResponse> {
+    const requestContextPromise = this.requestFactory.createCaseLink(param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.createCaseLink(responseContext);
         });
     });
   }
@@ -8284,20 +6458,11 @@ export class CaseManagementApi {
    * Create a new investigation notebook and link it to a case
    * @param param The request object
    */
-  public createCaseNotebook(
-    param: CaseManagementApiCreateCaseNotebookRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.createCaseNotebook(
-      param.caseId,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.createCaseNotebook(responseContext);
+  public createCaseNotebook(param: CaseManagementApiCreateCaseNotebookRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.createCaseNotebook(param.caseId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.createCaseNotebook(responseContext);
         });
     });
   }
@@ -8306,23 +6471,11 @@ export class CaseManagementApi {
    * Create a new ServiceNow incident ticket and link it to a case
    * @param param The request object
    */
-  public createCaseServiceNowTicket(
-    param: CaseManagementApiCreateCaseServiceNowTicketRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.createCaseServiceNowTicket(
-        param.caseId,
-        param.body,
-        options
-      );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.createCaseServiceNowTicket(
-            responseContext
-          );
+  public createCaseServiceNowTicket(param: CaseManagementApiCreateCaseServiceNowTicketRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.createCaseServiceNowTicket(param.caseId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.createCaseServiceNowTicket(responseContext);
         });
     });
   }
@@ -8331,19 +6484,11 @@ export class CaseManagementApi {
    * Creates a new saved case view with a name, filter query, and associated project. Optionally, a notification rule can be linked to the view.
    * @param param The request object
    */
-  public createCaseView(
-    param: CaseManagementApiCreateCaseViewRequest,
-    options?: Configuration
-  ): Promise<CaseViewResponse> {
-    const requestContextPromise = this.requestFactory.createCaseView(
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.createCaseView(responseContext);
+  public createCaseView(param: CaseManagementApiCreateCaseViewRequest, options?: Configuration): Promise<CaseViewResponse> {
+    const requestContextPromise = this.requestFactory.createCaseView(param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.createCaseView(responseContext);
         });
     });
   }
@@ -8352,21 +6497,11 @@ export class CaseManagementApi {
    * Creates a maintenance window for event management cases with a name, case filter query, and time range (start and end).
    * @param param The request object
    */
-  public createMaintenanceWindow(
-    param: CaseManagementApiCreateMaintenanceWindowRequest,
-    options?: Configuration
-  ): Promise<MaintenanceWindowResponse> {
-    const requestContextPromise = this.requestFactory.createMaintenanceWindow(
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.createMaintenanceWindow(
-            responseContext
-          );
+  public createMaintenanceWindow(param: CaseManagementApiCreateMaintenanceWindowRequest, options?: Configuration): Promise<MaintenanceWindowResponse> {
+    const requestContextPromise = this.requestFactory.createMaintenanceWindow(param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.createMaintenanceWindow(responseContext);
         });
     });
   }
@@ -8375,19 +6510,11 @@ export class CaseManagementApi {
    * Create a project.
    * @param param The request object
    */
-  public createProject(
-    param: CaseManagementApiCreateProjectRequest,
-    options?: Configuration
-  ): Promise<ProjectResponse> {
-    const requestContextPromise = this.requestFactory.createProject(
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.createProject(responseContext);
+  public createProject(param: CaseManagementApiCreateProjectRequest, options?: Configuration): Promise<ProjectResponse> {
+    const requestContextPromise = this.requestFactory.createProject(param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.createProject(responseContext);
         });
     });
   }
@@ -8396,23 +6523,11 @@ export class CaseManagementApi {
    * Create a notification rule for a project.
    * @param param The request object
    */
-  public createProjectNotificationRule(
-    param: CaseManagementApiCreateProjectNotificationRuleRequest,
-    options?: Configuration
-  ): Promise<CaseNotificationRuleResponse> {
-    const requestContextPromise =
-      this.requestFactory.createProjectNotificationRule(
-        param.projectId,
-        param.body,
-        options
-      );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.createProjectNotificationRule(
-            responseContext
-          );
+  public createProjectNotificationRule(param: CaseManagementApiCreateProjectNotificationRuleRequest, options?: Configuration): Promise<CaseNotificationRuleResponse> {
+    const requestContextPromise = this.requestFactory.createProjectNotificationRule(param.projectId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.createProjectNotificationRule(responseContext);
         });
     });
   }
@@ -8421,22 +6536,11 @@ export class CaseManagementApi {
    * Permanently deletes an automation rule from a project.
    * @param param The request object
    */
-  public deleteCaseAutomationRule(
-    param: CaseManagementApiDeleteCaseAutomationRuleRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteCaseAutomationRule(
-      param.projectId,
-      param.ruleId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.deleteCaseAutomationRule(
-            responseContext
-          );
+  public deleteCaseAutomationRule(param: CaseManagementApiDeleteCaseAutomationRuleRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteCaseAutomationRule(param.projectId,param.ruleId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.deleteCaseAutomationRule(responseContext);
         });
     });
   }
@@ -8445,20 +6549,11 @@ export class CaseManagementApi {
    * Delete case comment
    * @param param The request object
    */
-  public deleteCaseComment(
-    param: CaseManagementApiDeleteCaseCommentRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteCaseComment(
-      param.caseId,
-      param.cellId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.deleteCaseComment(responseContext);
+  public deleteCaseComment(param: CaseManagementApiDeleteCaseCommentRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteCaseComment(param.caseId,param.cellId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.deleteCaseComment(responseContext);
         });
     });
   }
@@ -8467,22 +6562,11 @@ export class CaseManagementApi {
    * Delete custom attribute from case
    * @param param The request object
    */
-  public deleteCaseCustomAttribute(
-    param: CaseManagementApiDeleteCaseCustomAttributeRequest,
-    options?: Configuration
-  ): Promise<CaseResponse> {
-    const requestContextPromise = this.requestFactory.deleteCaseCustomAttribute(
-      param.caseId,
-      param.customAttributeKey,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.deleteCaseCustomAttribute(
-            responseContext
-          );
+  public deleteCaseCustomAttribute(param: CaseManagementApiDeleteCaseCustomAttributeRequest, options?: Configuration): Promise<CaseResponse> {
+    const requestContextPromise = this.requestFactory.deleteCaseCustomAttribute(param.caseId,param.customAttributeKey,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.deleteCaseCustomAttribute(responseContext);
         });
     });
   }
@@ -8491,19 +6575,11 @@ export class CaseManagementApi {
    * Deletes an existing link between cases by link ID.
    * @param param The request object
    */
-  public deleteCaseLink(
-    param: CaseManagementApiDeleteCaseLinkRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteCaseLink(
-      param.linkId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.deleteCaseLink(responseContext);
+  public deleteCaseLink(param: CaseManagementApiDeleteCaseLinkRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteCaseLink(param.linkId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.deleteCaseLink(responseContext);
         });
     });
   }
@@ -8512,19 +6588,11 @@ export class CaseManagementApi {
    * Permanently deletes a saved case view.
    * @param param The request object
    */
-  public deleteCaseView(
-    param: CaseManagementApiDeleteCaseViewRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteCaseView(
-      param.viewId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.deleteCaseView(responseContext);
+  public deleteCaseView(param: CaseManagementApiDeleteCaseViewRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteCaseView(param.viewId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.deleteCaseView(responseContext);
         });
     });
   }
@@ -8533,21 +6601,11 @@ export class CaseManagementApi {
    * Permanently deletes a maintenance window.
    * @param param The request object
    */
-  public deleteMaintenanceWindow(
-    param: CaseManagementApiDeleteMaintenanceWindowRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteMaintenanceWindow(
-      param.maintenanceWindowId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.deleteMaintenanceWindow(
-            responseContext
-          );
+  public deleteMaintenanceWindow(param: CaseManagementApiDeleteMaintenanceWindowRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteMaintenanceWindow(param.maintenanceWindowId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.deleteMaintenanceWindow(responseContext);
         });
     });
   }
@@ -8556,19 +6614,11 @@ export class CaseManagementApi {
    * Remove a project using the project's `id`.
    * @param param The request object
    */
-  public deleteProject(
-    param: CaseManagementApiDeleteProjectRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteProject(
-      param.projectId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.deleteProject(responseContext);
+  public deleteProject(param: CaseManagementApiDeleteProjectRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteProject(param.projectId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.deleteProject(responseContext);
         });
     });
   }
@@ -8577,23 +6627,11 @@ export class CaseManagementApi {
    * Delete a notification rule using the notification rule's `id`.
    * @param param The request object
    */
-  public deleteProjectNotificationRule(
-    param: CaseManagementApiDeleteProjectNotificationRuleRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteProjectNotificationRule(
-        param.projectId,
-        param.notificationRuleId,
-        options
-      );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.deleteProjectNotificationRule(
-            responseContext
-          );
+  public deleteProjectNotificationRule(param: CaseManagementApiDeleteProjectNotificationRuleRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteProjectNotificationRule(param.projectId,param.notificationRuleId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.deleteProjectNotificationRule(responseContext);
         });
     });
   }
@@ -8602,22 +6640,11 @@ export class CaseManagementApi {
    * Disables an automation rule so it no longer triggers on case events. The rule configuration is preserved.
    * @param param The request object
    */
-  public disableCaseAutomationRule(
-    param: CaseManagementApiDisableCaseAutomationRuleRequest,
-    options?: Configuration
-  ): Promise<AutomationRuleResponse> {
-    const requestContextPromise = this.requestFactory.disableCaseAutomationRule(
-      param.projectId,
-      param.ruleId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.disableCaseAutomationRule(
-            responseContext
-          );
+  public disableCaseAutomationRule(param: CaseManagementApiDisableCaseAutomationRuleRequest, options?: Configuration): Promise<AutomationRuleResponse> {
+    const requestContextPromise = this.requestFactory.disableCaseAutomationRule(param.projectId,param.ruleId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.disableCaseAutomationRule(responseContext);
         });
     });
   }
@@ -8626,22 +6653,11 @@ export class CaseManagementApi {
    * Enables a previously disabled automation rule so it triggers on matching case events.
    * @param param The request object
    */
-  public enableCaseAutomationRule(
-    param: CaseManagementApiEnableCaseAutomationRuleRequest,
-    options?: Configuration
-  ): Promise<AutomationRuleResponse> {
-    const requestContextPromise = this.requestFactory.enableCaseAutomationRule(
-      param.projectId,
-      param.ruleId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.enableCaseAutomationRule(
-            responseContext
-          );
+  public enableCaseAutomationRule(param: CaseManagementApiEnableCaseAutomationRuleRequest, options?: Configuration): Promise<AutomationRuleResponse> {
+    const requestContextPromise = this.requestFactory.enableCaseAutomationRule(param.projectId,param.ruleId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.enableCaseAutomationRule(responseContext);
         });
     });
   }
@@ -8650,19 +6666,11 @@ export class CaseManagementApi {
    * Marks a case project as a favorite for the current authenticated user.
    * @param param The request object
    */
-  public favoriteCaseProject(
-    param: CaseManagementApiFavoriteCaseProjectRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.favoriteCaseProject(
-      param.projectId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.favoriteCaseProject(responseContext);
+  public favoriteCaseProject(param: CaseManagementApiFavoriteCaseProjectRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.favoriteCaseProject(param.projectId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.favoriteCaseProject(responseContext);
         });
     });
   }
@@ -8671,19 +6679,11 @@ export class CaseManagementApi {
    * Get the details of case by `case_id`
    * @param param The request object
    */
-  public getCase(
-    param: CaseManagementApiGetCaseRequest,
-    options?: Configuration
-  ): Promise<CaseResponse> {
-    const requestContextPromise = this.requestFactory.getCase(
-      param.caseId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getCase(responseContext);
+  public getCase(param: CaseManagementApiGetCaseRequest, options?: Configuration): Promise<CaseResponse> {
+    const requestContextPromise = this.requestFactory.getCase(param.caseId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getCase(responseContext);
         });
     });
   }
@@ -8692,20 +6692,11 @@ export class CaseManagementApi {
    * Returns a single automation rule identified by its UUID, including its trigger, action, and current state (enabled/disabled).
    * @param param The request object
    */
-  public getCaseAutomationRule(
-    param: CaseManagementApiGetCaseAutomationRuleRequest,
-    options?: Configuration
-  ): Promise<AutomationRuleResponse> {
-    const requestContextPromise = this.requestFactory.getCaseAutomationRule(
-      param.projectId,
-      param.ruleId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getCaseAutomationRule(responseContext);
+  public getCaseAutomationRule(param: CaseManagementApiGetCaseAutomationRuleRequest, options?: Configuration): Promise<AutomationRuleResponse> {
+    const requestContextPromise = this.requestFactory.getCaseAutomationRule(param.projectId,param.ruleId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getCaseAutomationRule(responseContext);
         });
     });
   }
@@ -8714,19 +6705,11 @@ export class CaseManagementApi {
    * Returns a single saved case view identified by its UUID, including its query, associated project, and timestamps.
    * @param param The request object
    */
-  public getCaseView(
-    param: CaseManagementApiGetCaseViewRequest,
-    options?: Configuration
-  ): Promise<CaseViewResponse> {
-    const requestContextPromise = this.requestFactory.getCaseView(
-      param.viewId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getCaseView(responseContext);
+  public getCaseView(param: CaseManagementApiGetCaseViewRequest, options?: Configuration): Promise<CaseViewResponse> {
+    const requestContextPromise = this.requestFactory.getCaseView(param.viewId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getCaseView(responseContext);
         });
     });
   }
@@ -8735,19 +6718,11 @@ export class CaseManagementApi {
    * Get the details of a project by `project_id`.
    * @param param The request object
    */
-  public getProject(
-    param: CaseManagementApiGetProjectRequest,
-    options?: Configuration
-  ): Promise<ProjectResponse> {
-    const requestContextPromise = this.requestFactory.getProject(
-      param.projectId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getProject(responseContext);
+  public getProject(param: CaseManagementApiGetProjectRequest, options?: Configuration): Promise<ProjectResponse> {
+    const requestContextPromise = this.requestFactory.getProject(param.projectId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getProject(responseContext);
         });
     });
   }
@@ -8756,19 +6731,11 @@ export class CaseManagementApi {
    * Get all notification rules for a project.
    * @param param The request object
    */
-  public getProjectNotificationRules(
-    param: CaseManagementApiGetProjectNotificationRulesRequest,
-    options?: Configuration
-  ): Promise<CaseNotificationRulesResponse> {
-    const requestContextPromise =
-      this.requestFactory.getProjectNotificationRules(param.projectId, options);
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getProjectNotificationRules(
-            responseContext
-          );
+  public getProjectNotificationRules(param: CaseManagementApiGetProjectNotificationRulesRequest, options?: Configuration): Promise<CaseNotificationRulesResponse> {
+    const requestContextPromise = this.requestFactory.getProjectNotificationRules(param.projectId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getProjectNotificationRules(responseContext);
         });
     });
   }
@@ -8777,13 +6744,11 @@ export class CaseManagementApi {
    * Get all projects.
    * @param param The request object
    */
-  public getProjects(options?: Configuration): Promise<ProjectsResponse> {
+  public getProjects( options?: Configuration): Promise<ProjectsResponse> {
     const requestContextPromise = this.requestFactory.getProjects(options);
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getProjects(responseContext);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getProjects(responseContext);
         });
     });
   }
@@ -8792,20 +6757,11 @@ export class CaseManagementApi {
    * Link an incident to a case
    * @param param The request object
    */
-  public linkIncident(
-    param: CaseManagementApiLinkIncidentRequest,
-    options?: Configuration
-  ): Promise<CaseResponse> {
-    const requestContextPromise = this.requestFactory.linkIncident(
-      param.caseId,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.linkIncident(responseContext);
+  public linkIncident(param: CaseManagementApiLinkIncidentRequest, options?: Configuration): Promise<CaseResponse> {
+    const requestContextPromise = this.requestFactory.linkIncident(param.caseId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.linkIncident(responseContext);
         });
     });
   }
@@ -8814,20 +6770,11 @@ export class CaseManagementApi {
    * Link an existing Jira issue to a case
    * @param param The request object
    */
-  public linkJiraIssueToCase(
-    param: CaseManagementApiLinkJiraIssueToCaseRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.linkJiraIssueToCase(
-      param.caseId,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.linkJiraIssueToCase(responseContext);
+  public linkJiraIssueToCase(param: CaseManagementApiLinkJiraIssueToCaseRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.linkJiraIssueToCase(param.caseId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.linkJiraIssueToCase(responseContext);
         });
     });
   }
@@ -8836,21 +6783,11 @@ export class CaseManagementApi {
    * Returns all automation rules configured for a project. Automation rules allow automatic actions to be triggered by case events like creation, status transitions, or attribute changes.
    * @param param The request object
    */
-  public listCaseAutomationRules(
-    param: CaseManagementApiListCaseAutomationRulesRequest,
-    options?: Configuration
-  ): Promise<AutomationRulesResponse> {
-    const requestContextPromise = this.requestFactory.listCaseAutomationRules(
-      param.projectId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.listCaseAutomationRules(
-            responseContext
-          );
+  public listCaseAutomationRules(param: CaseManagementApiListCaseAutomationRulesRequest, options?: Configuration): Promise<AutomationRulesResponse> {
+    const requestContextPromise = this.requestFactory.listCaseAutomationRules(param.projectId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.listCaseAutomationRules(responseContext);
         });
     });
   }
@@ -8859,21 +6796,11 @@ export class CaseManagementApi {
    * Returns all links associated with a case. Links define relationships (for example, BLOCKS) between cases. Requires entity_type and entity_id query parameters.
    * @param param The request object
    */
-  public listCaseLinks(
-    param: CaseManagementApiListCaseLinksRequest,
-    options?: Configuration
-  ): Promise<CaseLinksResponse> {
-    const requestContextPromise = this.requestFactory.listCaseLinks(
-      param.entityType,
-      param.entityId,
-      param.relationship,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.listCaseLinks(responseContext);
+  public listCaseLinks(param: CaseManagementApiListCaseLinksRequest, options?: Configuration): Promise<CaseLinksResponse> {
+    const requestContextPromise = this.requestFactory.listCaseLinks(param.entityType,param.entityId,param.relationship,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.listCaseLinks(responseContext);
         });
     });
   }
@@ -8882,22 +6809,11 @@ export class CaseManagementApi {
    * Returns the timeline of events for a case, including comments, status changes, and other activity. Supports pagination and sort order.
    * @param param The request object
    */
-  public listCaseTimeline(
-    param: CaseManagementApiListCaseTimelineRequest,
-    options?: Configuration
-  ): Promise<TimelineResponse> {
-    const requestContextPromise = this.requestFactory.listCaseTimeline(
-      param.caseId,
-      param.pageSize,
-      param.pageNumber,
-      param.sortAscending,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.listCaseTimeline(responseContext);
+  public listCaseTimeline(param: CaseManagementApiListCaseTimelineRequest, options?: Configuration): Promise<TimelineResponse> {
+    const requestContextPromise = this.requestFactory.listCaseTimeline(param.caseId,param.pageSize,param.pageNumber,param.sortAscending,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.listCaseTimeline(responseContext);
         });
     });
   }
@@ -8906,19 +6822,11 @@ export class CaseManagementApi {
    * Returns all saved case views for a given project. Views are saved search queries that allow quick access to filtered lists of cases.
    * @param param The request object
    */
-  public listCaseViews(
-    param: CaseManagementApiListCaseViewsRequest,
-    options?: Configuration
-  ): Promise<CaseViewsResponse> {
-    const requestContextPromise = this.requestFactory.listCaseViews(
-      param.projectId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.listCaseViews(responseContext);
+  public listCaseViews(param: CaseManagementApiListCaseViewsRequest, options?: Configuration): Promise<CaseViewsResponse> {
+    const requestContextPromise = this.requestFactory.listCaseViews(param.projectId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.listCaseViews(responseContext);
         });
     });
   }
@@ -8927,19 +6835,11 @@ export class CaseManagementApi {
    * Returns the list of users who are watching a case. Watchers receive notifications about updates to the case.
    * @param param The request object
    */
-  public listCaseWatchers(
-    param: CaseManagementApiListCaseWatchersRequest,
-    options?: Configuration
-  ): Promise<CaseWatchersResponse> {
-    const requestContextPromise = this.requestFactory.listCaseWatchers(
-      param.caseId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.listCaseWatchers(responseContext);
+  public listCaseWatchers(param: CaseManagementApiListCaseWatchersRequest, options?: Configuration): Promise<CaseWatchersResponse> {
+    const requestContextPromise = this.requestFactory.listCaseWatchers(param.caseId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.listCaseWatchers(responseContext);
         });
     });
   }
@@ -8948,16 +6848,11 @@ export class CaseManagementApi {
    * Returns all configured maintenance windows for event management cases. Maintenance windows define time periods during which case notifications and automation rules are suppressed for cases matching a given query.
    * @param param The request object
    */
-  public listMaintenanceWindows(
-    options?: Configuration
-  ): Promise<MaintenanceWindowsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listMaintenanceWindows(options);
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.listMaintenanceWindows(responseContext);
+  public listMaintenanceWindows( options?: Configuration): Promise<MaintenanceWindowsResponse> {
+    const requestContextPromise = this.requestFactory.listMaintenanceWindows(options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.listMaintenanceWindows(responseContext);
         });
     });
   }
@@ -8966,18 +6861,11 @@ export class CaseManagementApi {
    * Returns the list of case projects that the current authenticated user has marked as favorites.
    * @param param The request object
    */
-  public listUserCaseProjectFavorites(
-    options?: Configuration
-  ): Promise<ProjectFavoritesResponse> {
-    const requestContextPromise =
-      this.requestFactory.listUserCaseProjectFavorites(options);
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.listUserCaseProjectFavorites(
-            responseContext
-          );
+  public listUserCaseProjectFavorites( options?: Configuration): Promise<ProjectFavoritesResponse> {
+    const requestContextPromise = this.requestFactory.listUserCaseProjectFavorites(options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.listUserCaseProjectFavorites(responseContext);
         });
     });
   }
@@ -8986,20 +6874,11 @@ export class CaseManagementApi {
    * Update the project associated with a case
    * @param param The request object
    */
-  public moveCaseToProject(
-    param: CaseManagementApiMoveCaseToProjectRequest,
-    options?: Configuration
-  ): Promise<CaseResponse> {
-    const requestContextPromise = this.requestFactory.moveCaseToProject(
-      param.caseId,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.moveCaseToProject(responseContext);
+  public moveCaseToProject(param: CaseManagementApiMoveCaseToProjectRequest, options?: Configuration): Promise<CaseResponse> {
+    const requestContextPromise = this.requestFactory.moveCaseToProject(param.caseId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.moveCaseToProject(responseContext);
         });
     });
   }
@@ -9008,20 +6887,11 @@ export class CaseManagementApi {
    * Removes one or more previously added insights from a case by specifying their type and resource identifier in the request body.
    * @param param The request object
    */
-  public removeCaseInsights(
-    param: CaseManagementApiRemoveCaseInsightsRequest,
-    options?: Configuration
-  ): Promise<CaseResponse> {
-    const requestContextPromise = this.requestFactory.removeCaseInsights(
-      param.caseId,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.removeCaseInsights(responseContext);
+  public removeCaseInsights(param: CaseManagementApiRemoveCaseInsightsRequest, options?: Configuration): Promise<CaseResponse> {
+    const requestContextPromise = this.requestFactory.removeCaseInsights(param.caseId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.removeCaseInsights(responseContext);
         });
     });
   }
@@ -9030,34 +6900,22 @@ export class CaseManagementApi {
    * Search cases.
    * @param param The request object
    */
-  public searchCases(
-    param: CaseManagementApiSearchCasesRequest = {},
-    options?: Configuration
-  ): Promise<CasesResponse> {
-    const requestContextPromise = this.requestFactory.searchCases(
-      param.pageSize,
-      param.pageNumber,
-      param.sortField,
-      param.filter,
-      param.sortAsc,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.searchCases(responseContext);
+  public searchCases(param: CaseManagementApiSearchCasesRequest = {}, options?: Configuration): Promise<CasesResponse> {
+    const requestContextPromise = this.requestFactory.searchCases(param.pageSize,param.pageNumber,param.sortField,param.filter,param.sortAsc,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.searchCases(responseContext);
         });
     });
   }
 
-  /**
+/**
    * Provide a paginated version of searchCases returning a generator with all the items.
    */
   public async *searchCasesWithPagination(
-    param: CaseManagementApiSearchCasesRequest = {},
-    options?: Configuration
+    param: CaseManagementApiSearchCasesRequest = {}, options?: Configuration,
   ): AsyncGenerator<Case> {
+
     let pageSize = 10;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
@@ -9065,21 +6923,10 @@ export class CaseManagementApi {
     param.pageSize = pageSize;
     param.pageNumber = 1;
     while (true) {
-      const requestContext = await this.requestFactory.searchCases(
-        param.pageSize,
-        param.pageNumber,
-        param.sortField,
-        param.filter,
-        param.sortAsc,
-        options
-      );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const requestContext = await this.requestFactory.searchCases(param.pageSize,param.pageNumber,param.sortField,param.filter,param.sortAsc,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.searchCases(
-        responseContext
-      );
+      const response = await this.responseProcessor.searchCases(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -9099,20 +6946,11 @@ export class CaseManagementApi {
    * Unarchive case
    * @param param The request object
    */
-  public unarchiveCase(
-    param: CaseManagementApiUnarchiveCaseRequest,
-    options?: Configuration
-  ): Promise<CaseResponse> {
-    const requestContextPromise = this.requestFactory.unarchiveCase(
-      param.caseId,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.unarchiveCase(responseContext);
+  public unarchiveCase(param: CaseManagementApiUnarchiveCaseRequest, options?: Configuration): Promise<CaseResponse> {
+    const requestContextPromise = this.requestFactory.unarchiveCase(param.caseId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.unarchiveCase(responseContext);
         });
     });
   }
@@ -9121,20 +6959,11 @@ export class CaseManagementApi {
    * Unassign case
    * @param param The request object
    */
-  public unassignCase(
-    param: CaseManagementApiUnassignCaseRequest,
-    options?: Configuration
-  ): Promise<CaseResponse> {
-    const requestContextPromise = this.requestFactory.unassignCase(
-      param.caseId,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.unassignCase(responseContext);
+  public unassignCase(param: CaseManagementApiUnassignCaseRequest, options?: Configuration): Promise<CaseResponse> {
+    const requestContextPromise = this.requestFactory.unassignCase(param.caseId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.unassignCase(responseContext);
         });
     });
   }
@@ -9143,19 +6972,11 @@ export class CaseManagementApi {
    * Removes a case project from the current user's favorites list.
    * @param param The request object
    */
-  public unfavoriteCaseProject(
-    param: CaseManagementApiUnfavoriteCaseProjectRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.unfavoriteCaseProject(
-      param.projectId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.unfavoriteCaseProject(responseContext);
+  public unfavoriteCaseProject(param: CaseManagementApiUnfavoriteCaseProjectRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.unfavoriteCaseProject(param.projectId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.unfavoriteCaseProject(responseContext);
         });
     });
   }
@@ -9164,19 +6985,11 @@ export class CaseManagementApi {
    * Remove the link between a Jira issue and a case
    * @param param The request object
    */
-  public unlinkJiraIssue(
-    param: CaseManagementApiUnlinkJiraIssueRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.unlinkJiraIssue(
-      param.caseId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.unlinkJiraIssue(responseContext);
+  public unlinkJiraIssue(param: CaseManagementApiUnlinkJiraIssueRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.unlinkJiraIssue(param.caseId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.unlinkJiraIssue(responseContext);
         });
     });
   }
@@ -9185,20 +6998,11 @@ export class CaseManagementApi {
    * Removes a user from the watchers list of a case. The user no longer receives notifications about updates to the case.
    * @param param The request object
    */
-  public unwatchCase(
-    param: CaseManagementApiUnwatchCaseRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.unwatchCase(
-      param.caseId,
-      param.userUuid,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.unwatchCase(responseContext);
+  public unwatchCase(param: CaseManagementApiUnwatchCaseRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.unwatchCase(param.caseId,param.userUuid,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.unwatchCase(responseContext);
         });
     });
   }
@@ -9207,20 +7011,11 @@ export class CaseManagementApi {
    * Update case attributes
    * @param param The request object
    */
-  public updateAttributes(
-    param: CaseManagementApiUpdateAttributesRequest,
-    options?: Configuration
-  ): Promise<CaseResponse> {
-    const requestContextPromise = this.requestFactory.updateAttributes(
-      param.caseId,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.updateAttributes(responseContext);
+  public updateAttributes(param: CaseManagementApiUpdateAttributesRequest, options?: Configuration): Promise<CaseResponse> {
+    const requestContextPromise = this.requestFactory.updateAttributes(param.caseId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.updateAttributes(responseContext);
         });
     });
   }
@@ -9229,23 +7024,11 @@ export class CaseManagementApi {
    * Updates the trigger, action, name, or state of an existing automation rule.
    * @param param The request object
    */
-  public updateCaseAutomationRule(
-    param: CaseManagementApiUpdateCaseAutomationRuleRequest,
-    options?: Configuration
-  ): Promise<AutomationRuleResponse> {
-    const requestContextPromise = this.requestFactory.updateCaseAutomationRule(
-      param.projectId,
-      param.ruleId,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.updateCaseAutomationRule(
-            responseContext
-          );
+  public updateCaseAutomationRule(param: CaseManagementApiUpdateCaseAutomationRuleRequest, options?: Configuration): Promise<AutomationRuleResponse> {
+    const requestContextPromise = this.requestFactory.updateCaseAutomationRule(param.projectId,param.ruleId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.updateCaseAutomationRule(responseContext);
         });
     });
   }
@@ -9254,21 +7037,11 @@ export class CaseManagementApi {
    * Updates the text content of an existing comment on a case timeline. The comment is identified by its cell ID.
    * @param param The request object
    */
-  public updateCaseComment(
-    param: CaseManagementApiUpdateCaseCommentRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.updateCaseComment(
-      param.caseId,
-      param.cellId,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.updateCaseComment(responseContext);
+  public updateCaseComment(param: CaseManagementApiUpdateCaseCommentRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.updateCaseComment(param.caseId,param.cellId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.updateCaseComment(responseContext);
         });
     });
   }
@@ -9277,23 +7050,11 @@ export class CaseManagementApi {
    * Update case custom attribute
    * @param param The request object
    */
-  public updateCaseCustomAttribute(
-    param: CaseManagementApiUpdateCaseCustomAttributeRequest,
-    options?: Configuration
-  ): Promise<CaseResponse> {
-    const requestContextPromise = this.requestFactory.updateCaseCustomAttribute(
-      param.caseId,
-      param.customAttributeKey,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.updateCaseCustomAttribute(
-            responseContext
-          );
+  public updateCaseCustomAttribute(param: CaseManagementApiUpdateCaseCustomAttributeRequest, options?: Configuration): Promise<CaseResponse> {
+    const requestContextPromise = this.requestFactory.updateCaseCustomAttribute(param.caseId,param.customAttributeKey,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.updateCaseCustomAttribute(responseContext);
         });
     });
   }
@@ -9302,20 +7063,11 @@ export class CaseManagementApi {
    * Update case description
    * @param param The request object
    */
-  public updateCaseDescription(
-    param: CaseManagementApiUpdateCaseDescriptionRequest,
-    options?: Configuration
-  ): Promise<CaseResponse> {
-    const requestContextPromise = this.requestFactory.updateCaseDescription(
-      param.caseId,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.updateCaseDescription(responseContext);
+  public updateCaseDescription(param: CaseManagementApiUpdateCaseDescriptionRequest, options?: Configuration): Promise<CaseResponse> {
+    const requestContextPromise = this.requestFactory.updateCaseDescription(param.caseId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.updateCaseDescription(responseContext);
         });
     });
   }
@@ -9324,20 +7076,11 @@ export class CaseManagementApi {
    * Sets or updates the due date for a case. The due date is a calendar date (without a time component) indicating when the case should be resolved.
    * @param param The request object
    */
-  public updateCaseDueDate(
-    param: CaseManagementApiUpdateCaseDueDateRequest,
-    options?: Configuration
-  ): Promise<CaseResponse> {
-    const requestContextPromise = this.requestFactory.updateCaseDueDate(
-      param.caseId,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.updateCaseDueDate(responseContext);
+  public updateCaseDueDate(param: CaseManagementApiUpdateCaseDueDateRequest, options?: Configuration): Promise<CaseResponse> {
+    const requestContextPromise = this.requestFactory.updateCaseDueDate(param.caseId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.updateCaseDueDate(responseContext);
         });
     });
   }
@@ -9346,22 +7089,11 @@ export class CaseManagementApi {
    * Sets the resolved reason for a security case (for example, FALSE_POSITIVE, TRUE_POSITIVE). Applicable to security-type cases.
    * @param param The request object
    */
-  public updateCaseResolvedReason(
-    param: CaseManagementApiUpdateCaseResolvedReasonRequest,
-    options?: Configuration
-  ): Promise<CaseResponse> {
-    const requestContextPromise = this.requestFactory.updateCaseResolvedReason(
-      param.caseId,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.updateCaseResolvedReason(
-            responseContext
-          );
+  public updateCaseResolvedReason(param: CaseManagementApiUpdateCaseResolvedReasonRequest, options?: Configuration): Promise<CaseResponse> {
+    const requestContextPromise = this.requestFactory.updateCaseResolvedReason(param.caseId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.updateCaseResolvedReason(responseContext);
         });
     });
   }
@@ -9370,20 +7102,11 @@ export class CaseManagementApi {
    * Update case title
    * @param param The request object
    */
-  public updateCaseTitle(
-    param: CaseManagementApiUpdateCaseTitleRequest,
-    options?: Configuration
-  ): Promise<CaseResponse> {
-    const requestContextPromise = this.requestFactory.updateCaseTitle(
-      param.caseId,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.updateCaseTitle(responseContext);
+  public updateCaseTitle(param: CaseManagementApiUpdateCaseTitleRequest, options?: Configuration): Promise<CaseResponse> {
+    const requestContextPromise = this.requestFactory.updateCaseTitle(param.caseId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.updateCaseTitle(responseContext);
         });
     });
   }
@@ -9392,20 +7115,11 @@ export class CaseManagementApi {
    * Updates the name, query, or notification rule of an existing case view.
    * @param param The request object
    */
-  public updateCaseView(
-    param: CaseManagementApiUpdateCaseViewRequest,
-    options?: Configuration
-  ): Promise<CaseViewResponse> {
-    const requestContextPromise = this.requestFactory.updateCaseView(
-      param.viewId,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.updateCaseView(responseContext);
+  public updateCaseView(param: CaseManagementApiUpdateCaseViewRequest, options?: Configuration): Promise<CaseViewResponse> {
+    const requestContextPromise = this.requestFactory.updateCaseView(param.viewId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.updateCaseView(responseContext);
         });
     });
   }
@@ -9414,22 +7128,11 @@ export class CaseManagementApi {
    * Updates the name, query, start time, or end time of an existing maintenance window.
    * @param param The request object
    */
-  public updateMaintenanceWindow(
-    param: CaseManagementApiUpdateMaintenanceWindowRequest,
-    options?: Configuration
-  ): Promise<MaintenanceWindowResponse> {
-    const requestContextPromise = this.requestFactory.updateMaintenanceWindow(
-      param.maintenanceWindowId,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.updateMaintenanceWindow(
-            responseContext
-          );
+  public updateMaintenanceWindow(param: CaseManagementApiUpdateMaintenanceWindowRequest, options?: Configuration): Promise<MaintenanceWindowResponse> {
+    const requestContextPromise = this.requestFactory.updateMaintenanceWindow(param.maintenanceWindowId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.updateMaintenanceWindow(responseContext);
         });
     });
   }
@@ -9438,20 +7141,11 @@ export class CaseManagementApi {
    * Update case priority
    * @param param The request object
    */
-  public updatePriority(
-    param: CaseManagementApiUpdatePriorityRequest,
-    options?: Configuration
-  ): Promise<CaseResponse> {
-    const requestContextPromise = this.requestFactory.updatePriority(
-      param.caseId,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.updatePriority(responseContext);
+  public updatePriority(param: CaseManagementApiUpdatePriorityRequest, options?: Configuration): Promise<CaseResponse> {
+    const requestContextPromise = this.requestFactory.updatePriority(param.caseId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.updatePriority(responseContext);
         });
     });
   }
@@ -9460,20 +7154,11 @@ export class CaseManagementApi {
    * Update a project.
    * @param param The request object
    */
-  public updateProject(
-    param: CaseManagementApiUpdateProjectRequest,
-    options?: Configuration
-  ): Promise<ProjectResponse> {
-    const requestContextPromise = this.requestFactory.updateProject(
-      param.projectId,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.updateProject(responseContext);
+  public updateProject(param: CaseManagementApiUpdateProjectRequest, options?: Configuration): Promise<ProjectResponse> {
+    const requestContextPromise = this.requestFactory.updateProject(param.projectId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.updateProject(responseContext);
         });
     });
   }
@@ -9482,24 +7167,11 @@ export class CaseManagementApi {
    * Update a notification rule.
    * @param param The request object
    */
-  public updateProjectNotificationRule(
-    param: CaseManagementApiUpdateProjectNotificationRuleRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.updateProjectNotificationRule(
-        param.projectId,
-        param.notificationRuleId,
-        param.body,
-        options
-      );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.updateProjectNotificationRule(
-            responseContext
-          );
+  public updateProjectNotificationRule(param: CaseManagementApiUpdateProjectNotificationRuleRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.updateProjectNotificationRule(param.projectId,param.notificationRuleId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.updateProjectNotificationRule(responseContext);
         });
     });
   }
@@ -9508,20 +7180,11 @@ export class CaseManagementApi {
    * Update case status
    * @param param The request object
    */
-  public updateStatus(
-    param: CaseManagementApiUpdateStatusRequest,
-    options?: Configuration
-  ): Promise<CaseResponse> {
-    const requestContextPromise = this.requestFactory.updateStatus(
-      param.caseId,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.updateStatus(responseContext);
+  public updateStatus(param: CaseManagementApiUpdateStatusRequest, options?: Configuration): Promise<CaseResponse> {
+    const requestContextPromise = this.requestFactory.updateStatus(param.caseId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.updateStatus(responseContext);
         });
     });
   }
@@ -9530,20 +7193,11 @@ export class CaseManagementApi {
    * Adds a user (identified by their UUID) as a watcher of a case. The user receives notifications about subsequent updates to the case.
    * @param param The request object
    */
-  public watchCase(
-    param: CaseManagementApiWatchCaseRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.watchCase(
-      param.caseId,
-      param.userUuid,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.watchCase(responseContext);
+  public watchCase(param: CaseManagementApiWatchCaseRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.watchCase(param.caseId,param.userUuid,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.watchCase(responseContext);
         });
     });
   }

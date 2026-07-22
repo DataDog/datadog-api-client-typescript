@@ -6,19 +6,24 @@
 import { CloudWorkloadSecurityAgentRuleCreateAttributes } from "./CloudWorkloadSecurityAgentRuleCreateAttributes";
 import { CloudWorkloadSecurityAgentRuleType } from "./CloudWorkloadSecurityAgentRuleType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object for a single Agent rule
- */
+*/
 export class CloudWorkloadSecurityAgentRuleCreateData {
   /**
    * Create a new Cloud Workload Security Agent rule.
-   */
+  */
   "attributes": CloudWorkloadSecurityAgentRuleCreateAttributes;
   /**
    * The type of the resource, must always be `agent_rule`
-   */
+  */
   "type": CloudWorkloadSecurityAgentRuleType;
 
   /**
@@ -26,7 +31,7 @@ export class CloudWorkloadSecurityAgentRuleCreateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class CloudWorkloadSecurityAgentRuleCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CloudWorkloadSecurityAgentRuleCreateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CloudWorkloadSecurityAgentRuleCreateAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CloudWorkloadSecurityAgentRuleType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CloudWorkloadSecurityAgentRuleType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class CloudWorkloadSecurityAgentRuleCreateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CloudWorkloadSecurityAgentRuleCreateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,31 +6,36 @@
 import { IntegrationServiceNowAutoCreation } from "./IntegrationServiceNowAutoCreation";
 import { IntegrationServiceNowSyncConfig } from "./IntegrationServiceNowSyncConfig";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * ServiceNow integration settings.
- */
+*/
 export class IntegrationServiceNow {
   /**
    * Assignment group.
-   */
+  */
   "assignmentGroup"?: string;
   /**
    * Auto-creation settings for ServiceNow incidents from cases.
-   */
+  */
   "autoCreation"?: IntegrationServiceNowAutoCreation;
   /**
    * Whether ServiceNow integration is enabled.
-   */
+  */
   "enabled"?: boolean;
   /**
    * ServiceNow instance name.
-   */
+  */
   "instanceName"?: string;
   /**
    * Synchronization configuration for ServiceNow integration.
-   */
+  */
   "syncConfig"?: IntegrationServiceNowSyncConfig;
 
   /**
@@ -38,7 +43,7 @@ export class IntegrationServiceNow {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -49,25 +54,25 @@ export class IntegrationServiceNow {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    assignmentGroup: {
-      baseName: "assignment_group",
-      type: "string",
+    "assignmentGroup": {
+      "baseName": "assignment_group",
+      "type": "string",
     },
-    autoCreation: {
-      baseName: "auto_creation",
-      type: "IntegrationServiceNowAutoCreation",
+    "autoCreation": {
+      "baseName": "auto_creation",
+      "type": "IntegrationServiceNowAutoCreation",
     },
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
+    "enabled": {
+      "baseName": "enabled",
+      "type": "boolean",
     },
-    instanceName: {
-      baseName: "instance_name",
-      type: "string",
+    "instanceName": {
+      "baseName": "instance_name",
+      "type": "string",
     },
-    syncConfig: {
-      baseName: "sync_config",
-      type: "IntegrationServiceNowSyncConfig",
+    "syncConfig": {
+      "baseName": "sync_config",
+      "type": "IntegrationServiceNowSyncConfig",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -79,8 +84,34 @@ export class IntegrationServiceNow {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IntegrationServiceNow.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

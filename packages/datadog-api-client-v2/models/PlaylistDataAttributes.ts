@@ -5,35 +5,40 @@
  */
 import { PlaylistDataAttributesCreatedBy } from "./PlaylistDataAttributesCreatedBy";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a RUM replay playlist, including its name, description, session count, and audit timestamps.
- */
+*/
 export class PlaylistDataAttributes {
   /**
    * Timestamp when the playlist was created.
-   */
+  */
   "createdAt"?: Date;
   /**
    * Information about the user who created the playlist.
-   */
+  */
   "createdBy"?: PlaylistDataAttributesCreatedBy;
   /**
    * Optional human-readable description of the playlist's purpose or contents.
-   */
+  */
   "description"?: string;
   /**
    * Human-readable name of the playlist.
-   */
+  */
   "name": string;
   /**
    * Number of replay sessions in the playlist.
-   */
+  */
   "sessionCount"?: number;
   /**
    * Timestamp when the playlist was last updated.
-   */
+  */
   "updatedAt"?: Date;
 
   /**
@@ -41,7 +46,7 @@ export class PlaylistDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -52,33 +57,33 @@ export class PlaylistDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    createdBy: {
-      baseName: "created_by",
-      type: "PlaylistDataAttributesCreatedBy",
+    "createdBy": {
+      "baseName": "created_by",
+      "type": "PlaylistDataAttributesCreatedBy",
     },
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    sessionCount: {
-      baseName: "session_count",
-      type: "number",
-      format: "int64",
+    "sessionCount": {
+      "baseName": "session_count",
+      "type": "number",
+      "format": "int64",
     },
-    updatedAt: {
-      baseName: "updated_at",
-      type: "Date",
-      format: "date-time",
+    "updatedAt": {
+      "baseName": "updated_at",
+      "type": "Date",
+      "format": "date-time",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -90,8 +95,34 @@ export class PlaylistDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PlaylistDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

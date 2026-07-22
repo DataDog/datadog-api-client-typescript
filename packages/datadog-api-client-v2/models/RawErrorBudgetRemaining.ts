@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The raw error budget remaining for the SLO.
- */
+*/
 export class RawErrorBudgetRemaining {
   /**
    * The unit of the error budget (for example, `seconds`, `requests`).
-   */
+  */
   "unit": string;
   /**
    * The numeric value of the remaining error budget.
-   */
+  */
   "value": number;
 
   /**
@@ -24,7 +29,7 @@ export class RawErrorBudgetRemaining {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,16 +40,16 @@ export class RawErrorBudgetRemaining {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    unit: {
-      baseName: "unit",
-      type: "string",
-      required: true,
+    "unit": {
+      "baseName": "unit",
+      "type": "string",
+      "required": true,
     },
-    value: {
-      baseName: "value",
-      type: "number",
-      required: true,
-      format: "double",
+    "value": {
+      "baseName": "value",
+      "type": "number",
+      "required": true,
+      "format": "double",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class RawErrorBudgetRemaining {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RawErrorBudgetRemaining.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

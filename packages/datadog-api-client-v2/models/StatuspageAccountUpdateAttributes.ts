@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The Statuspage account attributes for an update request.
- */
+*/
 export class StatuspageAccountUpdateAttributes {
   /**
    * The Statuspage API key for your Statuspage account.
-   */
+  */
   "apiKey"?: string;
 
   /**
@@ -20,7 +25,7 @@ export class StatuspageAccountUpdateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,9 +36,9 @@ export class StatuspageAccountUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    apiKey: {
-      baseName: "api_key",
-      type: "string",
+    "apiKey": {
+      "baseName": "api_key",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,8 +50,34 @@ export class StatuspageAccountUpdateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return StatuspageAccountUpdateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,14 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The resource type for analytics requests.
- */
+*/
 
-export type ProductAnalyticsAnalyticsRequestType =
-  | typeof FORMULA_ANALYTICS_EXTENDED_REQUEST
-  | UnparsedObject;
-export const FORMULA_ANALYTICS_EXTENDED_REQUEST =
-  "formula_analytics_extended_request";
+export type ProductAnalyticsAnalyticsRequestType = typeof FORMULA_ANALYTICS_EXTENDED_REQUEST | UnparsedObject;
+export const FORMULA_ANALYTICS_EXTENDED_REQUEST = 'formula_analytics_extended_request';

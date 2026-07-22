@@ -5,10 +5,15 @@
  */
 import { IncidentUserData } from "./IncidentUserData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Objects related to an attachment.
- */
+*/
 
 export type AttachmentIncluded = IncidentUserData | UnparsedObject;

@@ -6,19 +6,24 @@
 import { User } from "./User";
 import { UserResponseIncludedItem } from "./UserResponseIncludedItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing information about a single user.
- */
+*/
 export class UserResponse {
   /**
    * User object returned by the API.
-   */
+  */
   "data"?: User;
   /**
    * Array of objects related to the user.
-   */
+  */
   "included"?: Array<UserResponseIncludedItem>;
 
   /**
@@ -26,7 +31,7 @@ export class UserResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class UserResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "User",
+    "data": {
+      "baseName": "data",
+      "type": "User",
     },
-    included: {
-      baseName: "included",
-      type: "Array<UserResponseIncludedItem>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<UserResponseIncludedItem>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class UserResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UserResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

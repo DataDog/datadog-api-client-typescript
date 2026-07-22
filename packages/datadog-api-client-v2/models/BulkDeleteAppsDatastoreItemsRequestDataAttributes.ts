@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of request data to delete items from a datastore.
- */
+*/
 export class BulkDeleteAppsDatastoreItemsRequestDataAttributes {
   /**
    * List of primary keys identifying items to delete from datastore. Up to 100 items can be deleted in a single request.
-   */
+  */
   "itemKeys"?: Array<string>;
 
   /**
@@ -20,7 +25,7 @@ export class BulkDeleteAppsDatastoreItemsRequestDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,9 +36,9 @@ export class BulkDeleteAppsDatastoreItemsRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    itemKeys: {
-      baseName: "item_keys",
-      type: "Array<string>",
+    "itemKeys": {
+      "baseName": "item_keys",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,8 +50,34 @@ export class BulkDeleteAppsDatastoreItemsRequestDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return BulkDeleteAppsDatastoreItemsRequestDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

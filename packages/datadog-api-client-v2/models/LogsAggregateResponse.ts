@@ -6,19 +6,24 @@
 import { LogsAggregateResponseData } from "./LogsAggregateResponseData";
 import { LogsResponseMetadata } from "./LogsResponseMetadata";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The response object for the logs aggregate API endpoint
- */
+*/
 export class LogsAggregateResponse {
   /**
    * The query results
-   */
+  */
   "data"?: LogsAggregateResponseData;
   /**
    * The metadata associated with a request
-   */
+  */
   "meta"?: LogsResponseMetadata;
 
   /**
@@ -26,7 +31,7 @@ export class LogsAggregateResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class LogsAggregateResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "LogsAggregateResponseData",
+    "data": {
+      "baseName": "data",
+      "type": "LogsAggregateResponseData",
     },
-    meta: {
-      baseName: "meta",
-      type: "LogsResponseMetadata",
+    "meta": {
+      "baseName": "meta",
+      "type": "LogsResponseMetadata",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class LogsAggregateResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogsAggregateResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

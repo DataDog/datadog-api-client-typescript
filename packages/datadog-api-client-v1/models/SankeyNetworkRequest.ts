@@ -6,19 +6,24 @@
 import { SankeyNetworkQuery } from "./SankeyNetworkQuery";
 import { SankeyNetworkRequestType } from "./SankeyNetworkRequestType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Sankey widget request for network data source.
- */
+*/
 export class SankeyNetworkRequest {
   /**
    * Query configuration for Sankey network widget.
-   */
+  */
   "query": SankeyNetworkQuery;
   /**
    * Type of request for network Sankey widget.
-   */
+  */
   "requestType": SankeyNetworkRequestType;
 
   /**
@@ -30,24 +35,50 @@ export class SankeyNetworkRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    query: {
-      baseName: "query",
-      type: "SankeyNetworkQuery",
-      required: true,
+    "query": {
+      "baseName": "query",
+      "type": "SankeyNetworkQuery",
+      "required": true,
     },
-    requestType: {
-      baseName: "request_type",
-      type: "SankeyNetworkRequestType",
-      required: true,
-    },
+    "requestType": {
+      "baseName": "request_type",
+      "type": "SankeyNetworkRequestType",
+      "required": true,
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SankeyNetworkRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

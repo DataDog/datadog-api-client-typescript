@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The metadata associated with a request.
- */
+*/
 export class Event {
   /**
    * Event ID.
-   */
+  */
   "id"?: string;
   /**
    * The event name.
-   */
+  */
   "name"?: string;
   /**
    * Event source ID.
-   */
+  */
   "sourceId"?: number;
   /**
    * Event type.
-   */
+  */
   "type"?: string;
 
   /**
@@ -32,7 +37,7 @@ export class Event {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,22 +48,22 @@ export class Event {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    sourceId: {
-      baseName: "source_id",
-      type: "number",
-      format: "int64",
+    "sourceId": {
+      "baseName": "source_id",
+      "type": "number",
+      "format": "int64",
     },
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -70,8 +75,34 @@ export class Event {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return Event.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

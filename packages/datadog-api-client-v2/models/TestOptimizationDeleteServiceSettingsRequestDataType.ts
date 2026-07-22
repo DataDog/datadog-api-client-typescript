@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * JSON:API type for delete service settings request.
  * The value must always be `test_optimization_delete_service_settings_request`.
- */
+*/
 
-export type TestOptimizationDeleteServiceSettingsRequestDataType =
-  | typeof TEST_OPTIMIZATION_DELETE_SERVICE_SETTINGS_REQUEST
-  | UnparsedObject;
-export const TEST_OPTIMIZATION_DELETE_SERVICE_SETTINGS_REQUEST =
-  "test_optimization_delete_service_settings_request";
+export type TestOptimizationDeleteServiceSettingsRequestDataType = typeof TEST_OPTIMIZATION_DELETE_SERVICE_SETTINGS_REQUEST | UnparsedObject;
+export const TEST_OPTIMIZATION_DELETE_SERVICE_SETTINGS_REQUEST = 'test_optimization_delete_service_settings_request';

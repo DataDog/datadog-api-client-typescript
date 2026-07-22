@@ -6,23 +6,28 @@
 import { ApmRetentionFilterType } from "./ApmRetentionFilterType";
 import { RetentionFilterUpdateAttributes } from "./RetentionFilterUpdateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The body of the retention filter to be updated.
- */
+*/
 export class RetentionFilterUpdateData {
   /**
    * The object describing the configuration of the retention filter to create/update.
-   */
+  */
   "attributes": RetentionFilterUpdateAttributes;
   /**
    * The ID of the retention filter.
-   */
+  */
   "id": string;
   /**
    * The type of the resource.
-   */
+  */
   "type": ApmRetentionFilterType;
 
   /**
@@ -30,7 +35,7 @@ export class RetentionFilterUpdateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class RetentionFilterUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RetentionFilterUpdateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "RetentionFilterUpdateAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ApmRetentionFilterType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ApmRetentionFilterType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class RetentionFilterUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RetentionFilterUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `AnnotationMarkdownTextAnnotation` object.
- */
+*/
 export class AnnotationMarkdownTextAnnotation {
   /**
    * The `markdownTextAnnotation` `text`.
-   */
+  */
   "text"?: string;
 
   /**
@@ -20,7 +25,7 @@ export class AnnotationMarkdownTextAnnotation {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,9 +36,9 @@ export class AnnotationMarkdownTextAnnotation {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    text: {
-      baseName: "text",
-      type: "string",
+    "text": {
+      "baseName": "text",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,8 +50,34 @@ export class AnnotationMarkdownTextAnnotation {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AnnotationMarkdownTextAnnotation.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

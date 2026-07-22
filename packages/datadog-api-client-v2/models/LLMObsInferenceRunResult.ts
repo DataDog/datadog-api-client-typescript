@@ -7,51 +7,56 @@ import { LLMObsInferenceCode } from "./LLMObsInferenceCode";
 import { LLMObsInferenceTool } from "./LLMObsInferenceTool";
 import { LLMObsInternalReasoning } from "./LLMObsInternalReasoning";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The output of a completed LLM inference call.
- */
+*/
 export class LLMObsInferenceRunResult {
   /**
    * An optional assessment of the inference output quality.
-   */
-  "assessment": string | null;
+  */
+  "assessment": string|null;
   /**
    * The text content of the model response.
-   */
+  */
   "content": string;
   /**
    * The reason the model stopped generating tokens.
-   */
+  */
   "finishReason": string;
   /**
    * List of generated code snippets for the inference configuration.
-   */
+  */
   "inferenceCodes": Array<LLMObsInferenceCode>;
   /**
    * Number of input tokens consumed.
-   */
+  */
   "inputTokens": number;
   /**
    * The model's internal reasoning or thinking output, if available.
-   */
+  */
   "internalReasoning"?: LLMObsInternalReasoning;
   /**
    * Request latency in milliseconds.
-   */
+  */
   "latency": number;
   /**
    * Number of output tokens generated.
-   */
+  */
   "outputTokens": number;
   /**
    * List of tools available to the model.
-   */
+  */
   "tools": Array<LLMObsInferenceTool>;
   /**
    * Total tokens used (input plus output).
-   */
+  */
   "totalTokens": number;
 
   /**
@@ -59,7 +64,7 @@ export class LLMObsInferenceRunResult {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -70,58 +75,58 @@ export class LLMObsInferenceRunResult {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    assessment: {
-      baseName: "assessment",
-      type: "string",
-      required: true,
+    "assessment": {
+      "baseName": "assessment",
+      "type": "string",
+      "required": true,
     },
-    content: {
-      baseName: "content",
-      type: "string",
-      required: true,
+    "content": {
+      "baseName": "content",
+      "type": "string",
+      "required": true,
     },
-    finishReason: {
-      baseName: "finish_reason",
-      type: "string",
-      required: true,
+    "finishReason": {
+      "baseName": "finish_reason",
+      "type": "string",
+      "required": true,
     },
-    inferenceCodes: {
-      baseName: "inference_codes",
-      type: "Array<LLMObsInferenceCode>",
-      required: true,
+    "inferenceCodes": {
+      "baseName": "inference_codes",
+      "type": "Array<LLMObsInferenceCode>",
+      "required": true,
     },
-    inputTokens: {
-      baseName: "input_tokens",
-      type: "number",
-      required: true,
-      format: "int64",
+    "inputTokens": {
+      "baseName": "input_tokens",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    internalReasoning: {
-      baseName: "internal_reasoning",
-      type: "LLMObsInternalReasoning",
+    "internalReasoning": {
+      "baseName": "internal_reasoning",
+      "type": "LLMObsInternalReasoning",
     },
-    latency: {
-      baseName: "latency",
-      type: "number",
-      required: true,
-      format: "int64",
+    "latency": {
+      "baseName": "latency",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    outputTokens: {
-      baseName: "output_tokens",
-      type: "number",
-      required: true,
-      format: "int64",
+    "outputTokens": {
+      "baseName": "output_tokens",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    tools: {
-      baseName: "tools",
-      type: "Array<LLMObsInferenceTool>",
-      required: true,
+    "tools": {
+      "baseName": "tools",
+      "type": "Array<LLMObsInferenceTool>",
+      "required": true,
     },
-    totalTokens: {
-      baseName: "total_tokens",
-      type: "number",
-      required: true,
-      format: "int64",
+    "totalTokens": {
+      "baseName": "total_tokens",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -133,8 +138,34 @@ export class LLMObsInferenceRunResult {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsInferenceRunResult.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

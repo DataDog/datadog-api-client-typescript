@@ -4,17 +4,22 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * X Axis controls for the heat map widget.
- */
+*/
 export class HeatMapWidgetXAxis {
   /**
    * Number of time buckets to target, also known as the resolution
    * of the time bins. This is only applicable for distribution of
    * points (group distributions use the roll-up modifier).
-   */
+  */
   "numBuckets"?: number;
 
   /**
@@ -22,7 +27,7 @@ export class HeatMapWidgetXAxis {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -33,10 +38,10 @@ export class HeatMapWidgetXAxis {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    numBuckets: {
-      baseName: "num_buckets",
-      type: "number",
-      format: "int64",
+    "numBuckets": {
+      "baseName": "num_buckets",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -48,8 +53,34 @@ export class HeatMapWidgetXAxis {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return HeatMapWidgetXAxis.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

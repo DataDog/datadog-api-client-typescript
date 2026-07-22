@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of trigger for the investigation.
- */
+*/
 
 export type TriggerType = typeof MONITOR_ALERT_TRIGGER | UnparsedObject;
-export const MONITOR_ALERT_TRIGGER = "monitor_alert_trigger";
+export const MONITOR_ALERT_TRIGGER = 'monitor_alert_trigger';

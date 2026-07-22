@@ -5,19 +5,24 @@
  */
 import { HistoricalJobDataType } from "./HistoricalJobDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `JobCreateResponseData` object.
- */
+*/
 export class JobCreateResponseData {
   /**
    * ID of the created job.
-   */
+  */
   "id"?: string;
   /**
    * Type of payload.
-   */
+  */
   "type"?: HistoricalJobDataType;
 
   /**
@@ -25,7 +30,7 @@ export class JobCreateResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class JobCreateResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "HistoricalJobDataType",
+    "type": {
+      "baseName": "type",
+      "type": "HistoricalJobDataType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class JobCreateResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return JobCreateResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,23 +6,28 @@
 import { HamrOrgConnectionAttributesRequest } from "./HamrOrgConnectionAttributesRequest";
 import { HamrOrgConnectionType } from "./HamrOrgConnectionType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for a HAMR organization connection request.
- */
+*/
 export class HamrOrgConnectionDataRequest {
   /**
    * Attributes for a HAMR organization connection request.
-   */
+  */
   "attributes": HamrOrgConnectionAttributesRequest;
   /**
    * The organization UUID for this HAMR connection. Must match the authenticated organization's UUID.
-   */
+  */
   "id": string;
   /**
    * Type of the HAMR organization connection resource.
-   */
+  */
   "type": HamrOrgConnectionType;
 
   /**
@@ -30,7 +35,7 @@ export class HamrOrgConnectionDataRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class HamrOrgConnectionDataRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "HamrOrgConnectionAttributesRequest",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "HamrOrgConnectionAttributesRequest",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "HamrOrgConnectionType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "HamrOrgConnectionType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class HamrOrgConnectionDataRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return HamrOrgConnectionDataRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

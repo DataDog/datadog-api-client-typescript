@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Integration resource type.
- */
+*/
 
 export type IntegrationType = typeof INTEGRATION | UnparsedObject;
-export const INTEGRATION = "integration";
+export const INTEGRATION = 'integration';

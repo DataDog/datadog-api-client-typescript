@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems` object.
- */
+*/
 export class ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems {
   /**
    * The `items` `key`.
-   */
+  */
   "key": string;
   /**
    * The `items` `value`.
-   */
+  */
   "value": string;
 
   /**
@@ -24,7 +29,7 @@ export class ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocate
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,15 +40,15 @@ export class ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocate
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    key: {
-      baseName: "key",
-      type: "string",
-      required: true,
+    "key": {
+      "baseName": "key",
+      "type": "string",
+      "required": true,
     },
-    value: {
-      baseName: "value",
-      type: "string",
-      required: true,
+    "value": {
+      "baseName": "value",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocate
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

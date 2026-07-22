@@ -6,23 +6,28 @@
 import { AttachCaseRequestDataRelationships } from "./AttachCaseRequestDataRelationships";
 import { CaseDataType } from "./CaseDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data of the case to attach security findings to.
- */
+*/
 export class AttachCaseRequestData {
   /**
    * Unique identifier of the case.
-   */
+  */
   "id": string;
   /**
    * Relationships of the case to attach security findings to.
-   */
+  */
   "relationships"?: AttachCaseRequestDataRelationships;
   /**
    * Cases resource type.
-   */
+  */
   "type": CaseDataType;
 
   /**
@@ -30,7 +35,7 @@ export class AttachCaseRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class AttachCaseRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "AttachCaseRequestDataRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "AttachCaseRequestDataRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "CaseDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CaseDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class AttachCaseRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AttachCaseRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

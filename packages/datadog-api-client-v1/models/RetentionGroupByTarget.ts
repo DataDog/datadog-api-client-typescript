@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Target for retention group by.
- */
+*/
 
-export type RetentionGroupByTarget =
-  | typeof COHORT
-  | typeof RETURN_PERIOD
-  | UnparsedObject;
-export const COHORT = "cohort";
-export const RETURN_PERIOD = "return_period";
+export type RetentionGroupByTarget = typeof COHORT| typeof RETURN_PERIOD | UnparsedObject;
+export const COHORT = 'cohort';
+export const RETURN_PERIOD = 'return_period';

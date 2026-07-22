@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A configuration file for an integration.
- */
+*/
 export class FleetConfigurationFile {
   /**
    * The raw content of the configuration file.
-   */
+  */
   "fileContent"?: string;
   /**
    * Path to the configuration file.
-   */
+  */
   "filePath"?: string;
   /**
    * Name of the configuration file.
-   */
+  */
   "filename"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class FleetConfigurationFile {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class FleetConfigurationFile {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    fileContent: {
-      baseName: "file_content",
-      type: "string",
+    "fileContent": {
+      "baseName": "file_content",
+      "type": "string",
     },
-    filePath: {
-      baseName: "file_path",
-      type: "string",
+    "filePath": {
+      "baseName": "file_path",
+      "type": "string",
     },
-    filename: {
-      baseName: "filename",
-      type: "string",
+    "filename": {
+      "baseName": "filename",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class FleetConfigurationFile {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FleetConfigurationFile.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

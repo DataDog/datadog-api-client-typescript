@@ -5,15 +5,20 @@
  */
 import { MetricVolumesRelationshipData } from "./MetricVolumesRelationshipData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationship to a metric volume included in the response.
- */
+*/
 export class MetricVolumesRelationship {
   /**
    * Relationship data for a metric volume.
-   */
+  */
   "data"?: MetricVolumesRelationshipData;
 
   /**
@@ -21,7 +26,7 @@ export class MetricVolumesRelationship {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class MetricVolumesRelationship {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "MetricVolumesRelationshipData",
+    "data": {
+      "baseName": "data",
+      "type": "MetricVolumesRelationshipData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class MetricVolumesRelationship {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricVolumesRelationship.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,13 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The inputs to the action query. These are the values that are passed to the action when it is triggered.
- */
+*/
 
-export type ActionQuerySpecInputs =
-  | string
-  | { [key: string]: any }
-  | UnparsedObject;
+export type ActionQuerySpecInputs = string | { [key: string]: any; } | UnparsedObject;

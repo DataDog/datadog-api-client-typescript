@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Notification templates resource type.
- */
+*/
 
-export type IncidentNotificationTemplateType =
-  | typeof NOTIFICATION_TEMPLATES
-  | UnparsedObject;
-export const NOTIFICATION_TEMPLATES = "notification_templates";
+export type IncidentNotificationTemplateType = typeof NOTIFICATION_TEMPLATES | UnparsedObject;
+export const NOTIFICATION_TEMPLATES = 'notification_templates';

@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metadata associated with a RUM SDK configuration.
- */
+*/
 export class RumSdkConfigMeta {
   /**
    * The timestamp of the last update to this configuration.
-   */
+  */
   "updatedAt": Date;
   /**
    * The handle of the user who last updated this configuration.
-   */
+  */
   "updatedBy": string;
 
   /**
@@ -24,7 +29,7 @@ export class RumSdkConfigMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,16 +40,16 @@ export class RumSdkConfigMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    updatedAt: {
-      baseName: "updated_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "updatedAt": {
+      "baseName": "updated_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    updatedBy: {
-      baseName: "updated_by",
-      type: "string",
-      required: true,
+    "updatedBy": {
+      "baseName": "updated_by",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class RumSdkConfigMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RumSdkConfigMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

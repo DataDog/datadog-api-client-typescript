@@ -6,27 +6,32 @@
 import { ProductAnalyticsInterval } from "./ProductAnalyticsInterval";
 import { ProductAnalyticsSerie } from "./ProductAnalyticsSerie";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a timeseries analytics response, containing series data, timestamps, and interval definitions.
- */
+*/
 export class ProductAnalyticsTimeseriesResponseAttributes {
   /**
    * Interval definitions describing the time buckets used in the response.
-   */
+  */
   "intervals"?: Array<ProductAnalyticsInterval>;
   /**
    * The list of series, each corresponding to a query or group-by combination.
-   */
+  */
   "series"?: Array<ProductAnalyticsSerie>;
   /**
    * Timestamps for each data point (epoch milliseconds).
-   */
+  */
   "times"?: Array<number>;
   /**
    * Values for each series at each time point.
-   */
+  */
   "values"?: Array<Array<number | null>>;
 
   /**
@@ -34,7 +39,7 @@ export class ProductAnalyticsTimeseriesResponseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -45,21 +50,21 @@ export class ProductAnalyticsTimeseriesResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    intervals: {
-      baseName: "intervals",
-      type: "Array<ProductAnalyticsInterval>",
+    "intervals": {
+      "baseName": "intervals",
+      "type": "Array<ProductAnalyticsInterval>",
     },
-    series: {
-      baseName: "series",
-      type: "Array<ProductAnalyticsSerie>",
+    "series": {
+      "baseName": "series",
+      "type": "Array<ProductAnalyticsSerie>",
     },
-    times: {
-      baseName: "times",
-      type: "Array<number>",
+    "times": {
+      "baseName": "times",
+      "type": "Array<number>",
     },
-    values: {
-      baseName: "values",
-      type: "Array<Array<number>>",
+    "values": {
+      "baseName": "values",
+      "type": "Array<Array<number>>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,8 +76,34 @@ export class ProductAnalyticsTimeseriesResponseAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProductAnalyticsTimeseriesResponseAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

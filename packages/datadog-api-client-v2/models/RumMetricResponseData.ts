@@ -6,23 +6,28 @@
 import { RumMetricResponseAttributes } from "./RumMetricResponseAttributes";
 import { RumMetricType } from "./RumMetricType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The RUM-based metric properties.
- */
+*/
 export class RumMetricResponseData {
   /**
    * The object describing a Datadog RUM-based metric.
-   */
+  */
   "attributes"?: RumMetricResponseAttributes;
   /**
    * The name of the RUM-based metric.
-   */
+  */
   "id"?: string;
   /**
    * The type of the resource. The value should always be rum_metrics.
-   */
+  */
   "type"?: RumMetricType;
 
   /**
@@ -30,7 +35,7 @@ export class RumMetricResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class RumMetricResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RumMetricResponseAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "RumMetricResponseAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "RumMetricType",
+    "type": {
+      "baseName": "type",
+      "type": "RumMetricType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class RumMetricResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RumMetricResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

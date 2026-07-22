@@ -6,23 +6,28 @@
 import { PrintReportResponseAttributes } from "./PrintReportResponseAttributes";
 import { PrintReportType } from "./PrintReportType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The JSON:API data object for a print-only report.
- */
+*/
 export class PrintReportResponseData {
   /**
    * The configuration and download URL for the initiated print-only report.
-   */
+  */
   "attributes": PrintReportResponseAttributes;
   /**
    * The unique identifier of the report.
-   */
+  */
   "id": string;
   /**
    * JSON:API resource type for a print-only report.
-   */
+  */
   "type": PrintReportType;
 
   /**
@@ -30,7 +35,7 @@ export class PrintReportResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,21 +46,21 @@ export class PrintReportResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "PrintReportResponseAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "PrintReportResponseAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    type: {
-      baseName: "type",
-      type: "PrintReportType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "PrintReportType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class PrintReportResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PrintReportResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

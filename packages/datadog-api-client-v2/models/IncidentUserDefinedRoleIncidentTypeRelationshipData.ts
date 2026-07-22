@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for the incident type relationship of a user-defined role.
- */
+*/
 export class IncidentUserDefinedRoleIncidentTypeRelationshipData {
   /**
    * The ID of the incident type.
-   */
+  */
   "id": string;
   /**
    * The type of the resource.
-   */
+  */
   "type": string;
 
   /**
@@ -24,7 +29,7 @@ export class IncidentUserDefinedRoleIncidentTypeRelationshipData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,16 +40,16 @@ export class IncidentUserDefinedRoleIncidentTypeRelationshipData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    type: {
-      baseName: "type",
-      type: "string",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class IncidentUserDefinedRoleIncidentTypeRelationshipData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentUserDefinedRoleIncidentTypeRelationshipData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

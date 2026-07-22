@@ -6,19 +6,24 @@
 import { GlobalVariableJsonPatchRequestDataAttributes } from "./GlobalVariableJsonPatchRequestDataAttributes";
 import { GlobalVariableJsonPatchType } from "./GlobalVariableJsonPatchType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for a JSON Patch request on a Synthetic global variable.
- */
+*/
 export class GlobalVariableJsonPatchRequestData {
   /**
    * Attributes for a JSON Patch request on a Synthetic global variable.
-   */
+  */
   "attributes"?: GlobalVariableJsonPatchRequestDataAttributes;
   /**
    * Global variable JSON Patch type.
-   */
+  */
   "type"?: GlobalVariableJsonPatchType;
 
   /**
@@ -26,7 +31,7 @@ export class GlobalVariableJsonPatchRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class GlobalVariableJsonPatchRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "GlobalVariableJsonPatchRequestDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "GlobalVariableJsonPatchRequestDataAttributes",
     },
-    type: {
-      baseName: "type",
-      type: "GlobalVariableJsonPatchType",
+    "type": {
+      "baseName": "type",
+      "type": "GlobalVariableJsonPatchType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class GlobalVariableJsonPatchRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GlobalVariableJsonPatchRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

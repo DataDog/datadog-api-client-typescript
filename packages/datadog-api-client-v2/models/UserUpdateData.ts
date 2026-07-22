@@ -6,23 +6,28 @@
 import { UsersType } from "./UsersType";
 import { UserUpdateAttributes } from "./UserUpdateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object to update a user.
- */
+*/
 export class UserUpdateData {
   /**
    * Attributes of the edited user.
-   */
+  */
   "attributes": UserUpdateAttributes;
   /**
    * ID of the user.
-   */
+  */
   "id": string;
   /**
    * Users resource type.
-   */
+  */
   "type": UsersType;
 
   /**
@@ -30,7 +35,7 @@ export class UserUpdateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class UserUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "UserUpdateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "UserUpdateAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "UsersType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "UsersType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class UserUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UserUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

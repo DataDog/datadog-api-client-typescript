@@ -5,15 +5,20 @@
  */
 import { UpdateFlakyTestsRequestTest } from "./UpdateFlakyTestsRequestTest";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for updating flaky test states.
- */
+*/
 export class UpdateFlakyTestsRequestAttributes {
   /**
    * List of flaky tests to update.
-   */
+  */
   "tests": Array<UpdateFlakyTestsRequestTest>;
 
   /**
@@ -21,7 +26,7 @@ export class UpdateFlakyTestsRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class UpdateFlakyTestsRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    tests: {
-      baseName: "tests",
-      type: "Array<UpdateFlakyTestsRequestTest>",
-      required: true,
+    "tests": {
+      "baseName": "tests",
+      "type": "Array<UpdateFlakyTestsRequestTest>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class UpdateFlakyTestsRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateFlakyTestsRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

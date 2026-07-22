@@ -5,29 +5,34 @@
  */
 import { CustomDestinationResponseForwardDestinationSplunkType } from "./CustomDestinationResponseForwardDestinationSplunkType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The Splunk HTTP Event Collector (HEC) destination.
- */
+*/
 export class CustomDestinationResponseForwardDestinationSplunk {
   /**
    * The destination for which logs will be forwarded to.
    * Must have HTTPS scheme and forwarding back to Datadog is not allowed.
-   */
+  */
   "endpoint": string;
   /**
    * The Splunk sourcetype for the events sent to this Splunk destination.
-   *
+   * 
    * If the field is absent from the request and no sourcetype has been previously set on this destination, the default sourcetype `_json` is used.
    * On update, if the field is absent from the request but a sourcetype was previously set, the previous value is kept.
    * If set to `null`, the sourcetype field is omitted from the forwarded event entirely.
    * Otherwise, the provided string value is used as the sourcetype.
-   */
+  */
   "sourcetype"?: string;
   /**
    * Type of the Splunk HTTP Event Collector (HEC) destination.
-   */
+  */
   "type": CustomDestinationResponseForwardDestinationSplunkType;
 
   /**
@@ -35,7 +40,7 @@ export class CustomDestinationResponseForwardDestinationSplunk {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,19 +51,19 @@ export class CustomDestinationResponseForwardDestinationSplunk {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    endpoint: {
-      baseName: "endpoint",
-      type: "string",
-      required: true,
+    "endpoint": {
+      "baseName": "endpoint",
+      "type": "string",
+      "required": true,
     },
-    sourcetype: {
-      baseName: "sourcetype",
-      type: "string",
+    "sourcetype": {
+      "baseName": "sourcetype",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "CustomDestinationResponseForwardDestinationSplunkType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CustomDestinationResponseForwardDestinationSplunkType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -70,8 +75,34 @@ export class CustomDestinationResponseForwardDestinationSplunk {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomDestinationResponseForwardDestinationSplunk.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

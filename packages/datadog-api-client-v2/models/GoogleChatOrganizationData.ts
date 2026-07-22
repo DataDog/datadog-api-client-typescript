@@ -7,27 +7,32 @@ import { GoogleChatOrganizationAttributes } from "./GoogleChatOrganizationAttrib
 import { GoogleChatOrganizationRelationships } from "./GoogleChatOrganizationRelationships";
 import { GoogleChatOrganizationType } from "./GoogleChatOrganizationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Google Chat organization data from a response.
- */
+*/
 export class GoogleChatOrganizationData {
   /**
    * Google Chat organization attributes.
-   */
+  */
   "attributes"?: GoogleChatOrganizationAttributes;
   /**
    * The ID of the Google Chat organization binding.
-   */
+  */
   "id"?: string;
   /**
    * Google Chat organization relationships.
-   */
+  */
   "relationships"?: GoogleChatOrganizationRelationships;
   /**
    * Google Chat organization resource type.
-   */
+  */
   "type"?: GoogleChatOrganizationType;
 
   /**
@@ -35,7 +40,7 @@ export class GoogleChatOrganizationData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,21 +51,21 @@ export class GoogleChatOrganizationData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "GoogleChatOrganizationAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "GoogleChatOrganizationAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "GoogleChatOrganizationRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "GoogleChatOrganizationRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "GoogleChatOrganizationType",
+    "type": {
+      "baseName": "type",
+      "type": "GoogleChatOrganizationType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -72,8 +77,34 @@ export class GoogleChatOrganizationData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GoogleChatOrganizationData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of resource for a dataset version history response.
- */
+*/
 
-export type SecurityMonitoringDatasetVersionHistoryType =
-  | typeof DATASET_VERSION_HISTORY
-  | UnparsedObject;
-export const DATASET_VERSION_HISTORY = "dataset_version_history";
+export type SecurityMonitoringDatasetVersionHistoryType = typeof DATASET_VERSION_HISTORY | UnparsedObject;
+export const DATASET_VERSION_HISTORY = 'dataset_version_history';

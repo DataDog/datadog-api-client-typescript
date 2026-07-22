@@ -7,23 +7,28 @@ import { DegradationIncluded } from "./DegradationIncluded";
 import { MaintenanceData } from "./MaintenanceData";
 import { PaginationMeta } from "./PaginationMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object for a list of maintenances.
- */
+*/
 export class MaintenanceArray {
   /**
    * A list of maintenance data objects.
-   */
+  */
   "data": Array<MaintenanceData>;
   /**
    * The included related resources of a maintenance. Client must explicitly request these resources by name in the `include` query parameter.
-   */
+  */
   "included"?: Array<DegradationIncluded>;
   /**
    * Response metadata.
-   */
+  */
   "meta"?: PaginationMeta;
 
   /**
@@ -31,7 +36,7 @@ export class MaintenanceArray {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,18 +47,18 @@ export class MaintenanceArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<MaintenanceData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<MaintenanceData>",
+      "required": true,
     },
-    included: {
-      baseName: "included",
-      type: "Array<DegradationIncluded>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<DegradationIncluded>",
     },
-    meta: {
-      baseName: "meta",
-      type: "PaginationMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "PaginationMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class MaintenanceArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MaintenanceArray.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

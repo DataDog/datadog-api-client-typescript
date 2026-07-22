@@ -5,15 +5,20 @@
  */
 import { ObservabilityPipelineHttpClientDestinationCompressionAlgorithm } from "./ObservabilityPipelineHttpClientDestinationCompressionAlgorithm";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Compression configuration for HTTP requests.
- */
+*/
 export class ObservabilityPipelineHttpClientDestinationCompression {
   /**
    * Compression algorithm.
-   */
+  */
   "algorithm": ObservabilityPipelineHttpClientDestinationCompressionAlgorithm;
 
   /**
@@ -21,7 +26,7 @@ export class ObservabilityPipelineHttpClientDestinationCompression {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class ObservabilityPipelineHttpClientDestinationCompression {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    algorithm: {
-      baseName: "algorithm",
-      type: "ObservabilityPipelineHttpClientDestinationCompressionAlgorithm",
-      required: true,
+    "algorithm": {
+      "baseName": "algorithm",
+      "type": "ObservabilityPipelineHttpClientDestinationCompressionAlgorithm",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class ObservabilityPipelineHttpClientDestinationCompression {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineHttpClientDestinationCompression.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

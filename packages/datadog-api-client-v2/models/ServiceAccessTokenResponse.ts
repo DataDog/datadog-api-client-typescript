@@ -5,15 +5,20 @@
  */
 import { ServiceAccessToken } from "./ServiceAccessToken";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response for retrieving an access token.
- */
+*/
 export class ServiceAccessTokenResponse {
   /**
    * Datadog access token.
-   */
+  */
   "data"?: ServiceAccessToken;
 
   /**
@@ -21,7 +26,7 @@ export class ServiceAccessTokenResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class ServiceAccessTokenResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ServiceAccessToken",
+    "data": {
+      "baseName": "data",
+      "type": "ServiceAccessToken",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class ServiceAccessTokenResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceAccessTokenResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

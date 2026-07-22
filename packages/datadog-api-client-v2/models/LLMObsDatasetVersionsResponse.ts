@@ -5,15 +5,20 @@
  */
 import { LLMObsDatasetVersionData } from "./LLMObsDatasetVersionData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing the active versions of an LLM Observability dataset.
- */
+*/
 export class LLMObsDatasetVersionsResponse {
   /**
    * List of dataset versions.
-   */
+  */
   "data": Array<LLMObsDatasetVersionData>;
 
   /**
@@ -21,7 +26,7 @@ export class LLMObsDatasetVersionsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class LLMObsDatasetVersionsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<LLMObsDatasetVersionData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<LLMObsDatasetVersionData>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class LLMObsDatasetVersionsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDatasetVersionsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

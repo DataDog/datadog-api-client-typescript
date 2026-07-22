@@ -5,19 +5,24 @@
  */
 import { CustomDestinationResponseHttpDestinationAuthCustomHeaderType } from "./CustomDestinationResponseHttpDestinationAuthCustomHeaderType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Custom header access authentication.
- */
+*/
 export class CustomDestinationResponseHttpDestinationAuthCustomHeader {
   /**
    * The header name of the authentication.
-   */
+  */
   "headerName": string;
   /**
    * Type of the custom header access authentication.
-   */
+  */
   "type": CustomDestinationResponseHttpDestinationAuthCustomHeaderType;
 
   /**
@@ -25,7 +30,7 @@ export class CustomDestinationResponseHttpDestinationAuthCustomHeader {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class CustomDestinationResponseHttpDestinationAuthCustomHeader {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    headerName: {
-      baseName: "header_name",
-      type: "string",
-      required: true,
+    "headerName": {
+      "baseName": "header_name",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CustomDestinationResponseHttpDestinationAuthCustomHeaderType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CustomDestinationResponseHttpDestinationAuthCustomHeaderType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class CustomDestinationResponseHttpDestinationAuthCustomHeader {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomDestinationResponseHttpDestinationAuthCustomHeader.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

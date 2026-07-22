@@ -5,27 +5,32 @@
  */
 import { SyntheticsAssertionTargetValue } from "./SyntheticsAssertionTargetValue";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Composed target for `validatesJSONPath` operator.
- */
+*/
 export class SyntheticsAssertionJSONPathTargetTarget {
   /**
    * The element from the list of results to assert on.  To choose from the first element in the list `firstElementMatches`, every element in the list `everyElementMatches`, at least one element in the list `atLeastOneElementMatches` or the serialized value of the list `serializationMatches`.
-   */
+  */
   "elementsOperator"?: string;
   /**
    * The JSON path to assert.
-   */
+  */
   "jsonPath"?: string;
   /**
    * The specific operator to use on the path.
-   */
+  */
   "operator"?: string;
   /**
    * Value used by the operator in assertions. Can be either a number or string.
-   */
+  */
   "targetValue"?: SyntheticsAssertionTargetValue;
 
   /**
@@ -33,7 +38,7 @@ export class SyntheticsAssertionJSONPathTargetTarget {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -44,21 +49,21 @@ export class SyntheticsAssertionJSONPathTargetTarget {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    elementsOperator: {
-      baseName: "elementsOperator",
-      type: "string",
+    "elementsOperator": {
+      "baseName": "elementsOperator",
+      "type": "string",
     },
-    jsonPath: {
-      baseName: "jsonPath",
-      type: "string",
+    "jsonPath": {
+      "baseName": "jsonPath",
+      "type": "string",
     },
-    operator: {
-      baseName: "operator",
-      type: "string",
+    "operator": {
+      "baseName": "operator",
+      "type": "string",
     },
-    targetValue: {
-      baseName: "targetValue",
-      type: "SyntheticsAssertionTargetValue",
+    "targetValue": {
+      "baseName": "targetValue",
+      "type": "SyntheticsAssertionTargetValue",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -70,8 +75,34 @@ export class SyntheticsAssertionJSONPathTargetTarget {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsAssertionJSONPathTargetTarget.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Progress information for a single step of a patterns run.
- */
+*/
 export class LLMObsPatternsActivityProgress {
   /**
    * Name of the step.
-   */
+  */
   "name": string;
   /**
    * Timestamp when the step started. Null if the step has not started.
-   */
+  */
   "startedAt"?: Date;
   /**
    * Status of the step.
-   */
+  */
   "status": string;
 
   /**
@@ -28,7 +33,7 @@ export class LLMObsPatternsActivityProgress {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,20 +44,20 @@ export class LLMObsPatternsActivityProgress {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    startedAt: {
-      baseName: "started_at",
-      type: "Date",
-      format: "date-time",
+    "startedAt": {
+      "baseName": "started_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    status: {
-      baseName: "status",
-      type: "string",
-      required: true,
+    "status": {
+      "baseName": "status",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class LLMObsPatternsActivityProgress {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsPatternsActivityProgress.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

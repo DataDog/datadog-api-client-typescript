@@ -5,15 +5,20 @@
  */
 import { IncidentNotificationRuleCreateData } from "./IncidentNotificationRuleCreateData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Create request for a notification rule.
- */
+*/
 export class CreateIncidentNotificationRuleRequest {
   /**
    * Notification rule data for a create request.
-   */
+  */
   "data": IncidentNotificationRuleCreateData;
 
   /**
@@ -21,7 +26,7 @@ export class CreateIncidentNotificationRuleRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CreateIncidentNotificationRuleRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "IncidentNotificationRuleCreateData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "IncidentNotificationRuleCreateData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CreateIncidentNotificationRuleRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateIncidentNotificationRuleRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

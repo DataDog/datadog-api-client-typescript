@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Pagination metadata
- */
+*/
 export class CasesResponseMetaPagination {
   /**
    * Current page number
-   */
+  */
   "current"?: number;
   /**
    * Number of cases in current page
-   */
+  */
   "size"?: number;
   /**
    * Total number of pages
-   */
+  */
   "total"?: number;
 
   /**
@@ -28,7 +33,7 @@ export class CasesResponseMetaPagination {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,20 +44,20 @@ export class CasesResponseMetaPagination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    current: {
-      baseName: "current",
-      type: "number",
-      format: "int64",
+    "current": {
+      "baseName": "current",
+      "type": "number",
+      "format": "int64",
     },
-    size: {
-      baseName: "size",
-      type: "number",
-      format: "int64",
+    "size": {
+      "baseName": "size",
+      "type": "number",
+      "format": "int64",
     },
-    total: {
-      baseName: "total",
-      type: "number",
-      format: "int64",
+    "total": {
+      "baseName": "total",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class CasesResponseMetaPagination {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CasesResponseMetaPagination.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

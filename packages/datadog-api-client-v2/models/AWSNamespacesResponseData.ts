@@ -6,23 +6,28 @@
 import { AWSNamespacesResponseAttributes } from "./AWSNamespacesResponseAttributes";
 import { AWSNamespacesResponseDataType } from "./AWSNamespacesResponseDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * AWS Namespaces response data.
- */
+*/
 export class AWSNamespacesResponseData {
   /**
    * AWS Namespaces response attributes.
-   */
+  */
   "attributes"?: AWSNamespacesResponseAttributes;
   /**
    * The `AWSNamespacesResponseData` `id`.
-   */
+  */
   "id": string;
   /**
    * The `AWSNamespacesResponseData` `type`.
-   */
+  */
   "type": AWSNamespacesResponseDataType;
 
   /**
@@ -30,7 +35,7 @@ export class AWSNamespacesResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class AWSNamespacesResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AWSNamespacesResponseAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AWSNamespacesResponseAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "AWSNamespacesResponseDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AWSNamespacesResponseDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class AWSNamespacesResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSNamespacesResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of targeting rule (called allocation in the API model).
- */
+*/
 
-export type AllocationType =
-  | typeof FEATURE_GATE
-  | typeof CANARY
-  | UnparsedObject;
-export const FEATURE_GATE = "FEATURE_GATE";
-export const CANARY = "CANARY";
+export type AllocationType = typeof FEATURE_GATE| typeof CANARY | UnparsedObject;
+export const FEATURE_GATE = 'FEATURE_GATE';
+export const CANARY = 'CANARY';

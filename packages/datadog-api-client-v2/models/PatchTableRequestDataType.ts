@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Reference table resource type.
- */
+*/
 
 export type PatchTableRequestDataType = typeof REFERENCE_TABLE | UnparsedObject;
-export const REFERENCE_TABLE = "reference_table";
+export const REFERENCE_TABLE = 'reference_table';

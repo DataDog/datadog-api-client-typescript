@@ -6,26 +6,31 @@
 import { AWSCcmConfigResponseAttributes } from "./AWSCcmConfigResponseAttributes";
 import { AWSCcmConfigType } from "./AWSCcmConfigType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * AWS CCM Config response data.
- */
+*/
 export class AWSCcmConfigResponseData {
   /**
    * AWS CCM Config response attributes.
-   */
+  */
   "attributes"?: AWSCcmConfigResponseAttributes;
   /**
    * Unique Datadog ID of the AWS Account Integration Config.
    * To get the config ID for an account, use the
    * [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations)
    * endpoint and query by AWS Account ID.
-   */
+  */
   "id"?: string;
   /**
    * AWS CCM Config resource type.
-   */
+  */
   "type": AWSCcmConfigType;
 
   /**
@@ -33,7 +38,7 @@ export class AWSCcmConfigResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -44,18 +49,18 @@ export class AWSCcmConfigResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AWSCcmConfigResponseAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AWSCcmConfigResponseAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "AWSCcmConfigType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AWSCcmConfigType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class AWSCcmConfigResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSCcmConfigResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

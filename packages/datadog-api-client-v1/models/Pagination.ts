@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Pagination object.
- */
+*/
 export class Pagination {
   /**
    * Total count.
-   */
+  */
   "totalCount"?: number;
   /**
    * Total count of elements matched by the filter.
-   */
+  */
   "totalFilteredCount"?: number;
 
   /**
@@ -24,7 +29,7 @@ export class Pagination {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,15 +40,15 @@ export class Pagination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    totalCount: {
-      baseName: "total_count",
-      type: "number",
-      format: "int64",
+    "totalCount": {
+      "baseName": "total_count",
+      "type": "number",
+      "format": "int64",
     },
-    totalFilteredCount: {
-      baseName: "total_filtered_count",
-      type: "number",
-      format: "int64",
+    "totalFilteredCount": {
+      "baseName": "total_filtered_count",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class Pagination {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return Pagination.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An Opsgenie integration schema.
- */
+*/
 export class EntityV3DatadogIntegrationOpsgenie {
   /**
    * The region for the Opsgenie integration.
-   */
+  */
   "region"?: string;
   /**
    * The service URL for the Opsgenie integration.
-   */
+  */
   "serviceUrl": string;
 
   /**
@@ -28,23 +33,49 @@ export class EntityV3DatadogIntegrationOpsgenie {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    region: {
-      baseName: "region",
-      type: "string",
+    "region": {
+      "baseName": "region",
+      "type": "string",
     },
-    serviceUrl: {
-      baseName: "serviceURL",
-      type: "string",
-      required: true,
-    },
+    "serviceUrl": {
+      "baseName": "serviceURL",
+      "type": "string",
+      "required": true,
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EntityV3DatadogIntegrationOpsgenie.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

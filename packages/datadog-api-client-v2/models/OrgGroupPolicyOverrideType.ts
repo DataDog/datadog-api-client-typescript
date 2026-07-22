@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Org group policy overrides resource type.
- */
+*/
 
-export type OrgGroupPolicyOverrideType =
-  | typeof ORG_GROUP_POLICY_OVERRIDES
-  | UnparsedObject;
-export const ORG_GROUP_POLICY_OVERRIDES = "org_group_policy_overrides";
+export type OrgGroupPolicyOverrideType = typeof ORG_GROUP_POLICY_OVERRIDES | UnparsedObject;
+export const ORG_GROUP_POLICY_OVERRIDES = 'org_group_policy_overrides';

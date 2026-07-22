@@ -6,19 +6,24 @@
 import { RelationshipToTeamLinks } from "./RelationshipToTeamLinks";
 import { UsersRelationship } from "./UsersRelationship";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Project relationships.
- */
+*/
 export class ProjectRelationships {
   /**
    * Relationship between a team and a team link
-   */
+  */
   "memberTeam"?: RelationshipToTeamLinks;
   /**
    * Relationship to users.
-   */
+  */
   "memberUser"?: UsersRelationship;
 
   /**
@@ -26,7 +31,7 @@ export class ProjectRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class ProjectRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    memberTeam: {
-      baseName: "member_team",
-      type: "RelationshipToTeamLinks",
+    "memberTeam": {
+      "baseName": "member_team",
+      "type": "RelationshipToTeamLinks",
     },
-    memberUser: {
-      baseName: "member_user",
-      type: "UsersRelationship",
+    "memberUser": {
+      "baseName": "member_user",
+      "type": "UsersRelationship",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class ProjectRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProjectRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

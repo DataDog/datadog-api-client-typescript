@@ -5,15 +5,20 @@
  */
 import { SignalEntitiesData } from "./SignalEntitiesData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing entities related to a security signal.
- */
+*/
 export class SignalEntitiesResponse {
   /**
    * Entities related to a security signal.
-   */
+  */
   "data": SignalEntitiesData;
 
   /**
@@ -21,7 +26,7 @@ export class SignalEntitiesResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class SignalEntitiesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SignalEntitiesData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "SignalEntitiesData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class SignalEntitiesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SignalEntitiesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

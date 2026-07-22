@@ -5,15 +5,20 @@
  */
 import { NetworkHealthInsight } from "./NetworkHealthInsight";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a list of network health insights for the organization.
- */
+*/
 export class NetworkHealthInsightsResponse {
   /**
    * Array of network health insights returned for the query window.
-   */
+  */
   "data": Array<NetworkHealthInsight>;
 
   /**
@@ -21,7 +26,7 @@ export class NetworkHealthInsightsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class NetworkHealthInsightsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<NetworkHealthInsight>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<NetworkHealthInsight>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class NetworkHealthInsightsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return NetworkHealthInsightsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

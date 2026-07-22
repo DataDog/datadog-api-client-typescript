@@ -5,15 +5,20 @@
  */
 import { PatchAttachmentRequestDataAttributesAttachment } from "./PatchAttachmentRequestDataAttributesAttachment";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes for updating an attachment.
- */
+*/
 export class PatchAttachmentRequestDataAttributes {
   /**
    * The updated attachment object.
-   */
+  */
   "attachment"?: PatchAttachmentRequestDataAttributesAttachment;
 
   /**
@@ -21,7 +26,7 @@ export class PatchAttachmentRequestDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class PatchAttachmentRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attachment: {
-      baseName: "attachment",
-      type: "PatchAttachmentRequestDataAttributesAttachment",
+    "attachment": {
+      "baseName": "attachment",
+      "type": "PatchAttachmentRequestDataAttributesAttachment",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class PatchAttachmentRequestDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PatchAttachmentRequestDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

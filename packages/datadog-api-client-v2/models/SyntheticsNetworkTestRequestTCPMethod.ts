@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * For TCP tests, the TCP traceroute strategy.
- */
+*/
 
-export type SyntheticsNetworkTestRequestTCPMethod =
-  | typeof PREFER_SACK
-  | typeof SYN
-  | typeof SACK
-  | UnparsedObject;
-export const PREFER_SACK = "prefer_sack";
-export const SYN = "syn";
-export const SACK = "sack";
+export type SyntheticsNetworkTestRequestTCPMethod = typeof PREFER_SACK| typeof SYN| typeof SACK | UnparsedObject;
+export const PREFER_SACK = 'prefer_sack';
+export const SYN = 'syn';
+export const SACK = 'sack';

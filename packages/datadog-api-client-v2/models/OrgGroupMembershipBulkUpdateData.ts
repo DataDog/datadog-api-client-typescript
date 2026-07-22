@@ -7,23 +7,28 @@ import { OrgGroupMembershipBulkUpdateAttributes } from "./OrgGroupMembershipBulk
 import { OrgGroupMembershipBulkUpdateRelationships } from "./OrgGroupMembershipBulkUpdateRelationships";
 import { OrgGroupMembershipBulkUpdateType } from "./OrgGroupMembershipBulkUpdateType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for bulk updating org group memberships.
- */
+*/
 export class OrgGroupMembershipBulkUpdateData {
   /**
    * Attributes for bulk updating org group memberships.
-   */
+  */
   "attributes": OrgGroupMembershipBulkUpdateAttributes;
   /**
    * Relationships for bulk updating memberships.
-   */
+  */
   "relationships": OrgGroupMembershipBulkUpdateRelationships;
   /**
    * Org group membership bulk update resource type.
-   */
+  */
   "type": OrgGroupMembershipBulkUpdateType;
 
   /**
@@ -31,7 +36,7 @@ export class OrgGroupMembershipBulkUpdateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,20 +47,20 @@ export class OrgGroupMembershipBulkUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "OrgGroupMembershipBulkUpdateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "OrgGroupMembershipBulkUpdateAttributes",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "OrgGroupMembershipBulkUpdateRelationships",
-      required: true,
+    "relationships": {
+      "baseName": "relationships",
+      "type": "OrgGroupMembershipBulkUpdateRelationships",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "OrgGroupMembershipBulkUpdateType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "OrgGroupMembershipBulkUpdateType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class OrgGroupMembershipBulkUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgGroupMembershipBulkUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

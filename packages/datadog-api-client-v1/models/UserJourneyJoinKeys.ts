@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Join keys for user journey queries.
- */
+*/
 export class UserJourneyJoinKeys {
   /**
    * Primary join key.
-   */
+  */
   "primary": string;
   /**
    * Secondary join keys.
-   */
+  */
   "secondary"?: Array<string>;
 
   /**
@@ -24,7 +29,7 @@ export class UserJourneyJoinKeys {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,14 +40,14 @@ export class UserJourneyJoinKeys {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    primary: {
-      baseName: "primary",
-      type: "string",
-      required: true,
+    "primary": {
+      "baseName": "primary",
+      "type": "string",
+      "required": true,
     },
-    secondary: {
-      baseName: "secondary",
-      type: "Array<string>",
+    "secondary": {
+      "baseName": "secondary",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class UserJourneyJoinKeys {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UserJourneyJoinKeys.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

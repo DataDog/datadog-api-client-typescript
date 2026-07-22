@@ -5,15 +5,20 @@
  */
 import { CreateSnapshotDataResponse } from "./CreateSnapshotDataResponse";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response body for a snapshot creation request.
- */
+*/
 export class CreateSnapshotResponse {
   /**
    * Data envelope for the snapshot creation response.
-   */
+  */
   "data": CreateSnapshotDataResponse;
 
   /**
@@ -21,7 +26,7 @@ export class CreateSnapshotResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CreateSnapshotResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CreateSnapshotDataResponse",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "CreateSnapshotDataResponse",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CreateSnapshotResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateSnapshotResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

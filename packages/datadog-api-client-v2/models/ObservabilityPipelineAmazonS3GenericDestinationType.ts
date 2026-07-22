@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The destination type. Always `amazon_s3_generic`.
- */
+*/
 
-export type ObservabilityPipelineAmazonS3GenericDestinationType =
-  | typeof GENERIC_ARCHIVES_S3
-  | UnparsedObject;
-export const GENERIC_ARCHIVES_S3 = "amazon_s3_generic";
+export type ObservabilityPipelineAmazonS3GenericDestinationType = typeof GENERIC_ARCHIVES_S3 | UnparsedObject;
+export const GENERIC_ARCHIVES_S3 = 'amazon_s3_generic';

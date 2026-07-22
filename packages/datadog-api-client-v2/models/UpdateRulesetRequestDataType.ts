@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Update ruleset resource type.
- */
+*/
 
-export type UpdateRulesetRequestDataType =
-  | typeof UPDATE_RULESET
-  | UnparsedObject;
-export const UPDATE_RULESET = "update_ruleset";
+export type UpdateRulesetRequestDataType = typeof UPDATE_RULESET | UnparsedObject;
+export const UPDATE_RULESET = 'update_ruleset';

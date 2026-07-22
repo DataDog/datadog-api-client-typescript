@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The source type for an Entra ID entity context sync.
- */
+*/
 
-export type SecurityMonitoringIntegrationTypeEntraId =
-  | typeof ENTRA_ID
-  | UnparsedObject;
-export const ENTRA_ID = "ENTRA_ID";
+export type SecurityMonitoringIntegrationTypeEntraId = typeof ENTRA_ID | UnparsedObject;
+export const ENTRA_ID = 'ENTRA_ID';

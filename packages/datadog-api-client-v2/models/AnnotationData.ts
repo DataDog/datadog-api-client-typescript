@@ -6,23 +6,28 @@
 import { AnnotationAttributes } from "./AnnotationAttributes";
 import { AnnotationType } from "./AnnotationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A single annotation resource.
- */
+*/
 export class AnnotationData {
   /**
    * Attributes of an annotation returned in a response.
-   */
+  */
   "attributes": AnnotationAttributes;
   /**
    * Unique identifier of the annotation.
-   */
+  */
   "id": string;
   /**
    * Annotation resource type.
-   */
+  */
   "type": AnnotationType;
 
   /**
@@ -30,7 +35,7 @@ export class AnnotationData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,21 +46,21 @@ export class AnnotationData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AnnotationAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AnnotationAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    type: {
-      baseName: "type",
-      type: "AnnotationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AnnotationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class AnnotationData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AnnotationData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

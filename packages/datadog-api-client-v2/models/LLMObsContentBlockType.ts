@@ -4,26 +4,23 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Discriminator for a single `display_block` content block. Adding a
  * variant requires coordinated changes in the frontend renderer.
- */
+*/
 
-export type LLMObsContentBlockType =
-  | typeof MARKDOWN
-  | typeof HEADER
-  | typeof TEXT
-  | typeof JSON
-  | typeof IMAGE
-  | typeof WIDGET
-  | typeof LLMOBS_TRACE
-  | UnparsedObject;
-export const MARKDOWN = "markdown";
-export const HEADER = "header";
-export const TEXT = "text";
-export const JSON = "json";
-export const IMAGE = "image";
-export const WIDGET = "widget";
-export const LLMOBS_TRACE = "llmobs_trace";
+export type LLMObsContentBlockType = typeof MARKDOWN| typeof HEADER| typeof TEXT| typeof JSON| typeof IMAGE| typeof WIDGET| typeof LLMOBS_TRACE | UnparsedObject;
+export const MARKDOWN = 'markdown';
+export const HEADER = 'header';
+export const TEXT = 'text';
+export const JSON = 'json';
+export const IMAGE = 'image';
+export const WIDGET = 'widget';
+export const LLMOBS_TRACE = 'llmobs_trace';

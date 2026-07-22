@@ -6,23 +6,28 @@
 import { SampleLogGenerationSubscriptionAttributes } from "./SampleLogGenerationSubscriptionAttributes";
 import { SampleLogGenerationSubscriptionResourceType } from "./SampleLogGenerationSubscriptionResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A sample log generation subscription.
- */
+*/
 export class SampleLogGenerationSubscriptionData {
   /**
    * The attributes describing a sample log generation subscription.
-   */
+  */
   "attributes": SampleLogGenerationSubscriptionAttributes;
   /**
    * The unique identifier of the subscription.
-   */
+  */
   "id": string;
   /**
    * The type of the resource. The value should always be `subscriptions`.
-   */
+  */
   "type": SampleLogGenerationSubscriptionResourceType;
 
   /**
@@ -30,7 +35,7 @@ export class SampleLogGenerationSubscriptionData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class SampleLogGenerationSubscriptionData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SampleLogGenerationSubscriptionAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SampleLogGenerationSubscriptionAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "SampleLogGenerationSubscriptionResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SampleLogGenerationSubscriptionResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class SampleLogGenerationSubscriptionData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SampleLogGenerationSubscriptionData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

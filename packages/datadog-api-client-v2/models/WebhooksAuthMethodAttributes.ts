@@ -5,15 +5,20 @@
  */
 import { WebhooksAuthMethodProtocol } from "./WebhooksAuthMethodProtocol";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a webhooks auth method.
- */
+*/
 export class WebhooksAuthMethodAttributes {
   /**
    * Authentication protocol used by the auth method.
-   */
+  */
   "protocol"?: WebhooksAuthMethodProtocol;
 
   /**
@@ -21,7 +26,7 @@ export class WebhooksAuthMethodAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class WebhooksAuthMethodAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    protocol: {
-      baseName: "protocol",
-      type: "WebhooksAuthMethodProtocol",
+    "protocol": {
+      "baseName": "protocol",
+      "type": "WebhooksAuthMethodProtocol",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class WebhooksAuthMethodAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return WebhooksAuthMethodAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

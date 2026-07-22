@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Options to control content preview truncation.
- */
+*/
 export class LLMObsExperimentationContentPreview {
   /**
    * Maximum number of characters to include in content previews.
-   */
+  */
   "limit"?: number;
 
   /**
@@ -20,7 +25,7 @@ export class LLMObsExperimentationContentPreview {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,10 +36,10 @@ export class LLMObsExperimentationContentPreview {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    limit: {
-      baseName: "limit",
-      type: "number",
-      format: "int64",
+    "limit": {
+      "baseName": "limit",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class LLMObsExperimentationContentPreview {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsExperimentationContentPreview.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

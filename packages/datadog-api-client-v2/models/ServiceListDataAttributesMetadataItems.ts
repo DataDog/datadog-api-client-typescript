@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An object containing metadata flags for a service, indicating whether it is traced by APM or monitored through Universal Service Monitoring.
- */
+*/
 export class ServiceListDataAttributesMetadataItems {
   /**
    * Indicates whether the service is traced by APM.
-   */
+  */
   "isTraced"?: boolean;
   /**
    * Indicates whether the service uses Universal Service Monitoring.
-   */
+  */
   "isUsm"?: boolean;
 
   /**
@@ -24,7 +29,7 @@ export class ServiceListDataAttributesMetadataItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class ServiceListDataAttributesMetadataItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    isTraced: {
-      baseName: "isTraced",
-      type: "boolean",
+    "isTraced": {
+      "baseName": "isTraced",
+      "type": "boolean",
     },
-    isUsm: {
-      baseName: "isUsm",
-      type: "boolean",
+    "isUsm": {
+      "baseName": "isUsm",
+      "type": "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class ServiceListDataAttributesMetadataItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceListDataAttributesMetadataItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

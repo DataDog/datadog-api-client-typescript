@@ -4,12 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The raw scan result document produced by the SCA processor.
  * The contents reflect the vulnerabilities and metadata produced for the libraries
  * submitted in the original scan request.
- */
+*/
 
-export type ScanResultResponse = { [key: string]: any } | UnparsedObject;
+export type ScanResultResponse = { [key: string]: any; } | UnparsedObject;

@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Available connection types between organizations.
- */
+*/
 
-export type OrgConnectionTypeEnum =
-  | typeof LOGS
-  | typeof METRICS
-  | typeof AUDIT
-  | UnparsedObject;
-export const LOGS = "logs";
-export const METRICS = "metrics";
-export const AUDIT = "audit";
+export type OrgConnectionTypeEnum = typeof LOGS| typeof METRICS| typeof AUDIT | UnparsedObject;
+export const LOGS = 'logs';
+export const METRICS = 'metrics';
+export const AUDIT = 'audit';

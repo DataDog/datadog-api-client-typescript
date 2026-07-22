@@ -4,35 +4,40 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Compliance framework mapping for a rule.
- */
+*/
 export class RuleBasedViewComplianceFramework {
   /**
    * Identifier of the control inside the requirement.
-   */
+  */
   "control"?: string;
   /**
    * Handle of the compliance framework.
-   */
+  */
   "framework"?: string;
   /**
    * Whether the framework is a Datadog default framework. `true` indicates a Datadog framework and `false` indicates a custom framework.
-   */
+  */
   "isDefault"?: boolean;
   /**
    * Optional message describing the framework mapping for the rule.
-   */
+  */
   "message"?: string;
   /**
    * Name of the requirement that contains the control.
-   */
+  */
   "requirement"?: string;
   /**
    * Version of the compliance framework.
-   */
+  */
   "version"?: string;
 
   /**
@@ -40,7 +45,7 @@ export class RuleBasedViewComplianceFramework {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -51,29 +56,29 @@ export class RuleBasedViewComplianceFramework {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    control: {
-      baseName: "control",
-      type: "string",
+    "control": {
+      "baseName": "control",
+      "type": "string",
     },
-    framework: {
-      baseName: "framework",
-      type: "string",
+    "framework": {
+      "baseName": "framework",
+      "type": "string",
     },
-    isDefault: {
-      baseName: "is_default",
-      type: "boolean",
+    "isDefault": {
+      "baseName": "is_default",
+      "type": "boolean",
     },
-    message: {
-      baseName: "message",
-      type: "string",
+    "message": {
+      "baseName": "message",
+      "type": "string",
     },
-    requirement: {
-      baseName: "requirement",
-      type: "string",
+    "requirement": {
+      "baseName": "requirement",
+      "type": "string",
     },
-    version: {
-      baseName: "version",
-      type: "string",
+    "version": {
+      "baseName": "version",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -85,8 +90,34 @@ export class RuleBasedViewComplianceFramework {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RuleBasedViewComplianceFramework.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

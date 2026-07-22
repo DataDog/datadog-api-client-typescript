@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Code location item.
- */
+*/
 export class EntityV3DatadogCodeLocationItem {
   /**
    * The paths (glob) to the source code of the service.
-   */
+  */
   "paths"?: Array<string>;
   /**
    * The repository path of the source code of the entity.
-   */
+  */
   "repositoryUrl"?: string;
 
   /**
@@ -28,22 +33,48 @@ export class EntityV3DatadogCodeLocationItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    paths: {
-      baseName: "paths",
-      type: "Array<string>",
+    "paths": {
+      "baseName": "paths",
+      "type": "Array<string>",
     },
-    repositoryUrl: {
-      baseName: "repositoryURL",
-      type: "string",
-    },
+    "repositoryUrl": {
+      "baseName": "repositoryURL",
+      "type": "string",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EntityV3DatadogCodeLocationItem.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

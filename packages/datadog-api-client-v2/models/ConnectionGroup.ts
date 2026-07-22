@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `ConnectionGroup` object.
- */
+*/
 export class ConnectionGroup {
   /**
    * The `ConnectionGroup` `connectionGroupId`.
-   */
+  */
   "connectionGroupId": string;
   /**
    * The `ConnectionGroup` `label`.
-   */
+  */
   "label": string;
   /**
    * The `ConnectionGroup` `tags`.
-   */
+  */
   "tags": Array<string>;
 
   /**
@@ -28,7 +33,7 @@ export class ConnectionGroup {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,20 +44,20 @@ export class ConnectionGroup {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    connectionGroupId: {
-      baseName: "connectionGroupId",
-      type: "string",
-      required: true,
+    "connectionGroupId": {
+      "baseName": "connectionGroupId",
+      "type": "string",
+      "required": true,
     },
-    label: {
-      baseName: "label",
-      type: "string",
-      required: true,
+    "label": {
+      "baseName": "label",
+      "type": "string",
+      "required": true,
     },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
-      required: true,
+    "tags": {
+      "baseName": "tags",
+      "type": "Array<string>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class ConnectionGroup {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ConnectionGroup.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

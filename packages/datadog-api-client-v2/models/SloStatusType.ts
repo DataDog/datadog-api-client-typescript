@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of the SLO status resource.
- */
+*/
 
 export type SloStatusType = typeof SLO_STATUS | UnparsedObject;
-export const SLO_STATUS = "slo_status";
+export const SLO_STATUS = 'slo_status';

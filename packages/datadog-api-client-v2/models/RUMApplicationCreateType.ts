@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * RUM application creation type.
- */
+*/
 
-export type RUMApplicationCreateType =
-  | typeof RUM_APPLICATION_CREATE
-  | UnparsedObject;
-export const RUM_APPLICATION_CREATE = "rum_application_create";
+export type RUMApplicationCreateType = typeof RUM_APPLICATION_CREATE | UnparsedObject;
+export const RUM_APPLICATION_CREATE = 'rum_application_create';

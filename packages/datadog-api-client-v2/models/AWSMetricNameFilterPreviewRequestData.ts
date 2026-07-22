@@ -6,19 +6,24 @@
 import { AWSMetricNameFilterPreviewRequestAttributes } from "./AWSMetricNameFilterPreviewRequestAttributes";
 import { AWSMetricNameFilterPreviewType } from "./AWSMetricNameFilterPreviewType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * AWS metric name filter preview request data.
- */
+*/
 export class AWSMetricNameFilterPreviewRequestData {
   /**
    * AWS metric name filter preview request attributes.
-   */
+  */
   "attributes": AWSMetricNameFilterPreviewRequestAttributes;
   /**
    * The `AWSMetricNameFilterPreviewResponseData` `type`.
-   */
+  */
   "type": AWSMetricNameFilterPreviewType;
 
   /**
@@ -26,7 +31,7 @@ export class AWSMetricNameFilterPreviewRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class AWSMetricNameFilterPreviewRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AWSMetricNameFilterPreviewRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AWSMetricNameFilterPreviewRequestAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "AWSMetricNameFilterPreviewType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AWSMetricNameFilterPreviewType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class AWSMetricNameFilterPreviewRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSMetricNameFilterPreviewRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

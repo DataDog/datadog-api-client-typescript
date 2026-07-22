@@ -5,19 +5,24 @@
  */
 import { FormUiDefinitionUiTheme } from "./FormUiDefinitionUiTheme";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * UI configuration for rendering form fields, including widget overrides, field ordering, and themes.
- */
+*/
 export class FormUiDefinition {
   /**
    * The order in which form fields are displayed.
-   */
+  */
   "uiOrder"?: Array<string>;
   /**
    * The visual theme applied to the form.
-   */
+  */
   "uiTheme"?: FormUiDefinitionUiTheme;
 
   /**
@@ -25,7 +30,7 @@ export class FormUiDefinition {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class FormUiDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    uiOrder: {
-      baseName: "ui:order",
-      type: "Array<string>",
+    "uiOrder": {
+      "baseName": "ui:order",
+      "type": "Array<string>",
     },
-    uiTheme: {
-      baseName: "ui:theme",
-      type: "FormUiDefinitionUiTheme",
+    "uiTheme": {
+      "baseName": "ui:theme",
+      "type": "FormUiDefinitionUiTheme",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class FormUiDefinition {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FormUiDefinition.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

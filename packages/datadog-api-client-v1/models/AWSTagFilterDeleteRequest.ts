@@ -5,19 +5,24 @@
  */
 import { AWSNamespace } from "./AWSNamespace";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The objects used to delete an AWS tag filter entry.
- */
+*/
 export class AWSTagFilterDeleteRequest {
   /**
    * The unique identifier of your AWS account.
-   */
+  */
   "accountId"?: string;
   /**
    * The namespace associated with the tag filter entry.
-   */
+  */
   "namespace"?: AWSNamespace;
 
   /**
@@ -25,7 +30,7 @@ export class AWSTagFilterDeleteRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class AWSTagFilterDeleteRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    accountId: {
-      baseName: "account_id",
-      type: "string",
+    "accountId": {
+      "baseName": "account_id",
+      "type": "string",
     },
-    namespace: {
-      baseName: "namespace",
-      type: "AWSNamespace",
+    "namespace": {
+      "baseName": "namespace",
+      "type": "AWSNamespace",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class AWSTagFilterDeleteRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSTagFilterDeleteRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

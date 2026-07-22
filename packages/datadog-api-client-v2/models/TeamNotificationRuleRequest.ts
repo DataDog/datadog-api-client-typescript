@@ -5,15 +5,20 @@
  */
 import { TeamNotificationRule } from "./TeamNotificationRule";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request to create or update a team notification rule
- */
+*/
 export class TeamNotificationRuleRequest {
   /**
    * Team notification rule
-   */
+  */
   "data": TeamNotificationRule;
 
   /**
@@ -21,7 +26,7 @@ export class TeamNotificationRuleRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class TeamNotificationRuleRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "TeamNotificationRule",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "TeamNotificationRule",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class TeamNotificationRuleRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamNotificationRuleRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

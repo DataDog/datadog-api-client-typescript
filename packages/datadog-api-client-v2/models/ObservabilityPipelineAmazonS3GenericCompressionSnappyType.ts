@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The compression type. Always `snappy`.
- */
+*/
 
-export type ObservabilityPipelineAmazonS3GenericCompressionSnappyType =
-  | typeof SNAPPY
-  | UnparsedObject;
-export const SNAPPY = "snappy";
+export type ObservabilityPipelineAmazonS3GenericCompressionSnappyType = typeof SNAPPY | UnparsedObject;
+export const SNAPPY = 'snappy';

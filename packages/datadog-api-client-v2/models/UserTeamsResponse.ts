@@ -8,27 +8,32 @@ import { TeamsResponseMeta } from "./TeamsResponseMeta";
 import { UserTeam } from "./UserTeam";
 import { UserTeamIncluded } from "./UserTeamIncluded";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Team memberships response
- */
+*/
 export class UserTeamsResponse {
   /**
    * Team memberships response data
-   */
+  */
   "data"?: Array<UserTeam>;
   /**
    * Resources related to the team memberships
-   */
+  */
   "included"?: Array<UserTeamIncluded>;
   /**
    * Teams response links.
-   */
+  */
   "links"?: TeamsResponseLinks;
   /**
    * Teams response metadata.
-   */
+  */
   "meta"?: TeamsResponseMeta;
 
   /**
@@ -36,7 +41,7 @@ export class UserTeamsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,21 +52,21 @@ export class UserTeamsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<UserTeam>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<UserTeam>",
     },
-    included: {
-      baseName: "included",
-      type: "Array<UserTeamIncluded>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<UserTeamIncluded>",
     },
-    links: {
-      baseName: "links",
-      type: "TeamsResponseLinks",
+    "links": {
+      "baseName": "links",
+      "type": "TeamsResponseLinks",
     },
-    meta: {
-      baseName: "meta",
-      type: "TeamsResponseMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "TeamsResponseMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -73,8 +78,34 @@ export class UserTeamsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UserTeamsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

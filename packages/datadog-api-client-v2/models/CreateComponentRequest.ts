@@ -5,15 +5,20 @@
  */
 import { CreateComponentRequestData } from "./CreateComponentRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request object for creating a component.
- */
+*/
 export class CreateComponentRequest {
   /**
    * The data object for creating a component.
-   */
+  */
   "data"?: CreateComponentRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class CreateComponentRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class CreateComponentRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CreateComponentRequestData",
+    "data": {
+      "baseName": "data",
+      "type": "CreateComponentRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class CreateComponentRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateComponentRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

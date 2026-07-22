@@ -6,23 +6,28 @@
 import { AWSEventBridgeListResponseAttributes } from "./AWSEventBridgeListResponseAttributes";
 import { AWSEventBridgeType } from "./AWSEventBridgeType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Amazon EventBridge list response data.
- */
+*/
 export class AWSEventBridgeListResponseData {
   /**
    * An object describing the EventBridge configuration for multiple accounts.
-   */
+  */
   "attributes": AWSEventBridgeListResponseAttributes;
   /**
    * The ID of the Amazon EventBridge list response data.
-   */
+  */
   "id": string;
   /**
    * Amazon EventBridge resource type.
-   */
+  */
   "type": AWSEventBridgeType;
 
   /**
@@ -30,7 +35,7 @@ export class AWSEventBridgeListResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class AWSEventBridgeListResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AWSEventBridgeListResponseAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AWSEventBridgeListResponseAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "AWSEventBridgeType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AWSEventBridgeType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class AWSEventBridgeListResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSEventBridgeListResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

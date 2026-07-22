@@ -5,24 +5,29 @@
  */
 import { SecurityMonitoringRuleEvaluationWindow } from "./SecurityMonitoringRuleEvaluationWindow";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Transition from a parent step to a child step within a sequence detection rule.
- */
+*/
 export class SecurityMonitoringRuleSequenceDetectionStepTransition {
   /**
    * Name of the child step.
-   */
+  */
   "child"?: string;
   /**
    * A time window is specified to match when at least one of the cases matches true. This is a sliding window
    * and evaluates in real time. For third party detection method, this field is not used.
-   */
+  */
   "evaluationWindow"?: SecurityMonitoringRuleEvaluationWindow;
   /**
    * Name of the parent step.
-   */
+  */
   "parent"?: string;
 
   /**
@@ -30,7 +35,7 @@ export class SecurityMonitoringRuleSequenceDetectionStepTransition {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class SecurityMonitoringRuleSequenceDetectionStepTransition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    child: {
-      baseName: "child",
-      type: "string",
+    "child": {
+      "baseName": "child",
+      "type": "string",
     },
-    evaluationWindow: {
-      baseName: "evaluationWindow",
-      type: "SecurityMonitoringRuleEvaluationWindow",
+    "evaluationWindow": {
+      "baseName": "evaluationWindow",
+      "type": "SecurityMonitoringRuleEvaluationWindow",
     },
-    parent: {
-      baseName: "parent",
-      type: "string",
+    "parent": {
+      "baseName": "parent",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class SecurityMonitoringRuleSequenceDetectionStepTransition {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringRuleSequenceDetectionStepTransition.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

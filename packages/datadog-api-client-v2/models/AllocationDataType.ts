@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The resource type.
- */
+*/
 
 export type AllocationDataType = typeof ALLOCATIONS | UnparsedObject;
-export const ALLOCATIONS = "allocations";
+export const ALLOCATIONS = 'allocations';

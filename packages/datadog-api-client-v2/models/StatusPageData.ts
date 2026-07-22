@@ -7,27 +7,32 @@ import { StatusPageDataAttributes } from "./StatusPageDataAttributes";
 import { StatusPageDataRelationships } from "./StatusPageDataRelationships";
 import { StatusPageDataType } from "./StatusPageDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data object for a status page.
- */
+*/
 export class StatusPageData {
   /**
    * The attributes of a status page.
-   */
+  */
   "attributes"?: StatusPageDataAttributes;
   /**
    * The ID of the status page.
-   */
+  */
   "id"?: string;
   /**
    * The relationships of a status page.
-   */
+  */
   "relationships"?: StatusPageDataRelationships;
   /**
    * Status pages resource type.
-   */
+  */
   "type": StatusPageDataType;
 
   /**
@@ -35,7 +40,7 @@ export class StatusPageData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,23 +51,23 @@ export class StatusPageData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "StatusPageDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "StatusPageDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "format": "uuid",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "StatusPageDataRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "StatusPageDataRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "StatusPageDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "StatusPageDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,8 +79,34 @@ export class StatusPageData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return StatusPageData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

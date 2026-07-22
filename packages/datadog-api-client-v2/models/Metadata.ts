@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The metadata related to this request.
- */
+*/
 export class Metadata {
   /**
    * Number of entities included in the response.
-   */
+  */
   "count": number;
   /**
    * The token that identifies the request.
-   */
+  */
   "token": string;
   /**
    * Total number of entities across all pages.
-   */
+  */
   "total": number;
 
   /**
@@ -28,7 +33,7 @@ export class Metadata {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,22 +44,22 @@ export class Metadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    count: {
-      baseName: "count",
-      type: "number",
-      required: true,
-      format: "int64",
+    "count": {
+      "baseName": "count",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    token: {
-      baseName: "token",
-      type: "string",
-      required: true,
+    "token": {
+      "baseName": "token",
+      "type": "string",
+      "required": true,
     },
-    total: {
-      baseName: "total",
-      type: "number",
-      required: true,
-      format: "int64",
+    "total": {
+      "baseName": "total",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class Metadata {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return Metadata.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes specifying which datastore item to delete by its primary key.
- */
+*/
 export class DeleteAppsDatastoreItemRequestDataAttributes {
   /**
    * Optional unique identifier of the item to delete.
-   */
+  */
   "id"?: string;
   /**
    * The primary key value that identifies the item to delete. Cannot exceed 256 characters.
-   */
+  */
   "itemKey": string;
 
   /**
@@ -24,7 +29,7 @@ export class DeleteAppsDatastoreItemRequestDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,14 +40,14 @@ export class DeleteAppsDatastoreItemRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    itemKey: {
-      baseName: "item_key",
-      type: "string",
-      required: true,
+    "itemKey": {
+      "baseName": "item_key",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class DeleteAppsDatastoreItemRequestDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DeleteAppsDatastoreItemRequestDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

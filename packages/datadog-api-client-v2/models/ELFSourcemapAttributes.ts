@@ -4,55 +4,60 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of an ELF symbol file.
- */
+*/
 export class ELFSourcemapAttributes {
   /**
    * The target CPU architecture.
-   */
+  */
   "arch"?: string;
   /**
    * The timestamp when the symbol file was created.
-   */
+  */
   "createdAt": Date;
   /**
    * The SHA256 hash of the ELF file.
-   */
+  */
   "fileHash"?: string;
   /**
    * The ELF file name.
-   */
+  */
   "fileName"?: string;
   /**
    * The GNU build ID (UUID format).
-   */
+  */
   "gnuBuildId"?: string;
   /**
    * The Go build ID (UUID format).
-   */
+  */
   "goBuildId"?: string;
   /**
    * The type of source map.
-   */
+  */
   "mapkind": string;
   /**
    * The origin of the ELF file.
-   */
+  */
   "origin"?: string;
   /**
    * The version of the origin package.
-   */
+  */
   "originVersion"?: string;
   /**
    * The size of the ELF file in bytes.
-   */
+  */
   "size": number;
   /**
    * The source of the debug symbols.
-   */
+  */
   "symbolSource"?: string;
 
   /**
@@ -60,7 +65,7 @@ export class ELFSourcemapAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -71,54 +76,54 @@ export class ELFSourcemapAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    arch: {
-      baseName: "arch",
-      type: "string",
+    "arch": {
+      "baseName": "arch",
+      "type": "string",
     },
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    fileHash: {
-      baseName: "file_hash",
-      type: "string",
+    "fileHash": {
+      "baseName": "file_hash",
+      "type": "string",
     },
-    fileName: {
-      baseName: "file_name",
-      type: "string",
+    "fileName": {
+      "baseName": "file_name",
+      "type": "string",
     },
-    gnuBuildId: {
-      baseName: "gnu_build_id",
-      type: "string",
+    "gnuBuildId": {
+      "baseName": "gnu_build_id",
+      "type": "string",
     },
-    goBuildId: {
-      baseName: "go_build_id",
-      type: "string",
+    "goBuildId": {
+      "baseName": "go_build_id",
+      "type": "string",
     },
-    mapkind: {
-      baseName: "mapkind",
-      type: "string",
-      required: true,
+    "mapkind": {
+      "baseName": "mapkind",
+      "type": "string",
+      "required": true,
     },
-    origin: {
-      baseName: "origin",
-      type: "string",
+    "origin": {
+      "baseName": "origin",
+      "type": "string",
     },
-    originVersion: {
-      baseName: "origin_version",
-      type: "string",
+    "originVersion": {
+      "baseName": "origin_version",
+      "type": "string",
     },
-    size: {
-      baseName: "size",
-      type: "number",
-      required: true,
-      format: "int64",
+    "size": {
+      "baseName": "size",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    symbolSource: {
-      baseName: "symbol_source",
-      type: "string",
+    "symbolSource": {
+      "baseName": "symbol_source",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -130,8 +135,34 @@ export class ELFSourcemapAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ELFSourcemapAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

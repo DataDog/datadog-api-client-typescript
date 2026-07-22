@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Data type of a maximum session duration update.
- */
+*/
 
-export type MaxSessionDurationType =
-  | typeof MAX_SESSION_DURATION
-  | UnparsedObject;
-export const MAX_SESSION_DURATION = "max_session_duration";
+export type MaxSessionDurationType = typeof MAX_SESSION_DURATION | UnparsedObject;
+export const MAX_SESSION_DURATION = 'max_session_duration';

@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Effect of a scoring factor on the indicator's threat score.
- */
+*/
 
-export type IoCScoreEffect =
-  | typeof RAISE_SCORE
-  | typeof LOWER_SCORE
-  | typeof NO_EFFECT
-  | UnparsedObject;
-export const RAISE_SCORE = "RAISE_SCORE";
-export const LOWER_SCORE = "LOWER_SCORE";
-export const NO_EFFECT = "NO_EFFECT";
+export type IoCScoreEffect = typeof RAISE_SCORE| typeof LOWER_SCORE| typeof NO_EFFECT | UnparsedObject;
+export const RAISE_SCORE = 'RAISE_SCORE';
+export const LOWER_SCORE = 'LOWER_SCORE';
+export const NO_EFFECT = 'NO_EFFECT';

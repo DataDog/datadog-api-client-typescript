@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Optional parameters for bulk deleting metric tag configurations.
- */
+*/
 export class MetricBulkTagConfigDeleteAttributes {
   /**
    * A list of account emails to notify when the configuration is applied.
-   */
+  */
   "emails"?: Array<string>;
 
   /**
@@ -20,7 +25,7 @@ export class MetricBulkTagConfigDeleteAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,9 +36,9 @@ export class MetricBulkTagConfigDeleteAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    emails: {
-      baseName: "emails",
-      type: "Array<string>",
+    "emails": {
+      "baseName": "emails",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,8 +50,34 @@ export class MetricBulkTagConfigDeleteAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricBulkTagConfigDeleteAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

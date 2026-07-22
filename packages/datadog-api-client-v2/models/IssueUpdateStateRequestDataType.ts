@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of the object.
- */
+*/
 
-export type IssueUpdateStateRequestDataType =
-  | typeof ERROR_TRACKING_ISSUE
-  | UnparsedObject;
-export const ERROR_TRACKING_ISSUE = "error_tracking_issue";
+export type IssueUpdateStateRequestDataType = typeof ERROR_TRACKING_ISSUE | UnparsedObject;
+export const ERROR_TRACKING_ISSUE = 'error_tracking_issue';

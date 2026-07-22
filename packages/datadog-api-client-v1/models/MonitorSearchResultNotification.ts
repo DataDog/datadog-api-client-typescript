@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A notification triggered by the monitor.
- */
+*/
 export class MonitorSearchResultNotification {
   /**
    * The email address that received the notification.
-   */
+  */
   "handle"?: string;
   /**
    * The username receiving the notification
-   */
+  */
   "name"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class MonitorSearchResultNotification {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class MonitorSearchResultNotification {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    handle: {
-      baseName: "handle",
-      type: "string",
+    "handle": {
+      "baseName": "handle",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class MonitorSearchResultNotification {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorSearchResultNotification.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

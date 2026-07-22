@@ -6,23 +6,28 @@
 import { ReportScheduleIndexTemplateVariable } from "./ReportScheduleIndexTemplateVariable";
 import { ReportScheduleResourceType } from "./ReportScheduleResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of an included report target resource.
- */
+*/
 export class ReportScheduleResourceAttributes {
   /**
    * The type of dashboard resource the report schedule targets.
-   */
+  */
   "resourceType": ReportScheduleResourceType;
   /**
    * Template variable metadata from the dashboard resource, when available.
-   */
+  */
   "templateVariables"?: Array<ReportScheduleIndexTemplateVariable>;
   /**
    * The title of the dashboard or integration dashboard resource, when available.
-   */
+  */
   "title"?: string;
 
   /**
@@ -30,7 +35,7 @@ export class ReportScheduleResourceAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class ReportScheduleResourceAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    resourceType: {
-      baseName: "resource_type",
-      type: "ReportScheduleResourceType",
-      required: true,
+    "resourceType": {
+      "baseName": "resource_type",
+      "type": "ReportScheduleResourceType",
+      "required": true,
     },
-    templateVariables: {
-      baseName: "template_variables",
-      type: "Array<ReportScheduleIndexTemplateVariable>",
+    "templateVariables": {
+      "baseName": "template_variables",
+      "type": "Array<ReportScheduleIndexTemplateVariable>",
     },
-    title: {
-      baseName: "title",
-      type: "string",
+    "title": {
+      "baseName": "title",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class ReportScheduleResourceAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ReportScheduleResourceAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -7,23 +7,28 @@ import { WidgetData } from "./WidgetData";
 import { WidgetIncludedUser } from "./WidgetIncludedUser";
 import { WidgetSearchMeta } from "./WidgetSearchMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a list of widgets.
- */
+*/
 export class WidgetListResponse {
   /**
    * List of widget resources.
-   */
+  */
   "data": Array<WidgetData>;
   /**
    * Array of user resources related to the widgets.
-   */
+  */
   "included"?: Array<WidgetIncludedUser>;
   /**
    * Metadata about the search results.
-   */
+  */
   "meta"?: WidgetSearchMeta;
 
   /**
@@ -31,7 +36,7 @@ export class WidgetListResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,18 +47,18 @@ export class WidgetListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<WidgetData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<WidgetData>",
+      "required": true,
     },
-    included: {
-      baseName: "included",
-      type: "Array<WidgetIncludedUser>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<WidgetIncludedUser>",
     },
-    meta: {
-      baseName: "meta",
-      type: "WidgetSearchMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "WidgetSearchMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class WidgetListResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return WidgetListResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

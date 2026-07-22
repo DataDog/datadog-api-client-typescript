@@ -4,24 +4,29 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Timeframe to retrieve the log from.
- */
+*/
 export class LogsListRequestTime {
   /**
    * Minimum timestamp for requested logs.
-   */
+  */
   "from": Date;
   /**
    * Timezone can be specified both as an offset (for example "UTC+03:00")
    * or a regional zone (for example "Europe/Paris").
-   */
+  */
   "timezone"?: string;
   /**
    * Maximum timestamp for requested logs.
-   */
+  */
   "to": Date;
 
   /**
@@ -29,7 +34,7 @@ export class LogsListRequestTime {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,21 +45,21 @@ export class LogsListRequestTime {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    from: {
-      baseName: "from",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "from": {
+      "baseName": "from",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    timezone: {
-      baseName: "timezone",
-      type: "string",
+    "timezone": {
+      "baseName": "timezone",
+      "type": "string",
     },
-    to: {
-      baseName: "to",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "to": {
+      "baseName": "to",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class LogsListRequestTime {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogsListRequestTime.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

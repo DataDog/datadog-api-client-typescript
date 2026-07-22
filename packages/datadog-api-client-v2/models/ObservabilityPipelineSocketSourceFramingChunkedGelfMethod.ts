@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Byte frames which are chunked GELF messages.
- */
+*/
 
-export type ObservabilityPipelineSocketSourceFramingChunkedGelfMethod =
-  | typeof CHUNKED_GELF
-  | UnparsedObject;
-export const CHUNKED_GELF = "chunked_gelf";
+export type ObservabilityPipelineSocketSourceFramingChunkedGelfMethod = typeof CHUNKED_GELF | UnparsedObject;
+export const CHUNKED_GELF = 'chunked_gelf';

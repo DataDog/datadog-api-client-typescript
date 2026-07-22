@@ -5,15 +5,20 @@
  */
 import { LLMObsDatasetRecordsMutationData } from "./LLMObsDatasetRecordsMutationData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing records after a create or update operation.
- */
+*/
 export class LLMObsDatasetRecordsMutationResponse {
   /**
    * List of affected dataset records.
-   */
+  */
   "data": Array<LLMObsDatasetRecordsMutationData>;
 
   /**
@@ -21,7 +26,7 @@ export class LLMObsDatasetRecordsMutationResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class LLMObsDatasetRecordsMutationResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<LLMObsDatasetRecordsMutationData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<LLMObsDatasetRecordsMutationData>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class LLMObsDatasetRecordsMutationResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDatasetRecordsMutationResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * OIDC scope a client may be restricted to.
- */
+*/
 
-export type OAuthOidcScope =
-  | typeof OPENID
-  | typeof PROFILE
-  | typeof EMAIL
-  | typeof OFFLINE_ACCESS
-  | UnparsedObject;
-export const OPENID = "openid";
-export const PROFILE = "profile";
-export const EMAIL = "email";
-export const OFFLINE_ACCESS = "offline_access";
+export type OAuthOidcScope = typeof OPENID| typeof PROFILE| typeof EMAIL| typeof OFFLINE_ACCESS | UnparsedObject;
+export const OPENID = 'openid';
+export const PROFILE = 'profile';
+export const EMAIL = 'email';
+export const OFFLINE_ACCESS = 'offline_access';

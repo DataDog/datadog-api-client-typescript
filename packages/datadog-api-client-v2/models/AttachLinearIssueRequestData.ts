@@ -7,23 +7,28 @@ import { AttachLinearIssueRequestDataAttributes } from "./AttachLinearIssueReque
 import { AttachLinearIssueRequestDataRelationships } from "./AttachLinearIssueRequestDataRelationships";
 import { LinearIssuesDataType } from "./LinearIssuesDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data of the Linear issue to attach security findings to.
- */
+*/
 export class AttachLinearIssueRequestData {
   /**
    * Attributes of the Linear issue to attach security findings to.
-   */
+  */
   "attributes": AttachLinearIssueRequestDataAttributes;
   /**
    * Relationships of the Linear issue to attach security findings to.
-   */
+  */
   "relationships": AttachLinearIssueRequestDataRelationships;
   /**
    * Linear issues resource type.
-   */
+  */
   "type": LinearIssuesDataType;
 
   /**
@@ -31,7 +36,7 @@ export class AttachLinearIssueRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,20 +47,20 @@ export class AttachLinearIssueRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AttachLinearIssueRequestDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AttachLinearIssueRequestDataAttributes",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "AttachLinearIssueRequestDataRelationships",
-      required: true,
+    "relationships": {
+      "baseName": "relationships",
+      "type": "AttachLinearIssueRequestDataRelationships",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LinearIssuesDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LinearIssuesDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class AttachLinearIssueRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AttachLinearIssueRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

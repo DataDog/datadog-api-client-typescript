@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes of a budget validation response, including any validation errors and the validity status.
- */
+*/
 export class BudgetValidationResponseDataAttributes {
   /**
    * A list of validation error messages for the budget.
-   */
+  */
   "errors"?: Array<string>;
   /**
    * Whether the budget configuration is valid.
-   */
+  */
   "valid"?: boolean;
 
   /**
@@ -24,7 +29,7 @@ export class BudgetValidationResponseDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class BudgetValidationResponseDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    errors: {
-      baseName: "errors",
-      type: "Array<string>",
+    "errors": {
+      "baseName": "errors",
+      "type": "Array<string>",
     },
-    valid: {
-      baseName: "valid",
-      type: "boolean",
+    "valid": {
+      "baseName": "valid",
+      "type": "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class BudgetValidationResponseDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return BudgetValidationResponseDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { ProductAnalyticsServerSideEventError } from "./ProductAnalyticsServerSideEventError";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Error response.
- */
+*/
 export class ProductAnalyticsServerSideEventErrors {
   /**
    * Structured errors.
-   */
+  */
   "errors"?: Array<ProductAnalyticsServerSideEventError>;
 
   /**
@@ -21,7 +26,7 @@ export class ProductAnalyticsServerSideEventErrors {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class ProductAnalyticsServerSideEventErrors {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    errors: {
-      baseName: "errors",
-      type: "Array<ProductAnalyticsServerSideEventError>",
+    "errors": {
+      "baseName": "errors",
+      "type": "Array<ProductAnalyticsServerSideEventError>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class ProductAnalyticsServerSideEventErrors {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProductAnalyticsServerSideEventErrors.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

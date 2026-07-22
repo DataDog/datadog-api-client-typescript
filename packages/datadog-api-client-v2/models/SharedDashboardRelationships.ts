@@ -6,19 +6,24 @@
 import { SharedDashboardRelationshipDashboard } from "./SharedDashboardRelationshipDashboard";
 import { SharedDashboardRelationshipSharer } from "./SharedDashboardRelationshipSharer";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationships of a shared dashboard.
- */
+*/
 export class SharedDashboardRelationships {
   /**
    * Dashboard associated with the shared dashboard.
-   */
+  */
   "dashboard": SharedDashboardRelationshipDashboard;
   /**
    * User who shared the dashboard.
-   */
+  */
   "sharer": SharedDashboardRelationshipSharer;
 
   /**
@@ -26,7 +31,7 @@ export class SharedDashboardRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class SharedDashboardRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    dashboard: {
-      baseName: "dashboard",
-      type: "SharedDashboardRelationshipDashboard",
-      required: true,
+    "dashboard": {
+      "baseName": "dashboard",
+      "type": "SharedDashboardRelationshipDashboard",
+      "required": true,
     },
-    sharer: {
-      baseName: "sharer",
-      type: "SharedDashboardRelationshipSharer",
-      required: true,
+    "sharer": {
+      "baseName": "sharer",
+      "type": "SharedDashboardRelationshipSharer",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class SharedDashboardRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SharedDashboardRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

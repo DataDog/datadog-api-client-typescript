@@ -8,41 +8,46 @@ import { ObservabilityPipelineGcpAuth } from "./ObservabilityPipelineGcpAuth";
 import { ObservabilityPipelineGooglePubSubSourceType } from "./ObservabilityPipelineGooglePubSubSourceType";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The `google_pubsub` source ingests logs from a Google Cloud Pub/Sub subscription.
- *
+ * 
  * **Supported pipeline types:** logs
- */
+*/
 export class ObservabilityPipelineGooglePubSubSource {
   /**
    * Google Cloud credentials used to authenticate with Google Cloud Storage.
-   */
+  */
   "auth"?: ObservabilityPipelineGcpAuth;
   /**
    * The decoding format used to interpret incoming logs.
-   */
+  */
   "decoding": ObservabilityPipelineDecoding;
   /**
    * The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
-   */
+  */
   "id": string;
   /**
    * The Google Cloud project ID that owns the Pub/Sub subscription.
-   */
+  */
   "project": string;
   /**
    * The Pub/Sub subscription name from which messages are consumed.
-   */
+  */
   "subscription": string;
   /**
    * Configuration for enabling TLS encryption between the pipeline component and external services.
-   */
+  */
   "tls"?: ObservabilityPipelineTls;
   /**
    * The source type. The value should always be `google_pubsub`.
-   */
+  */
   "type": ObservabilityPipelineGooglePubSubSourceType;
 
   /**
@@ -50,7 +55,7 @@ export class ObservabilityPipelineGooglePubSubSource {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -61,38 +66,38 @@ export class ObservabilityPipelineGooglePubSubSource {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    auth: {
-      baseName: "auth",
-      type: "ObservabilityPipelineGcpAuth",
+    "auth": {
+      "baseName": "auth",
+      "type": "ObservabilityPipelineGcpAuth",
     },
-    decoding: {
-      baseName: "decoding",
-      type: "ObservabilityPipelineDecoding",
-      required: true,
+    "decoding": {
+      "baseName": "decoding",
+      "type": "ObservabilityPipelineDecoding",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    project: {
-      baseName: "project",
-      type: "string",
-      required: true,
+    "project": {
+      "baseName": "project",
+      "type": "string",
+      "required": true,
     },
-    subscription: {
-      baseName: "subscription",
-      type: "string",
-      required: true,
+    "subscription": {
+      "baseName": "subscription",
+      "type": "string",
+      "required": true,
     },
-    tls: {
-      baseName: "tls",
-      type: "ObservabilityPipelineTls",
+    "tls": {
+      "baseName": "tls",
+      "type": "ObservabilityPipelineTls",
     },
-    type: {
-      baseName: "type",
-      type: "ObservabilityPipelineGooglePubSubSourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ObservabilityPipelineGooglePubSubSourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -104,8 +109,34 @@ export class ObservabilityPipelineGooglePubSubSource {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineGooglePubSubSource.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

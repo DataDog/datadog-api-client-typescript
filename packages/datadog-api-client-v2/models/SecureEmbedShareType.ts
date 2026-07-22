@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of share. Always `secure_embed`.
- */
+*/
 
 export type SecureEmbedShareType = typeof SECURE_EMBED | UnparsedObject;
-export const SECURE_EMBED = "secure_embed";
+export const SECURE_EMBED = 'secure_embed';

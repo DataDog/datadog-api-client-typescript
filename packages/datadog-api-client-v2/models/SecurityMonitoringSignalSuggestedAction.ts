@@ -6,23 +6,28 @@
 import { SecurityMonitoringSignalSuggestedActionAttributes } from "./SecurityMonitoringSignalSuggestedActionAttributes";
 import { SecurityMonitoringSignalSuggestedActionType } from "./SecurityMonitoringSignalSuggestedActionType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A suggested action for a security signal.
- */
+*/
 export class SecurityMonitoringSignalSuggestedAction {
   /**
    * Attributes of a suggested action for a security signal. The available fields depend on the action type.
-   */
+  */
   "attributes": SecurityMonitoringSignalSuggestedActionAttributes;
   /**
    * The unique ID of the suggested action.
-   */
+  */
   "id": string;
   /**
    * The type of the suggested action resource.
-   */
+  */
   "type": SecurityMonitoringSignalSuggestedActionType;
 
   /**
@@ -30,7 +35,7 @@ export class SecurityMonitoringSignalSuggestedAction {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class SecurityMonitoringSignalSuggestedAction {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SecurityMonitoringSignalSuggestedActionAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SecurityMonitoringSignalSuggestedActionAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "SecurityMonitoringSignalSuggestedActionType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SecurityMonitoringSignalSuggestedActionType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class SecurityMonitoringSignalSuggestedAction {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringSignalSuggestedAction.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

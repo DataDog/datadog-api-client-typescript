@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for the reorder operation.
- */
+*/
 export class TagIndexingRuleOrderAttributes {
   /**
    * Ordered list of tag indexing rule UUIDs. The server assigns rule_order 1, 2, … matching position in this list.
-   */
+  */
   "ruleIds"?: Array<string>;
 
   /**
@@ -20,7 +25,7 @@ export class TagIndexingRuleOrderAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,9 +36,9 @@ export class TagIndexingRuleOrderAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    ruleIds: {
-      baseName: "rule_ids",
-      type: "Array<string>",
+    "ruleIds": {
+      "baseName": "rule_ids",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,8 +50,34 @@ export class TagIndexingRuleOrderAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TagIndexingRuleOrderAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

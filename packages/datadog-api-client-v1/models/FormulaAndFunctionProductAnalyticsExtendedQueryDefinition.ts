@@ -9,39 +9,44 @@ import { ProductAnalyticsAudienceFilters } from "./ProductAnalyticsAudienceFilte
 import { ProductAnalyticsExtendedCompute } from "./ProductAnalyticsExtendedCompute";
 import { ProductAnalyticsExtendedGroupBy } from "./ProductAnalyticsExtendedGroupBy";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A formula and functions Product Analytics Extended query for advanced analytics features.
- */
+*/
 export class FormulaAndFunctionProductAnalyticsExtendedQueryDefinition {
   /**
    * Product Analytics/RUM audience filters.
-   */
+  */
   "audienceFilters"?: ProductAnalyticsAudienceFilters;
   /**
    * Compute configuration for Product Analytics Extended queries.
-   */
+  */
   "compute": ProductAnalyticsExtendedCompute;
   /**
    * Data source for Product Analytics Extended queries.
-   */
+  */
   "dataSource": FormulaAndFunctionProductAnalyticsExtendedDataSource;
   /**
    * Group by configuration.
-   */
+  */
   "groupBy"?: Array<ProductAnalyticsExtendedGroupBy>;
   /**
    * Event indexes to query.
-   */
+  */
   "indexes"?: Array<FormulaAndFunctionProductAnalyticsExtendedQueryDefinitionIndexesItems>;
   /**
    * Name of the query for use in formulas.
-   */
+  */
   "name": string;
   /**
    * Base query for Product Analytics.
-   */
+  */
   "query": any;
 
   /**
@@ -49,7 +54,7 @@ export class FormulaAndFunctionProductAnalyticsExtendedQueryDefinition {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -60,37 +65,37 @@ export class FormulaAndFunctionProductAnalyticsExtendedQueryDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    audienceFilters: {
-      baseName: "audience_filters",
-      type: "ProductAnalyticsAudienceFilters",
+    "audienceFilters": {
+      "baseName": "audience_filters",
+      "type": "ProductAnalyticsAudienceFilters",
     },
-    compute: {
-      baseName: "compute",
-      type: "ProductAnalyticsExtendedCompute",
-      required: true,
+    "compute": {
+      "baseName": "compute",
+      "type": "ProductAnalyticsExtendedCompute",
+      "required": true,
     },
-    dataSource: {
-      baseName: "data_source",
-      type: "FormulaAndFunctionProductAnalyticsExtendedDataSource",
-      required: true,
+    "dataSource": {
+      "baseName": "data_source",
+      "type": "FormulaAndFunctionProductAnalyticsExtendedDataSource",
+      "required": true,
     },
-    groupBy: {
-      baseName: "group_by",
-      type: "Array<ProductAnalyticsExtendedGroupBy>",
+    "groupBy": {
+      "baseName": "group_by",
+      "type": "Array<ProductAnalyticsExtendedGroupBy>",
     },
-    indexes: {
-      baseName: "indexes",
-      type: "Array<FormulaAndFunctionProductAnalyticsExtendedQueryDefinitionIndexesItems>",
+    "indexes": {
+      "baseName": "indexes",
+      "type": "Array<FormulaAndFunctionProductAnalyticsExtendedQueryDefinitionIndexesItems>",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    query: {
-      baseName: "query",
-      type: "any",
-      required: true,
+    "query": {
+      "baseName": "query",
+      "type": "any",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -102,8 +107,34 @@ export class FormulaAndFunctionProductAnalyticsExtendedQueryDefinition {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FormulaAndFunctionProductAnalyticsExtendedQueryDefinition.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Agent install method.
- */
+*/
 export class HostMetaInstallMethod {
   /**
    * The installer version.
-   */
+  */
   "installerVersion"?: string;
   /**
    * Tool used to install the agent.
-   */
+  */
   "tool"?: string;
   /**
    * The tool version.
-   */
+  */
   "toolVersion"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class HostMetaInstallMethod {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class HostMetaInstallMethod {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    installerVersion: {
-      baseName: "installer_version",
-      type: "string",
+    "installerVersion": {
+      "baseName": "installer_version",
+      "type": "string",
     },
-    tool: {
-      baseName: "tool",
-      type: "string",
+    "tool": {
+      "baseName": "tool",
+      "type": "string",
     },
-    toolVersion: {
-      baseName: "tool_version",
-      type: "string",
+    "toolVersion": {
+      "baseName": "tool_version",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class HostMetaInstallMethod {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return HostMetaInstallMethod.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

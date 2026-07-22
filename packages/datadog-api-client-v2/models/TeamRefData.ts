@@ -5,19 +5,24 @@
  */
 import { TeamRefDataType } from "./TeamRefDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Reference to a Datadog team.
- */
+*/
 export class TeamRefData {
   /**
    * The Datadog team ID.
-   */
+  */
   "id": string;
   /**
    * Datadog team resource type.
-   */
+  */
   "type": TeamRefDataType;
 
   /**
@@ -25,7 +30,7 @@ export class TeamRefData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class TeamRefData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "TeamRefDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TeamRefDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class TeamRefData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamRefData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

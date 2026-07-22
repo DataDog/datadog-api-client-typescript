@@ -6,23 +6,28 @@
 import { LLMObsDatasetRestoreVersionDataAttributesRequest } from "./LLMObsDatasetRestoreVersionDataAttributesRequest";
 import { LLMObsDatasetType } from "./LLMObsDatasetType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for restoring an LLM Observability dataset to a previous version.
- */
+*/
 export class LLMObsDatasetRestoreVersionDataRequest {
   /**
    * Attributes for restoring an LLM Observability dataset to a previous version.
-   */
+  */
   "attributes": LLMObsDatasetRestoreVersionDataAttributesRequest;
   /**
    * Unique identifier of the dataset to restore.
-   */
+  */
   "id": string;
   /**
    * Resource type of an LLM Observability dataset.
-   */
+  */
   "type": LLMObsDatasetType;
 
   /**
@@ -30,7 +35,7 @@ export class LLMObsDatasetRestoreVersionDataRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class LLMObsDatasetRestoreVersionDataRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LLMObsDatasetRestoreVersionDataAttributesRequest",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "LLMObsDatasetRestoreVersionDataAttributesRequest",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LLMObsDatasetType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LLMObsDatasetType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class LLMObsDatasetRestoreVersionDataRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDatasetRestoreVersionDataRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,47 +4,52 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Team hierarchy links connect different teams. This represents attributes from teams that are connected by the team hierarchy link.
- */
+*/
 export class TeamHierarchyLinkTeamAttributes {
   /**
    * The team's avatar
-   */
+  */
   "avatar"?: string;
   /**
    * The team's banner
-   */
+  */
   "banner"?: number;
   /**
    * The team's handle
-   */
+  */
   "handle": string;
   /**
    * Whether the team is managed
-   */
+  */
   "isManaged"?: boolean;
   /**
    * Whether the team has open membership
-   */
+  */
   "isOpenMembership"?: boolean;
   /**
    * The number of links for the team
-   */
+  */
   "linkCount"?: number;
   /**
    * The team's name
-   */
+  */
   "name": string;
   /**
    * The team's summary
-   */
+  */
   "summary"?: string;
   /**
    * The number of users in the team
-   */
+  */
   "userCount"?: number;
 
   /**
@@ -52,7 +57,7 @@ export class TeamHierarchyLinkTeamAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -63,46 +68,46 @@ export class TeamHierarchyLinkTeamAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    avatar: {
-      baseName: "avatar",
-      type: "string",
+    "avatar": {
+      "baseName": "avatar",
+      "type": "string",
     },
-    banner: {
-      baseName: "banner",
-      type: "number",
-      format: "int64",
+    "banner": {
+      "baseName": "banner",
+      "type": "number",
+      "format": "int64",
     },
-    handle: {
-      baseName: "handle",
-      type: "string",
-      required: true,
+    "handle": {
+      "baseName": "handle",
+      "type": "string",
+      "required": true,
     },
-    isManaged: {
-      baseName: "is_managed",
-      type: "boolean",
+    "isManaged": {
+      "baseName": "is_managed",
+      "type": "boolean",
     },
-    isOpenMembership: {
-      baseName: "is_open_membership",
-      type: "boolean",
+    "isOpenMembership": {
+      "baseName": "is_open_membership",
+      "type": "boolean",
     },
-    linkCount: {
-      baseName: "link_count",
-      type: "number",
-      format: "int64",
+    "linkCount": {
+      "baseName": "link_count",
+      "type": "number",
+      "format": "int64",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    summary: {
-      baseName: "summary",
-      type: "string",
+    "summary": {
+      "baseName": "summary",
+      "type": "string",
     },
-    userCount: {
-      baseName: "user_count",
-      type: "number",
-      format: "int64",
+    "userCount": {
+      "baseName": "user_count",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -114,8 +119,34 @@ export class TeamHierarchyLinkTeamAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamHierarchyLinkTeamAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

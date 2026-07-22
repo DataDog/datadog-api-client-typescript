@@ -5,15 +5,20 @@
  */
 import { DomainAllowlist } from "./DomainAllowlist";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request containing the desired email domain allowlist configuration.
- */
+*/
 export class DomainAllowlistRequest {
   /**
    * The email domain allowlist for an org.
-   */
+  */
   "data": DomainAllowlist;
 
   /**
@@ -21,7 +26,7 @@ export class DomainAllowlistRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class DomainAllowlistRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "DomainAllowlist",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "DomainAllowlist",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class DomainAllowlistRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DomainAllowlistRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -7,27 +7,32 @@ import { TeamConnectionAttributes } from "./TeamConnectionAttributes";
 import { TeamConnectionRelationships } from "./TeamConnectionRelationships";
 import { TeamConnectionType } from "./TeamConnectionType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A relationship between a Datadog team and a team from another external system.
- */
+*/
 export class TeamConnection {
   /**
    * Attributes of the team connection.
-   */
+  */
   "attributes"?: TeamConnectionAttributes;
   /**
    * The unique identifier of the team connection.
-   */
+  */
   "id": string;
   /**
    * Relationships of the team connection.
-   */
+  */
   "relationships"?: TeamConnectionRelationships;
   /**
    * Team connection resource type.
-   */
+  */
   "type": TeamConnectionType;
 
   /**
@@ -35,7 +40,7 @@ export class TeamConnection {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,23 +51,23 @@ export class TeamConnection {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "TeamConnectionAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "TeamConnectionAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "TeamConnectionRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "TeamConnectionRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "TeamConnectionType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TeamConnectionType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,8 +79,34 @@ export class TeamConnection {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamConnection.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

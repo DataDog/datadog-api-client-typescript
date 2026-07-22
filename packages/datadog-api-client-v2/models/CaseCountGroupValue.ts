@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A single value within a count group, representing the number of cases with that specific field value.
- */
+*/
 export class CaseCountGroupValue {
   /**
    * Count of cases for this value.
-   */
+  */
   "count": number;
   /**
    * The group value.
-   */
+  */
   "value": string;
 
   /**
@@ -24,7 +29,7 @@ export class CaseCountGroupValue {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,16 +40,16 @@ export class CaseCountGroupValue {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    count: {
-      baseName: "count",
-      type: "number",
-      required: true,
-      format: "int64",
+    "count": {
+      "baseName": "count",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    value: {
-      baseName: "value",
-      type: "string",
-      required: true,
+    "value": {
+      "baseName": "value",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class CaseCountGroupValue {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseCountGroupValue.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

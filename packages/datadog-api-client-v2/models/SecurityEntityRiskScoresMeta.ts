@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metadata for pagination
- */
+*/
 export class SecurityEntityRiskScoresMeta {
   /**
    * Current page number (1-indexed)
-   */
+  */
   "pageNumber": number;
   /**
    * Number of items per page
-   */
+  */
   "pageSize": number;
   /**
    * Query ID for pagination consistency
-   */
+  */
   "queryId": string;
   /**
    * Total number of entities matching the query
-   */
+  */
   "totalRowCount": number;
 
   /**
@@ -32,7 +37,7 @@ export class SecurityEntityRiskScoresMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,28 +48,28 @@ export class SecurityEntityRiskScoresMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    pageNumber: {
-      baseName: "pageNumber",
-      type: "number",
-      required: true,
-      format: "int64",
+    "pageNumber": {
+      "baseName": "pageNumber",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    pageSize: {
-      baseName: "pageSize",
-      type: "number",
-      required: true,
-      format: "int64",
+    "pageSize": {
+      "baseName": "pageSize",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    queryId: {
-      baseName: "queryId",
-      type: "string",
-      required: true,
+    "queryId": {
+      "baseName": "queryId",
+      "type": "string",
+      "required": true,
     },
-    totalRowCount: {
-      baseName: "totalRowCount",
-      type: "number",
-      required: true,
-      format: "int64",
+    "totalRowCount": {
+      "baseName": "totalRowCount",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -76,8 +81,34 @@ export class SecurityEntityRiskScoresMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityEntityRiskScoresMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

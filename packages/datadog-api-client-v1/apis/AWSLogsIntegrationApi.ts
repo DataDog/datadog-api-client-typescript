@@ -1,16 +1,12 @@
-import {
-  BaseAPIRequestFactory,
-  RequiredError,
-} from "../../datadog-api-client-common/baseapi";
-import {
-  Configuration,
-  applySecurityAuthentication,
-} from "../../datadog-api-client-common/configuration";
+import { BaseAPIRequestFactory, RequiredError } from "../../datadog-api-client-common/baseapi";
+import { Configuration,
+  applySecurityAuthentication,} from "../../datadog-api-client-common/configuration";
 import {
   RequestContext,
   HttpMethod,
   ResponseContext,
-} from "../../datadog-api-client-common/http/http";
+    
+  } from "../../datadog-api-client-common/http/http";
 
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
@@ -24,31 +20,27 @@ import { AWSLogsListServicesResponse } from "../models/AWSLogsListServicesRespon
 import { AWSLogsServicesRequest } from "../models/AWSLogsServicesRequest";
 
 export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
-  public async checkAWSLogsLambdaAsync(
-    body: AWSAccountAndLambdaRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+
+  public async checkAWSLogsLambdaAsync(body: AWSAccountAndLambdaRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "checkAWSLogsLambdaAsync");
+      throw new RequiredError('body', 'checkAWSLogsLambdaAsync');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/integration/aws/logs/check_async";
+    const localVarPath = '/api/v1/integration/aws/logs/check_async';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.AWSLogsIntegrationApi.checkAWSLogsLambdaAsync")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v1.AWSLogsIntegrationApi.checkAWSLogsLambdaAsync').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AWSAccountAndLambdaRequest", ""),
@@ -57,7 +49,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -65,31 +57,26 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async checkAWSLogsServicesAsync(
-    body: AWSLogsServicesRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async checkAWSLogsServicesAsync(body: AWSLogsServicesRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "checkAWSLogsServicesAsync");
+      throw new RequiredError('body', 'checkAWSLogsServicesAsync');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/integration/aws/logs/services_async";
+    const localVarPath = '/api/v1/integration/aws/logs/services_async';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.AWSLogsIntegrationApi.checkAWSLogsServicesAsync")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v1.AWSLogsIntegrationApi.checkAWSLogsServicesAsync').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AWSLogsServicesRequest", ""),
@@ -98,7 +85,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -106,31 +93,26 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async createAWSLambdaARN(
-    body: AWSAccountAndLambdaRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async createAWSLambdaARN(body: AWSAccountAndLambdaRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "createAWSLambdaARN");
+      throw new RequiredError('body', 'createAWSLambdaARN');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/integration/aws/logs";
+    const localVarPath = '/api/v1/integration/aws/logs';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.AWSLogsIntegrationApi.createAWSLambdaARN")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v1.AWSLogsIntegrationApi.createAWSLambdaARN').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AWSAccountAndLambdaRequest", ""),
@@ -139,7 +121,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -147,31 +129,26 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async deleteAWSLambdaARN(
-    body: AWSAccountAndLambdaRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async deleteAWSLambdaARN(body: AWSAccountAndLambdaRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "deleteAWSLambdaARN");
+      throw new RequiredError('body', 'deleteAWSLambdaARN');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/integration/aws/logs";
+    const localVarPath = '/api/v1/integration/aws/logs';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.AWSLogsIntegrationApi.deleteAWSLambdaARN")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config.getServer('v1.AWSLogsIntegrationApi.deleteAWSLambdaARN').makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AWSAccountAndLambdaRequest", ""),
@@ -180,7 +157,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -188,31 +165,26 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async enableAWSLogServices(
-    body: AWSLogsServicesRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async enableAWSLogServices(body: AWSLogsServicesRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "enableAWSLogServices");
+      throw new RequiredError('body', 'enableAWSLogServices');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/integration/aws/logs/services";
+    const localVarPath = '/api/v1/integration/aws/logs/services';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.AWSLogsIntegrationApi.enableAWSLogServices")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v1.AWSLogsIntegrationApi.enableAWSLogServices').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AWSLogsServicesRequest", ""),
@@ -221,7 +193,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -229,23 +201,20 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async listAWSLogsIntegrations(
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async listAWSLogsIntegrations(_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = "/api/v1/integration/aws/logs";
+    const localVarPath = '/api/v1/integration/aws/logs';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.AWSLogsIntegrationApi.listAWSLogsIntegrations")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v1.AWSLogsIntegrationApi.listAWSLogsIntegrations').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -253,23 +222,20 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async listAWSLogsServices(
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async listAWSLogsServices(_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = "/api/v1/integration/aws/logs/services";
+    const localVarPath = '/api/v1/integration/aws/logs/services';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.AWSLogsIntegrationApi.listAWSLogsServices")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v1.AWSLogsIntegrationApi.listAWSLogsServices').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -279,6 +245,8 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class AWSLogsIntegrationApiResponseProcessor {
+
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -286,12 +254,8 @@ export class AWSLogsIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to checkAWSLogsLambdaAsync
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async checkAWSLogsLambdaAsync(
-    response: ResponseContext
-  ): Promise<AWSLogsAsyncResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async checkAWSLogsLambdaAsync(response: ResponseContext): Promise<AWSLogsAsyncResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: AWSLogsAsyncResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -299,15 +263,8 @@ export class AWSLogsIntegrationApiResponseProcessor {
       ) as AWSLogsAsyncResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -316,30 +273,25 @@ export class AWSLogsIntegrationApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AWSLogsAsyncResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "AWSLogsAsyncResponse",
-        ""
+        "",
       ) as AWSLogsAsyncResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -348,12 +300,8 @@ export class AWSLogsIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to checkAWSLogsServicesAsync
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async checkAWSLogsServicesAsync(
-    response: ResponseContext
-  ): Promise<AWSLogsAsyncResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async checkAWSLogsServicesAsync(response: ResponseContext): Promise<AWSLogsAsyncResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: AWSLogsAsyncResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -361,15 +309,8 @@ export class AWSLogsIntegrationApiResponseProcessor {
       ) as AWSLogsAsyncResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -378,30 +319,25 @@ export class AWSLogsIntegrationApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AWSLogsAsyncResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "AWSLogsAsyncResponse",
-        ""
+        "",
       ) as AWSLogsAsyncResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -410,10 +346,8 @@ export class AWSLogsIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to createAWSLambdaARN
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createAWSLambdaARN(response: ResponseContext): Promise<any> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async createAWSLambdaARN(response: ResponseContext): Promise<any> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -421,15 +355,8 @@ export class AWSLogsIntegrationApiResponseProcessor {
       ) as any;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -438,30 +365,25 @@ export class AWSLogsIntegrationApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "any",
-        ""
+        "",
       ) as any;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -470,10 +392,8 @@ export class AWSLogsIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteAWSLambdaARN
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteAWSLambdaARN(response: ResponseContext): Promise<any> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async deleteAWSLambdaARN(response: ResponseContext): Promise<any> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -481,15 +401,8 @@ export class AWSLogsIntegrationApiResponseProcessor {
       ) as any;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -498,30 +411,25 @@ export class AWSLogsIntegrationApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "any",
-        ""
+        "",
       ) as any;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -530,10 +438,8 @@ export class AWSLogsIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to enableAWSLogServices
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async enableAWSLogServices(response: ResponseContext): Promise<any> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async enableAWSLogServices(response: ResponseContext): Promise<any> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -541,15 +447,8 @@ export class AWSLogsIntegrationApiResponseProcessor {
       ) as any;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -558,30 +457,25 @@ export class AWSLogsIntegrationApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "any",
-        ""
+        "",
       ) as any;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -590,12 +484,8 @@ export class AWSLogsIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to listAWSLogsIntegrations
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listAWSLogsIntegrations(
-    response: ResponseContext
-  ): Promise<Array<AWSLogsListResponse>> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async listAWSLogsIntegrations(response: ResponseContext): Promise<Array<AWSLogsListResponse>> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: Array<AWSLogsListResponse> = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -603,15 +493,8 @@ export class AWSLogsIntegrationApiResponseProcessor {
       ) as Array<AWSLogsListResponse>;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -620,30 +503,25 @@ export class AWSLogsIntegrationApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Array<AWSLogsListResponse> = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "Array<AWSLogsListResponse>",
-        ""
+        "",
       ) as Array<AWSLogsListResponse>;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -652,25 +530,17 @@ export class AWSLogsIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to listAWSLogsServices
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listAWSLogsServices(
-    response: ResponseContext
-  ): Promise<Array<AWSLogsListServicesResponse>> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async listAWSLogsServices(response: ResponseContext): Promise<Array<AWSLogsListServicesResponse>> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: Array<AWSLogsListServicesResponse> =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "Array<AWSLogsListServicesResponse>"
-        ) as Array<AWSLogsListServicesResponse>;
+      const body: Array<AWSLogsListServicesResponse> = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "Array<AWSLogsListServicesResponse>"
+      ) as Array<AWSLogsListServicesResponse>;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -679,30 +549,23 @@ export class AWSLogsIntegrationApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: Array<AWSLogsListServicesResponse> =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "Array<AWSLogsListServicesResponse>",
-          ""
-        ) as Array<AWSLogsListServicesResponse>;
+      const body: Array<AWSLogsListServicesResponse> = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "Array<AWSLogsListServicesResponse>",
+        "",
+      ) as Array<AWSLogsListServicesResponse>;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 }
 
@@ -711,7 +574,7 @@ export interface AWSLogsIntegrationApiCheckAWSLogsLambdaAsyncRequest {
    * Check AWS Log Lambda Async request body.
    * @type AWSAccountAndLambdaRequest
    */
-  body: AWSAccountAndLambdaRequest;
+  body: AWSAccountAndLambdaRequest
 }
 
 export interface AWSLogsIntegrationApiCheckAWSLogsServicesAsyncRequest {
@@ -719,7 +582,7 @@ export interface AWSLogsIntegrationApiCheckAWSLogsServicesAsyncRequest {
    * Check AWS Logs Async Services request body.
    * @type AWSLogsServicesRequest
    */
-  body: AWSLogsServicesRequest;
+  body: AWSLogsServicesRequest
 }
 
 export interface AWSLogsIntegrationApiCreateAWSLambdaARNRequest {
@@ -727,7 +590,7 @@ export interface AWSLogsIntegrationApiCreateAWSLambdaARNRequest {
    * AWS Log Lambda Async request body.
    * @type AWSAccountAndLambdaRequest
    */
-  body: AWSAccountAndLambdaRequest;
+  body: AWSAccountAndLambdaRequest
 }
 
 export interface AWSLogsIntegrationApiDeleteAWSLambdaARNRequest {
@@ -735,7 +598,7 @@ export interface AWSLogsIntegrationApiDeleteAWSLambdaARNRequest {
    * Delete AWS Lambda ARN request body.
    * @type AWSAccountAndLambdaRequest
    */
-  body: AWSAccountAndLambdaRequest;
+  body: AWSAccountAndLambdaRequest
 }
 
 export interface AWSLogsIntegrationApiEnableAWSLogServicesRequest {
@@ -743,7 +606,7 @@ export interface AWSLogsIntegrationApiEnableAWSLogServicesRequest {
    * Enable AWS Log Services request body.
    * @type AWSLogsServicesRequest
    */
-  body: AWSLogsServicesRequest;
+  body: AWSLogsServicesRequest
 }
 
 export class AWSLogsIntegrationApi {
@@ -751,44 +614,28 @@ export class AWSLogsIntegrationApi {
   private responseProcessor: AWSLogsIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
-  public constructor(
-    configuration: Configuration,
-    requestFactory?: AWSLogsIntegrationApiRequestFactory,
-    responseProcessor?: AWSLogsIntegrationApiResponseProcessor
-  ) {
+  public constructor(configuration: Configuration, requestFactory?: AWSLogsIntegrationApiRequestFactory, responseProcessor?: AWSLogsIntegrationApiResponseProcessor) {
     this.configuration = configuration;
-    this.requestFactory =
-      requestFactory || new AWSLogsIntegrationApiRequestFactory(configuration);
-    this.responseProcessor =
-      responseProcessor || new AWSLogsIntegrationApiResponseProcessor();
+    this.requestFactory = requestFactory || new AWSLogsIntegrationApiRequestFactory(configuration);
+    this.responseProcessor = responseProcessor || new AWSLogsIntegrationApiResponseProcessor();
   }
 
   /**
    * Test if permissions are present to add a log-forwarding triggers for the given services and AWS account. The input
    * is the same as for Enable an AWS service log collection. Subsequent requests will always repeat the above, so this
    * endpoint can be polled intermittently instead of blocking.
-   *
+   * 
    * - Returns a status of 'created' when it's checking if the Lambda exists in the account.
    * - Returns a status of 'waiting' while checking.
    * - Returns a status of 'checked and ok' if the Lambda exists.
    * - Returns a status of 'error' if the Lambda does not exist.
    * @param param The request object
    */
-  public checkAWSLogsLambdaAsync(
-    param: AWSLogsIntegrationApiCheckAWSLogsLambdaAsyncRequest,
-    options?: Configuration
-  ): Promise<AWSLogsAsyncResponse> {
-    const requestContextPromise = this.requestFactory.checkAWSLogsLambdaAsync(
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.checkAWSLogsLambdaAsync(
-            responseContext
-          );
+  public checkAWSLogsLambdaAsync(param: AWSLogsIntegrationApiCheckAWSLogsLambdaAsyncRequest, options?: Configuration): Promise<AWSLogsAsyncResponse> {
+    const requestContextPromise = this.requestFactory.checkAWSLogsLambdaAsync(param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.checkAWSLogsLambdaAsync(responseContext);
         });
     });
   }
@@ -798,7 +645,7 @@ export class AWSLogsIntegrationApi {
    * given services and AWS account. Input is the same as for `EnableAWSLogServices`.
    * Done async, so can be repeatedly polled in a non-blocking fashion until
    * the async request completes.
-   *
+   * 
    * - Returns a status of `created` when it's checking if the permissions exists
    *   in the AWS account.
    * - Returns a status of `waiting` while checking.
@@ -806,21 +653,11 @@ export class AWSLogsIntegrationApi {
    * - Returns a status of `error` if the Lambda does not exist.
    * @param param The request object
    */
-  public checkAWSLogsServicesAsync(
-    param: AWSLogsIntegrationApiCheckAWSLogsServicesAsyncRequest,
-    options?: Configuration
-  ): Promise<AWSLogsAsyncResponse> {
-    const requestContextPromise = this.requestFactory.checkAWSLogsServicesAsync(
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.checkAWSLogsServicesAsync(
-            responseContext
-          );
+  public checkAWSLogsServicesAsync(param: AWSLogsIntegrationApiCheckAWSLogsServicesAsyncRequest, options?: Configuration): Promise<AWSLogsAsyncResponse> {
+    const requestContextPromise = this.requestFactory.checkAWSLogsServicesAsync(param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.checkAWSLogsServicesAsync(responseContext);
         });
     });
   }
@@ -829,19 +666,11 @@ export class AWSLogsIntegrationApi {
    * Attach the Lambda ARN of the Lambda created for the Datadog-AWS log collection to your AWS account ID to enable log collection.
    * @param param The request object
    */
-  public createAWSLambdaARN(
-    param: AWSLogsIntegrationApiCreateAWSLambdaARNRequest,
-    options?: Configuration
-  ): Promise<any> {
-    const requestContextPromise = this.requestFactory.createAWSLambdaARN(
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.createAWSLambdaARN(responseContext);
+  public createAWSLambdaARN(param: AWSLogsIntegrationApiCreateAWSLambdaARNRequest, options?: Configuration): Promise<any> {
+    const requestContextPromise = this.requestFactory.createAWSLambdaARN(param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.createAWSLambdaARN(responseContext);
         });
     });
   }
@@ -850,19 +679,11 @@ export class AWSLogsIntegrationApi {
    * Delete a Datadog-AWS logs configuration by removing the specific Lambda ARN associated with a given AWS account.
    * @param param The request object
    */
-  public deleteAWSLambdaARN(
-    param: AWSLogsIntegrationApiDeleteAWSLambdaARNRequest,
-    options?: Configuration
-  ): Promise<any> {
-    const requestContextPromise = this.requestFactory.deleteAWSLambdaARN(
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.deleteAWSLambdaARN(responseContext);
+  public deleteAWSLambdaARN(param: AWSLogsIntegrationApiDeleteAWSLambdaARNRequest, options?: Configuration): Promise<any> {
+    const requestContextPromise = this.requestFactory.deleteAWSLambdaARN(param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.deleteAWSLambdaARN(responseContext);
         });
     });
   }
@@ -871,19 +692,11 @@ export class AWSLogsIntegrationApi {
    * Enable automatic log collection for a list of services. This should be run after running `CreateAWSLambdaARN` to save the configuration.
    * @param param The request object
    */
-  public enableAWSLogServices(
-    param: AWSLogsIntegrationApiEnableAWSLogServicesRequest,
-    options?: Configuration
-  ): Promise<any> {
-    const requestContextPromise = this.requestFactory.enableAWSLogServices(
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.enableAWSLogServices(responseContext);
+  public enableAWSLogServices(param: AWSLogsIntegrationApiEnableAWSLogServicesRequest, options?: Configuration): Promise<any> {
+    const requestContextPromise = this.requestFactory.enableAWSLogServices(param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.enableAWSLogServices(responseContext);
         });
     });
   }
@@ -892,18 +705,11 @@ export class AWSLogsIntegrationApi {
    * List all Datadog-AWS Logs integrations configured in your Datadog account.
    * @param param The request object
    */
-  public listAWSLogsIntegrations(
-    options?: Configuration
-  ): Promise<Array<AWSLogsListResponse>> {
-    const requestContextPromise =
-      this.requestFactory.listAWSLogsIntegrations(options);
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.listAWSLogsIntegrations(
-            responseContext
-          );
+  public listAWSLogsIntegrations( options?: Configuration): Promise<Array<AWSLogsListResponse>> {
+    const requestContextPromise = this.requestFactory.listAWSLogsIntegrations(options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.listAWSLogsIntegrations(responseContext);
         });
     });
   }
@@ -912,16 +718,11 @@ export class AWSLogsIntegrationApi {
    * **This endpoint is deprecated - use the V2 endpoint instead.** Get the list of current AWS services that Datadog offers automatic log collection. Use returned service IDs with the services parameter for the Enable an AWS service log collection API endpoint.
    * @param param The request object
    */
-  public listAWSLogsServices(
-    options?: Configuration
-  ): Promise<Array<AWSLogsListServicesResponse>> {
-    const requestContextPromise =
-      this.requestFactory.listAWSLogsServices(options);
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.listAWSLogsServices(responseContext);
+  public listAWSLogsServices( options?: Configuration): Promise<Array<AWSLogsListServicesResponse>> {
+    const requestContextPromise = this.requestFactory.listAWSLogsServices(options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.listAWSLogsServices(responseContext);
         });
     });
   }

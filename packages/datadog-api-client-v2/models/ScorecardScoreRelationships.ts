@@ -5,31 +5,36 @@
  */
 import { ScorecardScoreRelationshipItem } from "./ScorecardScoreRelationshipItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationships for a scorecard score, depending on the aggregation type.
- */
+*/
 export class ScorecardScoreRelationships {
   /**
    * A relationship item for a score.
-   */
+  */
   "entity"?: ScorecardScoreRelationshipItem;
   /**
    * A relationship item for a score.
-   */
+  */
   "rule"?: ScorecardScoreRelationshipItem;
   /**
    * A relationship item for a score.
-   */
+  */
   "scorecard"?: ScorecardScoreRelationshipItem;
   /**
    * A relationship item for a score.
-   */
+  */
   "service"?: ScorecardScoreRelationshipItem;
   /**
    * A relationship item for a score.
-   */
+  */
   "team"?: ScorecardScoreRelationshipItem;
 
   /**
@@ -37,7 +42,7 @@ export class ScorecardScoreRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -48,25 +53,25 @@ export class ScorecardScoreRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    entity: {
-      baseName: "entity",
-      type: "ScorecardScoreRelationshipItem",
+    "entity": {
+      "baseName": "entity",
+      "type": "ScorecardScoreRelationshipItem",
     },
-    rule: {
-      baseName: "rule",
-      type: "ScorecardScoreRelationshipItem",
+    "rule": {
+      "baseName": "rule",
+      "type": "ScorecardScoreRelationshipItem",
     },
-    scorecard: {
-      baseName: "scorecard",
-      type: "ScorecardScoreRelationshipItem",
+    "scorecard": {
+      "baseName": "scorecard",
+      "type": "ScorecardScoreRelationshipItem",
     },
-    service: {
-      baseName: "service",
-      type: "ScorecardScoreRelationshipItem",
+    "service": {
+      "baseName": "service",
+      "type": "ScorecardScoreRelationshipItem",
     },
-    team: {
-      baseName: "team",
-      type: "ScorecardScoreRelationshipItem",
+    "team": {
+      "baseName": "team",
+      "type": "ScorecardScoreRelationshipItem",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -78,8 +83,34 @@ export class ScorecardScoreRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ScorecardScoreRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

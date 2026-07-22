@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of the resource. The value should always be `exclusion_filter`.
- */
+*/
 
-export type ApplicationSecurityWafExclusionFilterType =
-  | typeof EXCLUSION_FILTER
-  | UnparsedObject;
-export const EXCLUSION_FILTER = "exclusion_filter";
+export type ApplicationSecurityWafExclusionFilterType = typeof EXCLUSION_FILTER | UnparsedObject;
+export const EXCLUSION_FILTER = 'exclusion_filter';

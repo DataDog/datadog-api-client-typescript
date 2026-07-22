@@ -5,31 +5,36 @@
  */
 import { CycloneDXComponentType } from "./CycloneDXComponentType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A software component identified during scanning.
- */
+*/
 export class CycloneDXComponent {
   /**
    * A unique reference identifier used to link vulnerabilities to this component.
-   */
+  */
   "bomRef": string;
   /**
    * The name of the component.
-   */
+  */
   "name": string;
   /**
    * The Package URL (PURL) of the component. Required when `type` is `library`.
-   */
+  */
   "purl"?: string;
   /**
    * The type of the scanned component.
-   */
+  */
   "type": CycloneDXComponentType;
   /**
    * The version of the component.
-   */
+  */
   "version": string;
 
   /**
@@ -37,7 +42,7 @@ export class CycloneDXComponent {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -48,29 +53,29 @@ export class CycloneDXComponent {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    bomRef: {
-      baseName: "bom-ref",
-      type: "string",
-      required: true,
+    "bomRef": {
+      "baseName": "bom-ref",
+      "type": "string",
+      "required": true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    purl: {
-      baseName: "purl",
-      type: "string",
+    "purl": {
+      "baseName": "purl",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "CycloneDXComponentType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CycloneDXComponentType",
+      "required": true,
     },
-    version: {
-      baseName: "version",
-      type: "string",
-      required: true,
+    "version": {
+      "baseName": "version",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -82,8 +87,34 @@ export class CycloneDXComponent {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CycloneDXComponent.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

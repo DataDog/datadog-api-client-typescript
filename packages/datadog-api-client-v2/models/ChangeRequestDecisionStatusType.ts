@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The status of a change request decision.
- */
+*/
 
-export type ChangeRequestDecisionStatusType =
-  | typeof REQUESTED
-  | typeof APPROVED
-  | typeof DECLINED
-  | UnparsedObject;
-export const REQUESTED = "REQUESTED";
-export const APPROVED = "APPROVED";
-export const DECLINED = "DECLINED";
+export type ChangeRequestDecisionStatusType = typeof REQUESTED| typeof APPROVED| typeof DECLINED | UnparsedObject;
+export const REQUESTED = 'REQUESTED';
+export const APPROVED = 'APPROVED';
+export const DECLINED = 'DECLINED';

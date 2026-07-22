@@ -7,27 +7,32 @@ import { OrgGroupPolicySuggestionAttributes } from "./OrgGroupPolicySuggestionAt
 import { OrgGroupPolicySuggestionRelationships } from "./OrgGroupPolicySuggestionRelationships";
 import { OrgGroupPolicySuggestionType } from "./OrgGroupPolicySuggestionType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An org group policy suggestion resource.
- */
+*/
 export class OrgGroupPolicySuggestionData {
   /**
    * Attributes of an org group policy suggestion.
-   */
+  */
   "attributes": OrgGroupPolicySuggestionAttributes;
   /**
    * The ID of the org group policy suggestion.
-   */
+  */
   "id": string;
   /**
    * Relationships of an org group policy suggestion.
-   */
+  */
   "relationships"?: OrgGroupPolicySuggestionRelationships;
   /**
    * Org group policy suggestions resource type.
-   */
+  */
   "type": OrgGroupPolicySuggestionType;
 
   /**
@@ -35,7 +40,7 @@ export class OrgGroupPolicySuggestionData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,24 +51,24 @@ export class OrgGroupPolicySuggestionData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "OrgGroupPolicySuggestionAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "OrgGroupPolicySuggestionAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "OrgGroupPolicySuggestionRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "OrgGroupPolicySuggestionRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "OrgGroupPolicySuggestionType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "OrgGroupPolicySuggestionType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -75,8 +80,34 @@ export class OrgGroupPolicySuggestionData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgGroupPolicySuggestionData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

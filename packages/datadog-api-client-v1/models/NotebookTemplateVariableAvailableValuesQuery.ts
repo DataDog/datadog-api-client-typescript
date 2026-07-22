@@ -6,13 +6,15 @@
 import { NotebookTemplateVariableAvailableValuesQueryLogRumSpans } from "./NotebookTemplateVariableAvailableValuesQueryLogRumSpans";
 import { NotebookTemplateVariableAvailableValuesQueryMetrics } from "./NotebookTemplateVariableAvailableValuesQueryMetrics";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Query used to dynamically populate the list of available values for the template variable.
- */
+*/
 
-export type NotebookTemplateVariableAvailableValuesQuery =
-  | NotebookTemplateVariableAvailableValuesQueryLogRumSpans
-  | NotebookTemplateVariableAvailableValuesQueryMetrics
-  | UnparsedObject;
+export type NotebookTemplateVariableAvailableValuesQuery = NotebookTemplateVariableAvailableValuesQueryLogRumSpans | NotebookTemplateVariableAvailableValuesQueryMetrics | UnparsedObject;

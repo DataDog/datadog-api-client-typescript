@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The lifecycle stage at which the app prompts users to fill out this field. Cannot be set on required fields.
- */
+*/
 
-export type IncidentUserDefinedFieldCollected =
-  | typeof ACTIVE
-  | typeof STABLE
-  | typeof RESOLVED
-  | typeof COMPLETED
-  | UnparsedObject;
-export const ACTIVE = "active";
-export const STABLE = "stable";
-export const RESOLVED = "resolved";
-export const COMPLETED = "completed";
+export type IncidentUserDefinedFieldCollected = typeof ACTIVE| typeof STABLE| typeof RESOLVED| typeof COMPLETED | UnparsedObject;
+export const ACTIVE = 'active';
+export const STABLE = 'stable';
+export const RESOLVED = 'resolved';
+export const COMPLETED = 'completed';

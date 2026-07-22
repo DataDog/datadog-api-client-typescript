@@ -6,13 +6,15 @@
 import { IncidentImportFieldAttributesMultipleValue } from "./IncidentImportFieldAttributesMultipleValue";
 import { IncidentImportFieldAttributesSingleValue } from "./IncidentImportFieldAttributesSingleValue";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Dynamic fields for which selections can be made, with field names as keys.
- */
+*/
 
-export type IncidentImportFieldAttributes =
-  | IncidentImportFieldAttributesSingleValue
-  | IncidentImportFieldAttributesMultipleValue
-  | UnparsedObject;
+export type IncidentImportFieldAttributes = IncidentImportFieldAttributesSingleValue | IncidentImportFieldAttributesMultipleValue | UnparsedObject;

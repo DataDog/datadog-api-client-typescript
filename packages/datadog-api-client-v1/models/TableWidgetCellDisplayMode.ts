@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Define a display mode for the table cell.
- */
+*/
 
-export type TableWidgetCellDisplayMode =
-  | typeof NUMBER
-  | typeof BAR
-  | typeof TREND
-  | UnparsedObject;
-export const NUMBER = "number";
-export const BAR = "bar";
-export const TREND = "trend";
+export type TableWidgetCellDisplayMode = typeof NUMBER| typeof BAR| typeof TREND | UnparsedObject;
+export const NUMBER = 'number';
+export const BAR = 'bar';
+export const TREND = 'trend';

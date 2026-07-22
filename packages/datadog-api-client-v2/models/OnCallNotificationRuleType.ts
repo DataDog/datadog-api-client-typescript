@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Indicates that the resource is of type 'notification_rules'.
- */
+*/
 
-export type OnCallNotificationRuleType =
-  | typeof NOTIFICATION_RULES
-  | UnparsedObject;
-export const NOTIFICATION_RULES = "notification_rules";
+export type OnCallNotificationRuleType = typeof NOTIFICATION_RULES | UnparsedObject;
+export const NOTIFICATION_RULES = 'notification_rules';

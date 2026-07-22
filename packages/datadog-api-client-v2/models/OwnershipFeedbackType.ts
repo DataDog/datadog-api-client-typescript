@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of the ownership feedback request resource. The value should always be `ownership_feedback`.
- */
+*/
 
 export type OwnershipFeedbackType = typeof OWNERSHIP_FEEDBACK | UnparsedObject;
-export const OWNERSHIP_FEEDBACK = "ownership_feedback";
+export const OWNERSHIP_FEEDBACK = 'ownership_feedback';

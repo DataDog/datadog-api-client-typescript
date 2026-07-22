@@ -5,27 +5,32 @@
  */
 import { GovernanceInsightAuditCompute } from "./GovernanceInsightAuditCompute";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An audit log query used to compute an insight value.
- */
+*/
 export class GovernanceInsightAuditQuery {
   /**
    * The aggregation applied to an audit log query.
-   */
+  */
   "compute": GovernanceInsightAuditCompute;
   /**
    * The audit log indexes the query runs against.
-   */
+  */
   "indexes": Array<string>;
   /**
    * The audit log search query string.
-   */
+  */
   "query": string;
   /**
    * The data source the query runs against.
-   */
+  */
   "source": string;
 
   /**
@@ -33,7 +38,7 @@ export class GovernanceInsightAuditQuery {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -44,25 +49,25 @@ export class GovernanceInsightAuditQuery {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    compute: {
-      baseName: "compute",
-      type: "GovernanceInsightAuditCompute",
-      required: true,
+    "compute": {
+      "baseName": "compute",
+      "type": "GovernanceInsightAuditCompute",
+      "required": true,
     },
-    indexes: {
-      baseName: "indexes",
-      type: "Array<string>",
-      required: true,
+    "indexes": {
+      "baseName": "indexes",
+      "type": "Array<string>",
+      "required": true,
     },
-    query: {
-      baseName: "query",
-      type: "string",
-      required: true,
+    "query": {
+      "baseName": "query",
+      "type": "string",
+      "required": true,
     },
-    source: {
-      baseName: "source",
-      type: "string",
-      required: true,
+    "source": {
+      "baseName": "source",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,8 +79,34 @@ export class GovernanceInsightAuditQuery {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GovernanceInsightAuditQuery.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

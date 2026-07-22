@@ -5,15 +5,20 @@
  */
 import { WebIntegrationAccountUpdateRequestData } from "./WebIntegrationAccountUpdateRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Payload schema when updating a web integration account.
- */
+*/
 export class WebIntegrationAccountUpdateRequest {
   /**
    * Data object for updating a web integration account.
-   */
+  */
   "data": WebIntegrationAccountUpdateRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class WebIntegrationAccountUpdateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class WebIntegrationAccountUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "WebIntegrationAccountUpdateRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "WebIntegrationAccountUpdateRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class WebIntegrationAccountUpdateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return WebIntegrationAccountUpdateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { SastRulesetData } from "./SastRulesetData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The response payload containing a list of SAST rulesets and their rules.
- */
+*/
 export class SastRulesetsResponse {
   /**
    * The list of SAST rulesets returned in the response.
-   */
+  */
   "data": Array<SastRulesetData>;
 
   /**
@@ -21,7 +26,7 @@ export class SastRulesetsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class SastRulesetsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<SastRulesetData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<SastRulesetData>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class SastRulesetsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SastRulesetsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

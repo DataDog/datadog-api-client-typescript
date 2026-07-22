@@ -6,19 +6,24 @@
 import { EventsAggregation } from "./EventsAggregation";
 import { RetentionComputeMetric } from "./RetentionComputeMetric";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Compute configuration for retention queries.
- */
+*/
 export class RetentionCompute {
   /**
    * The type of aggregation that can be performed on events-based queries.
-   */
+  */
   "aggregation": EventsAggregation;
   /**
    * Metric for retention compute.
-   */
+  */
   "metric": RetentionComputeMetric;
 
   /**
@@ -30,24 +35,50 @@ export class RetentionCompute {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregation: {
-      baseName: "aggregation",
-      type: "EventsAggregation",
-      required: true,
+    "aggregation": {
+      "baseName": "aggregation",
+      "type": "EventsAggregation",
+      "required": true,
     },
-    metric: {
-      baseName: "metric",
-      type: "RetentionComputeMetric",
-      required: true,
-    },
+    "metric": {
+      "baseName": "metric",
+      "type": "RetentionComputeMetric",
+      "required": true,
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RetentionCompute.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

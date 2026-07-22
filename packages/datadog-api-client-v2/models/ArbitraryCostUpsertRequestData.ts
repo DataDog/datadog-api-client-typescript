@@ -6,23 +6,28 @@
 import { ArbitraryCostUpsertRequestDataAttributes } from "./ArbitraryCostUpsertRequestDataAttributes";
 import { ArbitraryCostUpsertRequestDataType } from "./ArbitraryCostUpsertRequestDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `ArbitraryCostUpsertRequestData` object.
- */
+*/
 export class ArbitraryCostUpsertRequestData {
   /**
    * The definition of `ArbitraryCostUpsertRequestDataAttributes` object.
-   */
+  */
   "attributes"?: ArbitraryCostUpsertRequestDataAttributes;
   /**
    * The `ArbitraryCostUpsertRequestData` `id`.
-   */
+  */
   "id"?: string;
   /**
    * Upsert arbitrary rule resource type.
-   */
+  */
   "type": ArbitraryCostUpsertRequestDataType;
 
   /**
@@ -30,7 +35,7 @@ export class ArbitraryCostUpsertRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class ArbitraryCostUpsertRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ArbitraryCostUpsertRequestDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ArbitraryCostUpsertRequestDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "ArbitraryCostUpsertRequestDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ArbitraryCostUpsertRequestDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class ArbitraryCostUpsertRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ArbitraryCostUpsertRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

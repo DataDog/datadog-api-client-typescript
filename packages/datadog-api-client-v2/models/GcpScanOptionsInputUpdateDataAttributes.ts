@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for updating GCP scan options configuration.
- */
+*/
 export class GcpScanOptionsInputUpdateDataAttributes {
   /**
    * Indicates if scanning of Cloud Functions is enabled.
-   */
+  */
   "cloudFunction"?: boolean;
   /**
    * Indicates whether host compliance scanning is enabled.
-   */
+  */
   "complianceHost"?: boolean;
   /**
    * Indicates if scanning for vulnerabilities in containers is enabled.
-   */
+  */
   "vulnContainersOs"?: boolean;
   /**
    * Indicates if scanning for vulnerabilities in hosts is enabled.
-   */
+  */
   "vulnHostOs"?: boolean;
 
   /**
@@ -32,7 +37,7 @@ export class GcpScanOptionsInputUpdateDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,21 +48,21 @@ export class GcpScanOptionsInputUpdateDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    cloudFunction: {
-      baseName: "cloud_function",
-      type: "boolean",
+    "cloudFunction": {
+      "baseName": "cloud_function",
+      "type": "boolean",
     },
-    complianceHost: {
-      baseName: "compliance_host",
-      type: "boolean",
+    "complianceHost": {
+      "baseName": "compliance_host",
+      "type": "boolean",
     },
-    vulnContainersOs: {
-      baseName: "vuln_containers_os",
-      type: "boolean",
+    "vulnContainersOs": {
+      "baseName": "vuln_containers_os",
+      "type": "boolean",
     },
-    vulnHostOs: {
-      baseName: "vuln_host_os",
-      type: "boolean",
+    "vulnHostOs": {
+      "baseName": "vuln_host_os",
+      "type": "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -69,8 +74,34 @@ export class GcpScanOptionsInputUpdateDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GcpScanOptionsInputUpdateDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

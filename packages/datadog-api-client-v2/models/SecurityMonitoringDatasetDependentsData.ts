@@ -6,23 +6,28 @@
 import { SecurityMonitoringDatasetDependentsAttributes } from "./SecurityMonitoringDatasetDependentsAttributes";
 import { SecurityMonitoringDatasetDependentsType } from "./SecurityMonitoringDatasetDependentsType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A single entry describing the dependents of one dataset.
- */
+*/
 export class SecurityMonitoringDatasetDependentsData {
   /**
    * The attributes of a dataset dependents entry.
-   */
+  */
   "attributes": SecurityMonitoringDatasetDependentsAttributes;
   /**
    * The UUID of the dataset.
-   */
+  */
   "id": string;
   /**
    * The type of resource for a dataset dependents entry.
-   */
+  */
   "type": SecurityMonitoringDatasetDependentsType;
 
   /**
@@ -30,7 +35,7 @@ export class SecurityMonitoringDatasetDependentsData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class SecurityMonitoringDatasetDependentsData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SecurityMonitoringDatasetDependentsAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SecurityMonitoringDatasetDependentsAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "SecurityMonitoringDatasetDependentsType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SecurityMonitoringDatasetDependentsType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class SecurityMonitoringDatasetDependentsData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringDatasetDependentsData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

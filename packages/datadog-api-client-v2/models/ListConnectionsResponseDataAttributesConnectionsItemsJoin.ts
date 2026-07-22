@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The join configuration describing how the data source is linked to the entity.
- */
+*/
 export class ListConnectionsResponseDataAttributesConnectionsItemsJoin {
   /**
    * The entity attribute used as the join key to link records from the data source.
-   */
+  */
   "attribute"?: string;
   /**
    * The type of join key used (for example, email or user_id).
-   */
+  */
   "type"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class ListConnectionsResponseDataAttributesConnectionsItemsJoin {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class ListConnectionsResponseDataAttributesConnectionsItemsJoin {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attribute: {
-      baseName: "attribute",
-      type: "string",
+    "attribute": {
+      "baseName": "attribute",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class ListConnectionsResponseDataAttributesConnectionsItemsJoin {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListConnectionsResponseDataAttributesConnectionsItemsJoin.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

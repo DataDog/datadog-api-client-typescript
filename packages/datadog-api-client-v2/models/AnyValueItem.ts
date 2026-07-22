@@ -4,15 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A single item in an array of arbitrary values, which can be a string, number, object, or boolean.
- */
+*/
 
-export type AnyValueItem =
-  | string
-  | number
-  | { [key: string]: any }
-  | boolean
-  | UnparsedObject;
+export type AnyValueItem = string | number | { [key: string]: any; } | boolean | UnparsedObject;

@@ -6,23 +6,28 @@
 import { ProductAnalyticsScalarResponseAttributes } from "./ProductAnalyticsScalarResponseAttributes";
 import { ProductAnalyticsScalarResponseType } from "./ProductAnalyticsScalarResponseType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for a scalar response.
- */
+*/
 export class ProductAnalyticsScalarResponseData {
   /**
    * Attributes of a scalar analytics response, containing the result columns.
-   */
+  */
   "attributes"?: ProductAnalyticsScalarResponseAttributes;
   /**
    * Unique identifier for this response data object.
-   */
+  */
   "id"?: string;
   /**
    * The resource type identifier for a scalar analytics response.
-   */
+  */
   "type"?: ProductAnalyticsScalarResponseType;
 
   /**
@@ -30,7 +35,7 @@ export class ProductAnalyticsScalarResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class ProductAnalyticsScalarResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ProductAnalyticsScalarResponseAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ProductAnalyticsScalarResponseAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "ProductAnalyticsScalarResponseType",
+    "type": {
+      "baseName": "type",
+      "type": "ProductAnalyticsScalarResponseType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class ProductAnalyticsScalarResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProductAnalyticsScalarResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

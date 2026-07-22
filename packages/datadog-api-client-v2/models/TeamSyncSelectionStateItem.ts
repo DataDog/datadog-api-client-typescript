@@ -7,27 +7,32 @@ import { TeamSyncSelectionStateExternalId } from "./TeamSyncSelectionStateExtern
 import { TeamSyncSelectionStateOperation } from "./TeamSyncSelectionStateOperation";
 import { TeamSyncSelectionStateScope } from "./TeamSyncSelectionStateScope";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Identifies a team or organization hierarchy to include in synchronization.
- */
+*/
 export class TeamSyncSelectionStateItem {
   /**
    * The external identifier for a team or organization in the source platform.
-   */
+  */
   "externalId": TeamSyncSelectionStateExternalId;
   /**
    * The operation to perform on the selected hierarchy.
    * When set to `include`, synchronization covers the
    * referenced teams or organizations.
-   */
+  */
   "operation"?: TeamSyncSelectionStateOperation;
   /**
    * The scope of the selection. When set to `subtree`,
    * synchronization includes the referenced team or
    * organization and everything nested under it.
-   */
+  */
   "scope"?: TeamSyncSelectionStateScope;
 
   /**
@@ -35,7 +40,7 @@ export class TeamSyncSelectionStateItem {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,18 +51,18 @@ export class TeamSyncSelectionStateItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    externalId: {
-      baseName: "external_id",
-      type: "TeamSyncSelectionStateExternalId",
-      required: true,
+    "externalId": {
+      "baseName": "external_id",
+      "type": "TeamSyncSelectionStateExternalId",
+      "required": true,
     },
-    operation: {
-      baseName: "operation",
-      type: "TeamSyncSelectionStateOperation",
+    "operation": {
+      "baseName": "operation",
+      "type": "TeamSyncSelectionStateOperation",
     },
-    scope: {
-      baseName: "scope",
-      type: "TeamSyncSelectionStateScope",
+    "scope": {
+      "baseName": "scope",
+      "type": "TeamSyncSelectionStateScope",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -69,8 +74,34 @@ export class TeamSyncSelectionStateItem {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamSyncSelectionStateItem.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

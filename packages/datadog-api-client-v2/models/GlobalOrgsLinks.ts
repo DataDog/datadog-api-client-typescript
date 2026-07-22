@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Pagination links.
- */
+*/
 export class GlobalOrgsLinks {
   /**
    * Link to the next page.
-   */
+  */
   "next"?: string;
   /**
    * Link to the previous page.
-   */
+  */
   "prev"?: string;
   /**
    * Link to the current page.
-   */
+  */
   "self"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class GlobalOrgsLinks {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class GlobalOrgsLinks {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    next: {
-      baseName: "next",
-      type: "string",
+    "next": {
+      "baseName": "next",
+      "type": "string",
     },
-    prev: {
-      baseName: "prev",
-      type: "string",
+    "prev": {
+      "baseName": "prev",
+      "type": "string",
     },
-    self: {
-      baseName: "self",
-      type: "string",
+    "self": {
+      "baseName": "self",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class GlobalOrgsLinks {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GlobalOrgsLinks.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

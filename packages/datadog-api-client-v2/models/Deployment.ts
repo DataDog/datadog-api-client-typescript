@@ -7,27 +7,32 @@ import { AppDeploymentType } from "./AppDeploymentType";
 import { DeploymentAttributes } from "./DeploymentAttributes";
 import { DeploymentMetadata } from "./DeploymentMetadata";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The version of the app that was published.
- */
+*/
 export class Deployment {
   /**
    * The attributes object containing the version ID of the published app.
-   */
+  */
   "attributes"?: DeploymentAttributes;
   /**
    * The deployment ID.
-   */
+  */
   "id"?: string;
   /**
    * Metadata object containing the publication creation information.
-   */
+  */
   "meta"?: DeploymentMetadata;
   /**
    * The deployment type.
-   */
+  */
   "type"?: AppDeploymentType;
 
   /**
@@ -35,7 +40,7 @@ export class Deployment {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,22 +51,22 @@ export class Deployment {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "DeploymentAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "DeploymentAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "format": "uuid",
     },
-    meta: {
-      baseName: "meta",
-      type: "DeploymentMetadata",
+    "meta": {
+      "baseName": "meta",
+      "type": "DeploymentMetadata",
     },
-    type: {
-      baseName: "type",
-      type: "AppDeploymentType",
+    "type": {
+      "baseName": "type",
+      "type": "AppDeploymentType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -73,8 +78,34 @@ export class Deployment {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return Deployment.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

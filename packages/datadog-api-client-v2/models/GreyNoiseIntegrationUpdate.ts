@@ -6,19 +6,24 @@
 import { GreyNoiseCredentialsUpdate } from "./GreyNoiseCredentialsUpdate";
 import { GreyNoiseIntegrationType } from "./GreyNoiseIntegrationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `GreyNoiseIntegrationUpdate` object.
- */
+*/
 export class GreyNoiseIntegrationUpdate {
   /**
    * The definition of the `GreyNoiseCredentialsUpdate` object.
-   */
+  */
   "credentials"?: GreyNoiseCredentialsUpdate;
   /**
    * The definition of the `GreyNoiseIntegrationType` object.
-   */
+  */
   "type": GreyNoiseIntegrationType;
 
   /**
@@ -26,7 +31,7 @@ export class GreyNoiseIntegrationUpdate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class GreyNoiseIntegrationUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    credentials: {
-      baseName: "credentials",
-      type: "GreyNoiseCredentialsUpdate",
+    "credentials": {
+      "baseName": "credentials",
+      "type": "GreyNoiseCredentialsUpdate",
     },
-    type: {
-      baseName: "type",
-      type: "GreyNoiseIntegrationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "GreyNoiseIntegrationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class GreyNoiseIntegrationUpdate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GreyNoiseIntegrationUpdate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,43 +4,48 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Page-based pagination details for org group list responses.
- */
+*/
 export class OrgGroupPaginationMetaPage {
   /**
    * First page number.
-   */
+  */
   "firstNumber"?: number;
   /**
    * Last page number.
-   */
+  */
   "lastNumber"?: number;
   /**
    * Next page number.
-   */
+  */
   "nextNumber"?: number;
   /**
    * Page number.
-   */
+  */
   "number"?: number;
   /**
    * Previous page number.
-   */
+  */
   "prevNumber"?: number;
   /**
    * Page size.
-   */
+  */
   "size"?: number;
   /**
    * Total number of results.
-   */
+  */
   "total"?: number;
   /**
    * Pagination type.
-   */
+  */
   "type"?: string;
 
   /**
@@ -48,7 +53,7 @@ export class OrgGroupPaginationMetaPage {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -59,44 +64,44 @@ export class OrgGroupPaginationMetaPage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    firstNumber: {
-      baseName: "first_number",
-      type: "number",
-      format: "int64",
+    "firstNumber": {
+      "baseName": "first_number",
+      "type": "number",
+      "format": "int64",
     },
-    lastNumber: {
-      baseName: "last_number",
-      type: "number",
-      format: "int64",
+    "lastNumber": {
+      "baseName": "last_number",
+      "type": "number",
+      "format": "int64",
     },
-    nextNumber: {
-      baseName: "next_number",
-      type: "number",
-      format: "int64",
+    "nextNumber": {
+      "baseName": "next_number",
+      "type": "number",
+      "format": "int64",
     },
-    number: {
-      baseName: "number",
-      type: "number",
-      format: "int64",
+    "number": {
+      "baseName": "number",
+      "type": "number",
+      "format": "int64",
     },
-    prevNumber: {
-      baseName: "prev_number",
-      type: "number",
-      format: "int64",
+    "prevNumber": {
+      "baseName": "prev_number",
+      "type": "number",
+      "format": "int64",
     },
-    size: {
-      baseName: "size",
-      type: "number",
-      format: "int64",
+    "size": {
+      "baseName": "size",
+      "type": "number",
+      "format": "int64",
     },
-    total: {
-      baseName: "total",
-      type: "number",
-      format: "int64",
+    "total": {
+      "baseName": "total",
+      "type": "number",
+      "format": "int64",
     },
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -108,8 +113,34 @@ export class OrgGroupPaginationMetaPage {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgGroupPaginationMetaPage.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

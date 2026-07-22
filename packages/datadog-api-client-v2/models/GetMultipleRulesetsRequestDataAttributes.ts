@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The request attributes for fetching multiple rulesets, specifying which rulesets to retrieve and what data to include.
- */
+*/
 export class GetMultipleRulesetsRequestDataAttributes {
   /**
    * When true, rules that are available in testing mode are included in the response.
-   */
+  */
   "includeTestingRules"?: boolean;
   /**
    * When true, test cases associated with each rule are included in the response.
-   */
+  */
   "includeTests"?: boolean;
   /**
    * The list of ruleset names to retrieve.
-   */
+  */
   "rulesets"?: Array<string>;
 
   /**
@@ -28,7 +33,7 @@ export class GetMultipleRulesetsRequestDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class GetMultipleRulesetsRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    includeTestingRules: {
-      baseName: "include_testing_rules",
-      type: "boolean",
+    "includeTestingRules": {
+      "baseName": "include_testing_rules",
+      "type": "boolean",
     },
-    includeTests: {
-      baseName: "include_tests",
-      type: "boolean",
+    "includeTests": {
+      "baseName": "include_tests",
+      "type": "boolean",
     },
-    rulesets: {
-      baseName: "rulesets",
-      type: "Array<string>",
+    "rulesets": {
+      "baseName": "rulesets",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class GetMultipleRulesetsRequestDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GetMultipleRulesetsRequestDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

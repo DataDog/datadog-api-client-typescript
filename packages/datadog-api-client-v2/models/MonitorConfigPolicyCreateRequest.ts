@@ -5,15 +5,20 @@
  */
 import { MonitorConfigPolicyCreateData } from "./MonitorConfigPolicyCreateData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request for creating a monitor configuration policy.
- */
+*/
 export class MonitorConfigPolicyCreateRequest {
   /**
    * A monitor configuration policy data.
-   */
+  */
   "data": MonitorConfigPolicyCreateData;
 
   /**
@@ -21,7 +26,7 @@ export class MonitorConfigPolicyCreateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class MonitorConfigPolicyCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "MonitorConfigPolicyCreateData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "MonitorConfigPolicyCreateData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class MonitorConfigPolicyCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorConfigPolicyCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { OwnershipFeedbackRequestData } from "./OwnershipFeedbackRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The request body for submitting ownership feedback.
- */
+*/
 export class OwnershipFeedbackRequest {
   /**
    * The data wrapper for an ownership feedback request.
-   */
+  */
   "data": OwnershipFeedbackRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class OwnershipFeedbackRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class OwnershipFeedbackRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "OwnershipFeedbackRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "OwnershipFeedbackRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class OwnershipFeedbackRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OwnershipFeedbackRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

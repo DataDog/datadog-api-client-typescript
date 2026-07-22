@@ -6,23 +6,28 @@
 import { DeploymentRuleDataType } from "./DeploymentRuleDataType";
 import { DeploymentRuleResponseDataAttributes } from "./DeploymentRuleResponseDataAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for a deployment rule.
- */
+*/
 export class DeploymentRuleResponseData {
   /**
    * Basic information about a deployment rule.
-   */
+  */
   "attributes": DeploymentRuleResponseDataAttributes;
   /**
    * Unique identifier of the deployment rule.
-   */
+  */
   "id": string;
   /**
    * Deployment rule resource type.
-   */
+  */
   "type": DeploymentRuleDataType;
 
   /**
@@ -30,7 +35,7 @@ export class DeploymentRuleResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class DeploymentRuleResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "DeploymentRuleResponseDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "DeploymentRuleResponseDataAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "DeploymentRuleDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "DeploymentRuleDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class DeploymentRuleResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DeploymentRuleResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

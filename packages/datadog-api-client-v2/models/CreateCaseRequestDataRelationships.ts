@@ -6,19 +6,24 @@
 import { CaseManagementProject } from "./CaseManagementProject";
 import { Findings } from "./Findings";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationships of the case to create.
- */
+*/
 export class CreateCaseRequestDataRelationships {
   /**
    * A list of security findings.
-   */
+  */
   "findings": Findings;
   /**
    * Case management project.
-   */
+  */
   "project": CaseManagementProject;
 
   /**
@@ -26,7 +31,7 @@ export class CreateCaseRequestDataRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class CreateCaseRequestDataRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    findings: {
-      baseName: "findings",
-      type: "Findings",
-      required: true,
+    "findings": {
+      "baseName": "findings",
+      "type": "Findings",
+      "required": true,
     },
-    project: {
-      baseName: "project",
-      type: "CaseManagementProject",
-      required: true,
+    "project": {
+      "baseName": "project",
+      "type": "CaseManagementProject",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class CreateCaseRequestDataRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateCaseRequestDataRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

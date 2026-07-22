@@ -6,23 +6,28 @@
 import { GetMultipleRulesetsResponseDataAttributesRulesetsItemsDataType } from "./GetMultipleRulesetsResponseDataAttributesRulesetsItemsDataType";
 import { SastRulesetDataAttributes } from "./SastRulesetDataAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The primary data object representing a SAST ruleset.
- */
+*/
 export class SastRulesetData {
   /**
    * The attributes of a SAST ruleset, including its name, description, and rules.
-   */
+  */
   "attributes": SastRulesetDataAttributes;
   /**
    * The unique identifier of the ruleset resource.
-   */
+  */
   "id": string;
   /**
    * Rulesets resource type.
-   */
+  */
   "type": GetMultipleRulesetsResponseDataAttributesRulesetsItemsDataType;
 
   /**
@@ -30,7 +35,7 @@ export class SastRulesetData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class SastRulesetData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SastRulesetDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SastRulesetDataAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "GetMultipleRulesetsResponseDataAttributesRulesetsItemsDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "GetMultipleRulesetsResponseDataAttributesRulesetsItemsDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class SastRulesetData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SastRulesetData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { GoogleChatCreateOrganizationHandleRequestAttributes } from "./GoogleChatCreateOrganizationHandleRequestAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Organization handle data for a create request.
- */
+*/
 export class GoogleChatCreateOrganizationHandleRequestData {
   /**
    * Organization handle attributes for a create request.
-   */
+  */
   "attributes": GoogleChatCreateOrganizationHandleRequestAttributes;
 
   /**
@@ -21,7 +26,7 @@ export class GoogleChatCreateOrganizationHandleRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class GoogleChatCreateOrganizationHandleRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "GoogleChatCreateOrganizationHandleRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "GoogleChatCreateOrganizationHandleRequestAttributes",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class GoogleChatCreateOrganizationHandleRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GoogleChatCreateOrganizationHandleRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

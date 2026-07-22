@@ -5,15 +5,20 @@
  */
 import { AuthNMappingUpdateData } from "./AuthNMappingUpdateData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request to update an AuthN Mapping.
- */
+*/
 export class AuthNMappingUpdateRequest {
   /**
    * Data for updating an AuthN Mapping.
-   */
+  */
   "data": AuthNMappingUpdateData;
 
   /**
@@ -21,7 +26,7 @@ export class AuthNMappingUpdateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class AuthNMappingUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "AuthNMappingUpdateData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "AuthNMappingUpdateData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class AuthNMappingUpdateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AuthNMappingUpdateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The status of the response
- */
+*/
 
-export type LogsAggregateResponseStatus =
-  | typeof DONE
-  | typeof TIMEOUT
-  | UnparsedObject;
-export const DONE = "done";
-export const TIMEOUT = "timeout";
+export type LogsAggregateResponseStatus = typeof DONE| typeof TIMEOUT | UnparsedObject;
+export const DONE = 'done';
+export const TIMEOUT = 'timeout';

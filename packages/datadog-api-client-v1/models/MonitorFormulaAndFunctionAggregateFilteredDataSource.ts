@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Data source for aggregate filtered queries.
- */
+*/
 
-export type MonitorFormulaAndFunctionAggregateFilteredDataSource =
-  | typeof AGGREGATE_FILTERED_QUERY
-  | UnparsedObject;
-export const AGGREGATE_FILTERED_QUERY = "aggregate_filtered_query";
+export type MonitorFormulaAndFunctionAggregateFilteredDataSource = typeof AGGREGATE_FILTERED_QUERY | UnparsedObject;
+export const AGGREGATE_FILTERED_QUERY = 'aggregate_filtered_query';

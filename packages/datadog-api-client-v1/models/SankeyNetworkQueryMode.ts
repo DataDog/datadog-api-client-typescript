@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Sankey mode for network queries.
- */
+*/
 
 export type SankeyNetworkQueryMode = typeof TARGET | UnparsedObject;
-export const TARGET = "target";
+export const TARGET = 'target';

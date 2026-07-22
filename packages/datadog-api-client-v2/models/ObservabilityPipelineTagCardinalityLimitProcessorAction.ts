@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The action to take when the cardinality limit is exceeded.
- */
+*/
 
-export type ObservabilityPipelineTagCardinalityLimitProcessorAction =
-  | typeof DROP_TAG
-  | typeof DROP_EVENT
-  | UnparsedObject;
-export const DROP_TAG = "drop_tag";
-export const DROP_EVENT = "drop_event";
+export type ObservabilityPipelineTagCardinalityLimitProcessorAction = typeof DROP_TAG| typeof DROP_EVENT | UnparsedObject;
+export const DROP_TAG = 'drop_tag';
+export const DROP_EVENT = 'drop_event';

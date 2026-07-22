@@ -5,23 +5,28 @@
  */
 import { StatusPagesComponentGroupAttributesComponentsItemsType } from "./StatusPagesComponentGroupAttributesComponentsItemsType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A component to be created within a group.
- */
+*/
 export class CreateComponentRequestDataAttributesComponentsItems {
   /**
    * The name of the grouped component.
-   */
+  */
   "name": string;
   /**
    * The zero-indexed position of the grouped component relative to the other components in the group.
-   */
+  */
   "position": number;
   /**
    * The type of the component.
-   */
+  */
   "type": StatusPagesComponentGroupAttributesComponentsItemsType;
 
   /**
@@ -29,7 +34,7 @@ export class CreateComponentRequestDataAttributesComponentsItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,21 +45,21 @@ export class CreateComponentRequestDataAttributesComponentsItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    position: {
-      baseName: "position",
-      type: "number",
-      required: true,
-      format: "int64",
+    "position": {
+      "baseName": "position",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    type: {
-      baseName: "type",
-      type: "StatusPagesComponentGroupAttributesComponentsItemsType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "StatusPagesComponentGroupAttributesComponentsItemsType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class CreateComponentRequestDataAttributesComponentsItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateComponentRequestDataAttributesComponentsItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a user assigned to a seat, including their email, name, and assignment timestamp.
- */
+*/
 export class SeatUserDataAttributes {
   /**
    * The date and time the seat was assigned.
-   */
+  */
   "assignedAt"?: Date;
   /**
    * The email of the user.
-   */
+  */
   "email"?: string;
   /**
    * The name of the user.
-   */
+  */
   "name"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class SeatUserDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,18 +44,18 @@ export class SeatUserDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    assignedAt: {
-      baseName: "assigned_at",
-      type: "Date",
-      format: "date-time",
+    "assignedAt": {
+      "baseName": "assigned_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    email: {
-      baseName: "email",
-      type: "string",
+    "email": {
+      "baseName": "email",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class SeatUserDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SeatUserDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

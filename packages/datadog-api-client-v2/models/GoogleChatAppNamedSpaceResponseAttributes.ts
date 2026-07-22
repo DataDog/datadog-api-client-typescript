@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Google Chat space attributes.
- */
+*/
 export class GoogleChatAppNamedSpaceResponseAttributes {
   /**
    * Google space display name.
-   */
+  */
   "displayName"?: string;
   /**
    * Organization binding ID.
-   */
+  */
   "organizationBindingId"?: string;
   /**
    * Google space resource name.
-   */
+  */
   "resourceName"?: string;
   /**
    * Google space URI.
-   */
+  */
   "spaceUri"?: string;
 
   /**
@@ -32,7 +37,7 @@ export class GoogleChatAppNamedSpaceResponseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,21 +48,21 @@ export class GoogleChatAppNamedSpaceResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    displayName: {
-      baseName: "display_name",
-      type: "string",
+    "displayName": {
+      "baseName": "display_name",
+      "type": "string",
     },
-    organizationBindingId: {
-      baseName: "organization_binding_id",
-      type: "string",
+    "organizationBindingId": {
+      "baseName": "organization_binding_id",
+      "type": "string",
     },
-    resourceName: {
-      baseName: "resource_name",
-      type: "string",
+    "resourceName": {
+      "baseName": "resource_name",
+      "type": "string",
     },
-    spaceUri: {
-      baseName: "space_uri",
-      type: "string",
+    "spaceUri": {
+      "baseName": "space_uri",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -69,8 +74,34 @@ export class GoogleChatAppNamedSpaceResponseAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GoogleChatAppNamedSpaceResponseAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

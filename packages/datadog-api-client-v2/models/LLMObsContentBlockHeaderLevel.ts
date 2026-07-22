@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Visual size for a `header` block.
- */
+*/
 
-export type LLMObsContentBlockHeaderLevel =
-  | typeof SM
-  | typeof MD
-  | typeof LG
-  | typeof XL
-  | UnparsedObject;
-export const SM = "sm";
-export const MD = "md";
-export const LG = "lg";
-export const XL = "xl";
+export type LLMObsContentBlockHeaderLevel = typeof SM| typeof MD| typeof LG| typeof XL | UnparsedObject;
+export const SM = 'sm';
+export const MD = 'md';
+export const LG = 'lg';
+export const XL = 'xl';

@@ -6,23 +6,28 @@
 import { SpansMetricResponseAttributes } from "./SpansMetricResponseAttributes";
 import { SpansMetricType } from "./SpansMetricType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The span-based metric properties.
- */
+*/
 export class SpansMetricResponseData {
   /**
    * The object describing a Datadog span-based metric.
-   */
+  */
   "attributes"?: SpansMetricResponseAttributes;
   /**
    * The name of the span-based metric.
-   */
+  */
   "id"?: string;
   /**
    * The type of resource. The value should always be spans_metrics.
-   */
+  */
   "type"?: SpansMetricType;
 
   /**
@@ -30,7 +35,7 @@ export class SpansMetricResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class SpansMetricResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SpansMetricResponseAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SpansMetricResponseAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SpansMetricType",
+    "type": {
+      "baseName": "type",
+      "type": "SpansMetricType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class SpansMetricResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SpansMetricResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

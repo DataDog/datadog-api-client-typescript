@@ -5,31 +5,36 @@
  */
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * API error response body
- */
+*/
 export class JSONAPIErrorItem {
   /**
    * A human-readable explanation specific to this occurrence of the error.
-   */
+  */
   "detail"?: string;
   /**
    * Non-standard meta-information about the error
-   */
-  "meta"?: { [key: string]: any };
+  */
+  "meta"?: { [key: string]: any; };
   /**
    * References to the source of the error.
-   */
+  */
   "source"?: JSONAPIErrorItemSource;
   /**
    * Status code of the response.
-   */
+  */
   "status"?: string;
   /**
    * Short human-readable summary of the error.
-   */
+  */
   "title"?: string;
 
   /**
@@ -37,7 +42,7 @@ export class JSONAPIErrorItem {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -48,25 +53,25 @@ export class JSONAPIErrorItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    detail: {
-      baseName: "detail",
-      type: "string",
+    "detail": {
+      "baseName": "detail",
+      "type": "string",
     },
-    meta: {
-      baseName: "meta",
-      type: "{ [key: string]: any; }",
+    "meta": {
+      "baseName": "meta",
+      "type": "{ [key: string]: any; }",
     },
-    source: {
-      baseName: "source",
-      type: "JSONAPIErrorItemSource",
+    "source": {
+      "baseName": "source",
+      "type": "JSONAPIErrorItemSource",
     },
-    status: {
-      baseName: "status",
-      type: "string",
+    "status": {
+      "baseName": "status",
+      "type": "string",
     },
-    title: {
-      baseName: "title",
-      type: "string",
+    "title": {
+      "baseName": "title",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -78,8 +83,34 @@ export class JSONAPIErrorItem {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return JSONAPIErrorItem.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

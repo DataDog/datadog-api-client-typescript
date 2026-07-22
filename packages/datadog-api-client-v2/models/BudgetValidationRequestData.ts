@@ -6,23 +6,28 @@
 import { BudgetWithEntriesDataAttributes } from "./BudgetWithEntriesDataAttributes";
 import { BudgetWithEntriesDataType } from "./BudgetWithEntriesDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data object for a budget validation request, containing the resource type, ID, and budget attributes to validate.
- */
+*/
 export class BudgetValidationRequestData {
   /**
    * The attributes of a budget including all its monthly entries.
-   */
+  */
   "attributes"?: BudgetWithEntriesDataAttributes;
   /**
    * The unique identifier of the budget to validate.
-   */
+  */
   "id"?: string;
   /**
    * Budget resource type.
-   */
+  */
   "type": BudgetWithEntriesDataType;
 
   /**
@@ -30,7 +35,7 @@ export class BudgetValidationRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class BudgetValidationRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "BudgetWithEntriesDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "BudgetWithEntriesDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "BudgetWithEntriesDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "BudgetWithEntriesDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class BudgetValidationRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return BudgetValidationRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

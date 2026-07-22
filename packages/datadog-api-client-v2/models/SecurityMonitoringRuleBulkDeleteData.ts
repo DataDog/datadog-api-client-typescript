@@ -6,19 +6,24 @@
 import { SecurityMonitoringRuleBulkDeleteAttributes } from "./SecurityMonitoringRuleBulkDeleteAttributes";
 import { SecurityMonitoringRuleBulkDeleteRequestDataType } from "./SecurityMonitoringRuleBulkDeleteRequestDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for bulk deleting security monitoring rules.
- */
+*/
 export class SecurityMonitoringRuleBulkDeleteData {
   /**
    * Attributes for bulk deleting security monitoring rules.
-   */
+  */
   "attributes": SecurityMonitoringRuleBulkDeleteAttributes;
   /**
    * The resource type for a bulk delete request.
-   */
+  */
   "type": SecurityMonitoringRuleBulkDeleteRequestDataType;
 
   /**
@@ -26,7 +31,7 @@ export class SecurityMonitoringRuleBulkDeleteData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class SecurityMonitoringRuleBulkDeleteData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SecurityMonitoringRuleBulkDeleteAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SecurityMonitoringRuleBulkDeleteAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "SecurityMonitoringRuleBulkDeleteRequestDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SecurityMonitoringRuleBulkDeleteRequestDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class SecurityMonitoringRuleBulkDeleteData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringRuleBulkDeleteData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

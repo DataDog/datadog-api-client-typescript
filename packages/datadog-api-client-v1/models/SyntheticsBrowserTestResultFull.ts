@@ -7,42 +7,47 @@ import { SyntheticsBrowserTestResultData } from "./SyntheticsBrowserTestResultDa
 import { SyntheticsBrowserTestResultFullCheck } from "./SyntheticsBrowserTestResultFullCheck";
 import { SyntheticsTestMonitorStatus } from "./SyntheticsTestMonitorStatus";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object returned describing a browser test result.
- */
+*/
 export class SyntheticsBrowserTestResultFull {
   /**
    * Object describing the browser test configuration.
-   */
+  */
   "check"?: SyntheticsBrowserTestResultFullCheck;
   /**
    * When the browser test was conducted.
-   */
+  */
   "checkTime"?: number;
   /**
    * Version of the browser test used.
-   */
+  */
   "checkVersion"?: number;
   /**
    * Location from which the browser test was performed.
-   */
+  */
   "probeDc"?: string;
   /**
    * Object containing results for your Synthetic browser test.
-   */
+  */
   "result"?: SyntheticsBrowserTestResultData;
   /**
    * ID of the browser test result.
-   */
+  */
   "resultId"?: string;
   /**
    * The status of your Synthetic monitor.
    * * `O` for not triggered
    * * `1` for triggered
    * * `2` for no data
-   */
+  */
   "status"?: SyntheticsTestMonitorStatus;
 
   /**
@@ -50,7 +55,7 @@ export class SyntheticsBrowserTestResultFull {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -61,35 +66,35 @@ export class SyntheticsBrowserTestResultFull {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    check: {
-      baseName: "check",
-      type: "SyntheticsBrowserTestResultFullCheck",
+    "check": {
+      "baseName": "check",
+      "type": "SyntheticsBrowserTestResultFullCheck",
     },
-    checkTime: {
-      baseName: "check_time",
-      type: "number",
-      format: "double",
+    "checkTime": {
+      "baseName": "check_time",
+      "type": "number",
+      "format": "double",
     },
-    checkVersion: {
-      baseName: "check_version",
-      type: "number",
-      format: "int64",
+    "checkVersion": {
+      "baseName": "check_version",
+      "type": "number",
+      "format": "int64",
     },
-    probeDc: {
-      baseName: "probe_dc",
-      type: "string",
+    "probeDc": {
+      "baseName": "probe_dc",
+      "type": "string",
     },
-    result: {
-      baseName: "result",
-      type: "SyntheticsBrowserTestResultData",
+    "result": {
+      "baseName": "result",
+      "type": "SyntheticsBrowserTestResultData",
     },
-    resultId: {
-      baseName: "result_id",
-      type: "string",
+    "resultId": {
+      "baseName": "result_id",
+      "type": "string",
     },
-    status: {
-      baseName: "status",
-      type: "SyntheticsTestMonitorStatus",
+    "status": {
+      "baseName": "status",
+      "type": "SyntheticsTestMonitorStatus",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -101,8 +106,34 @@ export class SyntheticsBrowserTestResultFull {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsBrowserTestResultFull.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

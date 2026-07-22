@@ -7,23 +7,28 @@ import { RetentionCurveRequestType } from "./RetentionCurveRequestType";
 import { RetentionCurveStyle } from "./RetentionCurveStyle";
 import { RetentionQuery } from "./RetentionQuery";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Retention curve widget request.
- */
+*/
 export class RetentionCurveWidgetRequest {
   /**
    * Retention query definition.
-   */
+  */
   "query": RetentionQuery;
   /**
    * Request type for retention curve widget.
-   */
+  */
   "requestType": RetentionCurveRequestType;
   /**
    * Style configuration for retention curve.
-   */
+  */
   "style"?: RetentionCurveStyle;
 
   /**
@@ -35,28 +40,54 @@ export class RetentionCurveWidgetRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    query: {
-      baseName: "query",
-      type: "RetentionQuery",
-      required: true,
+    "query": {
+      "baseName": "query",
+      "type": "RetentionQuery",
+      "required": true,
     },
-    requestType: {
-      baseName: "request_type",
-      type: "RetentionCurveRequestType",
-      required: true,
+    "requestType": {
+      "baseName": "request_type",
+      "type": "RetentionCurveRequestType",
+      "required": true,
     },
-    style: {
-      baseName: "style",
-      type: "RetentionCurveStyle",
-    },
+    "style": {
+      "baseName": "style",
+      "type": "RetentionCurveStyle",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RetentionCurveWidgetRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

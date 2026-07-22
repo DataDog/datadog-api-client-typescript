@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The event source status "empty".
- */
+*/
 
 export type AWSEventBridgeDeleteStatus = typeof EMPTY | UnparsedObject;
-export const EMPTY = "empty";
+export const EMPTY = 'empty';

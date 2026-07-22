@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Describes additional metadata for validation errors, including field names and error messages.
- */
+*/
 export class ValidationErrorMeta {
   /**
    * The field name that caused the error.
-   */
+  */
   "field"?: string;
   /**
    * The ID of the component in which the error occurred.
-   */
+  */
   "id"?: string;
   /**
    * The detailed error message.
-   */
+  */
   "message": string;
 
   /**
@@ -28,7 +33,7 @@ export class ValidationErrorMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,18 +44,18 @@ export class ValidationErrorMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    field: {
-      baseName: "field",
-      type: "string",
+    "field": {
+      "baseName": "field",
+      "type": "string",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    message: {
-      baseName: "message",
-      type: "string",
-      required: true,
+    "message": {
+      "baseName": "message",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class ValidationErrorMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ValidationErrorMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

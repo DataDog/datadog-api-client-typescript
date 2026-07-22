@@ -5,19 +5,24 @@
  */
 import { RetentionCohortCriteriaTimeInterval } from "./RetentionCohortCriteriaTimeInterval";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Cohort criteria for retention queries.
- */
+*/
 export class RetentionCohortCriteria {
   /**
    * Base query for Product Analytics.
-   */
+  */
   "baseQuery": any;
   /**
    * Time interval for cohort criteria.
-   */
+  */
   "timeInterval": RetentionCohortCriteriaTimeInterval;
 
   /**
@@ -29,24 +34,50 @@ export class RetentionCohortCriteria {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    baseQuery: {
-      baseName: "base_query",
-      type: "any",
-      required: true,
+    "baseQuery": {
+      "baseName": "base_query",
+      "type": "any",
+      "required": true,
     },
-    timeInterval: {
-      baseName: "time_interval",
-      type: "RetentionCohortCriteriaTimeInterval",
-      required: true,
-    },
+    "timeInterval": {
+      "baseName": "time_interval",
+      "type": "RetentionCohortCriteriaTimeInterval",
+      "required": true,
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RetentionCohortCriteria.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

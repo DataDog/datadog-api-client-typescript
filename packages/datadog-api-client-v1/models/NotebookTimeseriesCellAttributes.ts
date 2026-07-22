@@ -8,27 +8,32 @@ import { NotebookGraphSize } from "./NotebookGraphSize";
 import { NotebookSplitBy } from "./NotebookSplitBy";
 import { TimeseriesWidgetDefinition } from "./TimeseriesWidgetDefinition";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes of a notebook `timeseries` cell.
- */
+*/
 export class NotebookTimeseriesCellAttributes {
   /**
    * The timeseries visualization allows you to display the evolution of one or more metrics, log events, or Indexed Spans over time.
-   */
+  */
   "definition": TimeseriesWidgetDefinition;
   /**
    * The size of the graph.
-   */
+  */
   "graphSize"?: NotebookGraphSize;
   /**
    * Object describing how to split the graph to display multiple visualizations per request.
-   */
+  */
   "splitBy"?: NotebookSplitBy;
   /**
    * Timeframe for the notebook cell. When 'null', the notebook global time is used.
-   */
+  */
   "time"?: NotebookCellTime;
 
   /**
@@ -36,7 +41,7 @@ export class NotebookTimeseriesCellAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,22 +52,22 @@ export class NotebookTimeseriesCellAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    definition: {
-      baseName: "definition",
-      type: "TimeseriesWidgetDefinition",
-      required: true,
+    "definition": {
+      "baseName": "definition",
+      "type": "TimeseriesWidgetDefinition",
+      "required": true,
     },
-    graphSize: {
-      baseName: "graph_size",
-      type: "NotebookGraphSize",
+    "graphSize": {
+      "baseName": "graph_size",
+      "type": "NotebookGraphSize",
     },
-    splitBy: {
-      baseName: "split_by",
-      type: "NotebookSplitBy",
+    "splitBy": {
+      "baseName": "split_by",
+      "type": "NotebookSplitBy",
     },
-    time: {
-      baseName: "time",
-      type: "NotebookCellTime",
+    "time": {
+      "baseName": "time",
+      "type": "NotebookCellTime",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,8 +79,34 @@ export class NotebookTimeseriesCellAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return NotebookTimeseriesCellAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

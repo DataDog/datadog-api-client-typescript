@@ -6,31 +6,36 @@
 import { AnyValue } from "./AnyValue";
 import { LLMObsDatasetRecordTagOperations } from "./LLMObsDatasetRecordTagOperations";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A record update payload as part of a batch update on an LLM Observability dataset.
- */
+*/
 export class LLMObsDatasetBatchUpdateUpdateRecord {
   /**
    * Represents any valid JSON value.
-   */
+  */
   "expectedOutput"?: AnyValue;
   /**
    * Unique identifier of the record to update.
-   */
+  */
   "id": string;
   /**
    * Represents any valid JSON value.
-   */
+  */
   "input"?: AnyValue;
   /**
    * Updated metadata associated with the record.
-   */
-  "metadata"?: { [key: string]: any };
+  */
+  "metadata"?: { [key: string]: any; };
   /**
    * Explicit tag operations for updating records. Operations are applied in order, Remove then Add then Set. `set` is the final override; if specified, the result of `remove` and `add` is discarded.
-   */
+  */
   "tagOperations"?: LLMObsDatasetRecordTagOperations;
 
   /**
@@ -38,7 +43,7 @@ export class LLMObsDatasetBatchUpdateUpdateRecord {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -49,26 +54,26 @@ export class LLMObsDatasetBatchUpdateUpdateRecord {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    expectedOutput: {
-      baseName: "expected_output",
-      type: "AnyValue",
+    "expectedOutput": {
+      "baseName": "expected_output",
+      "type": "AnyValue",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    input: {
-      baseName: "input",
-      type: "AnyValue",
+    "input": {
+      "baseName": "input",
+      "type": "AnyValue",
     },
-    metadata: {
-      baseName: "metadata",
-      type: "{ [key: string]: any; }",
+    "metadata": {
+      "baseName": "metadata",
+      "type": "{ [key: string]: any; }",
     },
-    tagOperations: {
-      baseName: "tag_operations",
-      type: "LLMObsDatasetRecordTagOperations",
+    "tagOperations": {
+      "baseName": "tag_operations",
+      "type": "LLMObsDatasetRecordTagOperations",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -80,8 +85,34 @@ export class LLMObsDatasetBatchUpdateUpdateRecord {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDatasetBatchUpdateUpdateRecord.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

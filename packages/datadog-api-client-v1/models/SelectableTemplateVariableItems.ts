@@ -4,31 +4,36 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object containing the template variable's name, associated tag/attribute, default value and selectable values.
- */
+*/
 export class SelectableTemplateVariableItems {
   /**
    * The default value of the template variable.
-   */
+  */
   "defaultValue"?: string;
   /**
    * Name of the template variable.
-   */
+  */
   "name"?: string;
   /**
    * The tag/attribute key associated with the template variable.
-   */
+  */
   "prefix"?: string;
   /**
    * The type of variable. This is to differentiate between filter variables (interpolated in query) and group by variables (interpolated into group by).
-   */
+  */
   "type"?: string;
   /**
    * List of visible tag values on the shared dashboard.
-   */
+  */
   "visibleTags"?: Array<string>;
 
   /**
@@ -36,7 +41,7 @@ export class SelectableTemplateVariableItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,25 +52,25 @@ export class SelectableTemplateVariableItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    defaultValue: {
-      baseName: "default_value",
-      type: "string",
+    "defaultValue": {
+      "baseName": "default_value",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    prefix: {
-      baseName: "prefix",
-      type: "string",
+    "prefix": {
+      "baseName": "prefix",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
-    visibleTags: {
-      baseName: "visible_tags",
-      type: "Array<string>",
+    "visibleTags": {
+      "baseName": "visible_tags",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -77,8 +82,34 @@ export class SelectableTemplateVariableItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SelectableTemplateVariableItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

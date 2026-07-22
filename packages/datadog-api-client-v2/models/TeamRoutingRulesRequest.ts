@@ -5,15 +5,20 @@
  */
 import { TeamRoutingRulesRequestData } from "./TeamRoutingRulesRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Represents a request to create or update team routing rules, including the data payload.
- */
+*/
 export class TeamRoutingRulesRequest {
   /**
    * Holds the data necessary to create or update team routing rules, including attributes, ID, and resource type.
-   */
+  */
   "data"?: TeamRoutingRulesRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class TeamRoutingRulesRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class TeamRoutingRulesRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "TeamRoutingRulesRequestData",
+    "data": {
+      "baseName": "data",
+      "type": "TeamRoutingRulesRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class TeamRoutingRulesRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamRoutingRulesRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

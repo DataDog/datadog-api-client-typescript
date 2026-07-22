@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Seat assignments resource type.
- */
+*/
 
 export type SeatAssignmentsDataType = typeof SEAT_ASSIGNMENTS | UnparsedObject;
-export const SEAT_ASSIGNMENTS = "seat-assignments";
+export const SEAT_ASSIGNMENTS = 'seat-assignments';

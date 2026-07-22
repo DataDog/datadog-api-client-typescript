@@ -6,19 +6,24 @@
 import { SyntheticsDowntimeDataAttributesRequest } from "./SyntheticsDowntimeDataAttributesRequest";
 import { SyntheticsDowntimeResourceType } from "./SyntheticsDowntimeResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data object for a Synthetics downtime create or update request.
- */
+*/
 export class SyntheticsDowntimeDataRequest {
   /**
    * Attributes for creating or updating a Synthetics downtime.
-   */
+  */
   "attributes": SyntheticsDowntimeDataAttributesRequest;
   /**
    * The resource type for a Synthetics downtime.
-   */
+  */
   "type": SyntheticsDowntimeResourceType;
 
   /**
@@ -26,7 +31,7 @@ export class SyntheticsDowntimeDataRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class SyntheticsDowntimeDataRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SyntheticsDowntimeDataAttributesRequest",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SyntheticsDowntimeDataAttributesRequest",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "SyntheticsDowntimeResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SyntheticsDowntimeResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class SyntheticsDowntimeDataRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsDowntimeDataRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A compute rule for aggregating data.
- */
+*/
 export class ProductAnalyticsCompute {
   /**
    * The aggregation function (count, cardinality, avg, sum, min, max, etc.).
-   */
+  */
   "aggregation": string;
   /**
    * Time bucket size in milliseconds. Required for timeseries queries.
-   */
+  */
   "interval"?: number;
   /**
    * The metric to aggregate on. Required for non-count aggregations.
-   */
+  */
   "metric"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class ProductAnalyticsCompute {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,19 +44,19 @@ export class ProductAnalyticsCompute {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregation: {
-      baseName: "aggregation",
-      type: "string",
-      required: true,
+    "aggregation": {
+      "baseName": "aggregation",
+      "type": "string",
+      "required": true,
     },
-    interval: {
-      baseName: "interval",
-      type: "number",
-      format: "int64",
+    "interval": {
+      "baseName": "interval",
+      "type": "number",
+      "format": "int64",
     },
-    metric: {
-      baseName: "metric",
-      type: "string",
+    "metric": {
+      "baseName": "metric",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class ProductAnalyticsCompute {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProductAnalyticsCompute.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

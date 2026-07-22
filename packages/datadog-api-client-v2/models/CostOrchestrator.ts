@@ -5,19 +5,24 @@
  */
 import { CostOrchestratorType } from "./CostOrchestratorType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A container orchestrator detected in Cloud Cost Management data.
- */
+*/
 export class CostOrchestrator {
   /**
    * The orchestrator name, for example `kubernetes` or `ecs`.
-   */
+  */
   "id": string;
   /**
    * Type of the Cloud Cost Management orchestrator resource.
-   */
+  */
   "type": CostOrchestratorType;
 
   /**
@@ -25,7 +30,7 @@ export class CostOrchestrator {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class CostOrchestrator {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CostOrchestratorType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CostOrchestratorType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class CostOrchestrator {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CostOrchestrator.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

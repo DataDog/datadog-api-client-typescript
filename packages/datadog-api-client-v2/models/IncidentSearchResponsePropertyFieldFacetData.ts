@@ -6,23 +6,28 @@
 import { IncidentSearchResponseFieldFacetData } from "./IncidentSearchResponseFieldFacetData";
 import { IncidentSearchResponseNumericFacetDataAggregates } from "./IncidentSearchResponseNumericFacetDataAggregates";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Facet data for the incident property fields.
- */
+*/
 export class IncidentSearchResponsePropertyFieldFacetData {
   /**
    * Aggregate information for numeric incident data.
-   */
+  */
   "aggregates"?: IncidentSearchResponseNumericFacetDataAggregates;
   /**
    * Facet data for the property field of an incident.
-   */
+  */
   "facets": Array<IncidentSearchResponseFieldFacetData>;
   /**
    * Name of the incident property field.
-   */
+  */
   "name": string;
 
   /**
@@ -30,7 +35,7 @@ export class IncidentSearchResponsePropertyFieldFacetData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class IncidentSearchResponsePropertyFieldFacetData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregates: {
-      baseName: "aggregates",
-      type: "IncidentSearchResponseNumericFacetDataAggregates",
+    "aggregates": {
+      "baseName": "aggregates",
+      "type": "IncidentSearchResponseNumericFacetDataAggregates",
     },
-    facets: {
-      baseName: "facets",
-      type: "Array<IncidentSearchResponseFieldFacetData>",
-      required: true,
+    "facets": {
+      "baseName": "facets",
+      "type": "Array<IncidentSearchResponseFieldFacetData>",
+      "required": true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class IncidentSearchResponsePropertyFieldFacetData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentSearchResponsePropertyFieldFacetData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

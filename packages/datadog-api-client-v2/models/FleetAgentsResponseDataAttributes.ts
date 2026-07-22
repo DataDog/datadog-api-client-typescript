@@ -5,15 +5,20 @@
  */
 import { FleetAgentAttributes } from "./FleetAgentAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of the fleet agents response containing the list of agents.
- */
+*/
 export class FleetAgentsResponseDataAttributes {
   /**
    * Array of agents matching the query criteria.
-   */
+  */
   "agents"?: Array<FleetAgentAttributes>;
 
   /**
@@ -21,7 +26,7 @@ export class FleetAgentsResponseDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class FleetAgentsResponseDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    agents: {
-      baseName: "agents",
-      type: "Array<FleetAgentAttributes>",
+    "agents": {
+      "baseName": "agents",
+      "type": "Array<FleetAgentAttributes>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class FleetAgentsResponseDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FleetAgentsResponseDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

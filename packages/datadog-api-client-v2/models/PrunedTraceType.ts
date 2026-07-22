@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of the pruned trace resource. The value is always `pruned_trace`.
- */
+*/
 
 export type PrunedTraceType = typeof PRUNED_TRACE | UnparsedObject;
-export const PRUNED_TRACE = "pruned_trace";
+export const PRUNED_TRACE = 'pruned_trace';

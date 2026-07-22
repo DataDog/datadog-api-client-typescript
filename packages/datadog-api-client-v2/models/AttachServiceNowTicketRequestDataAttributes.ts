@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of the ServiceNow ticket to attach security findings to.
- */
+*/
 export class AttachServiceNowTicketRequestDataAttributes {
   /**
    * URL of the ServiceNow incident to attach security findings to. Must be a service-now.com URL pointing to an incident record.
-   */
+  */
   "servicenowTicketUrl": string;
 
   /**
@@ -20,7 +25,7 @@ export class AttachServiceNowTicketRequestDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,10 +36,10 @@ export class AttachServiceNowTicketRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    servicenowTicketUrl: {
-      baseName: "servicenow_ticket_url",
-      type: "string",
-      required: true,
+    "servicenowTicketUrl": {
+      "baseName": "servicenow_ticket_url",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class AttachServiceNowTicketRequestDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AttachServiceNowTicketRequestDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

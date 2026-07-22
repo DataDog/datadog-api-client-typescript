@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The JSON:API type for a project artifacts resource.
- */
+*/
 
-export type ModelLabProjectArtifactsType =
-  | typeof PROJECT_FILES
-  | UnparsedObject;
-export const PROJECT_FILES = "project_files";
+export type ModelLabProjectArtifactsType = typeof PROJECT_FILES | UnparsedObject;
+export const PROJECT_FILES = 'project_files';

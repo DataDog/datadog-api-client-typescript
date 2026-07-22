@@ -5,15 +5,20 @@
  */
 import { FindingCaseResponseData } from "./FindingCaseResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * List of case responses.
- */
+*/
 export class FindingCaseResponseArray {
   /**
    * Array of case response data objects.
-   */
+  */
   "data": Array<FindingCaseResponseData>;
 
   /**
@@ -21,7 +26,7 @@ export class FindingCaseResponseArray {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class FindingCaseResponseArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<FindingCaseResponseData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<FindingCaseResponseData>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class FindingCaseResponseArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FindingCaseResponseArray.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

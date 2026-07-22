@@ -6,13 +6,15 @@
 import { IncidentTypeObject } from "./IncidentTypeObject";
 import { User } from "./User";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Objects related to a notification template.
- */
+*/
 
-export type IncidentNotificationTemplateIncludedItems =
-  | User
-  | IncidentTypeObject
-  | UnparsedObject;
+export type IncidentNotificationTemplateIncludedItems = User | IncidentTypeObject | UnparsedObject;

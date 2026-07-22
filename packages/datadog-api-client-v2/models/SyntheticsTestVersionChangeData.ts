@@ -6,23 +6,28 @@
 import { SyntheticsTestVersionChangeAttributes } from "./SyntheticsTestVersionChangeAttributes";
 import { SyntheticsTestVersionChangeType } from "./SyntheticsTestVersionChangeType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for a version change record.
- */
+*/
 export class SyntheticsTestVersionChangeData {
   /**
    * Attributes of a version change record.
-   */
+  */
   "attributes"?: SyntheticsTestVersionChangeAttributes;
   /**
    * UUID of the version change record.
-   */
+  */
   "id"?: string;
   /**
    * Type of the version metadata resource.
-   */
+  */
   "type"?: SyntheticsTestVersionChangeType;
 
   /**
@@ -30,7 +35,7 @@ export class SyntheticsTestVersionChangeData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class SyntheticsTestVersionChangeData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SyntheticsTestVersionChangeAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SyntheticsTestVersionChangeAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SyntheticsTestVersionChangeType",
+    "type": {
+      "baseName": "type",
+      "type": "SyntheticsTestVersionChangeType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class SyntheticsTestVersionChangeData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestVersionChangeData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

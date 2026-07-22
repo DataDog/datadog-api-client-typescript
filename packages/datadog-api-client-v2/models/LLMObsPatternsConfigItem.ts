@@ -4,63 +4,68 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A single LLM Observability patterns configuration in a list response.
- */
+*/
 export class LLMObsPatternsConfigItem {
   /**
    * Integration account ID for a bring-your-own-model configuration.
-   */
+  */
   "accountId"?: string;
   /**
    * Timestamp when the configuration was created.
-   */
+  */
   "createdAt": Date;
   /**
    * Query that selects the spans the patterns run analyzes.
-   */
+  */
   "evpQuery": string;
   /**
    * Depth of the topic hierarchy to generate.
-   */
+  */
   "hierarchyDepth": number;
   /**
    * Unique identifier of the configuration.
-   */
+  */
   "id": string;
   /**
    * Integration provider for a bring-your-own-model configuration.
-   */
+  */
   "integrationProvider"?: string;
   /**
    * Model name for a bring-your-own-model configuration.
-   */
+  */
   "modelName"?: string;
   /**
    * Name of the configuration.
-   */
+  */
   "name": string;
   /**
    * Maximum number of records to process for the run.
-   */
+  */
   "numRecords": number;
   /**
    * Fraction of matching spans to sample for the run.
-   */
+  */
   "samplingRatio": number;
   /**
    * Scope of the configuration.
-   */
+  */
   "scope": string;
   /**
    * Template used to guide topic generation.
-   */
+  */
   "template"?: string;
   /**
    * Timestamp when the configuration was last updated.
-   */
+  */
   "updatedAt": Date;
 
   /**
@@ -68,7 +73,7 @@ export class LLMObsPatternsConfigItem {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -79,71 +84,71 @@ export class LLMObsPatternsConfigItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    accountId: {
-      baseName: "account_id",
-      type: "string",
+    "accountId": {
+      "baseName": "account_id",
+      "type": "string",
     },
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    evpQuery: {
-      baseName: "evp_query",
-      type: "string",
-      required: true,
+    "evpQuery": {
+      "baseName": "evp_query",
+      "type": "string",
+      "required": true,
     },
-    hierarchyDepth: {
-      baseName: "hierarchy_depth",
-      type: "number",
-      required: true,
-      format: "int32",
+    "hierarchyDepth": {
+      "baseName": "hierarchy_depth",
+      "type": "number",
+      "required": true,
+      "format": "int32",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    integrationProvider: {
-      baseName: "integration_provider",
-      type: "string",
+    "integrationProvider": {
+      "baseName": "integration_provider",
+      "type": "string",
     },
-    modelName: {
-      baseName: "model_name",
-      type: "string",
+    "modelName": {
+      "baseName": "model_name",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    numRecords: {
-      baseName: "num_records",
-      type: "number",
-      required: true,
-      format: "int32",
+    "numRecords": {
+      "baseName": "num_records",
+      "type": "number",
+      "required": true,
+      "format": "int32",
     },
-    samplingRatio: {
-      baseName: "sampling_ratio",
-      type: "number",
-      required: true,
-      format: "double",
+    "samplingRatio": {
+      "baseName": "sampling_ratio",
+      "type": "number",
+      "required": true,
+      "format": "double",
     },
-    scope: {
-      baseName: "scope",
-      type: "string",
-      required: true,
+    "scope": {
+      "baseName": "scope",
+      "type": "string",
+      "required": true,
     },
-    template: {
-      baseName: "template",
-      type: "string",
+    "template": {
+      "baseName": "template",
+      "type": "string",
     },
-    updatedAt: {
-      baseName: "updated_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "updatedAt": {
+      "baseName": "updated_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -155,8 +160,34 @@ export class LLMObsPatternsConfigItem {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsPatternsConfigItem.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,19 +6,24 @@
 import { PowerpackData } from "./PowerpackData";
 import { User } from "./User";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object which includes a single powerpack configuration.
- */
+*/
 export class PowerpackResponse {
   /**
    * Powerpack data object.
-   */
+  */
   "data"?: PowerpackData;
   /**
    * Array of objects related to the users.
-   */
+  */
   "included"?: Array<User>;
 
   /**
@@ -26,7 +31,7 @@ export class PowerpackResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class PowerpackResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "PowerpackData",
+    "data": {
+      "baseName": "data",
+      "type": "PowerpackData",
     },
-    included: {
-      baseName: "included",
-      type: "Array<User>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<User>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class PowerpackResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PowerpackResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

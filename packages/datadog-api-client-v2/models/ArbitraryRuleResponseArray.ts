@@ -6,19 +6,24 @@
 import { ArbitraryRuleResponseArrayMeta } from "./ArbitraryRuleResponseArrayMeta";
 import { ArbitraryRuleResponseData } from "./ArbitraryRuleResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `ArbitraryRuleResponseArray` object.
- */
+*/
 export class ArbitraryRuleResponseArray {
   /**
    * The `ArbitraryRuleResponseArray` `data`.
-   */
+  */
   "data": Array<ArbitraryRuleResponseData>;
   /**
    * The `ArbitraryRuleResponseArray` `meta`.
-   */
+  */
   "meta"?: ArbitraryRuleResponseArrayMeta;
 
   /**
@@ -26,7 +31,7 @@ export class ArbitraryRuleResponseArray {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class ArbitraryRuleResponseArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<ArbitraryRuleResponseData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<ArbitraryRuleResponseData>",
+      "required": true,
     },
-    meta: {
-      baseName: "meta",
-      type: "ArbitraryRuleResponseArrayMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "ArbitraryRuleResponseArrayMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class ArbitraryRuleResponseArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ArbitraryRuleResponseArray.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

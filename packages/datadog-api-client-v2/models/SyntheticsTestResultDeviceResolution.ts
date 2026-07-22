@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Screen resolution of the device used to run the test.
- */
+*/
 export class SyntheticsTestResultDeviceResolution {
   /**
    * Viewport height in pixels.
-   */
+  */
   "height"?: number;
   /**
    * Device pixel ratio.
-   */
+  */
   "pixelRatio"?: number;
   /**
    * Viewport width in pixels.
-   */
+  */
   "width"?: number;
 
   /**
@@ -28,7 +33,7 @@ export class SyntheticsTestResultDeviceResolution {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,20 +44,20 @@ export class SyntheticsTestResultDeviceResolution {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    height: {
-      baseName: "height",
-      type: "number",
-      format: "int64",
+    "height": {
+      "baseName": "height",
+      "type": "number",
+      "format": "int64",
     },
-    pixelRatio: {
-      baseName: "pixel_ratio",
-      type: "number",
-      format: "double",
+    "pixelRatio": {
+      "baseName": "pixel_ratio",
+      "type": "number",
+      "format": "double",
     },
-    width: {
-      baseName: "width",
-      type: "number",
-      format: "int64",
+    "width": {
+      "baseName": "width",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class SyntheticsTestResultDeviceResolution {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultDeviceResolution.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

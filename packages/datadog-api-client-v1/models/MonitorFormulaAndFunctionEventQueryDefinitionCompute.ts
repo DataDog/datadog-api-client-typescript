@@ -5,31 +5,36 @@
  */
 import { MonitorFormulaAndFunctionEventAggregation } from "./MonitorFormulaAndFunctionEventAggregation";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Compute options.
- */
+*/
 export class MonitorFormulaAndFunctionEventQueryDefinitionCompute {
   /**
    * Aggregation methods for event platform queries.
-   */
+  */
   "aggregation": MonitorFormulaAndFunctionEventAggregation;
   /**
    * A time interval in milliseconds.
-   */
+  */
   "interval"?: number;
   /**
    * Measurable attribute to compute.
-   */
+  */
   "metric"?: string;
   /**
    * The name assigned to this aggregation, when multiple aggregations are defined for a query.
-   */
+  */
   "name"?: string;
   /**
    * Source reference for composite query payloads.
-   */
+  */
   "source"?: string;
 
   /**
@@ -37,7 +42,7 @@ export class MonitorFormulaAndFunctionEventQueryDefinitionCompute {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -48,27 +53,27 @@ export class MonitorFormulaAndFunctionEventQueryDefinitionCompute {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregation: {
-      baseName: "aggregation",
-      type: "MonitorFormulaAndFunctionEventAggregation",
-      required: true,
+    "aggregation": {
+      "baseName": "aggregation",
+      "type": "MonitorFormulaAndFunctionEventAggregation",
+      "required": true,
     },
-    interval: {
-      baseName: "interval",
-      type: "number",
-      format: "int64",
+    "interval": {
+      "baseName": "interval",
+      "type": "number",
+      "format": "int64",
     },
-    metric: {
-      baseName: "metric",
-      type: "string",
+    "metric": {
+      "baseName": "metric",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    source: {
-      baseName: "source",
-      type: "string",
+    "source": {
+      "baseName": "source",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -80,8 +85,34 @@ export class MonitorFormulaAndFunctionEventQueryDefinitionCompute {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorFormulaAndFunctionEventQueryDefinitionCompute.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

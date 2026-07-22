@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of the Retention Curve widget.
- */
+*/
 
-export type RetentionCurveWidgetDefinitionType =
-  | typeof RETENTION_CURVE
-  | UnparsedObject;
-export const RETENTION_CURVE = "retention_curve";
+export type RetentionCurveWidgetDefinitionType = typeof RETENTION_CURVE | UnparsedObject;
+export const RETENTION_CURVE = 'retention_curve';

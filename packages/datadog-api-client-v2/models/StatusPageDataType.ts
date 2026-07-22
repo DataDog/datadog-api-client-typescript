@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Status pages resource type.
- */
+*/
 
 export type StatusPageDataType = typeof STATUS_PAGES | UnparsedObject;
-export const STATUS_PAGES = "status_pages";
+export const STATUS_PAGES = 'status_pages';

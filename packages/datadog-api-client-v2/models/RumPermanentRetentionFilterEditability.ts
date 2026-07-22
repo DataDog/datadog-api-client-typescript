@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Indicates which cross-product fields of a permanent RUM retention filter can be updated.
- */
+*/
 export class RumPermanentRetentionFilterEditability {
   /**
    * Whether the APM trace cross-product configuration of the filter can be updated.
-   */
+  */
   "traceEditable"?: boolean;
 
   /**
@@ -20,7 +25,7 @@ export class RumPermanentRetentionFilterEditability {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,9 +36,9 @@ export class RumPermanentRetentionFilterEditability {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    traceEditable: {
-      baseName: "trace_editable",
-      type: "boolean",
+    "traceEditable": {
+      "baseName": "trace_editable",
+      "type": "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,8 +50,34 @@ export class RumPermanentRetentionFilterEditability {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RumPermanentRetentionFilterEditability.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

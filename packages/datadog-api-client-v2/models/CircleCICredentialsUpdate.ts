@@ -5,10 +5,15 @@
  */
 import { CircleCIAPIKeyUpdate } from "./CircleCIAPIKeyUpdate";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of the `CircleCICredentialsUpdate` object.
- */
+*/
 
 export type CircleCICredentialsUpdate = CircleCIAPIKeyUpdate | UnparsedObject;

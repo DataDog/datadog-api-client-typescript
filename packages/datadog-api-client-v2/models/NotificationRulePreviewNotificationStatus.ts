@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The notification status for the given rule type. `SUCCESS` means a matching event was found and the notification was sent successfully. `DEFAULT` means no matching event was found and a default placeholder notification was sent instead. `ERROR` means an error occurred while sending the notification.
- */
+*/
 
-export type NotificationRulePreviewNotificationStatus =
-  | typeof SUCCESS
-  | typeof DEFAULT
-  | typeof ERROR
-  | UnparsedObject;
-export const SUCCESS = "SUCCESS";
-export const DEFAULT = "DEFAULT";
-export const ERROR = "ERROR";
+export type NotificationRulePreviewNotificationStatus = typeof SUCCESS| typeof DEFAULT| typeof ERROR | UnparsedObject;
+export const SUCCESS = 'SUCCESS';
+export const DEFAULT = 'DEFAULT';
+export const ERROR = 'ERROR';

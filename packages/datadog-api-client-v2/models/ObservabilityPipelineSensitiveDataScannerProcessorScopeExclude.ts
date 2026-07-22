@@ -6,19 +6,24 @@
 import { ObservabilityPipelineSensitiveDataScannerProcessorScopeExcludeTarget } from "./ObservabilityPipelineSensitiveDataScannerProcessorScopeExcludeTarget";
 import { ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions } from "./ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Excludes specific fields from sensitive data scanning.
- */
+*/
 export class ObservabilityPipelineSensitiveDataScannerProcessorScopeExclude {
   /**
    * Fields to which the scope rule applies.
-   */
+  */
   "options": ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions;
   /**
    * Excludes specific fields from processing.
-   */
+  */
   "target": ObservabilityPipelineSensitiveDataScannerProcessorScopeExcludeTarget;
 
   /**
@@ -26,7 +31,7 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorScopeExclude {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorScopeExclude {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    options: {
-      baseName: "options",
-      type: "ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions",
-      required: true,
+    "options": {
+      "baseName": "options",
+      "type": "ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions",
+      "required": true,
     },
-    target: {
-      baseName: "target",
-      type: "ObservabilityPipelineSensitiveDataScannerProcessorScopeExcludeTarget",
-      required: true,
+    "target": {
+      "baseName": "target",
+      "type": "ObservabilityPipelineSensitiveDataScannerProcessorScopeExcludeTarget",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorScopeExclude {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineSensitiveDataScannerProcessorScopeExclude.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

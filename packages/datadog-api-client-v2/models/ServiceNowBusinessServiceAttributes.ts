@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a ServiceNow business service
- */
+*/
 export class ServiceNowBusinessServiceAttributes {
   /**
    * The ID of the ServiceNow instance
-   */
+  */
   "instanceId": string;
   /**
    * The name of the business service
-   */
+  */
   "serviceName": string;
   /**
    * The system ID of the business service in ServiceNow
-   */
+  */
   "serviceSysId": string;
 
   /**
@@ -28,7 +33,7 @@ export class ServiceNowBusinessServiceAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,21 +44,21 @@ export class ServiceNowBusinessServiceAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    instanceId: {
-      baseName: "instance_id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "instanceId": {
+      "baseName": "instance_id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    serviceName: {
-      baseName: "service_name",
-      type: "string",
-      required: true,
+    "serviceName": {
+      "baseName": "service_name",
+      "type": "string",
+      "required": true,
     },
-    serviceSysId: {
-      baseName: "service_sys_id",
-      type: "string",
-      required: true,
+    "serviceSysId": {
+      "baseName": "service_sys_id",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class ServiceNowBusinessServiceAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceNowBusinessServiceAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

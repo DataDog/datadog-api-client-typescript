@@ -5,15 +5,20 @@
  */
 import { ContainerGroupRelationshipsLink } from "./ContainerGroupRelationshipsLink";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationships to containers inside a container group.
- */
+*/
 export class ContainerGroupRelationships {
   /**
    * Relationships to Containers inside a Container Group.
-   */
+  */
   "containers"?: ContainerGroupRelationshipsLink;
 
   /**
@@ -21,7 +26,7 @@ export class ContainerGroupRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class ContainerGroupRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    containers: {
-      baseName: "containers",
-      type: "ContainerGroupRelationshipsLink",
+    "containers": {
+      "baseName": "containers",
+      "type": "ContainerGroupRelationshipsLink",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class ContainerGroupRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ContainerGroupRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,23 +6,28 @@
 import { IssueUserAttributes } from "./IssueUserAttributes";
 import { IssueUserType } from "./IssueUserType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The user to whom the issue is assigned.
- */
+*/
 export class IssueUser {
   /**
    * Object containing the information of a user.
-   */
+  */
   "attributes": IssueUserAttributes;
   /**
    * User identifier.
-   */
+  */
   "id": string;
   /**
    * Type of the object
-   */
+  */
   "type": IssueUserType;
 
   /**
@@ -30,7 +35,7 @@ export class IssueUser {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class IssueUser {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "IssueUserAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "IssueUserAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "IssueUserType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "IssueUserType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class IssueUser {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IssueUser.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

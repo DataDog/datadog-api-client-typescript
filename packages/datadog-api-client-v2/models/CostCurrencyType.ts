@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of the Cloud Cost Management billing currency resource.
- */
+*/
 
 export type CostCurrencyType = typeof COST_CURRENCY | UnparsedObject;
-export const COST_CURRENCY = "cost_currency";
+export const COST_CURRENCY = 'cost_currency';

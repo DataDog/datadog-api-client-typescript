@@ -7,23 +7,28 @@ import { PowerpackGroupWidgetDefinition } from "./PowerpackGroupWidgetDefinition
 import { PowerpackGroupWidgetLayout } from "./PowerpackGroupWidgetLayout";
 import { WidgetLiveSpan } from "./WidgetLiveSpan";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Powerpack group widget definition object.
- */
+*/
 export class PowerpackGroupWidget {
   /**
    * Powerpack group widget object.
-   */
+  */
   "definition": PowerpackGroupWidgetDefinition;
   /**
    * Powerpack group widget layout.
-   */
+  */
   "layout"?: PowerpackGroupWidgetLayout;
   /**
    * The available timeframes depend on the widget you are using.
-   */
+  */
   "liveSpan"?: WidgetLiveSpan;
 
   /**
@@ -31,7 +36,7 @@ export class PowerpackGroupWidget {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,18 +47,18 @@ export class PowerpackGroupWidget {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    definition: {
-      baseName: "definition",
-      type: "PowerpackGroupWidgetDefinition",
-      required: true,
+    "definition": {
+      "baseName": "definition",
+      "type": "PowerpackGroupWidgetDefinition",
+      "required": true,
     },
-    layout: {
-      baseName: "layout",
-      type: "PowerpackGroupWidgetLayout",
+    "layout": {
+      "baseName": "layout",
+      "type": "PowerpackGroupWidgetLayout",
     },
-    liveSpan: {
-      baseName: "live_span",
-      type: "WidgetLiveSpan",
+    "liveSpan": {
+      "baseName": "live_span",
+      "type": "WidgetLiveSpan",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class PowerpackGroupWidget {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PowerpackGroupWidget.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

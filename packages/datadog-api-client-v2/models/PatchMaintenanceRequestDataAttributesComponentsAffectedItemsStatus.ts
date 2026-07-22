@@ -4,13 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The status of the component.
- */
+*/
 
-export type PatchMaintenanceRequestDataAttributesComponentsAffectedItemsStatus =
-  typeof OPERATIONAL | typeof MAINTENANCE | UnparsedObject;
-export const OPERATIONAL = "operational";
-export const MAINTENANCE = "maintenance";
+export type PatchMaintenanceRequestDataAttributesComponentsAffectedItemsStatus = typeof OPERATIONAL| typeof MAINTENANCE | UnparsedObject;
+export const OPERATIONAL = 'operational';
+export const MAINTENANCE = 'maintenance';

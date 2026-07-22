@@ -6,23 +6,28 @@
 import { FormulaAndFunctionEventAggregation } from "./FormulaAndFunctionEventAggregation";
 import { QuerySortOrder } from "./QuerySortOrder";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Options for sorting group by results.
- */
+*/
 export class FormulaAndFunctionEventQueryGroupBySort {
   /**
    * Aggregation methods for event platform queries.
-   */
+  */
   "aggregation": FormulaAndFunctionEventAggregation;
   /**
    * Metric used for sorting group by results.
-   */
+  */
   "metric"?: string;
   /**
    * Direction of sort.
-   */
+  */
   "order"?: QuerySortOrder;
 
   /**
@@ -30,7 +35,7 @@ export class FormulaAndFunctionEventQueryGroupBySort {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class FormulaAndFunctionEventQueryGroupBySort {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregation: {
-      baseName: "aggregation",
-      type: "FormulaAndFunctionEventAggregation",
-      required: true,
+    "aggregation": {
+      "baseName": "aggregation",
+      "type": "FormulaAndFunctionEventAggregation",
+      "required": true,
     },
-    metric: {
-      baseName: "metric",
-      type: "string",
+    "metric": {
+      "baseName": "metric",
+      "type": "string",
     },
-    order: {
-      baseName: "order",
-      type: "QuerySortOrder",
+    "order": {
+      "baseName": "order",
+      "type": "QuerySortOrder",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class FormulaAndFunctionEventQueryGroupBySort {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FormulaAndFunctionEventQueryGroupBySort.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,19 +6,24 @@
 import { DowntimeRelationshipsCreatedBy } from "./DowntimeRelationshipsCreatedBy";
 import { DowntimeRelationshipsMonitor } from "./DowntimeRelationshipsMonitor";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * All relationships associated with downtime.
- */
+*/
 export class DowntimeRelationships {
   /**
    * The user who created the downtime.
-   */
+  */
   "createdBy"?: DowntimeRelationshipsCreatedBy;
   /**
    * The monitor identified by the downtime.
-   */
+  */
   "monitor"?: DowntimeRelationshipsMonitor;
 
   /**
@@ -26,7 +31,7 @@ export class DowntimeRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class DowntimeRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdBy: {
-      baseName: "created_by",
-      type: "DowntimeRelationshipsCreatedBy",
+    "createdBy": {
+      "baseName": "created_by",
+      "type": "DowntimeRelationshipsCreatedBy",
     },
-    monitor: {
-      baseName: "monitor",
-      type: "DowntimeRelationshipsMonitor",
+    "monitor": {
+      "baseName": "monitor",
+      "type": "DowntimeRelationshipsMonitor",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class DowntimeRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DowntimeRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

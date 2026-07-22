@@ -5,19 +5,24 @@
  */
 import { TicketCreationRuleType } from "./TicketCreationRuleType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A reference to a ticket creation rule used for reordering.
- */
+*/
 export class TicketCreationRuleReorderItem {
   /**
    * The ID of the automation rule.
-   */
+  */
   "id": string;
   /**
    * The JSON:API type for ticket creation rules.
-   */
+  */
   "type": TicketCreationRuleType;
 
   /**
@@ -25,7 +30,7 @@ export class TicketCreationRuleReorderItem {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,16 +41,16 @@ export class TicketCreationRuleReorderItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    type: {
-      baseName: "type",
-      type: "TicketCreationRuleType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TicketCreationRuleType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class TicketCreationRuleReorderItem {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TicketCreationRuleReorderItem.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

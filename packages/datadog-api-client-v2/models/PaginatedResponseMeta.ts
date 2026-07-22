@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metadata for scores response.
- */
+*/
 export class PaginatedResponseMeta {
   /**
    * Number of entities in this response.
-   */
+  */
   "count": number;
   /**
    * Pagination limit.
-   */
+  */
   "limit": number;
   /**
    * Pagination offset.
-   */
+  */
   "offset": number;
   /**
    * Total number of entities available.
-   */
+  */
   "total": number;
 
   /**
@@ -32,7 +37,7 @@ export class PaginatedResponseMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,29 +48,29 @@ export class PaginatedResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    count: {
-      baseName: "count",
-      type: "number",
-      required: true,
-      format: "int64",
+    "count": {
+      "baseName": "count",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    limit: {
-      baseName: "limit",
-      type: "number",
-      required: true,
-      format: "int64",
+    "limit": {
+      "baseName": "limit",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    offset: {
-      baseName: "offset",
-      type: "number",
-      required: true,
-      format: "int64",
+    "offset": {
+      "baseName": "offset",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    total: {
-      baseName: "total",
-      type: "number",
-      required: true,
-      format: "int64",
+    "total": {
+      "baseName": "total",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -77,8 +82,34 @@ export class PaginatedResponseMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PaginatedResponseMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

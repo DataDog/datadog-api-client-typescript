@@ -6,19 +6,24 @@
 import { CaseAggregateRequestAttributes } from "./CaseAggregateRequestAttributes";
 import { CaseAggregateResourceType } from "./CaseAggregateResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object wrapping the aggregation query type and attributes.
- */
+*/
 export class CaseAggregateRequestData {
   /**
    * Attributes for the aggregation request, including the search query and grouping configuration.
-   */
+  */
   "attributes": CaseAggregateRequestAttributes;
   /**
    * JSON:API resource type for case aggregation requests.
-   */
+  */
   "type": CaseAggregateResourceType;
 
   /**
@@ -26,7 +31,7 @@ export class CaseAggregateRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class CaseAggregateRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CaseAggregateRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CaseAggregateRequestAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CaseAggregateResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CaseAggregateResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class CaseAggregateRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseAggregateRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

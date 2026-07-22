@@ -6,19 +6,24 @@
 import { MonitorNotificationRuleData } from "./MonitorNotificationRuleData";
 import { MonitorNotificationRuleResponseIncludedItem } from "./MonitorNotificationRuleResponseIncludedItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A monitor notification rule.
- */
+*/
 export class MonitorNotificationRuleResponse {
   /**
    * Monitor notification rule data.
-   */
+  */
   "data"?: MonitorNotificationRuleData;
   /**
    * Array of objects related to the monitor notification rule that the user requested.
-   */
+  */
   "included"?: Array<MonitorNotificationRuleResponseIncludedItem>;
 
   /**
@@ -26,7 +31,7 @@ export class MonitorNotificationRuleResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class MonitorNotificationRuleResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "MonitorNotificationRuleData",
+    "data": {
+      "baseName": "data",
+      "type": "MonitorNotificationRuleData",
     },
-    included: {
-      baseName: "included",
-      type: "Array<MonitorNotificationRuleResponseIncludedItem>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<MonitorNotificationRuleResponseIncludedItem>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class MonitorNotificationRuleResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorNotificationRuleResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

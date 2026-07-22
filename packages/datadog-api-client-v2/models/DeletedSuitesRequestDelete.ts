@@ -6,23 +6,28 @@
 import { DeletedSuitesRequestDeleteAttributes } from "./DeletedSuitesRequestDeleteAttributes";
 import { DeletedSuitesRequestType } from "./DeletedSuitesRequestType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for a bulk delete Synthetic test suites request.
- */
+*/
 export class DeletedSuitesRequestDelete {
   /**
    * Attributes for a bulk delete Synthetic test suites request.
-   */
+  */
   "attributes": DeletedSuitesRequestDeleteAttributes;
   /**
    * An optional identifier for the delete request.
-   */
+  */
   "id"?: string;
   /**
    * Type for the bulk delete Synthetic suites request, `delete_suites_request`.
-   */
+  */
   "type"?: DeletedSuitesRequestType;
 
   /**
@@ -30,7 +35,7 @@ export class DeletedSuitesRequestDelete {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class DeletedSuitesRequestDelete {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "DeletedSuitesRequestDeleteAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "DeletedSuitesRequestDeleteAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "DeletedSuitesRequestType",
+    "type": {
+      "baseName": "type",
+      "type": "DeletedSuitesRequestType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class DeletedSuitesRequestDelete {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DeletedSuitesRequestDelete.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

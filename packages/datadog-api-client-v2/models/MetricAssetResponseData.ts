@@ -6,23 +6,28 @@
 import { MetricAssetResponseRelationships } from "./MetricAssetResponseRelationships";
 import { MetricType } from "./MetricType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metric assets response data.
- */
+*/
 export class MetricAssetResponseData {
   /**
    * The metric name for this resource.
-   */
+  */
   "id": string;
   /**
    * Relationships to assets related to the metric.
-   */
+  */
   "relationships"?: MetricAssetResponseRelationships;
   /**
    * The metric resource type.
-   */
+  */
   "type": MetricType;
 
   /**
@@ -30,7 +35,7 @@ export class MetricAssetResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class MetricAssetResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "MetricAssetResponseRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "MetricAssetResponseRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "MetricType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "MetricType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class MetricAssetResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricAssetResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

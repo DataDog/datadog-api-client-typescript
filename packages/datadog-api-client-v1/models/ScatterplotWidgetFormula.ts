@@ -5,23 +5,28 @@
  */
 import { ScatterplotDimension } from "./ScatterplotDimension";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Formula to be used in a Scatterplot widget query.
- */
+*/
 export class ScatterplotWidgetFormula {
   /**
    * Expression alias.
-   */
+  */
   "alias"?: string;
   /**
    * Dimension of the Scatterplot.
-   */
+  */
   "dimension": ScatterplotDimension;
   /**
    * String expression built from queries, formulas, and functions.
-   */
+  */
   "formula": string;
 
   /**
@@ -29,7 +34,7 @@ export class ScatterplotWidgetFormula {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,19 +45,19 @@ export class ScatterplotWidgetFormula {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    alias: {
-      baseName: "alias",
-      type: "string",
+    "alias": {
+      "baseName": "alias",
+      "type": "string",
     },
-    dimension: {
-      baseName: "dimension",
-      type: "ScatterplotDimension",
-      required: true,
+    "dimension": {
+      "baseName": "dimension",
+      "type": "ScatterplotDimension",
+      "required": true,
     },
-    formula: {
-      baseName: "formula",
-      type: "string",
-      required: true,
+    "formula": {
+      "baseName": "formula",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class ScatterplotWidgetFormula {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ScatterplotWidgetFormula.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

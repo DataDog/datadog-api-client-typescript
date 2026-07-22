@@ -5,23 +5,28 @@
  */
 import { ObservabilityPipelineTagCardinalityLimitProcessorOverrideType } from "./ObservabilityPipelineTagCardinalityLimitProcessorOverrideType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A cardinality override for a specific tag key within a per-metric limit.
- */
+*/
 export class ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit {
   /**
    * How the override is applied. `limit_override` enforces a custom limit; `excluded` omits the metric or tag from cardinality tracking.
-   */
+  */
   "overrideType": ObservabilityPipelineTagCardinalityLimitProcessorOverrideType;
   /**
    * The tag key this override applies to.
-   */
+  */
   "tagKey": string;
   /**
    * The maximum number of distinct values allowed for this tag. Required when `override_type` is `limit_override`. Must be omitted when `override_type` is `excluded`.
-   */
+  */
   "valueLimit"?: number;
 
   /**
@@ -29,7 +34,7 @@ export class ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,20 +45,20 @@ export class ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    overrideType: {
-      baseName: "override_type",
-      type: "ObservabilityPipelineTagCardinalityLimitProcessorOverrideType",
-      required: true,
+    "overrideType": {
+      "baseName": "override_type",
+      "type": "ObservabilityPipelineTagCardinalityLimitProcessorOverrideType",
+      "required": true,
     },
-    tagKey: {
-      baseName: "tag_key",
-      type: "string",
-      required: true,
+    "tagKey": {
+      "baseName": "tag_key",
+      "type": "string",
+      "required": true,
     },
-    valueLimit: {
-      baseName: "value_limit",
-      type: "number",
-      format: "int64",
+    "valueLimit": {
+      "baseName": "value_limit",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineTagCardinalityLimitProcessorPerTagLimit.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

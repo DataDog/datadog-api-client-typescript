@@ -5,15 +5,20 @@
  */
 import { NodeTypesResponseData } from "./NodeTypesResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The response payload containing tree-sitter node type definitions for a programming language.
- */
+*/
 export class NodeTypesResponse {
   /**
    * The primary data object in the node types response.
-   */
+  */
   "data": NodeTypesResponseData;
 
   /**
@@ -21,7 +26,7 @@ export class NodeTypesResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class NodeTypesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "NodeTypesResponseData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "NodeTypesResponseData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class NodeTypesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return NodeTypesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

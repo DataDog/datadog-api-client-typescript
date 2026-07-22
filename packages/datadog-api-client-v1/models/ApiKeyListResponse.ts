@@ -5,15 +5,20 @@
  */
 import { ApiKey } from "./ApiKey";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * List of API and application keys available for a given organization.
- */
+*/
 export class ApiKeyListResponse {
   /**
    * Array of API keys.
-   */
+  */
   "apiKeys"?: Array<ApiKey>;
 
   /**
@@ -21,7 +26,7 @@ export class ApiKeyListResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class ApiKeyListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    apiKeys: {
-      baseName: "api_keys",
-      type: "Array<ApiKey>",
+    "apiKeys": {
+      "baseName": "api_keys",
+      "type": "Array<ApiKey>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class ApiKeyListResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ApiKeyListResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

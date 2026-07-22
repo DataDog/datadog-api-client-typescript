@@ -5,24 +5,29 @@
  */
 import { TeamSyncSelectionStateExternalIdType } from "./TeamSyncSelectionStateExternalIdType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The external identifier for a team or organization in the source platform.
- */
+*/
 export class TeamSyncSelectionStateExternalId {
   /**
    * The type of external identifier for the selection state item.
    * For GitHub synchronization, the allowed values are `team` and
    * `organization`.
-   */
+  */
   "type": TeamSyncSelectionStateExternalIdType;
   /**
    * The external identifier value from the source
    * platform. For GitHub, this is the string
    * representation of a GitHub organization ID or team
    * ID.
-   */
+  */
   "value": string;
 
   /**
@@ -30,7 +35,7 @@ export class TeamSyncSelectionStateExternalId {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,15 +46,15 @@ export class TeamSyncSelectionStateExternalId {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    type: {
-      baseName: "type",
-      type: "TeamSyncSelectionStateExternalIdType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TeamSyncSelectionStateExternalIdType",
+      "required": true,
     },
-    value: {
-      baseName: "value",
-      type: "string",
-      required: true,
+    "value": {
+      "baseName": "value",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class TeamSyncSelectionStateExternalId {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamSyncSelectionStateExternalId.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

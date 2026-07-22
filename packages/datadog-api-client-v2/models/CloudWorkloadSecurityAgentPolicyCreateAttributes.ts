@@ -4,31 +4,36 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Create a new Cloud Workload Security Agent policy
- */
+*/
 export class CloudWorkloadSecurityAgentPolicyCreateAttributes {
   /**
    * The description of the policy
-   */
+  */
   "description"?: string;
   /**
    * Whether the policy is enabled
-   */
+  */
   "enabled"?: boolean;
   /**
    * The host tags defining where this policy is deployed
-   */
+  */
   "hostTags"?: Array<string>;
   /**
    * The host tags defining where this policy is deployed, the inner values are linked with AND, the outer values are linked with OR
-   */
+  */
   "hostTagsLists"?: Array<Array<string>>;
   /**
    * The name of the policy
-   */
+  */
   "name": string;
 
   /**
@@ -36,7 +41,7 @@ export class CloudWorkloadSecurityAgentPolicyCreateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,26 +52,26 @@ export class CloudWorkloadSecurityAgentPolicyCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
+    "enabled": {
+      "baseName": "enabled",
+      "type": "boolean",
     },
-    hostTags: {
-      baseName: "hostTags",
-      type: "Array<string>",
+    "hostTags": {
+      "baseName": "hostTags",
+      "type": "Array<string>",
     },
-    hostTagsLists: {
-      baseName: "hostTagsLists",
-      type: "Array<Array<string>>",
+    "hostTagsLists": {
+      "baseName": "hostTagsLists",
+      "type": "Array<Array<string>>",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -78,8 +83,34 @@ export class CloudWorkloadSecurityAgentPolicyCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CloudWorkloadSecurityAgentPolicyCreateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

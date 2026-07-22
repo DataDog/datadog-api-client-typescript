@@ -6,19 +6,24 @@
 import { AWSCloudAuthPersonaMappingCreateAttributes } from "./AWSCloudAuthPersonaMappingCreateAttributes";
 import { AWSCloudAuthPersonaMappingType } from "./AWSCloudAuthPersonaMappingType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for creating an AWS cloud authentication persona mapping
- */
+*/
 export class AWSCloudAuthPersonaMappingCreateData {
   /**
    * Attributes for creating an AWS cloud authentication persona mapping
-   */
+  */
   "attributes": AWSCloudAuthPersonaMappingCreateAttributes;
   /**
    * Type identifier for AWS cloud authentication persona mapping
-   */
+  */
   "type": AWSCloudAuthPersonaMappingType;
 
   /**
@@ -26,7 +31,7 @@ export class AWSCloudAuthPersonaMappingCreateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class AWSCloudAuthPersonaMappingCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AWSCloudAuthPersonaMappingCreateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AWSCloudAuthPersonaMappingCreateAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "AWSCloudAuthPersonaMappingType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AWSCloudAuthPersonaMappingType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class AWSCloudAuthPersonaMappingCreateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSCloudAuthPersonaMappingCreateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

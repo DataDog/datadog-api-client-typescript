@@ -5,15 +5,20 @@
  */
 import { CommitmentsUnit } from "./CommitmentsUnit";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metadata for a scalar column, including unit information.
- */
+*/
 export class CommitmentsScalarColumnMeta {
   /**
    * Unit metadata for a numeric metric.
-   */
+  */
   "unit": CommitmentsUnit;
 
   /**
@@ -21,7 +26,7 @@ export class CommitmentsScalarColumnMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CommitmentsScalarColumnMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    unit: {
-      baseName: "unit",
-      type: "CommitmentsUnit",
-      required: true,
+    "unit": {
+      "baseName": "unit",
+      "type": "CommitmentsUnit",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CommitmentsScalarColumnMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CommitmentsScalarColumnMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

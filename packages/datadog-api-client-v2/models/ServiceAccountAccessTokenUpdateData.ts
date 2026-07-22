@@ -6,23 +6,28 @@
 import { ServiceAccessTokensType } from "./ServiceAccessTokensType";
 import { ServiceAccountAccessTokenUpdateAttributes } from "./ServiceAccountAccessTokenUpdateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object used to update a service account access token.
- */
+*/
 export class ServiceAccountAccessTokenUpdateData {
   /**
    * Attributes used to update a service account access token.
-   */
+  */
   "attributes": ServiceAccountAccessTokenUpdateAttributes;
   /**
    * ID of the access token.
-   */
+  */
   "id": string;
   /**
    * Service access tokens resource type.
-   */
+  */
   "type": ServiceAccessTokensType;
 
   /**
@@ -30,7 +35,7 @@ export class ServiceAccountAccessTokenUpdateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class ServiceAccountAccessTokenUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ServiceAccountAccessTokenUpdateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ServiceAccountAccessTokenUpdateAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ServiceAccessTokensType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ServiceAccessTokensType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class ServiceAccountAccessTokenUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceAccountAccessTokenUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

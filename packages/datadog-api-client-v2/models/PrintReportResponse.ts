@@ -5,15 +5,20 @@
  */
 import { PrintReportResponseData } from "./PrintReportResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing the initiated print-only report.
- */
+*/
 export class PrintReportResponse {
   /**
    * The JSON:API data object for a print-only report.
-   */
+  */
   "data": PrintReportResponseData;
 
   /**
@@ -21,7 +26,7 @@ export class PrintReportResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class PrintReportResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "PrintReportResponseData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "PrintReportResponseData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class PrintReportResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PrintReportResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

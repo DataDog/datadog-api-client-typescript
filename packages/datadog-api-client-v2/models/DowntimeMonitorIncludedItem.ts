@@ -6,23 +6,28 @@
 import { DowntimeIncludedMonitorType } from "./DowntimeIncludedMonitorType";
 import { DowntimeMonitorIncludedAttributes } from "./DowntimeMonitorIncludedAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Information about the monitor identified by the downtime.
- */
+*/
 export class DowntimeMonitorIncludedItem {
   /**
    * Attributes of the monitor identified by the downtime.
-   */
+  */
   "attributes"?: DowntimeMonitorIncludedAttributes;
   /**
    * ID of the monitor identified by the downtime.
-   */
+  */
   "id"?: number;
   /**
    * Monitor resource type.
-   */
+  */
   "type"?: DowntimeIncludedMonitorType;
 
   /**
@@ -30,7 +35,7 @@ export class DowntimeMonitorIncludedItem {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class DowntimeMonitorIncludedItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "DowntimeMonitorIncludedAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "DowntimeMonitorIncludedAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "number",
-      format: "int64",
+    "id": {
+      "baseName": "id",
+      "type": "number",
+      "format": "int64",
     },
-    type: {
-      baseName: "type",
-      type: "DowntimeIncludedMonitorType",
+    "type": {
+      "baseName": "type",
+      "type": "DowntimeIncludedMonitorType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class DowntimeMonitorIncludedItem {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DowntimeMonitorIncludedItem.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

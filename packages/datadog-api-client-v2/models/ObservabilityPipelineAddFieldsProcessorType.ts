@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The processor type. The value should always be `add_fields`.
- */
+*/
 
-export type ObservabilityPipelineAddFieldsProcessorType =
-  | typeof ADD_FIELDS
-  | UnparsedObject;
-export const ADD_FIELDS = "add_fields";
+export type ObservabilityPipelineAddFieldsProcessorType = typeof ADD_FIELDS | UnparsedObject;
+export const ADD_FIELDS = 'add_fields';

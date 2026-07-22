@@ -6,23 +6,28 @@
 import { CostTagKeySourceAttributes } from "./CostTagKeySourceAttributes";
 import { CostTagKeySourceType } from "./CostTagKeySourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A Cloud Cost Management tag key paired with the sources that produced it.
- */
+*/
 export class CostTagKeySource {
   /**
    * Attributes of a Cloud Cost Management tag source.
-   */
+  */
   "attributes": CostTagKeySourceAttributes;
   /**
    * The tag key identifier. Equal to the empty-tag sentinel `__empty_tag_key__` when the tag key is empty.
-   */
+  */
   "id": string;
   /**
    * Type of the Cloud Cost Management tag source resource.
-   */
+  */
   "type": CostTagKeySourceType;
 
   /**
@@ -30,7 +35,7 @@ export class CostTagKeySource {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class CostTagKeySource {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CostTagKeySourceAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CostTagKeySourceAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CostTagKeySourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CostTagKeySourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class CostTagKeySource {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CostTagKeySource.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

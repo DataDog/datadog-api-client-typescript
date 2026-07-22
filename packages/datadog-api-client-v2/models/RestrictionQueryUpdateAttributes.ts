@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of the edited restriction query.
- */
+*/
 export class RestrictionQueryUpdateAttributes {
   /**
    * The restriction query.
-   */
+  */
   "restrictionQuery": string;
 
   /**
@@ -20,7 +25,7 @@ export class RestrictionQueryUpdateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,10 +36,10 @@ export class RestrictionQueryUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    restrictionQuery: {
-      baseName: "restriction_query",
-      type: "string",
-      required: true,
+    "restrictionQuery": {
+      "baseName": "restriction_query",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class RestrictionQueryUpdateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RestrictionQueryUpdateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

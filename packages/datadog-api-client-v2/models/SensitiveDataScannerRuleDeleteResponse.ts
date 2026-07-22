@@ -5,15 +5,20 @@
  */
 import { SensitiveDataScannerMetaVersionOnly } from "./SensitiveDataScannerMetaVersionOnly";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Delete rule response.
- */
+*/
 export class SensitiveDataScannerRuleDeleteResponse {
   /**
    * Meta payload containing information about the API.
-   */
+  */
   "meta"?: SensitiveDataScannerMetaVersionOnly;
 
   /**
@@ -21,7 +26,7 @@ export class SensitiveDataScannerRuleDeleteResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class SensitiveDataScannerRuleDeleteResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    meta: {
-      baseName: "meta",
-      type: "SensitiveDataScannerMetaVersionOnly",
+    "meta": {
+      "baseName": "meta",
+      "type": "SensitiveDataScannerMetaVersionOnly",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class SensitiveDataScannerRuleDeleteResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SensitiveDataScannerRuleDeleteResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

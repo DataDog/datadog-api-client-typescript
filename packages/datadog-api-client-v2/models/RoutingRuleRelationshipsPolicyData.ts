@@ -5,19 +5,24 @@
  */
 import { RoutingRuleRelationshipsPolicyDataType } from "./RoutingRuleRelationshipsPolicyDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Represents the policy data reference, containing the policy's ID and resource type.
- */
+*/
 export class RoutingRuleRelationshipsPolicyData {
   /**
    * Specifies the unique identifier of the policy.
-   */
+  */
   "id": string;
   /**
    * Indicates that the resource is of type 'policies'.
-   */
+  */
   "type": RoutingRuleRelationshipsPolicyDataType;
 
   /**
@@ -25,7 +30,7 @@ export class RoutingRuleRelationshipsPolicyData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class RoutingRuleRelationshipsPolicyData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "RoutingRuleRelationshipsPolicyDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "RoutingRuleRelationshipsPolicyDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class RoutingRuleRelationshipsPolicyData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RoutingRuleRelationshipsPolicyData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

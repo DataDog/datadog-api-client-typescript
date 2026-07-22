@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Cloud provider for this sync configuration (`aws`, `gcp`, or `azure`). For requests, must match the provider block supplied under `attributes`.
- */
+*/
 
-export type CloudInventoryCloudProviderId =
-  | typeof AWS
-  | typeof GCP
-  | typeof AZURE
-  | UnparsedObject;
-export const AWS = "aws";
-export const GCP = "gcp";
-export const AZURE = "azure";
+export type CloudInventoryCloudProviderId = typeof AWS| typeof GCP| typeof AZURE | UnparsedObject;
+export const AWS = 'aws';
+export const GCP = 'gcp';
+export const AZURE = 'azure';

@@ -9,16 +9,15 @@ import { EntityResponseIncludedRawSchema } from "./EntityResponseIncludedRawSche
 import { EntityResponseIncludedRelatedEntity } from "./EntityResponseIncludedRelatedEntity";
 import { EntityResponseIncludedSchema } from "./EntityResponseIncludedSchema";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * List entity response included item.
- */
+*/
 
-export type ListEntityCatalogResponseIncludedItem =
-  | EntityResponseIncludedSchema
-  | EntityResponseIncludedRawSchema
-  | EntityResponseIncludedRelatedEntity
-  | EntityResponseIncludedOncall
-  | EntityResponseIncludedIncident
-  | UnparsedObject;
+export type ListEntityCatalogResponseIncludedItem = EntityResponseIncludedSchema | EntityResponseIncludedRawSchema | EntityResponseIncludedRelatedEntity | EntityResponseIncludedOncall | EntityResponseIncludedIncident | UnparsedObject;

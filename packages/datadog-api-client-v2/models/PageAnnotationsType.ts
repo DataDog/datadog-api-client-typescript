@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Page annotations resource type.
- */
+*/
 
 export type PageAnnotationsType = typeof PAGE_ANNOTATIONS | UnparsedObject;
-export const PAGE_ANNOTATIONS = "page_annotations";
+export const PAGE_ANNOTATIONS = 'page_annotations';

@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Evaluates a VRL expression to produce the lookup key.
- */
+*/
 export class ObservabilityPipelineEnrichmentTableFieldVrlLookup {
   /**
    * A VRL expression that returns the value to use as the lookup key.
-   */
+  */
   "vrl": string;
 
   /**
@@ -20,7 +25,7 @@ export class ObservabilityPipelineEnrichmentTableFieldVrlLookup {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,10 +36,10 @@ export class ObservabilityPipelineEnrichmentTableFieldVrlLookup {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    vrl: {
-      baseName: "vrl",
-      type: "string",
-      required: true,
+    "vrl": {
+      "baseName": "vrl",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class ObservabilityPipelineEnrichmentTableFieldVrlLookup {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineEnrichmentTableFieldVrlLookup.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

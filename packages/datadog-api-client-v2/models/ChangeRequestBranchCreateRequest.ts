@@ -5,15 +5,20 @@
  */
 import { ChangeRequestBranchCreateData } from "./ChangeRequestBranchCreateData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request object to create a branch for a change request.
- */
+*/
 export class ChangeRequestBranchCreateRequest {
   /**
    * Data object to create a change request branch.
-   */
+  */
   "data": ChangeRequestBranchCreateData;
 
   /**
@@ -21,7 +26,7 @@ export class ChangeRequestBranchCreateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class ChangeRequestBranchCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ChangeRequestBranchCreateData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "ChangeRequestBranchCreateData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class ChangeRequestBranchCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ChangeRequestBranchCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

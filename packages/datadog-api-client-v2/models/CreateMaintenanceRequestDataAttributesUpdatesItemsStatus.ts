@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The status of a maintenance update.
- */
+*/
 
-export type CreateMaintenanceRequestDataAttributesUpdatesItemsStatus =
-  | typeof IN_PROGRESS
-  | typeof COMPLETED
-  | UnparsedObject;
-export const IN_PROGRESS = "in_progress";
-export const COMPLETED = "completed";
+export type CreateMaintenanceRequestDataAttributesUpdatesItemsStatus = typeof IN_PROGRESS| typeof COMPLETED | UnparsedObject;
+export const IN_PROGRESS = 'in_progress';
+export const COMPLETED = 'completed';

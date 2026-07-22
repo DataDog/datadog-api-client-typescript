@@ -6,23 +6,28 @@
 import { NetworkHealthInsightAttributes } from "./NetworkHealthInsightAttributes";
 import { NetworkHealthInsightsType } from "./NetworkHealthInsightsType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A single network health insight describing a service-to-service connectivity issue.
- */
+*/
 export class NetworkHealthInsight {
   /**
    * Detailed attributes of a network health insight.
-   */
+  */
   "attributes": NetworkHealthInsightAttributes;
   /**
    * Unique identifier for this network health insight.
-   */
+  */
   "id": string;
   /**
    * The resource type for network health insights. Always `network-health-insights`.
-   */
+  */
   "type": NetworkHealthInsightsType;
 
   /**
@@ -30,7 +35,7 @@ export class NetworkHealthInsight {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class NetworkHealthInsight {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "NetworkHealthInsightAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "NetworkHealthInsightAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "NetworkHealthInsightsType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "NetworkHealthInsightsType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class NetworkHealthInsight {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return NetworkHealthInsight.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

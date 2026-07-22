@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Product page that published the dataset queried by a `DatasetListQuery`. `ddsql_query` is the only provider currently supported for host map widgets.
- */
+*/
 
 export type PublishedDatasetProvider = typeof DDSQL_QUERY | UnparsedObject;
-export const DDSQL_QUERY = "ddsql_query";
+export const DDSQL_QUERY = 'ddsql_query';

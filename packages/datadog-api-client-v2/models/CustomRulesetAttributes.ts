@@ -5,35 +5,40 @@
  */
 import { CustomRule } from "./CustomRule";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a custom ruleset, including its name, description, and rules.
- */
+*/
 export class CustomRulesetAttributes {
   /**
    * Creation timestamp
-   */
+  */
   "createdAt": Date;
   /**
    * Creator identifier
-   */
+  */
   "createdBy": string;
   /**
    * Base64-encoded full description
-   */
+  */
   "description": string;
   /**
    * Ruleset name
-   */
+  */
   "name": string;
   /**
    * Rules in the ruleset
-   */
-  "rules": Array<CustomRule> | null;
+  */
+  "rules": Array<CustomRule>|null;
   /**
    * Base64-encoded short description
-   */
+  */
   "shortDescription": string;
 
   /**
@@ -41,7 +46,7 @@ export class CustomRulesetAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -52,36 +57,36 @@ export class CustomRulesetAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    createdBy: {
-      baseName: "created_by",
-      type: "string",
-      required: true,
+    "createdBy": {
+      "baseName": "created_by",
+      "type": "string",
+      "required": true,
     },
-    description: {
-      baseName: "description",
-      type: "string",
-      required: true,
+    "description": {
+      "baseName": "description",
+      "type": "string",
+      "required": true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    rules: {
-      baseName: "rules",
-      type: "Array<CustomRule>",
-      required: true,
+    "rules": {
+      "baseName": "rules",
+      "type": "Array<CustomRule>",
+      "required": true,
     },
-    shortDescription: {
-      baseName: "short_description",
-      type: "string",
-      required: true,
+    "shortDescription": {
+      "baseName": "short_description",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -93,8 +98,34 @@ export class CustomRulesetAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomRulesetAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

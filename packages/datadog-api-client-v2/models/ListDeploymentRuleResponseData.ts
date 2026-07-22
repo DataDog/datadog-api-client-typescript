@@ -6,23 +6,28 @@
 import { ListDeploymentRulesDataType } from "./ListDeploymentRulesDataType";
 import { ListDeploymentRulesResponseDataAttributes } from "./ListDeploymentRulesResponseDataAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for a list of deployment rules.
- */
+*/
 export class ListDeploymentRuleResponseData {
   /**
    * Attributes of the response for listing deployment rules.
-   */
+  */
   "attributes": ListDeploymentRulesResponseDataAttributes;
   /**
    * Unique identifier of the deployment rule.
-   */
+  */
   "id": string;
   /**
    * List deployment rule resource type.
-   */
+  */
   "type": ListDeploymentRulesDataType;
 
   /**
@@ -30,7 +35,7 @@ export class ListDeploymentRuleResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class ListDeploymentRuleResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ListDeploymentRulesResponseDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ListDeploymentRulesResponseDataAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ListDeploymentRulesDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ListDeploymentRulesDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class ListDeploymentRuleResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListDeploymentRuleResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

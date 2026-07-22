@@ -4,31 +4,36 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of the Datadog user.
- */
+*/
 export class StatusPagesUserAttributes {
   /**
    * The email of the Datadog user.
-   */
+  */
   "email"?: string;
   /**
    * The handle of the Datadog user.
-   */
+  */
   "handle"?: string;
   /**
    * The icon of the Datadog user.
-   */
+  */
   "icon"?: string;
   /**
    * The name of the Datadog user.
-   */
+  */
   "name"?: string;
   /**
    * The UUID of the Datadog user.
-   */
+  */
   "uuid"?: string;
 
   /**
@@ -36,7 +41,7 @@ export class StatusPagesUserAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,25 +52,25 @@ export class StatusPagesUserAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    email: {
-      baseName: "email",
-      type: "string",
+    "email": {
+      "baseName": "email",
+      "type": "string",
     },
-    handle: {
-      baseName: "handle",
-      type: "string",
+    "handle": {
+      "baseName": "handle",
+      "type": "string",
     },
-    icon: {
-      baseName: "icon",
-      type: "string",
+    "icon": {
+      "baseName": "icon",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    uuid: {
-      baseName: "uuid",
-      type: "string",
+    "uuid": {
+      "baseName": "uuid",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -77,8 +82,34 @@ export class StatusPagesUserAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return StatusPagesUserAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

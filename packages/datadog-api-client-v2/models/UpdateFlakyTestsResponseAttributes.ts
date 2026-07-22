@@ -5,19 +5,24 @@
  */
 import { UpdateFlakyTestsResponseResult } from "./UpdateFlakyTestsResponseResult";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for the update flaky test state response.
- */
+*/
 export class UpdateFlakyTestsResponseAttributes {
   /**
    * `True` if any errors occurred during the update operations. `False` if all tests succeeded to be updated.
-   */
+  */
   "hasErrors": boolean;
   /**
    * Results of the update operation for each test.
-   */
+  */
   "results": Array<UpdateFlakyTestsResponseResult>;
 
   /**
@@ -25,7 +30,7 @@ export class UpdateFlakyTestsResponseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class UpdateFlakyTestsResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    hasErrors: {
-      baseName: "has_errors",
-      type: "boolean",
-      required: true,
+    "hasErrors": {
+      "baseName": "has_errors",
+      "type": "boolean",
+      "required": true,
     },
-    results: {
-      baseName: "results",
-      type: "Array<UpdateFlakyTestsResponseResult>",
-      required: true,
+    "results": {
+      "baseName": "results",
+      "type": "Array<UpdateFlakyTestsResponseResult>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class UpdateFlakyTestsResponseAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateFlakyTestsResponseAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

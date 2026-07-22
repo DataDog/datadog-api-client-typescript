@@ -6,19 +6,24 @@
 import { ApplicationKeyResponseIncludedItem } from "./ApplicationKeyResponseIncludedItem";
 import { FullApplicationKey } from "./FullApplicationKey";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response for retrieving an application key.
- */
+*/
 export class ApplicationKeyResponse {
   /**
    * Datadog application key.
-   */
+  */
   "data"?: FullApplicationKey;
   /**
    * Array of objects related to the application key.
-   */
+  */
   "included"?: Array<ApplicationKeyResponseIncludedItem>;
 
   /**
@@ -26,7 +31,7 @@ export class ApplicationKeyResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class ApplicationKeyResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "FullApplicationKey",
+    "data": {
+      "baseName": "data",
+      "type": "FullApplicationKey",
     },
-    included: {
-      baseName: "included",
-      type: "Array<ApplicationKeyResponseIncludedItem>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<ApplicationKeyResponseIncludedItem>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class ApplicationKeyResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ApplicationKeyResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

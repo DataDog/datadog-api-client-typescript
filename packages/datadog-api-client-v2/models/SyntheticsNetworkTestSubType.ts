@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Subtype of the Synthetic Network Path test: `tcp`, `udp`, or `icmp`.
- */
+*/
 
-export type SyntheticsNetworkTestSubType =
-  | typeof TCP
-  | typeof UDP
-  | typeof ICMP
-  | UnparsedObject;
-export const TCP = "tcp";
-export const UDP = "udp";
-export const ICMP = "icmp";
+export type SyntheticsNetworkTestSubType = typeof TCP| typeof UDP| typeof ICMP | UnparsedObject;
+export const TCP = 'tcp';
+export const UDP = 'udp';
+export const ICMP = 'icmp';

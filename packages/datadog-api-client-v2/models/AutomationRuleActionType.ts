@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of automated action to perform when the rule triggers. `execute_workflow` runs a Datadog workflow; `assign_agent` assigns an AI agent to the case.
- */
+*/
 
-export type AutomationRuleActionType =
-  | typeof EXECUTE_WORKFLOW
-  | typeof ASSIGN_AGENT
-  | UnparsedObject;
-export const EXECUTE_WORKFLOW = "execute_workflow";
-export const ASSIGN_AGENT = "assign_agent";
+export type AutomationRuleActionType = typeof EXECUTE_WORKFLOW| typeof ASSIGN_AGENT | UnparsedObject;
+export const EXECUTE_WORKFLOW = 'execute_workflow';
+export const ASSIGN_AGENT = 'assign_agent';

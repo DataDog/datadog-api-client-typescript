@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Seat users resource type.
- */
+*/
 
 export type SeatUserDataType = typeof SEAT_USERS | UnparsedObject;
-export const SEAT_USERS = "seat-users";
+export const SEAT_USERS = 'seat-users';

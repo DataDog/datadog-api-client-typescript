@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Resource type for annotated interactions.
- */
+*/
 
-export type LLMObsAnnotatedInteractionsType =
-  | typeof ANNOTATED_INTERACTIONS
-  | UnparsedObject;
-export const ANNOTATED_INTERACTIONS = "annotated_interactions";
+export type LLMObsAnnotatedInteractionsType = typeof ANNOTATED_INTERACTIONS | UnparsedObject;
+export const ANNOTATED_INTERACTIONS = 'annotated_interactions';

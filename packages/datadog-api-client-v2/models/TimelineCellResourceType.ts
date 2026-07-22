@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * JSON:API resource type for timeline cells.
- */
+*/
 
 export type TimelineCellResourceType = typeof TIMELINE_CELL | UnparsedObject;
-export const TIMELINE_CELL = "timeline_cell";
+export const TIMELINE_CELL = 'timeline_cell';

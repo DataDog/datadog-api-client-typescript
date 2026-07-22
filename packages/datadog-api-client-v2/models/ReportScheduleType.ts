@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * JSON:API resource type for report schedules.
- */
+*/
 
 export type ReportScheduleType = typeof SCHEDULE | UnparsedObject;
-export const SCHEDULE = "schedule";
+export const SCHEDULE = 'schedule';

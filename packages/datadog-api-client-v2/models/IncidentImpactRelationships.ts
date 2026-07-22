@@ -6,23 +6,28 @@
 import { RelationshipToIncident } from "./RelationshipToIncident";
 import { RelationshipToUser } from "./RelationshipToUser";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The incident impact's resource relationships.
- */
+*/
 export class IncidentImpactRelationships {
   /**
    * Relationship to user.
-   */
+  */
   "createdByUser"?: RelationshipToUser;
   /**
    * Relationship to incident.
-   */
+  */
   "incident"?: RelationshipToIncident;
   /**
    * Relationship to user.
-   */
+  */
   "lastModifiedByUser"?: RelationshipToUser;
 
   /**
@@ -30,7 +35,7 @@ export class IncidentImpactRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class IncidentImpactRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdByUser: {
-      baseName: "created_by_user",
-      type: "RelationshipToUser",
+    "createdByUser": {
+      "baseName": "created_by_user",
+      "type": "RelationshipToUser",
     },
-    incident: {
-      baseName: "incident",
-      type: "RelationshipToIncident",
+    "incident": {
+      "baseName": "incident",
+      "type": "RelationshipToIncident",
     },
-    lastModifiedByUser: {
-      baseName: "last_modified_by_user",
-      type: "RelationshipToUser",
+    "lastModifiedByUser": {
+      "baseName": "last_modified_by_user",
+      "type": "RelationshipToUser",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class IncidentImpactRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentImpactRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

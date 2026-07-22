@@ -6,13 +6,15 @@
 import { CIAppPipelineEventFinishedJob } from "./CIAppPipelineEventFinishedJob";
 import { CIAppPipelineEventInProgressJob } from "./CIAppPipelineEventInProgressJob";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Details of a CI job.
- */
+*/
 
-export type CIAppPipelineEventJob =
-  | CIAppPipelineEventFinishedJob
-  | CIAppPipelineEventInProgressJob
-  | UnparsedObject;
+export type CIAppPipelineEventJob = CIAppPipelineEventFinishedJob | CIAppPipelineEventInProgressJob | UnparsedObject;

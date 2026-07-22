@@ -6,23 +6,28 @@
 import { CloudWorkloadSecurityAgentPolicyAttributes } from "./CloudWorkloadSecurityAgentPolicyAttributes";
 import { CloudWorkloadSecurityAgentPolicyType } from "./CloudWorkloadSecurityAgentPolicyType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object for a single Agent policy
- */
+*/
 export class CloudWorkloadSecurityAgentPolicyData {
   /**
    * A Cloud Workload Security Agent policy returned by the API
-   */
+  */
   "attributes"?: CloudWorkloadSecurityAgentPolicyAttributes;
   /**
    * The ID of the Agent policy
-   */
+  */
   "id"?: string;
   /**
    * The type of the resource, must always be `policy`
-   */
+  */
   "type"?: CloudWorkloadSecurityAgentPolicyType;
 
   /**
@@ -30,7 +35,7 @@ export class CloudWorkloadSecurityAgentPolicyData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class CloudWorkloadSecurityAgentPolicyData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CloudWorkloadSecurityAgentPolicyAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CloudWorkloadSecurityAgentPolicyAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "CloudWorkloadSecurityAgentPolicyType",
+    "type": {
+      "baseName": "type",
+      "type": "CloudWorkloadSecurityAgentPolicyType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class CloudWorkloadSecurityAgentPolicyData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CloudWorkloadSecurityAgentPolicyData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

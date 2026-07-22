@@ -6,23 +6,28 @@
 import { OrgSAMLPreferencesAttributes } from "./OrgSAMLPreferencesAttributes";
 import { OrgSAMLPreferencesType } from "./OrgSAMLPreferencesType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for updating an organization's SAML preferences.
- */
+*/
 export class OrgSAMLPreferencesData {
   /**
    * Attributes for updating an organization's SAML preferences.
-   */
+  */
   "attributes": OrgSAMLPreferencesAttributes;
   /**
    * The identifier of the SAML preferences resource.
-   */
+  */
   "id"?: string;
   /**
    * SAML preferences resource type.
-   */
+  */
   "type": OrgSAMLPreferencesType;
 
   /**
@@ -30,7 +35,7 @@ export class OrgSAMLPreferencesData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class OrgSAMLPreferencesData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "OrgSAMLPreferencesAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "OrgSAMLPreferencesAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "OrgSAMLPreferencesType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "OrgSAMLPreferencesType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class OrgSAMLPreferencesData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgSAMLPreferencesData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of the Cloud Cost Management tag resource.
- */
+*/
 
 export type CostTagType = typeof COST_TAG | UnparsedObject;
-export const COST_TAG = "cost_tag";
+export const COST_TAG = 'cost_tag';

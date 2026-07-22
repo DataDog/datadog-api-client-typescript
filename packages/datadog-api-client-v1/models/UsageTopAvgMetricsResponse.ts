@@ -6,19 +6,24 @@
 import { UsageTopAvgMetricsHour } from "./UsageTopAvgMetricsHour";
 import { UsageTopAvgMetricsMetadata } from "./UsageTopAvgMetricsMetadata";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing the number of hourly recorded custom metrics for a given organization.
- */
+*/
 export class UsageTopAvgMetricsResponse {
   /**
    * The object containing document metadata.
-   */
+  */
   "metadata"?: UsageTopAvgMetricsMetadata;
   /**
    * Number of hourly recorded custom metrics for a given organization.
-   */
+  */
   "usage"?: Array<UsageTopAvgMetricsHour>;
 
   /**
@@ -26,7 +31,7 @@ export class UsageTopAvgMetricsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class UsageTopAvgMetricsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    metadata: {
-      baseName: "metadata",
-      type: "UsageTopAvgMetricsMetadata",
+    "metadata": {
+      "baseName": "metadata",
+      "type": "UsageTopAvgMetricsMetadata",
     },
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageTopAvgMetricsHour>",
+    "usage": {
+      "baseName": "usage",
+      "type": "Array<UsageTopAvgMetricsHour>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class UsageTopAvgMetricsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageTopAvgMetricsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

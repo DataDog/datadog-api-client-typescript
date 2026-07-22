@@ -4,17 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of external identifier for the selection state item.
  * For GitHub synchronization, the allowed values are `team` and
  * `organization`.
- */
+*/
 
-export type TeamSyncSelectionStateExternalIdType =
-  | typeof TEAM
-  | typeof ORGANIZATION
-  | UnparsedObject;
-export const TEAM = "team";
-export const ORGANIZATION = "organization";
+export type TeamSyncSelectionStateExternalIdType = typeof TEAM| typeof ORGANIZATION | UnparsedObject;
+export const TEAM = 'team';
+export const ORGANIZATION = 'organization';

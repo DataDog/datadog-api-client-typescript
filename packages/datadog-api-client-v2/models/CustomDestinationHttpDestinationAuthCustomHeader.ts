@@ -5,23 +5,28 @@
  */
 import { CustomDestinationHttpDestinationAuthCustomHeaderType } from "./CustomDestinationHttpDestinationAuthCustomHeaderType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Custom header access authentication.
- */
+*/
 export class CustomDestinationHttpDestinationAuthCustomHeader {
   /**
    * The header name of the authentication.
-   */
+  */
   "headerName": string;
   /**
    * The header value of the authentication. This field is not returned by the API.
-   */
+  */
   "headerValue": string;
   /**
    * Type of the custom header access authentication.
-   */
+  */
   "type": CustomDestinationHttpDestinationAuthCustomHeaderType;
 
   /**
@@ -29,7 +34,7 @@ export class CustomDestinationHttpDestinationAuthCustomHeader {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,20 +45,20 @@ export class CustomDestinationHttpDestinationAuthCustomHeader {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    headerName: {
-      baseName: "header_name",
-      type: "string",
-      required: true,
+    "headerName": {
+      "baseName": "header_name",
+      "type": "string",
+      "required": true,
     },
-    headerValue: {
-      baseName: "header_value",
-      type: "string",
-      required: true,
+    "headerValue": {
+      "baseName": "header_value",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CustomDestinationHttpDestinationAuthCustomHeaderType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CustomDestinationHttpDestinationAuthCustomHeaderType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class CustomDestinationHttpDestinationAuthCustomHeader {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomDestinationHttpDestinationAuthCustomHeader.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

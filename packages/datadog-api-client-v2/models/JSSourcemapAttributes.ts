@@ -4,59 +4,64 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a JavaScript source map.
- */
+*/
 export class JSSourcemapAttributes {
   /**
    * The absolute path to the minified JavaScript file.
-   */
+  */
   "absolutePath"?: string;
   /**
    * The path to the source map in blob storage.
-   */
+  */
   "blobStorageSourcemapPath"?: string;
   /**
    * The build identifier.
-   */
+  */
   "buildId"?: string;
   /**
    * The timestamp when the source map was created.
-   */
+  */
   "createdAt": Date;
   /**
    * The domain associated with the source map.
-   */
+  */
   "domain"?: string;
   /**
    * The file name of the minified JavaScript file.
-   */
+  */
   "fileName"?: string;
   /**
    * The type of source map.
-   */
+  */
   "mapkind": string;
   /**
    * The service name associated with the source map.
-   */
+  */
   "service"?: string;
   /**
    * The size of the source map file in bytes.
-   */
+  */
   "size": number;
   /**
    * The source map variant.
-   */
+  */
   "variant"?: string;
   /**
    * The version of the service associated with the source map.
-   */
+  */
   "version"?: string;
   /**
    * The version code.
-   */
+  */
   "versionCode"?: string;
 
   /**
@@ -64,7 +69,7 @@ export class JSSourcemapAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -75,58 +80,58 @@ export class JSSourcemapAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    absolutePath: {
-      baseName: "absolute_path",
-      type: "string",
+    "absolutePath": {
+      "baseName": "absolute_path",
+      "type": "string",
     },
-    blobStorageSourcemapPath: {
-      baseName: "blob_storage_sourcemap_path",
-      type: "string",
+    "blobStorageSourcemapPath": {
+      "baseName": "blob_storage_sourcemap_path",
+      "type": "string",
     },
-    buildId: {
-      baseName: "build_id",
-      type: "string",
+    "buildId": {
+      "baseName": "build_id",
+      "type": "string",
     },
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    domain: {
-      baseName: "domain",
-      type: "string",
+    "domain": {
+      "baseName": "domain",
+      "type": "string",
     },
-    fileName: {
-      baseName: "file_name",
-      type: "string",
+    "fileName": {
+      "baseName": "file_name",
+      "type": "string",
     },
-    mapkind: {
-      baseName: "mapkind",
-      type: "string",
-      required: true,
+    "mapkind": {
+      "baseName": "mapkind",
+      "type": "string",
+      "required": true,
     },
-    service: {
-      baseName: "service",
-      type: "string",
+    "service": {
+      "baseName": "service",
+      "type": "string",
     },
-    size: {
-      baseName: "size",
-      type: "number",
-      required: true,
-      format: "int64",
+    "size": {
+      "baseName": "size",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    variant: {
-      baseName: "variant",
-      type: "string",
+    "variant": {
+      "baseName": "variant",
+      "type": "string",
     },
-    version: {
-      baseName: "version",
-      type: "string",
+    "version": {
+      "baseName": "version",
+      "type": "string",
     },
-    versionCode: {
-      baseName: "version_code",
-      type: "string",
+    "versionCode": {
+      "baseName": "version_code",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -138,8 +143,34 @@ export class JSSourcemapAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return JSSourcemapAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

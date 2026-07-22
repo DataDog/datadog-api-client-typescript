@@ -5,15 +5,20 @@
  */
 import { LLMObsPromptSDKData } from "./LLMObsPromptSDKData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a flattened LLM Observability prompt version for SDK consumption.
- */
+*/
 export class LLMObsPromptSDKResponse {
   /**
    * Data object for a flattened LLM Observability prompt version returned for SDK consumption.
-   */
+  */
   "data": LLMObsPromptSDKData;
 
   /**
@@ -21,7 +26,7 @@ export class LLMObsPromptSDKResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class LLMObsPromptSDKResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "LLMObsPromptSDKData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "LLMObsPromptSDKData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class LLMObsPromptSDKResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsPromptSDKResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

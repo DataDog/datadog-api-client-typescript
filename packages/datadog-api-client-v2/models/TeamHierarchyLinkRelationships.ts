@@ -5,19 +5,24 @@
  */
 import { TeamHierarchyLinkTeamRelationship } from "./TeamHierarchyLinkTeamRelationship";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Team hierarchy link relationships
- */
+*/
 export class TeamHierarchyLinkRelationships {
   /**
    * Team hierarchy link team relationship
-   */
+  */
   "parentTeam": TeamHierarchyLinkTeamRelationship;
   /**
    * Team hierarchy link team relationship
-   */
+  */
   "subTeam": TeamHierarchyLinkTeamRelationship;
 
   /**
@@ -25,7 +30,7 @@ export class TeamHierarchyLinkRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class TeamHierarchyLinkRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    parentTeam: {
-      baseName: "parent_team",
-      type: "TeamHierarchyLinkTeamRelationship",
-      required: true,
+    "parentTeam": {
+      "baseName": "parent_team",
+      "type": "TeamHierarchyLinkTeamRelationship",
+      "required": true,
     },
-    subTeam: {
-      baseName: "sub_team",
-      type: "TeamHierarchyLinkTeamRelationship",
-      required: true,
+    "subTeam": {
+      "baseName": "sub_team",
+      "type": "TeamHierarchyLinkTeamRelationship",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class TeamHierarchyLinkRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamHierarchyLinkRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

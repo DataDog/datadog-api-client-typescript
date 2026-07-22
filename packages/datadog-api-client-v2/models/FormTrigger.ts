@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Trigger a workflow from a Form.
- */
+*/
 export class FormTrigger {
   /**
    * The form UUID.
-   */
+  */
   "formId"?: string;
 
   /**
@@ -20,7 +25,7 @@ export class FormTrigger {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,9 +36,9 @@ export class FormTrigger {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    formId: {
-      baseName: "formId",
-      type: "string",
+    "formId": {
+      "baseName": "formId",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,8 +50,34 @@ export class FormTrigger {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FormTrigger.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

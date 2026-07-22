@@ -6,23 +6,28 @@
 import { CloudWorkloadSecurityAgentRuleAttributes } from "./CloudWorkloadSecurityAgentRuleAttributes";
 import { CloudWorkloadSecurityAgentRuleType } from "./CloudWorkloadSecurityAgentRuleType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object for a single Agent rule
- */
+*/
 export class CloudWorkloadSecurityAgentRuleData {
   /**
    * A Cloud Workload Security Agent rule returned by the API
-   */
+  */
   "attributes"?: CloudWorkloadSecurityAgentRuleAttributes;
   /**
    * The ID of the Agent rule
-   */
+  */
   "id"?: string;
   /**
    * The type of the resource, must always be `agent_rule`
-   */
+  */
   "type"?: CloudWorkloadSecurityAgentRuleType;
 
   /**
@@ -30,7 +35,7 @@ export class CloudWorkloadSecurityAgentRuleData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class CloudWorkloadSecurityAgentRuleData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CloudWorkloadSecurityAgentRuleAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CloudWorkloadSecurityAgentRuleAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "CloudWorkloadSecurityAgentRuleType",
+    "type": {
+      "baseName": "type",
+      "type": "CloudWorkloadSecurityAgentRuleType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class CloudWorkloadSecurityAgentRuleData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CloudWorkloadSecurityAgentRuleData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

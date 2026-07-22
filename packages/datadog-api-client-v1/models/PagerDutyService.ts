@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The PagerDuty service that is available for integration with Datadog.
- */
+*/
 export class PagerDutyService {
   /**
    * Your service key in PagerDuty.
-   */
+  */
   "serviceKey": string;
   /**
    * Your service name associated with a service key in PagerDuty.
-   */
+  */
   "serviceName": string;
 
   /**
@@ -24,7 +29,7 @@ export class PagerDutyService {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,15 +40,15 @@ export class PagerDutyService {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    serviceKey: {
-      baseName: "service_key",
-      type: "string",
-      required: true,
+    "serviceKey": {
+      "baseName": "service_key",
+      "type": "string",
+      "required": true,
     },
-    serviceName: {
-      baseName: "service_name",
-      type: "string",
-      required: true,
+    "serviceName": {
+      "baseName": "service_name",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class PagerDutyService {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PagerDutyService.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

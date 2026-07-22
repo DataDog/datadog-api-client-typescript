@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * JSON:API resource type for maintenance windows.
- */
+*/
 
-export type MaintenanceWindowResourceType =
-  | typeof MAINTENANCE_WINDOW
-  | UnparsedObject;
-export const MAINTENANCE_WINDOW = "maintenance_window";
+export type MaintenanceWindowResourceType = typeof MAINTENANCE_WINDOW | UnparsedObject;
+export const MAINTENANCE_WINDOW = 'maintenance_window';

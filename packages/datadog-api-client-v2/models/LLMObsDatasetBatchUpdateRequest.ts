@@ -5,15 +5,20 @@
  */
 import { LLMObsDatasetBatchUpdateDataRequest } from "./LLMObsDatasetBatchUpdateDataRequest";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request to batch-insert, update, and delete records in an LLM Observability dataset.
- */
+*/
 export class LLMObsDatasetBatchUpdateRequest {
   /**
    * Data object for batch-updating records in an LLM Observability dataset.
-   */
+  */
   "data": LLMObsDatasetBatchUpdateDataRequest;
 
   /**
@@ -21,7 +26,7 @@ export class LLMObsDatasetBatchUpdateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class LLMObsDatasetBatchUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "LLMObsDatasetBatchUpdateDataRequest",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "LLMObsDatasetBatchUpdateDataRequest",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class LLMObsDatasetBatchUpdateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDatasetBatchUpdateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

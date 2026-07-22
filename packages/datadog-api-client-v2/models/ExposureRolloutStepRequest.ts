@@ -4,31 +4,36 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Rollout step request payload.
- */
+*/
 export class ExposureRolloutStepRequest {
   /**
    * The exposure ratio for this step.
-   */
+  */
   "exposureRatio": number;
   /**
    * Logical index grouping related steps.
-   */
+  */
   "groupedStepIndex": number;
   /**
    * The unique identifier of the progression step.
-   */
+  */
   "id"?: string;
   /**
    * Step duration in milliseconds.
-   */
+  */
   "intervalMs"?: number;
   /**
    * Whether this step represents a pause record.
-   */
+  */
   "isPauseRecord": boolean;
 
   /**
@@ -36,7 +41,7 @@ export class ExposureRolloutStepRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,32 +52,32 @@ export class ExposureRolloutStepRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    exposureRatio: {
-      baseName: "exposure_ratio",
-      type: "number",
-      required: true,
-      format: "double",
+    "exposureRatio": {
+      "baseName": "exposure_ratio",
+      "type": "number",
+      "required": true,
+      "format": "double",
     },
-    groupedStepIndex: {
-      baseName: "grouped_step_index",
-      type: "number",
-      required: true,
-      format: "int64",
+    "groupedStepIndex": {
+      "baseName": "grouped_step_index",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "format": "uuid",
     },
-    intervalMs: {
-      baseName: "interval_ms",
-      type: "number",
-      format: "int64",
+    "intervalMs": {
+      "baseName": "interval_ms",
+      "type": "number",
+      "format": "int64",
     },
-    isPauseRecord: {
-      baseName: "is_pause_record",
-      type: "boolean",
-      required: true,
+    "isPauseRecord": {
+      "baseName": "is_pause_record",
+      "type": "boolean",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -84,8 +89,34 @@ export class ExposureRolloutStepRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ExposureRolloutStepRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

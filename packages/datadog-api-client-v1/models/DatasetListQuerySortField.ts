@@ -5,19 +5,24 @@
  */
 import { QuerySortOrder } from "./QuerySortOrder";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A single sort directive for a `DatasetListQuery`.
- */
+*/
 export class DatasetListQuerySortField {
   /**
    * Name of the field to sort on.
-   */
+  */
   "name": string;
   /**
    * Direction of sort.
-   */
+  */
   "order": QuerySortOrder;
 
   /**
@@ -25,7 +30,7 @@ export class DatasetListQuerySortField {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class DatasetListQuerySortField {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    order: {
-      baseName: "order",
-      type: "QuerySortOrder",
-      required: true,
+    "order": {
+      "baseName": "order",
+      "type": "QuerySortOrder",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class DatasetListQuerySortField {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DatasetListQuerySortField.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

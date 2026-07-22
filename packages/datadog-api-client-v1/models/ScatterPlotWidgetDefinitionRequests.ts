@@ -6,23 +6,28 @@
 import { ScatterPlotRequest } from "./ScatterPlotRequest";
 import { ScatterplotTableRequest } from "./ScatterplotTableRequest";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Widget definition.
- */
+*/
 export class ScatterPlotWidgetDefinitionRequests {
   /**
    * Scatterplot request containing formulas and functions.
-   */
+  */
   "table"?: ScatterplotTableRequest;
   /**
    * Updated scatter plot.
-   */
+  */
   "x"?: ScatterPlotRequest;
   /**
    * Updated scatter plot.
-   */
+  */
   "y"?: ScatterPlotRequest;
 
   /**
@@ -30,7 +35,7 @@ export class ScatterPlotWidgetDefinitionRequests {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class ScatterPlotWidgetDefinitionRequests {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    table: {
-      baseName: "table",
-      type: "ScatterplotTableRequest",
+    "table": {
+      "baseName": "table",
+      "type": "ScatterplotTableRequest",
     },
-    x: {
-      baseName: "x",
-      type: "ScatterPlotRequest",
+    "x": {
+      "baseName": "x",
+      "type": "ScatterPlotRequest",
     },
-    y: {
-      baseName: "y",
-      type: "ScatterPlotRequest",
+    "y": {
+      "baseName": "y",
+      "type": "ScatterPlotRequest",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class ScatterPlotWidgetDefinitionRequests {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ScatterPlotWidgetDefinitionRequests.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of SLO definition being queried.
- */
+*/
 
-export type SlosQueryType =
-  | typeof METRIC
-  | typeof TIME_SLICE
-  | typeof MONITOR
-  | UnparsedObject;
-export const METRIC = "metric";
-export const TIME_SLICE = "time_slice";
-export const MONITOR = "monitor";
+export type SlosQueryType = typeof METRIC| typeof TIME_SLICE| typeof MONITOR | UnparsedObject;
+export const METRIC = 'metric';
+export const TIME_SLICE = 'time_slice';
+export const MONITOR = 'monitor';

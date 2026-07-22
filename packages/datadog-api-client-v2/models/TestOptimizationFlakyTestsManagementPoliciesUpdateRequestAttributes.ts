@@ -7,28 +7,33 @@ import { TestOptimizationFlakyTestsManagementPoliciesAttemptToFix } from "./Test
 import { TestOptimizationFlakyTestsManagementPoliciesDisabled } from "./TestOptimizationFlakyTestsManagementPoliciesDisabled";
 import { TestOptimizationFlakyTestsManagementPoliciesQuarantined } from "./TestOptimizationFlakyTestsManagementPoliciesQuarantined";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for updating Flaky Tests Management policies.
  * Only provided policy blocks are updated; omitted blocks are left unchanged.
- */
+*/
 export class TestOptimizationFlakyTestsManagementPoliciesUpdateRequestAttributes {
   /**
    * Configuration for the attempt-to-fix Flaky Tests Management policy.
-   */
+  */
   "attemptToFix"?: TestOptimizationFlakyTestsManagementPoliciesAttemptToFix;
   /**
    * Configuration for the disabled Flaky Tests Management policy.
-   */
+  */
   "disabled"?: TestOptimizationFlakyTestsManagementPoliciesDisabled;
   /**
    * Configuration for the quarantined Flaky Tests Management policy.
-   */
+  */
   "quarantined"?: TestOptimizationFlakyTestsManagementPoliciesQuarantined;
   /**
    * The repository identifier.
-   */
+  */
   "repositoryId": string;
 
   /**
@@ -36,7 +41,7 @@ export class TestOptimizationFlakyTestsManagementPoliciesUpdateRequestAttributes
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,22 +52,22 @@ export class TestOptimizationFlakyTestsManagementPoliciesUpdateRequestAttributes
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attemptToFix: {
-      baseName: "attempt_to_fix",
-      type: "TestOptimizationFlakyTestsManagementPoliciesAttemptToFix",
+    "attemptToFix": {
+      "baseName": "attempt_to_fix",
+      "type": "TestOptimizationFlakyTestsManagementPoliciesAttemptToFix",
     },
-    disabled: {
-      baseName: "disabled",
-      type: "TestOptimizationFlakyTestsManagementPoliciesDisabled",
+    "disabled": {
+      "baseName": "disabled",
+      "type": "TestOptimizationFlakyTestsManagementPoliciesDisabled",
     },
-    quarantined: {
-      baseName: "quarantined",
-      type: "TestOptimizationFlakyTestsManagementPoliciesQuarantined",
+    "quarantined": {
+      "baseName": "quarantined",
+      "type": "TestOptimizationFlakyTestsManagementPoliciesQuarantined",
     },
-    repositoryId: {
-      baseName: "repository_id",
-      type: "string",
-      required: true,
+    "repositoryId": {
+      "baseName": "repository_id",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,8 +79,34 @@ export class TestOptimizationFlakyTestsManagementPoliciesUpdateRequestAttributes
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TestOptimizationFlakyTestsManagementPoliciesUpdateRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

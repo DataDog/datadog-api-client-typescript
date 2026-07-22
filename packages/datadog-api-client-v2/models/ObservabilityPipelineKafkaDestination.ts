@@ -11,81 +11,86 @@ import { ObservabilityPipelineKafkaLibrdkafkaOption } from "./ObservabilityPipel
 import { ObservabilityPipelineKafkaSasl } from "./ObservabilityPipelineKafkaSasl";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The `kafka` destination sends logs to Apache Kafka topics.
- *
+ * 
  * **Supported pipeline types:** logs
- */
+*/
 export class ObservabilityPipelineKafkaDestination {
   /**
    * Name of the environment variable or secret that holds the Kafka bootstrap servers list.
-   */
+  */
   "bootstrapServersKey"?: string;
   /**
    * Configuration for buffer settings on destination components.
-   */
+  */
   "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * Compression codec for Kafka messages.
-   */
+  */
   "compression"?: ObservabilityPipelineKafkaDestinationCompression;
   /**
    * Encoding format for log events.
-   */
+  */
   "encoding": ObservabilityPipelineKafkaDestinationEncoding;
   /**
    * The field name to use for Kafka message headers.
-   */
+  */
   "headersKey"?: string;
   /**
    * The unique identifier for this component.
-   */
+  */
   "id": string;
   /**
    * A list of component IDs whose output is used as the `input` for this component.
-   */
+  */
   "inputs": Array<string>;
   /**
    * The field name to use as the Kafka message key.
-   */
+  */
   "keyField"?: string;
   /**
    * Optional list of advanced Kafka producer configuration options, defined as key-value pairs.
-   */
+  */
   "librdkafkaOptions"?: Array<ObservabilityPipelineKafkaLibrdkafkaOption>;
   /**
    * Maximum time in milliseconds to wait for message delivery confirmation.
-   */
+  */
   "messageTimeoutMs"?: number;
   /**
    * Duration in seconds for the rate limit window.
-   */
+  */
   "rateLimitDurationSecs"?: number;
   /**
    * Maximum number of messages allowed per rate limit duration.
-   */
+  */
   "rateLimitNum"?: number;
   /**
    * Specifies the SASL mechanism for authenticating with a Kafka cluster.
-   */
+  */
   "sasl"?: ObservabilityPipelineKafkaSasl;
   /**
    * Socket timeout in milliseconds for network requests.
-   */
+  */
   "socketTimeoutMs"?: number;
   /**
    * Configuration for enabling TLS encryption between the pipeline component and external services.
-   */
+  */
   "tls"?: ObservabilityPipelineTls;
   /**
    * The Kafka topic name to publish logs to.
-   */
+  */
   "topic": string;
   /**
    * The destination type. The value should always be `kafka`.
-   */
+  */
   "type": ObservabilityPipelineKafkaDestinationType;
 
   /**
@@ -93,7 +98,7 @@ export class ObservabilityPipelineKafkaDestination {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -104,82 +109,82 @@ export class ObservabilityPipelineKafkaDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    bootstrapServersKey: {
-      baseName: "bootstrap_servers_key",
-      type: "string",
+    "bootstrapServersKey": {
+      "baseName": "bootstrap_servers_key",
+      "type": "string",
     },
-    buffer: {
-      baseName: "buffer",
-      type: "ObservabilityPipelineBufferOptions",
+    "buffer": {
+      "baseName": "buffer",
+      "type": "ObservabilityPipelineBufferOptions",
     },
-    compression: {
-      baseName: "compression",
-      type: "ObservabilityPipelineKafkaDestinationCompression",
+    "compression": {
+      "baseName": "compression",
+      "type": "ObservabilityPipelineKafkaDestinationCompression",
     },
-    encoding: {
-      baseName: "encoding",
-      type: "ObservabilityPipelineKafkaDestinationEncoding",
-      required: true,
+    "encoding": {
+      "baseName": "encoding",
+      "type": "ObservabilityPipelineKafkaDestinationEncoding",
+      "required": true,
     },
-    headersKey: {
-      baseName: "headers_key",
-      type: "string",
+    "headersKey": {
+      "baseName": "headers_key",
+      "type": "string",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    inputs: {
-      baseName: "inputs",
-      type: "Array<string>",
-      required: true,
+    "inputs": {
+      "baseName": "inputs",
+      "type": "Array<string>",
+      "required": true,
     },
-    keyField: {
-      baseName: "key_field",
-      type: "string",
+    "keyField": {
+      "baseName": "key_field",
+      "type": "string",
     },
-    librdkafkaOptions: {
-      baseName: "librdkafka_options",
-      type: "Array<ObservabilityPipelineKafkaLibrdkafkaOption>",
+    "librdkafkaOptions": {
+      "baseName": "librdkafka_options",
+      "type": "Array<ObservabilityPipelineKafkaLibrdkafkaOption>",
     },
-    messageTimeoutMs: {
-      baseName: "message_timeout_ms",
-      type: "number",
-      format: "int64",
+    "messageTimeoutMs": {
+      "baseName": "message_timeout_ms",
+      "type": "number",
+      "format": "int64",
     },
-    rateLimitDurationSecs: {
-      baseName: "rate_limit_duration_secs",
-      type: "number",
-      format: "int64",
+    "rateLimitDurationSecs": {
+      "baseName": "rate_limit_duration_secs",
+      "type": "number",
+      "format": "int64",
     },
-    rateLimitNum: {
-      baseName: "rate_limit_num",
-      type: "number",
-      format: "int64",
+    "rateLimitNum": {
+      "baseName": "rate_limit_num",
+      "type": "number",
+      "format": "int64",
     },
-    sasl: {
-      baseName: "sasl",
-      type: "ObservabilityPipelineKafkaSasl",
+    "sasl": {
+      "baseName": "sasl",
+      "type": "ObservabilityPipelineKafkaSasl",
     },
-    socketTimeoutMs: {
-      baseName: "socket_timeout_ms",
-      type: "number",
-      format: "int64",
+    "socketTimeoutMs": {
+      "baseName": "socket_timeout_ms",
+      "type": "number",
+      "format": "int64",
     },
-    tls: {
-      baseName: "tls",
-      type: "ObservabilityPipelineTls",
+    "tls": {
+      "baseName": "tls",
+      "type": "ObservabilityPipelineTls",
     },
-    topic: {
-      baseName: "topic",
-      type: "string",
-      required: true,
+    "topic": {
+      "baseName": "topic",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ObservabilityPipelineKafkaDestinationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ObservabilityPipelineKafkaDestinationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -191,8 +196,34 @@ export class ObservabilityPipelineKafkaDestination {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineKafkaDestination.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

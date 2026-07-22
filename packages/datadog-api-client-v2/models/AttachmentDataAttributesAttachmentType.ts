@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of the attachment.
- */
+*/
 
-export type AttachmentDataAttributesAttachmentType =
-  | typeof POSTMORTEM
-  | typeof LINK
-  | UnparsedObject;
-export const POSTMORTEM = "postmortem";
-export const LINK = "link";
+export type AttachmentDataAttributesAttachmentType = typeof POSTMORTEM| typeof LINK | UnparsedObject;
+export const POSTMORTEM = 'postmortem';
+export const LINK = 'link';

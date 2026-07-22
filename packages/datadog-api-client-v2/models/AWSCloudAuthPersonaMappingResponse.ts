@@ -5,15 +5,20 @@
  */
 import { AWSCloudAuthPersonaMappingDataResponse } from "./AWSCloudAuthPersonaMappingDataResponse";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a single AWS cloud authentication persona mapping
- */
+*/
 export class AWSCloudAuthPersonaMappingResponse {
   /**
    * Data for AWS cloud authentication persona mapping response
-   */
+  */
   "data": AWSCloudAuthPersonaMappingDataResponse;
 
   /**
@@ -21,7 +26,7 @@ export class AWSCloudAuthPersonaMappingResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class AWSCloudAuthPersonaMappingResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "AWSCloudAuthPersonaMappingDataResponse",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "AWSCloudAuthPersonaMappingDataResponse",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class AWSCloudAuthPersonaMappingResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSCloudAuthPersonaMappingResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

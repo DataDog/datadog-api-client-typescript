@@ -6,19 +6,24 @@
 import { CustomConnection } from "./CustomConnection";
 import { DeploymentRelationship } from "./DeploymentRelationship";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The app's publication relationship and custom connections.
- */
+*/
 export class AppRelationship {
   /**
    * Array of custom connections used by the app.
-   */
+  */
   "connections"?: Array<CustomConnection>;
   /**
    * Information pointing to the app's publication status.
-   */
+  */
   "deployment"?: DeploymentRelationship;
 
   /**
@@ -26,7 +31,7 @@ export class AppRelationship {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class AppRelationship {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    connections: {
-      baseName: "connections",
-      type: "Array<CustomConnection>",
+    "connections": {
+      "baseName": "connections",
+      "type": "Array<CustomConnection>",
     },
-    deployment: {
-      baseName: "deployment",
-      type: "DeploymentRelationship",
+    "deployment": {
+      "baseName": "deployment",
+      "type": "DeploymentRelationship",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class AppRelationship {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AppRelationship.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

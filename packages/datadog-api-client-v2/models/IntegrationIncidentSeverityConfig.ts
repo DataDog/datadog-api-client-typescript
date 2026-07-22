@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Severity configuration for mapping incident priorities to case priorities.
- */
+*/
 export class IntegrationIncidentSeverityConfig {
   /**
    * Mapping of incident severity values to case priority values.
-   */
-  "priorityMapping"?: { [key: string]: string };
+  */
+  "priorityMapping"?: { [key: string]: string; };
 
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,9 +36,9 @@ export class IntegrationIncidentSeverityConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    priorityMapping: {
-      baseName: "priority_mapping",
-      type: "{ [key: string]: string; }",
+    "priorityMapping": {
+      "baseName": "priority_mapping",
+      "type": "{ [key: string]: string; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,8 +50,34 @@ export class IntegrationIncidentSeverityConfig {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IntegrationIncidentSeverityConfig.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

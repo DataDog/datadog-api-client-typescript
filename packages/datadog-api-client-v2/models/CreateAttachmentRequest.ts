@@ -5,15 +5,20 @@
  */
 import { CreateAttachmentRequestData } from "./CreateAttachmentRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Create request for an attachment.
- */
+*/
 export class CreateAttachmentRequest {
   /**
    * Attachment data for a create request.
-   */
+  */
   "data"?: CreateAttachmentRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class CreateAttachmentRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class CreateAttachmentRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CreateAttachmentRequestData",
+    "data": {
+      "baseName": "data",
+      "type": "CreateAttachmentRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class CreateAttachmentRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateAttachmentRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

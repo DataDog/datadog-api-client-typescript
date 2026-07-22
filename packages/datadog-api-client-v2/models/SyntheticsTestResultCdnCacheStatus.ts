@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Cache status reported by the CDN for the response.
- */
+*/
 export class SyntheticsTestResultCdnCacheStatus {
   /**
    * Whether the response was served from the CDN cache.
-   */
+  */
   "cached"?: boolean;
   /**
    * Raw cache status string reported by the CDN.
-   */
+  */
   "status"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class SyntheticsTestResultCdnCacheStatus {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class SyntheticsTestResultCdnCacheStatus {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    cached: {
-      baseName: "cached",
-      type: "boolean",
+    "cached": {
+      "baseName": "cached",
+      "type": "boolean",
     },
-    status: {
-      baseName: "status",
-      type: "string",
+    "status": {
+      "baseName": "status",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class SyntheticsTestResultCdnCacheStatus {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultCdnCacheStatus.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

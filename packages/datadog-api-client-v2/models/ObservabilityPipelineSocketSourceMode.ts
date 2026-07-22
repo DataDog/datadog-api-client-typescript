@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Protocol used to receive logs.
- */
+*/
 
-export type ObservabilityPipelineSocketSourceMode =
-  | typeof TCP
-  | typeof UDP
-  | UnparsedObject;
-export const TCP = "tcp";
-export const UDP = "udp";
+export type ObservabilityPipelineSocketSourceMode = typeof TCP| typeof UDP | UnparsedObject;
+export const TCP = 'tcp';
+export const UDP = 'udp';

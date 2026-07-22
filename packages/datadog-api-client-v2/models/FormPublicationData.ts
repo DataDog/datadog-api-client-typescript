@@ -6,23 +6,28 @@
 import { FormPublicationAttributes } from "./FormPublicationAttributes";
 import { FormPublicationType } from "./FormPublicationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A form publication resource object.
- */
+*/
 export class FormPublicationData {
   /**
    * The attributes of a form publication.
-   */
+  */
   "attributes": FormPublicationAttributes;
   /**
    * The ID of the form publication.
-   */
+  */
   "id": string;
   /**
    * The resource type for a form publication.
-   */
+  */
   "type": FormPublicationType;
 
   /**
@@ -30,7 +35,7 @@ export class FormPublicationData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class FormPublicationData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "FormPublicationAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "FormPublicationAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "FormPublicationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "FormPublicationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class FormPublicationData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FormPublicationData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

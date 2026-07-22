@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Indicates that the resource is of type 'policies'.
- */
+*/
 
-export type RoutingRuleRelationshipsPolicyDataType =
-  | typeof POLICIES
-  | UnparsedObject;
-export const POLICIES = "policies";
+export type RoutingRuleRelationshipsPolicyDataType = typeof POLICIES | UnparsedObject;
+export const POLICIES = 'policies';

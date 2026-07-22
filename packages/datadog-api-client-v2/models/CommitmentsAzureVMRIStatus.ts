@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Status of an Azure VM Reserved Instance.
- */
+*/
 
-export type CommitmentsAzureVMRIStatus =
-  | typeof RUNNING
-  | typeof EXPIRED
-  | typeof CANCELLED
-  | UnparsedObject;
-export const RUNNING = "running";
-export const EXPIRED = "expired";
-export const CANCELLED = "cancelled";
+export type CommitmentsAzureVMRIStatus = typeof RUNNING| typeof EXPIRED| typeof CANCELLED | UnparsedObject;
+export const RUNNING = 'running';
+export const EXPIRED = 'expired';
+export const CANCELLED = 'cancelled';

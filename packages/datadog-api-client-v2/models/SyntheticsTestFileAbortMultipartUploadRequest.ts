@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request body for aborting a multipart file upload.
- */
+*/
 export class SyntheticsTestFileAbortMultipartUploadRequest {
   /**
    * The full storage path of the file whose upload should be aborted.
-   */
+  */
   "key": string;
   /**
    * The upload ID of the multipart upload to abort.
-   */
+  */
   "uploadId": string;
 
   /**
@@ -24,7 +29,7 @@ export class SyntheticsTestFileAbortMultipartUploadRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,15 +40,15 @@ export class SyntheticsTestFileAbortMultipartUploadRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    key: {
-      baseName: "key",
-      type: "string",
-      required: true,
+    "key": {
+      "baseName": "key",
+      "type": "string",
+      "required": true,
     },
-    uploadId: {
-      baseName: "uploadId",
-      type: "string",
-      required: true,
+    "uploadId": {
+      "baseName": "uploadId",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class SyntheticsTestFileAbortMultipartUploadRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestFileAbortMultipartUploadRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

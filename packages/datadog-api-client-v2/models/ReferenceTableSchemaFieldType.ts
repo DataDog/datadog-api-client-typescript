@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The field type for reference table schema fields.
- */
+*/
 
-export type ReferenceTableSchemaFieldType =
-  | typeof STRING
-  | typeof INT32
-  | UnparsedObject;
-export const STRING = "STRING";
-export const INT32 = "INT32";
+export type ReferenceTableSchemaFieldType = typeof STRING| typeof INT32 | UnparsedObject;
+export const STRING = 'STRING';
+export const INT32 = 'INT32';

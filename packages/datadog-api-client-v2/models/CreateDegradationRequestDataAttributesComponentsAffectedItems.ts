@@ -5,23 +5,28 @@
  */
 import { StatusPagesComponentDataAttributesStatus } from "./StatusPagesComponentDataAttributesStatus";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A component affected by a degradation.
- */
+*/
 export class CreateDegradationRequestDataAttributesComponentsAffectedItems {
   /**
    * The ID of the component. Must be a component of type `component`.
-   */
+  */
   "id": string;
   /**
    * The name of the component.
-   */
+  */
   "name"?: string;
   /**
    * The status of the component.
-   */
+  */
   "status": StatusPagesComponentDataAttributesStatus;
 
   /**
@@ -29,7 +34,7 @@ export class CreateDegradationRequestDataAttributesComponentsAffectedItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,20 +45,20 @@ export class CreateDegradationRequestDataAttributesComponentsAffectedItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    status: {
-      baseName: "status",
-      type: "StatusPagesComponentDataAttributesStatus",
-      required: true,
+    "status": {
+      "baseName": "status",
+      "type": "StatusPagesComponentDataAttributesStatus",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class CreateDegradationRequestDataAttributesComponentsAffectedItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateDegradationRequestDataAttributesComponentsAffectedItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

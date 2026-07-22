@@ -5,15 +5,20 @@
  */
 import { RumPermanentRetentionFilterData } from "./RumPermanentRetentionFilterData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A permanent RUM retention filter object.
- */
+*/
 export class RumPermanentRetentionFilterResponse {
   /**
    * A permanent RUM retention filter.
-   */
+  */
   "data"?: RumPermanentRetentionFilterData;
 
   /**
@@ -21,7 +26,7 @@ export class RumPermanentRetentionFilterResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class RumPermanentRetentionFilterResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "RumPermanentRetentionFilterData",
+    "data": {
+      "baseName": "data",
+      "type": "RumPermanentRetentionFilterData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class RumPermanentRetentionFilterResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RumPermanentRetentionFilterResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

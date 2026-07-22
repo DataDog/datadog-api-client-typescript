@@ -6,1302 +6,1307 @@
 import { LogsByRetention } from "./LogsByRetention";
 import { UsageSummaryDate } from "./UsageSummaryDate";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response summarizing all usage aggregated across the months in the request for
  * all organizations, and broken down by month and by organization.
- *
+ * 
  * For SDK users only: all fields at this response level are accessible through the
  * `additionalProperties` map. Existing typed-field getters are unchanged. New billing
  * dimensions will not have typed-field getters. Use
  * [Get available fields for usage summary](https://docs.datadoghq.com/api/latest/usage-metering/get-available-fields-for-usage-summary/)
  * to enumerate every available key.
- */
+*/
 export class UsageSummaryResponse {
   /**
    * Shows the 99th percentile of all agent hosts over all hours in the current month for all organizations.
-   */
+  */
   "agentHostTop99pSum"?: number;
   /**
    * Shows the sum of all AI credits used by Agent Builder over all hours in the current month for all organizations.
    * Values are returned in micro-credits. Divide by 1,000,000 to get AI credits.
-   */
+  */
   "aiCreditsAgentBuilderAiCreditsAggSum"?: number;
   /**
    * Shows the sum of all AI credits over all hours in the current month for all organizations.
    * Values are returned in micro-credits. Divide by 1,000,000 to get AI credits.
-   */
+  */
   "aiCreditsAggSum"?: number;
   /**
    * Shows the sum of all AI credits used by Bits AI Assistant over all hours in the current month for all organizations.
    * Values are returned in micro-credits. Divide by 1,000,000 to get AI credits.
-   */
+  */
   "aiCreditsBitsAssistantAiCreditsAggSum"?: number;
   /**
    * Shows the sum of all AI credits used by Bits AI Dev over all hours in the current month for all organizations.
    * Values are returned in micro-credits. Divide by 1,000,000 to get AI credits.
-   */
+  */
   "aiCreditsBitsDevAiCreditsAggSum"?: number;
   /**
    * Shows the sum of all AI credits used by Bits AI SRE over all hours in the current month for all organizations.
    * Values are returned in micro-credits. Divide by 1,000,000 to get AI credits.
-   */
+  */
   "aiCreditsBitsSreAiCreditsAggSum"?: number;
   /**
    * Shows the 99th percentile of all Azure app services using APM over all hours in the current month all organizations.
-   */
+  */
   "apmAzureAppServiceHostTop99pSum"?: number;
   /**
    * Shows the 99th percentile of all APM DevSecOps hosts over all hours in the current month for all organizations.
-   */
+  */
   "apmDevsecopsHostTop99pSum"?: number;
   /**
    * Shows the sum of the 99th percentile of all distinct standalone Enterprise hosts over all hours in the current month for all organizations.
-   */
+  */
   "apmEnterpriseStandaloneHostsTop99pSum"?: number;
   /**
    * Shows the average of all APM ECS Fargate tasks over all hours in the current month for all organizations.
-   */
+  */
   "apmFargateCountAvgSum"?: number;
   /**
    * Shows the 99th percentile of all distinct APM hosts over all hours in the current month for all organizations.
-   */
+  */
   "apmHostTop99pSum"?: number;
   /**
    * Shows the sum of the 99th percentile of all distinct standalone Pro hosts over all hours in the current month for all organizations.
-   */
+  */
   "apmProStandaloneHostsTop99pSum"?: number;
   /**
    * Shows the average of all Application Security Monitoring ECS Fargate tasks over all hours in the current month for all organizations.
-   */
+  */
   "appsecFargateCountAvgSum"?: number;
   /**
    * Shows the sum of all Application Security Monitoring Serverless invocations over all hours in the current months for all organizations.
-   */
+  */
   "asmServerlessAggSum"?: number;
   /**
    * Shows the sum of all audit logs lines indexed over all hours in the current month for all organizations (To be deprecated on October 1st, 2024).
-   */
+  */
   "auditLogsLinesIndexedAggSum"?: number;
   /**
    * Shows the total number of organizations that had Audit Trail enabled over a specific number of months.
-   */
+  */
   "auditTrailEnabledHwmSum"?: number;
   /**
    * Shows the sum of all Audit Trail event forwarding events over all hours in the current month for all organizations.
-   */
+  */
   "auditTrailEventForwardingEventsAggSum"?: number;
   /**
    * The average total count for Fargate Container Profiler over all hours in the current month for all organizations.
-   */
+  */
   "avgProfiledFargateTasksSum"?: number;
   /**
    * Shows the 99th percentile of all AWS hosts over all hours in the current month for all organizations.
-   */
+  */
   "awsHostTop99pSum"?: number;
   /**
    * Shows the average of the number of functions that executed 1 or more times each hour in the current month for all organizations.
-   */
+  */
   "awsLambdaFuncCount"?: number;
   /**
    * Shows the sum of all AWS Lambda invocations over all hours in the current month for all organizations.
-   */
+  */
   "awsLambdaInvocationsSum"?: number;
   /**
    * Shows the 99th percentile of all Azure app services over all hours in the current month for all organizations.
-   */
+  */
   "azureAppServiceTop99pSum"?: number;
   /**
    * Shows the 99th percentile of all Azure hosts over all hours in the current month for all organizations.
-   */
+  */
   "azureHostTop99pSum"?: number;
   /**
    * Shows the sum of all log bytes ingested over all hours in the current month for all organizations.
-   */
+  */
   "billableIngestedBytesAggSum"?: number;
   /**
    * Shows the sum of all Bits AI Investigations over all hours in the current month for all organizations.
-   */
+  */
   "bitsAiInvestigationsAggSum"?: number;
   /**
    * Shows the sum of all browser lite sessions over all hours in the current month for all organizations (To be deprecated on October 1st, 2024).
-   */
+  */
   "browserRumLiteSessionCountAggSum"?: number;
   /**
    * Shows the sum of all browser replay sessions over all hours in the current month for all organizations (To be deprecated on October 1st, 2024).
-   */
+  */
   "browserRumReplaySessionCountAggSum"?: number;
   /**
    * Shows the sum of all browser RUM units over all hours in the current month for all organizations (To be deprecated on October 1st, 2024).
-   */
+  */
   "browserRumUnitsAggSum"?: number;
   /**
    * Shows the sum of the last value of Anthropic cloud spend monitored in the current month for all organizations.
-   */
+  */
   "ccmAnthropicSpendLastSum"?: number;
   /**
    * Shows the sum of the last value of AWS cloud spend monitored in the current month for all organizations.
-   */
+  */
   "ccmAwsSpendLastSum"?: number;
   /**
    * Shows the sum of the last value of Azure cloud spend monitored in the current month for all organizations.
-   */
+  */
   "ccmAzureSpendLastSum"?: number;
   /**
    * Shows the sum of the last value of Confluent cloud spend monitored in the current month for all organizations.
-   */
+  */
   "ccmConfluentSpendLastSum"?: number;
   /**
    * Shows the sum of the last value of Databricks cloud spend monitored in the current month for all organizations.
-   */
+  */
   "ccmDatabricksSpendLastSum"?: number;
   /**
    * Shows the sum of the last value of Elastic cloud spend monitored in the current month for all organizations.
-   */
+  */
   "ccmElasticSpendLastSum"?: number;
   /**
    * Shows the sum of the last value of Fastly cloud spend monitored in the current month for all organizations.
-   */
+  */
   "ccmFastlySpendLastSum"?: number;
   /**
    * Shows the sum of the last value of GCP cloud spend monitored in the current month for all organizations.
-   */
+  */
   "ccmGcpSpendLastSum"?: number;
   /**
    * Shows the sum of the last value of GitHub cloud spend monitored in the current month for all organizations.
-   */
+  */
   "ccmGithubSpendLastSum"?: number;
   /**
    * Shows the sum of the last value of MongoDB cloud spend monitored in the current month for all organizations.
-   */
+  */
   "ccmMongodbSpendLastSum"?: number;
   /**
    * Shows the sum of the last value of OCI cloud spend monitored in the current month for all organizations.
-   */
+  */
   "ccmOciSpendLastSum"?: number;
   /**
    * Shows the sum of the last value of OpenAI cloud spend monitored in the current month for all organizations.
-   */
+  */
   "ccmOpenaiSpendLastSum"?: number;
   /**
    * Shows the sum of the last value of Snowflake cloud spend monitored in the current month for all organizations.
-   */
+  */
   "ccmSnowflakeSpendLastSum"?: number;
   /**
    * Shows the sum of the last value of the amount of cloud spend monitored for Enterprise in the current month for all organizations.
-   */
+  */
   "ccmSpendMonitoredEntLastSum"?: number;
   /**
    * Shows the sum of the last value of the amount of cloud spend monitored for Pro in the current month for all organizations.
-   */
+  */
   "ccmSpendMonitoredProLastSum"?: number;
   /**
    * Shows the sum of the last value of Twilio cloud spend monitored in the current month for all organizations.
-   */
+  */
   "ccmTwilioSpendLastSum"?: number;
   /**
    * Shows the sum of all CI pipeline indexed spans over all hours in the current month for all organizations.
-   */
+  */
   "ciPipelineIndexedSpansAggSum"?: number;
   /**
    * Shows the sum of all CI test indexed spans over all hours in the current month for all organizations.
-   */
+  */
   "ciTestIndexedSpansAggSum"?: number;
   /**
    * Shows the high-water mark of all CI visibility intelligent test runner committers over all hours in the current month for all organizations.
-   */
+  */
   "ciVisibilityItrCommittersHwmSum"?: number;
   /**
    * Shows the high-water mark of all CI visibility pipeline committers over all hours in the current month for all organizations.
-   */
+  */
   "ciVisibilityPipelineCommittersHwmSum"?: number;
   /**
    * Shows the high-water mark of all CI visibility test committers over all hours in the current month for all organizations.
-   */
+  */
   "ciVisibilityTestCommittersHwmSum"?: number;
   /**
    * Sum of the host count average for Cloud Cost Management for AWS.
-   */
+  */
   "cloudCostManagementAwsHostCountAvgSum"?: number;
   /**
    * Sum of the host count average for Cloud Cost Management for Azure.
-   */
+  */
   "cloudCostManagementAzureHostCountAvgSum"?: number;
   /**
    * Sum of the host count average for Cloud Cost Management for GCP.
-   */
+  */
   "cloudCostManagementGcpHostCountAvgSum"?: number;
   /**
    * Sum of the host count average for Cloud Cost Management for all cloud providers.
-   */
+  */
   "cloudCostManagementHostCountAvgSum"?: number;
   /**
    * Sum of the average host counts for Cloud Cost Management on OCI.
-   */
+  */
   "cloudCostManagementOciHostCountAvgSum"?: number;
   /**
    * Shows the sum of all Cloud Security Information and Event Management events over all hours in the current month for all organizations.
-   */
+  */
   "cloudSiemEventsAggSum"?: number;
   /**
    * Shows the sum of all Cloud SIEM Indexed Logs over all hours in the current month for all organizations.
-   */
+  */
   "cloudSiemIndexedLogsAggSum"?: number;
   /**
    * Shows the high-water mark of all Static Analysis committers over all hours in the current month for all organizations.
-   */
+  */
   "codeAnalysisSaCommittersHwmSum"?: number;
   /**
    * Shows the high-water mark of all static Software Composition Analysis committers over all hours in the current month for all organizations.
-   */
+  */
   "codeAnalysisScaCommittersHwmSum"?: number;
   /**
    * Shows the 99th percentile of all Code Security hosts over all hours in the current month for all organizations.
-   */
+  */
   "codeSecurityHostTop99pSum"?: number;
   /**
    * Shows the average of all distinct containers over all hours in the current month for all organizations.
-   */
+  */
   "containerAvgSum"?: number;
   /**
    * Shows the average of the containers without the Datadog Agent over all hours in the current month for all organizations.
-   */
+  */
   "containerExclAgentAvgSum"?: number;
   /**
    * Shows the sum of the high-water marks of all distinct containers over all hours in the current month for all organizations.
-   */
+  */
   "containerHwmSum"?: number;
   /**
    * Shows the sum of all Cloud Security Management Enterprise compliance containers over all hours in the current month for all organizations.
-   */
+  */
   "csmContainerEnterpriseComplianceCountAggSum"?: number;
   /**
    * Shows the sum of all Cloud Security Management Enterprise Cloud Workload Security containers over all hours in the current month for all organizations.
-   */
+  */
   "csmContainerEnterpriseCwsCountAggSum"?: number;
   /**
    * Shows the sum of all Cloud Security Management Enterprise containers over all hours in the current month for all organizations.
-   */
+  */
   "csmContainerEnterpriseTotalCountAggSum"?: number;
   /**
    * Shows the 99th percentile of all Cloud Security Management Enterprise Azure app services hosts over all hours in the current month for all organizations.
-   */
+  */
   "csmHostEnterpriseAasHostCountTop99pSum"?: number;
   /**
    * Shows the 99th percentile of all Cloud Security Management Enterprise AWS hosts over all hours in the current month for all organizations.
-   */
+  */
   "csmHostEnterpriseAwsHostCountTop99pSum"?: number;
   /**
    * Shows the 99th percentile of all Cloud Security Management Enterprise Azure hosts over all hours in the current month for all organizations.
-   */
+  */
   "csmHostEnterpriseAzureHostCountTop99pSum"?: number;
   /**
    * Shows the 99th percentile of all Cloud Security Management Enterprise compliance hosts over all hours in the current month for all organizations.
-   */
+  */
   "csmHostEnterpriseComplianceHostCountTop99pSum"?: number;
   /**
    * Shows the 99th percentile of all Cloud Security Management Enterprise Cloud Workload Security hosts over all hours in the current month for all organizations.
-   */
+  */
   "csmHostEnterpriseCwsHostCountTop99pSum"?: number;
   /**
    * Shows the 99th percentile of all Cloud Security Management Enterprise GCP hosts over all hours in the current month for all organizations.
-   */
+  */
   "csmHostEnterpriseGcpHostCountTop99pSum"?: number;
   /**
    * Shows the 99th percentile of all Cloud Security Management Enterprise OCI hosts over all hours in the current month for all organizations.
-   */
+  */
   "csmHostEnterpriseOciHostCountTop99pSum"?: number;
   /**
    * Shows the 99th percentile of all Cloud Security Management Enterprise hosts over all hours in the current month for all organizations.
-   */
+  */
   "csmHostEnterpriseTotalHostCountTop99pSum"?: number;
   /**
    * Shows the sum of all Cloud Security Management Pro Agentless scanner hosts over all hours in the current month for all organizations.
-   */
+  */
   "csmHostProHostsAgentlessScannersAggSum"?: number;
   /**
    * Shows the 99th percentile of all Cloud Security Management Pro Agentless scanner hosts over all hours in the current month for all organizations.
-   */
+  */
   "csmHostProHostsAgentlessScannersTop99pSum"?: number;
   /**
    * Shows the 99th percentile of all Cloud Security Management Pro OCI hosts over all hours in the current month for all organizations.
-   */
+  */
   "csmHostProOciHostCountTop99pSum"?: number;
   /**
    * Shows the 99th percentile of all Cloud Security Management Pro Azure app services hosts over all hours in the current month for all organizations.
-   */
+  */
   "cspmAasHostTop99pSum"?: number;
   /**
    * Shows the 99th percentile of all Cloud Security Management Pro AWS hosts over all hours in the current month for all organizations.
-   */
+  */
   "cspmAwsHostTop99pSum"?: number;
   /**
    * Shows the 99th percentile of all Cloud Security Management Pro Azure hosts over all hours in the current month for all organizations.
-   */
+  */
   "cspmAzureHostTop99pSum"?: number;
   /**
    * Shows the average number of Cloud Security Management Pro containers over all hours in the current month for all organizations.
-   */
+  */
   "cspmContainerAvgSum"?: number;
   /**
    * Shows the sum of the high-water marks of Cloud Security Management Pro containers over all hours in the current month for all organizations.
-   */
+  */
   "cspmContainerHwmSum"?: number;
   /**
    * Shows the 99th percentile of all Cloud Security Management Pro GCP hosts over all hours in the current month for all organizations.
-   */
+  */
   "cspmGcpHostTop99pSum"?: number;
   /**
    * Shows the 99th percentile of all Cloud Security Management Pro hosts over all hours in the current month for all organizations.
-   */
+  */
   "cspmHostTop99pSum"?: number;
   /**
    * Shows the sum of all Cloud Security Management Pro Agentless scanner hosts over all hours in the current month for all organizations.
-   */
+  */
   "cspmHostsAgentlessScannersAggSum"?: number;
   /**
    * Shows the 99th percentile of all Cloud Security Management Pro Agentless scanner hosts over all hours in the current month for all organizations.
-   */
+  */
   "cspmHostsAgentlessScannersTop99pSum"?: number;
   /**
    * Shows the average number of distinct historical custom metrics over all hours in the current month for all organizations.
-   */
+  */
   "customHistoricalTsSum"?: number;
   /**
    * Shows the average number of distinct live custom metrics over all hours in the current month for all organizations.
-   */
+  */
   "customLiveTsSum"?: number;
   /**
    * Shows the average number of distinct custom metrics over all hours in the current month for all organizations.
-   */
+  */
   "customTsSum"?: number;
   /**
    * Shows the average of all distinct Cloud Workload Security containers over all hours in the current month for all organizations.
-   */
+  */
   "cwsContainerAvgSum"?: number;
   /**
    * Shows the average of all distinct Cloud Workload Security Fargate tasks over all hours in the current month for all organizations.
-   */
+  */
   "cwsFargateTaskAvgSum"?: number;
   /**
    * Shows the 99th percentile of all Cloud Workload Security hosts over all hours in the current month for all organizations.
-   */
+  */
   "cwsHostTop99pSum"?: number;
   /**
    * Shows the sum of Data Jobs Monitoring hosts over all hours in the current months for all organizations
-   */
+  */
   "dataJobsMonitoringHostHrAggSum"?: number;
   /**
    * Shows the sum of all Data Streams Monitoring hosts over all hours in the current month for all organizations.
-   */
+  */
   "dataStreamMonitoringHostCountAggSum"?: number;
   /**
    * Shows the 99th percentile of all Data Streams Monitoring hosts over all hours in the current month for all organizations.
-   */
+  */
   "dataStreamMonitoringHostCountTop99pSum"?: number;
   /**
    * Shows the 99th percentile of all Database Monitoring hosts over all hours in the current month for all organizations.
-   */
+  */
   "dbmHostTop99pSum"?: number;
   /**
    * Shows the average of all distinct Database Monitoring Normalized Queries over all hours in the current month for all organizations.
-   */
+  */
   "dbmQueriesAvgSum"?: number;
   /**
    * Shows the sum of all orchestrator job hours over all hours in the current month for all organizations.
    * Values are returned in seconds. Divide by 3,600 to convert to hours.
-   */
+  */
   "doJobsMonitoringOrchestratorsJobHoursAggSum"?: number;
   /**
    * Shows the last date of usage in the current month for all organizations.
-   */
+  */
   "endDate"?: Date;
   /**
    * Shows the sum of all ephemeral infrastructure hosts with the Datadog Agent over all hours in the current month for all organizations.
-   */
+  */
   "ephInfraHostAgentAggSum"?: number;
   /**
    * Shows the sum of all ephemeral infrastructure hosts on Alibaba over all hours in the current month for all organizations.
-   */
+  */
   "ephInfraHostAlibabaAggSum"?: number;
   /**
    * Shows the sum of all ephemeral infrastructure hosts on AWS over all hours in the current month for all organizations.
-   */
+  */
   "ephInfraHostAwsAggSum"?: number;
   /**
    * Shows the sum of all ephemeral infrastructure hosts on Azure over all hours in the current month for all organizations.
-   */
+  */
   "ephInfraHostAzureAggSum"?: number;
   /**
    * Shows the sum of all ephemeral infrastructure hosts for Basic tier over all hours in the current month for all organizations.
-   */
+  */
   "ephInfraHostBasicAggSum"?: number;
   /**
    * Shows the sum of all ephemeral infrastructure hosts for Basic tier with the Datadog Agent over all hours in the current month for all organizations.
-   */
+  */
   "ephInfraHostBasicInfraBasicAgentAggSum"?: number;
   /**
    * Shows the sum of all ephemeral infrastructure hosts for Basic tier on vSphere over all hours in the current month for all organizations.
-   */
+  */
   "ephInfraHostBasicInfraBasicVsphereAggSum"?: number;
   /**
    * Shows the sum of all ephemeral infrastructure hosts for Enterprise over all hours in the current month for all organizations.
-   */
+  */
   "ephInfraHostEntAggSum"?: number;
   /**
    * Shows the sum of all ephemeral infrastructure hosts on GCP over all hours in the current month for all organizations.
-   */
+  */
   "ephInfraHostGcpAggSum"?: number;
   /**
    * Shows the sum of all ephemeral infrastructure hosts on Heroku over all hours in the current month for all organizations.
-   */
+  */
   "ephInfraHostHerokuAggSum"?: number;
   /**
    * Shows the sum of all ephemeral infrastructure hosts with only Azure App Services over all hours in the current month for all organizations.
-   */
+  */
   "ephInfraHostOnlyAasAggSum"?: number;
   /**
    * Shows the sum of all ephemeral infrastructure hosts with only vSphere over all hours in the current month for all organizations.
-   */
+  */
   "ephInfraHostOnlyVsphereAggSum"?: number;
   /**
    * Shows the sum of all ephemeral hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current month for all organizations.
-   */
+  */
   "ephInfraHostOpentelemetryAggSum"?: number;
   /**
    * Shows the sum of all ephemeral APM hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current month for all organizations.
-   */
+  */
   "ephInfraHostOpentelemetryApmAggSum"?: number;
   /**
    * Shows the sum of all ephemeral infrastructure hosts for Pro over all hours in the current month for all organizations.
-   */
+  */
   "ephInfraHostProAggSum"?: number;
   /**
    * Shows the sum of all ephemeral infrastructure hosts for Pro Plus over all hours in the current month for all organizations.
-   */
+  */
   "ephInfraHostProplusAggSum"?: number;
   /**
    * Sum of all ephemeral infrastructure hosts for Proxmox over all hours in the current month for all organizations.
-   */
+  */
   "ephInfraHostProxmoxAggSum"?: number;
   /**
    * Shows the sum of all Error Tracking APM error events over all hours in the current month for all organizations.
-   */
+  */
   "errorTrackingApmErrorEventsAggSum"?: number;
   /**
    * Shows the sum of all Error Tracking error events over all hours in the current month for all organizations.
-   */
+  */
   "errorTrackingErrorEventsAggSum"?: number;
   /**
    * Shows the sum of all Error Tracking events over all hours in the current months for all organizations.
-   */
+  */
   "errorTrackingEventsAggSum"?: number;
   /**
    * Shows the sum of all Error Tracking RUM error events over all hours in the current month for all organizations.
-   */
+  */
   "errorTrackingRumErrorEventsAggSum"?: number;
   /**
    * Shows the sum of all Event Management correlations over all hours in the current month for all organizations.
-   */
+  */
   "eventManagementCorrelationAggSum"?: number;
   /**
    * Shows the sum of all Event Management correlated events over all hours in the current month for all organizations.
-   */
+  */
   "eventManagementCorrelationCorrelatedEventsAggSum"?: number;
   /**
    * Shows the sum of all Event Management correlated related events over all hours in the current month for all organizations.
-   */
+  */
   "eventManagementCorrelationCorrelatedRelatedEventsAggSum"?: number;
   /**
    * The average number of Profiling Fargate tasks over all hours in the current month for all organizations.
-   */
+  */
   "fargateContainerProfilerProfilingFargateAvgSum"?: number;
   /**
    * The average number of Profiling Fargate Elastic Kubernetes Service tasks over all hours in the current month for all organizations.
-   */
+  */
   "fargateContainerProfilerProfilingFargateEksAvgSum"?: number;
   /**
    * Shows the average of all Fargate tasks over all hours in the current month for all organizations.
-   */
+  */
   "fargateTasksCountAvgSum"?: number;
   /**
    * Shows the sum of the high-water marks of all Fargate tasks over all hours in the current month for all organizations.
-   */
+  */
   "fargateTasksCountHwmSum"?: number;
   /**
    * Shows the sum of all Feature Flags Client-Side SDK config requests over all hours in the current month for all organizations.
-   */
+  */
   "featureFlagsConfigRequestsAggSum"?: number;
   /**
    * Shows the average number of Flex Logs Compute Large Instances over all hours in the current months for all organizations.
-   */
+  */
   "flexLogsComputeLargeAvgSum"?: number;
   /**
    * Shows the average number of Flex Logs Compute Medium Instances over all hours in the current months for all organizations.
-   */
+  */
   "flexLogsComputeMediumAvgSum"?: number;
   /**
    * Shows the average number of Flex Logs Compute Small Instances over all hours in the current months for all organizations.
-   */
+  */
   "flexLogsComputeSmallAvgSum"?: number;
   /**
    * Shows the average number of Flex Logs Compute Extra Large Instances over all hours in the current months for all organizations.
-   */
+  */
   "flexLogsComputeXlargeAvgSum"?: number;
   /**
    * Shows the average number of Flex Logs Compute Extra Small Instances over all hours in the current months for all organizations.
-   */
+  */
   "flexLogsComputeXsmallAvgSum"?: number;
   /**
    * Shows the average number of Flex Logs Starter Instances over all hours in the current months for all organizations.
-   */
+  */
   "flexLogsStarterAvgSum"?: number;
   /**
    * Shows the average number of Flex Logs Starter Storage Index Instances over all hours in the current months for all organizations.
-   */
+  */
   "flexLogsStarterStorageIndexAvgSum"?: number;
   /**
    * Shows the average number of Flex Logs Starter Storage Retention Adjustment Instances over all hours in the current months for all organizations.
-   */
+  */
   "flexLogsStarterStorageRetentionAdjustmentAvgSum"?: number;
   /**
    * Shows the average of all Flex Stored Logs over all hours in the current months for all organizations.
-   */
+  */
   "flexStoredLogsAvgSum"?: number;
   /**
    * Shows the sum of all logs forwarding bytes over all hours in the current month for all organizations (data available as of April 1, 2023)
-   */
+  */
   "forwardingEventsBytesAggSum"?: number;
   /**
    * Shows the 99th percentile of all GCP hosts over all hours in the current month for all organizations.
-   */
+  */
   "gcpHostTop99pSum"?: number;
   /**
    * Shows the 99th percentile of all Heroku dynos over all hours in the current month for all organizations.
-   */
+  */
   "herokuHostTop99pSum"?: number;
   /**
    * Shows sum of the high-water marks of incident management monthly active users in the current month for all organizations.
-   */
+  */
   "incidentManagementMonthlyActiveUsersHwmSum"?: number;
   /**
    * Shows the sum of the high-water marks of Incident Management seats over all hours in the current month for all organizations.
-   */
+  */
   "incidentManagementSeatsHwmSum"?: number;
   /**
    * Shows the sum of all log events indexed over all hours in the current month for all organizations (To be deprecated on October 1st, 2024).
-   */
+  */
   "indexedEventsCountAggSum"?: number;
   /**
    * Shows the sum of all indexed custom metrics points over all hours in the current month for all organizations.
-   */
+  */
   "indexedPointsAggSum"?: number;
   /**
    * Shows the sum of all Infrastructure vCPU cores over all hours in the current month for all organizations.
    * Values are returned in millicores. Divide by 1,000 to convert to cores.
-   */
+  */
   "infraCpuAggSum"?: number;
   /**
    * Shows the average of all Infrastructure vCPU cores over all hours in the current month for all organizations.
    * Values are returned in millicores. Divide by 1,000 to convert to cores.
-   */
+  */
   "infraCpuAvgSum"?: number;
   /**
    * Shows the sum of all default Infrastructure host vCPU cores reported by the Datadog Agent over all hours in the current month for all organizations.
    * Values are returned in millicores. Divide by 1,000 to convert to cores.
-   */
+  */
   "infraCpuDefaultInfraHostVcpuAgentAggSum"?: number;
   /**
    * Shows the average of all default Infrastructure host vCPU cores reported by the Datadog Agent over all hours in the current month for all organizations.
    * Values are returned in millicores. Divide by 1,000 to convert to cores.
-   */
+  */
   "infraCpuDefaultInfraHostVcpuAgentAvgSum"?: number;
   /**
    * Shows the sum of all default basic Infrastructure host vCPU cores reported by the Datadog Agent over all hours in the current month for all organizations.
    * Values are returned in millicores. Divide by 1,000 to convert to cores.
-   */
+  */
   "infraCpuDefaultInfraHostVcpuAgentBasicAggSum"?: number;
   /**
    * Shows the average of all default basic Infrastructure host vCPU cores reported by the Datadog Agent over all hours in the current month for all organizations.
    * Values are returned in millicores. Divide by 1,000 to convert to cores.
-   */
+  */
   "infraCpuDefaultInfraHostVcpuAgentBasicAvgSum"?: number;
   /**
    * Shows the sum of all default Infrastructure host vCPU cores on AWS over all hours in the current month for all organizations.
    * Values are returned in millicores. Divide by 1,000 to convert to cores.
-   */
+  */
   "infraCpuDefaultInfraHostVcpuAwsAggSum"?: number;
   /**
    * Shows the average of all default Infrastructure host vCPU cores on AWS over all hours in the current month for all organizations.
    * Values are returned in millicores. Divide by 1,000 to convert to cores.
-   */
+  */
   "infraCpuDefaultInfraHostVcpuAwsAvgSum"?: number;
   /**
    * Shows the sum of all default Infrastructure host vCPU cores on Azure over all hours in the current month for all organizations.
    * Values are returned in millicores. Divide by 1,000 to convert to cores.
-   */
+  */
   "infraCpuDefaultInfraHostVcpuAzureAggSum"?: number;
   /**
    * Shows the average of all default Infrastructure host vCPU cores on Azure over all hours in the current month for all organizations.
    * Values are returned in millicores. Divide by 1,000 to convert to cores.
-   */
+  */
   "infraCpuDefaultInfraHostVcpuAzureAvgSum"?: number;
   /**
    * Shows the sum of all default Infrastructure host vCPU cores on GCP over all hours in the current month for all organizations.
    * Values are returned in millicores. Divide by 1,000 to convert to cores.
-   */
+  */
   "infraCpuDefaultInfraHostVcpuGcpAggSum"?: number;
   /**
    * Shows the average of all default Infrastructure host vCPU cores on GCP over all hours in the current month for all organizations.
    * Values are returned in millicores. Divide by 1,000 to convert to cores.
-   */
+  */
   "infraCpuDefaultInfraHostVcpuGcpAvgSum"?: number;
   /**
    * Shows the sum of all default Infrastructure host vCPU cores on Nutanix over all hours in the current month for all organizations.
    * Values are returned in millicores. Divide by 1,000 to convert to cores.
-   */
+  */
   "infraCpuDefaultInfraHostVcpuNutanixAggSum"?: number;
   /**
    * Shows the average of all default Infrastructure host vCPU cores on Nutanix over all hours in the current month for all organizations.
    * Values are returned in millicores. Divide by 1,000 to convert to cores.
-   */
+  */
   "infraCpuDefaultInfraHostVcpuNutanixAvgSum"?: number;
   /**
    * Shows the sum of all default basic Infrastructure host vCPU cores on Nutanix over all hours in the current month for all organizations.
    * Values are returned in millicores. Divide by 1,000 to convert to cores.
-   */
+  */
   "infraCpuDefaultInfraHostVcpuNutanixBasicAggSum"?: number;
   /**
    * Shows the average of all default basic Infrastructure host vCPU cores on Nutanix over all hours in the current month for all organizations.
    * Values are returned in millicores. Divide by 1,000 to convert to cores.
-   */
+  */
   "infraCpuDefaultInfraHostVcpuNutanixBasicAvgSum"?: number;
   /**
    * Shows the sum of all default Infrastructure host vCPU cores reported by OpenTelemetry over all hours in the current month for all organizations.
    * Values are returned in millicores. Divide by 1,000 to convert to cores.
-   */
+  */
   "infraCpuDefaultInfraHostVcpuOpentelemetryAggSum"?: number;
   /**
    * Shows the average of all default Infrastructure host vCPU cores reported by OpenTelemetry over all hours in the current month for all organizations.
    * Values are returned in millicores. Divide by 1,000 to convert to cores.
-   */
+  */
   "infraCpuDefaultInfraHostVcpuOpentelemetryAvgSum"?: number;
   /**
    * Shows the sum of all observed Infrastructure host vCPU cores reported by the Datadog Agent over all hours in the current month for all organizations.
    * Values are returned in millicores. Divide by 1,000 to convert to cores.
-   */
+  */
   "infraCpuObservedInfraHostVcpuAgentAggSum"?: number;
   /**
    * Shows the average of all observed Infrastructure host vCPU cores reported by the Datadog Agent over all hours in the current month for all organizations.
    * Values are returned in millicores. Divide by 1,000 to convert to cores.
-   */
+  */
   "infraCpuObservedInfraHostVcpuAgentAvgSum"?: number;
   /**
    * Shows the sum of all observed Infrastructure host vCPU cores on AWS over all hours in the current month for all organizations.
    * Values are returned in millicores. Divide by 1,000 to convert to cores.
-   */
+  */
   "infraCpuObservedInfraHostVcpuAwsAggSum"?: number;
   /**
    * Shows the average of all observed Infrastructure host vCPU cores on AWS over all hours in the current month for all organizations.
    * Values are returned in millicores. Divide by 1,000 to convert to cores.
-   */
+  */
   "infraCpuObservedInfraHostVcpuAwsAvgSum"?: number;
   /**
    * Shows the sum of all observed Infrastructure host vCPU cores on Azure over all hours in the current month for all organizations.
    * Values are returned in millicores. Divide by 1,000 to convert to cores.
-   */
+  */
   "infraCpuObservedInfraHostVcpuAzureAggSum"?: number;
   /**
    * Shows the average of all observed Infrastructure host vCPU cores on Azure over all hours in the current month for all organizations.
    * Values are returned in millicores. Divide by 1,000 to convert to cores.
-   */
+  */
   "infraCpuObservedInfraHostVcpuAzureAvgSum"?: number;
   /**
    * Shows the sum of all observed Infrastructure host vCPU cores on GCP over all hours in the current month for all organizations.
    * Values are returned in millicores. Divide by 1,000 to convert to cores.
-   */
+  */
   "infraCpuObservedInfraHostVcpuGcpAggSum"?: number;
   /**
    * Shows the average of all observed Infrastructure host vCPU cores on GCP over all hours in the current month for all organizations.
    * Values are returned in millicores. Divide by 1,000 to convert to cores.
-   */
+  */
   "infraCpuObservedInfraHostVcpuGcpAvgSum"?: number;
   /**
    * Shows the sum of all observed Infrastructure host vCPU cores on Nutanix over all hours in the current month for all organizations.
    * Values are returned in millicores. Divide by 1,000 to convert to cores.
-   */
+  */
   "infraCpuObservedInfraHostVcpuNutanixAggSum"?: number;
   /**
    * Shows the average of all observed Infrastructure host vCPU cores on Nutanix over all hours in the current month for all organizations.
    * Values are returned in millicores. Divide by 1,000 to convert to cores.
-   */
+  */
   "infraCpuObservedInfraHostVcpuNutanixAvgSum"?: number;
   /**
    * Shows the sum of all observed Infrastructure host vCPU cores reported by OpenTelemetry over all hours in the current month for all organizations.
    * Values are returned in millicores. Divide by 1,000 to convert to cores.
-   */
+  */
   "infraCpuObservedInfraHostVcpuOpentelemetryAggSum"?: number;
   /**
    * Shows the average of all observed Infrastructure host vCPU cores reported by OpenTelemetry over all hours in the current month for all organizations.
    * Values are returned in millicores. Divide by 1,000 to convert to cores.
-   */
+  */
   "infraCpuObservedInfraHostVcpuOpentelemetryAvgSum"?: number;
   /**
    * Shows the 99th percentile of all Edge Devices Monitoring devices over all hours in the current month for all organizations.
-   */
+  */
   "infraEdgeMonitoringDevicesTop99pSum"?: number;
   /**
    * Shows the 99th percentile of all distinct infrastructure hosts for Basic tier with the Datadog Agent over all hours in the current month for all organizations.
-   */
+  */
   "infraHostBasicInfraBasicAgentTop99pSum"?: number;
   /**
    * Shows the 99th percentile of all distinct infrastructure hosts for Basic tier on vSphere over all hours in the current month for all organizations.
-   */
+  */
   "infraHostBasicInfraBasicVsphereTop99pSum"?: number;
   /**
    * Shows the 99th percentile of all distinct infrastructure hosts for Basic tier over all hours in the current month for all organizations.
-   */
+  */
   "infraHostBasicTop99pSum"?: number;
   /**
    * Shows the 99th percentile of all distinct infrastructure hosts over all hours in the current month for all organizations.
-   */
+  */
   "infraHostTop99pSum"?: number;
   /**
    * Shows the average number of storage management objects over all hours in the current month for all organizations.
-   */
+  */
   "infraStorageMgmtObjectsCountAvgSum"?: number;
   /**
    * Shows the sum of all ingested custom metrics points over all hours in the current month for all organizations.
-   */
+  */
   "ingestPointsAggSum"?: number;
   /**
    * Shows the sum of all log bytes ingested over all hours in the current month for all organizations.
-   */
+  */
   "ingestedEventsBytesAggSum"?: number;
   /**
    * Shows the sum of all Application Performance Monitoring IoT hosts over all hours in the current month for all organizations.
-   */
+  */
   "iotApmHostAggSum"?: number;
   /**
    * Shows the 99th percentile of all Application Performance Monitoring IoT hosts over all hours in the current month for all organizations.
-   */
+  */
   "iotApmHostTop99pSum"?: number;
   /**
    * Shows the sum of all IoT devices over all hours in the current month for all organizations.
-   */
+  */
   "iotDeviceAggSum"?: number;
   /**
    * Shows the 99th percentile of all IoT devices over all hours in the current month of all organizations.
-   */
+  */
   "iotDeviceTop99pSum"?: number;
   /**
    * Shows the most recent hour in the current month for all organizations for which all usages were calculated.
-   */
+  */
   "lastUpdated"?: Date;
   /**
    * Shows the sum of all live logs indexed over all hours in the current month for all organization (To be deprecated on October 1st, 2024).
-   */
+  */
   "liveIndexedEventsAggSum"?: number;
   /**
    * Shows the sum of all live logs bytes ingested over all hours in the current month for all organizations (data available as of December 1, 2020).
-   */
+  */
   "liveIngestedBytesAggSum"?: number;
   /**
    * Shows the sum of all LLM Observability 15-day retention spans over all hours in the current month for all organizations.
-   */
+  */
   "llmObservability15dayRetentionSpansAggSum"?: number;
   /**
    * Shows the sum of all LLM Observability 30-day retention spans over all hours in the current month for all organizations.
-   */
+  */
   "llmObservability30dayRetentionSpansAggSum"?: number;
   /**
    * Shows the sum of all LLM Observability 60-day retention spans over all hours in the current month for all organizations.
-   */
+  */
   "llmObservability60dayRetentionSpansAggSum"?: number;
   /**
    * Shows the sum of all LLM Observability 90-day retention spans over all hours in the current month for all organizations.
-   */
+  */
   "llmObservability90dayRetentionSpansAggSum"?: number;
   /**
    * Sum of all LLM observability sessions for all hours in the current month for all organizations.
-   */
+  */
   "llmObservabilityAggSum"?: number;
   /**
    * Minimum spend for LLM observability sessions for all hours in the current month for all organizations.
-   */
+  */
   "llmObservabilityMinSpendAggSum"?: number;
   /**
    * Shows the sum of all Logs Archive Search scanned data over all hours in the current month for all organizations.
-   */
+  */
   "logsArchiveSearchGbScannedAggSum"?: number;
   /**
    * Object containing logs usage data broken down by retention period.
-   */
+  */
   "logsByRetention"?: LogsByRetention;
   /**
    * Shows the sum of all custom metric names over all hours in the current month for all organizations.
-   */
+  */
   "metricNamesAggSum"?: number;
   /**
    * Shows the sum of all mobile lite sessions over all hours in the current month for all organizations (To be deprecated on October 1st, 2024).
-   */
+  */
   "mobileRumLiteSessionCountAggSum"?: number;
   /**
    * Shows the sum of all mobile RUM sessions over all hours in the current month for all organizations (To be deprecated on October 1st, 2024).
-   */
+  */
   "mobileRumSessionCountAggSum"?: number;
   /**
    * Shows the sum of all mobile RUM sessions on Android over all hours in the current month for all organizations (To be deprecated on October 1st, 2024).
-   */
+  */
   "mobileRumSessionCountAndroidAggSum"?: number;
   /**
    * Shows the sum of all mobile RUM sessions on Flutter over all hours in the current month for all organizations (To be deprecated on October 1st, 2024).
-   */
+  */
   "mobileRumSessionCountFlutterAggSum"?: number;
   /**
    * Shows the sum of all mobile RUM sessions on iOS over all hours in the current month for all organizations (To be deprecated on October 1st, 2024).
-   */
+  */
   "mobileRumSessionCountIosAggSum"?: number;
   /**
    * Shows the sum of all mobile RUM sessions on React Native over all hours in the current month for all organizations (To be deprecated on October 1st, 2024).
-   */
+  */
   "mobileRumSessionCountReactnativeAggSum"?: number;
   /**
    * Shows the sum of all mobile RUM sessions on Roku over all hours in the current month for all organizations (To be deprecated on October 1st, 2024).
-   */
+  */
   "mobileRumSessionCountRokuAggSum"?: number;
   /**
    * Shows the sum of all mobile RUM units over all hours in the current month for all organizations (To be deprecated on October 1st, 2024).
-   */
+  */
   "mobileRumUnitsAggSum"?: number;
   /**
    * Shows the sum of all Network Device Monitoring NetFlow events over all hours in the current month for all organizations.
-   */
+  */
   "ndmNetflowEventsAggSum"?: number;
   /**
    * Shows the sum of all Network flows indexed over all hours in the current month for all organizations (To be deprecated on October 1st, 2024).
-   */
+  */
   "netflowIndexedEventsCountAggSum"?: number;
   /**
    * Shows the 99th percentile of all Network Device Monitoring wireless devices over all hours in the current month for all organizations.
-   */
+  */
   "networkDeviceWirelessTop99pSum"?: number;
   /**
    * Shows the sum of all Network Path scheduled tests over all hours in the current month for all organizations.
-   */
+  */
   "networkPathAggSum"?: number;
   /**
    * Shows the 99th percentile of all distinct Cloud Network Monitoring hosts (formerly known as Network hosts) over all hours in the current month for all organizations.
-   */
+  */
   "npmHostTop99pSum"?: number;
   /**
    * Sum of all observability pipelines bytes processed over all hours in the current month for all organizations.
-   */
+  */
   "observabilityPipelinesBytesProcessedAggSum"?: number;
   /**
    * Shows the sum of Oracle Cloud Infrastructure hosts over all hours in the current months for all organizations
-   */
+  */
   "ociHostAggSum"?: number;
   /**
    * Shows the 99th percentile of Oracle Cloud Infrastructure hosts over all hours in the current months for all organizations
-   */
+  */
   "ociHostTop99pSum"?: number;
   /**
    * Shows the sum of the high-water marks of On-Call seats over all hours in the current month for all organizations.
-   */
+  */
   "onCallSeatHwmSum"?: number;
   /**
    * Sum of all online archived events over all hours in the current month for all organizations.
-   */
+  */
   "onlineArchiveEventsCountAggSum"?: number;
   /**
    * Shows the 99th percentile of APM hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current month for all organizations.
-   */
+  */
   "opentelemetryApmHostTop99pSum"?: number;
   /**
    * Shows the 99th percentile of all hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current month for all organizations.
-   */
+  */
   "opentelemetryHostTop99pSum"?: number;
   /**
    * Sum of all product analytics sessions for all hours in the current month for all organizations.
-   */
+  */
   "productAnalyticsAggSum"?: number;
   /**
    * Shows the 99th percentile of all profiled Azure app services over all hours in the current month for all organizations.
-   */
+  */
   "profilingAasCountTop99pSum"?: number;
   /**
    * Shows the average number of profiled containers over all hours in the current month for all organizations.
-   */
+  */
   "profilingContainerAgentCountAvg"?: number;
   /**
    * Shows the 99th percentile of all profiled hosts over all hours in the current month for all organizations.
-   */
+  */
   "profilingHostCountTop99pSum"?: number;
   /**
    * Sum of all Proxmox hosts over all hours in the current month for all organizations.
-   */
+  */
   "proxmoxHostAggSum"?: number;
   /**
    * Sum of the 99th percentile of all Proxmox hosts over all hours in the current month for all organizations.
-   */
+  */
   "proxmoxHostTop99pSum"?: number;
   /**
    * Shows the high-water mark of all published applications over all hours in the current month for all organizations.
-   */
+  */
   "publishedAppHwmSum"?: number;
   /**
    * Shows the sum of all rehydrated logs indexed over all hours in the current month for all organizations (To be deprecated on October 1st, 2024).
-   */
+  */
   "rehydratedIndexedEventsAggSum"?: number;
   /**
    * Shows the sum of all rehydrated logs bytes ingested over all hours in the current month for all organizations (data available as of December 1, 2020).
-   */
+  */
   "rehydratedIngestedBytesAggSum"?: number;
   /**
    * Shows the sum of all mobile sessions and all browser lite and legacy sessions over all hours in the current month for all organizations (To be deprecated on October 1st, 2024).
-   */
+  */
   "rumBrowserAndMobileSessionCount"?: number;
   /**
    * Shows the sum of all browser RUM legacy sessions over all hours in the current month for all organizations (To be introduced on October 1st, 2024).
-   */
+  */
   "rumBrowserLegacySessionCountAggSum"?: number;
   /**
    * Shows the sum of all browser RUM lite sessions over all hours in the current month for all organizations (To be introduced on October 1st, 2024).
-   */
+  */
   "rumBrowserLiteSessionCountAggSum"?: number;
   /**
    * Shows the sum of all browser RUM Session Replay counts over all hours in the current month for all organizations (To be introduced on October 1st, 2024).
-   */
+  */
   "rumBrowserReplaySessionCountAggSum"?: number;
   /**
    * Sum of all RUM indexed sessions for all hours in the current month for all organizations.
-   */
+  */
   "rumIndexedSessionsAggSum"?: number;
   /**
    * Sum of all RUM ingested sessions for all hours in the current month for all organizations.
-   */
+  */
   "rumIngestedSessionsAggSum"?: number;
   /**
    * Shows the sum of all RUM lite sessions (browser and mobile) over all hours in the current month for all organizations (To be introduced on October 1st, 2024).
-   */
+  */
   "rumLiteSessionCountAggSum"?: number;
   /**
    * Shows the sum of all mobile RUM legacy sessions on Android over all hours in the current month for all organizations (To be introduced on October 1st, 2024).
-   */
+  */
   "rumMobileLegacySessionCountAndroidAggSum"?: number;
   /**
    * Shows the sum of all mobile RUM legacy sessions on Flutter over all hours in the current month for all organizations (To be introduced on October 1st, 2024).
-   */
+  */
   "rumMobileLegacySessionCountFlutterAggSum"?: number;
   /**
    * Shows the sum of all mobile RUM legacy sessions on iOS over all hours in the current month for all organizations (To be introduced on October 1st, 2024).
-   */
+  */
   "rumMobileLegacySessionCountIosAggSum"?: number;
   /**
    * Shows the sum of all mobile RUM legacy sessions on React Native over all hours in the current month for all organizations (To be introduced on October 1st, 2024).
-   */
+  */
   "rumMobileLegacySessionCountReactnativeAggSum"?: number;
   /**
    * Shows the sum of all mobile RUM legacy sessions on Roku over all hours in the current month for all organizations (To be introduced on October 1st, 2024).
-   */
+  */
   "rumMobileLegacySessionCountRokuAggSum"?: number;
   /**
    * Shows the sum of all mobile RUM lite sessions on Android over all hours in the current month for all organizations (To be introduced on October 1st, 2024).
-   */
+  */
   "rumMobileLiteSessionCountAndroidAggSum"?: number;
   /**
    * Shows the sum of all mobile RUM lite sessions on Flutter over all hours in the current month for all organizations (To be introduced on October 1st, 2024).
-   */
+  */
   "rumMobileLiteSessionCountFlutterAggSum"?: number;
   /**
    * Shows the sum of all mobile RUM lite sessions on iOS over all hours in the current month for all organizations (To be introduced on October 1st, 2024).
-   */
+  */
   "rumMobileLiteSessionCountIosAggSum"?: number;
   /**
    * Shows the sum of all mobile RUM lite sessions on Kotlin Multiplatform over all hours within the current month for all organizations.
-   */
+  */
   "rumMobileLiteSessionCountKotlinmultiplatformAggSum"?: number;
   /**
    * Shows the sum of all mobile RUM lite sessions on React Native over all hours in the current month for all organizations (To be introduced on October 1st, 2024).
-   */
+  */
   "rumMobileLiteSessionCountReactnativeAggSum"?: number;
   /**
    * Shows the sum of all mobile RUM lite sessions on Roku over all hours within the current month for all organizations (To be introduced on October 1st, 2024).
-   */
+  */
   "rumMobileLiteSessionCountRokuAggSum"?: number;
   /**
    * Shows the sum of all mobile RUM lite sessions on Unity over all hours within the current month for all organizations.
-   */
+  */
   "rumMobileLiteSessionCountUnityAggSum"?: number;
   /**
    * Shows the sum of all mobile RUM replay sessions on Android over all hours within the current month for all organizations.
-   */
+  */
   "rumMobileReplaySessionCountAndroidAggSum"?: number;
   /**
    * Shows the sum of all mobile RUM replay sessions on iOS over all hours within the current month for all organizations.
-   */
+  */
   "rumMobileReplaySessionCountIosAggSum"?: number;
   /**
    * Shows the sum of all mobile RUM replay sessions on Kotlin Multiplatform over all hours within the current month for all organizations.
-   */
+  */
   "rumMobileReplaySessionCountKotlinmultiplatformAggSum"?: number;
   /**
    * Shows the sum of all mobile RUM replay sessions on React Native over all hours within the current month for all organizations.
-   */
+  */
   "rumMobileReplaySessionCountReactnativeAggSum"?: number;
   /**
    * Shows the sum of all RUM Session Replay counts over all hours in the current month for all organizations (To be introduced on October 1st, 2024).
-   */
+  */
   "rumReplaySessionCountAggSum"?: number;
   /**
    * Shows the sum of all browser RUM lite sessions over all hours in the current month for all organizations (To be deprecated on October 1st, 2024).
-   */
+  */
   "rumSessionCountAggSum"?: number;
   /**
    * Sum of all RUM session replay add-on sessions for all hours in the current month for all organizations.
-   */
+  */
   "rumSessionReplayAddOnAggSum"?: number;
   /**
    * Shows the sum of RUM sessions (browser and mobile) over all hours in the current month for all organizations.
-   */
+  */
   "rumTotalSessionCountAggSum"?: number;
   /**
    * Shows the sum of all browser and mobile RUM units over all hours in the current month for all organizations (To be deprecated on October 1st, 2024).
-   */
+  */
   "rumUnitsAggSum"?: number;
   /**
    * Shows the average of all Software Composition Analysis Fargate tasks over all hours in the current months for all organizations.
-   */
+  */
   "scaFargateCountAvgSum"?: number;
   /**
    * Shows the sum of the high-water marks of all Software Composition Analysis Fargate tasks over all hours in the current months for all organizations.
-   */
+  */
   "scaFargateCountHwmSum"?: number;
   /**
    * Sum of all APM bytes scanned with sensitive data scanner in the current month for all organizations.
-   */
+  */
   "sdsApmScannedBytesSum"?: number;
   /**
    * Sum of all event stream events bytes scanned with sensitive data scanner in the current month for all organizations.
-   */
+  */
   "sdsEventsScannedBytesSum"?: number;
   /**
    * Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all hours in the current month for all organizations.
-   */
+  */
   "sdsLogsScannedBytesSum"?: number;
   /**
    * Sum of all RUM bytes scanned with sensitive data scanner in the current month for all organizations.
-   */
+  */
   "sdsRumScannedBytesSum"?: number;
   /**
    * Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner over all hours in the current month for all organizations.
-   */
+  */
   "sdsTotalScannedBytesSum"?: number;
   /**
    * Sum of the average number of Serverless Apps with Application Performance Monitoring for Azure App Service instances in the current month for all organizations.
-   */
+  */
   "serverlessAppsApmApmAzureAppserviceInstancesAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps with Application Performance Monitoring for Azure Function instances in the current month for all organizations.
-   */
+  */
   "serverlessAppsApmApmAzureAzurefunctionInstancesAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps with Application Performance Monitoring for Azure Container App instances in the current month for all organizations.
-   */
+  */
   "serverlessAppsApmApmAzureContainerappInstancesAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps with Application Performance Monitoring for Fargate Elastic Container Service tasks in the current month for all organizations.
-   */
+  */
   "serverlessAppsApmApmFargateEcsTasksAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps with Application Performance Monitoring for Google Cloud Platform Cloud Function instances in the current month for all organizations.
-   */
+  */
   "serverlessAppsApmApmGcpCloudfunctionInstancesAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps with Application Performance Monitoring for Google Cloud Platform Cloud Run instances in the current month for all organizations.
-   */
+  */
   "serverlessAppsApmApmGcpCloudrunInstancesAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps with Application Performance Monitoring for Google Kubernetes Engine Autopilot pods in the current month for all organizations.
-   */
+  */
   "serverlessAppsApmApmGcpGkeAutopilotPodsAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps with Application Performance Monitoring in the current month for all organizations.
-   */
+  */
   "serverlessAppsApmAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps with Application Performance Monitoring excluding Fargate for Azure App Service instances in the current month for all organizations.
-   */
+  */
   "serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps with Application Performance Monitoring excluding Fargate for Azure Function instances in the current month for all organizations.
-   */
+  */
   "serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps with Application Performance Monitoring excluding Fargate for Azure Container App instances in the current month for all organizations.
-   */
+  */
   "serverlessAppsApmExclFargateApmAzureContainerappInstancesAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps with Application Performance Monitoring excluding Fargate for Google Cloud Platform Cloud Function instances in the current month for all organizations.
-   */
+  */
   "serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps with Application Performance Monitoring excluding Fargate for Google Cloud Platform Cloud Run instances in the current month for all organizations.
-   */
+  */
   "serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps with Application Performance Monitoring excluding Fargate for Google Kubernetes Engine Autopilot pods in the current month for all organizations.
-   */
+  */
   "serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps with Application Performance Monitoring excluding Fargate in the current month for all organizations.
-   */
+  */
   "serverlessAppsApmExclFargateAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps for Azure Container App instances in the current month for all organizations.
-   */
+  */
   "serverlessAppsAzureContainerAppInstancesAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps for Azure in the current month for all organizations.
-   */
+  */
   "serverlessAppsAzureCountAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps for Azure Function App instances in the current month for all organizations.
-   */
+  */
   "serverlessAppsAzureFunctionAppInstancesAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps for Azure Web App instances in the current month for all organizations.
-   */
+  */
   "serverlessAppsAzureWebAppInstancesAvgSum"?: number;
   /**
    * Sum of the average number of DSM Fargate ECS tasks monitored under Serverless Apps DSM in the current month for all organizations.
-   */
+  */
   "serverlessAppsDsmFargateTasksAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps for Elastic Container Service in the current month for all organizations.
-   */
+  */
   "serverlessAppsEcsAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps for Elastic Kubernetes Service in the current month for all organizations.
-   */
+  */
   "serverlessAppsEksAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps excluding Fargate in the current month for all organizations.
-   */
+  */
   "serverlessAppsExclFargateAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps excluding Fargate for Azure Container App instances in the current month for all organizations.
-   */
+  */
   "serverlessAppsExclFargateAzureContainerAppInstancesAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps excluding Fargate for Azure Function App instances in the current month for all organizations.
-   */
+  */
   "serverlessAppsExclFargateAzureFunctionAppInstancesAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps excluding Fargate for Azure Web App instances in the current month for all organizations.
-   */
+  */
   "serverlessAppsExclFargateAzureWebAppInstancesAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps excluding Fargate for Google Cloud Platform Cloud Functions instances in the current month for all organizations.
-   */
+  */
   "serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps excluding Fargate for Google Cloud Platform Cloud Run instances in the current month for all organizations.
-   */
+  */
   "serverlessAppsExclFargateGoogleCloudRunInstancesAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps excluding Fargate for Google Kubernetes Engine Autopilot pods in the current month for all organizations.
-   */
+  */
   "serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps for Google Cloud Platform Cloud Functions instances in the current month for all organizations.
-   */
+  */
   "serverlessAppsGoogleCloudFunctionsInstancesAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps for Google Cloud Platform Cloud Run instances in the current month for all organizations.
-   */
+  */
   "serverlessAppsGoogleCloudRunInstancesAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps for Google Cloud in the current month for all organizations.
-   */
+  */
   "serverlessAppsGoogleCountAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps for Google Kubernetes Engine Autopilot pods in the current month for all organizations.
-   */
+  */
   "serverlessAppsInfraGcpGkeAutopilotPodsAvgSum"?: number;
   /**
    * Sum of the average number of Serverless Apps for Azure and Google Cloud in the current month for all organizations.
-   */
+  */
   "serverlessAppsTotalCountAvgSum"?: number;
   /**
    * Shows the sum of Cloud SIEM Indexed Logs (12-month retention) over all hours in the current month for all organizations.
-   */
+  */
   "siem12moRetentionAggSum"?: number;
   /**
    * Shows the sum of Cloud SIEM Indexed Logs (6-month retention) over all hours in the current month for all organizations.
-   */
+  */
   "siem6moRetentionAggSum"?: number;
   /**
    * Shows the sum of all log events analyzed by Cloud SIEM over all hours in the current month for all organizations.
-   */
+  */
   "siemAnalyzedLogsAddOnCountAggSum"?: number;
   /**
    * Shows the sum of all Network Device Monitoring devices over all hours in the current month for all organizations.
-   */
+  */
   "snmpDeviceCountAggSum"?: number;
   /**
    * Shows the 99th percentile of all Network Device Monitoring devices over all hours in the current month for all organizations.
-   */
+  */
   "snmpDeviceCountTop99pSum"?: number;
   /**
    * Shows the first date of usage in the current month for all organizations.
-   */
+  */
   "startDate"?: Date;
   /**
    * Shows the sum of all Synthetic browser tests over all hours in the current month for all organizations.
-   */
+  */
   "syntheticsBrowserCheckCallsCountAggSum"?: number;
   /**
    * Shows the sum of all Synthetic API tests over all hours in the current month for all organizations.
-   */
+  */
   "syntheticsCheckCallsCountAggSum"?: number;
   /**
    * Shows the sum of Synthetic mobile application tests over all hours in the current month for all organizations.
-   */
+  */
   "syntheticsMobileTestRunsAggSum"?: number;
   /**
    * Shows the sum of the high-water marks of used synthetics parallel testing slots over all hours in the current month for all organizations.
-   */
+  */
   "syntheticsParallelTestingMaxSlotsHwmSum"?: number;
   /**
    * Shows the sum of all Indexed Spans indexed over all hours in the current month for all organizations.
-   */
+  */
   "traceSearchIndexedEventsCountAggSum"?: number;
   /**
    * Shows the sum of all ingested APM span bytes over all hours in the current month for all organizations.
-   */
+  */
   "twolIngestedEventsBytesAggSum"?: number;
   /**
    * Shows the 99th percentile of all Universal Service Monitoring hosts over all hours in the current month for all organizations.
-   */
+  */
   "universalServiceMonitoringHostTop99pSum"?: number;
   /**
    * An array of objects regarding hourly usage.
-   */
+  */
   "usage"?: Array<UsageSummaryDate>;
   /**
    * Shows the 99th percentile of all vSphere hosts over all hours in the current month for all organizations.
-   */
+  */
   "vsphereHostTop99pSum"?: number;
   /**
    * Shows the 99th percentile of all Application Vulnerability Management hosts over all hours in the current month for all organizations.
-   */
+  */
   "vulnManagementHostCountTop99pSum"?: number;
   /**
    * Sum of all workflows executed over all hours in the current month for all organizations.
-   */
+  */
   "workflowExecutionsUsageAggSum"?: number;
 
   /**
@@ -1309,7 +1314,7 @@ export class UsageSummaryResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -1325,1575 +1330,1563 @@ export class UsageSummaryResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    agentHostTop99pSum: {
-      baseName: "agent_host_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    aiCreditsAgentBuilderAiCreditsAggSum: {
-      baseName: "ai_credits_agent_builder_ai_credits_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    aiCreditsAggSum: {
-      baseName: "ai_credits_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    aiCreditsBitsAssistantAiCreditsAggSum: {
-      baseName: "ai_credits_bits_assistant_ai_credits_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    aiCreditsBitsDevAiCreditsAggSum: {
-      baseName: "ai_credits_bits_dev_ai_credits_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    aiCreditsBitsSreAiCreditsAggSum: {
-      baseName: "ai_credits_bits_sre_ai_credits_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    apmAzureAppServiceHostTop99pSum: {
-      baseName: "apm_azure_app_service_host_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    apmDevsecopsHostTop99pSum: {
-      baseName: "apm_devsecops_host_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    apmEnterpriseStandaloneHostsTop99pSum: {
-      baseName: "apm_enterprise_standalone_hosts_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    apmFargateCountAvgSum: {
-      baseName: "apm_fargate_count_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    apmHostTop99pSum: {
-      baseName: "apm_host_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    apmProStandaloneHostsTop99pSum: {
-      baseName: "apm_pro_standalone_hosts_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    appsecFargateCountAvgSum: {
-      baseName: "appsec_fargate_count_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    asmServerlessAggSum: {
-      baseName: "asm_serverless_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    auditLogsLinesIndexedAggSum: {
-      baseName: "audit_logs_lines_indexed_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    auditTrailEnabledHwmSum: {
-      baseName: "audit_trail_enabled_hwm_sum",
-      type: "number",
-      format: "int64",
-    },
-    auditTrailEventForwardingEventsAggSum: {
-      baseName: "audit_trail_event_forwarding_events_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    avgProfiledFargateTasksSum: {
-      baseName: "avg_profiled_fargate_tasks_sum",
-      type: "number",
-      format: "int64",
-    },
-    awsHostTop99pSum: {
-      baseName: "aws_host_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    awsLambdaFuncCount: {
-      baseName: "aws_lambda_func_count",
-      type: "number",
-      format: "int64",
-    },
-    awsLambdaInvocationsSum: {
-      baseName: "aws_lambda_invocations_sum",
-      type: "number",
-      format: "int64",
-    },
-    azureAppServiceTop99pSum: {
-      baseName: "azure_app_service_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    azureHostTop99pSum: {
-      baseName: "azure_host_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    billableIngestedBytesAggSum: {
-      baseName: "billable_ingested_bytes_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    bitsAiInvestigationsAggSum: {
-      baseName: "bits_ai_investigations_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    browserRumLiteSessionCountAggSum: {
-      baseName: "browser_rum_lite_session_count_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    browserRumReplaySessionCountAggSum: {
-      baseName: "browser_rum_replay_session_count_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    browserRumUnitsAggSum: {
-      baseName: "browser_rum_units_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    ccmAnthropicSpendLastSum: {
-      baseName: "ccm_anthropic_spend_last_sum",
-      type: "number",
-      format: "int64",
-    },
-    ccmAwsSpendLastSum: {
-      baseName: "ccm_aws_spend_last_sum",
-      type: "number",
-      format: "int64",
-    },
-    ccmAzureSpendLastSum: {
-      baseName: "ccm_azure_spend_last_sum",
-      type: "number",
-      format: "int64",
-    },
-    ccmConfluentSpendLastSum: {
-      baseName: "ccm_confluent_spend_last_sum",
-      type: "number",
-      format: "int64",
-    },
-    ccmDatabricksSpendLastSum: {
-      baseName: "ccm_databricks_spend_last_sum",
-      type: "number",
-      format: "int64",
-    },
-    ccmElasticSpendLastSum: {
-      baseName: "ccm_elastic_spend_last_sum",
-      type: "number",
-      format: "int64",
-    },
-    ccmFastlySpendLastSum: {
-      baseName: "ccm_fastly_spend_last_sum",
-      type: "number",
-      format: "int64",
-    },
-    ccmGcpSpendLastSum: {
-      baseName: "ccm_gcp_spend_last_sum",
-      type: "number",
-      format: "int64",
-    },
-    ccmGithubSpendLastSum: {
-      baseName: "ccm_github_spend_last_sum",
-      type: "number",
-      format: "int64",
-    },
-    ccmMongodbSpendLastSum: {
-      baseName: "ccm_mongodb_spend_last_sum",
-      type: "number",
-      format: "int64",
-    },
-    ccmOciSpendLastSum: {
-      baseName: "ccm_oci_spend_last_sum",
-      type: "number",
-      format: "int64",
-    },
-    ccmOpenaiSpendLastSum: {
-      baseName: "ccm_openai_spend_last_sum",
-      type: "number",
-      format: "int64",
-    },
-    ccmSnowflakeSpendLastSum: {
-      baseName: "ccm_snowflake_spend_last_sum",
-      type: "number",
-      format: "int64",
-    },
-    ccmSpendMonitoredEntLastSum: {
-      baseName: "ccm_spend_monitored_ent_last_sum",
-      type: "number",
-      format: "int64",
-    },
-    ccmSpendMonitoredProLastSum: {
-      baseName: "ccm_spend_monitored_pro_last_sum",
-      type: "number",
-      format: "int64",
-    },
-    ccmTwilioSpendLastSum: {
-      baseName: "ccm_twilio_spend_last_sum",
-      type: "number",
-      format: "int64",
-    },
-    ciPipelineIndexedSpansAggSum: {
-      baseName: "ci_pipeline_indexed_spans_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    ciTestIndexedSpansAggSum: {
-      baseName: "ci_test_indexed_spans_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    ciVisibilityItrCommittersHwmSum: {
-      baseName: "ci_visibility_itr_committers_hwm_sum",
-      type: "number",
-      format: "int64",
-    },
-    ciVisibilityPipelineCommittersHwmSum: {
-      baseName: "ci_visibility_pipeline_committers_hwm_sum",
-      type: "number",
-      format: "int64",
-    },
-    ciVisibilityTestCommittersHwmSum: {
-      baseName: "ci_visibility_test_committers_hwm_sum",
-      type: "number",
-      format: "int64",
-    },
-    cloudCostManagementAwsHostCountAvgSum: {
-      baseName: "cloud_cost_management_aws_host_count_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    cloudCostManagementAzureHostCountAvgSum: {
-      baseName: "cloud_cost_management_azure_host_count_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    cloudCostManagementGcpHostCountAvgSum: {
-      baseName: "cloud_cost_management_gcp_host_count_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    cloudCostManagementHostCountAvgSum: {
-      baseName: "cloud_cost_management_host_count_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    cloudCostManagementOciHostCountAvgSum: {
-      baseName: "cloud_cost_management_oci_host_count_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    cloudSiemEventsAggSum: {
-      baseName: "cloud_siem_events_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    cloudSiemIndexedLogsAggSum: {
-      baseName: "cloud_siem_indexed_logs_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    codeAnalysisSaCommittersHwmSum: {
-      baseName: "code_analysis_sa_committers_hwm_sum",
-      type: "number",
-      format: "int64",
-    },
-    codeAnalysisScaCommittersHwmSum: {
-      baseName: "code_analysis_sca_committers_hwm_sum",
-      type: "number",
-      format: "int64",
-    },
-    codeSecurityHostTop99pSum: {
-      baseName: "code_security_host_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    containerAvgSum: {
-      baseName: "container_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    containerExclAgentAvgSum: {
-      baseName: "container_excl_agent_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    containerHwmSum: {
-      baseName: "container_hwm_sum",
-      type: "number",
-      format: "int64",
-    },
-    csmContainerEnterpriseComplianceCountAggSum: {
-      baseName: "csm_container_enterprise_compliance_count_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    csmContainerEnterpriseCwsCountAggSum: {
-      baseName: "csm_container_enterprise_cws_count_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    csmContainerEnterpriseTotalCountAggSum: {
-      baseName: "csm_container_enterprise_total_count_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    csmHostEnterpriseAasHostCountTop99pSum: {
-      baseName: "csm_host_enterprise_aas_host_count_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    csmHostEnterpriseAwsHostCountTop99pSum: {
-      baseName: "csm_host_enterprise_aws_host_count_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    csmHostEnterpriseAzureHostCountTop99pSum: {
-      baseName: "csm_host_enterprise_azure_host_count_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    csmHostEnterpriseComplianceHostCountTop99pSum: {
-      baseName: "csm_host_enterprise_compliance_host_count_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    csmHostEnterpriseCwsHostCountTop99pSum: {
-      baseName: "csm_host_enterprise_cws_host_count_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    csmHostEnterpriseGcpHostCountTop99pSum: {
-      baseName: "csm_host_enterprise_gcp_host_count_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    csmHostEnterpriseOciHostCountTop99pSum: {
-      baseName: "csm_host_enterprise_oci_host_count_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    csmHostEnterpriseTotalHostCountTop99pSum: {
-      baseName: "csm_host_enterprise_total_host_count_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    csmHostProHostsAgentlessScannersAggSum: {
-      baseName: "csm_host_pro_hosts_agentless_scanners_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    csmHostProHostsAgentlessScannersTop99pSum: {
-      baseName: "csm_host_pro_hosts_agentless_scanners_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    csmHostProOciHostCountTop99pSum: {
-      baseName: "csm_host_pro_oci_host_count_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    cspmAasHostTop99pSum: {
-      baseName: "cspm_aas_host_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    cspmAwsHostTop99pSum: {
-      baseName: "cspm_aws_host_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    cspmAzureHostTop99pSum: {
-      baseName: "cspm_azure_host_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    cspmContainerAvgSum: {
-      baseName: "cspm_container_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    cspmContainerHwmSum: {
-      baseName: "cspm_container_hwm_sum",
-      type: "number",
-      format: "int64",
-    },
-    cspmGcpHostTop99pSum: {
-      baseName: "cspm_gcp_host_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    cspmHostTop99pSum: {
-      baseName: "cspm_host_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    cspmHostsAgentlessScannersAggSum: {
-      baseName: "cspm_hosts_agentless_scanners_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    cspmHostsAgentlessScannersTop99pSum: {
-      baseName: "cspm_hosts_agentless_scanners_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    customHistoricalTsSum: {
-      baseName: "custom_historical_ts_sum",
-      type: "number",
-      format: "int64",
-    },
-    customLiveTsSum: {
-      baseName: "custom_live_ts_sum",
-      type: "number",
-      format: "int64",
-    },
-    customTsSum: {
-      baseName: "custom_ts_sum",
-      type: "number",
-      format: "int64",
-    },
-    cwsContainerAvgSum: {
-      baseName: "cws_container_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    cwsFargateTaskAvgSum: {
-      baseName: "cws_fargate_task_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    cwsHostTop99pSum: {
-      baseName: "cws_host_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    dataJobsMonitoringHostHrAggSum: {
-      baseName: "data_jobs_monitoring_host_hr_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    dataStreamMonitoringHostCountAggSum: {
-      baseName: "data_stream_monitoring_host_count_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    dataStreamMonitoringHostCountTop99pSum: {
-      baseName: "data_stream_monitoring_host_count_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    dbmHostTop99pSum: {
-      baseName: "dbm_host_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    dbmQueriesAvgSum: {
-      baseName: "dbm_queries_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    doJobsMonitoringOrchestratorsJobHoursAggSum: {
-      baseName: "do_jobs_monitoring_orchestrators_job_hours_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    endDate: {
-      baseName: "end_date",
-      type: "Date",
-      format: "date-time",
-    },
-    ephInfraHostAgentAggSum: {
-      baseName: "eph_infra_host_agent_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    ephInfraHostAlibabaAggSum: {
-      baseName: "eph_infra_host_alibaba_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    ephInfraHostAwsAggSum: {
-      baseName: "eph_infra_host_aws_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    ephInfraHostAzureAggSum: {
-      baseName: "eph_infra_host_azure_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    ephInfraHostBasicAggSum: {
-      baseName: "eph_infra_host_basic_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    ephInfraHostBasicInfraBasicAgentAggSum: {
-      baseName: "eph_infra_host_basic_infra_basic_agent_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    ephInfraHostBasicInfraBasicVsphereAggSum: {
-      baseName: "eph_infra_host_basic_infra_basic_vsphere_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    ephInfraHostEntAggSum: {
-      baseName: "eph_infra_host_ent_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    ephInfraHostGcpAggSum: {
-      baseName: "eph_infra_host_gcp_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    ephInfraHostHerokuAggSum: {
-      baseName: "eph_infra_host_heroku_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    ephInfraHostOnlyAasAggSum: {
-      baseName: "eph_infra_host_only_aas_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    ephInfraHostOnlyVsphereAggSum: {
-      baseName: "eph_infra_host_only_vsphere_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    ephInfraHostOpentelemetryAggSum: {
-      baseName: "eph_infra_host_opentelemetry_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    ephInfraHostOpentelemetryApmAggSum: {
-      baseName: "eph_infra_host_opentelemetry_apm_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    ephInfraHostProAggSum: {
-      baseName: "eph_infra_host_pro_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    ephInfraHostProplusAggSum: {
-      baseName: "eph_infra_host_proplus_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    ephInfraHostProxmoxAggSum: {
-      baseName: "eph_infra_host_proxmox_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    errorTrackingApmErrorEventsAggSum: {
-      baseName: "error_tracking_apm_error_events_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    errorTrackingErrorEventsAggSum: {
-      baseName: "error_tracking_error_events_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    errorTrackingEventsAggSum: {
-      baseName: "error_tracking_events_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    errorTrackingRumErrorEventsAggSum: {
-      baseName: "error_tracking_rum_error_events_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    eventManagementCorrelationAggSum: {
-      baseName: "event_management_correlation_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    eventManagementCorrelationCorrelatedEventsAggSum: {
-      baseName: "event_management_correlation_correlated_events_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    eventManagementCorrelationCorrelatedRelatedEventsAggSum: {
-      baseName:
-        "event_management_correlation_correlated_related_events_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    fargateContainerProfilerProfilingFargateAvgSum: {
-      baseName: "fargate_container_profiler_profiling_fargate_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    fargateContainerProfilerProfilingFargateEksAvgSum: {
-      baseName: "fargate_container_profiler_profiling_fargate_eks_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    fargateTasksCountAvgSum: {
-      baseName: "fargate_tasks_count_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    fargateTasksCountHwmSum: {
-      baseName: "fargate_tasks_count_hwm_sum",
-      type: "number",
-      format: "int64",
-    },
-    featureFlagsConfigRequestsAggSum: {
-      baseName: "feature_flags_config_requests_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    flexLogsComputeLargeAvgSum: {
-      baseName: "flex_logs_compute_large_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    flexLogsComputeMediumAvgSum: {
-      baseName: "flex_logs_compute_medium_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    flexLogsComputeSmallAvgSum: {
-      baseName: "flex_logs_compute_small_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    flexLogsComputeXlargeAvgSum: {
-      baseName: "flex_logs_compute_xlarge_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    flexLogsComputeXsmallAvgSum: {
-      baseName: "flex_logs_compute_xsmall_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    flexLogsStarterAvgSum: {
-      baseName: "flex_logs_starter_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    flexLogsStarterStorageIndexAvgSum: {
-      baseName: "flex_logs_starter_storage_index_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    flexLogsStarterStorageRetentionAdjustmentAvgSum: {
-      baseName: "flex_logs_starter_storage_retention_adjustment_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    flexStoredLogsAvgSum: {
-      baseName: "flex_stored_logs_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    forwardingEventsBytesAggSum: {
-      baseName: "forwarding_events_bytes_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    gcpHostTop99pSum: {
-      baseName: "gcp_host_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    herokuHostTop99pSum: {
-      baseName: "heroku_host_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    incidentManagementMonthlyActiveUsersHwmSum: {
-      baseName: "incident_management_monthly_active_users_hwm_sum",
-      type: "number",
-      format: "int64",
-    },
-    incidentManagementSeatsHwmSum: {
-      baseName: "incident_management_seats_hwm_sum",
-      type: "number",
-      format: "int64",
-    },
-    indexedEventsCountAggSum: {
-      baseName: "indexed_events_count_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    indexedPointsAggSum: {
-      baseName: "indexed_points_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraCpuAggSum: {
-      baseName: "infra_cpu_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraCpuAvgSum: {
-      baseName: "infra_cpu_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraCpuDefaultInfraHostVcpuAgentAggSum: {
-      baseName: "infra_cpu_default_infra_host_vcpu_agent_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraCpuDefaultInfraHostVcpuAgentAvgSum: {
-      baseName: "infra_cpu_default_infra_host_vcpu_agent_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraCpuDefaultInfraHostVcpuAgentBasicAggSum: {
-      baseName: "infra_cpu_default_infra_host_vcpu_agent_basic_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraCpuDefaultInfraHostVcpuAgentBasicAvgSum: {
-      baseName: "infra_cpu_default_infra_host_vcpu_agent_basic_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraCpuDefaultInfraHostVcpuAwsAggSum: {
-      baseName: "infra_cpu_default_infra_host_vcpu_aws_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraCpuDefaultInfraHostVcpuAwsAvgSum: {
-      baseName: "infra_cpu_default_infra_host_vcpu_aws_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraCpuDefaultInfraHostVcpuAzureAggSum: {
-      baseName: "infra_cpu_default_infra_host_vcpu_azure_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraCpuDefaultInfraHostVcpuAzureAvgSum: {
-      baseName: "infra_cpu_default_infra_host_vcpu_azure_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraCpuDefaultInfraHostVcpuGcpAggSum: {
-      baseName: "infra_cpu_default_infra_host_vcpu_gcp_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraCpuDefaultInfraHostVcpuGcpAvgSum: {
-      baseName: "infra_cpu_default_infra_host_vcpu_gcp_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraCpuDefaultInfraHostVcpuNutanixAggSum: {
-      baseName: "infra_cpu_default_infra_host_vcpu_nutanix_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraCpuDefaultInfraHostVcpuNutanixAvgSum: {
-      baseName: "infra_cpu_default_infra_host_vcpu_nutanix_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraCpuDefaultInfraHostVcpuNutanixBasicAggSum: {
-      baseName: "infra_cpu_default_infra_host_vcpu_nutanix_basic_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraCpuDefaultInfraHostVcpuNutanixBasicAvgSum: {
-      baseName: "infra_cpu_default_infra_host_vcpu_nutanix_basic_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraCpuDefaultInfraHostVcpuOpentelemetryAggSum: {
-      baseName: "infra_cpu_default_infra_host_vcpu_opentelemetry_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraCpuDefaultInfraHostVcpuOpentelemetryAvgSum: {
-      baseName: "infra_cpu_default_infra_host_vcpu_opentelemetry_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraCpuObservedInfraHostVcpuAgentAggSum: {
-      baseName: "infra_cpu_observed_infra_host_vcpu_agent_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraCpuObservedInfraHostVcpuAgentAvgSum: {
-      baseName: "infra_cpu_observed_infra_host_vcpu_agent_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraCpuObservedInfraHostVcpuAwsAggSum: {
-      baseName: "infra_cpu_observed_infra_host_vcpu_aws_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraCpuObservedInfraHostVcpuAwsAvgSum: {
-      baseName: "infra_cpu_observed_infra_host_vcpu_aws_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraCpuObservedInfraHostVcpuAzureAggSum: {
-      baseName: "infra_cpu_observed_infra_host_vcpu_azure_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraCpuObservedInfraHostVcpuAzureAvgSum: {
-      baseName: "infra_cpu_observed_infra_host_vcpu_azure_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraCpuObservedInfraHostVcpuGcpAggSum: {
-      baseName: "infra_cpu_observed_infra_host_vcpu_gcp_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraCpuObservedInfraHostVcpuGcpAvgSum: {
-      baseName: "infra_cpu_observed_infra_host_vcpu_gcp_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraCpuObservedInfraHostVcpuNutanixAggSum: {
-      baseName: "infra_cpu_observed_infra_host_vcpu_nutanix_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraCpuObservedInfraHostVcpuNutanixAvgSum: {
-      baseName: "infra_cpu_observed_infra_host_vcpu_nutanix_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraCpuObservedInfraHostVcpuOpentelemetryAggSum: {
-      baseName: "infra_cpu_observed_infra_host_vcpu_opentelemetry_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraCpuObservedInfraHostVcpuOpentelemetryAvgSum: {
-      baseName: "infra_cpu_observed_infra_host_vcpu_opentelemetry_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraEdgeMonitoringDevicesTop99pSum: {
-      baseName: "infra_edge_monitoring_devices_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraHostBasicInfraBasicAgentTop99pSum: {
-      baseName: "infra_host_basic_infra_basic_agent_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraHostBasicInfraBasicVsphereTop99pSum: {
-      baseName: "infra_host_basic_infra_basic_vsphere_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraHostBasicTop99pSum: {
-      baseName: "infra_host_basic_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraHostTop99pSum: {
-      baseName: "infra_host_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    infraStorageMgmtObjectsCountAvgSum: {
-      baseName: "infra_storage_mgmt_objects_count_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    ingestPointsAggSum: {
-      baseName: "ingest_points_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    ingestedEventsBytesAggSum: {
-      baseName: "ingested_events_bytes_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    iotApmHostAggSum: {
-      baseName: "iot_apm_host_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    iotApmHostTop99pSum: {
-      baseName: "iot_apm_host_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    iotDeviceAggSum: {
-      baseName: "iot_device_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    iotDeviceTop99pSum: {
-      baseName: "iot_device_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    lastUpdated: {
-      baseName: "last_updated",
-      type: "Date",
-      format: "date-time",
-    },
-    liveIndexedEventsAggSum: {
-      baseName: "live_indexed_events_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    liveIngestedBytesAggSum: {
-      baseName: "live_ingested_bytes_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    llmObservability15dayRetentionSpansAggSum: {
-      baseName: "llm_observability_15day_retention_spans_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    llmObservability30dayRetentionSpansAggSum: {
-      baseName: "llm_observability_30day_retention_spans_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    llmObservability60dayRetentionSpansAggSum: {
-      baseName: "llm_observability_60day_retention_spans_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    llmObservability90dayRetentionSpansAggSum: {
-      baseName: "llm_observability_90day_retention_spans_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    llmObservabilityAggSum: {
-      baseName: "llm_observability_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    llmObservabilityMinSpendAggSum: {
-      baseName: "llm_observability_min_spend_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    logsArchiveSearchGbScannedAggSum: {
-      baseName: "logs_archive_search_gb_scanned_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    logsByRetention: {
-      baseName: "logs_by_retention",
-      type: "LogsByRetention",
-    },
-    metricNamesAggSum: {
-      baseName: "metric_names_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    mobileRumLiteSessionCountAggSum: {
-      baseName: "mobile_rum_lite_session_count_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    mobileRumSessionCountAggSum: {
-      baseName: "mobile_rum_session_count_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    mobileRumSessionCountAndroidAggSum: {
-      baseName: "mobile_rum_session_count_android_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    mobileRumSessionCountFlutterAggSum: {
-      baseName: "mobile_rum_session_count_flutter_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    mobileRumSessionCountIosAggSum: {
-      baseName: "mobile_rum_session_count_ios_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    mobileRumSessionCountReactnativeAggSum: {
-      baseName: "mobile_rum_session_count_reactnative_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    mobileRumSessionCountRokuAggSum: {
-      baseName: "mobile_rum_session_count_roku_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    mobileRumUnitsAggSum: {
-      baseName: "mobile_rum_units_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    ndmNetflowEventsAggSum: {
-      baseName: "ndm_netflow_events_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    netflowIndexedEventsCountAggSum: {
-      baseName: "netflow_indexed_events_count_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    networkDeviceWirelessTop99pSum: {
-      baseName: "network_device_wireless_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    networkPathAggSum: {
-      baseName: "network_path_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    npmHostTop99pSum: {
-      baseName: "npm_host_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    observabilityPipelinesBytesProcessedAggSum: {
-      baseName: "observability_pipelines_bytes_processed_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    ociHostAggSum: {
-      baseName: "oci_host_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    ociHostTop99pSum: {
-      baseName: "oci_host_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    onCallSeatHwmSum: {
-      baseName: "on_call_seat_hwm_sum",
-      type: "number",
-      format: "int64",
-    },
-    onlineArchiveEventsCountAggSum: {
-      baseName: "online_archive_events_count_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    opentelemetryApmHostTop99pSum: {
-      baseName: "opentelemetry_apm_host_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    opentelemetryHostTop99pSum: {
-      baseName: "opentelemetry_host_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    productAnalyticsAggSum: {
-      baseName: "product_analytics_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    profilingAasCountTop99pSum: {
-      baseName: "profiling_aas_count_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    profilingContainerAgentCountAvg: {
-      baseName: "profiling_container_agent_count_avg",
-      type: "number",
-      format: "int64",
-    },
-    profilingHostCountTop99pSum: {
-      baseName: "profiling_host_count_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    proxmoxHostAggSum: {
-      baseName: "proxmox_host_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    proxmoxHostTop99pSum: {
-      baseName: "proxmox_host_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    publishedAppHwmSum: {
-      baseName: "published_app_hwm_sum",
-      type: "number",
-      format: "int64",
-    },
-    rehydratedIndexedEventsAggSum: {
-      baseName: "rehydrated_indexed_events_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    rehydratedIngestedBytesAggSum: {
-      baseName: "rehydrated_ingested_bytes_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    rumBrowserAndMobileSessionCount: {
-      baseName: "rum_browser_and_mobile_session_count",
-      type: "number",
-      format: "int64",
-    },
-    rumBrowserLegacySessionCountAggSum: {
-      baseName: "rum_browser_legacy_session_count_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    rumBrowserLiteSessionCountAggSum: {
-      baseName: "rum_browser_lite_session_count_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    rumBrowserReplaySessionCountAggSum: {
-      baseName: "rum_browser_replay_session_count_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    rumIndexedSessionsAggSum: {
-      baseName: "rum_indexed_sessions_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    rumIngestedSessionsAggSum: {
-      baseName: "rum_ingested_sessions_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    rumLiteSessionCountAggSum: {
-      baseName: "rum_lite_session_count_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    rumMobileLegacySessionCountAndroidAggSum: {
-      baseName: "rum_mobile_legacy_session_count_android_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    rumMobileLegacySessionCountFlutterAggSum: {
-      baseName: "rum_mobile_legacy_session_count_flutter_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    rumMobileLegacySessionCountIosAggSum: {
-      baseName: "rum_mobile_legacy_session_count_ios_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    rumMobileLegacySessionCountReactnativeAggSum: {
-      baseName: "rum_mobile_legacy_session_count_reactnative_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    rumMobileLegacySessionCountRokuAggSum: {
-      baseName: "rum_mobile_legacy_session_count_roku_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    rumMobileLiteSessionCountAndroidAggSum: {
-      baseName: "rum_mobile_lite_session_count_android_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    rumMobileLiteSessionCountFlutterAggSum: {
-      baseName: "rum_mobile_lite_session_count_flutter_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    rumMobileLiteSessionCountIosAggSum: {
-      baseName: "rum_mobile_lite_session_count_ios_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    rumMobileLiteSessionCountKotlinmultiplatformAggSum: {
-      baseName: "rum_mobile_lite_session_count_kotlinmultiplatform_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    rumMobileLiteSessionCountReactnativeAggSum: {
-      baseName: "rum_mobile_lite_session_count_reactnative_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    rumMobileLiteSessionCountRokuAggSum: {
-      baseName: "rum_mobile_lite_session_count_roku_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    rumMobileLiteSessionCountUnityAggSum: {
-      baseName: "rum_mobile_lite_session_count_unity_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    rumMobileReplaySessionCountAndroidAggSum: {
-      baseName: "rum_mobile_replay_session_count_android_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    rumMobileReplaySessionCountIosAggSum: {
-      baseName: "rum_mobile_replay_session_count_ios_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    rumMobileReplaySessionCountKotlinmultiplatformAggSum: {
-      baseName: "rum_mobile_replay_session_count_kotlinmultiplatform_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    rumMobileReplaySessionCountReactnativeAggSum: {
-      baseName: "rum_mobile_replay_session_count_reactnative_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    rumReplaySessionCountAggSum: {
-      baseName: "rum_replay_session_count_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    rumSessionCountAggSum: {
-      baseName: "rum_session_count_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    rumSessionReplayAddOnAggSum: {
-      baseName: "rum_session_replay_add_on_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    rumTotalSessionCountAggSum: {
-      baseName: "rum_total_session_count_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    rumUnitsAggSum: {
-      baseName: "rum_units_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    scaFargateCountAvgSum: {
-      baseName: "sca_fargate_count_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    scaFargateCountHwmSum: {
-      baseName: "sca_fargate_count_hwm_sum",
-      type: "number",
-      format: "int64",
-    },
-    sdsApmScannedBytesSum: {
-      baseName: "sds_apm_scanned_bytes_sum",
-      type: "number",
-      format: "int64",
-    },
-    sdsEventsScannedBytesSum: {
-      baseName: "sds_events_scanned_bytes_sum",
-      type: "number",
-      format: "int64",
-    },
-    sdsLogsScannedBytesSum: {
-      baseName: "sds_logs_scanned_bytes_sum",
-      type: "number",
-      format: "int64",
-    },
-    sdsRumScannedBytesSum: {
-      baseName: "sds_rum_scanned_bytes_sum",
-      type: "number",
-      format: "int64",
-    },
-    sdsTotalScannedBytesSum: {
-      baseName: "sds_total_scanned_bytes_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsApmApmAzureAppserviceInstancesAvgSum: {
-      baseName: "serverless_apps_apm_apm_azure_appservice_instances_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsApmApmAzureAzurefunctionInstancesAvgSum: {
-      baseName: "serverless_apps_apm_apm_azure_azurefunction_instances_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsApmApmAzureContainerappInstancesAvgSum: {
-      baseName: "serverless_apps_apm_apm_azure_containerapp_instances_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsApmApmFargateEcsTasksAvgSum: {
-      baseName: "serverless_apps_apm_apm_fargate_ecs_tasks_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsApmApmGcpCloudfunctionInstancesAvgSum: {
-      baseName: "serverless_apps_apm_apm_gcp_cloudfunction_instances_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsApmApmGcpCloudrunInstancesAvgSum: {
-      baseName: "serverless_apps_apm_apm_gcp_cloudrun_instances_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsApmApmGcpGkeAutopilotPodsAvgSum: {
-      baseName: "serverless_apps_apm_apm_gcp_gke_autopilot_pods_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsApmAvgSum: {
-      baseName: "serverless_apps_apm_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvgSum: {
-      baseName:
-        "serverless_apps_apm_excl_fargate_apm_azure_appservice_instances_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvgSum: {
-      baseName:
-        "serverless_apps_apm_excl_fargate_apm_azure_azurefunction_instances_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsApmExclFargateApmAzureContainerappInstancesAvgSum: {
-      baseName:
-        "serverless_apps_apm_excl_fargate_apm_azure_containerapp_instances_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvgSum: {
-      baseName:
-        "serverless_apps_apm_excl_fargate_apm_gcp_cloudfunction_instances_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvgSum: {
-      baseName:
-        "serverless_apps_apm_excl_fargate_apm_gcp_cloudrun_instances_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvgSum: {
-      baseName:
-        "serverless_apps_apm_excl_fargate_apm_gcp_gke_autopilot_pods_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsApmExclFargateAvgSum: {
-      baseName: "serverless_apps_apm_excl_fargate_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsAzureContainerAppInstancesAvgSum: {
-      baseName: "serverless_apps_azure_container_app_instances_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsAzureCountAvgSum: {
-      baseName: "serverless_apps_azure_count_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsAzureFunctionAppInstancesAvgSum: {
-      baseName: "serverless_apps_azure_function_app_instances_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsAzureWebAppInstancesAvgSum: {
-      baseName: "serverless_apps_azure_web_app_instances_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsDsmFargateTasksAvgSum: {
-      baseName: "serverless_apps_dsm_fargate_tasks_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsEcsAvgSum: {
-      baseName: "serverless_apps_ecs_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsEksAvgSum: {
-      baseName: "serverless_apps_eks_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsExclFargateAvgSum: {
-      baseName: "serverless_apps_excl_fargate_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsExclFargateAzureContainerAppInstancesAvgSum: {
-      baseName:
-        "serverless_apps_excl_fargate_azure_container_app_instances_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsExclFargateAzureFunctionAppInstancesAvgSum: {
-      baseName:
-        "serverless_apps_excl_fargate_azure_function_app_instances_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsExclFargateAzureWebAppInstancesAvgSum: {
-      baseName: "serverless_apps_excl_fargate_azure_web_app_instances_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvgSum: {
-      baseName:
-        "serverless_apps_excl_fargate_google_cloud_functions_instances_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsExclFargateGoogleCloudRunInstancesAvgSum: {
-      baseName:
-        "serverless_apps_excl_fargate_google_cloud_run_instances_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvgSum: {
-      baseName:
-        "serverless_apps_excl_fargate_infra_gcp_gke_autopilot_pods_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsGoogleCloudFunctionsInstancesAvgSum: {
-      baseName: "serverless_apps_google_cloud_functions_instances_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsGoogleCloudRunInstancesAvgSum: {
-      baseName: "serverless_apps_google_cloud_run_instances_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsGoogleCountAvgSum: {
-      baseName: "serverless_apps_google_count_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsInfraGcpGkeAutopilotPodsAvgSum: {
-      baseName: "serverless_apps_infra_gcp_gke_autopilot_pods_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    serverlessAppsTotalCountAvgSum: {
-      baseName: "serverless_apps_total_count_avg_sum",
-      type: "number",
-      format: "int64",
-    },
-    siem12moRetentionAggSum: {
-      baseName: "siem_12mo_retention_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    siem6moRetentionAggSum: {
-      baseName: "siem_6mo_retention_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    siemAnalyzedLogsAddOnCountAggSum: {
-      baseName: "siem_analyzed_logs_add_on_count_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    snmpDeviceCountAggSum: {
-      baseName: "snmp_device_count_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    snmpDeviceCountTop99pSum: {
-      baseName: "snmp_device_count_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    startDate: {
-      baseName: "start_date",
-      type: "Date",
-      format: "date-time",
-    },
-    syntheticsBrowserCheckCallsCountAggSum: {
-      baseName: "synthetics_browser_check_calls_count_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    syntheticsCheckCallsCountAggSum: {
-      baseName: "synthetics_check_calls_count_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    syntheticsMobileTestRunsAggSum: {
-      baseName: "synthetics_mobile_test_runs_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    syntheticsParallelTestingMaxSlotsHwmSum: {
-      baseName: "synthetics_parallel_testing_max_slots_hwm_sum",
-      type: "number",
-      format: "int64",
-    },
-    traceSearchIndexedEventsCountAggSum: {
-      baseName: "trace_search_indexed_events_count_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    twolIngestedEventsBytesAggSum: {
-      baseName: "twol_ingested_events_bytes_agg_sum",
-      type: "number",
-      format: "int64",
-    },
-    universalServiceMonitoringHostTop99pSum: {
-      baseName: "universal_service_monitoring_host_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageSummaryDate>",
-    },
-    vsphereHostTop99pSum: {
-      baseName: "vsphere_host_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    vulnManagementHostCountTop99pSum: {
-      baseName: "vuln_management_host_count_top99p_sum",
-      type: "number",
-      format: "int64",
-    },
-    workflowExecutionsUsageAggSum: {
-      baseName: "workflow_executions_usage_agg_sum",
-      type: "number",
-      format: "int64",
+    "agentHostTop99pSum": {
+      "baseName": "agent_host_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "aiCreditsAgentBuilderAiCreditsAggSum": {
+      "baseName": "ai_credits_agent_builder_ai_credits_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "aiCreditsAggSum": {
+      "baseName": "ai_credits_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "aiCreditsBitsAssistantAiCreditsAggSum": {
+      "baseName": "ai_credits_bits_assistant_ai_credits_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "aiCreditsBitsDevAiCreditsAggSum": {
+      "baseName": "ai_credits_bits_dev_ai_credits_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "aiCreditsBitsSreAiCreditsAggSum": {
+      "baseName": "ai_credits_bits_sre_ai_credits_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "apmAzureAppServiceHostTop99pSum": {
+      "baseName": "apm_azure_app_service_host_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "apmDevsecopsHostTop99pSum": {
+      "baseName": "apm_devsecops_host_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "apmEnterpriseStandaloneHostsTop99pSum": {
+      "baseName": "apm_enterprise_standalone_hosts_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "apmFargateCountAvgSum": {
+      "baseName": "apm_fargate_count_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "apmHostTop99pSum": {
+      "baseName": "apm_host_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "apmProStandaloneHostsTop99pSum": {
+      "baseName": "apm_pro_standalone_hosts_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "appsecFargateCountAvgSum": {
+      "baseName": "appsec_fargate_count_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "asmServerlessAggSum": {
+      "baseName": "asm_serverless_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "auditLogsLinesIndexedAggSum": {
+      "baseName": "audit_logs_lines_indexed_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "auditTrailEnabledHwmSum": {
+      "baseName": "audit_trail_enabled_hwm_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "auditTrailEventForwardingEventsAggSum": {
+      "baseName": "audit_trail_event_forwarding_events_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "avgProfiledFargateTasksSum": {
+      "baseName": "avg_profiled_fargate_tasks_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "awsHostTop99pSum": {
+      "baseName": "aws_host_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "awsLambdaFuncCount": {
+      "baseName": "aws_lambda_func_count",
+      "type": "number",
+      "format": "int64",
+    },
+    "awsLambdaInvocationsSum": {
+      "baseName": "aws_lambda_invocations_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "azureAppServiceTop99pSum": {
+      "baseName": "azure_app_service_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "azureHostTop99pSum": {
+      "baseName": "azure_host_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "billableIngestedBytesAggSum": {
+      "baseName": "billable_ingested_bytes_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "bitsAiInvestigationsAggSum": {
+      "baseName": "bits_ai_investigations_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "browserRumLiteSessionCountAggSum": {
+      "baseName": "browser_rum_lite_session_count_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "browserRumReplaySessionCountAggSum": {
+      "baseName": "browser_rum_replay_session_count_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "browserRumUnitsAggSum": {
+      "baseName": "browser_rum_units_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ccmAnthropicSpendLastSum": {
+      "baseName": "ccm_anthropic_spend_last_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ccmAwsSpendLastSum": {
+      "baseName": "ccm_aws_spend_last_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ccmAzureSpendLastSum": {
+      "baseName": "ccm_azure_spend_last_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ccmConfluentSpendLastSum": {
+      "baseName": "ccm_confluent_spend_last_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ccmDatabricksSpendLastSum": {
+      "baseName": "ccm_databricks_spend_last_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ccmElasticSpendLastSum": {
+      "baseName": "ccm_elastic_spend_last_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ccmFastlySpendLastSum": {
+      "baseName": "ccm_fastly_spend_last_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ccmGcpSpendLastSum": {
+      "baseName": "ccm_gcp_spend_last_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ccmGithubSpendLastSum": {
+      "baseName": "ccm_github_spend_last_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ccmMongodbSpendLastSum": {
+      "baseName": "ccm_mongodb_spend_last_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ccmOciSpendLastSum": {
+      "baseName": "ccm_oci_spend_last_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ccmOpenaiSpendLastSum": {
+      "baseName": "ccm_openai_spend_last_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ccmSnowflakeSpendLastSum": {
+      "baseName": "ccm_snowflake_spend_last_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ccmSpendMonitoredEntLastSum": {
+      "baseName": "ccm_spend_monitored_ent_last_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ccmSpendMonitoredProLastSum": {
+      "baseName": "ccm_spend_monitored_pro_last_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ccmTwilioSpendLastSum": {
+      "baseName": "ccm_twilio_spend_last_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ciPipelineIndexedSpansAggSum": {
+      "baseName": "ci_pipeline_indexed_spans_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ciTestIndexedSpansAggSum": {
+      "baseName": "ci_test_indexed_spans_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ciVisibilityItrCommittersHwmSum": {
+      "baseName": "ci_visibility_itr_committers_hwm_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ciVisibilityPipelineCommittersHwmSum": {
+      "baseName": "ci_visibility_pipeline_committers_hwm_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ciVisibilityTestCommittersHwmSum": {
+      "baseName": "ci_visibility_test_committers_hwm_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "cloudCostManagementAwsHostCountAvgSum": {
+      "baseName": "cloud_cost_management_aws_host_count_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "cloudCostManagementAzureHostCountAvgSum": {
+      "baseName": "cloud_cost_management_azure_host_count_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "cloudCostManagementGcpHostCountAvgSum": {
+      "baseName": "cloud_cost_management_gcp_host_count_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "cloudCostManagementHostCountAvgSum": {
+      "baseName": "cloud_cost_management_host_count_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "cloudCostManagementOciHostCountAvgSum": {
+      "baseName": "cloud_cost_management_oci_host_count_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "cloudSiemEventsAggSum": {
+      "baseName": "cloud_siem_events_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "cloudSiemIndexedLogsAggSum": {
+      "baseName": "cloud_siem_indexed_logs_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "codeAnalysisSaCommittersHwmSum": {
+      "baseName": "code_analysis_sa_committers_hwm_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "codeAnalysisScaCommittersHwmSum": {
+      "baseName": "code_analysis_sca_committers_hwm_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "codeSecurityHostTop99pSum": {
+      "baseName": "code_security_host_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "containerAvgSum": {
+      "baseName": "container_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "containerExclAgentAvgSum": {
+      "baseName": "container_excl_agent_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "containerHwmSum": {
+      "baseName": "container_hwm_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "csmContainerEnterpriseComplianceCountAggSum": {
+      "baseName": "csm_container_enterprise_compliance_count_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "csmContainerEnterpriseCwsCountAggSum": {
+      "baseName": "csm_container_enterprise_cws_count_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "csmContainerEnterpriseTotalCountAggSum": {
+      "baseName": "csm_container_enterprise_total_count_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "csmHostEnterpriseAasHostCountTop99pSum": {
+      "baseName": "csm_host_enterprise_aas_host_count_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "csmHostEnterpriseAwsHostCountTop99pSum": {
+      "baseName": "csm_host_enterprise_aws_host_count_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "csmHostEnterpriseAzureHostCountTop99pSum": {
+      "baseName": "csm_host_enterprise_azure_host_count_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "csmHostEnterpriseComplianceHostCountTop99pSum": {
+      "baseName": "csm_host_enterprise_compliance_host_count_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "csmHostEnterpriseCwsHostCountTop99pSum": {
+      "baseName": "csm_host_enterprise_cws_host_count_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "csmHostEnterpriseGcpHostCountTop99pSum": {
+      "baseName": "csm_host_enterprise_gcp_host_count_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "csmHostEnterpriseOciHostCountTop99pSum": {
+      "baseName": "csm_host_enterprise_oci_host_count_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "csmHostEnterpriseTotalHostCountTop99pSum": {
+      "baseName": "csm_host_enterprise_total_host_count_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "csmHostProHostsAgentlessScannersAggSum": {
+      "baseName": "csm_host_pro_hosts_agentless_scanners_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "csmHostProHostsAgentlessScannersTop99pSum": {
+      "baseName": "csm_host_pro_hosts_agentless_scanners_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "csmHostProOciHostCountTop99pSum": {
+      "baseName": "csm_host_pro_oci_host_count_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "cspmAasHostTop99pSum": {
+      "baseName": "cspm_aas_host_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "cspmAwsHostTop99pSum": {
+      "baseName": "cspm_aws_host_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "cspmAzureHostTop99pSum": {
+      "baseName": "cspm_azure_host_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "cspmContainerAvgSum": {
+      "baseName": "cspm_container_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "cspmContainerHwmSum": {
+      "baseName": "cspm_container_hwm_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "cspmGcpHostTop99pSum": {
+      "baseName": "cspm_gcp_host_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "cspmHostTop99pSum": {
+      "baseName": "cspm_host_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "cspmHostsAgentlessScannersAggSum": {
+      "baseName": "cspm_hosts_agentless_scanners_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "cspmHostsAgentlessScannersTop99pSum": {
+      "baseName": "cspm_hosts_agentless_scanners_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "customHistoricalTsSum": {
+      "baseName": "custom_historical_ts_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "customLiveTsSum": {
+      "baseName": "custom_live_ts_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "customTsSum": {
+      "baseName": "custom_ts_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "cwsContainerAvgSum": {
+      "baseName": "cws_container_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "cwsFargateTaskAvgSum": {
+      "baseName": "cws_fargate_task_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "cwsHostTop99pSum": {
+      "baseName": "cws_host_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "dataJobsMonitoringHostHrAggSum": {
+      "baseName": "data_jobs_monitoring_host_hr_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "dataStreamMonitoringHostCountAggSum": {
+      "baseName": "data_stream_monitoring_host_count_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "dataStreamMonitoringHostCountTop99pSum": {
+      "baseName": "data_stream_monitoring_host_count_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "dbmHostTop99pSum": {
+      "baseName": "dbm_host_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "dbmQueriesAvgSum": {
+      "baseName": "dbm_queries_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "doJobsMonitoringOrchestratorsJobHoursAggSum": {
+      "baseName": "do_jobs_monitoring_orchestrators_job_hours_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "endDate": {
+      "baseName": "end_date",
+      "type": "Date",
+      "format": "date-time",
+    },
+    "ephInfraHostAgentAggSum": {
+      "baseName": "eph_infra_host_agent_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ephInfraHostAlibabaAggSum": {
+      "baseName": "eph_infra_host_alibaba_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ephInfraHostAwsAggSum": {
+      "baseName": "eph_infra_host_aws_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ephInfraHostAzureAggSum": {
+      "baseName": "eph_infra_host_azure_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ephInfraHostBasicAggSum": {
+      "baseName": "eph_infra_host_basic_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ephInfraHostBasicInfraBasicAgentAggSum": {
+      "baseName": "eph_infra_host_basic_infra_basic_agent_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ephInfraHostBasicInfraBasicVsphereAggSum": {
+      "baseName": "eph_infra_host_basic_infra_basic_vsphere_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ephInfraHostEntAggSum": {
+      "baseName": "eph_infra_host_ent_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ephInfraHostGcpAggSum": {
+      "baseName": "eph_infra_host_gcp_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ephInfraHostHerokuAggSum": {
+      "baseName": "eph_infra_host_heroku_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ephInfraHostOnlyAasAggSum": {
+      "baseName": "eph_infra_host_only_aas_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ephInfraHostOnlyVsphereAggSum": {
+      "baseName": "eph_infra_host_only_vsphere_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ephInfraHostOpentelemetryAggSum": {
+      "baseName": "eph_infra_host_opentelemetry_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ephInfraHostOpentelemetryApmAggSum": {
+      "baseName": "eph_infra_host_opentelemetry_apm_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ephInfraHostProAggSum": {
+      "baseName": "eph_infra_host_pro_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ephInfraHostProplusAggSum": {
+      "baseName": "eph_infra_host_proplus_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ephInfraHostProxmoxAggSum": {
+      "baseName": "eph_infra_host_proxmox_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "errorTrackingApmErrorEventsAggSum": {
+      "baseName": "error_tracking_apm_error_events_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "errorTrackingErrorEventsAggSum": {
+      "baseName": "error_tracking_error_events_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "errorTrackingEventsAggSum": {
+      "baseName": "error_tracking_events_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "errorTrackingRumErrorEventsAggSum": {
+      "baseName": "error_tracking_rum_error_events_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "eventManagementCorrelationAggSum": {
+      "baseName": "event_management_correlation_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "eventManagementCorrelationCorrelatedEventsAggSum": {
+      "baseName": "event_management_correlation_correlated_events_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "eventManagementCorrelationCorrelatedRelatedEventsAggSum": {
+      "baseName": "event_management_correlation_correlated_related_events_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "fargateContainerProfilerProfilingFargateAvgSum": {
+      "baseName": "fargate_container_profiler_profiling_fargate_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "fargateContainerProfilerProfilingFargateEksAvgSum": {
+      "baseName": "fargate_container_profiler_profiling_fargate_eks_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "fargateTasksCountAvgSum": {
+      "baseName": "fargate_tasks_count_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "fargateTasksCountHwmSum": {
+      "baseName": "fargate_tasks_count_hwm_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "featureFlagsConfigRequestsAggSum": {
+      "baseName": "feature_flags_config_requests_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "flexLogsComputeLargeAvgSum": {
+      "baseName": "flex_logs_compute_large_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "flexLogsComputeMediumAvgSum": {
+      "baseName": "flex_logs_compute_medium_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "flexLogsComputeSmallAvgSum": {
+      "baseName": "flex_logs_compute_small_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "flexLogsComputeXlargeAvgSum": {
+      "baseName": "flex_logs_compute_xlarge_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "flexLogsComputeXsmallAvgSum": {
+      "baseName": "flex_logs_compute_xsmall_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "flexLogsStarterAvgSum": {
+      "baseName": "flex_logs_starter_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "flexLogsStarterStorageIndexAvgSum": {
+      "baseName": "flex_logs_starter_storage_index_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "flexLogsStarterStorageRetentionAdjustmentAvgSum": {
+      "baseName": "flex_logs_starter_storage_retention_adjustment_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "flexStoredLogsAvgSum": {
+      "baseName": "flex_stored_logs_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "forwardingEventsBytesAggSum": {
+      "baseName": "forwarding_events_bytes_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "gcpHostTop99pSum": {
+      "baseName": "gcp_host_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "herokuHostTop99pSum": {
+      "baseName": "heroku_host_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "incidentManagementMonthlyActiveUsersHwmSum": {
+      "baseName": "incident_management_monthly_active_users_hwm_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "incidentManagementSeatsHwmSum": {
+      "baseName": "incident_management_seats_hwm_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "indexedEventsCountAggSum": {
+      "baseName": "indexed_events_count_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "indexedPointsAggSum": {
+      "baseName": "indexed_points_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraCpuAggSum": {
+      "baseName": "infra_cpu_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraCpuAvgSum": {
+      "baseName": "infra_cpu_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraCpuDefaultInfraHostVcpuAgentAggSum": {
+      "baseName": "infra_cpu_default_infra_host_vcpu_agent_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraCpuDefaultInfraHostVcpuAgentAvgSum": {
+      "baseName": "infra_cpu_default_infra_host_vcpu_agent_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraCpuDefaultInfraHostVcpuAgentBasicAggSum": {
+      "baseName": "infra_cpu_default_infra_host_vcpu_agent_basic_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraCpuDefaultInfraHostVcpuAgentBasicAvgSum": {
+      "baseName": "infra_cpu_default_infra_host_vcpu_agent_basic_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraCpuDefaultInfraHostVcpuAwsAggSum": {
+      "baseName": "infra_cpu_default_infra_host_vcpu_aws_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraCpuDefaultInfraHostVcpuAwsAvgSum": {
+      "baseName": "infra_cpu_default_infra_host_vcpu_aws_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraCpuDefaultInfraHostVcpuAzureAggSum": {
+      "baseName": "infra_cpu_default_infra_host_vcpu_azure_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraCpuDefaultInfraHostVcpuAzureAvgSum": {
+      "baseName": "infra_cpu_default_infra_host_vcpu_azure_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraCpuDefaultInfraHostVcpuGcpAggSum": {
+      "baseName": "infra_cpu_default_infra_host_vcpu_gcp_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraCpuDefaultInfraHostVcpuGcpAvgSum": {
+      "baseName": "infra_cpu_default_infra_host_vcpu_gcp_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraCpuDefaultInfraHostVcpuNutanixAggSum": {
+      "baseName": "infra_cpu_default_infra_host_vcpu_nutanix_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraCpuDefaultInfraHostVcpuNutanixAvgSum": {
+      "baseName": "infra_cpu_default_infra_host_vcpu_nutanix_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraCpuDefaultInfraHostVcpuNutanixBasicAggSum": {
+      "baseName": "infra_cpu_default_infra_host_vcpu_nutanix_basic_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraCpuDefaultInfraHostVcpuNutanixBasicAvgSum": {
+      "baseName": "infra_cpu_default_infra_host_vcpu_nutanix_basic_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraCpuDefaultInfraHostVcpuOpentelemetryAggSum": {
+      "baseName": "infra_cpu_default_infra_host_vcpu_opentelemetry_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraCpuDefaultInfraHostVcpuOpentelemetryAvgSum": {
+      "baseName": "infra_cpu_default_infra_host_vcpu_opentelemetry_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraCpuObservedInfraHostVcpuAgentAggSum": {
+      "baseName": "infra_cpu_observed_infra_host_vcpu_agent_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraCpuObservedInfraHostVcpuAgentAvgSum": {
+      "baseName": "infra_cpu_observed_infra_host_vcpu_agent_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraCpuObservedInfraHostVcpuAwsAggSum": {
+      "baseName": "infra_cpu_observed_infra_host_vcpu_aws_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraCpuObservedInfraHostVcpuAwsAvgSum": {
+      "baseName": "infra_cpu_observed_infra_host_vcpu_aws_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraCpuObservedInfraHostVcpuAzureAggSum": {
+      "baseName": "infra_cpu_observed_infra_host_vcpu_azure_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraCpuObservedInfraHostVcpuAzureAvgSum": {
+      "baseName": "infra_cpu_observed_infra_host_vcpu_azure_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraCpuObservedInfraHostVcpuGcpAggSum": {
+      "baseName": "infra_cpu_observed_infra_host_vcpu_gcp_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraCpuObservedInfraHostVcpuGcpAvgSum": {
+      "baseName": "infra_cpu_observed_infra_host_vcpu_gcp_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraCpuObservedInfraHostVcpuNutanixAggSum": {
+      "baseName": "infra_cpu_observed_infra_host_vcpu_nutanix_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraCpuObservedInfraHostVcpuNutanixAvgSum": {
+      "baseName": "infra_cpu_observed_infra_host_vcpu_nutanix_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraCpuObservedInfraHostVcpuOpentelemetryAggSum": {
+      "baseName": "infra_cpu_observed_infra_host_vcpu_opentelemetry_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraCpuObservedInfraHostVcpuOpentelemetryAvgSum": {
+      "baseName": "infra_cpu_observed_infra_host_vcpu_opentelemetry_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraEdgeMonitoringDevicesTop99pSum": {
+      "baseName": "infra_edge_monitoring_devices_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraHostBasicInfraBasicAgentTop99pSum": {
+      "baseName": "infra_host_basic_infra_basic_agent_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraHostBasicInfraBasicVsphereTop99pSum": {
+      "baseName": "infra_host_basic_infra_basic_vsphere_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraHostBasicTop99pSum": {
+      "baseName": "infra_host_basic_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraHostTop99pSum": {
+      "baseName": "infra_host_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "infraStorageMgmtObjectsCountAvgSum": {
+      "baseName": "infra_storage_mgmt_objects_count_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ingestPointsAggSum": {
+      "baseName": "ingest_points_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ingestedEventsBytesAggSum": {
+      "baseName": "ingested_events_bytes_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "iotApmHostAggSum": {
+      "baseName": "iot_apm_host_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "iotApmHostTop99pSum": {
+      "baseName": "iot_apm_host_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "iotDeviceAggSum": {
+      "baseName": "iot_device_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "iotDeviceTop99pSum": {
+      "baseName": "iot_device_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "lastUpdated": {
+      "baseName": "last_updated",
+      "type": "Date",
+      "format": "date-time",
+    },
+    "liveIndexedEventsAggSum": {
+      "baseName": "live_indexed_events_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "liveIngestedBytesAggSum": {
+      "baseName": "live_ingested_bytes_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "llmObservability15dayRetentionSpansAggSum": {
+      "baseName": "llm_observability_15day_retention_spans_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "llmObservability30dayRetentionSpansAggSum": {
+      "baseName": "llm_observability_30day_retention_spans_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "llmObservability60dayRetentionSpansAggSum": {
+      "baseName": "llm_observability_60day_retention_spans_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "llmObservability90dayRetentionSpansAggSum": {
+      "baseName": "llm_observability_90day_retention_spans_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "llmObservabilityAggSum": {
+      "baseName": "llm_observability_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "llmObservabilityMinSpendAggSum": {
+      "baseName": "llm_observability_min_spend_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "logsArchiveSearchGbScannedAggSum": {
+      "baseName": "logs_archive_search_gb_scanned_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "logsByRetention": {
+      "baseName": "logs_by_retention",
+      "type": "LogsByRetention",
+    },
+    "metricNamesAggSum": {
+      "baseName": "metric_names_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "mobileRumLiteSessionCountAggSum": {
+      "baseName": "mobile_rum_lite_session_count_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "mobileRumSessionCountAggSum": {
+      "baseName": "mobile_rum_session_count_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "mobileRumSessionCountAndroidAggSum": {
+      "baseName": "mobile_rum_session_count_android_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "mobileRumSessionCountFlutterAggSum": {
+      "baseName": "mobile_rum_session_count_flutter_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "mobileRumSessionCountIosAggSum": {
+      "baseName": "mobile_rum_session_count_ios_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "mobileRumSessionCountReactnativeAggSum": {
+      "baseName": "mobile_rum_session_count_reactnative_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "mobileRumSessionCountRokuAggSum": {
+      "baseName": "mobile_rum_session_count_roku_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "mobileRumUnitsAggSum": {
+      "baseName": "mobile_rum_units_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ndmNetflowEventsAggSum": {
+      "baseName": "ndm_netflow_events_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "netflowIndexedEventsCountAggSum": {
+      "baseName": "netflow_indexed_events_count_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "networkDeviceWirelessTop99pSum": {
+      "baseName": "network_device_wireless_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "networkPathAggSum": {
+      "baseName": "network_path_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "npmHostTop99pSum": {
+      "baseName": "npm_host_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "observabilityPipelinesBytesProcessedAggSum": {
+      "baseName": "observability_pipelines_bytes_processed_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ociHostAggSum": {
+      "baseName": "oci_host_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "ociHostTop99pSum": {
+      "baseName": "oci_host_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "onCallSeatHwmSum": {
+      "baseName": "on_call_seat_hwm_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "onlineArchiveEventsCountAggSum": {
+      "baseName": "online_archive_events_count_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "opentelemetryApmHostTop99pSum": {
+      "baseName": "opentelemetry_apm_host_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "opentelemetryHostTop99pSum": {
+      "baseName": "opentelemetry_host_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "productAnalyticsAggSum": {
+      "baseName": "product_analytics_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "profilingAasCountTop99pSum": {
+      "baseName": "profiling_aas_count_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "profilingContainerAgentCountAvg": {
+      "baseName": "profiling_container_agent_count_avg",
+      "type": "number",
+      "format": "int64",
+    },
+    "profilingHostCountTop99pSum": {
+      "baseName": "profiling_host_count_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "proxmoxHostAggSum": {
+      "baseName": "proxmox_host_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "proxmoxHostTop99pSum": {
+      "baseName": "proxmox_host_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "publishedAppHwmSum": {
+      "baseName": "published_app_hwm_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "rehydratedIndexedEventsAggSum": {
+      "baseName": "rehydrated_indexed_events_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "rehydratedIngestedBytesAggSum": {
+      "baseName": "rehydrated_ingested_bytes_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "rumBrowserAndMobileSessionCount": {
+      "baseName": "rum_browser_and_mobile_session_count",
+      "type": "number",
+      "format": "int64",
+    },
+    "rumBrowserLegacySessionCountAggSum": {
+      "baseName": "rum_browser_legacy_session_count_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "rumBrowserLiteSessionCountAggSum": {
+      "baseName": "rum_browser_lite_session_count_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "rumBrowserReplaySessionCountAggSum": {
+      "baseName": "rum_browser_replay_session_count_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "rumIndexedSessionsAggSum": {
+      "baseName": "rum_indexed_sessions_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "rumIngestedSessionsAggSum": {
+      "baseName": "rum_ingested_sessions_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "rumLiteSessionCountAggSum": {
+      "baseName": "rum_lite_session_count_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "rumMobileLegacySessionCountAndroidAggSum": {
+      "baseName": "rum_mobile_legacy_session_count_android_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "rumMobileLegacySessionCountFlutterAggSum": {
+      "baseName": "rum_mobile_legacy_session_count_flutter_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "rumMobileLegacySessionCountIosAggSum": {
+      "baseName": "rum_mobile_legacy_session_count_ios_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "rumMobileLegacySessionCountReactnativeAggSum": {
+      "baseName": "rum_mobile_legacy_session_count_reactnative_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "rumMobileLegacySessionCountRokuAggSum": {
+      "baseName": "rum_mobile_legacy_session_count_roku_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "rumMobileLiteSessionCountAndroidAggSum": {
+      "baseName": "rum_mobile_lite_session_count_android_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "rumMobileLiteSessionCountFlutterAggSum": {
+      "baseName": "rum_mobile_lite_session_count_flutter_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "rumMobileLiteSessionCountIosAggSum": {
+      "baseName": "rum_mobile_lite_session_count_ios_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "rumMobileLiteSessionCountKotlinmultiplatformAggSum": {
+      "baseName": "rum_mobile_lite_session_count_kotlinmultiplatform_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "rumMobileLiteSessionCountReactnativeAggSum": {
+      "baseName": "rum_mobile_lite_session_count_reactnative_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "rumMobileLiteSessionCountRokuAggSum": {
+      "baseName": "rum_mobile_lite_session_count_roku_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "rumMobileLiteSessionCountUnityAggSum": {
+      "baseName": "rum_mobile_lite_session_count_unity_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "rumMobileReplaySessionCountAndroidAggSum": {
+      "baseName": "rum_mobile_replay_session_count_android_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "rumMobileReplaySessionCountIosAggSum": {
+      "baseName": "rum_mobile_replay_session_count_ios_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "rumMobileReplaySessionCountKotlinmultiplatformAggSum": {
+      "baseName": "rum_mobile_replay_session_count_kotlinmultiplatform_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "rumMobileReplaySessionCountReactnativeAggSum": {
+      "baseName": "rum_mobile_replay_session_count_reactnative_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "rumReplaySessionCountAggSum": {
+      "baseName": "rum_replay_session_count_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "rumSessionCountAggSum": {
+      "baseName": "rum_session_count_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "rumSessionReplayAddOnAggSum": {
+      "baseName": "rum_session_replay_add_on_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "rumTotalSessionCountAggSum": {
+      "baseName": "rum_total_session_count_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "rumUnitsAggSum": {
+      "baseName": "rum_units_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "scaFargateCountAvgSum": {
+      "baseName": "sca_fargate_count_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "scaFargateCountHwmSum": {
+      "baseName": "sca_fargate_count_hwm_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "sdsApmScannedBytesSum": {
+      "baseName": "sds_apm_scanned_bytes_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "sdsEventsScannedBytesSum": {
+      "baseName": "sds_events_scanned_bytes_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "sdsLogsScannedBytesSum": {
+      "baseName": "sds_logs_scanned_bytes_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "sdsRumScannedBytesSum": {
+      "baseName": "sds_rum_scanned_bytes_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "sdsTotalScannedBytesSum": {
+      "baseName": "sds_total_scanned_bytes_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsApmApmAzureAppserviceInstancesAvgSum": {
+      "baseName": "serverless_apps_apm_apm_azure_appservice_instances_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsApmApmAzureAzurefunctionInstancesAvgSum": {
+      "baseName": "serverless_apps_apm_apm_azure_azurefunction_instances_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsApmApmAzureContainerappInstancesAvgSum": {
+      "baseName": "serverless_apps_apm_apm_azure_containerapp_instances_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsApmApmFargateEcsTasksAvgSum": {
+      "baseName": "serverless_apps_apm_apm_fargate_ecs_tasks_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsApmApmGcpCloudfunctionInstancesAvgSum": {
+      "baseName": "serverless_apps_apm_apm_gcp_cloudfunction_instances_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsApmApmGcpCloudrunInstancesAvgSum": {
+      "baseName": "serverless_apps_apm_apm_gcp_cloudrun_instances_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsApmApmGcpGkeAutopilotPodsAvgSum": {
+      "baseName": "serverless_apps_apm_apm_gcp_gke_autopilot_pods_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsApmAvgSum": {
+      "baseName": "serverless_apps_apm_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvgSum": {
+      "baseName": "serverless_apps_apm_excl_fargate_apm_azure_appservice_instances_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvgSum": {
+      "baseName": "serverless_apps_apm_excl_fargate_apm_azure_azurefunction_instances_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsApmExclFargateApmAzureContainerappInstancesAvgSum": {
+      "baseName": "serverless_apps_apm_excl_fargate_apm_azure_containerapp_instances_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvgSum": {
+      "baseName": "serverless_apps_apm_excl_fargate_apm_gcp_cloudfunction_instances_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvgSum": {
+      "baseName": "serverless_apps_apm_excl_fargate_apm_gcp_cloudrun_instances_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvgSum": {
+      "baseName": "serverless_apps_apm_excl_fargate_apm_gcp_gke_autopilot_pods_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsApmExclFargateAvgSum": {
+      "baseName": "serverless_apps_apm_excl_fargate_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsAzureContainerAppInstancesAvgSum": {
+      "baseName": "serverless_apps_azure_container_app_instances_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsAzureCountAvgSum": {
+      "baseName": "serverless_apps_azure_count_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsAzureFunctionAppInstancesAvgSum": {
+      "baseName": "serverless_apps_azure_function_app_instances_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsAzureWebAppInstancesAvgSum": {
+      "baseName": "serverless_apps_azure_web_app_instances_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsDsmFargateTasksAvgSum": {
+      "baseName": "serverless_apps_dsm_fargate_tasks_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsEcsAvgSum": {
+      "baseName": "serverless_apps_ecs_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsEksAvgSum": {
+      "baseName": "serverless_apps_eks_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsExclFargateAvgSum": {
+      "baseName": "serverless_apps_excl_fargate_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsExclFargateAzureContainerAppInstancesAvgSum": {
+      "baseName": "serverless_apps_excl_fargate_azure_container_app_instances_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsExclFargateAzureFunctionAppInstancesAvgSum": {
+      "baseName": "serverless_apps_excl_fargate_azure_function_app_instances_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsExclFargateAzureWebAppInstancesAvgSum": {
+      "baseName": "serverless_apps_excl_fargate_azure_web_app_instances_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvgSum": {
+      "baseName": "serverless_apps_excl_fargate_google_cloud_functions_instances_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsExclFargateGoogleCloudRunInstancesAvgSum": {
+      "baseName": "serverless_apps_excl_fargate_google_cloud_run_instances_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsExclFargateInfraGcpGkeAutopilotPodsAvgSum": {
+      "baseName": "serverless_apps_excl_fargate_infra_gcp_gke_autopilot_pods_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsGoogleCloudFunctionsInstancesAvgSum": {
+      "baseName": "serverless_apps_google_cloud_functions_instances_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsGoogleCloudRunInstancesAvgSum": {
+      "baseName": "serverless_apps_google_cloud_run_instances_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsGoogleCountAvgSum": {
+      "baseName": "serverless_apps_google_count_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsInfraGcpGkeAutopilotPodsAvgSum": {
+      "baseName": "serverless_apps_infra_gcp_gke_autopilot_pods_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "serverlessAppsTotalCountAvgSum": {
+      "baseName": "serverless_apps_total_count_avg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "siem12moRetentionAggSum": {
+      "baseName": "siem_12mo_retention_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "siem6moRetentionAggSum": {
+      "baseName": "siem_6mo_retention_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "siemAnalyzedLogsAddOnCountAggSum": {
+      "baseName": "siem_analyzed_logs_add_on_count_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "snmpDeviceCountAggSum": {
+      "baseName": "snmp_device_count_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "snmpDeviceCountTop99pSum": {
+      "baseName": "snmp_device_count_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "startDate": {
+      "baseName": "start_date",
+      "type": "Date",
+      "format": "date-time",
+    },
+    "syntheticsBrowserCheckCallsCountAggSum": {
+      "baseName": "synthetics_browser_check_calls_count_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "syntheticsCheckCallsCountAggSum": {
+      "baseName": "synthetics_check_calls_count_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "syntheticsMobileTestRunsAggSum": {
+      "baseName": "synthetics_mobile_test_runs_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "syntheticsParallelTestingMaxSlotsHwmSum": {
+      "baseName": "synthetics_parallel_testing_max_slots_hwm_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "traceSearchIndexedEventsCountAggSum": {
+      "baseName": "trace_search_indexed_events_count_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "twolIngestedEventsBytesAggSum": {
+      "baseName": "twol_ingested_events_bytes_agg_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "universalServiceMonitoringHostTop99pSum": {
+      "baseName": "universal_service_monitoring_host_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "usage": {
+      "baseName": "usage",
+      "type": "Array<UsageSummaryDate>",
+    },
+    "vsphereHostTop99pSum": {
+      "baseName": "vsphere_host_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "vulnManagementHostCountTop99pSum": {
+      "baseName": "vuln_management_host_count_top99p_sum",
+      "type": "number",
+      "format": "int64",
+    },
+    "workflowExecutionsUsageAggSum": {
+      "baseName": "workflow_executions_usage_agg_sum",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -2905,8 +2898,34 @@ export class UsageSummaryResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageSummaryResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

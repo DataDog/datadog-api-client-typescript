@@ -6,23 +6,28 @@
 import { AiCustomRuleDataType } from "./AiCustomRuleDataType";
 import { AiCustomRuleRequestAttributes } from "./AiCustomRuleRequestAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request data for creating an AI custom rule.
- */
+*/
 export class AiCustomRuleRequestData {
   /**
    * Attributes for creating an AI custom rule.
-   */
+  */
   "attributes"?: AiCustomRuleRequestAttributes;
   /**
    * The rule identifier, which must match the name.
-   */
+  */
   "id"?: string;
   /**
    * AI custom rule resource type.
-   */
+  */
   "type"?: AiCustomRuleDataType;
 
   /**
@@ -30,7 +35,7 @@ export class AiCustomRuleRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class AiCustomRuleRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AiCustomRuleRequestAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AiCustomRuleRequestAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "AiCustomRuleDataType",
+    "type": {
+      "baseName": "type",
+      "type": "AiCustomRuleDataType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class AiCustomRuleRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AiCustomRuleRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

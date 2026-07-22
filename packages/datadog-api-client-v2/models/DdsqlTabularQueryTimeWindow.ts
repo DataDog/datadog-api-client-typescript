@@ -4,22 +4,27 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Time window scoping the underlying data sources, expressed in Unix milliseconds
  * since the epoch. Inclusive on `from_timestamp`, exclusive on `to_timestamp`.
  * Results from static tables (for example, `dd.hosts`) are not affected by the
  * time window, but the field must still be provided.
- */
+*/
 export class DdsqlTabularQueryTimeWindow {
   /**
    * Start of the query window (inclusive), in Unix milliseconds since the epoch.
-   */
+  */
   "fromTimestamp": number;
   /**
    * End of the query window (exclusive), in Unix milliseconds since the epoch.
-   */
+  */
   "toTimestamp": number;
 
   /**
@@ -27,7 +32,7 @@ export class DdsqlTabularQueryTimeWindow {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -38,17 +43,17 @@ export class DdsqlTabularQueryTimeWindow {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    fromTimestamp: {
-      baseName: "from_timestamp",
-      type: "number",
-      required: true,
-      format: "int64",
+    "fromTimestamp": {
+      "baseName": "from_timestamp",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    toTimestamp: {
-      baseName: "to_timestamp",
-      type: "number",
-      required: true,
-      format: "int64",
+    "toTimestamp": {
+      "baseName": "to_timestamp",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -60,8 +65,34 @@ export class DdsqlTabularQueryTimeWindow {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DdsqlTabularQueryTimeWindow.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Condition for counting user return.
- */
+*/
 
-export type RetentionReturnCondition =
-  | typeof CONVERSION_ON
-  | typeof CONVERSION_ON_OR_AFTER
-  | UnparsedObject;
-export const CONVERSION_ON = "conversion_on";
-export const CONVERSION_ON_OR_AFTER = "conversion_on_or_after";
+export type RetentionReturnCondition = typeof CONVERSION_ON| typeof CONVERSION_ON_OR_AFTER | UnparsedObject;
+export const CONVERSION_ON = 'conversion_on';
+export const CONVERSION_ON_OR_AFTER = 'conversion_on_or_after';

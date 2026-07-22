@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The cardinality tracking algorithm to use.
- */
+*/
 
-export type ObservabilityPipelineTagCardinalityLimitProcessorTrackingModeMode =
-  | typeof EXACT_FINGERPRINT
-  | typeof PROBABILISTIC
-  | UnparsedObject;
-export const EXACT_FINGERPRINT = "exact_fingerprint";
-export const PROBABILISTIC = "probabilistic";
+export type ObservabilityPipelineTagCardinalityLimitProcessorTrackingModeMode = typeof EXACT_FINGERPRINT| typeof PROBABILISTIC | UnparsedObject;
+export const EXACT_FINGERPRINT = 'exact_fingerprint';
+export const PROBABILISTIC = 'probabilistic';

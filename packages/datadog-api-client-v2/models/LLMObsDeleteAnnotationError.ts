@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A partial error for a single annotation that could not be deleted.
- */
+*/
 export class LLMObsDeleteAnnotationError {
   /**
    * ID of the annotation that could not be deleted.
-   */
+  */
   "annotationId": string;
   /**
    * Error message.
-   */
+  */
   "error": string;
 
   /**
@@ -24,7 +29,7 @@ export class LLMObsDeleteAnnotationError {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,15 +40,15 @@ export class LLMObsDeleteAnnotationError {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    annotationId: {
-      baseName: "annotation_id",
-      type: "string",
-      required: true,
+    "annotationId": {
+      "baseName": "annotation_id",
+      "type": "string",
+      "required": true,
     },
-    error: {
-      baseName: "error",
-      type: "string",
-      required: true,
+    "error": {
+      "baseName": "error",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class LLMObsDeleteAnnotationError {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDeleteAnnotationError.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

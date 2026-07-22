@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of the resource, must always be `agent_rule`
- */
+*/
 
-export type CloudWorkloadSecurityAgentRuleType =
-  | typeof AGENT_RULE
-  | UnparsedObject;
-export const AGENT_RULE = "agent_rule";
+export type CloudWorkloadSecurityAgentRuleType = typeof AGENT_RULE | UnparsedObject;
+export const AGENT_RULE = 'agent_rule';

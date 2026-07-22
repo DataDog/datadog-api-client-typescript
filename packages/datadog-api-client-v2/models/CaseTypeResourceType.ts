@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * JSON:API resource type for case types.
- */
+*/
 
 export type CaseTypeResourceType = typeof CASE_TYPE | UnparsedObject;
-export const CASE_TYPE = "case_type";
+export const CASE_TYPE = 'case_type';

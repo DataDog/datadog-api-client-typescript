@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An included related resource.
- */
+*/
 export class SyntheticsTestResultIncludedItem {
   /**
    * Attributes of the included resource.
-   */
-  "attributes"?: { [key: string]: any };
+  */
+  "attributes"?: { [key: string]: any; };
   /**
    * ID of the included resource.
-   */
+  */
   "id"?: string;
   /**
    * Type of the included resource.
-   */
+  */
   "type"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class SyntheticsTestResultIncludedItem {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class SyntheticsTestResultIncludedItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "{ [key: string]: any; }",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "{ [key: string]: any; }",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class SyntheticsTestResultIncludedItem {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultIncludedItem.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

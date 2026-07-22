@@ -6,23 +6,28 @@
 import { ServiceNowUserAttributes } from "./ServiceNowUserAttributes";
 import { ServiceNowUserType } from "./ServiceNowUserType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for a ServiceNow user
- */
+*/
 export class ServiceNowUserData {
   /**
    * Attributes of a ServiceNow user
-   */
+  */
   "attributes": ServiceNowUserAttributes;
   /**
    * Unique identifier for the ServiceNow user
-   */
+  */
   "id": string;
   /**
    * Type identifier for ServiceNow user resources
-   */
+  */
   "type": ServiceNowUserType;
 
   /**
@@ -30,7 +35,7 @@ export class ServiceNowUserData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,21 +46,21 @@ export class ServiceNowUserData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ServiceNowUserAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ServiceNowUserAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    type: {
-      baseName: "type",
-      type: "ServiceNowUserType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ServiceNowUserType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class ServiceNowUserData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceNowUserData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

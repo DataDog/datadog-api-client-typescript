@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * JSON:API resource type for OAuth2 well-known sites environment.
- */
+*/
 
 export type OAuth2WellKnownSitesEnvType = typeof ENV | UnparsedObject;
-export const ENV = "env";
+export const ENV = 'env';

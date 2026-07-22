@@ -9,35 +9,40 @@ import { RetentionFilters } from "./RetentionFilters";
 import { RetentionGroupBy } from "./RetentionGroupBy";
 import { RetentionSearch } from "./RetentionSearch";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Retention query definition.
- */
+*/
 export class RetentionQuery {
   /**
    * Compute configuration for retention queries.
-   */
+  */
   "compute": RetentionCompute;
   /**
    * Data source for retention queries.
-   */
+  */
   "dataSource": RetentionDataSource;
   /**
    * Filters for retention queries.
-   */
+  */
   "filters"?: RetentionFilters;
   /**
    * Group by configuration.
-   */
+  */
   "groupBy"?: Array<RetentionGroupBy>;
   /**
    * Name of the query.
-   */
+  */
   "name"?: string;
   /**
    * Search configuration for retention queries.
-   */
+  */
   "search": RetentionSearch;
 
   /**
@@ -49,41 +54,67 @@ export class RetentionQuery {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    compute: {
-      baseName: "compute",
-      type: "RetentionCompute",
-      required: true,
+    "compute": {
+      "baseName": "compute",
+      "type": "RetentionCompute",
+      "required": true,
     },
-    dataSource: {
-      baseName: "data_source",
-      type: "RetentionDataSource",
-      required: true,
+    "dataSource": {
+      "baseName": "data_source",
+      "type": "RetentionDataSource",
+      "required": true,
     },
-    filters: {
-      baseName: "filters",
-      type: "RetentionFilters",
+    "filters": {
+      "baseName": "filters",
+      "type": "RetentionFilters",
     },
-    groupBy: {
-      baseName: "group_by",
-      type: "Array<RetentionGroupBy>",
+    "groupBy": {
+      "baseName": "group_by",
+      "type": "Array<RetentionGroupBy>",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    search: {
-      baseName: "search",
-      type: "RetentionSearch",
-      required: true,
-    },
+    "search": {
+      "baseName": "search",
+      "type": "RetentionSearch",
+      "required": true,
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RetentionQuery.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a Cloud Cost Management tag source.
- */
+*/
 export class CostTagKeySourceAttributes {
   /**
    * The tag key name.
-   */
+  */
   "tagKey": string;
   /**
    * Origins where this tag key was observed (for example, `aws-user-defined`).
-   */
+  */
   "tagSources": Array<string>;
 
   /**
@@ -24,7 +29,7 @@ export class CostTagKeySourceAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,15 +40,15 @@ export class CostTagKeySourceAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    tagKey: {
-      baseName: "tag_key",
-      type: "string",
-      required: true,
+    "tagKey": {
+      "baseName": "tag_key",
+      "type": "string",
+      "required": true,
     },
-    tagSources: {
-      baseName: "tag_sources",
-      type: "Array<string>",
-      required: true,
+    "tagSources": {
+      "baseName": "tag_sources",
+      "type": "Array<string>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class CostTagKeySourceAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CostTagKeySourceAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

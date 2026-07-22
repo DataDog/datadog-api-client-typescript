@@ -6,19 +6,24 @@
 import { AWSCcmConfigRequestAttributes } from "./AWSCcmConfigRequestAttributes";
 import { AWSCcmConfigType } from "./AWSCcmConfigType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * AWS CCM Config Create/Update Request data.
- */
+*/
 export class AWSCcmConfigRequestData {
   /**
    * AWS CCM Config attributes for Create/Update requests.
-   */
+  */
   "attributes": AWSCcmConfigRequestAttributes;
   /**
    * AWS CCM Config resource type.
-   */
+  */
   "type": AWSCcmConfigType;
 
   /**
@@ -26,7 +31,7 @@ export class AWSCcmConfigRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class AWSCcmConfigRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AWSCcmConfigRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AWSCcmConfigRequestAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "AWSCcmConfigType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AWSCcmConfigType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class AWSCcmConfigRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSCcmConfigRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

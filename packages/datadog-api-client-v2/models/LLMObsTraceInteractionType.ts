@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of an upstream-entity interaction.
- */
+*/
 
-export type LLMObsTraceInteractionType =
-  | typeof TRACE
-  | typeof EXPERIMENT_TRACE
-  | typeof SESSION
-  | UnparsedObject;
-export const TRACE = "trace";
-export const EXPERIMENT_TRACE = "experiment_trace";
-export const SESSION = "session";
+export type LLMObsTraceInteractionType = typeof TRACE| typeof EXPERIMENT_TRACE| typeof SESSION | UnparsedObject;
+export const TRACE = 'trace';
+export const EXPERIMENT_TRACE = 'experiment_trace';
+export const SESSION = 'session';

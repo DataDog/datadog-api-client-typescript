@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A user referenced from a dashboard usage record (author or viewer).
- */
+*/
 export class DashboardUsageUser {
   /**
    * Datadog handle (login) of the user.
-   */
+  */
   "handle"?: string;
   /**
    * The user ID.
-   */
+  */
   "id"?: string;
   /**
    * Whether the user account is disabled.
-   */
+  */
   "isDisabled"?: boolean;
   /**
    * Display name of the user.
-   */
+  */
   "name"?: string;
 
   /**
@@ -32,7 +37,7 @@ export class DashboardUsageUser {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,21 +48,21 @@ export class DashboardUsageUser {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    handle: {
-      baseName: "handle",
-      type: "string",
+    "handle": {
+      "baseName": "handle",
+      "type": "string",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    isDisabled: {
-      baseName: "is_disabled",
-      type: "boolean",
+    "isDisabled": {
+      "baseName": "is_disabled",
+      "type": "boolean",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -69,8 +74,34 @@ export class DashboardUsageUser {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DashboardUsageUser.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,23 +6,28 @@
 import { CostTagAttributes } from "./CostTagAttributes";
 import { CostTagType } from "./CostTagType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A Cloud Cost Management tag.
- */
+*/
 export class CostTag {
   /**
    * Attributes of a Cloud Cost Management tag.
-   */
+  */
   "attributes": CostTagAttributes;
   /**
    * The tag identifier, equal to its `key:value` representation.
-   */
+  */
   "id": string;
   /**
    * Type of the Cloud Cost Management tag resource.
-   */
+  */
   "type": CostTagType;
 
   /**
@@ -30,7 +35,7 @@ export class CostTag {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class CostTag {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CostTagAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CostTagAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CostTagType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CostTagType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class CostTag {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CostTag.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,23 +6,28 @@
 import { CostTagKeyMetadataAttributes } from "./CostTagKeyMetadataAttributes";
 import { CostTagKeyMetadataType } from "./CostTagKeyMetadataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A Cloud Cost Management tag key metadata entry, aggregating coverage and example values for a single tag key, metric, and period.
- */
+*/
 export class CostTagKeyMetadata {
   /**
    * Attributes of a Cloud Cost Management tag key metadata entry.
-   */
+  */
   "attributes": CostTagKeyMetadataAttributes;
   /**
    * A composite identifier of the form `tag_key:metric` for monthly roll-ups, or `tag_key:metric:YYYY-MM-DD` when `filter[daily]=true`.
-   */
+  */
   "id": string;
   /**
    * Type of the Cloud Cost Management tag key metadata resource.
-   */
+  */
   "type": CostTagKeyMetadataType;
 
   /**
@@ -30,7 +35,7 @@ export class CostTagKeyMetadata {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class CostTagKeyMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CostTagKeyMetadataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CostTagKeyMetadataAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CostTagKeyMetadataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CostTagKeyMetadataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class CostTagKeyMetadata {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CostTagKeyMetadata.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

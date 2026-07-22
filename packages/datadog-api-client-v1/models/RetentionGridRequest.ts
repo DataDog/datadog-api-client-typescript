@@ -6,19 +6,24 @@
 import { RetentionGridRequestType } from "./RetentionGridRequestType";
 import { RetentionQuery } from "./RetentionQuery";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Retention grid widget request.
- */
+*/
 export class RetentionGridRequest {
   /**
    * Retention query definition.
-   */
+  */
   "query": RetentionQuery;
   /**
    * Request type for retention grid widget.
-   */
+  */
   "requestType": RetentionGridRequestType;
 
   /**
@@ -30,24 +35,50 @@ export class RetentionGridRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    query: {
-      baseName: "query",
-      type: "RetentionQuery",
-      required: true,
+    "query": {
+      "baseName": "query",
+      "type": "RetentionQuery",
+      "required": true,
     },
-    requestType: {
-      baseName: "request_type",
-      type: "RetentionGridRequestType",
-      required: true,
-    },
+    "requestType": {
+      "baseName": "request_type",
+      "type": "RetentionGridRequestType",
+      "required": true,
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RetentionGridRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

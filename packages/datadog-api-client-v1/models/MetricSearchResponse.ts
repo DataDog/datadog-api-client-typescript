@@ -5,15 +5,20 @@
  */
 import { MetricSearchResponseResults } from "./MetricSearchResponseResults";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object containing the list of metrics matching the search query.
- */
+*/
 export class MetricSearchResponse {
   /**
    * Search result.
-   */
+  */
   "results"?: MetricSearchResponseResults;
 
   /**
@@ -21,7 +26,7 @@ export class MetricSearchResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class MetricSearchResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    results: {
-      baseName: "results",
-      type: "MetricSearchResponseResults",
+    "results": {
+      "baseName": "results",
+      "type": "MetricSearchResponseResults",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class MetricSearchResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricSearchResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

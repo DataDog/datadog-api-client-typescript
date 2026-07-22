@@ -5,15 +5,20 @@
  */
 import { UpdateRulesetRequestData } from "./UpdateRulesetRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `UpdateRulesetRequest` object.
- */
+*/
 export class UpdateRulesetRequest {
   /**
    * The definition of `UpdateRulesetRequestData` object.
-   */
+  */
   "data"?: UpdateRulesetRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class UpdateRulesetRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class UpdateRulesetRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "UpdateRulesetRequestData",
+    "data": {
+      "baseName": "data",
+      "type": "UpdateRulesetRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class UpdateRulesetRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateRulesetRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

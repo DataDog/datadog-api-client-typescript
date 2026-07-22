@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Indicates that the notification channel is a phone
- */
+*/
 
 export type NotificationChannelPhoneConfigType = typeof PHONE | UnparsedObject;
-export const PHONE = "phone";
+export const PHONE = 'phone';

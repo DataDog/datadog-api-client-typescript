@@ -5,15 +5,20 @@
  */
 import { IncidentTypeObject } from "./IncidentTypeObject";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response with a list of incident types.
- */
+*/
 export class IncidentTypeListResponse {
   /**
    * An array of incident type objects.
-   */
+  */
   "data": Array<IncidentTypeObject>;
 
   /**
@@ -21,7 +26,7 @@ export class IncidentTypeListResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class IncidentTypeListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<IncidentTypeObject>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<IncidentTypeObject>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class IncidentTypeListResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentTypeListResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

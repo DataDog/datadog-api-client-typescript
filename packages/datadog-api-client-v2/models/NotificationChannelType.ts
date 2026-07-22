@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Indicates that the resource is of type 'notification_channels'.
- */
+*/
 
-export type NotificationChannelType =
-  | typeof NOTIFICATION_CHANNELS
-  | UnparsedObject;
-export const NOTIFICATION_CHANNELS = "notification_channels";
+export type NotificationChannelType = typeof NOTIFICATION_CHANNELS | UnparsedObject;
+export const NOTIFICATION_CHANNELS = 'notification_channels';

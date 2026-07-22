@@ -5,35 +5,40 @@
  */
 import { LLMObsExperimentStatus } from "./LLMObsExperimentStatus";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for updating an LLM Observability experiment.
- */
+*/
 export class LLMObsExperimentUpdateDataAttributesRequest {
   /**
    * Updated identifier of the dataset used in this experiment.
-   */
+  */
   "datasetId"?: string;
   /**
    * Updated description of the experiment.
-   */
+  */
   "description"?: string;
   /**
    * Error message describing why the experiment failed, if applicable.
-   */
+  */
   "error"?: string;
   /**
    * Updated arbitrary metadata associated with the experiment.
-   */
-  "metadata"?: { [key: string]: any };
+  */
+  "metadata"?: { [key: string]: any; };
   /**
    * Updated name of the experiment.
-   */
+  */
   "name"?: string;
   /**
    * Execution status of an LLM Observability experiment.
-   */
+  */
   "status"?: LLMObsExperimentStatus;
 
   /**
@@ -41,7 +46,7 @@ export class LLMObsExperimentUpdateDataAttributesRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -52,29 +57,29 @@ export class LLMObsExperimentUpdateDataAttributesRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    datasetId: {
-      baseName: "dataset_id",
-      type: "string",
+    "datasetId": {
+      "baseName": "dataset_id",
+      "type": "string",
     },
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    error: {
-      baseName: "error",
-      type: "string",
+    "error": {
+      "baseName": "error",
+      "type": "string",
     },
-    metadata: {
-      baseName: "metadata",
-      type: "{ [key: string]: any; }",
+    "metadata": {
+      "baseName": "metadata",
+      "type": "{ [key: string]: any; }",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    status: {
-      baseName: "status",
-      type: "LLMObsExperimentStatus",
+    "status": {
+      "baseName": "status",
+      "type": "LLMObsExperimentStatus",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -86,8 +91,34 @@ export class LLMObsExperimentUpdateDataAttributesRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsExperimentUpdateDataAttributesRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

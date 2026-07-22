@@ -5,15 +5,20 @@
  */
 import { CreatePageResponseData } from "./CreatePageResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The full response object after creating a new On-Call Page.
- */
+*/
 export class CreatePageResponse {
   /**
    * The information returned after successfully creating a page.
-   */
+  */
   "data"?: CreatePageResponseData;
 
   /**
@@ -21,7 +26,7 @@ export class CreatePageResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class CreatePageResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CreatePageResponseData",
+    "data": {
+      "baseName": "data",
+      "type": "CreatePageResponseData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class CreatePageResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreatePageResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

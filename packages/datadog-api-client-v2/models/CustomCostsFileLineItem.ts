@@ -4,47 +4,52 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Line item details from a Custom Costs file.
- */
+*/
 export class CustomCostsFileLineItem {
   /**
    * Total cost in the cost file.
-   */
+  */
   "billedCost"?: number;
   /**
    * Currency used in the Custom Costs file.
-   */
+  */
   "billingCurrency"?: string;
   /**
    * Description for the line item cost.
-   */
+  */
   "chargeDescription"?: string;
   /**
    * End date of the usage charge.
-   */
+  */
   "chargePeriodEnd"?: string;
   /**
    * Start date of the usage charge.
-   */
+  */
   "chargePeriodStart"?: string;
   /**
    * Name of the provider for the line item.
-   */
+  */
   "providerName"?: string;
   /**
    * Additional tags for the line item.
-   */
-  "tags"?: { [key: string]: string };
+  */
+  "tags"?: { [key: string]: string; };
 
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -55,34 +60,34 @@ export class CustomCostsFileLineItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    billedCost: {
-      baseName: "BilledCost",
-      type: "number",
-      format: "double",
+    "billedCost": {
+      "baseName": "BilledCost",
+      "type": "number",
+      "format": "double",
     },
-    billingCurrency: {
-      baseName: "BillingCurrency",
-      type: "string",
+    "billingCurrency": {
+      "baseName": "BillingCurrency",
+      "type": "string",
     },
-    chargeDescription: {
-      baseName: "ChargeDescription",
-      type: "string",
+    "chargeDescription": {
+      "baseName": "ChargeDescription",
+      "type": "string",
     },
-    chargePeriodEnd: {
-      baseName: "ChargePeriodEnd",
-      type: "string",
+    "chargePeriodEnd": {
+      "baseName": "ChargePeriodEnd",
+      "type": "string",
     },
-    chargePeriodStart: {
-      baseName: "ChargePeriodStart",
-      type: "string",
+    "chargePeriodStart": {
+      "baseName": "ChargePeriodStart",
+      "type": "string",
     },
-    providerName: {
-      baseName: "ProviderName",
-      type: "string",
+    "providerName": {
+      "baseName": "ProviderName",
+      "type": "string",
     },
-    tags: {
-      baseName: "Tags",
-      type: "{ [key: string]: string; }",
+    "tags": {
+      "baseName": "Tags",
+      "type": "{ [key: string]: string; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -94,8 +99,34 @@ export class CustomCostsFileLineItem {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomCostsFileLineItem.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

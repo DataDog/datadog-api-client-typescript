@@ -5,15 +5,20 @@
  */
 import { MSTeamsIntegrationMetadataTeamsItem } from "./MSTeamsIntegrationMetadataTeamsItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Incident integration metadata for the Microsoft Teams integration.
- */
+*/
 export class MSTeamsIntegrationMetadata {
   /**
    * Array of Microsoft Teams in this integration metadata.
-   */
+  */
   "teams": Array<MSTeamsIntegrationMetadataTeamsItem>;
 
   /**
@@ -21,7 +26,7 @@ export class MSTeamsIntegrationMetadata {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class MSTeamsIntegrationMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    teams: {
-      baseName: "teams",
-      type: "Array<MSTeamsIntegrationMetadataTeamsItem>",
-      required: true,
+    "teams": {
+      "baseName": "teams",
+      "type": "Array<MSTeamsIntegrationMetadataTeamsItem>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class MSTeamsIntegrationMetadata {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MSTeamsIntegrationMetadata.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

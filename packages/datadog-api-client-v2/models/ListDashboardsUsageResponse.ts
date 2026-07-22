@@ -7,23 +7,28 @@ import { DashboardUsage } from "./DashboardUsage";
 import { ListDashboardsUsageResponseLinks } from "./ListDashboardsUsageResponseLinks";
 import { ListDashboardsUsageResponseMeta } from "./ListDashboardsUsageResponseMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Paginated list of dashboard usage records.
- */
+*/
 export class ListDashboardsUsageResponse {
   /**
    * Dashboard usage records, one per dashboard in the caller's organization.
-   */
+  */
   "data": Array<DashboardUsage>;
   /**
    * Pagination links for a list of dashboard usage records.
-   */
+  */
   "links"?: ListDashboardsUsageResponseLinks;
   /**
    * Pagination metadata for a list of dashboard usage records.
-   */
+  */
   "meta": ListDashboardsUsageResponseMeta;
 
   /**
@@ -31,7 +36,7 @@ export class ListDashboardsUsageResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,19 +47,19 @@ export class ListDashboardsUsageResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<DashboardUsage>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<DashboardUsage>",
+      "required": true,
     },
-    links: {
-      baseName: "links",
-      type: "ListDashboardsUsageResponseLinks",
+    "links": {
+      "baseName": "links",
+      "type": "ListDashboardsUsageResponseLinks",
     },
-    meta: {
-      baseName: "meta",
-      type: "ListDashboardsUsageResponseMeta",
-      required: true,
+    "meta": {
+      "baseName": "meta",
+      "type": "ListDashboardsUsageResponseMeta",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class ListDashboardsUsageResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListDashboardsUsageResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

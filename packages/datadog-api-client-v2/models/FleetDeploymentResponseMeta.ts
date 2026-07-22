@@ -5,15 +5,20 @@
  */
 import { FleetDeploymentHostsPage } from "./FleetDeploymentHostsPage";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metadata for a single deployment response, including pagination information for hosts.
- */
+*/
 export class FleetDeploymentResponseMeta {
   /**
    * Pagination details for the list of hosts in a deployment.
-   */
+  */
   "hosts"?: FleetDeploymentHostsPage;
 
   /**
@@ -21,7 +26,7 @@ export class FleetDeploymentResponseMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class FleetDeploymentResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    hosts: {
-      baseName: "hosts",
-      type: "FleetDeploymentHostsPage",
+    "hosts": {
+      "baseName": "hosts",
+      "type": "FleetDeploymentHostsPage",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class FleetDeploymentResponseMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FleetDeploymentResponseMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

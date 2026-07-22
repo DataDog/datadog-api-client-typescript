@@ -7,55 +7,60 @@ import { FormDataDefinition } from "./FormDataDefinition";
 import { FormUiDefinition } from "./FormUiDefinition";
 import { FormVersionState } from "./FormVersionState";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes of a form version.
- */
+*/
 export class FormVersionAttributes {
   /**
    * The time at which the version was created.
-   */
+  */
   "createdAt": Date;
   /**
    * A JSON Schema definition that describes the form's data fields.
-   */
+  */
   "dataDefinition": FormDataDefinition;
   /**
    * The signature of the version definition.
-   */
+  */
   "definitionSignature": string;
   /**
    * The ETag for optimistic concurrency control.
-   */
-  "etag": string | null;
+  */
+  "etag": string|null;
   /**
    * The ID of the form version.
-   */
+  */
   "id"?: string;
   /**
    * The time at which the version was last modified.
-   */
+  */
   "modifiedAt": Date;
   /**
    * The state of a form version.
-   */
+  */
   "state": FormVersionState;
   /**
    * UI configuration for rendering form fields, including widget overrides, field ordering, and themes.
-   */
+  */
   "uiDefinition": FormUiDefinition;
   /**
    * The ID of the user who created this version.
-   */
+  */
   "userId": number;
   /**
    * The UUID of the user who created this version.
-   */
+  */
   "userUuid": string;
   /**
    * The sequential version number.
-   */
+  */
   "version": number;
 
   /**
@@ -63,7 +68,7 @@ export class FormVersionAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -74,64 +79,64 @@ export class FormVersionAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    dataDefinition: {
-      baseName: "data_definition",
-      type: "FormDataDefinition",
-      required: true,
+    "dataDefinition": {
+      "baseName": "data_definition",
+      "type": "FormDataDefinition",
+      "required": true,
     },
-    definitionSignature: {
-      baseName: "definition_signature",
-      type: "string",
-      required: true,
+    "definitionSignature": {
+      "baseName": "definition_signature",
+      "type": "string",
+      "required": true,
     },
-    etag: {
-      baseName: "etag",
-      type: "string",
-      required: true,
+    "etag": {
+      "baseName": "etag",
+      "type": "string",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "modifiedAt": {
+      "baseName": "modified_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    state: {
-      baseName: "state",
-      type: "FormVersionState",
-      required: true,
+    "state": {
+      "baseName": "state",
+      "type": "FormVersionState",
+      "required": true,
     },
-    uiDefinition: {
-      baseName: "ui_definition",
-      type: "FormUiDefinition",
-      required: true,
+    "uiDefinition": {
+      "baseName": "ui_definition",
+      "type": "FormUiDefinition",
+      "required": true,
     },
-    userId: {
-      baseName: "user_id",
-      type: "number",
-      required: true,
-      format: "int64",
+    "userId": {
+      "baseName": "user_id",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    userUuid: {
-      baseName: "user_uuid",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "userUuid": {
+      "baseName": "user_uuid",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    version: {
-      baseName: "version",
-      type: "number",
-      required: true,
-      format: "int64",
+    "version": {
+      "baseName": "version",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -143,8 +148,34 @@ export class FormVersionAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FormVersionAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

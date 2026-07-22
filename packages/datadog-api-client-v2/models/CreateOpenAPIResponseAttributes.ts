@@ -5,15 +5,20 @@
  */
 import { OpenAPIEndpoint } from "./OpenAPIEndpoint";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for `CreateOpenAPI`.
- */
+*/
 export class CreateOpenAPIResponseAttributes {
   /**
    * List of endpoints which couldn't be parsed.
-   */
+  */
   "failedEndpoints"?: Array<OpenAPIEndpoint>;
 
   /**
@@ -21,7 +26,7 @@ export class CreateOpenAPIResponseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class CreateOpenAPIResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    failedEndpoints: {
-      baseName: "failed_endpoints",
-      type: "Array<OpenAPIEndpoint>",
+    "failedEndpoints": {
+      "baseName": "failed_endpoints",
+      "type": "Array<OpenAPIEndpoint>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class CreateOpenAPIResponseAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateOpenAPIResponseAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

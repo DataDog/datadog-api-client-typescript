@@ -6,13 +6,15 @@
 import { CloudflareAPITokenUpdate } from "./CloudflareAPITokenUpdate";
 import { CloudflareGlobalAPITokenUpdate } from "./CloudflareGlobalAPITokenUpdate";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of the `CloudflareCredentialsUpdate` object.
- */
+*/
 
-export type CloudflareCredentialsUpdate =
-  | CloudflareAPITokenUpdate
-  | CloudflareGlobalAPITokenUpdate
-  | UnparsedObject;
+export type CloudflareCredentialsUpdate = CloudflareAPITokenUpdate | CloudflareGlobalAPITokenUpdate | UnparsedObject;

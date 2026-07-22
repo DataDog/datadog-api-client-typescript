@@ -6,23 +6,28 @@
 import { InvestigationType } from "./InvestigationType";
 import { ListInvestigationsResponseDataAttributes } from "./ListInvestigationsResponseDataAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for an investigation list item.
- */
+*/
 export class ListInvestigationsResponseData {
   /**
    * Attributes of an investigation list item.
-   */
+  */
   "attributes": ListInvestigationsResponseDataAttributes;
   /**
    * The unique identifier of the investigation.
-   */
+  */
   "id": string;
   /**
    * The resource type for investigations.
-   */
+  */
   "type": InvestigationType;
 
   /**
@@ -30,7 +35,7 @@ export class ListInvestigationsResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class ListInvestigationsResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ListInvestigationsResponseDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ListInvestigationsResponseDataAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "InvestigationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "InvestigationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class ListInvestigationsResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListInvestigationsResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,12 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Cloud provider for commitment programs.
- */
+*/
 
-export type CommitmentsProvider = typeof AWS | typeof AZURE | UnparsedObject;
-export const AWS = "aws";
-export const AZURE = "azure";
+export type CommitmentsProvider = typeof AWS| typeof AZURE | UnparsedObject;
+export const AWS = 'aws';
+export const AZURE = 'azure';

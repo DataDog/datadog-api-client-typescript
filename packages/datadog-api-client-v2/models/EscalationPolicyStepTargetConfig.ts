@@ -5,15 +5,20 @@
  */
 import { EscalationPolicyStepTargetConfigSchedule } from "./EscalationPolicyStepTargetConfigSchedule";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Configuration for an escalation target, such as schedule position.
- */
+*/
 export class EscalationPolicyStepTargetConfig {
   /**
    * Schedule-specific configuration for an escalation target.
-   */
+  */
   "schedule"?: EscalationPolicyStepTargetConfigSchedule;
 
   /**
@@ -21,7 +26,7 @@ export class EscalationPolicyStepTargetConfig {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class EscalationPolicyStepTargetConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    schedule: {
-      baseName: "schedule",
-      type: "EscalationPolicyStepTargetConfigSchedule",
+    "schedule": {
+      "baseName": "schedule",
+      "type": "EscalationPolicyStepTargetConfigSchedule",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class EscalationPolicyStepTargetConfig {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EscalationPolicyStepTargetConfig.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

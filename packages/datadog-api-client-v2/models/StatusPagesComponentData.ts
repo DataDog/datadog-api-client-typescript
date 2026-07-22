@@ -7,27 +7,32 @@ import { StatusPagesComponentDataAttributes } from "./StatusPagesComponentDataAt
 import { StatusPagesComponentDataRelationships } from "./StatusPagesComponentDataRelationships";
 import { StatusPagesComponentGroupType } from "./StatusPagesComponentGroupType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data object for a component.
- */
+*/
 export class StatusPagesComponentData {
   /**
    * The attributes of a component.
-   */
+  */
   "attributes"?: StatusPagesComponentDataAttributes;
   /**
    * The ID of the component.
-   */
+  */
   "id"?: string;
   /**
    * The relationships of a component.
-   */
+  */
   "relationships"?: StatusPagesComponentDataRelationships;
   /**
    * Components resource type.
-   */
+  */
   "type": StatusPagesComponentGroupType;
 
   /**
@@ -35,7 +40,7 @@ export class StatusPagesComponentData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,23 +51,23 @@ export class StatusPagesComponentData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "StatusPagesComponentDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "StatusPagesComponentDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "format": "uuid",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "StatusPagesComponentDataRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "StatusPagesComponentDataRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "StatusPagesComponentGroupType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "StatusPagesComponentGroupType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,8 +79,34 @@ export class StatusPagesComponentData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return StatusPagesComponentData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

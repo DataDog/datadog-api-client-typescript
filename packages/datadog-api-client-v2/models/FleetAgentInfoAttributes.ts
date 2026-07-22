@@ -8,27 +8,32 @@ import { FleetConfigurationLayer } from "./FleetConfigurationLayer";
 import { FleetDetectedIntegration } from "./FleetDetectedIntegration";
 import { FleetIntegrationsByStatus } from "./FleetIntegrationsByStatus";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for agent information.
- */
+*/
 export class FleetAgentInfoAttributes {
   /**
    * Detailed information about a Datadog Agent.
-   */
+  */
   "agentInfos"?: FleetAgentInfoDetails;
   /**
    * Configuration information organized by layers.
-   */
+  */
   "configurationFiles"?: FleetConfigurationLayer;
   /**
    * List of detected integrations.
-   */
+  */
   "detectedIntegrations"?: Array<FleetDetectedIntegration>;
   /**
    * Integrations organized by their status.
-   */
+  */
   "integrations"?: FleetIntegrationsByStatus;
 
   /**
@@ -36,7 +41,7 @@ export class FleetAgentInfoAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,21 +52,21 @@ export class FleetAgentInfoAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    agentInfos: {
-      baseName: "agent_infos",
-      type: "FleetAgentInfoDetails",
+    "agentInfos": {
+      "baseName": "agent_infos",
+      "type": "FleetAgentInfoDetails",
     },
-    configurationFiles: {
-      baseName: "configuration_files",
-      type: "FleetConfigurationLayer",
+    "configurationFiles": {
+      "baseName": "configuration_files",
+      "type": "FleetConfigurationLayer",
     },
-    detectedIntegrations: {
-      baseName: "detected_integrations",
-      type: "Array<FleetDetectedIntegration>",
+    "detectedIntegrations": {
+      "baseName": "detected_integrations",
+      "type": "Array<FleetDetectedIntegration>",
     },
-    integrations: {
-      baseName: "integrations",
-      type: "FleetIntegrationsByStatus",
+    "integrations": {
+      "baseName": "integrations",
+      "type": "FleetIntegrationsByStatus",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -73,8 +78,34 @@ export class FleetAgentInfoAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FleetAgentInfoAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { UpdateAppFavoriteRequestData } from "./UpdateAppFavoriteRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A request to add or remove an app from the current user's favorites.
- */
+*/
 export class UpdateAppFavoriteRequest {
   /**
    * Data for updating an app's favorite status.
-   */
+  */
   "data"?: UpdateAppFavoriteRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class UpdateAppFavoriteRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class UpdateAppFavoriteRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "UpdateAppFavoriteRequestData",
+    "data": {
+      "baseName": "data",
+      "type": "UpdateAppFavoriteRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class UpdateAppFavoriteRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateAppFavoriteRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

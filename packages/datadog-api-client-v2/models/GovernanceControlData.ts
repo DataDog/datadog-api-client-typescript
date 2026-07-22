@@ -6,23 +6,28 @@
 import { GovernanceControlAttributes } from "./GovernanceControlAttributes";
 import { GovernanceControlResourceType } from "./GovernanceControlResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A governance control resource.
- */
+*/
 export class GovernanceControlData {
   /**
    * The attributes of a governance control.
-   */
+  */
   "attributes": GovernanceControlAttributes;
   /**
    * The unique identifier of the control.
-   */
+  */
   "id": string;
   /**
    * JSON:API resource type for a governance control.
-   */
+  */
   "type": GovernanceControlResourceType;
 
   /**
@@ -30,7 +35,7 @@ export class GovernanceControlData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class GovernanceControlData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "GovernanceControlAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "GovernanceControlAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "GovernanceControlResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "GovernanceControlResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class GovernanceControlData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GovernanceControlData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

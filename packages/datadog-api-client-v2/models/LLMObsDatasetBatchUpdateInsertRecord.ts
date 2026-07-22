@@ -6,35 +6,40 @@
 import { AnyValue } from "./AnyValue";
 import { LLMObsDatasetRecordTagOperations } from "./LLMObsDatasetRecordTagOperations";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A record to insert as part of a batch update on an LLM Observability dataset.
- */
+*/
 export class LLMObsDatasetBatchUpdateInsertRecord {
   /**
    * Represents any valid JSON value.
-   */
+  */
   "expectedOutput"?: AnyValue;
   /**
    * Optional user-provided identifier for the record. If omitted, the server generates an identifier.
-   */
+  */
   "id"?: string;
   /**
    * Represents any valid JSON value.
-   */
-  "input": AnyValue | null;
+  */
+  "input": AnyValue|null;
   /**
    * Arbitrary metadata associated with the record.
-   */
-  "metadata"?: { [key: string]: any };
+  */
+  "metadata"?: { [key: string]: any; };
   /**
    * Explicit tag operations for updating records. Operations are applied in order, Remove then Add then Set. `set` is the final override; if specified, the result of `remove` and `add` is discarded.
-   */
+  */
   "tagOperations"?: LLMObsDatasetRecordTagOperations;
   /**
    * List of tag strings.
-   */
+  */
   "tags"?: Array<string>;
 
   /**
@@ -42,7 +47,7 @@ export class LLMObsDatasetBatchUpdateInsertRecord {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -53,30 +58,30 @@ export class LLMObsDatasetBatchUpdateInsertRecord {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    expectedOutput: {
-      baseName: "expected_output",
-      type: "AnyValue",
+    "expectedOutput": {
+      "baseName": "expected_output",
+      "type": "AnyValue",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    input: {
-      baseName: "input",
-      type: "AnyValue",
-      required: true,
+    "input": {
+      "baseName": "input",
+      "type": "AnyValue",
+      "required": true,
     },
-    metadata: {
-      baseName: "metadata",
-      type: "{ [key: string]: any; }",
+    "metadata": {
+      "baseName": "metadata",
+      "type": "{ [key: string]: any; }",
     },
-    tagOperations: {
-      baseName: "tag_operations",
-      type: "LLMObsDatasetRecordTagOperations",
+    "tagOperations": {
+      "baseName": "tag_operations",
+      "type": "LLMObsDatasetRecordTagOperations",
     },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
+    "tags": {
+      "baseName": "tags",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -88,8 +93,34 @@ export class LLMObsDatasetBatchUpdateInsertRecord {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDatasetBatchUpdateInsertRecord.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

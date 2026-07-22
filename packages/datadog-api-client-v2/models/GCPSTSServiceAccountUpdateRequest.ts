@@ -5,15 +5,20 @@
  */
 import { GCPSTSServiceAccountUpdateRequestData } from "./GCPSTSServiceAccountUpdateRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Service account info.
- */
+*/
 export class GCPSTSServiceAccountUpdateRequest {
   /**
    * Data on your service account.
-   */
+  */
   "data"?: GCPSTSServiceAccountUpdateRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class GCPSTSServiceAccountUpdateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class GCPSTSServiceAccountUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "GCPSTSServiceAccountUpdateRequestData",
+    "data": {
+      "baseName": "data",
+      "type": "GCPSTSServiceAccountUpdateRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class GCPSTSServiceAccountUpdateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GCPSTSServiceAccountUpdateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

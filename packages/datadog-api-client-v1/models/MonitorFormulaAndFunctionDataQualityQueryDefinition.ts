@@ -6,47 +6,52 @@
 import { MonitorFormulaAndFunctionDataQualityDataSource } from "./MonitorFormulaAndFunctionDataQualityDataSource";
 import { MonitorFormulaAndFunctionDataQualityMonitorOptions } from "./MonitorFormulaAndFunctionDataQualityMonitorOptions";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A formula and functions data quality query.
- */
+*/
 export class MonitorFormulaAndFunctionDataQualityQueryDefinition {
   /**
    * Data source for data quality queries.
-   */
+  */
   "dataSource": MonitorFormulaAndFunctionDataQualityDataSource;
   /**
    * Filter expression used to match on data entities. Uses Aastra query syntax.
-   */
+  */
   "filter": string;
   /**
    * Optional grouping fields for aggregation.
-   */
+  */
   "groupBy"?: Array<string>;
   /**
    * The data quality measure to query. Common values include:
    * `bytes`, `cardinality`, `custom`, `freshness`, `max`, `mean`, `min`,
    * `nullness`, `percent_negative`, `percent_zero`, `row_count`, `stddev`,
    * `sum`, `uniqueness`. Additional values may be supported.
-   */
+  */
   "measure": string;
   /**
    * Monitor configuration options for data quality queries.
-   */
+  */
   "monitorOptions"?: MonitorFormulaAndFunctionDataQualityMonitorOptions;
   /**
    * Name of the query for use in formulas.
-   */
+  */
   "name": string;
   /**
    * Schema version for the data quality query.
-   */
+  */
   "schemaVersion"?: string;
   /**
    * Optional scoping expression to further filter metrics. Uses metrics filter syntax.
    * This is useful when an entity has been configured to emit metrics with additional tags.
-   */
+  */
   "scope"?: string;
 
   /**
@@ -54,7 +59,7 @@ export class MonitorFormulaAndFunctionDataQualityQueryDefinition {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -65,41 +70,41 @@ export class MonitorFormulaAndFunctionDataQualityQueryDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    dataSource: {
-      baseName: "data_source",
-      type: "MonitorFormulaAndFunctionDataQualityDataSource",
-      required: true,
+    "dataSource": {
+      "baseName": "data_source",
+      "type": "MonitorFormulaAndFunctionDataQualityDataSource",
+      "required": true,
     },
-    filter: {
-      baseName: "filter",
-      type: "string",
-      required: true,
+    "filter": {
+      "baseName": "filter",
+      "type": "string",
+      "required": true,
     },
-    groupBy: {
-      baseName: "group_by",
-      type: "Array<string>",
+    "groupBy": {
+      "baseName": "group_by",
+      "type": "Array<string>",
     },
-    measure: {
-      baseName: "measure",
-      type: "string",
-      required: true,
+    "measure": {
+      "baseName": "measure",
+      "type": "string",
+      "required": true,
     },
-    monitorOptions: {
-      baseName: "monitor_options",
-      type: "MonitorFormulaAndFunctionDataQualityMonitorOptions",
+    "monitorOptions": {
+      "baseName": "monitor_options",
+      "type": "MonitorFormulaAndFunctionDataQualityMonitorOptions",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    schemaVersion: {
-      baseName: "schema_version",
-      type: "string",
+    "schemaVersion": {
+      "baseName": "schema_version",
+      "type": "string",
     },
-    scope: {
-      baseName: "scope",
-      type: "string",
+    "scope": {
+      "baseName": "scope",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -111,8 +116,34 @@ export class MonitorFormulaAndFunctionDataQualityQueryDefinition {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorFormulaAndFunctionDataQualityQueryDefinition.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An integration detected on the agent but not necessarily configured.
- */
+*/
 export class FleetDetectedIntegration {
   /**
    * Escaped integration name.
-   */
+  */
   "escapedName"?: string;
   /**
    * Integration prefix identifier.
-   */
+  */
   "prefix"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class FleetDetectedIntegration {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class FleetDetectedIntegration {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    escapedName: {
-      baseName: "escaped_name",
-      type: "string",
+    "escapedName": {
+      "baseName": "escaped_name",
+      "type": "string",
     },
-    prefix: {
-      baseName: "prefix",
-      type: "string",
+    "prefix": {
+      "baseName": "prefix",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class FleetDetectedIntegration {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FleetDetectedIntegration.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Links attributes.
- */
+*/
 export class ContainerGroupRelationshipsLinks {
   /**
    * Link to related containers.
-   */
+  */
   "related"?: string;
 
   /**
@@ -20,7 +25,7 @@ export class ContainerGroupRelationshipsLinks {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,9 +36,9 @@ export class ContainerGroupRelationshipsLinks {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    related: {
-      baseName: "related",
-      type: "string",
+    "related": {
+      "baseName": "related",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,8 +50,34 @@ export class ContainerGroupRelationshipsLinks {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ContainerGroupRelationshipsLinks.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

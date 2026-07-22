@@ -5,15 +5,20 @@
  */
 import { PlaylistsSessionData } from "./PlaylistsSessionData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A single RUM replay session resource as it appears within a playlist context.
- */
+*/
 export class PlaylistsSession {
   /**
    * Data object representing a session within a playlist, including its identifier, type, and attributes.
-   */
+  */
   "data": PlaylistsSessionData;
 
   /**
@@ -21,7 +26,7 @@ export class PlaylistsSession {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class PlaylistsSession {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "PlaylistsSessionData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "PlaylistsSessionData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class PlaylistsSession {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PlaylistsSession.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

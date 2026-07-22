@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes of the node types response, containing the list of node type definitions for the requested language.
- */
+*/
 export class NodeTypesResponseDataAttributes {
   /**
    * The list of tree-sitter node type definitions for the language.
-   */
-  "nodeTypes": Array<{ [key: string]: any }>;
+  */
+  "nodeTypes": Array<{ [key: string]: any; }>;
 
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,10 +36,10 @@ export class NodeTypesResponseDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    nodeTypes: {
-      baseName: "node_types",
-      type: "Array<{ [key: string]: any; }>",
-      required: true,
+    "nodeTypes": {
+      "baseName": "node_types",
+      "type": "Array<{ [key: string]: any; }>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class NodeTypesResponseDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return NodeTypesResponseDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

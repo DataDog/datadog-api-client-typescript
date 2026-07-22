@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Change request branch resource type.
- */
+*/
 
-export type ChangeRequestBranchResourceType =
-  | typeof CHANGE_REQUEST_BRANCH
-  | UnparsedObject;
-export const CHANGE_REQUEST_BRANCH = "change_request_branch";
+export type ChangeRequestBranchResourceType = typeof CHANGE_REQUEST_BRANCH | UnparsedObject;
+export const CHANGE_REQUEST_BRANCH = 'change_request_branch';

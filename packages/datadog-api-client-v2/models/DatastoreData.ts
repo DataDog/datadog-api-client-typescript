@@ -6,23 +6,28 @@
 import { DatastoreDataAttributes } from "./DatastoreDataAttributes";
 import { DatastoreDataType } from "./DatastoreDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Core information about a datastore, including its unique identifier and attributes.
- */
+*/
 export class DatastoreData {
   /**
    * Detailed information about a datastore.
-   */
+  */
   "attributes"?: DatastoreDataAttributes;
   /**
    * The unique identifier of the datastore.
-   */
+  */
   "id"?: string;
   /**
    * The resource type for datastores.
-   */
+  */
   "type": DatastoreDataType;
 
   /**
@@ -30,7 +35,7 @@ export class DatastoreData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class DatastoreData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "DatastoreDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "DatastoreDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "DatastoreDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "DatastoreDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class DatastoreData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DatastoreData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

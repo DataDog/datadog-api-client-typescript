@@ -5,15 +5,20 @@
  */
 import { FacetInfoResponseData } from "./FacetInfoResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing facet information for an attribute, including its distinct values and occurrence counts.
- */
+*/
 export class FacetInfoResponse {
   /**
    * The data object containing the resource type and attributes for the facet info response.
-   */
+  */
   "data"?: FacetInfoResponseData;
 
   /**
@@ -21,7 +26,7 @@ export class FacetInfoResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class FacetInfoResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "FacetInfoResponseData",
+    "data": {
+      "baseName": "data",
+      "type": "FacetInfoResponseData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class FacetInfoResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FacetInfoResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

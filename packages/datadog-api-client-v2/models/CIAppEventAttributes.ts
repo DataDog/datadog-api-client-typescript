@@ -5,23 +5,28 @@
  */
 import { CIAppTestLevel } from "./CIAppTestLevel";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * JSON object containing all event attributes and their associated values.
- */
+*/
 export class CIAppEventAttributes {
   /**
    * JSON object of attributes from CI Visibility test events.
-   */
-  "attributes"?: { [key: string]: any };
+  */
+  "attributes"?: { [key: string]: any; };
   /**
    * Array of tags associated with your event.
-   */
+  */
   "tags"?: Array<string>;
   /**
    * Test run level.
-   */
+  */
   "testLevel"?: CIAppTestLevel;
 
   /**
@@ -29,7 +34,7 @@ export class CIAppEventAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,17 +45,17 @@ export class CIAppEventAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "{ [key: string]: any; }",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "{ [key: string]: any; }",
     },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
+    "tags": {
+      "baseName": "tags",
+      "type": "Array<string>",
     },
-    testLevel: {
-      baseName: "test_level",
-      type: "CIAppTestLevel",
+    "testLevel": {
+      "baseName": "test_level",
+      "type": "CIAppTestLevel",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class CIAppEventAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CIAppEventAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

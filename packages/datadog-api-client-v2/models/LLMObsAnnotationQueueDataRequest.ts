@@ -6,19 +6,24 @@
 import { LLMObsAnnotationQueueDataAttributesRequest } from "./LLMObsAnnotationQueueDataAttributesRequest";
 import { LLMObsAnnotationQueueType } from "./LLMObsAnnotationQueueType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for creating an LLM Observability annotation queue.
- */
+*/
 export class LLMObsAnnotationQueueDataRequest {
   /**
    * Attributes for creating an LLM Observability annotation queue.
-   */
+  */
   "attributes": LLMObsAnnotationQueueDataAttributesRequest;
   /**
    * Resource type of an LLM Observability annotation queue.
-   */
+  */
   "type": LLMObsAnnotationQueueType;
 
   /**
@@ -26,7 +31,7 @@ export class LLMObsAnnotationQueueDataRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class LLMObsAnnotationQueueDataRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LLMObsAnnotationQueueDataAttributesRequest",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "LLMObsAnnotationQueueDataAttributesRequest",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LLMObsAnnotationQueueType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LLMObsAnnotationQueueType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class LLMObsAnnotationQueueDataRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsAnnotationQueueDataRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

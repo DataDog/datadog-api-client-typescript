@@ -6,23 +6,28 @@
 import { GetMappingResponseDataAttributes } from "./GetMappingResponseDataAttributes";
 import { GetMappingResponseDataType } from "./GetMappingResponseDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data object containing the resource type and attributes for the get mapping response.
- */
+*/
 export class GetMappingResponseData {
   /**
    * Attributes of the get mapping response, containing the list of configured entity attributes.
-   */
+  */
   "attributes"?: GetMappingResponseDataAttributes;
   /**
    * Unique identifier for the get mapping response resource.
-   */
+  */
   "id"?: string;
   /**
    * Get mappings response resource type.
-   */
+  */
   "type": GetMappingResponseDataType;
 
   /**
@@ -30,7 +35,7 @@ export class GetMappingResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class GetMappingResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "GetMappingResponseDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "GetMappingResponseDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "GetMappingResponseDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "GetMappingResponseDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class GetMappingResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GetMappingResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

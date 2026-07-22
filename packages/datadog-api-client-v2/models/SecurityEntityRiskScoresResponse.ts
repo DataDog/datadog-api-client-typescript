@@ -6,19 +6,24 @@
 import { SecurityEntityRiskScore } from "./SecurityEntityRiskScore";
 import { SecurityEntityRiskScoresMeta } from "./SecurityEntityRiskScoresMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a list of entity risk scores
- */
+*/
 export class SecurityEntityRiskScoresResponse {
   /**
    * Array of entity risk score objects.
-   */
+  */
   "data": Array<SecurityEntityRiskScore>;
   /**
    * Metadata for pagination
-   */
+  */
   "meta": SecurityEntityRiskScoresMeta;
 
   /**
@@ -26,7 +31,7 @@ export class SecurityEntityRiskScoresResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class SecurityEntityRiskScoresResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<SecurityEntityRiskScore>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<SecurityEntityRiskScore>",
+      "required": true,
     },
-    meta: {
-      baseName: "meta",
-      type: "SecurityEntityRiskScoresMeta",
-      required: true,
+    "meta": {
+      "baseName": "meta",
+      "type": "SecurityEntityRiskScoresMeta",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class SecurityEntityRiskScoresResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityEntityRiskScoresResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

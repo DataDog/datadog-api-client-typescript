@@ -5,15 +5,20 @@
  */
 import { ModelLabPageMetaPage } from "./ModelLabPageMetaPage";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Pagination metadata for a list response.
- */
+*/
 export class ModelLabPageMeta {
   /**
    * Pagination details for a list response.
-   */
+  */
   "page": ModelLabPageMetaPage;
 
   /**
@@ -21,7 +26,7 @@ export class ModelLabPageMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class ModelLabPageMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    page: {
-      baseName: "page",
-      type: "ModelLabPageMetaPage",
-      required: true,
+    "page": {
+      "baseName": "page",
+      "type": "ModelLabPageMetaPage",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class ModelLabPageMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ModelLabPageMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

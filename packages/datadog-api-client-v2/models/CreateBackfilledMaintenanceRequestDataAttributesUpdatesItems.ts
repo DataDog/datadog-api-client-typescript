@@ -6,27 +6,32 @@
 import { CreateMaintenanceRequestDataAttributesComponentsAffectedItems } from "./CreateMaintenanceRequestDataAttributesComponentsAffectedItems";
 import { CreateMaintenanceRequestDataAttributesUpdatesItemsStatus } from "./CreateMaintenanceRequestDataAttributesUpdatesItemsStatus";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A backfilled maintenance update entry.
- */
+*/
 export class CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems {
   /**
    * The components affected.
-   */
+  */
   "componentsAffected"?: Array<CreateMaintenanceRequestDataAttributesComponentsAffectedItems>;
   /**
    * A description of the update.
-   */
+  */
   "description": string;
   /**
    * Timestamp of when the update occurred.
-   */
+  */
   "startedAt": Date;
   /**
    * The status of a maintenance update.
-   */
+  */
   "status": CreateMaintenanceRequestDataAttributesUpdatesItemsStatus;
 
   /**
@@ -34,7 +39,7 @@ export class CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -45,25 +50,25 @@ export class CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    componentsAffected: {
-      baseName: "components_affected",
-      type: "Array<CreateMaintenanceRequestDataAttributesComponentsAffectedItems>",
+    "componentsAffected": {
+      "baseName": "components_affected",
+      "type": "Array<CreateMaintenanceRequestDataAttributesComponentsAffectedItems>",
     },
-    description: {
-      baseName: "description",
-      type: "string",
-      required: true,
+    "description": {
+      "baseName": "description",
+      "type": "string",
+      "required": true,
     },
-    startedAt: {
-      baseName: "started_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "startedAt": {
+      "baseName": "started_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    status: {
-      baseName: "status",
-      type: "CreateMaintenanceRequestDataAttributesUpdatesItemsStatus",
-      required: true,
+    "status": {
+      "baseName": "status",
+      "type": "CreateMaintenanceRequestDataAttributesUpdatesItemsStatus",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -75,8 +80,34 @@ export class CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

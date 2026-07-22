@@ -6,13 +6,15 @@
 import { MonitorFormulaAndFunctionEventQueryDefinition } from "./MonitorFormulaAndFunctionEventQueryDefinition";
 import { MonitorFormulaAndFunctionReferenceTableQueryDefinition } from "./MonitorFormulaAndFunctionReferenceTableQueryDefinition";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Augment query for aggregate augmented queries. Can be an events query or a reference table query.
- */
+*/
 
-export type MonitorFormulaAndFunctionAggregateAugmentQuery =
-  | MonitorFormulaAndFunctionEventQueryDefinition
-  | MonitorFormulaAndFunctionReferenceTableQueryDefinition
-  | UnparsedObject;
+export type MonitorFormulaAndFunctionAggregateAugmentQuery = MonitorFormulaAndFunctionEventQueryDefinition | MonitorFormulaAndFunctionReferenceTableQueryDefinition | UnparsedObject;

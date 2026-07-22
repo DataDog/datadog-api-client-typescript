@@ -5,15 +5,20 @@
  */
 import { ModelLabFacetKeysData } from "./ModelLabFacetKeysData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing available facet keys.
- */
+*/
 export class ModelLabFacetKeysResponse {
   /**
    * A facet keys JSON:API resource object.
-   */
+  */
   "data": ModelLabFacetKeysData;
 
   /**
@@ -21,7 +26,7 @@ export class ModelLabFacetKeysResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class ModelLabFacetKeysResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ModelLabFacetKeysData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "ModelLabFacetKeysData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class ModelLabFacetKeysResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ModelLabFacetKeysResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

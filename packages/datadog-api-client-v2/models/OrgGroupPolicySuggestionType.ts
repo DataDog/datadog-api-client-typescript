@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Org group policy suggestions resource type.
- */
+*/
 
-export type OrgGroupPolicySuggestionType =
-  | typeof ORG_GROUP_POLICY_SUGGESTIONS
-  | UnparsedObject;
-export const ORG_GROUP_POLICY_SUGGESTIONS = "org_group_policy_suggestions";
+export type OrgGroupPolicySuggestionType = typeof ORG_GROUP_POLICY_SUGGESTIONS | UnparsedObject;
+export const ORG_GROUP_POLICY_SUGGESTIONS = 'org_group_policy_suggestions';

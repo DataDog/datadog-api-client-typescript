@@ -4,12 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The policy type allowed when creating a tag policy. Only `surfacing` is accepted at
  * creation time.
- */
+*/
 
 export type TagPolicyCreateType = typeof SURFACING | UnparsedObject;
-export const SURFACING = "surfacing";
+export const SURFACING = 'surfacing';

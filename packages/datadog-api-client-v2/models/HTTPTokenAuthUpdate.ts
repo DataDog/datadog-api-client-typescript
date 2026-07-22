@@ -9,31 +9,36 @@ import { HTTPTokenAuthType } from "./HTTPTokenAuthType";
 import { HTTPTokenUpdate } from "./HTTPTokenUpdate";
 import { UrlParamUpdate } from "./UrlParamUpdate";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `HTTPTokenAuthUpdate` object.
- */
+*/
 export class HTTPTokenAuthUpdate {
   /**
    * The definition of `HTTPBody` object.
-   */
+  */
   "body"?: HTTPBody;
   /**
    * The `HTTPTokenAuthUpdate` `headers`.
-   */
+  */
   "headers"?: Array<HTTPHeaderUpdate>;
   /**
    * The `HTTPTokenAuthUpdate` `tokens`.
-   */
+  */
   "tokens"?: Array<HTTPTokenUpdate>;
   /**
    * The definition of `HTTPTokenAuthType` object.
-   */
+  */
   "type": HTTPTokenAuthType;
   /**
    * The `HTTPTokenAuthUpdate` `url_parameters`.
-   */
+  */
   "urlParameters"?: Array<UrlParamUpdate>;
 
   /**
@@ -41,7 +46,7 @@ export class HTTPTokenAuthUpdate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -52,26 +57,26 @@ export class HTTPTokenAuthUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    body: {
-      baseName: "body",
-      type: "HTTPBody",
+    "body": {
+      "baseName": "body",
+      "type": "HTTPBody",
     },
-    headers: {
-      baseName: "headers",
-      type: "Array<HTTPHeaderUpdate>",
+    "headers": {
+      "baseName": "headers",
+      "type": "Array<HTTPHeaderUpdate>",
     },
-    tokens: {
-      baseName: "tokens",
-      type: "Array<HTTPTokenUpdate>",
+    "tokens": {
+      "baseName": "tokens",
+      "type": "Array<HTTPTokenUpdate>",
     },
-    type: {
-      baseName: "type",
-      type: "HTTPTokenAuthType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "HTTPTokenAuthType",
+      "required": true,
     },
-    urlParameters: {
-      baseName: "url_parameters",
-      type: "Array<UrlParamUpdate>",
+    "urlParameters": {
+      "baseName": "url_parameters",
+      "type": "Array<UrlParamUpdate>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -83,8 +88,34 @@ export class HTTPTokenAuthUpdate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return HTTPTokenAuthUpdate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

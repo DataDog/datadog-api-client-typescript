@@ -5,15 +5,20 @@
  */
 import { GlobalIncidentSettingsDataResponse } from "./GlobalIncidentSettingsDataResponse";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response payload containing global incident settings.
- */
+*/
 export class GlobalIncidentSettingsResponse {
   /**
    * Data object in the global incident settings response.
-   */
+  */
   "data": GlobalIncidentSettingsDataResponse;
 
   /**
@@ -21,7 +26,7 @@ export class GlobalIncidentSettingsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class GlobalIncidentSettingsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "GlobalIncidentSettingsDataResponse",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "GlobalIncidentSettingsDataResponse",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class GlobalIncidentSettingsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GlobalIncidentSettingsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

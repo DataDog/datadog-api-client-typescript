@@ -10,35 +10,40 @@ import { ProductAnalyticsServerSideEventItemSession } from "./ProductAnalyticsSe
 import { ProductAnalyticsServerSideEventItemType } from "./ProductAnalyticsServerSideEventItemType";
 import { ProductAnalyticsServerSideEventItemUsr } from "./ProductAnalyticsServerSideEventItemUsr";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A Product Analytics server-side event.
- */
+*/
 export class ProductAnalyticsServerSideEventItem {
   /**
    * The account linked to your event.
-   */
+  */
   "account"?: ProductAnalyticsServerSideEventItemAccount;
   /**
    * The application in which you want to send your events.
-   */
+  */
   "application": ProductAnalyticsServerSideEventItemApplication;
   /**
    * Fields used for the event.
-   */
+  */
   "event": ProductAnalyticsServerSideEventItemEvent;
   /**
    * The session linked to your event.
-   */
+  */
   "session"?: ProductAnalyticsServerSideEventItemSession;
   /**
    * The type of Product Analytics event. Must be `server` for server-side events.
-   */
+  */
   "type": ProductAnalyticsServerSideEventItemType;
   /**
    * The user linked to your event.
-   */
+  */
   "usr"?: ProductAnalyticsServerSideEventItemUsr;
 
   /**
@@ -46,7 +51,7 @@ export class ProductAnalyticsServerSideEventItem {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -57,32 +62,32 @@ export class ProductAnalyticsServerSideEventItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    account: {
-      baseName: "account",
-      type: "ProductAnalyticsServerSideEventItemAccount",
+    "account": {
+      "baseName": "account",
+      "type": "ProductAnalyticsServerSideEventItemAccount",
     },
-    application: {
-      baseName: "application",
-      type: "ProductAnalyticsServerSideEventItemApplication",
-      required: true,
+    "application": {
+      "baseName": "application",
+      "type": "ProductAnalyticsServerSideEventItemApplication",
+      "required": true,
     },
-    event: {
-      baseName: "event",
-      type: "ProductAnalyticsServerSideEventItemEvent",
-      required: true,
+    "event": {
+      "baseName": "event",
+      "type": "ProductAnalyticsServerSideEventItemEvent",
+      "required": true,
     },
-    session: {
-      baseName: "session",
-      type: "ProductAnalyticsServerSideEventItemSession",
+    "session": {
+      "baseName": "session",
+      "type": "ProductAnalyticsServerSideEventItemSession",
     },
-    type: {
-      baseName: "type",
-      type: "ProductAnalyticsServerSideEventItemType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ProductAnalyticsServerSideEventItemType",
+      "required": true,
     },
-    usr: {
-      baseName: "usr",
-      type: "ProductAnalyticsServerSideEventItemUsr",
+    "usr": {
+      "baseName": "usr",
+      "type": "ProductAnalyticsServerSideEventItemUsr",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -94,8 +99,34 @@ export class ProductAnalyticsServerSideEventItem {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProductAnalyticsServerSideEventItem.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

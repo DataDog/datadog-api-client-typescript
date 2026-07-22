@@ -5,15 +5,20 @@
  */
 import { ListDevicesResponseMetadataPage } from "./ListDevicesResponseMetadataPage";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object describing meta attributes of response.
- */
+*/
 export class ListDevicesResponseMetadata {
   /**
    * Pagination object.
-   */
+  */
   "page"?: ListDevicesResponseMetadataPage;
 
   /**
@@ -21,7 +26,7 @@ export class ListDevicesResponseMetadata {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class ListDevicesResponseMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    page: {
-      baseName: "page",
-      type: "ListDevicesResponseMetadataPage",
+    "page": {
+      "baseName": "page",
+      "type": "ListDevicesResponseMetadataPage",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class ListDevicesResponseMetadata {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListDevicesResponseMetadata.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

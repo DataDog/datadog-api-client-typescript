@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Uses a Datadog reference table to enrich logs.
- */
+*/
 export class ObservabilityPipelineEnrichmentTableReferenceTable {
   /**
    * Name of the environment variable or secret that holds the Datadog application key used to access the reference table.
-   */
+  */
   "appKeyKey"?: string;
   /**
    * List of column names to include from the reference table. If not provided, all columns are included.
-   */
+  */
   "columns"?: Array<string>;
   /**
    * Path to the field in the log event to match against the reference table.
-   */
+  */
   "keyField": string;
   /**
    * The unique identifier of the reference table.
-   */
+  */
   "tableId": string;
 
   /**
@@ -32,7 +37,7 @@ export class ObservabilityPipelineEnrichmentTableReferenceTable {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,23 +48,23 @@ export class ObservabilityPipelineEnrichmentTableReferenceTable {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    appKeyKey: {
-      baseName: "app_key_key",
-      type: "string",
+    "appKeyKey": {
+      "baseName": "app_key_key",
+      "type": "string",
     },
-    columns: {
-      baseName: "columns",
-      type: "Array<string>",
+    "columns": {
+      "baseName": "columns",
+      "type": "Array<string>",
     },
-    keyField: {
-      baseName: "key_field",
-      type: "string",
-      required: true,
+    "keyField": {
+      "baseName": "key_field",
+      "type": "string",
+      "required": true,
     },
-    tableId: {
-      baseName: "table_id",
-      type: "string",
-      required: true,
+    "tableId": {
+      "baseName": "table_id",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,8 +76,34 @@ export class ObservabilityPipelineEnrichmentTableReferenceTable {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineEnrichmentTableReferenceTable.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

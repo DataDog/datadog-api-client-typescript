@@ -5,27 +5,32 @@
  */
 import { LLMObsSpansResponsePage } from "./LLMObsSpansResponsePage";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metadata accompanying the spans response.
- */
+*/
 export class LLMObsSpansResponseMeta {
   /**
    * Time elapsed for the query in milliseconds.
-   */
+  */
   "elapsed": number;
   /**
    * Pagination cursor for the spans response.
-   */
+  */
   "page": LLMObsSpansResponsePage;
   /**
    * Unique identifier for the request.
-   */
+  */
   "requestId": string;
   /**
    * Status of the query execution.
-   */
+  */
   "status": string;
 
   /**
@@ -33,7 +38,7 @@ export class LLMObsSpansResponseMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -44,26 +49,26 @@ export class LLMObsSpansResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    elapsed: {
-      baseName: "elapsed",
-      type: "number",
-      required: true,
-      format: "int64",
+    "elapsed": {
+      "baseName": "elapsed",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    page: {
-      baseName: "page",
-      type: "LLMObsSpansResponsePage",
-      required: true,
+    "page": {
+      "baseName": "page",
+      "type": "LLMObsSpansResponsePage",
+      "required": true,
     },
-    requestId: {
-      baseName: "request_id",
-      type: "string",
-      required: true,
+    "requestId": {
+      "baseName": "request_id",
+      "type": "string",
+      "required": true,
     },
-    status: {
-      baseName: "status",
-      type: "string",
-      required: true,
+    "status": {
+      "baseName": "status",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -75,8 +80,34 @@ export class LLMObsSpansResponseMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsSpansResponseMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

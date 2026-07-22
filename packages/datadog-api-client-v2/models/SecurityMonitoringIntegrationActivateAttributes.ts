@@ -4,31 +4,36 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Overrides applied when activating the integration. All fields are optional.
- */
+*/
 export class SecurityMonitoringIntegrationActivateAttributes {
   /**
    * The domain associated with the external entity source.
-   */
+  */
   "domain"?: string;
   /**
    * The display name for the entity context sync configuration.
-   */
+  */
   "name"?: string;
   /**
    * Free-form, non-sensitive settings for the entity context sync. The accepted keys depend on the source type.
-   */
-  "settings"?: { [key: string]: any };
+  */
+  "settings"?: { [key: string]: any; };
 
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class SecurityMonitoringIntegrationActivateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    domain: {
-      baseName: "domain",
-      type: "string",
+    "domain": {
+      "baseName": "domain",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    settings: {
-      baseName: "settings",
-      type: "{ [key: string]: any; }",
+    "settings": {
+      "baseName": "settings",
+      "type": "{ [key: string]: any; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class SecurityMonitoringIntegrationActivateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringIntegrationActivateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

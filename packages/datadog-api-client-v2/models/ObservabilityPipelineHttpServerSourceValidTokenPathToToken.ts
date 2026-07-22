@@ -6,14 +6,16 @@
 import { ObservabilityPipelineHttpServerSourceValidTokenPathToTokenHeader } from "./ObservabilityPipelineHttpServerSourceValidTokenPathToTokenHeader";
 import { ObservabilityPipelineHttpServerSourceValidTokenPathToTokenLocation } from "./ObservabilityPipelineHttpServerSourceValidTokenPathToTokenLocation";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Specifies where the worker extracts the token from in the incoming HTTP request.
  * This can be either a built-in location (`path` or `address`) or an HTTP header object.
- */
+*/
 
-export type ObservabilityPipelineHttpServerSourceValidTokenPathToToken =
-  | ObservabilityPipelineHttpServerSourceValidTokenPathToTokenLocation
-  | ObservabilityPipelineHttpServerSourceValidTokenPathToTokenHeader
-  | UnparsedObject;
+export type ObservabilityPipelineHttpServerSourceValidTokenPathToToken = ObservabilityPipelineHttpServerSourceValidTokenPathToTokenLocation | ObservabilityPipelineHttpServerSourceValidTokenPathToTokenHeader | UnparsedObject;

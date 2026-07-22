@@ -6,23 +6,28 @@
 import { BlueprintAttributes } from "./BlueprintAttributes";
 import { BlueprintDataType } from "./BlueprintDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A blueprint resource.
- */
+*/
 export class BlueprintData {
   /**
    * The attributes of a blueprint resource.
-   */
+  */
   "attributes": BlueprintAttributes;
   /**
    * The ID of the blueprint.
-   */
+  */
   "id": string;
   /**
    * The resource type for a blueprint.
-   */
+  */
   "type": BlueprintDataType;
 
   /**
@@ -30,7 +35,7 @@ export class BlueprintData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,21 +46,21 @@ export class BlueprintData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "BlueprintAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "BlueprintAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    type: {
-      baseName: "type",
-      type: "BlueprintDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "BlueprintDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class BlueprintData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return BlueprintData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

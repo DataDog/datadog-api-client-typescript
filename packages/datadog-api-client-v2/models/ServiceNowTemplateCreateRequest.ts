@@ -5,15 +5,20 @@
  */
 import { ServiceNowTemplateCreateRequestData } from "./ServiceNowTemplateCreateRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request to create a ServiceNow template
- */
+*/
 export class ServiceNowTemplateCreateRequest {
   /**
    * Data object for creating a ServiceNow template
-   */
+  */
   "data": ServiceNowTemplateCreateRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class ServiceNowTemplateCreateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class ServiceNowTemplateCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ServiceNowTemplateCreateRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "ServiceNowTemplateCreateRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class ServiceNowTemplateCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceNowTemplateCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

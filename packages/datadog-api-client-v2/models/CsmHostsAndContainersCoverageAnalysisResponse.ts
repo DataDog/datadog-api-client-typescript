@@ -5,15 +5,20 @@
  */
 import { CsmHostsAndContainersCoverageAnalysisData } from "./CsmHostsAndContainersCoverageAnalysisData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * CSM Hosts and Containers Coverage Analysis response.
- */
+*/
 export class CsmHostsAndContainersCoverageAnalysisResponse {
   /**
    * CSM Hosts and Containers Coverage Analysis data.
-   */
+  */
   "data"?: CsmHostsAndContainersCoverageAnalysisData;
 
   /**
@@ -21,7 +26,7 @@ export class CsmHostsAndContainersCoverageAnalysisResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class CsmHostsAndContainersCoverageAnalysisResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CsmHostsAndContainersCoverageAnalysisData",
+    "data": {
+      "baseName": "data",
+      "type": "CsmHostsAndContainersCoverageAnalysisData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class CsmHostsAndContainersCoverageAnalysisResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CsmHostsAndContainersCoverageAnalysisResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

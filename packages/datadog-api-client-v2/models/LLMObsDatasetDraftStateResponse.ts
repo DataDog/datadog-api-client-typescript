@@ -5,15 +5,20 @@
  */
 import { LLMObsDatasetDraftStateData } from "./LLMObsDatasetDraftStateData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing the draft state of an LLM Observability dataset.
- */
+*/
 export class LLMObsDatasetDraftStateResponse {
   /**
    * Data object for an LLM Observability dataset draft state.
-   */
+  */
   "data": LLMObsDatasetDraftStateData;
 
   /**
@@ -21,7 +26,7 @@ export class LLMObsDatasetDraftStateResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class LLMObsDatasetDraftStateResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "LLMObsDatasetDraftStateData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "LLMObsDatasetDraftStateData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class LLMObsDatasetDraftStateResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDatasetDraftStateResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Override the query execution strategy.
- */
+*/
 
-export type ProductAnalyticsExecutionType =
-  | typeof SIMPLE
-  | typeof BACKGROUND
-  | typeof TRINO_MULTISTEP
-  | typeof MATERIALIZED_VIEW
-  | UnparsedObject;
-export const SIMPLE = "simple";
-export const BACKGROUND = "background";
-export const TRINO_MULTISTEP = "trino-multistep";
-export const MATERIALIZED_VIEW = "materialized-view";
+export type ProductAnalyticsExecutionType = typeof SIMPLE| typeof BACKGROUND| typeof TRINO_MULTISTEP| typeof MATERIALIZED_VIEW | UnparsedObject;
+export const SIMPLE = 'simple';
+export const BACKGROUND = 'background';
+export const TRINO_MULTISTEP = 'trino-multistep';
+export const MATERIALIZED_VIEW = 'materialized-view';

@@ -4,10 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Whether to display a toast to the user when the query returns an error.
- */
+*/
 
 export type ActionQueryShowToastOnError = boolean | string | UnparsedObject;

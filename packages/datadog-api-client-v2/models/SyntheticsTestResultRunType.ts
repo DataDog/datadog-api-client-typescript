@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of run for a Synthetic test result.
- */
+*/
 
-export type SyntheticsTestResultRunType =
-  | typeof SCHEDULED
-  | typeof FAST
-  | typeof CI
-  | typeof TRIGGERED
-  | UnparsedObject;
-export const SCHEDULED = "scheduled";
-export const FAST = "fast";
-export const CI = "ci";
-export const TRIGGERED = "triggered";
+export type SyntheticsTestResultRunType = typeof SCHEDULED| typeof FAST| typeof CI| typeof TRIGGERED | UnparsedObject;
+export const SCHEDULED = 'scheduled';
+export const FAST = 'fast';
+export const CI = 'ci';
+export const TRIGGERED = 'triggered';

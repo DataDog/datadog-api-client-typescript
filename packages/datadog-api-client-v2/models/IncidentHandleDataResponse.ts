@@ -7,27 +7,32 @@ import { IncidentHandleAttributesResponse } from "./IncidentHandleAttributesResp
 import { IncidentHandleRelationships } from "./IncidentHandleRelationships";
 import { IncidentHandleType } from "./IncidentHandleType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object representing an incident handle in a response.
- */
+*/
 export class IncidentHandleDataResponse {
   /**
    * Incident handle attributes for responses
-   */
+  */
   "attributes": IncidentHandleAttributesResponse;
   /**
    * The ID of the incident handle
-   */
+  */
   "id": string;
   /**
    * Relationships associated with an incident handle response, including linked users and incident type.
-   */
+  */
   "relationships"?: IncidentHandleRelationships;
   /**
    * Incident handle resource type
-   */
+  */
   "type": IncidentHandleType;
 
   /**
@@ -35,7 +40,7 @@ export class IncidentHandleDataResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,24 +51,24 @@ export class IncidentHandleDataResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "IncidentHandleAttributesResponse",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "IncidentHandleAttributesResponse",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "IncidentHandleRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "IncidentHandleRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "IncidentHandleType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "IncidentHandleType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -75,8 +80,34 @@ export class IncidentHandleDataResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentHandleDataResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Pre-signed URLs for uploading parts of the file.
- */
+*/
 export class CreateUploadResponseDataAttributes {
   /**
    * The pre-signed URLs for uploading parts. These URLs expire after 5 minutes.
-   */
+  */
   "partUrls"?: Array<string>;
 
   /**
@@ -20,7 +25,7 @@ export class CreateUploadResponseDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,9 +36,9 @@ export class CreateUploadResponseDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    partUrls: {
-      baseName: "part_urls",
-      type: "Array<string>",
+    "partUrls": {
+      "baseName": "part_urls",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,8 +50,34 @@ export class CreateUploadResponseDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateUploadResponseDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

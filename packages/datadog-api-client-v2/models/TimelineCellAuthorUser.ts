@@ -6,19 +6,24 @@
 import { TimelineCellAuthorUserContent } from "./TimelineCellAuthorUserContent";
 import { TimelineCellAuthorUserType } from "./TimelineCellAuthorUserType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A user who authored a timeline cell.
- */
+*/
 export class TimelineCellAuthorUser {
   /**
    * Profile information for the user who authored the timeline cell.
-   */
+  */
   "content"?: TimelineCellAuthorUserContent;
   /**
    * The type of timeline cell author. Currently only `USER` is supported.
-   */
+  */
   "type"?: TimelineCellAuthorUserType;
 
   /**
@@ -26,7 +31,7 @@ export class TimelineCellAuthorUser {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class TimelineCellAuthorUser {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    content: {
-      baseName: "content",
-      type: "TimelineCellAuthorUserContent",
+    "content": {
+      "baseName": "content",
+      "type": "TimelineCellAuthorUserContent",
     },
-    type: {
-      baseName: "type",
-      type: "TimelineCellAuthorUserType",
+    "type": {
+      "baseName": "type",
+      "type": "TimelineCellAuthorUserType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class TimelineCellAuthorUser {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TimelineCellAuthorUser.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

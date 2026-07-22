@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Items resource type.
- */
+*/
 
-export type BulkDeleteAppsDatastoreItemsRequestDataType =
-  | typeof ITEMS
-  | UnparsedObject;
-export const ITEMS = "items";
+export type BulkDeleteAppsDatastoreItemsRequestDataType = typeof ITEMS | UnparsedObject;
+export const ITEMS = 'items';

@@ -7,27 +7,32 @@ import { IssuesSearchResultAttributes } from "./IssuesSearchResultAttributes";
 import { IssuesSearchResultRelationships } from "./IssuesSearchResultRelationships";
 import { IssuesSearchResultType } from "./IssuesSearchResultType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Result matching the search query.
- */
+*/
 export class IssuesSearchResult {
   /**
    * Object containing the information of a search result.
-   */
+  */
   "attributes": IssuesSearchResultAttributes;
   /**
    * Search result identifier (matches the nested issue's identifier).
-   */
+  */
   "id": string;
   /**
    * Relationships between the search result and other resources.
-   */
+  */
   "relationships"?: IssuesSearchResultRelationships;
   /**
    * Type of the object.
-   */
+  */
   "type": IssuesSearchResultType;
 
   /**
@@ -35,7 +40,7 @@ export class IssuesSearchResult {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,24 +51,24 @@ export class IssuesSearchResult {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "IssuesSearchResultAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "IssuesSearchResultAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "IssuesSearchResultRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "IssuesSearchResultRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "IssuesSearchResultType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "IssuesSearchResultType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -75,8 +80,34 @@ export class IssuesSearchResult {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IssuesSearchResult.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

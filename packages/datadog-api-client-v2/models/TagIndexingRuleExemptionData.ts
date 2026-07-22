@@ -6,23 +6,28 @@
 import { TagIndexingRuleExemptionAttributes } from "./TagIndexingRuleExemptionAttributes";
 import { TagIndexingRuleExemptionType } from "./TagIndexingRuleExemptionType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A tag indexing rule exemption resource object.
- */
+*/
 export class TagIndexingRuleExemptionData {
   /**
    * Attributes of a tag indexing rule exemption.
-   */
+  */
   "attributes"?: TagIndexingRuleExemptionAttributes;
   /**
    * The metric name, used as the resource ID.
-   */
+  */
   "id"?: string;
   /**
    * The tag indexing rule exemption resource type.
-   */
+  */
   "type"?: TagIndexingRuleExemptionType;
 
   /**
@@ -30,7 +35,7 @@ export class TagIndexingRuleExemptionData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class TagIndexingRuleExemptionData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "TagIndexingRuleExemptionAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "TagIndexingRuleExemptionAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "TagIndexingRuleExemptionType",
+    "type": {
+      "baseName": "type",
+      "type": "TagIndexingRuleExemptionType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class TagIndexingRuleExemptionData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TagIndexingRuleExemptionData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

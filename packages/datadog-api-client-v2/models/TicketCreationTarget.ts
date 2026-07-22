@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The ticketing system to create tickets in.
- */
+*/
 
-export type TicketCreationTarget =
-  | typeof JIRA
-  | typeof CASE_MANAGEMENT
-  | UnparsedObject;
-export const JIRA = "jira";
-export const CASE_MANAGEMENT = "case_management";
+export type TicketCreationTarget = typeof JIRA| typeof CASE_MANAGEMENT | UnparsedObject;
+export const JIRA = 'jira';
+export const CASE_MANAGEMENT = 'case_management';

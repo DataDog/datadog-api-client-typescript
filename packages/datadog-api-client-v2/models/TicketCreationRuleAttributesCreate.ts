@@ -6,27 +6,32 @@
 import { AutomationRuleScope } from "./AutomationRuleScope";
 import { TicketCreationRuleAction } from "./TicketCreationRuleAction";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for creating or updating a ticket creation rule.
- */
+*/
 export class TicketCreationRuleAttributesCreate {
   /**
    * The action to take when the ticket creation rule matches a finding.
-   */
+  */
   "action": TicketCreationRuleAction;
   /**
    * Whether the ticket creation rule is enabled.
-   */
+  */
   "enabled"?: boolean;
   /**
    * The name of the ticket creation rule.
-   */
+  */
   "name": string;
   /**
    * Defines the scope of findings to which the automation rule applies.
-   */
+  */
   "rule": AutomationRuleScope;
 
   /**
@@ -34,7 +39,7 @@ export class TicketCreationRuleAttributesCreate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -45,24 +50,24 @@ export class TicketCreationRuleAttributesCreate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    action: {
-      baseName: "action",
-      type: "TicketCreationRuleAction",
-      required: true,
+    "action": {
+      "baseName": "action",
+      "type": "TicketCreationRuleAction",
+      "required": true,
     },
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
+    "enabled": {
+      "baseName": "enabled",
+      "type": "boolean",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    rule: {
-      baseName: "rule",
-      type: "AutomationRuleScope",
-      required: true,
+    "rule": {
+      "baseName": "rule",
+      "type": "AutomationRuleScope",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,8 +79,34 @@ export class TicketCreationRuleAttributesCreate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TicketCreationRuleAttributesCreate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

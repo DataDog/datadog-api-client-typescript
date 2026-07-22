@@ -6,23 +6,28 @@
 import { AnalysisResponseDataAttributes } from "./AnalysisResponseDataAttributes";
 import { AnalysisResponseDataType } from "./AnalysisResponseDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The primary data object in the analysis response.
- */
+*/
 export class AnalysisResponseData {
   /**
    * The attributes of the analysis response, containing rule results and any top-level errors.
-   */
+  */
   "attributes": AnalysisResponseDataAttributes;
   /**
    * The unique identifier of the analysis response resource.
-   */
+  */
   "id": string;
   /**
    * Analysis response resource type.
-   */
+  */
   "type": AnalysisResponseDataType;
 
   /**
@@ -30,7 +35,7 @@ export class AnalysisResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class AnalysisResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AnalysisResponseDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AnalysisResponseDataAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "AnalysisResponseDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AnalysisResponseDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class AnalysisResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AnalysisResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

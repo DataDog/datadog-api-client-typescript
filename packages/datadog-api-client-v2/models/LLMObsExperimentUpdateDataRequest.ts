@@ -6,19 +6,24 @@
 import { LLMObsExperimentType } from "./LLMObsExperimentType";
 import { LLMObsExperimentUpdateDataAttributesRequest } from "./LLMObsExperimentUpdateDataAttributesRequest";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for updating an LLM Observability experiment.
- */
+*/
 export class LLMObsExperimentUpdateDataRequest {
   /**
    * Attributes for updating an LLM Observability experiment.
-   */
+  */
   "attributes": LLMObsExperimentUpdateDataAttributesRequest;
   /**
    * Resource type of an LLM Observability experiment.
-   */
+  */
   "type": LLMObsExperimentType;
 
   /**
@@ -26,7 +31,7 @@ export class LLMObsExperimentUpdateDataRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class LLMObsExperimentUpdateDataRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LLMObsExperimentUpdateDataAttributesRequest",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "LLMObsExperimentUpdateDataAttributesRequest",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LLMObsExperimentType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LLMObsExperimentType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class LLMObsExperimentUpdateDataRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsExperimentUpdateDataRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

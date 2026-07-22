@@ -5,51 +5,56 @@
  */
 import { CloudWorkloadSecurityAgentRuleActionSetValue } from "./CloudWorkloadSecurityAgentRuleActionSetValue";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The set action applied on the scope matching the rule
- */
+*/
 export class CloudWorkloadSecurityAgentRuleActionSet {
   /**
    * Whether the value should be appended to the field.
-   */
+  */
   "append"?: boolean;
   /**
    * The default value of the set action
-   */
+  */
   "defaultValue"?: string;
   /**
    * The expression of the set action.
-   */
+  */
   "expression"?: string;
   /**
    * The field of the set action
-   */
+  */
   "field"?: string;
   /**
    * Whether the value should be inherited.
-   */
+  */
   "inherited"?: boolean;
   /**
    * The name of the set action
-   */
+  */
   "name"?: string;
   /**
    * The scope of the set action.
-   */
+  */
   "scope"?: string;
   /**
    * The size of the set action.
-   */
+  */
   "size"?: number;
   /**
    * The time to live of the set action.
-   */
+  */
   "ttl"?: number;
   /**
    * The value of the set action
-   */
+  */
   "value"?: CloudWorkloadSecurityAgentRuleActionSetValue;
 
   /**
@@ -57,7 +62,7 @@ export class CloudWorkloadSecurityAgentRuleActionSet {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -68,47 +73,47 @@ export class CloudWorkloadSecurityAgentRuleActionSet {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    append: {
-      baseName: "append",
-      type: "boolean",
+    "append": {
+      "baseName": "append",
+      "type": "boolean",
     },
-    defaultValue: {
-      baseName: "default_value",
-      type: "string",
+    "defaultValue": {
+      "baseName": "default_value",
+      "type": "string",
     },
-    expression: {
-      baseName: "expression",
-      type: "string",
+    "expression": {
+      "baseName": "expression",
+      "type": "string",
     },
-    field: {
-      baseName: "field",
-      type: "string",
+    "field": {
+      "baseName": "field",
+      "type": "string",
     },
-    inherited: {
-      baseName: "inherited",
-      type: "boolean",
+    "inherited": {
+      "baseName": "inherited",
+      "type": "boolean",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    scope: {
-      baseName: "scope",
-      type: "string",
+    "scope": {
+      "baseName": "scope",
+      "type": "string",
     },
-    size: {
-      baseName: "size",
-      type: "number",
-      format: "int64",
+    "size": {
+      "baseName": "size",
+      "type": "number",
+      "format": "int64",
     },
-    ttl: {
-      baseName: "ttl",
-      type: "number",
-      format: "int64",
+    "ttl": {
+      "baseName": "ttl",
+      "type": "number",
+      "format": "int64",
     },
-    value: {
-      baseName: "value",
-      type: "CloudWorkloadSecurityAgentRuleActionSetValue",
+    "value": {
+      "baseName": "value",
+      "type": "CloudWorkloadSecurityAgentRuleActionSetValue",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -120,8 +125,34 @@ export class CloudWorkloadSecurityAgentRuleActionSet {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CloudWorkloadSecurityAgentRuleActionSet.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

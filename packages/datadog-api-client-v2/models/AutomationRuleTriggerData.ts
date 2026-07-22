@@ -4,31 +4,36 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Additional configuration for the trigger, dependent on the trigger type. For `status_transitioned` triggers, specify `from_status_name` and `to_status_name`. For `attribute_value_changed` triggers, specify `field` and `change_type`.
- */
+*/
 export class AutomationRuleTriggerData {
   /**
    * The approval outcome to match. Used with `case_review_approved` triggers.
-   */
+  */
   "approvalType"?: string;
   /**
    * The kind of attribute change to match. Allowed values: `VALUE_ADDED`, `VALUE_DELETED`, `ANY_CHANGES`. Used with `attribute_value_changed` triggers.
-   */
+  */
   "changeType"?: string;
   /**
    * The case attribute field name to monitor for changes. Used with `attribute_value_changed` triggers.
-   */
+  */
   "field"?: string;
   /**
    * The originating status name. Used with `status_transitioned` triggers to match transitions from this status.
-   */
+  */
   "fromStatusName"?: string;
   /**
    * The destination status name. Used with `status_transitioned` triggers to match transitions to this status.
-   */
+  */
   "toStatusName"?: string;
 
   /**
@@ -36,7 +41,7 @@ export class AutomationRuleTriggerData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,25 +52,25 @@ export class AutomationRuleTriggerData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    approvalType: {
-      baseName: "approval_type",
-      type: "string",
+    "approvalType": {
+      "baseName": "approval_type",
+      "type": "string",
     },
-    changeType: {
-      baseName: "change_type",
-      type: "string",
+    "changeType": {
+      "baseName": "change_type",
+      "type": "string",
     },
-    field: {
-      baseName: "field",
-      type: "string",
+    "field": {
+      "baseName": "field",
+      "type": "string",
     },
-    fromStatusName: {
-      baseName: "from_status_name",
-      type: "string",
+    "fromStatusName": {
+      "baseName": "from_status_name",
+      "type": "string",
     },
-    toStatusName: {
-      baseName: "to_status_name",
-      type: "string",
+    "toStatusName": {
+      "baseName": "to_status_name",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -77,8 +82,34 @@ export class AutomationRuleTriggerData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AutomationRuleTriggerData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Estimated daily savings if the recommendation is applied.
- */
+*/
 export class CostRecommendationDataAttributesPotentialDailySavings {
   /**
    * Numeric amount of the potential daily savings.
-   */
+  */
   "amount"?: number;
   /**
    * ISO 4217 currency code for the savings amount.
-   */
+  */
   "currency"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class CostRecommendationDataAttributesPotentialDailySavings {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,14 +40,14 @@ export class CostRecommendationDataAttributesPotentialDailySavings {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    amount: {
-      baseName: "amount",
-      type: "number",
-      format: "double",
+    "amount": {
+      "baseName": "amount",
+      "type": "number",
+      "format": "double",
     },
-    currency: {
-      baseName: "currency",
-      type: "string",
+    "currency": {
+      "baseName": "currency",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class CostRecommendationDataAttributesPotentialDailySavings {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CostRecommendationDataAttributesPotentialDailySavings.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A field to group analytics results by.
- */
+*/
 export class LLMObsExperimentationAnalyticsGroupBy {
   /**
    * Field name to group by.
-   */
+  */
   "field": string;
 
   /**
@@ -20,7 +25,7 @@ export class LLMObsExperimentationAnalyticsGroupBy {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,10 +36,10 @@ export class LLMObsExperimentationAnalyticsGroupBy {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    field: {
-      baseName: "field",
-      type: "string",
-      required: true,
+    "field": {
+      "baseName": "field",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class LLMObsExperimentationAnalyticsGroupBy {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsExperimentationAnalyticsGroupBy.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

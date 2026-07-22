@@ -5,19 +5,24 @@
  */
 import { AWSEventBridgeAccountConfiguration } from "./AWSEventBridgeAccountConfiguration";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An object describing the EventBridge configuration for multiple accounts.
- */
+*/
 export class AWSEventBridgeListResponseAttributes {
   /**
    * List of accounts with their event sources.
-   */
+  */
   "accounts"?: Array<AWSEventBridgeAccountConfiguration>;
   /**
    * True if the EventBridge integration is enabled for your organization.
-   */
+  */
   "isInstalled"?: boolean;
 
   /**
@@ -25,7 +30,7 @@ export class AWSEventBridgeListResponseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class AWSEventBridgeListResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    accounts: {
-      baseName: "accounts",
-      type: "Array<AWSEventBridgeAccountConfiguration>",
+    "accounts": {
+      "baseName": "accounts",
+      "type": "Array<AWSEventBridgeAccountConfiguration>",
     },
-    isInstalled: {
-      baseName: "is_installed",
-      type: "boolean",
+    "isInstalled": {
+      "baseName": "is_installed",
+      "type": "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class AWSEventBridgeListResponseAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSEventBridgeListResponseAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

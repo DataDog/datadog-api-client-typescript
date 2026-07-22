@@ -6,39 +6,44 @@
 import { LLMObsPatternsConfigSnapshot } from "./LLMObsPatternsConfigSnapshot";
 import { LLMObsPatternsTopic } from "./LLMObsPatternsTopic";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of an LLM Observability patterns topics response.
- */
+*/
 export class LLMObsPatternsTopicsResponseAttributes {
   /**
    * Timestamp when the run completed. Null if the run has not completed.
-   */
+  */
   "completedAt"?: Date;
   /**
    * Identifier of the configuration that produced the run.
-   */
+  */
   "configId": string;
   /**
    * Snapshot of the configuration used for a patterns run.
-   */
+  */
   "configSnapshot"?: LLMObsPatternsConfigSnapshot;
   /**
    * Timestamp when the run was created.
-   */
+  */
   "createdAt": Date;
   /**
    * Identifier of the run that completed immediately before this one. Empty if none.
-   */
+  */
   "previousRunId": string;
   /**
    * Identifier of the run that produced the topics.
-   */
+  */
   "runId": string;
   /**
    * List of discovered topics.
-   */
+  */
   "topics": Array<LLMObsPatternsTopic>;
 
   /**
@@ -46,7 +51,7 @@ export class LLMObsPatternsTopicsResponseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -57,40 +62,40 @@ export class LLMObsPatternsTopicsResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    completedAt: {
-      baseName: "completed_at",
-      type: "Date",
-      format: "date-time",
+    "completedAt": {
+      "baseName": "completed_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    configId: {
-      baseName: "config_id",
-      type: "string",
-      required: true,
+    "configId": {
+      "baseName": "config_id",
+      "type": "string",
+      "required": true,
     },
-    configSnapshot: {
-      baseName: "config_snapshot",
-      type: "LLMObsPatternsConfigSnapshot",
+    "configSnapshot": {
+      "baseName": "config_snapshot",
+      "type": "LLMObsPatternsConfigSnapshot",
     },
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    previousRunId: {
-      baseName: "previous_run_id",
-      type: "string",
-      required: true,
+    "previousRunId": {
+      "baseName": "previous_run_id",
+      "type": "string",
+      "required": true,
     },
-    runId: {
-      baseName: "run_id",
-      type: "string",
-      required: true,
+    "runId": {
+      "baseName": "run_id",
+      "type": "string",
+      "required": true,
     },
-    topics: {
-      baseName: "topics",
-      type: "Array<LLMObsPatternsTopic>",
-      required: true,
+    "topics": {
+      "baseName": "topics",
+      "type": "Array<LLMObsPatternsTopic>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -102,8 +107,34 @@ export class LLMObsPatternsTopicsResponseAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsPatternsTopicsResponseAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

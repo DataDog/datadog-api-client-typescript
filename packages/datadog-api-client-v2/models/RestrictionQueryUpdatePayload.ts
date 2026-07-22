@@ -5,15 +5,20 @@
  */
 import { RestrictionQueryUpdateData } from "./RestrictionQueryUpdateData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Update a restriction query.
- */
+*/
 export class RestrictionQueryUpdatePayload {
   /**
    * Data related to the update of a restriction query.
-   */
+  */
   "data"?: RestrictionQueryUpdateData;
 
   /**
@@ -21,7 +26,7 @@ export class RestrictionQueryUpdatePayload {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class RestrictionQueryUpdatePayload {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "RestrictionQueryUpdateData",
+    "data": {
+      "baseName": "data",
+      "type": "RestrictionQueryUpdateData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class RestrictionQueryUpdatePayload {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RestrictionQueryUpdatePayload.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,23 +5,28 @@
  */
 import { DeviceAttributes } from "./DeviceAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The devices list data
- */
+*/
 export class DevicesListData {
   /**
    * The device attributes
-   */
+  */
   "attributes"?: DeviceAttributes;
   /**
    * The device ID
-   */
+  */
   "id"?: string;
   /**
    * The type of the resource. The value should always be device.
-   */
+  */
   "type"?: string;
 
   /**
@@ -29,7 +34,7 @@ export class DevicesListData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,17 +45,17 @@ export class DevicesListData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "DeviceAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "DeviceAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class DevicesListData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DevicesListData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

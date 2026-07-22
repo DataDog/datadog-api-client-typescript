@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Google Chat target audience resource type.
- */
+*/
 
-export type GoogleChatTargetAudienceType =
-  | typeof GOOGLE_CHAT_TARGET_AUDIENCE_TYPE
-  | UnparsedObject;
-export const GOOGLE_CHAT_TARGET_AUDIENCE_TYPE = "google-chat-target-audience";
+export type GoogleChatTargetAudienceType = typeof GOOGLE_CHAT_TARGET_AUDIENCE_TYPE | UnparsedObject;
+export const GOOGLE_CHAT_TARGET_AUDIENCE_TYPE = 'google-chat-target-audience';

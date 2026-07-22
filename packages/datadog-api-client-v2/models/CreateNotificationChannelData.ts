@@ -6,19 +6,24 @@
 import { CreateNotificationChannelAttributes } from "./CreateNotificationChannelAttributes";
 import { NotificationChannelType } from "./NotificationChannelType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for creating an on-call notification channel
- */
+*/
 export class CreateNotificationChannelData {
   /**
    * Attributes for creating an on-call notification channel.
-   */
+  */
   "attributes"?: CreateNotificationChannelAttributes;
   /**
    * Indicates that the resource is of type 'notification_channels'.
-   */
+  */
   "type": NotificationChannelType;
 
   /**
@@ -26,7 +31,7 @@ export class CreateNotificationChannelData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class CreateNotificationChannelData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CreateNotificationChannelAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CreateNotificationChannelAttributes",
     },
-    type: {
-      baseName: "type",
-      type: "NotificationChannelType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "NotificationChannelType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class CreateNotificationChannelData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateNotificationChannelData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

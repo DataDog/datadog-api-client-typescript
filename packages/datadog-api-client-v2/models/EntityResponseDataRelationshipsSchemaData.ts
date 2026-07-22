@@ -5,19 +5,24 @@
  */
 import { EntityResponseDataRelationshipsSchemaDataType } from "./EntityResponseDataRelationshipsSchemaDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Schema relationship data containing the schema resource identifier and type.
- */
+*/
 export class EntityResponseDataRelationshipsSchemaData {
   /**
    * Entity schema unique identifier.
-   */
+  */
   "id": string;
   /**
    * Schema resource type.
-   */
+  */
   "type": EntityResponseDataRelationshipsSchemaDataType;
 
   /**
@@ -25,7 +30,7 @@ export class EntityResponseDataRelationshipsSchemaData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class EntityResponseDataRelationshipsSchemaData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "EntityResponseDataRelationshipsSchemaDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "EntityResponseDataRelationshipsSchemaDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class EntityResponseDataRelationshipsSchemaData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EntityResponseDataRelationshipsSchemaData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

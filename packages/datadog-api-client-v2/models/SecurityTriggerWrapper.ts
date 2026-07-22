@@ -5,19 +5,24 @@
  */
 import { SecurityTrigger } from "./SecurityTrigger";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Schema for a Security-based trigger.
- */
+*/
 export class SecurityTriggerWrapper {
   /**
    * Trigger a workflow from a Security Signal or Finding. For automatic triggering a handle must be configured and the workflow must be published.
-   */
+  */
   "securityTrigger": SecurityTrigger;
   /**
    * A list of steps that run first after a trigger fires.
-   */
+  */
   "startStepNames"?: Array<string>;
 
   /**
@@ -25,7 +30,7 @@ export class SecurityTriggerWrapper {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,14 +41,14 @@ export class SecurityTriggerWrapper {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    securityTrigger: {
-      baseName: "securityTrigger",
-      type: "SecurityTrigger",
-      required: true,
+    "securityTrigger": {
+      "baseName": "securityTrigger",
+      "type": "SecurityTrigger",
+      "required": true,
     },
-    startStepNames: {
-      baseName: "startStepNames",
-      type: "Array<string>",
+    "startStepNames": {
+      "baseName": "startStepNames",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class SecurityTriggerWrapper {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityTriggerWrapper.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

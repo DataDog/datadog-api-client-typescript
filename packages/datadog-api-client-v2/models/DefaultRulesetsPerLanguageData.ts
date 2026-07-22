@@ -6,23 +6,28 @@
 import { DefaultRulesetsPerLanguageDataAttributes } from "./DefaultRulesetsPerLanguageDataAttributes";
 import { DefaultRulesetsPerLanguageDataType } from "./DefaultRulesetsPerLanguageDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The primary data object in the default rulesets per language response.
- */
+*/
 export class DefaultRulesetsPerLanguageData {
   /**
    * The attributes of the default rulesets per language response, containing the list of default ruleset names.
-   */
+  */
   "attributes": DefaultRulesetsPerLanguageDataAttributes;
   /**
    * The language identifier used as the resource identifier.
-   */
+  */
   "id": string;
   /**
    * Default rulesets per language resource type.
-   */
+  */
   "type": DefaultRulesetsPerLanguageDataType;
 
   /**
@@ -30,7 +35,7 @@ export class DefaultRulesetsPerLanguageData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class DefaultRulesetsPerLanguageData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "DefaultRulesetsPerLanguageDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "DefaultRulesetsPerLanguageDataAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "DefaultRulesetsPerLanguageDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "DefaultRulesetsPerLanguageDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class DefaultRulesetsPerLanguageData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DefaultRulesetsPerLanguageData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

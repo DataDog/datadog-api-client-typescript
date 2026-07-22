@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A Datadog metric name and whether it is filtered.
- */
+*/
 export class AWSMetricNameFilterPreviewDDName {
   /**
    * Whether this Datadog metric name is filtered out.
-   */
+  */
   "filtered": boolean;
   /**
    * The Datadog metric name.
-   */
+  */
   "name": string;
 
   /**
@@ -24,7 +29,7 @@ export class AWSMetricNameFilterPreviewDDName {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,15 +40,15 @@ export class AWSMetricNameFilterPreviewDDName {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    filtered: {
-      baseName: "filtered",
-      type: "boolean",
-      required: true,
+    "filtered": {
+      "baseName": "filtered",
+      "type": "boolean",
+      "required": true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class AWSMetricNameFilterPreviewDDName {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSMetricNameFilterPreviewDDName.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { DistributionPointsSeries } from "./DistributionPointsSeries";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The distribution points payload.
- */
+*/
 export class DistributionPointsPayload {
   /**
    * A list of distribution points series to submit to Datadog.
-   */
+  */
   "series": Array<DistributionPointsSeries>;
 
   /**
@@ -21,7 +26,7 @@ export class DistributionPointsPayload {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class DistributionPointsPayload {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    series: {
-      baseName: "series",
-      type: "Array<DistributionPointsSeries>",
-      required: true,
+    "series": {
+      "baseName": "series",
+      "type": "Array<DistributionPointsSeries>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class DistributionPointsPayload {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DistributionPointsPayload.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

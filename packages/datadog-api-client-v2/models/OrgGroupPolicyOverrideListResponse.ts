@@ -7,23 +7,28 @@ import { OrgGroupPaginationLinks } from "./OrgGroupPaginationLinks";
 import { OrgGroupPaginationMeta } from "./OrgGroupPaginationMeta";
 import { OrgGroupPolicyOverrideData } from "./OrgGroupPolicyOverrideData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a list of org group policy overrides.
- */
+*/
 export class OrgGroupPolicyOverrideListResponse {
   /**
    * An array of org group policy overrides.
-   */
+  */
   "data": Array<OrgGroupPolicyOverrideData>;
   /**
    * Pagination links for navigating between pages of an org group list response.
-   */
+  */
   "links"?: OrgGroupPaginationLinks;
   /**
    * Pagination metadata for org group list responses.
-   */
+  */
   "meta"?: OrgGroupPaginationMeta;
 
   /**
@@ -31,7 +36,7 @@ export class OrgGroupPolicyOverrideListResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,18 +47,18 @@ export class OrgGroupPolicyOverrideListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<OrgGroupPolicyOverrideData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<OrgGroupPolicyOverrideData>",
+      "required": true,
     },
-    links: {
-      baseName: "links",
-      type: "OrgGroupPaginationLinks",
+    "links": {
+      "baseName": "links",
+      "type": "OrgGroupPaginationLinks",
     },
-    meta: {
-      baseName: "meta",
-      type: "OrgGroupPaginationMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "OrgGroupPaginationMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class OrgGroupPolicyOverrideListResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgGroupPolicyOverrideListResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

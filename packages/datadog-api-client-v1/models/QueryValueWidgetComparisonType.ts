@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * How the delta is expressed: `absolute` (raw difference), `relative` (percentage), or `both`.
- */
+*/
 
-export type QueryValueWidgetComparisonType =
-  | typeof ABSOLUTE
-  | typeof RELATIVE
-  | typeof BOTH
-  | UnparsedObject;
-export const ABSOLUTE = "absolute";
-export const RELATIVE = "relative";
-export const BOTH = "both";
+export type QueryValueWidgetComparisonType = typeof ABSOLUTE| typeof RELATIVE| typeof BOTH | UnparsedObject;
+export const ABSOLUTE = 'absolute';
+export const RELATIVE = 'relative';
+export const BOTH = 'both';

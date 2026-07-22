@@ -1,16 +1,12 @@
-import {
-  BaseAPIRequestFactory,
-  RequiredError,
-} from "../../datadog-api-client-common/baseapi";
-import {
-  Configuration,
-  applySecurityAuthentication,
-} from "../../datadog-api-client-common/configuration";
+import { BaseAPIRequestFactory, RequiredError } from "../../datadog-api-client-common/baseapi";
+import { Configuration,
+  applySecurityAuthentication,} from "../../datadog-api-client-common/configuration";
 import {
   RequestContext,
   HttpMethod,
   ResponseContext,
-} from "../../datadog-api-client-common/http/http";
+    
+  } from "../../datadog-api-client-common/http/http";
 
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
@@ -20,41 +16,33 @@ import { APIErrorResponse } from "../models/APIErrorResponse";
 import { SlackIntegrationChannel } from "../models/SlackIntegrationChannel";
 
 export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
-  public async createSlackIntegrationChannel(
-    accountName: string,
-    body: SlackIntegrationChannel,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+
+  public async createSlackIntegrationChannel(accountName: string,body: SlackIntegrationChannel,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'accountName' is not null or undefined
     if (accountName === null || accountName === undefined) {
-      throw new RequiredError("accountName", "createSlackIntegrationChannel");
+      throw new RequiredError('accountName', 'createSlackIntegrationChannel');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "createSlackIntegrationChannel");
+      throw new RequiredError('body', 'createSlackIntegrationChannel');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v1/integration/slack/configuration/accounts/{account_name}/channels".replace(
-        "{account_name}",
-        encodeURIComponent(String(accountName))
-      );
+    const localVarPath = '/api/v1/integration/slack/configuration/accounts/{account_name}/channels'
+      .replace('{account_name}', encodeURIComponent(String(accountName)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.SlackIntegrationApi.createSlackIntegrationChannel")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v1.SlackIntegrationApi.createSlackIntegrationChannel').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SlackIntegrationChannel", ""),
@@ -63,7 +51,7 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -71,38 +59,32 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getSlackIntegrationChannel(
-    accountName: string,
-    channelName: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async getSlackIntegrationChannel(accountName: string,channelName: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'accountName' is not null or undefined
     if (accountName === null || accountName === undefined) {
-      throw new RequiredError("accountName", "getSlackIntegrationChannel");
+      throw new RequiredError('accountName', 'getSlackIntegrationChannel');
     }
 
     // verify required parameter 'channelName' is not null or undefined
     if (channelName === null || channelName === undefined) {
-      throw new RequiredError("channelName", "getSlackIntegrationChannel");
+      throw new RequiredError('channelName', 'getSlackIntegrationChannel');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}"
-        .replace("{account_name}", encodeURIComponent(String(accountName)))
-        .replace("{channel_name}", encodeURIComponent(String(channelName)));
+    const localVarPath = '/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}'
+      .replace('{account_name}', encodeURIComponent(String(accountName)))
+      .replace('{channel_name}', encodeURIComponent(String(channelName)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.SlackIntegrationApi.getSlackIntegrationChannel")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v1.SlackIntegrationApi.getSlackIntegrationChannel').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -110,33 +92,26 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getSlackIntegrationChannels(
-    accountName: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async getSlackIntegrationChannels(accountName: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'accountName' is not null or undefined
     if (accountName === null || accountName === undefined) {
-      throw new RequiredError("accountName", "getSlackIntegrationChannels");
+      throw new RequiredError('accountName', 'getSlackIntegrationChannels');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v1/integration/slack/configuration/accounts/{account_name}/channels".replace(
-        "{account_name}",
-        encodeURIComponent(String(accountName))
-      );
+    const localVarPath = '/api/v1/integration/slack/configuration/accounts/{account_name}/channels'
+      .replace('{account_name}', encodeURIComponent(String(accountName)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.SlackIntegrationApi.getSlackIntegrationChannels")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v1.SlackIntegrationApi.getSlackIntegrationChannels').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -144,38 +119,32 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async removeSlackIntegrationChannel(
-    accountName: string,
-    channelName: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async removeSlackIntegrationChannel(accountName: string,channelName: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'accountName' is not null or undefined
     if (accountName === null || accountName === undefined) {
-      throw new RequiredError("accountName", "removeSlackIntegrationChannel");
+      throw new RequiredError('accountName', 'removeSlackIntegrationChannel');
     }
 
     // verify required parameter 'channelName' is not null or undefined
     if (channelName === null || channelName === undefined) {
-      throw new RequiredError("channelName", "removeSlackIntegrationChannel");
+      throw new RequiredError('channelName', 'removeSlackIntegrationChannel');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}"
-        .replace("{account_name}", encodeURIComponent(String(accountName)))
-        .replace("{channel_name}", encodeURIComponent(String(channelName)));
+    const localVarPath = '/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}'
+      .replace('{account_name}', encodeURIComponent(String(accountName)))
+      .replace('{channel_name}', encodeURIComponent(String(channelName)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.SlackIntegrationApi.removeSlackIntegrationChannel")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config.getServer('v1.SlackIntegrationApi.removeSlackIntegrationChannel').makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -183,46 +152,38 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async updateSlackIntegrationChannel(
-    accountName: string,
-    channelName: string,
-    body: SlackIntegrationChannel,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async updateSlackIntegrationChannel(accountName: string,channelName: string,body: SlackIntegrationChannel,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'accountName' is not null or undefined
     if (accountName === null || accountName === undefined) {
-      throw new RequiredError("accountName", "updateSlackIntegrationChannel");
+      throw new RequiredError('accountName', 'updateSlackIntegrationChannel');
     }
 
     // verify required parameter 'channelName' is not null or undefined
     if (channelName === null || channelName === undefined) {
-      throw new RequiredError("channelName", "updateSlackIntegrationChannel");
+      throw new RequiredError('channelName', 'updateSlackIntegrationChannel');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateSlackIntegrationChannel");
+      throw new RequiredError('body', 'updateSlackIntegrationChannel');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}"
-        .replace("{account_name}", encodeURIComponent(String(accountName)))
-        .replace("{channel_name}", encodeURIComponent(String(channelName)));
+    const localVarPath = '/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}'
+      .replace('{account_name}', encodeURIComponent(String(accountName)))
+      .replace('{channel_name}', encodeURIComponent(String(channelName)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.SlackIntegrationApi.updateSlackIntegrationChannel")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const requestContext = _config.getServer('v1.SlackIntegrationApi.updateSlackIntegrationChannel').makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SlackIntegrationChannel", ""),
@@ -231,7 +192,7 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -241,6 +202,8 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class SlackIntegrationApiResponseProcessor {
+
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -248,12 +211,8 @@ export class SlackIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to createSlackIntegrationChannel
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createSlackIntegrationChannel(
-    response: ResponseContext
-  ): Promise<SlackIntegrationChannel> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async createSlackIntegrationChannel(response: ResponseContext): Promise<SlackIntegrationChannel> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: SlackIntegrationChannel = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -261,16 +220,8 @@ export class SlackIntegrationApiResponseProcessor {
       ) as SlackIntegrationChannel;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -279,30 +230,25 @@ export class SlackIntegrationApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SlackIntegrationChannel = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SlackIntegrationChannel",
-        ""
+        "",
       ) as SlackIntegrationChannel;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -311,12 +257,8 @@ export class SlackIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to getSlackIntegrationChannel
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getSlackIntegrationChannel(
-    response: ResponseContext
-  ): Promise<SlackIntegrationChannel> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getSlackIntegrationChannel(response: ResponseContext): Promise<SlackIntegrationChannel> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: SlackIntegrationChannel = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -324,16 +266,8 @@ export class SlackIntegrationApiResponseProcessor {
       ) as SlackIntegrationChannel;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -342,30 +276,25 @@ export class SlackIntegrationApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SlackIntegrationChannel = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SlackIntegrationChannel",
-        ""
+        "",
       ) as SlackIntegrationChannel;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -374,12 +303,8 @@ export class SlackIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to getSlackIntegrationChannels
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getSlackIntegrationChannels(
-    response: ResponseContext
-  ): Promise<Array<SlackIntegrationChannel>> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getSlackIntegrationChannels(response: ResponseContext): Promise<Array<SlackIntegrationChannel>> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: Array<SlackIntegrationChannel> = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -387,16 +312,8 @@ export class SlackIntegrationApiResponseProcessor {
       ) as Array<SlackIntegrationChannel>;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -405,30 +322,25 @@ export class SlackIntegrationApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Array<SlackIntegrationChannel> = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "Array<SlackIntegrationChannel>",
-        ""
+        "",
       ) as Array<SlackIntegrationChannel>;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -437,25 +349,13 @@ export class SlackIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to removeSlackIntegrationChannel
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async removeSlackIntegrationChannel(
-    response: ResponseContext
-  ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async removeSlackIntegrationChannel(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -464,25 +364,20 @@ export class SlackIntegrationApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -491,12 +386,8 @@ export class SlackIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to updateSlackIntegrationChannel
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateSlackIntegrationChannel(
-    response: ResponseContext
-  ): Promise<SlackIntegrationChannel> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async updateSlackIntegrationChannel(response: ResponseContext): Promise<SlackIntegrationChannel> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: SlackIntegrationChannel = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -504,16 +395,8 @@ export class SlackIntegrationApiResponseProcessor {
       ) as SlackIntegrationChannel;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -522,29 +405,23 @@ export class SlackIntegrationApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SlackIntegrationChannel = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SlackIntegrationChannel",
-        ""
+        "",
       ) as SlackIntegrationChannel;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 }
 
@@ -553,12 +430,12 @@ export interface SlackIntegrationApiCreateSlackIntegrationChannelRequest {
    * Your Slack account name.
    * @type string
    */
-  accountName: string;
+  accountName: string
   /**
    * Payload describing Slack channel to be created
    * @type SlackIntegrationChannel
    */
-  body: SlackIntegrationChannel;
+  body: SlackIntegrationChannel
 }
 
 export interface SlackIntegrationApiGetSlackIntegrationChannelRequest {
@@ -566,12 +443,12 @@ export interface SlackIntegrationApiGetSlackIntegrationChannelRequest {
    * Your Slack account name.
    * @type string
    */
-  accountName: string;
+  accountName: string
   /**
    * The name of the Slack channel being operated on.
    * @type string
    */
-  channelName: string;
+  channelName: string
 }
 
 export interface SlackIntegrationApiGetSlackIntegrationChannelsRequest {
@@ -579,7 +456,7 @@ export interface SlackIntegrationApiGetSlackIntegrationChannelsRequest {
    * Your Slack account name.
    * @type string
    */
-  accountName: string;
+  accountName: string
 }
 
 export interface SlackIntegrationApiRemoveSlackIntegrationChannelRequest {
@@ -587,12 +464,12 @@ export interface SlackIntegrationApiRemoveSlackIntegrationChannelRequest {
    * Your Slack account name.
    * @type string
    */
-  accountName: string;
+  accountName: string
   /**
    * The name of the Slack channel being operated on.
    * @type string
    */
-  channelName: string;
+  channelName: string
 }
 
 export interface SlackIntegrationApiUpdateSlackIntegrationChannelRequest {
@@ -600,17 +477,17 @@ export interface SlackIntegrationApiUpdateSlackIntegrationChannelRequest {
    * Your Slack account name.
    * @type string
    */
-  accountName: string;
+  accountName: string
   /**
    * The name of the Slack channel being operated on.
    * @type string
    */
-  channelName: string;
+  channelName: string
   /**
    * Payload describing fields and values to be updated.
    * @type SlackIntegrationChannel
    */
-  body: SlackIntegrationChannel;
+  body: SlackIntegrationChannel
 }
 
 export class SlackIntegrationApi {
@@ -618,39 +495,21 @@ export class SlackIntegrationApi {
   private responseProcessor: SlackIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
-  public constructor(
-    configuration: Configuration,
-    requestFactory?: SlackIntegrationApiRequestFactory,
-    responseProcessor?: SlackIntegrationApiResponseProcessor
-  ) {
+  public constructor(configuration: Configuration, requestFactory?: SlackIntegrationApiRequestFactory, responseProcessor?: SlackIntegrationApiResponseProcessor) {
     this.configuration = configuration;
-    this.requestFactory =
-      requestFactory || new SlackIntegrationApiRequestFactory(configuration);
-    this.responseProcessor =
-      responseProcessor || new SlackIntegrationApiResponseProcessor();
+    this.requestFactory = requestFactory || new SlackIntegrationApiRequestFactory(configuration);
+    this.responseProcessor = responseProcessor || new SlackIntegrationApiResponseProcessor();
   }
 
   /**
    * Add a channel to your Datadog-Slack integration.
    * @param param The request object
    */
-  public createSlackIntegrationChannel(
-    param: SlackIntegrationApiCreateSlackIntegrationChannelRequest,
-    options?: Configuration
-  ): Promise<SlackIntegrationChannel> {
-    const requestContextPromise =
-      this.requestFactory.createSlackIntegrationChannel(
-        param.accountName,
-        param.body,
-        options
-      );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.createSlackIntegrationChannel(
-            responseContext
-          );
+  public createSlackIntegrationChannel(param: SlackIntegrationApiCreateSlackIntegrationChannelRequest, options?: Configuration): Promise<SlackIntegrationChannel> {
+    const requestContextPromise = this.requestFactory.createSlackIntegrationChannel(param.accountName,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.createSlackIntegrationChannel(responseContext);
         });
     });
   }
@@ -659,23 +518,11 @@ export class SlackIntegrationApi {
    * Get a channel configured for your Datadog-Slack integration.
    * @param param The request object
    */
-  public getSlackIntegrationChannel(
-    param: SlackIntegrationApiGetSlackIntegrationChannelRequest,
-    options?: Configuration
-  ): Promise<SlackIntegrationChannel> {
-    const requestContextPromise =
-      this.requestFactory.getSlackIntegrationChannel(
-        param.accountName,
-        param.channelName,
-        options
-      );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getSlackIntegrationChannel(
-            responseContext
-          );
+  public getSlackIntegrationChannel(param: SlackIntegrationApiGetSlackIntegrationChannelRequest, options?: Configuration): Promise<SlackIntegrationChannel> {
+    const requestContextPromise = this.requestFactory.getSlackIntegrationChannel(param.accountName,param.channelName,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getSlackIntegrationChannel(responseContext);
         });
     });
   }
@@ -684,22 +531,11 @@ export class SlackIntegrationApi {
    * Get a list of all channels configured for your Datadog-Slack integration.
    * @param param The request object
    */
-  public getSlackIntegrationChannels(
-    param: SlackIntegrationApiGetSlackIntegrationChannelsRequest,
-    options?: Configuration
-  ): Promise<Array<SlackIntegrationChannel>> {
-    const requestContextPromise =
-      this.requestFactory.getSlackIntegrationChannels(
-        param.accountName,
-        options
-      );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getSlackIntegrationChannels(
-            responseContext
-          );
+  public getSlackIntegrationChannels(param: SlackIntegrationApiGetSlackIntegrationChannelsRequest, options?: Configuration): Promise<Array<SlackIntegrationChannel>> {
+    const requestContextPromise = this.requestFactory.getSlackIntegrationChannels(param.accountName,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getSlackIntegrationChannels(responseContext);
         });
     });
   }
@@ -708,23 +544,11 @@ export class SlackIntegrationApi {
    * Remove a channel from your Datadog-Slack integration.
    * @param param The request object
    */
-  public removeSlackIntegrationChannel(
-    param: SlackIntegrationApiRemoveSlackIntegrationChannelRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.removeSlackIntegrationChannel(
-        param.accountName,
-        param.channelName,
-        options
-      );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.removeSlackIntegrationChannel(
-            responseContext
-          );
+  public removeSlackIntegrationChannel(param: SlackIntegrationApiRemoveSlackIntegrationChannelRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.removeSlackIntegrationChannel(param.accountName,param.channelName,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.removeSlackIntegrationChannel(responseContext);
         });
     });
   }
@@ -733,24 +557,11 @@ export class SlackIntegrationApi {
    * Update a channel used in your Datadog-Slack integration.
    * @param param The request object
    */
-  public updateSlackIntegrationChannel(
-    param: SlackIntegrationApiUpdateSlackIntegrationChannelRequest,
-    options?: Configuration
-  ): Promise<SlackIntegrationChannel> {
-    const requestContextPromise =
-      this.requestFactory.updateSlackIntegrationChannel(
-        param.accountName,
-        param.channelName,
-        param.body,
-        options
-      );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.updateSlackIntegrationChannel(
-            responseContext
-          );
+  public updateSlackIntegrationChannel(param: SlackIntegrationApiUpdateSlackIntegrationChannelRequest, options?: Configuration): Promise<SlackIntegrationChannel> {
+    const requestContextPromise = this.requestFactory.updateSlackIntegrationChannel(param.accountName,param.channelName,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.updateSlackIntegrationChannel(responseContext);
         });
     });
   }

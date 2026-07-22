@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * JSON:API type for DORA deployment patch request.
- */
+*/
 
-export type DORADeploymentPatchRequestDataType =
-  | typeof DORA_DEPLOYMENT_PATCH_REQUEST
-  | UnparsedObject;
-export const DORA_DEPLOYMENT_PATCH_REQUEST = "dora_deployment_patch_request";
+export type DORADeploymentPatchRequestDataType = typeof DORA_DEPLOYMENT_PATCH_REQUEST | UnparsedObject;
+export const DORA_DEPLOYMENT_PATCH_REQUEST = 'dora_deployment_patch_request';

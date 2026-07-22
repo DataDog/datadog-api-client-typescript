@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Pagination metadata for the seat users list response.
- */
+*/
 export class SeatUserMeta {
   /**
    * The cursor for the seat users.
-   */
+  */
   "cursor"?: string;
   /**
    * The limit for the seat users.
-   */
+  */
   "limit"?: number;
   /**
    * The next cursor for the seat users.
-   */
+  */
   "nextCursor"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class SeatUserMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,18 +44,18 @@ export class SeatUserMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    cursor: {
-      baseName: "cursor",
-      type: "string",
+    "cursor": {
+      "baseName": "cursor",
+      "type": "string",
     },
-    limit: {
-      baseName: "limit",
-      type: "number",
-      format: "int64",
+    "limit": {
+      "baseName": "limit",
+      "type": "number",
+      "format": "int64",
     },
-    nextCursor: {
-      baseName: "next_cursor",
-      type: "string",
+    "nextCursor": {
+      "baseName": "next_cursor",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class SeatUserMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SeatUserMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

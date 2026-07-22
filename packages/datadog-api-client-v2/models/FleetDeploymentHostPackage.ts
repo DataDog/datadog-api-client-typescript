@@ -4,28 +4,33 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Package version information for a host, showing the initial version before deployment,
  * the target version to deploy, and the current version on the host.
- */
+*/
 export class FleetDeploymentHostPackage {
   /**
    * The current version of the package on the host.
-   */
+  */
   "currentVersion"?: string;
   /**
    * The initial version of the package on the host before the deployment started.
-   */
+  */
   "initialVersion"?: string;
   /**
    * The name of the package.
-   */
+  */
   "packageName"?: string;
   /**
    * The target version that the deployment is attempting to install.
-   */
+  */
   "targetVersion"?: string;
 
   /**
@@ -33,7 +38,7 @@ export class FleetDeploymentHostPackage {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -44,21 +49,21 @@ export class FleetDeploymentHostPackage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    currentVersion: {
-      baseName: "current_version",
-      type: "string",
+    "currentVersion": {
+      "baseName": "current_version",
+      "type": "string",
     },
-    initialVersion: {
-      baseName: "initial_version",
-      type: "string",
+    "initialVersion": {
+      "baseName": "initial_version",
+      "type": "string",
     },
-    packageName: {
-      baseName: "package_name",
-      type: "string",
+    "packageName": {
+      "baseName": "package_name",
+      "type": "string",
     },
-    targetVersion: {
-      baseName: "target_version",
-      type: "string",
+    "targetVersion": {
+      "baseName": "target_version",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -70,8 +75,34 @@ export class FleetDeploymentHostPackage {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FleetDeploymentHostPackage.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

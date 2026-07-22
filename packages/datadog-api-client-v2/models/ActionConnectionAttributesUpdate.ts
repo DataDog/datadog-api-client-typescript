@@ -5,19 +5,24 @@
  */
 import { ActionConnectionIntegrationUpdate } from "./ActionConnectionIntegrationUpdate";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `ActionConnectionAttributesUpdate` object.
- */
+*/
 export class ActionConnectionAttributesUpdate {
   /**
    * The definition of `ActionConnectionIntegrationUpdate` object.
-   */
+  */
   "integration"?: ActionConnectionIntegrationUpdate;
   /**
    * Name of the connection
-   */
+  */
   "name"?: string;
 
   /**
@@ -25,7 +30,7 @@ export class ActionConnectionAttributesUpdate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class ActionConnectionAttributesUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    integration: {
-      baseName: "integration",
-      type: "ActionConnectionIntegrationUpdate",
+    "integration": {
+      "baseName": "integration",
+      "type": "ActionConnectionIntegrationUpdate",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class ActionConnectionAttributesUpdate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ActionConnectionAttributesUpdate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

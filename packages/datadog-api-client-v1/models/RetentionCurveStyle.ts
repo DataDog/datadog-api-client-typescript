@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Style configuration for retention curve.
- */
+*/
 export class RetentionCurveStyle {
   /**
    * Color palette for the retention curve.
-   */
+  */
   "palette"?: string;
 
   /**
@@ -24,18 +29,44 @@ export class RetentionCurveStyle {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    palette: {
-      baseName: "palette",
-      type: "string",
-    },
+    "palette": {
+      "baseName": "palette",
+      "type": "string",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RetentionCurveStyle.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

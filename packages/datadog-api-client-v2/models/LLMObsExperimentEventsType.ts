@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Resource type for an experiment events collection.
- */
+*/
 
-export type LLMObsExperimentEventsType =
-  | typeof EXPERIMENT_EVENTS
-  | UnparsedObject;
-export const EXPERIMENT_EVENTS = "experiment_events";
+export type LLMObsExperimentEventsType = typeof EXPERIMENT_EVENTS | UnparsedObject;
+export const EXPERIMENT_EVENTS = 'experiment_events';

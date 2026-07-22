@@ -5,15 +5,20 @@
  */
 import { TeamOnCallRespondersDataRelationshipsEscalationsDataItems } from "./TeamOnCallRespondersDataRelationshipsEscalationsDataItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Defines the escalation policy steps linked to the team's on-call configuration.
- */
+*/
 export class TeamOnCallRespondersDataRelationshipsEscalations {
   /**
    * Array of escalation step references.
-   */
+  */
   "data"?: Array<TeamOnCallRespondersDataRelationshipsEscalationsDataItems>;
 
   /**
@@ -21,7 +26,7 @@ export class TeamOnCallRespondersDataRelationshipsEscalations {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class TeamOnCallRespondersDataRelationshipsEscalations {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<TeamOnCallRespondersDataRelationshipsEscalationsDataItems>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<TeamOnCallRespondersDataRelationshipsEscalationsDataItems>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class TeamOnCallRespondersDataRelationshipsEscalations {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamOnCallRespondersDataRelationshipsEscalations.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

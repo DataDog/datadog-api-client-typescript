@@ -6,19 +6,24 @@
 import { CommitCoverageSummaryRequestAttributes } from "./CommitCoverageSummaryRequestAttributes";
 import { CommitCoverageSummaryRequestType } from "./CommitCoverageSummaryRequestType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for commit summary request.
- */
+*/
 export class CommitCoverageSummaryRequestData {
   /**
    * Attributes for requesting code coverage summary for a commit.
-   */
+  */
   "attributes": CommitCoverageSummaryRequestAttributes;
   /**
    * JSON:API type for commit coverage summary request. The value must always be `ci_app_coverage_commit_summary_request`.
-   */
+  */
   "type": CommitCoverageSummaryRequestType;
 
   /**
@@ -26,7 +31,7 @@ export class CommitCoverageSummaryRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class CommitCoverageSummaryRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CommitCoverageSummaryRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CommitCoverageSummaryRequestAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CommitCoverageSummaryRequestType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CommitCoverageSummaryRequestType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class CommitCoverageSummaryRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CommitCoverageSummaryRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,23 +6,28 @@
 import { CreateFeatureFlagDataType } from "./CreateFeatureFlagDataType";
 import { FeatureFlagListItemAttributes } from "./FeatureFlagListItemAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A feature flag resource for list responses.
- */
+*/
 export class FeatureFlagListItem {
   /**
    * Attributes of a feature flag in list responses.
-   */
+  */
   "attributes": FeatureFlagListItemAttributes;
   /**
    * The unique identifier of the feature flag.
-   */
+  */
   "id": string;
   /**
    * The resource type.
-   */
+  */
   "type": CreateFeatureFlagDataType;
 
   /**
@@ -30,7 +35,7 @@ export class FeatureFlagListItem {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,21 +46,21 @@ export class FeatureFlagListItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "FeatureFlagListItemAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "FeatureFlagListItemAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    type: {
-      baseName: "type",
-      type: "CreateFeatureFlagDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CreateFeatureFlagDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class FeatureFlagListItem {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FeatureFlagListItem.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

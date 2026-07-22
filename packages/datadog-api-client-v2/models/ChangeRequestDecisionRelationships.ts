@@ -5,23 +5,28 @@
  */
 import { ChangeRequestUserRelationship } from "./ChangeRequestUserRelationship";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationships of a change request decision.
- */
+*/
 export class ChangeRequestDecisionRelationships {
   /**
    * Relationship to a user.
-   */
+  */
   "modifiedBy": ChangeRequestUserRelationship;
   /**
    * Relationship to a user.
-   */
+  */
   "requestedByUser": ChangeRequestUserRelationship;
   /**
    * Relationship to a user.
-   */
+  */
   "requestedUser": ChangeRequestUserRelationship;
 
   /**
@@ -29,7 +34,7 @@ export class ChangeRequestDecisionRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,20 +45,20 @@ export class ChangeRequestDecisionRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    modifiedBy: {
-      baseName: "modified_by",
-      type: "ChangeRequestUserRelationship",
-      required: true,
+    "modifiedBy": {
+      "baseName": "modified_by",
+      "type": "ChangeRequestUserRelationship",
+      "required": true,
     },
-    requestedByUser: {
-      baseName: "requested_by_user",
-      type: "ChangeRequestUserRelationship",
-      required: true,
+    "requestedByUser": {
+      "baseName": "requested_by_user",
+      "type": "ChangeRequestUserRelationship",
+      "required": true,
     },
-    requestedUser: {
-      baseName: "requested_user",
-      type: "ChangeRequestUserRelationship",
-      required: true,
+    "requestedUser": {
+      "baseName": "requested_user",
+      "type": "ChangeRequestUserRelationship",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class ChangeRequestDecisionRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ChangeRequestDecisionRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

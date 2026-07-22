@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of dashboard sharing.
- */
+*/
 
-export type SharedDashboardShareType =
-  | typeof OPEN
-  | typeof INVITE
-  | typeof EMBED
-  | typeof SECURE_EMBED
-  | UnparsedObject;
-export const OPEN = "open";
-export const INVITE = "invite";
-export const EMBED = "embed";
-export const SECURE_EMBED = "secure-embed";
+export type SharedDashboardShareType = typeof OPEN| typeof INVITE| typeof EMBED| typeof SECURE_EMBED | UnparsedObject;
+export const OPEN = 'open';
+export const INVITE = 'invite';
+export const EMBED = 'embed';
+export const SECURE_EMBED = 'secure-embed';

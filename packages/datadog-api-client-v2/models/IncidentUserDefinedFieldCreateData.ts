@@ -7,23 +7,28 @@ import { IncidentUserDefinedFieldAttributesCreateRequest } from "./IncidentUserD
 import { IncidentUserDefinedFieldCreateRelationships } from "./IncidentUserDefinedFieldCreateRelationships";
 import { IncidentUserDefinedFieldType } from "./IncidentUserDefinedFieldType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for creating an incident user-defined field.
- */
+*/
 export class IncidentUserDefinedFieldCreateData {
   /**
    * Attributes for creating an incident user-defined field.
-   */
+  */
   "attributes": IncidentUserDefinedFieldAttributesCreateRequest;
   /**
    * Relationships for creating an incident user-defined field.
-   */
+  */
   "relationships": IncidentUserDefinedFieldCreateRelationships;
   /**
    * The incident user defined fields type.
-   */
+  */
   "type": IncidentUserDefinedFieldType;
 
   /**
@@ -31,7 +36,7 @@ export class IncidentUserDefinedFieldCreateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,20 +47,20 @@ export class IncidentUserDefinedFieldCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "IncidentUserDefinedFieldAttributesCreateRequest",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "IncidentUserDefinedFieldAttributesCreateRequest",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "IncidentUserDefinedFieldCreateRelationships",
-      required: true,
+    "relationships": {
+      "baseName": "relationships",
+      "type": "IncidentUserDefinedFieldCreateRelationships",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "IncidentUserDefinedFieldType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "IncidentUserDefinedFieldType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class IncidentUserDefinedFieldCreateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentUserDefinedFieldCreateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

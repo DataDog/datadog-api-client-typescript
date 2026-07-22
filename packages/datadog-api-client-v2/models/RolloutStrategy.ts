@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The progression strategy used by a progressive rollout.
- */
+*/
 
-export type RolloutStrategy =
-  | typeof UNIFORM_INTERVALS
-  | typeof NO_ROLLOUT
-  | UnparsedObject;
-export const UNIFORM_INTERVALS = "UNIFORM_INTERVALS";
-export const NO_ROLLOUT = "NO_ROLLOUT";
+export type RolloutStrategy = typeof UNIFORM_INTERVALS| typeof NO_ROLLOUT | UnparsedObject;
+export const UNIFORM_INTERVALS = 'UNIFORM_INTERVALS';
+export const NO_ROLLOUT = 'NO_ROLLOUT';

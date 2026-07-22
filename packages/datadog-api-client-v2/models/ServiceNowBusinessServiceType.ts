@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type identifier for ServiceNow business service resources
- */
+*/
 
-export type ServiceNowBusinessServiceType =
-  | typeof BUSINESS_SERVICES
-  | UnparsedObject;
-export const BUSINESS_SERVICES = "business_services";
+export type ServiceNowBusinessServiceType = typeof BUSINESS_SERVICES | UnparsedObject;
+export const BUSINESS_SERVICES = 'business_services';

@@ -45,52 +45,15 @@ import { TopologyMapWidgetDefinition } from "./TopologyMapWidgetDefinition";
 import { TreeMapWidgetDefinition } from "./TreeMapWidgetDefinition";
 import { WildcardWidgetDefinition } from "./WildcardWidgetDefinition";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * [Definition of the widget](https://docs.datadoghq.com/dashboards/widgets/).
- */
+*/
 
-export type WidgetDefinition =
-  | AlertGraphWidgetDefinition
-  | AlertValueWidgetDefinition
-  | BarChartWidgetDefinition
-  | ChangeWidgetDefinition
-  | CheckStatusWidgetDefinition
-  | CohortWidgetDefinition
-  | DistributionWidgetDefinition
-  | EventStreamWidgetDefinition
-  | EventTimelineWidgetDefinition
-  | FreeTextWidgetDefinition
-  | FunnelWidgetDefinition
-  | ProductAnalyticsFunnelWidgetDefinition
-  | GeomapWidgetDefinition
-  | GroupWidgetDefinition
-  | HeatMapWidgetDefinition
-  | HostMapWidgetDefinition
-  | IFrameWidgetDefinition
-  | ImageWidgetDefinition
-  | ListStreamWidgetDefinition
-  | LogStreamWidgetDefinition
-  | MonitorSummaryWidgetDefinition
-  | NoteWidgetDefinition
-  | PowerpackWidgetDefinition
-  | PointPlotWidgetDefinition
-  | QueryValueWidgetDefinition
-  | RetentionCurveWidgetDefinition
-  | RunWorkflowWidgetDefinition
-  | SLOListWidgetDefinition
-  | SLOWidgetDefinition
-  | ScatterPlotWidgetDefinition
-  | SankeyWidgetDefinition
-  | ServiceMapWidgetDefinition
-  | ServiceSummaryWidgetDefinition
-  | SplitGraphWidgetDefinition
-  | SunburstWidgetDefinition
-  | TableWidgetDefinition
-  | TimeseriesWidgetDefinition
-  | ToplistWidgetDefinition
-  | TopologyMapWidgetDefinition
-  | TreeMapWidgetDefinition
-  | WildcardWidgetDefinition
-  | UnparsedObject;
+export type WidgetDefinition = AlertGraphWidgetDefinition | AlertValueWidgetDefinition | BarChartWidgetDefinition | ChangeWidgetDefinition | CheckStatusWidgetDefinition | CohortWidgetDefinition | DistributionWidgetDefinition | EventStreamWidgetDefinition | EventTimelineWidgetDefinition | FreeTextWidgetDefinition | FunnelWidgetDefinition | ProductAnalyticsFunnelWidgetDefinition | GeomapWidgetDefinition | GroupWidgetDefinition | HeatMapWidgetDefinition | HostMapWidgetDefinition | IFrameWidgetDefinition | ImageWidgetDefinition | ListStreamWidgetDefinition | LogStreamWidgetDefinition | MonitorSummaryWidgetDefinition | NoteWidgetDefinition | PowerpackWidgetDefinition | PointPlotWidgetDefinition | QueryValueWidgetDefinition | RetentionCurveWidgetDefinition | RunWorkflowWidgetDefinition | SLOListWidgetDefinition | SLOWidgetDefinition | ScatterPlotWidgetDefinition | SankeyWidgetDefinition | ServiceMapWidgetDefinition | ServiceSummaryWidgetDefinition | SplitGraphWidgetDefinition | SunburstWidgetDefinition | TableWidgetDefinition | TimeseriesWidgetDefinition | ToplistWidgetDefinition | TopologyMapWidgetDefinition | TreeMapWidgetDefinition | WildcardWidgetDefinition | UnparsedObject;

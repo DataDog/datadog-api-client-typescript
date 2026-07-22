@@ -5,15 +5,20 @@
  */
 import { RelationshipToOutcome } from "./RelationshipToOutcome";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The JSON:API relationship to a scorecard rule.
- */
+*/
 export class RuleOutcomeRelationships {
   /**
    * The JSON:API relationship to a scorecard outcome.
-   */
+  */
   "rule"?: RelationshipToOutcome;
 
   /**
@@ -21,7 +26,7 @@ export class RuleOutcomeRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class RuleOutcomeRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    rule: {
-      baseName: "rule",
-      type: "RelationshipToOutcome",
+    "rule": {
+      "baseName": "rule",
+      "type": "RelationshipToOutcome",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class RuleOutcomeRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RuleOutcomeRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -8,63 +8,68 @@ import { ReportScheduleResponseAttributesDeliveryFormat } from "./ReportSchedule
 import { ReportScheduleStatus } from "./ReportScheduleStatus";
 import { ReportScheduleTemplateVariable } from "./ReportScheduleTemplateVariable";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The configuration and derived state of a report schedule.
- */
+*/
 export class ReportScheduleResponseAttributes {
   /**
    * The delivery format for dashboard report schedules, or `null` if not set.
-   */
+  */
   "deliveryFormat"?: ReportScheduleResponseAttributesDeliveryFormat;
   /**
    * The description of the report.
-   */
+  */
   "description": string;
   /**
    * The Unix timestamp, in milliseconds, of the next scheduled delivery, or `null` if none is scheduled.
-   */
-  "nextRecurrence": number | null;
+  */
+  "nextRecurrence": number|null;
   /**
    * The recipients of the report (email addresses, Slack channel references, or Microsoft Teams channel references).
-   */
+  */
   "recipients": Array<string>;
   /**
    * The identifier of the resource rendered in the report.
-   */
+  */
   "resourceId": string;
   /**
    * The type of dashboard resource the report schedule targets.
-   */
+  */
   "resourceType": ReportScheduleResourceType;
   /**
    * The recurrence rule for the schedule, expressed as an iCalendar `RRULE` string.
-   */
+  */
   "rrule": string;
   /**
    * Whether the schedule is currently delivering reports (`active`) or paused (`inactive`).
-   */
+  */
   "status": ReportScheduleStatus;
   /**
    * The identifier of the dashboard tab rendered in the report, or `null` if not set.
-   */
-  "tabId": string | null;
+  */
+  "tabId": string|null;
   /**
    * The dashboard template variables applied when rendering the report.
-   */
+  */
   "templateVariables": Array<ReportScheduleTemplateVariable>;
   /**
    * The relative timeframe of data included in the report, or `null` if not set.
-   */
-  "timeframe": string | null;
+  */
+  "timeframe": string|null;
   /**
    * The IANA time zone identifier the recurrence rule is evaluated in.
-   */
+  */
   "timezone": string;
   /**
    * The title of the report.
-   */
+  */
   "title": string;
 
   /**
@@ -72,7 +77,7 @@ export class ReportScheduleResponseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -83,70 +88,70 @@ export class ReportScheduleResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    deliveryFormat: {
-      baseName: "delivery_format",
-      type: "ReportScheduleResponseAttributesDeliveryFormat",
+    "deliveryFormat": {
+      "baseName": "delivery_format",
+      "type": "ReportScheduleResponseAttributesDeliveryFormat",
     },
-    description: {
-      baseName: "description",
-      type: "string",
-      required: true,
+    "description": {
+      "baseName": "description",
+      "type": "string",
+      "required": true,
     },
-    nextRecurrence: {
-      baseName: "next_recurrence",
-      type: "number",
-      required: true,
-      format: "int64",
+    "nextRecurrence": {
+      "baseName": "next_recurrence",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    recipients: {
-      baseName: "recipients",
-      type: "Array<string>",
-      required: true,
+    "recipients": {
+      "baseName": "recipients",
+      "type": "Array<string>",
+      "required": true,
     },
-    resourceId: {
-      baseName: "resource_id",
-      type: "string",
-      required: true,
+    "resourceId": {
+      "baseName": "resource_id",
+      "type": "string",
+      "required": true,
     },
-    resourceType: {
-      baseName: "resource_type",
-      type: "ReportScheduleResourceType",
-      required: true,
+    "resourceType": {
+      "baseName": "resource_type",
+      "type": "ReportScheduleResourceType",
+      "required": true,
     },
-    rrule: {
-      baseName: "rrule",
-      type: "string",
-      required: true,
+    "rrule": {
+      "baseName": "rrule",
+      "type": "string",
+      "required": true,
     },
-    status: {
-      baseName: "status",
-      type: "ReportScheduleStatus",
-      required: true,
+    "status": {
+      "baseName": "status",
+      "type": "ReportScheduleStatus",
+      "required": true,
     },
-    tabId: {
-      baseName: "tab_id",
-      type: "string",
-      required: true,
+    "tabId": {
+      "baseName": "tab_id",
+      "type": "string",
+      "required": true,
     },
-    templateVariables: {
-      baseName: "template_variables",
-      type: "Array<ReportScheduleTemplateVariable>",
-      required: true,
+    "templateVariables": {
+      "baseName": "template_variables",
+      "type": "Array<ReportScheduleTemplateVariable>",
+      "required": true,
     },
-    timeframe: {
-      baseName: "timeframe",
-      type: "string",
-      required: true,
+    "timeframe": {
+      "baseName": "timeframe",
+      "type": "string",
+      "required": true,
     },
-    timezone: {
-      baseName: "timezone",
-      type: "string",
-      required: true,
+    "timezone": {
+      "baseName": "timezone",
+      "type": "string",
+      "required": true,
     },
-    title: {
-      baseName: "title",
-      type: "string",
-      required: true,
+    "title": {
+      "baseName": "title",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -158,8 +163,34 @@ export class ReportScheduleResponseAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ReportScheduleResponseAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

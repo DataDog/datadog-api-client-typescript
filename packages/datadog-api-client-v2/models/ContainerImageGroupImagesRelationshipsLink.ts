@@ -5,19 +5,24 @@
  */
 import { ContainerImageGroupRelationshipsLinks } from "./ContainerImageGroupRelationshipsLinks";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationships to Container Images inside a Container Image Group.
- */
+*/
 export class ContainerImageGroupImagesRelationshipsLink {
   /**
    * Links data.
-   */
+  */
   "data"?: Array<string>;
   /**
    * Links attributes.
-   */
+  */
   "links"?: ContainerImageGroupRelationshipsLinks;
 
   /**
@@ -25,7 +30,7 @@ export class ContainerImageGroupImagesRelationshipsLink {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class ContainerImageGroupImagesRelationshipsLink {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<string>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<string>",
     },
-    links: {
-      baseName: "links",
-      type: "ContainerImageGroupRelationshipsLinks",
+    "links": {
+      "baseName": "links",
+      "type": "ContainerImageGroupRelationshipsLinks",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class ContainerImageGroupImagesRelationshipsLink {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ContainerImageGroupImagesRelationshipsLink.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

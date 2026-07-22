@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A completed part of a multipart upload.
- */
+*/
 export class SyntheticsTestFileCompleteMultipartUploadPart {
   /**
    * The ETag returned by the storage provider after uploading the part.
-   */
+  */
   "eTag": string;
   /**
    * The 1-indexed part number for the multipart upload.
-   */
+  */
   "partNumber": number;
 
   /**
@@ -24,7 +29,7 @@ export class SyntheticsTestFileCompleteMultipartUploadPart {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,16 +40,16 @@ export class SyntheticsTestFileCompleteMultipartUploadPart {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    eTag: {
-      baseName: "ETag",
-      type: "string",
-      required: true,
+    "eTag": {
+      "baseName": "ETag",
+      "type": "string",
+      "required": true,
     },
-    partNumber: {
-      baseName: "PartNumber",
-      type: "number",
-      required: true,
-      format: "int64",
+    "partNumber": {
+      "baseName": "PartNumber",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class SyntheticsTestFileCompleteMultipartUploadPart {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestFileCompleteMultipartUploadPart.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

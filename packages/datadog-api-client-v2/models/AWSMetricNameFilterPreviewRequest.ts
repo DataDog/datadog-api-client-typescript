@@ -5,15 +5,20 @@
  */
 import { AWSMetricNameFilterPreviewRequestData } from "./AWSMetricNameFilterPreviewRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * AWS metric name filter preview request body.
- */
+*/
 export class AWSMetricNameFilterPreviewRequest {
   /**
    * AWS metric name filter preview request data.
-   */
+  */
   "data": AWSMetricNameFilterPreviewRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class AWSMetricNameFilterPreviewRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class AWSMetricNameFilterPreviewRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "AWSMetricNameFilterPreviewRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "AWSMetricNameFilterPreviewRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class AWSMetricNameFilterPreviewRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSMetricNameFilterPreviewRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

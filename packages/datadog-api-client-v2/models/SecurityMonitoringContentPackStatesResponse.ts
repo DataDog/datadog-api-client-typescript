@@ -6,19 +6,24 @@
 import { SecurityMonitoringContentPackStateData } from "./SecurityMonitoringContentPackStateData";
 import { SecurityMonitoringContentPackStateMeta } from "./SecurityMonitoringContentPackStateMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing content pack states.
- */
+*/
 export class SecurityMonitoringContentPackStatesResponse {
   /**
    * Array of content pack states.
-   */
+  */
   "data": Array<SecurityMonitoringContentPackStateData>;
   /**
    * Metadata for content pack states
-   */
+  */
   "meta": SecurityMonitoringContentPackStateMeta;
 
   /**
@@ -26,7 +31,7 @@ export class SecurityMonitoringContentPackStatesResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class SecurityMonitoringContentPackStatesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<SecurityMonitoringContentPackStateData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<SecurityMonitoringContentPackStateData>",
+      "required": true,
     },
-    meta: {
-      baseName: "meta",
-      type: "SecurityMonitoringContentPackStateMeta",
-      required: true,
+    "meta": {
+      "baseName": "meta",
+      "type": "SecurityMonitoringContentPackStateMeta",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class SecurityMonitoringContentPackStatesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringContentPackStatesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

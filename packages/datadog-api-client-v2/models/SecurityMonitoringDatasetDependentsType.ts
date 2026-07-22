@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of resource for a dataset dependents entry.
- */
+*/
 
-export type SecurityMonitoringDatasetDependentsType =
-  | typeof DATASET_DEPENDENTS
-  | UnparsedObject;
-export const DATASET_DEPENDENTS = "datasetDependents";
+export type SecurityMonitoringDatasetDependentsType = typeof DATASET_DEPENDENTS | UnparsedObject;
+export const DATASET_DEPENDENTS = 'datasetDependents';

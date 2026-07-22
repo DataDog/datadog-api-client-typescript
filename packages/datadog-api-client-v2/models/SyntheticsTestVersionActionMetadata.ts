@@ -5,27 +5,32 @@
  */
 import { SyntheticsTestVersionDiffPatches } from "./SyntheticsTestVersionDiffPatches";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object containing metadata about a change action.
- */
+*/
 export class SyntheticsTestVersionActionMetadata {
   /**
    * The value of the property after the change.
-   */
+  */
   "afterValue"?: any;
   /**
    * The value of the property before the change.
-   */
+  */
   "beforeValue"?: any;
   /**
    * List of diff patches for text changes.
-   */
+  */
   "diffPatches"?: Array<SyntheticsTestVersionDiffPatches>;
   /**
    * The dot-separated path of the property that was changed.
-   */
+  */
   "propertyPath"?: string;
 
   /**
@@ -33,7 +38,7 @@ export class SyntheticsTestVersionActionMetadata {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -44,21 +49,21 @@ export class SyntheticsTestVersionActionMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    afterValue: {
-      baseName: "after_value",
-      type: "any",
+    "afterValue": {
+      "baseName": "after_value",
+      "type": "any",
     },
-    beforeValue: {
-      baseName: "before_value",
-      type: "any",
+    "beforeValue": {
+      "baseName": "before_value",
+      "type": "any",
     },
-    diffPatches: {
-      baseName: "diff_patches",
-      type: "Array<SyntheticsTestVersionDiffPatches>",
+    "diffPatches": {
+      "baseName": "diff_patches",
+      "type": "Array<SyntheticsTestVersionDiffPatches>",
     },
-    propertyPath: {
-      baseName: "property_path",
-      type: "string",
+    "propertyPath": {
+      "baseName": "property_path",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -70,8 +75,34 @@ export class SyntheticsTestVersionActionMetadata {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestVersionActionMetadata.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

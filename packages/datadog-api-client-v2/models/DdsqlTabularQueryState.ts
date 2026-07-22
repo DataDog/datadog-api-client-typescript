@@ -4,18 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Lifecycle state of a DDSQL tabular query response.
  * `running` means the query is still executing and the client should poll
  * the fetch endpoint with the returned `query_id`. `completed` means the
  * result set is inlined in `columns` and no further polling is required.
- */
+*/
 
-export type DdsqlTabularQueryState =
-  | typeof RUNNING
-  | typeof COMPLETED
-  | UnparsedObject;
-export const RUNNING = "running";
-export const COMPLETED = "completed";
+export type DdsqlTabularQueryState = typeof RUNNING| typeof COMPLETED | UnparsedObject;
+export const RUNNING = 'running';
+export const COMPLETED = 'completed';

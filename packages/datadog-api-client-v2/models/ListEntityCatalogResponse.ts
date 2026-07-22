@@ -8,27 +8,32 @@ import { EntityResponseMeta } from "./EntityResponseMeta";
 import { ListEntityCatalogResponseIncludedItem } from "./ListEntityCatalogResponseIncludedItem";
 import { ListEntityCatalogResponseLinks } from "./ListEntityCatalogResponseLinks";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * List entity response.
- */
+*/
 export class ListEntityCatalogResponse {
   /**
    * List of entity data.
-   */
+  */
   "data"?: Array<EntityData>;
   /**
    * List entity response included.
-   */
+  */
   "included"?: Array<ListEntityCatalogResponseIncludedItem>;
   /**
    * List entity response links.
-   */
+  */
   "links"?: ListEntityCatalogResponseLinks;
   /**
    * Entity metadata.
-   */
+  */
   "meta"?: EntityResponseMeta;
 
   /**
@@ -36,7 +41,7 @@ export class ListEntityCatalogResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,21 +52,21 @@ export class ListEntityCatalogResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<EntityData>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<EntityData>",
     },
-    included: {
-      baseName: "included",
-      type: "Array<ListEntityCatalogResponseIncludedItem>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<ListEntityCatalogResponseIncludedItem>",
     },
-    links: {
-      baseName: "links",
-      type: "ListEntityCatalogResponseLinks",
+    "links": {
+      "baseName": "links",
+      "type": "ListEntityCatalogResponseLinks",
     },
-    meta: {
-      baseName: "meta",
-      type: "EntityResponseMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "EntityResponseMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -73,8 +78,34 @@ export class ListEntityCatalogResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListEntityCatalogResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

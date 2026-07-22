@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of the Cohort widget.
- */
+*/
 
 export type CohortWidgetDefinitionType = typeof COHORT | UnparsedObject;
-export const COHORT = "cohort";
+export const COHORT = 'cohort';

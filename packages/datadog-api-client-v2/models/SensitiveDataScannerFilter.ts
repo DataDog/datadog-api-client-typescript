@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Filter for the Scanning Group.
- */
+*/
 export class SensitiveDataScannerFilter {
   /**
    * Query to filter the events.
-   */
+  */
   "query"?: string;
 
   /**
@@ -20,7 +25,7 @@ export class SensitiveDataScannerFilter {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,9 +36,9 @@ export class SensitiveDataScannerFilter {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    query: {
-      baseName: "query",
-      type: "string",
+    "query": {
+      "baseName": "query",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,8 +50,34 @@ export class SensitiveDataScannerFilter {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SensitiveDataScannerFilter.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,23 +5,28 @@
  */
 import { LogsArrayProcessorOperationLengthType } from "./LogsArrayProcessorOperationLengthType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Operation that computes the length of a `source` array and stores the result in the `target` attribute.
- */
+*/
 export class LogsArrayProcessorOperationLength {
   /**
    * Attribute path of the array to measure.
-   */
+  */
   "source": string;
   /**
    * Attribute that receives the computed length.
-   */
+  */
   "target": string;
   /**
    * Operation type.
-   */
+  */
   "type": LogsArrayProcessorOperationLengthType;
 
   /**
@@ -29,7 +34,7 @@ export class LogsArrayProcessorOperationLength {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,20 +45,20 @@ export class LogsArrayProcessorOperationLength {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    source: {
-      baseName: "source",
-      type: "string",
-      required: true,
+    "source": {
+      "baseName": "source",
+      "type": "string",
+      "required": true,
     },
-    target: {
-      baseName: "target",
-      type: "string",
-      required: true,
+    "target": {
+      "baseName": "target",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LogsArrayProcessorOperationLengthType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LogsArrayProcessorOperationLengthType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class LogsArrayProcessorOperationLength {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogsArrayProcessorOperationLength.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

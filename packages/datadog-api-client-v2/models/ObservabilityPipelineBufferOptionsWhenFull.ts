@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Behavior when the buffer is full (block and stop accepting new events, or drop new events)
- */
+*/
 
-export type ObservabilityPipelineBufferOptionsWhenFull =
-  | typeof BLOCK
-  | typeof DROP_NEWEST
-  | UnparsedObject;
-export const BLOCK = "block";
-export const DROP_NEWEST = "drop_newest";
+export type ObservabilityPipelineBufferOptionsWhenFull = typeof BLOCK| typeof DROP_NEWEST | UnparsedObject;
+export const BLOCK = 'block';
+export const DROP_NEWEST = 'drop_newest';

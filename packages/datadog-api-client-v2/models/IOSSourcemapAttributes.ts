@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of an iOS dSYM source map.
- */
+*/
 export class IOSSourcemapAttributes {
   /**
    * The timestamp when the source map was created.
-   */
+  */
   "createdAt": Date;
   /**
    * The type of source map.
-   */
+  */
   "mapkind": string;
   /**
    * The size of the dSYM file in bytes.
-   */
+  */
   "size": number;
   /**
    * The UUID(s) associated with the dSYM file.
-   */
+  */
   "uuids"?: string;
 
   /**
@@ -32,7 +37,7 @@ export class IOSSourcemapAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,26 +48,26 @@ export class IOSSourcemapAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    mapkind: {
-      baseName: "mapkind",
-      type: "string",
-      required: true,
+    "mapkind": {
+      "baseName": "mapkind",
+      "type": "string",
+      "required": true,
     },
-    size: {
-      baseName: "size",
-      type: "number",
-      required: true,
-      format: "int64",
+    "size": {
+      "baseName": "size",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    uuids: {
-      baseName: "uuids",
-      type: "string",
+    "uuids": {
+      "baseName": "uuids",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,8 +79,34 @@ export class IOSSourcemapAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IOSSourcemapAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The routing mode for the notification rule. `manual` sends notifications to the configured targets.
- */
+*/
 
 export type NotificationRuleRoutingMode = typeof MANUAL | UnparsedObject;
-export const MANUAL = "manual";
+export const MANUAL = 'manual';

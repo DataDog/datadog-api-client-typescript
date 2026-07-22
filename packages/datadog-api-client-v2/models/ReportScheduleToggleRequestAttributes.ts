@@ -5,15 +5,20 @@
  */
 import { ReportScheduleStatus } from "./ReportScheduleStatus";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The status to set on the report schedule.
- */
+*/
 export class ReportScheduleToggleRequestAttributes {
   /**
    * Whether the schedule is currently delivering reports (`active`) or paused (`inactive`).
-   */
+  */
   "status": ReportScheduleStatus;
 
   /**
@@ -21,7 +26,7 @@ export class ReportScheduleToggleRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class ReportScheduleToggleRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    status: {
-      baseName: "status",
-      type: "ReportScheduleStatus",
-      required: true,
+    "status": {
+      "baseName": "status",
+      "type": "ReportScheduleStatus",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class ReportScheduleToggleRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ReportScheduleToggleRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

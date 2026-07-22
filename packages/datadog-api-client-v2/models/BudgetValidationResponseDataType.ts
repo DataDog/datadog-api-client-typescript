@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Budget validation resource type.
- */
+*/
 
-export type BudgetValidationResponseDataType =
-  | typeof BUDGET_VALIDATION
-  | UnparsedObject;
-export const BUDGET_VALIDATION = "budget_validation";
+export type BudgetValidationResponseDataType = typeof BUDGET_VALIDATION | UnparsedObject;
+export const BUDGET_VALIDATION = 'budget_validation';

@@ -6,23 +6,28 @@
 import { LogsMetricCreateAttributes } from "./LogsMetricCreateAttributes";
 import { LogsMetricType } from "./LogsMetricType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The new log-based metric properties.
- */
+*/
 export class LogsMetricCreateData {
   /**
    * The object describing the Datadog log-based metric to create.
-   */
+  */
   "attributes": LogsMetricCreateAttributes;
   /**
    * The name of the log-based metric.
-   */
+  */
   "id": string;
   /**
    * The type of the resource. The value should always be logs_metrics.
-   */
+  */
   "type": LogsMetricType;
 
   /**
@@ -30,7 +35,7 @@ export class LogsMetricCreateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class LogsMetricCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LogsMetricCreateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "LogsMetricCreateAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LogsMetricType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LogsMetricType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class LogsMetricCreateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogsMetricCreateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

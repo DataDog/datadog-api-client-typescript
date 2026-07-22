@@ -12,19 +12,15 @@ import { MetricsTimeseriesQuery } from "./MetricsTimeseriesQuery";
 import { ProcessTimeseriesQuery } from "./ProcessTimeseriesQuery";
 import { SloQuery } from "./SloQuery";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * An individual timeseries query to one of the basic Datadog data sources.
- */
+*/
 
-export type TimeseriesQuery =
-  | MetricsTimeseriesQuery
-  | EventsTimeseriesQuery
-  | ApmResourceStatsQuery
-  | ApmMetricsQuery
-  | ApmDependencyStatsQuery
-  | SloQuery
-  | ProcessTimeseriesQuery
-  | ContainerTimeseriesQuery
-  | UnparsedObject;
+export type TimeseriesQuery = MetricsTimeseriesQuery | EventsTimeseriesQuery | ApmResourceStatsQuery | ApmMetricsQuery | ApmDependencyStatsQuery | SloQuery | ProcessTimeseriesQuery | ContainerTimeseriesQuery | UnparsedObject;

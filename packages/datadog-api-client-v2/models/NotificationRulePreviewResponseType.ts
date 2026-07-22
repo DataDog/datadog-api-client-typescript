@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of the notification preview response.
- */
+*/
 
-export type NotificationRulePreviewResponseType =
-  | typeof NOTIFICATION_PREVIEW_RESPONSE
-  | UnparsedObject;
-export const NOTIFICATION_PREVIEW_RESPONSE = "notification_preview_response";
+export type NotificationRulePreviewResponseType = typeof NOTIFICATION_PREVIEW_RESPONSE | UnparsedObject;
+export const NOTIFICATION_PREVIEW_RESPONSE = 'notification_preview_response';

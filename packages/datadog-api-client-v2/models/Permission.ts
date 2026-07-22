@@ -6,23 +6,28 @@
 import { PermissionAttributes } from "./PermissionAttributes";
 import { PermissionsType } from "./PermissionsType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Permission object.
- */
+*/
 export class Permission {
   /**
    * Attributes of a permission.
-   */
+  */
   "attributes"?: PermissionAttributes;
   /**
    * ID of the permission.
-   */
+  */
   "id"?: string;
   /**
    * Permissions resource type.
-   */
+  */
   "type": PermissionsType;
 
   /**
@@ -30,7 +35,7 @@ export class Permission {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class Permission {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "PermissionAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "PermissionAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "PermissionsType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "PermissionsType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class Permission {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return Permission.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

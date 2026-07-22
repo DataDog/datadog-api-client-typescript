@@ -5,15 +5,20 @@
  */
 import { DdsqlTabularQueryRequestData } from "./DdsqlTabularQueryRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Wrapper for a DDSQL tabular query execution request.
- */
+*/
 export class DdsqlTabularQueryRequest {
   /**
    * JSON:API resource object for a DDSQL tabular query execution request.
-   */
+  */
   "data": DdsqlTabularQueryRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class DdsqlTabularQueryRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class DdsqlTabularQueryRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "DdsqlTabularQueryRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "DdsqlTabularQueryRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class DdsqlTabularQueryRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DdsqlTabularQueryRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

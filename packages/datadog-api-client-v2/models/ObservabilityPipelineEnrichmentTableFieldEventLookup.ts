@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Looks up a value from a field path in the log event.
- */
+*/
 export class ObservabilityPipelineEnrichmentTableFieldEventLookup {
   /**
    * The path to the field in the log event to use as the lookup key.
-   */
+  */
   "event": string;
 
   /**
@@ -20,7 +25,7 @@ export class ObservabilityPipelineEnrichmentTableFieldEventLookup {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,10 +36,10 @@ export class ObservabilityPipelineEnrichmentTableFieldEventLookup {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    event: {
-      baseName: "event",
-      type: "string",
-      required: true,
+    "event": {
+      "baseName": "event",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class ObservabilityPipelineEnrichmentTableFieldEventLookup {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineEnrichmentTableFieldEventLookup.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

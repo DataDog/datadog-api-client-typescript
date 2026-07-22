@@ -5,15 +5,20 @@
  */
 import { DashboardListItemRequest } from "./DashboardListItemRequest";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request containing a list of dashboards to delete.
- */
+*/
 export class DashboardListDeleteItemsRequest {
   /**
    * List of dashboards to delete from the dashboard list.
-   */
+  */
   "dashboards"?: Array<DashboardListItemRequest>;
 
   /**
@@ -21,7 +26,7 @@ export class DashboardListDeleteItemsRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class DashboardListDeleteItemsRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    dashboards: {
-      baseName: "dashboards",
-      type: "Array<DashboardListItemRequest>",
+    "dashboards": {
+      "baseName": "dashboards",
+      "type": "Array<DashboardListItemRequest>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class DashboardListDeleteItemsRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DashboardListDeleteItemsRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

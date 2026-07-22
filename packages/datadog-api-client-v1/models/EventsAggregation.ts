@@ -5,13 +5,15 @@
  */
 import { EventsAggregationValue } from "./EventsAggregationValue";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of aggregation that can be performed on events-based queries.
- */
+*/
 
-export type EventsAggregation =
-  | EventsAggregationValue
-  | string
-  | UnparsedObject;
+export type EventsAggregation = EventsAggregationValue | string | UnparsedObject;

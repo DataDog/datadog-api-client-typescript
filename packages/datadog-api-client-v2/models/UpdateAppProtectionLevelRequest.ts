@@ -5,15 +5,20 @@
  */
 import { UpdateAppProtectionLevelRequestData } from "./UpdateAppProtectionLevelRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A request to update an app's publication protection level.
- */
+*/
 export class UpdateAppProtectionLevelRequest {
   /**
    * Data for updating an app's publication protection level.
-   */
+  */
   "data"?: UpdateAppProtectionLevelRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class UpdateAppProtectionLevelRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class UpdateAppProtectionLevelRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "UpdateAppProtectionLevelRequestData",
+    "data": {
+      "baseName": "data",
+      "type": "UpdateAppProtectionLevelRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class UpdateAppProtectionLevelRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateAppProtectionLevelRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

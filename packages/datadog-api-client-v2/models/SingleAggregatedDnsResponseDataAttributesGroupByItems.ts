@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes associated with a group by
- */
+*/
 export class SingleAggregatedDnsResponseDataAttributesGroupByItems {
   /**
    * The group by key.
-   */
+  */
   "key"?: string;
   /**
    * The group by value.
-   */
+  */
   "value"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class SingleAggregatedDnsResponseDataAttributesGroupByItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class SingleAggregatedDnsResponseDataAttributesGroupByItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    key: {
-      baseName: "key",
-      type: "string",
+    "key": {
+      "baseName": "key",
+      "type": "string",
     },
-    value: {
-      baseName: "value",
-      type: "string",
+    "value": {
+      "baseName": "value",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class SingleAggregatedDnsResponseDataAttributesGroupByItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SingleAggregatedDnsResponseDataAttributesGroupByItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

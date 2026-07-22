@@ -6,19 +6,24 @@
 import { CreateStatusPageRequestDataAttributes } from "./CreateStatusPageRequestDataAttributes";
 import { StatusPageDataType } from "./StatusPageDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data object for creating a status page.
- */
+*/
 export class CreateStatusPageRequestData {
   /**
    * The supported attributes for creating a status page.
-   */
+  */
   "attributes": CreateStatusPageRequestDataAttributes;
   /**
    * Status pages resource type.
-   */
+  */
   "type": StatusPageDataType;
 
   /**
@@ -26,7 +31,7 @@ export class CreateStatusPageRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class CreateStatusPageRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CreateStatusPageRequestDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CreateStatusPageRequestDataAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "StatusPageDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "StatusPageDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class CreateStatusPageRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateStatusPageRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

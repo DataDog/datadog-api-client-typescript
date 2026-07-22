@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Error details returned when an inference provider returns an error.
- */
+*/
 export class LLMObsInferenceErrorResponse {
   /**
    * A human-readable description of the error.
-   */
+  */
   "message": string;
   /**
    * The provider-specific error type.
-   */
+  */
   "type": string;
 
   /**
@@ -24,7 +29,7 @@ export class LLMObsInferenceErrorResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,15 +40,15 @@ export class LLMObsInferenceErrorResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    message: {
-      baseName: "message",
-      type: "string",
-      required: true,
+    "message": {
+      "baseName": "message",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "string",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class LLMObsInferenceErrorResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsInferenceErrorResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

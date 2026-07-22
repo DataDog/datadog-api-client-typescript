@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Concurrency control parameters for the upsert and publish operation.
- */
+*/
 export class UpsertAndPublishFormVersionUpsertParams {
   /**
    * The ETag of the latest version used for optimistic concurrency control.
-   */
+  */
   "etag": string;
 
   /**
@@ -20,7 +25,7 @@ export class UpsertAndPublishFormVersionUpsertParams {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,10 +36,10 @@ export class UpsertAndPublishFormVersionUpsertParams {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    etag: {
-      baseName: "etag",
-      type: "string",
-      required: true,
+    "etag": {
+      "baseName": "etag",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class UpsertAndPublishFormVersionUpsertParams {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpsertAndPublishFormVersionUpsertParams.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

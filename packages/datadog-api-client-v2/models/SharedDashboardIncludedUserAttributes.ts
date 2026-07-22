@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of the included user.
- */
+*/
 export class SharedDashboardIncludedUserAttributes {
   /**
    * User handle.
-   */
+  */
   "handle": string;
   /**
    * User display name.
-   */
+  */
   "name": string;
 
   /**
@@ -24,7 +29,7 @@ export class SharedDashboardIncludedUserAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,15 +40,15 @@ export class SharedDashboardIncludedUserAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    handle: {
-      baseName: "handle",
-      type: "string",
-      required: true,
+    "handle": {
+      "baseName": "handle",
+      "type": "string",
+      "required": true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class SharedDashboardIncludedUserAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SharedDashboardIncludedUserAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

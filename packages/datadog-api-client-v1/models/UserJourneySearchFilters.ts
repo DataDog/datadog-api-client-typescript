@@ -6,23 +6,28 @@
 import { ProductAnalyticsAudienceFilters } from "./ProductAnalyticsAudienceFilters";
 import { UserJourneySearchGraphFilter } from "./UserJourneySearchGraphFilter";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Filters for user journey search.
- */
+*/
 export class UserJourneySearchFilters {
   /**
    * Product Analytics/RUM audience filters.
-   */
+  */
   "audienceFilters"?: ProductAnalyticsAudienceFilters;
   /**
    * Graph filters.
-   */
+  */
   "graphFilters"?: Array<UserJourneySearchGraphFilter>;
   /**
    * String filter.
-   */
+  */
   "stringFilter"?: string;
 
   /**
@@ -30,7 +35,7 @@ export class UserJourneySearchFilters {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class UserJourneySearchFilters {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    audienceFilters: {
-      baseName: "audience_filters",
-      type: "ProductAnalyticsAudienceFilters",
+    "audienceFilters": {
+      "baseName": "audience_filters",
+      "type": "ProductAnalyticsAudienceFilters",
     },
-    graphFilters: {
-      baseName: "graph_filters",
-      type: "Array<UserJourneySearchGraphFilter>",
+    "graphFilters": {
+      "baseName": "graph_filters",
+      "type": "Array<UserJourneySearchGraphFilter>",
     },
-    stringFilter: {
-      baseName: "string_filter",
-      type: "string",
+    "stringFilter": {
+      "baseName": "string_filter",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class UserJourneySearchFilters {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UserJourneySearchFilters.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

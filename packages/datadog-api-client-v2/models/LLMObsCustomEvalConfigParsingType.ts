@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Output parsing type for a custom LLM judge evaluator.
- */
+*/
 
-export type LLMObsCustomEvalConfigParsingType =
-  | typeof STRUCTURED_OUTPUT
-  | typeof JSON
-  | UnparsedObject;
-export const STRUCTURED_OUTPUT = "structured_output";
-export const JSON = "json";
+export type LLMObsCustomEvalConfigParsingType = typeof STRUCTURED_OUTPUT| typeof JSON | UnparsedObject;
+export const STRUCTURED_OUTPUT = 'structured_output';
+export const JSON = 'json';

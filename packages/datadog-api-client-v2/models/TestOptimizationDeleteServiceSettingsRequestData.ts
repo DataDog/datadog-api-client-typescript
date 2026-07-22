@@ -6,20 +6,25 @@
 import { TestOptimizationDeleteServiceSettingsRequestAttributes } from "./TestOptimizationDeleteServiceSettingsRequestAttributes";
 import { TestOptimizationDeleteServiceSettingsRequestDataType } from "./TestOptimizationDeleteServiceSettingsRequestDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for delete service settings request.
- */
+*/
 export class TestOptimizationDeleteServiceSettingsRequestData {
   /**
    * Attributes for deleting Test Optimization service settings.
-   */
+  */
   "attributes": TestOptimizationDeleteServiceSettingsRequestAttributes;
   /**
    * JSON:API type for delete service settings request.
    * The value must always be `test_optimization_delete_service_settings_request`.
-   */
+  */
   "type": TestOptimizationDeleteServiceSettingsRequestDataType;
 
   /**
@@ -27,7 +32,7 @@ export class TestOptimizationDeleteServiceSettingsRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -38,15 +43,15 @@ export class TestOptimizationDeleteServiceSettingsRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "TestOptimizationDeleteServiceSettingsRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "TestOptimizationDeleteServiceSettingsRequestAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "TestOptimizationDeleteServiceSettingsRequestDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TestOptimizationDeleteServiceSettingsRequestDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -58,8 +63,34 @@ export class TestOptimizationDeleteServiceSettingsRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TestOptimizationDeleteServiceSettingsRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

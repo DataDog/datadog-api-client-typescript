@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * AI prompt resource type.
- */
+*/
 
 export type AiPromptDataType = typeof AI_PROMPT | UnparsedObject;
-export const AI_PROMPT = "ai_prompt";
+export const AI_PROMPT = 'ai_prompt';

@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The processor type. The value should always be `parse_json`.
- */
+*/
 
-export type ObservabilityPipelineParseJSONProcessorType =
-  | typeof PARSE_JSON
-  | UnparsedObject;
-export const PARSE_JSON = "parse_json";
+export type ObservabilityPipelineParseJSONProcessorType = typeof PARSE_JSON | UnparsedObject;
+export const PARSE_JSON = 'parse_json';

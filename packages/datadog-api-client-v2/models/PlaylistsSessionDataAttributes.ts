@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a session within a playlist, including the session event data and its replay track.
- */
+*/
 export class PlaylistsSessionDataAttributes {
   /**
    * Raw event data associated with the replay session.
-   */
-  "sessionEvent"?: { [key: string]: any };
+  */
+  "sessionEvent"?: { [key: string]: any; };
   /**
    * Replay track identifier indicating which recording track the session belongs to.
-   */
+  */
   "track"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class PlaylistsSessionDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class PlaylistsSessionDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    sessionEvent: {
-      baseName: "session_event",
-      type: "{ [key: string]: any; }",
+    "sessionEvent": {
+      "baseName": "session_event",
+      "type": "{ [key: string]: any; }",
     },
-    track: {
-      baseName: "track",
-      type: "string",
+    "track": {
+      "baseName": "track",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class PlaylistsSessionDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PlaylistsSessionDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

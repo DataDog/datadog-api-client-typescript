@@ -6,19 +6,24 @@
 import { TopologyQuery } from "./TopologyQuery";
 import { TopologyRequestType } from "./TopologyRequestType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request that will return nodes and edges to be used by topology map.
- */
+*/
 export class TopologyRequest {
   /**
    * Query to service-based topology data sources like the service map or data streams.
-   */
+  */
   "query"?: TopologyQuery;
   /**
    * Widget request type.
-   */
+  */
   "requestType"?: TopologyRequestType;
 
   /**
@@ -26,7 +31,7 @@ export class TopologyRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class TopologyRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    query: {
-      baseName: "query",
-      type: "TopologyQuery",
+    "query": {
+      "baseName": "query",
+      "type": "TopologyQuery",
     },
-    requestType: {
-      baseName: "request_type",
-      type: "TopologyRequestType",
+    "requestType": {
+      "baseName": "request_type",
+      "type": "TopologyRequestType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class TopologyRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TopologyRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

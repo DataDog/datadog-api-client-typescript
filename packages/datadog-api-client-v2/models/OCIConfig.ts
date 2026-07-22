@@ -6,23 +6,28 @@
 import { OCIConfigAttributes } from "./OCIConfigAttributes";
 import { OCIConfigType } from "./OCIConfigType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * OCI config.
- */
+*/
 export class OCIConfig {
   /**
    * Attributes for an OCI config.
-   */
+  */
   "attributes": OCIConfigAttributes;
   /**
    * The ID of the OCI config.
-   */
+  */
   "id": string;
   /**
    * Type of OCI config.
-   */
+  */
   "type": OCIConfigType;
 
   /**
@@ -30,7 +35,7 @@ export class OCIConfig {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class OCIConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "OCIConfigAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "OCIConfigAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "OCIConfigType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "OCIConfigType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class OCIConfig {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OCIConfig.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

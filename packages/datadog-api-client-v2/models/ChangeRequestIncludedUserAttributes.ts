@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of an included user.
- */
+*/
 export class ChangeRequestIncludedUserAttributes {
   /**
    * The email of the user.
-   */
+  */
   "email": string;
   /**
    * The handle of the user.
-   */
+  */
   "handle": string;
   /**
    * The name of the user.
-   */
+  */
   "name": string;
 
   /**
@@ -28,7 +33,7 @@ export class ChangeRequestIncludedUserAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,20 +44,20 @@ export class ChangeRequestIncludedUserAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    email: {
-      baseName: "email",
-      type: "string",
-      required: true,
+    "email": {
+      "baseName": "email",
+      "type": "string",
+      "required": true,
     },
-    handle: {
-      baseName: "handle",
-      type: "string",
-      required: true,
+    "handle": {
+      "baseName": "handle",
+      "type": "string",
+      "required": true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class ChangeRequestIncludedUserAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ChangeRequestIncludedUserAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -7,27 +7,32 @@ import { CaseViewAttributes } from "./CaseViewAttributes";
 import { CaseViewRelationships } from "./CaseViewRelationships";
 import { CaseViewResourceType } from "./CaseViewResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A saved case view that provides a filtered, reusable list of cases matching a specific query. Views act as persistent dashboards for monitoring case subsets.
- */
+*/
 export class CaseView {
   /**
    * Attributes of a case view, including the filter query and optional notification rule.
-   */
+  */
   "attributes": CaseViewAttributes;
   /**
    * The view's identifier.
-   */
+  */
   "id": string;
   /**
    * Related resources for the case view, including the creator, last modifier, and associated project.
-   */
+  */
   "relationships"?: CaseViewRelationships;
   /**
    * JSON:API resource type for case views.
-   */
+  */
   "type": CaseViewResourceType;
 
   /**
@@ -35,7 +40,7 @@ export class CaseView {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,24 +51,24 @@ export class CaseView {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CaseViewAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CaseViewAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "CaseViewRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "CaseViewRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "CaseViewResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CaseViewResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -75,8 +80,34 @@ export class CaseView {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseView.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

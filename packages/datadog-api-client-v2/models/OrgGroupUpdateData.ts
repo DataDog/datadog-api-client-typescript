@@ -6,23 +6,28 @@
 import { OrgGroupType } from "./OrgGroupType";
 import { OrgGroupUpdateAttributes } from "./OrgGroupUpdateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for updating an org group.
- */
+*/
 export class OrgGroupUpdateData {
   /**
    * Attributes for updating an org group.
-   */
+  */
   "attributes": OrgGroupUpdateAttributes;
   /**
    * The ID of the org group.
-   */
+  */
   "id": string;
   /**
    * Org groups resource type.
-   */
+  */
   "type": OrgGroupType;
 
   /**
@@ -30,7 +35,7 @@ export class OrgGroupUpdateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,21 +46,21 @@ export class OrgGroupUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "OrgGroupUpdateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "OrgGroupUpdateAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    type: {
-      baseName: "type",
-      type: "OrgGroupType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "OrgGroupType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class OrgGroupUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgGroupUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

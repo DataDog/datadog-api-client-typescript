@@ -4,31 +4,36 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for an AWS CCM config validation request.
- */
+*/
 export class AWSCcmConfigValidationRequestAttributes {
   /**
    * Your AWS Account ID without dashes.
-   */
+  */
   "accountId": string;
   /**
    * Name of the S3 bucket where the Cost and Usage Report is stored.
-   */
+  */
   "bucketName": string;
   /**
    * AWS region of the S3 bucket.
-   */
+  */
   "bucketRegion": string;
   /**
    * Name of the Cost and Usage Report.
-   */
+  */
   "reportName": string;
   /**
    * S3 prefix where the Cost and Usage Report is stored.
-   */
+  */
   "reportPrefix"?: string;
 
   /**
@@ -36,7 +41,7 @@ export class AWSCcmConfigValidationRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,29 +52,29 @@ export class AWSCcmConfigValidationRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    accountId: {
-      baseName: "account_id",
-      type: "string",
-      required: true,
+    "accountId": {
+      "baseName": "account_id",
+      "type": "string",
+      "required": true,
     },
-    bucketName: {
-      baseName: "bucket_name",
-      type: "string",
-      required: true,
+    "bucketName": {
+      "baseName": "bucket_name",
+      "type": "string",
+      "required": true,
     },
-    bucketRegion: {
-      baseName: "bucket_region",
-      type: "string",
-      required: true,
+    "bucketRegion": {
+      "baseName": "bucket_region",
+      "type": "string",
+      "required": true,
     },
-    reportName: {
-      baseName: "report_name",
-      type: "string",
-      required: true,
+    "reportName": {
+      "baseName": "report_name",
+      "type": "string",
+      "required": true,
     },
-    reportPrefix: {
-      baseName: "report_prefix",
-      type: "string",
+    "reportPrefix": {
+      "baseName": "report_prefix",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -81,8 +86,34 @@ export class AWSCcmConfigValidationRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSCcmConfigValidationRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

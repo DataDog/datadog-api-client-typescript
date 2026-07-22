@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Analysis response resource type.
- */
+*/
 
 export type AnalysisResponseDataType = typeof SERVER_REQUEST | UnparsedObject;
-export const SERVER_REQUEST = "server_request";
+export const SERVER_REQUEST = 'server_request';

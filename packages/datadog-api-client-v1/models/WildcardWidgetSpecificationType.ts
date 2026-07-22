@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of specification used by the wildcard widget.
- */
+*/
 
-export type WildcardWidgetSpecificationType =
-  | typeof VEGA
-  | typeof VEGA_LITE
-  | UnparsedObject;
-export const VEGA = "vega";
-export const VEGA_LITE = "vega-lite";
+export type WildcardWidgetSpecificationType = typeof VEGA| typeof VEGA_LITE | UnparsedObject;
+export const VEGA = 'vega';
+export const VEGA_LITE = 'vega-lite';

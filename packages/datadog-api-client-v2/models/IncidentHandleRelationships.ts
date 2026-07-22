@@ -5,27 +5,32 @@
  */
 import { IncidentHandleRelationship } from "./IncidentHandleRelationship";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationships associated with an incident handle response, including linked users and incident type.
- */
+*/
 export class IncidentHandleRelationships {
   /**
    * A single relationship object for an incident handle, wrapping the related resource data.
-   */
+  */
   "commanderUser"?: IncidentHandleRelationship;
   /**
    * A single relationship object for an incident handle, wrapping the related resource data.
-   */
+  */
   "createdByUser": IncidentHandleRelationship;
   /**
    * A single relationship object for an incident handle, wrapping the related resource data.
-   */
+  */
   "incidentType": IncidentHandleRelationship;
   /**
    * A single relationship object for an incident handle, wrapping the related resource data.
-   */
+  */
   "lastModifiedByUser": IncidentHandleRelationship;
 
   /**
@@ -33,7 +38,7 @@ export class IncidentHandleRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -44,24 +49,24 @@ export class IncidentHandleRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    commanderUser: {
-      baseName: "commander_user",
-      type: "IncidentHandleRelationship",
+    "commanderUser": {
+      "baseName": "commander_user",
+      "type": "IncidentHandleRelationship",
     },
-    createdByUser: {
-      baseName: "created_by_user",
-      type: "IncidentHandleRelationship",
-      required: true,
+    "createdByUser": {
+      "baseName": "created_by_user",
+      "type": "IncidentHandleRelationship",
+      "required": true,
     },
-    incidentType: {
-      baseName: "incident_type",
-      type: "IncidentHandleRelationship",
-      required: true,
+    "incidentType": {
+      "baseName": "incident_type",
+      "type": "IncidentHandleRelationship",
+      "required": true,
     },
-    lastModifiedByUser: {
-      baseName: "last_modified_by_user",
-      type: "IncidentHandleRelationship",
-      required: true,
+    "lastModifiedByUser": {
+      "baseName": "last_modified_by_user",
+      "type": "IncidentHandleRelationship",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -73,8 +78,34 @@ export class IncidentHandleRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentHandleRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

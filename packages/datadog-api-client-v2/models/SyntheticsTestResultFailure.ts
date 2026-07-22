@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Details about the failure of a Synthetic test.
- */
+*/
 export class SyntheticsTestResultFailure {
   /**
    * Error code for the failure.
-   */
+  */
   "code"?: string;
   /**
    * Internal error code used for debugging.
-   */
+  */
   "internalCode"?: string;
   /**
    * Internal error message used for debugging.
-   */
+  */
   "internalMessage"?: string;
   /**
    * Error message for the failure.
-   */
+  */
   "message"?: string;
 
   /**
@@ -32,7 +37,7 @@ export class SyntheticsTestResultFailure {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,21 +48,21 @@ export class SyntheticsTestResultFailure {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    code: {
-      baseName: "code",
-      type: "string",
+    "code": {
+      "baseName": "code",
+      "type": "string",
     },
-    internalCode: {
-      baseName: "internal_code",
-      type: "string",
+    "internalCode": {
+      "baseName": "internal_code",
+      "type": "string",
     },
-    internalMessage: {
-      baseName: "internal_message",
-      type: "string",
+    "internalMessage": {
+      "baseName": "internal_message",
+      "type": "string",
     },
-    message: {
-      baseName: "message",
-      type: "string",
+    "message": {
+      "baseName": "message",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -69,8 +74,34 @@ export class SyntheticsTestResultFailure {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultFailure.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

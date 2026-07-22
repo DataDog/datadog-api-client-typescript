@@ -5,19 +5,24 @@
  */
 import { FindingServiceNowTicketResult } from "./FindingServiceNowTicketResult";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * ServiceNow ticket associated with the case.
- */
+*/
 export class FindingServiceNowTicket {
   /**
    * Result of the ServiceNow ticket creation or attachment.
-   */
+  */
   "result"?: FindingServiceNowTicketResult;
   /**
    * Status of the ServiceNow ticket operation. Can be "COMPLETED" if successful, or "FAILED" if the operation failed.
-   */
+  */
   "status"?: string;
 
   /**
@@ -25,7 +30,7 @@ export class FindingServiceNowTicket {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class FindingServiceNowTicket {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    result: {
-      baseName: "result",
-      type: "FindingServiceNowTicketResult",
+    "result": {
+      "baseName": "result",
+      "type": "FindingServiceNowTicketResult",
     },
-    status: {
-      baseName: "status",
-      type: "string",
+    "status": {
+      "baseName": "status",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class FindingServiceNowTicket {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FindingServiceNowTicket.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

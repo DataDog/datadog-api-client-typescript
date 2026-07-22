@@ -5,19 +5,24 @@
  */
 import { LLMObsDatasetRecordItem } from "./LLMObsDatasetRecordItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for appending records to an LLM Observability dataset.
- */
+*/
 export class LLMObsDatasetRecordsDataAttributesRequest {
   /**
    * Whether to deduplicate records before appending. Defaults to `true`.
-   */
+  */
   "deduplicate"?: boolean;
   /**
    * List of records to append to the dataset.
-   */
+  */
   "records": Array<LLMObsDatasetRecordItem>;
 
   /**
@@ -25,7 +30,7 @@ export class LLMObsDatasetRecordsDataAttributesRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,14 +41,14 @@ export class LLMObsDatasetRecordsDataAttributesRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    deduplicate: {
-      baseName: "deduplicate",
-      type: "boolean",
+    "deduplicate": {
+      "baseName": "deduplicate",
+      "type": "boolean",
     },
-    records: {
-      baseName: "records",
-      type: "Array<LLMObsDatasetRecordItem>",
-      required: true,
+    "records": {
+      "baseName": "records",
+      "type": "Array<LLMObsDatasetRecordItem>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class LLMObsDatasetRecordsDataAttributesRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDatasetRecordsDataAttributesRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

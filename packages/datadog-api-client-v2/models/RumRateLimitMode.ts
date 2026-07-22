@@ -4,13 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The rate limit mode. `custom` enforces a fixed session limit, while
  * `adaptive` dynamically adjusts retention.
- */
+*/
 
-export type RumRateLimitMode = typeof CUSTOM | typeof ADAPTIVE | UnparsedObject;
-export const CUSTOM = "custom";
-export const ADAPTIVE = "adaptive";
+export type RumRateLimitMode = typeof CUSTOM| typeof ADAPTIVE | UnparsedObject;
+export const CUSTOM = 'custom';
+export const ADAPTIVE = 'adaptive';

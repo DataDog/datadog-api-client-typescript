@@ -5,15 +5,20 @@
  */
 import { DORADeploymentObject } from "./DORADeploymentObject";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response for fetching a single deployment event.
- */
+*/
 export class DORADeploymentFetchResponse {
   /**
    * A DORA deployment event.
-   */
+  */
   "data"?: DORADeploymentObject;
 
   /**
@@ -21,7 +26,7 @@ export class DORADeploymentFetchResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class DORADeploymentFetchResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "DORADeploymentObject",
+    "data": {
+      "baseName": "data",
+      "type": "DORADeploymentObject",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class DORADeploymentFetchResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DORADeploymentFetchResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

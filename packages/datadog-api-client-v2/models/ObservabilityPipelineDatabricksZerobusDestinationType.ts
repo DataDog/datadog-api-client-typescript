@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The destination type. The value must be `databricks_zerobus`.
- */
+*/
 
-export type ObservabilityPipelineDatabricksZerobusDestinationType =
-  | typeof DATABRICKS_ZEROBUS
-  | UnparsedObject;
-export const DATABRICKS_ZEROBUS = "databricks_zerobus";
+export type ObservabilityPipelineDatabricksZerobusDestinationType = typeof DATABRICKS_ZEROBUS | UnparsedObject;
+export const DATABRICKS_ZEROBUS = 'databricks_zerobus';

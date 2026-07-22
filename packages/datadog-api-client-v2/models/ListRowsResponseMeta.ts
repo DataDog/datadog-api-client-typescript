@@ -5,15 +5,20 @@
  */
 import { ListRowsResponseMetaPage } from "./ListRowsResponseMetaPage";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Contains pagination details, including the continuation token for fetching additional rows.
- */
+*/
 export class ListRowsResponseMeta {
   /**
    * Contains the continuation token for navigating to the next page of rows.
-   */
+  */
   "page"?: ListRowsResponseMetaPage;
 
   /**
@@ -21,7 +26,7 @@ export class ListRowsResponseMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class ListRowsResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    page: {
-      baseName: "page",
-      type: "ListRowsResponseMetaPage",
+    "page": {
+      "baseName": "page",
+      "type": "ListRowsResponseMetaPage",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class ListRowsResponseMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListRowsResponseMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

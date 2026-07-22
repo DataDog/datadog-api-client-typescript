@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * OCI API signing key credentials used to update the Datadog integration's authentication with the OCI tenancy.
- */
+*/
 export class UpdateTenancyConfigDataAttributesAuthCredentials {
   /**
    * The fingerprint of the OCI API signing key used for authentication.
-   */
+  */
   "fingerprint"?: string;
   /**
    * The PEM-encoded private key corresponding to the OCI API signing key fingerprint.
-   */
+  */
   "privateKey": string;
 
   /**
@@ -24,7 +29,7 @@ export class UpdateTenancyConfigDataAttributesAuthCredentials {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,14 +40,14 @@ export class UpdateTenancyConfigDataAttributesAuthCredentials {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    fingerprint: {
-      baseName: "fingerprint",
-      type: "string",
+    "fingerprint": {
+      "baseName": "fingerprint",
+      "type": "string",
     },
-    privateKey: {
-      baseName: "private_key",
-      type: "string",
-      required: true,
+    "privateKey": {
+      "baseName": "private_key",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class UpdateTenancyConfigDataAttributesAuthCredentials {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateTenancyConfigDataAttributesAuthCredentials.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

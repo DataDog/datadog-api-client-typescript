@@ -5,15 +5,20 @@
  */
 import { SecurityMonitoringSignalsBulkUpdateData } from "./SecurityMonitoringSignalsBulkUpdateData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request body for updating multiple attributes of multiple security signals.
- */
+*/
 export class SecurityMonitoringSignalsBulkUpdateRequest {
   /**
    * An array of signal updates.
-   */
+  */
   "data": Array<SecurityMonitoringSignalsBulkUpdateData>;
 
   /**
@@ -21,7 +26,7 @@ export class SecurityMonitoringSignalsBulkUpdateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class SecurityMonitoringSignalsBulkUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<SecurityMonitoringSignalsBulkUpdateData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<SecurityMonitoringSignalsBulkUpdateData>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class SecurityMonitoringSignalsBulkUpdateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringSignalsBulkUpdateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,24 +6,29 @@
 import { CustomDestinationForwardDestinationHttpType } from "./CustomDestinationForwardDestinationHttpType";
 import { CustomDestinationHttpDestinationAuth } from "./CustomDestinationHttpDestinationAuth";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The HTTP destination.
- */
+*/
 export class CustomDestinationForwardDestinationHttp {
   /**
    * Authentication method of the HTTP requests.
-   */
+  */
   "auth": CustomDestinationHttpDestinationAuth;
   /**
    * The destination for which logs will be forwarded to.
    * Must have HTTPS scheme and forwarding back to Datadog is not allowed.
-   */
+  */
   "endpoint": string;
   /**
    * Type of the HTTP destination.
-   */
+  */
   "type": CustomDestinationForwardDestinationHttpType;
 
   /**
@@ -31,7 +36,7 @@ export class CustomDestinationForwardDestinationHttp {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,20 +47,20 @@ export class CustomDestinationForwardDestinationHttp {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    auth: {
-      baseName: "auth",
-      type: "CustomDestinationHttpDestinationAuth",
-      required: true,
+    "auth": {
+      "baseName": "auth",
+      "type": "CustomDestinationHttpDestinationAuth",
+      "required": true,
     },
-    endpoint: {
-      baseName: "endpoint",
-      type: "string",
-      required: true,
+    "endpoint": {
+      "baseName": "endpoint",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CustomDestinationForwardDestinationHttpType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CustomDestinationForwardDestinationHttpType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class CustomDestinationForwardDestinationHttp {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomDestinationForwardDestinationHttp.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

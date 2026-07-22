@@ -6,19 +6,24 @@
 import { CaseAssignAttributes } from "./CaseAssignAttributes";
 import { CaseResourceType } from "./CaseResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Case assign
- */
+*/
 export class CaseAssign {
   /**
    * Case assign attributes
-   */
+  */
   "attributes": CaseAssignAttributes;
   /**
    * JSON:API resource type for cases.
-   */
+  */
   "type": CaseResourceType;
 
   /**
@@ -26,7 +31,7 @@ export class CaseAssign {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class CaseAssign {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CaseAssignAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CaseAssignAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CaseResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CaseResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class CaseAssign {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseAssign.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

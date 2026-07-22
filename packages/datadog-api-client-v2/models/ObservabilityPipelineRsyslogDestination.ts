@@ -7,41 +7,46 @@ import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBuffe
 import { ObservabilityPipelineRsyslogDestinationType } from "./ObservabilityPipelineRsyslogDestinationType";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The `rsyslog` destination forwards logs to an external `rsyslog` server over TCP or UDP using the syslog protocol.
- *
+ * 
  * **Supported pipeline types:** logs
- */
+*/
 export class ObservabilityPipelineRsyslogDestination {
   /**
    * Configuration for buffer settings on destination components.
-   */
+  */
   "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * Name of the environment variable or secret that holds the syslog server endpoint URL.
-   */
+  */
   "endpointUrlKey"?: string;
   /**
    * The unique identifier for this component.
-   */
+  */
   "id": string;
   /**
    * A list of component IDs whose output is used as the `input` for this component.
-   */
+  */
   "inputs": Array<string>;
   /**
    * Optional socket keepalive duration in milliseconds.
-   */
+  */
   "keepalive"?: number;
   /**
    * Configuration for enabling TLS encryption between the pipeline component and external services.
-   */
+  */
   "tls"?: ObservabilityPipelineTls;
   /**
    * The destination type. The value should always be `rsyslog`.
-   */
+  */
   "type": ObservabilityPipelineRsyslogDestinationType;
 
   /**
@@ -49,7 +54,7 @@ export class ObservabilityPipelineRsyslogDestination {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -60,37 +65,37 @@ export class ObservabilityPipelineRsyslogDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    buffer: {
-      baseName: "buffer",
-      type: "ObservabilityPipelineBufferOptions",
+    "buffer": {
+      "baseName": "buffer",
+      "type": "ObservabilityPipelineBufferOptions",
     },
-    endpointUrlKey: {
-      baseName: "endpoint_url_key",
-      type: "string",
+    "endpointUrlKey": {
+      "baseName": "endpoint_url_key",
+      "type": "string",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    inputs: {
-      baseName: "inputs",
-      type: "Array<string>",
-      required: true,
+    "inputs": {
+      "baseName": "inputs",
+      "type": "Array<string>",
+      "required": true,
     },
-    keepalive: {
-      baseName: "keepalive",
-      type: "number",
-      format: "int64",
+    "keepalive": {
+      "baseName": "keepalive",
+      "type": "number",
+      "format": "int64",
     },
-    tls: {
-      baseName: "tls",
-      type: "ObservabilityPipelineTls",
+    "tls": {
+      "baseName": "tls",
+      "type": "ObservabilityPipelineTls",
     },
-    type: {
-      baseName: "type",
-      type: "ObservabilityPipelineRsyslogDestinationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ObservabilityPipelineRsyslogDestinationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -102,8 +107,34 @@ export class ObservabilityPipelineRsyslogDestination {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineRsyslogDestination.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

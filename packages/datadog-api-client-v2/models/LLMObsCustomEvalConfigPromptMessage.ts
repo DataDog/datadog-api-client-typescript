@@ -5,23 +5,28 @@
  */
 import { LLMObsCustomEvalConfigPromptContent } from "./LLMObsCustomEvalConfigPromptContent";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A message in the prompt template for a custom LLM judge evaluator.
- */
+*/
 export class LLMObsCustomEvalConfigPromptMessage {
   /**
    * Text content of the message.
-   */
+  */
   "content"?: string;
   /**
    * Multi-part content blocks for the message.
-   */
+  */
   "contents"?: Array<LLMObsCustomEvalConfigPromptContent>;
   /**
    * Role of the message author.
-   */
+  */
   "role": string;
 
   /**
@@ -29,7 +34,7 @@ export class LLMObsCustomEvalConfigPromptMessage {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,18 +45,18 @@ export class LLMObsCustomEvalConfigPromptMessage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    content: {
-      baseName: "content",
-      type: "string",
+    "content": {
+      "baseName": "content",
+      "type": "string",
     },
-    contents: {
-      baseName: "contents",
-      type: "Array<LLMObsCustomEvalConfigPromptContent>",
+    "contents": {
+      "baseName": "contents",
+      "type": "Array<LLMObsCustomEvalConfigPromptContent>",
     },
-    role: {
-      baseName: "role",
-      type: "string",
-      required: true,
+    "role": {
+      "baseName": "role",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class LLMObsCustomEvalConfigPromptMessage {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsCustomEvalConfigPromptMessage.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

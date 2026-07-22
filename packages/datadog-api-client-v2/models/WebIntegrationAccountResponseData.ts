@@ -6,23 +6,28 @@
 import { WebIntegrationAccountResponseAttributes } from "./WebIntegrationAccountResponseAttributes";
 import { WebIntegrationAccountType } from "./WebIntegrationAccountType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object of a web integration account.
- */
+*/
 export class WebIntegrationAccountResponseData {
   /**
    * Attributes object of a web integration account. Secrets are never returned.
-   */
+  */
   "attributes": WebIntegrationAccountResponseAttributes;
   /**
    * The unique identifier of the web integration account.
-   */
+  */
   "id": string;
   /**
    * Account resource type.
-   */
+  */
   "type": WebIntegrationAccountType;
 
   /**
@@ -30,7 +35,7 @@ export class WebIntegrationAccountResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class WebIntegrationAccountResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "WebIntegrationAccountResponseAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "WebIntegrationAccountResponseAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "WebIntegrationAccountType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "WebIntegrationAccountType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class WebIntegrationAccountResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return WebIntegrationAccountResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

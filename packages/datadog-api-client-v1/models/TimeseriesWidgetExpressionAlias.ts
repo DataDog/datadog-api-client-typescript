@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Define an expression alias.
- */
+*/
 export class TimeseriesWidgetExpressionAlias {
   /**
    * Expression alias.
-   */
+  */
   "aliasName"?: string;
   /**
    * Expression name.
-   */
+  */
   "expression": string;
 
   /**
@@ -24,7 +29,7 @@ export class TimeseriesWidgetExpressionAlias {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,14 +40,14 @@ export class TimeseriesWidgetExpressionAlias {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    aliasName: {
-      baseName: "alias_name",
-      type: "string",
+    "aliasName": {
+      "baseName": "alias_name",
+      "type": "string",
     },
-    expression: {
-      baseName: "expression",
-      type: "string",
-      required: true,
+    "expression": {
+      "baseName": "expression",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class TimeseriesWidgetExpressionAlias {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TimeseriesWidgetExpressionAlias.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

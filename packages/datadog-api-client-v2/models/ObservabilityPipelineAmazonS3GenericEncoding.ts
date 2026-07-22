@@ -6,13 +6,15 @@
 import { ObservabilityPipelineAmazonS3GenericEncodingJson } from "./ObservabilityPipelineAmazonS3GenericEncodingJson";
 import { ObservabilityPipelineAmazonS3GenericEncodingParquet } from "./ObservabilityPipelineAmazonS3GenericEncodingParquet";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Encoding format for the destination.
- */
+*/
 
-export type ObservabilityPipelineAmazonS3GenericEncoding =
-  | ObservabilityPipelineAmazonS3GenericEncodingJson
-  | ObservabilityPipelineAmazonS3GenericEncodingParquet
-  | UnparsedObject;
+export type ObservabilityPipelineAmazonS3GenericEncoding = ObservabilityPipelineAmazonS3GenericEncodingJson | ObservabilityPipelineAmazonS3GenericEncodingParquet | UnparsedObject;

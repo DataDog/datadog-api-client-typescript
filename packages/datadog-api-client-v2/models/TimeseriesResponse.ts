@@ -6,19 +6,24 @@
 import { TimeseriesFormulaResponseType } from "./TimeseriesFormulaResponseType";
 import { TimeseriesResponseAttributes } from "./TimeseriesResponseAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A message containing the response to a timeseries query.
- */
+*/
 export class TimeseriesResponse {
   /**
    * The object describing a timeseries response.
-   */
+  */
   "attributes"?: TimeseriesResponseAttributes;
   /**
    * The type of the resource. The value should always be timeseries_response.
-   */
+  */
   "type"?: TimeseriesFormulaResponseType;
 
   /**
@@ -26,7 +31,7 @@ export class TimeseriesResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class TimeseriesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "TimeseriesResponseAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "TimeseriesResponseAttributes",
     },
-    type: {
-      baseName: "type",
-      type: "TimeseriesFormulaResponseType",
+    "type": {
+      "baseName": "type",
+      "type": "TimeseriesFormulaResponseType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class TimeseriesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TimeseriesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

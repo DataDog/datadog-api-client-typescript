@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of the wildcard widget.
- */
+*/
 
 export type WildcardWidgetDefinitionType = typeof WILDCARD | UnparsedObject;
-export const WILDCARD = "wildcard";
+export const WILDCARD = 'wildcard';

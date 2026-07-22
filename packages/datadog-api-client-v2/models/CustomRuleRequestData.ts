@@ -6,23 +6,28 @@
 import { CustomRuleDataType } from "./CustomRuleDataType";
 import { CustomRuleRequestDataAttributes } from "./CustomRuleRequestDataAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for a custom rule create or update request.
- */
+*/
 export class CustomRuleRequestData {
   /**
    * Attributes for creating or updating a custom rule.
-   */
+  */
   "attributes"?: CustomRuleRequestDataAttributes;
   /**
    * Rule identifier
-   */
+  */
   "id"?: string;
   /**
    * Resource type
-   */
+  */
   "type"?: CustomRuleDataType;
 
   /**
@@ -30,7 +35,7 @@ export class CustomRuleRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class CustomRuleRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CustomRuleRequestDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CustomRuleRequestDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "CustomRuleDataType",
+    "type": {
+      "baseName": "type",
+      "type": "CustomRuleDataType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class CustomRuleRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomRuleRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

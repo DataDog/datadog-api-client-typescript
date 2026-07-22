@@ -5,15 +5,20 @@
  */
 import { OrgConnectionListResponseMetaPage } from "./OrgConnectionListResponseMetaPage";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Pagination metadata.
- */
+*/
 export class OrgConnectionListResponseMeta {
   /**
    * Page information.
-   */
+  */
   "page"?: OrgConnectionListResponseMetaPage;
 
   /**
@@ -21,7 +26,7 @@ export class OrgConnectionListResponseMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class OrgConnectionListResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    page: {
-      baseName: "page",
-      type: "OrgConnectionListResponseMetaPage",
+    "page": {
+      "baseName": "page",
+      "type": "OrgConnectionListResponseMetaPage",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class OrgConnectionListResponseMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgConnectionListResponseMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

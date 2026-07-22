@@ -5,15 +5,20 @@
  */
 import { CostOrchestrator } from "./CostOrchestrator";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * List of container orchestrators detected in Cloud Cost Management data for the requested period.
- */
+*/
 export class CostOrchestratorsResponse {
   /**
    * List of detected container orchestrators.
-   */
+  */
   "data": Array<CostOrchestrator>;
 
   /**
@@ -21,7 +26,7 @@ export class CostOrchestratorsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CostOrchestratorsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<CostOrchestrator>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<CostOrchestrator>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CostOrchestratorsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CostOrchestratorsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

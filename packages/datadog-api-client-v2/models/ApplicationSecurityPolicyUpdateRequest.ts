@@ -5,15 +5,20 @@
  */
 import { ApplicationSecurityPolicyUpdateData } from "./ApplicationSecurityPolicyUpdateData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request object that includes the policy to update.
- */
+*/
 export class ApplicationSecurityPolicyUpdateRequest {
   /**
    * Object for a single WAF policy.
-   */
+  */
   "data": ApplicationSecurityPolicyUpdateData;
 
   /**
@@ -21,7 +26,7 @@ export class ApplicationSecurityPolicyUpdateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class ApplicationSecurityPolicyUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ApplicationSecurityPolicyUpdateData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "ApplicationSecurityPolicyUpdateData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class ApplicationSecurityPolicyUpdateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ApplicationSecurityPolicyUpdateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

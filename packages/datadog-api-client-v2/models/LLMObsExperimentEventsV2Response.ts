@@ -6,19 +6,24 @@
 import { LLMObsCursorMeta } from "./LLMObsCursorMeta";
 import { LLMObsExperimentEventsV2DataResponse } from "./LLMObsExperimentEventsV2DataResponse";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response for listing experiment events (v2/v3). Returns spans and summary metrics in a single resource.
- */
+*/
 export class LLMObsExperimentEventsV2Response {
   /**
    * JSON:API data object for an experiment events response.
-   */
+  */
   "data": LLMObsExperimentEventsV2DataResponse;
   /**
    * Pagination cursor metadata.
-   */
+  */
   "meta"?: LLMObsCursorMeta;
 
   /**
@@ -26,7 +31,7 @@ export class LLMObsExperimentEventsV2Response {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class LLMObsExperimentEventsV2Response {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "LLMObsExperimentEventsV2DataResponse",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "LLMObsExperimentEventsV2DataResponse",
+      "required": true,
     },
-    meta: {
-      baseName: "meta",
-      type: "LLMObsCursorMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "LLMObsCursorMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class LLMObsExperimentEventsV2Response {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsExperimentEventsV2Response.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

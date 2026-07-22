@@ -5,15 +5,20 @@
  */
 import { ArbitraryRuleStatusResponseData } from "./ArbitraryRuleStatusResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Processing statuses for all custom allocation rules in the specified organization.
- */
+*/
 export class ArbitraryRuleStatusResponseArray {
   /**
    * Processing status for a custom allocation rule.
-   */
+  */
   "data": Array<ArbitraryRuleStatusResponseData>;
 
   /**
@@ -21,7 +26,7 @@ export class ArbitraryRuleStatusResponseArray {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class ArbitraryRuleStatusResponseArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<ArbitraryRuleStatusResponseData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<ArbitraryRuleStatusResponseData>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class ArbitraryRuleStatusResponseArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ArbitraryRuleStatusResponseArray.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

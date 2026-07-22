@@ -5,15 +5,20 @@
  */
 import { CloudWorkloadSecurityAgentRuleCreateData } from "./CloudWorkloadSecurityAgentRuleCreateData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request object that includes the Agent rule to create
- */
+*/
 export class CloudWorkloadSecurityAgentRuleCreateRequest {
   /**
    * Object for a single Agent rule
-   */
+  */
   "data": CloudWorkloadSecurityAgentRuleCreateData;
 
   /**
@@ -21,7 +26,7 @@ export class CloudWorkloadSecurityAgentRuleCreateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CloudWorkloadSecurityAgentRuleCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CloudWorkloadSecurityAgentRuleCreateData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "CloudWorkloadSecurityAgentRuleCreateData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CloudWorkloadSecurityAgentRuleCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CloudWorkloadSecurityAgentRuleCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,13 +6,15 @@
 import { ObservabilityPipelineSensitiveDataScannerProcessorCustomPattern } from "./ObservabilityPipelineSensitiveDataScannerProcessorCustomPattern";
 import { ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern } from "./ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Pattern detection configuration for identifying sensitive data using either a custom regex or a library reference.
- */
+*/
 
-export type ObservabilityPipelineSensitiveDataScannerProcessorPattern =
-  | ObservabilityPipelineSensitiveDataScannerProcessorCustomPattern
-  | ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern
-  | UnparsedObject;
+export type ObservabilityPipelineSensitiveDataScannerProcessorPattern = ObservabilityPipelineSensitiveDataScannerProcessorCustomPattern | ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern | UnparsedObject;

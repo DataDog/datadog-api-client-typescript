@@ -5,23 +5,28 @@
  */
 import { SecurityMonitoringTerraformConvertAttributes } from "./SecurityMonitoringTerraformConvertAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The convert request data object.
- */
+*/
 export class SecurityMonitoringTerraformConvertData {
   /**
    * Attributes for the convert request.
-   */
+  */
   "attributes": SecurityMonitoringTerraformConvertAttributes;
   /**
    * The ID of the resource being converted.
-   */
+  */
   "id": string;
   /**
    * The JSON:API type. Always `convert_resource`.
-   */
+  */
   "type": string;
 
   /**
@@ -29,7 +34,7 @@ export class SecurityMonitoringTerraformConvertData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,20 +45,20 @@ export class SecurityMonitoringTerraformConvertData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SecurityMonitoringTerraformConvertAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SecurityMonitoringTerraformConvertAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "string",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class SecurityMonitoringTerraformConvertData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringTerraformConvertData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

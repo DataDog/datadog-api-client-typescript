@@ -5,19 +5,24 @@
  */
 import { EntityResponseDataRelationshipsRelatedEntitiesDataItemsType } from "./EntityResponseDataRelationshipsRelatedEntitiesDataItemsType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Related entity relationship data item containing the related entity resource identifier and type.
- */
+*/
 export class EntityResponseDataRelationshipsRelatedEntitiesDataItems {
   /**
    * Related entity unique identifier.
-   */
+  */
   "id": string;
   /**
    * Related entity resource type.
-   */
+  */
   "type": EntityResponseDataRelationshipsRelatedEntitiesDataItemsType;
 
   /**
@@ -25,7 +30,7 @@ export class EntityResponseDataRelationshipsRelatedEntitiesDataItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class EntityResponseDataRelationshipsRelatedEntitiesDataItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "EntityResponseDataRelationshipsRelatedEntitiesDataItemsType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "EntityResponseDataRelationshipsRelatedEntitiesDataItemsType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class EntityResponseDataRelationshipsRelatedEntitiesDataItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EntityResponseDataRelationshipsRelatedEntitiesDataItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

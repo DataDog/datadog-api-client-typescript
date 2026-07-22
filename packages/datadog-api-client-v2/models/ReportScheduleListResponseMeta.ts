@@ -5,15 +5,20 @@
  */
 import { ReportScheduleListResponsePagination } from "./ReportScheduleListResponsePagination";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metadata for a paginated report schedule list response.
- */
+*/
 export class ReportScheduleListResponseMeta {
   /**
    * Offset and limit pagination metadata for a report schedule list response.
-   */
+  */
   "pagination"?: ReportScheduleListResponsePagination;
 
   /**
@@ -21,7 +26,7 @@ export class ReportScheduleListResponseMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class ReportScheduleListResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    pagination: {
-      baseName: "pagination",
-      type: "ReportScheduleListResponsePagination",
+    "pagination": {
+      "baseName": "pagination",
+      "type": "ReportScheduleListResponsePagination",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class ReportScheduleListResponseMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ReportScheduleListResponseMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -7,27 +7,32 @@ import { IntegrationJiraAutoCreation } from "./IntegrationJiraAutoCreation";
 import { IntegrationJiraMetadata } from "./IntegrationJiraMetadata";
 import { IntegrationJiraSync } from "./IntegrationJiraSync";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Jira integration settings.
- */
+*/
 export class IntegrationJira {
   /**
    * Auto-creation settings for Jira issues from cases.
-   */
+  */
   "autoCreation"?: IntegrationJiraAutoCreation;
   /**
    * Whether Jira integration is enabled.
-   */
+  */
   "enabled"?: boolean;
   /**
    * Metadata for connecting a case management project to a Jira project.
-   */
+  */
   "metadata"?: IntegrationJiraMetadata;
   /**
    * Synchronization configuration for Jira integration.
-   */
+  */
   "sync"?: IntegrationJiraSync;
 
   /**
@@ -35,7 +40,7 @@ export class IntegrationJira {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,21 +51,21 @@ export class IntegrationJira {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    autoCreation: {
-      baseName: "auto_creation",
-      type: "IntegrationJiraAutoCreation",
+    "autoCreation": {
+      "baseName": "auto_creation",
+      "type": "IntegrationJiraAutoCreation",
     },
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
+    "enabled": {
+      "baseName": "enabled",
+      "type": "boolean",
     },
-    metadata: {
-      baseName: "metadata",
-      type: "IntegrationJiraMetadata",
+    "metadata": {
+      "baseName": "metadata",
+      "type": "IntegrationJiraMetadata",
     },
-    sync: {
-      baseName: "sync",
-      type: "IntegrationJiraSync",
+    "sync": {
+      "baseName": "sync",
+      "type": "IntegrationJiraSync",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -72,8 +77,34 @@ export class IntegrationJira {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IntegrationJira.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

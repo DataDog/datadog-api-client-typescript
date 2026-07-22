@@ -5,15 +5,20 @@
  */
 import { AwsCURConfigPostData } from "./AwsCURConfigPostData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * AWS CUR config Post Request.
- */
+*/
 export class AwsCURConfigPostRequest {
   /**
    * AWS CUR config Post data.
-   */
+  */
   "data": AwsCURConfigPostData;
 
   /**
@@ -21,7 +26,7 @@ export class AwsCURConfigPostRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class AwsCURConfigPostRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "AwsCURConfigPostData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "AwsCURConfigPostData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class AwsCURConfigPostRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AwsCURConfigPostRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Unit of time for retention return criteria interval.
- */
+*/
 
-export type RetentionReturnCriteriaTimeIntervalUnit =
-  | typeof DAY
-  | typeof WEEK
-  | typeof MONTH
-  | UnparsedObject;
-export const DAY = "day";
-export const WEEK = "week";
-export const MONTH = "month";
+export type RetentionReturnCriteriaTimeIntervalUnit = typeof DAY| typeof WEEK| typeof MONTH | UnparsedObject;
+export const DAY = 'day';
+export const WEEK = 'week';
+export const MONTH = 'month';

@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Basic access authentication.
- */
+*/
 export class CustomDestinationElasticsearchDestinationAuth {
   /**
    * The password of the authentication. This field is not returned by the API.
-   */
+  */
   "password": string;
   /**
    * The username of the authentication. This field is not returned by the API.
-   */
+  */
   "username": string;
 
   /**
@@ -24,7 +29,7 @@ export class CustomDestinationElasticsearchDestinationAuth {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,15 +40,15 @@ export class CustomDestinationElasticsearchDestinationAuth {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    password: {
-      baseName: "password",
-      type: "string",
-      required: true,
+    "password": {
+      "baseName": "password",
+      "type": "string",
+      "required": true,
     },
-    username: {
-      baseName: "username",
-      type: "string",
-      required: true,
+    "username": {
+      "baseName": "username",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class CustomDestinationElasticsearchDestinationAuth {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomDestinationElasticsearchDestinationAuth.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

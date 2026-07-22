@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Pagination cursor metadata.
- */
+*/
 export class LLMObsCursorMeta {
   /**
    * Cursor for the next page of results.
-   */
+  */
   "after"?: string;
 
   /**
@@ -20,7 +25,7 @@ export class LLMObsCursorMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,9 +36,9 @@ export class LLMObsCursorMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    after: {
-      baseName: "after",
-      type: "string",
+    "after": {
+      "baseName": "after",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,8 +50,34 @@ export class LLMObsCursorMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsCursorMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

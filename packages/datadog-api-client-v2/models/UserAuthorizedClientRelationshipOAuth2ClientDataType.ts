@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * OAuth2 client resource type.
- */
+*/
 
-export type UserAuthorizedClientRelationshipOAuth2ClientDataType =
-  | typeof OAUTH2_CLIENTS
-  | UnparsedObject;
-export const OAUTH2_CLIENTS = "oauth2_clients";
+export type UserAuthorizedClientRelationshipOAuth2ClientDataType = typeof OAUTH2_CLIENTS | UnparsedObject;
+export const OAUTH2_CLIENTS = 'oauth2_clients';

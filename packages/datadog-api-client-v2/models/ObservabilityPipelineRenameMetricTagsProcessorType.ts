@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The processor type. The value must be `rename_metric_tags`.
- */
+*/
 
-export type ObservabilityPipelineRenameMetricTagsProcessorType =
-  | typeof RENAME_METRIC_TAGS
-  | UnparsedObject;
-export const RENAME_METRIC_TAGS = "rename_metric_tags";
+export type ObservabilityPipelineRenameMetricTagsProcessorType = typeof RENAME_METRIC_TAGS | UnparsedObject;
+export const RENAME_METRIC_TAGS = 'rename_metric_tags';

@@ -5,23 +5,28 @@
  */
 import { FleetAgentsResponseDataAttributes } from "./FleetAgentsResponseDataAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The response data containing status and agents array.
- */
+*/
 export class FleetAgentsResponseData {
   /**
    * Attributes of the fleet agents response containing the list of agents.
-   */
+  */
   "attributes": FleetAgentsResponseDataAttributes;
   /**
    * Status identifier.
-   */
+  */
   "id": string;
   /**
    * Resource type.
-   */
+  */
   "type": string;
 
   /**
@@ -29,7 +34,7 @@ export class FleetAgentsResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,20 +45,20 @@ export class FleetAgentsResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "FleetAgentsResponseDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "FleetAgentsResponseDataAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "string",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class FleetAgentsResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FleetAgentsResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

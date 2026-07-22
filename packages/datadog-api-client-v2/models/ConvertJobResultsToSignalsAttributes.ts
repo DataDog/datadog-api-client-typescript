@@ -5,27 +5,32 @@
  */
 import { SecurityMonitoringRuleSeverity } from "./SecurityMonitoringRuleSeverity";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for converting historical job results to signals.
- */
+*/
 export class ConvertJobResultsToSignalsAttributes {
   /**
    * Job result IDs.
-   */
+  */
   "jobResultIds": Array<string>;
   /**
    * Notifications sent.
-   */
+  */
   "notifications": Array<string>;
   /**
    * Message of generated signals.
-   */
+  */
   "signalMessage": string;
   /**
    * Severity of the Security Signal.
-   */
+  */
   "signalSeverity": SecurityMonitoringRuleSeverity;
 
   /**
@@ -33,7 +38,7 @@ export class ConvertJobResultsToSignalsAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -44,25 +49,25 @@ export class ConvertJobResultsToSignalsAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    jobResultIds: {
-      baseName: "jobResultIds",
-      type: "Array<string>",
-      required: true,
+    "jobResultIds": {
+      "baseName": "jobResultIds",
+      "type": "Array<string>",
+      "required": true,
     },
-    notifications: {
-      baseName: "notifications",
-      type: "Array<string>",
-      required: true,
+    "notifications": {
+      "baseName": "notifications",
+      "type": "Array<string>",
+      "required": true,
     },
-    signalMessage: {
-      baseName: "signalMessage",
-      type: "string",
-      required: true,
+    "signalMessage": {
+      "baseName": "signalMessage",
+      "type": "string",
+      "required": true,
     },
-    signalSeverity: {
-      baseName: "signalSeverity",
-      type: "SecurityMonitoringRuleSeverity",
-      required: true,
+    "signalSeverity": {
+      "baseName": "signalSeverity",
+      "type": "SecurityMonitoringRuleSeverity",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,8 +79,34 @@ export class ConvertJobResultsToSignalsAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ConvertJobResultsToSignalsAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

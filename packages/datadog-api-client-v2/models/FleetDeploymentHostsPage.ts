@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Pagination details for the list of hosts in a deployment.
- */
+*/
 export class FleetDeploymentHostsPage {
   /**
    * Current page index (zero-based).
-   */
+  */
   "currentPage"?: number;
   /**
    * Number of hosts returned per page.
-   */
+  */
   "pageSize"?: number;
   /**
    * Total number of hosts in this deployment.
-   */
+  */
   "totalHosts"?: number;
   /**
    * Total number of pages available.
-   */
+  */
   "totalPages"?: number;
 
   /**
@@ -32,7 +37,7 @@ export class FleetDeploymentHostsPage {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,25 +48,25 @@ export class FleetDeploymentHostsPage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    currentPage: {
-      baseName: "current_page",
-      type: "number",
-      format: "int64",
+    "currentPage": {
+      "baseName": "current_page",
+      "type": "number",
+      "format": "int64",
     },
-    pageSize: {
-      baseName: "page_size",
-      type: "number",
-      format: "int64",
+    "pageSize": {
+      "baseName": "page_size",
+      "type": "number",
+      "format": "int64",
     },
-    totalHosts: {
-      baseName: "total_hosts",
-      type: "number",
-      format: "int64",
+    "totalHosts": {
+      "baseName": "total_hosts",
+      "type": "number",
+      "format": "int64",
     },
-    totalPages: {
-      baseName: "total_pages",
-      type: "number",
-      format: "int64",
+    "totalPages": {
+      "baseName": "total_pages",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -73,8 +78,34 @@ export class FleetDeploymentHostsPage {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FleetDeploymentHostsPage.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

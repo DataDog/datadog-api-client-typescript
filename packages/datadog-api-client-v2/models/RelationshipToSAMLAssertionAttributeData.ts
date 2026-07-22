@@ -5,19 +5,24 @@
  */
 import { SAMLAssertionAttributesType } from "./SAMLAssertionAttributesType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data of AuthN Mapping relationship to SAML Assertion Attribute.
- */
+*/
 export class RelationshipToSAMLAssertionAttributeData {
   /**
    * The ID of the SAML assertion attribute.
-   */
+  */
   "id": string;
   /**
    * SAML assertion attributes resource type.
-   */
+  */
   "type": SAMLAssertionAttributesType;
 
   /**
@@ -25,7 +30,7 @@ export class RelationshipToSAMLAssertionAttributeData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class RelationshipToSAMLAssertionAttributeData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "SAMLAssertionAttributesType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SAMLAssertionAttributesType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class RelationshipToSAMLAssertionAttributeData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RelationshipToSAMLAssertionAttributeData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

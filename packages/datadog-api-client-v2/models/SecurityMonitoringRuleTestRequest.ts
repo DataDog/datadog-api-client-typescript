@@ -6,19 +6,24 @@
 import { SecurityMonitoringRuleQueryPayload } from "./SecurityMonitoringRuleQueryPayload";
 import { SecurityMonitoringRuleTestPayload } from "./SecurityMonitoringRuleTestPayload";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Test the rule queries of a rule (rule property is ignored when applied to an existing rule)
- */
+*/
 export class SecurityMonitoringRuleTestRequest {
   /**
    * Test a rule.
-   */
+  */
   "rule"?: SecurityMonitoringRuleTestPayload;
   /**
    * Data payloads used to test rules query with the expected result.
-   */
+  */
   "ruleQueryPayloads"?: Array<SecurityMonitoringRuleQueryPayload>;
 
   /**
@@ -26,7 +31,7 @@ export class SecurityMonitoringRuleTestRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class SecurityMonitoringRuleTestRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    rule: {
-      baseName: "rule",
-      type: "SecurityMonitoringRuleTestPayload",
+    "rule": {
+      "baseName": "rule",
+      "type": "SecurityMonitoringRuleTestPayload",
     },
-    ruleQueryPayloads: {
-      baseName: "ruleQueryPayloads",
-      type: "Array<SecurityMonitoringRuleQueryPayload>",
+    "ruleQueryPayloads": {
+      "baseName": "ruleQueryPayloads",
+      "type": "Array<SecurityMonitoringRuleQueryPayload>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class SecurityMonitoringRuleTestRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringRuleTestRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

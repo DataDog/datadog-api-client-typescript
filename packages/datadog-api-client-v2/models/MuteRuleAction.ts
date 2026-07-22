@@ -5,23 +5,28 @@
  */
 import { MuteReason } from "./MuteReason";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The action to take when the mute rule matches a finding.
- */
+*/
 export class MuteRuleAction {
   /**
    * The Unix timestamp in milliseconds at which the mute expires. If omitted, the mute does not expire.
-   */
+  */
   "expireAt"?: number;
   /**
    * The reason for muting a security finding.
-   */
+  */
   "reason": MuteReason;
   /**
    * An optional description providing more context for the mute reason.
-   */
+  */
   "reasonDescription"?: string;
 
   /**
@@ -29,7 +34,7 @@ export class MuteRuleAction {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,19 +45,19 @@ export class MuteRuleAction {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    expireAt: {
-      baseName: "expire_at",
-      type: "number",
-      format: "int64",
+    "expireAt": {
+      "baseName": "expire_at",
+      "type": "number",
+      "format": "int64",
     },
-    reason: {
-      baseName: "reason",
-      type: "MuteReason",
-      required: true,
+    "reason": {
+      "baseName": "reason",
+      "type": "MuteReason",
+      "required": true,
     },
-    reasonDescription: {
-      baseName: "reason_description",
-      type: "string",
+    "reasonDescription": {
+      "baseName": "reason_description",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class MuteRuleAction {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MuteRuleAction.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

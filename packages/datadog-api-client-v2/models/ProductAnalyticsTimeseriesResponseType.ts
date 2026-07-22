@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The resource type identifier for a timeseries analytics response.
- */
+*/
 
-export type ProductAnalyticsTimeseriesResponseType =
-  | typeof TIMESERIES_RESPONSE
-  | UnparsedObject;
-export const TIMESERIES_RESPONSE = "timeseries_response";
+export type ProductAnalyticsTimeseriesResponseType = typeof TIMESERIES_RESPONSE | UnparsedObject;
+export const TIMESERIES_RESPONSE = 'timeseries_response';

@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Tenant-based handle attributes.
- */
+*/
 export class MicrosoftTeamsTenantBasedHandleRequestAttributes {
   /**
    * Channel id.
-   */
+  */
   "channelId": string;
   /**
    * Tenant-based handle name.
-   */
+  */
   "name": string;
   /**
    * Team id.
-   */
+  */
   "teamId": string;
   /**
    * Tenant id.
-   */
+  */
   "tenantId": string;
 
   /**
@@ -32,7 +37,7 @@ export class MicrosoftTeamsTenantBasedHandleRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,25 +48,25 @@ export class MicrosoftTeamsTenantBasedHandleRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    channelId: {
-      baseName: "channel_id",
-      type: "string",
-      required: true,
+    "channelId": {
+      "baseName": "channel_id",
+      "type": "string",
+      "required": true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    teamId: {
-      baseName: "team_id",
-      type: "string",
-      required: true,
+    "teamId": {
+      "baseName": "team_id",
+      "type": "string",
+      "required": true,
     },
-    tenantId: {
-      baseName: "tenant_id",
-      type: "string",
-      required: true,
+    "tenantId": {
+      "baseName": "tenant_id",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -73,8 +78,34 @@ export class MicrosoftTeamsTenantBasedHandleRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MicrosoftTeamsTenantBasedHandleRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

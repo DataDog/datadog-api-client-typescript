@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Template variable metadata from a dashboard index.
- */
+*/
 export class ReportScheduleIndexTemplateVariable {
   /**
    * Available values for the template variable.
-   */
+  */
   "availableValues"?: Array<string>;
   /**
    * Default values for the template variable.
-   */
+  */
   "defaults"?: Array<string>;
   /**
    * The template variable name.
-   */
+  */
   "name"?: string;
   /**
    * The tag prefix for the template variable, when available.
-   */
+  */
   "prefix"?: string;
 
   /**
@@ -32,7 +37,7 @@ export class ReportScheduleIndexTemplateVariable {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,21 +48,21 @@ export class ReportScheduleIndexTemplateVariable {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    availableValues: {
-      baseName: "available_values",
-      type: "Array<string>",
+    "availableValues": {
+      "baseName": "available_values",
+      "type": "Array<string>",
     },
-    defaults: {
-      baseName: "defaults",
-      type: "Array<string>",
+    "defaults": {
+      "baseName": "defaults",
+      "type": "Array<string>",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    prefix: {
-      baseName: "prefix",
-      type: "string",
+    "prefix": {
+      "baseName": "prefix",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -69,8 +74,34 @@ export class ReportScheduleIndexTemplateVariable {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ReportScheduleIndexTemplateVariable.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

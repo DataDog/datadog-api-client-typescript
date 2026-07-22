@@ -5,15 +5,20 @@
  */
 import { CaseInsightsData } from "./CaseInsightsData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request payload for adding or removing case insights.
- */
+*/
 export class CaseInsightsRequest {
   /**
    * Data object containing the insights to add or remove.
-   */
+  */
   "data": CaseInsightsData;
 
   /**
@@ -21,7 +26,7 @@ export class CaseInsightsRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CaseInsightsRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CaseInsightsData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "CaseInsightsData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CaseInsightsRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseInsightsRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,19 +5,24 @@
  */
 import { SyntheticsTestResultVariable } from "./SyntheticsTestResultVariable";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Variables captured during a test step.
- */
+*/
 export class SyntheticsTestResultVariables {
   /**
    * Variables defined in the test configuration.
-   */
+  */
   "config"?: Array<SyntheticsTestResultVariable>;
   /**
    * Variables extracted during the test execution.
-   */
+  */
   "extracted"?: Array<SyntheticsTestResultVariable>;
 
   /**
@@ -25,7 +30,7 @@ export class SyntheticsTestResultVariables {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class SyntheticsTestResultVariables {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    config: {
-      baseName: "config",
-      type: "Array<SyntheticsTestResultVariable>",
+    "config": {
+      "baseName": "config",
+      "type": "Array<SyntheticsTestResultVariable>",
     },
-    extracted: {
-      baseName: "extracted",
-      type: "Array<SyntheticsTestResultVariable>",
+    "extracted": {
+      "baseName": "extracted",
+      "type": "Array<SyntheticsTestResultVariable>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class SyntheticsTestResultVariables {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultVariables.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

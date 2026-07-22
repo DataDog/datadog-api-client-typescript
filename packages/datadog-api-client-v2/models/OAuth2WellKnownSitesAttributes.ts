@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes containing the list of public OAuth2 sites.
- */
+*/
 export class OAuth2WellKnownSitesAttributes {
   /**
    * Array of public OAuth2 site URLs for the environment.
-   */
+  */
   "sites": Array<string>;
 
   /**
@@ -20,7 +25,7 @@ export class OAuth2WellKnownSitesAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,10 +36,10 @@ export class OAuth2WellKnownSitesAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    sites: {
-      baseName: "sites",
-      type: "Array<string>",
-      required: true,
+    "sites": {
+      "baseName": "sites",
+      "type": "Array<string>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class OAuth2WellKnownSitesAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OAuth2WellKnownSitesAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

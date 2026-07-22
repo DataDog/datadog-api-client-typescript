@@ -6,19 +6,24 @@
 import { ApplicationSecurityWafExclusionFilterCreateAttributes } from "./ApplicationSecurityWafExclusionFilterCreateAttributes";
 import { ApplicationSecurityWafExclusionFilterType } from "./ApplicationSecurityWafExclusionFilterType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object for creating a single WAF exclusion filter.
- */
+*/
 export class ApplicationSecurityWafExclusionFilterCreateData {
   /**
    * Attributes for creating a WAF exclusion filter.
-   */
+  */
   "attributes": ApplicationSecurityWafExclusionFilterCreateAttributes;
   /**
    * Type of the resource. The value should always be `exclusion_filter`.
-   */
+  */
   "type": ApplicationSecurityWafExclusionFilterType;
 
   /**
@@ -26,7 +31,7 @@ export class ApplicationSecurityWafExclusionFilterCreateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class ApplicationSecurityWafExclusionFilterCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ApplicationSecurityWafExclusionFilterCreateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ApplicationSecurityWafExclusionFilterCreateAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ApplicationSecurityWafExclusionFilterType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ApplicationSecurityWafExclusionFilterType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class ApplicationSecurityWafExclusionFilterCreateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ApplicationSecurityWafExclusionFilterCreateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

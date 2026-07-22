@@ -5,15 +5,20 @@
  */
 import { RelationshipToServiceAccountData } from "./RelationshipToServiceAccountData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationship to service account.
- */
+*/
 export class RelationshipToServiceAccount {
   /**
    * Relationship to service account object.
-   */
+  */
   "data": RelationshipToServiceAccountData;
 
   /**
@@ -21,7 +26,7 @@ export class RelationshipToServiceAccount {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class RelationshipToServiceAccount {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "RelationshipToServiceAccountData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "RelationshipToServiceAccountData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class RelationshipToServiceAccount {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RelationshipToServiceAccount.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Join keys.
- */
+*/
 export class SankeyJoinKeys {
   /**
    * Primary join key.
-   */
+  */
   "primary": string;
   /**
    * Secondary join keys.
-   */
+  */
   "secondary"?: Array<string>;
 
   /**
@@ -28,23 +33,49 @@ export class SankeyJoinKeys {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    primary: {
-      baseName: "primary",
-      type: "string",
-      required: true,
+    "primary": {
+      "baseName": "primary",
+      "type": "string",
+      "required": true,
     },
-    secondary: {
-      baseName: "secondary",
-      type: "Array<string>",
-    },
+    "secondary": {
+      "baseName": "secondary",
+      "type": "Array<string>",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SankeyJoinKeys.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

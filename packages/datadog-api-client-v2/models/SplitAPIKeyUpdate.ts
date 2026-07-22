@@ -5,19 +5,24 @@
  */
 import { SplitAPIKeyType } from "./SplitAPIKeyType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `SplitAPIKey` object.
- */
+*/
 export class SplitAPIKeyUpdate {
   /**
    * The `SplitAPIKeyUpdate` `api_key`.
-   */
+  */
   "apiKey"?: string;
   /**
    * The definition of the `SplitAPIKey` object.
-   */
+  */
   "type": SplitAPIKeyType;
 
   /**
@@ -25,7 +30,7 @@ export class SplitAPIKeyUpdate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,14 +41,14 @@ export class SplitAPIKeyUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    apiKey: {
-      baseName: "api_key",
-      type: "string",
+    "apiKey": {
+      "baseName": "api_key",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SplitAPIKeyType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SplitAPIKeyType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class SplitAPIKeyUpdate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SplitAPIKeyUpdate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

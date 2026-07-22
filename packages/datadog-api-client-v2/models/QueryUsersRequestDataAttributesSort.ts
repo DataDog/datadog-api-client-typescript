@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Sorting configuration specifying the field and direction for ordering user query results.
- */
+*/
 export class QueryUsersRequestDataAttributesSort {
   /**
    * The user attribute field name to sort results by.
-   */
+  */
   "field"?: string;
   /**
    * The sort direction, either ascending or descending.
-   */
+  */
   "order"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class QueryUsersRequestDataAttributesSort {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class QueryUsersRequestDataAttributesSort {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    field: {
-      baseName: "field",
-      type: "string",
+    "field": {
+      "baseName": "field",
+      "type": "string",
     },
-    order: {
-      baseName: "order",
-      type: "string",
+    "order": {
+      "baseName": "order",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class QueryUsersRequestDataAttributesSort {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return QueryUsersRequestDataAttributesSort.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

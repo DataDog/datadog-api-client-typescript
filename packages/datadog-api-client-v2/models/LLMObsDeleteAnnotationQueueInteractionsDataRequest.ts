@@ -6,19 +6,24 @@
 import { LLMObsAnnotationQueueInteractionsType } from "./LLMObsAnnotationQueueInteractionsType";
 import { LLMObsDeleteAnnotationQueueInteractionsDataAttributesRequest } from "./LLMObsDeleteAnnotationQueueInteractionsDataAttributesRequest";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for deleting interactions from an annotation queue.
- */
+*/
 export class LLMObsDeleteAnnotationQueueInteractionsDataRequest {
   /**
    * Attributes for deleting interactions from an annotation queue.
-   */
+  */
   "attributes": LLMObsDeleteAnnotationQueueInteractionsDataAttributesRequest;
   /**
    * Resource type for annotation queue interactions.
-   */
+  */
   "type": LLMObsAnnotationQueueInteractionsType;
 
   /**
@@ -26,7 +31,7 @@ export class LLMObsDeleteAnnotationQueueInteractionsDataRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class LLMObsDeleteAnnotationQueueInteractionsDataRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LLMObsDeleteAnnotationQueueInteractionsDataAttributesRequest",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "LLMObsDeleteAnnotationQueueInteractionsDataAttributesRequest",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LLMObsAnnotationQueueInteractionsType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LLMObsAnnotationQueueInteractionsType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class LLMObsDeleteAnnotationQueueInteractionsDataRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDeleteAnnotationQueueInteractionsDataRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

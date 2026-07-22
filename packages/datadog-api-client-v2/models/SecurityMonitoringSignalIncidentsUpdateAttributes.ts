@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes describing the new list of related signals for a security signal.
- */
+*/
 export class SecurityMonitoringSignalIncidentsUpdateAttributes {
   /**
    * Array of incidents that are associated with this signal.
-   */
+  */
   "incidentIds": Array<number>;
   /**
    * Version of the updated signal. If server side version is higher, update will be rejected.
-   */
+  */
   "version"?: number;
 
   /**
@@ -24,7 +29,7 @@ export class SecurityMonitoringSignalIncidentsUpdateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,14 +40,14 @@ export class SecurityMonitoringSignalIncidentsUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    incidentIds: {
-      baseName: "incident_ids",
-      type: "Array<number>",
-      required: true,
+    "incidentIds": {
+      "baseName": "incident_ids",
+      "type": "Array<number>",
+      "required": true,
     },
-    version: {
-      baseName: "version",
-      type: "number",
+    "version": {
+      "baseName": "version",
+      "type": "number",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class SecurityMonitoringSignalIncidentsUpdateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringSignalIncidentsUpdateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

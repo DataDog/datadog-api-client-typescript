@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for recording a session watch event, including the application, event reference, and timestamp.
- */
+*/
 export class WatchDataAttributes {
   /**
    * Unique identifier of the RUM application containing the session.
-   */
+  */
   "applicationId": string;
   /**
    * Data source type indicating the origin of the session data (e.g., rum or product_analytics).
-   */
+  */
   "dataSource"?: string;
   /**
    * Unique identifier of the RUM event that was watched.
-   */
+  */
   "eventId": string;
   /**
    * Timestamp when the session was watched.
-   */
+  */
   "timestamp": Date;
 
   /**
@@ -32,7 +37,7 @@ export class WatchDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,25 +48,25 @@ export class WatchDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    applicationId: {
-      baseName: "application_id",
-      type: "string",
-      required: true,
+    "applicationId": {
+      "baseName": "application_id",
+      "type": "string",
+      "required": true,
     },
-    dataSource: {
-      baseName: "data_source",
-      type: "string",
+    "dataSource": {
+      "baseName": "data_source",
+      "type": "string",
     },
-    eventId: {
-      baseName: "event_id",
-      type: "string",
-      required: true,
+    "eventId": {
+      "baseName": "event_id",
+      "type": "string",
+      "required": true,
     },
-    timestamp: {
-      baseName: "timestamp",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "timestamp": {
+      "baseName": "timestamp",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -73,8 +78,34 @@ export class WatchDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return WatchDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

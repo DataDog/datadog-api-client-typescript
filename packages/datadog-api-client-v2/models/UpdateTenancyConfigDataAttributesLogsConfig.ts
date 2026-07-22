@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Log collection configuration for updating an OCI tenancy, controlling which compartments and services have log collection enabled.
- */
+*/
 export class UpdateTenancyConfigDataAttributesLogsConfig {
   /**
    * List of compartment tag filters to scope log collection to specific compartments.
-   */
+  */
   "compartmentTagFilters"?: Array<string>;
   /**
    * Whether log collection is enabled for the tenancy.
-   */
+  */
   "enabled"?: boolean;
   /**
    * List of OCI service names for which log collection is enabled.
-   */
+  */
   "enabledServices"?: Array<string>;
 
   /**
@@ -28,7 +33,7 @@ export class UpdateTenancyConfigDataAttributesLogsConfig {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class UpdateTenancyConfigDataAttributesLogsConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    compartmentTagFilters: {
-      baseName: "compartment_tag_filters",
-      type: "Array<string>",
+    "compartmentTagFilters": {
+      "baseName": "compartment_tag_filters",
+      "type": "Array<string>",
     },
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
+    "enabled": {
+      "baseName": "enabled",
+      "type": "boolean",
     },
-    enabledServices: {
-      baseName: "enabled_services",
-      type: "Array<string>",
+    "enabledServices": {
+      "baseName": "enabled_services",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class UpdateTenancyConfigDataAttributesLogsConfig {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateTenancyConfigDataAttributesLogsConfig.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

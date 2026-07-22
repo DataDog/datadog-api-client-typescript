@@ -5,15 +5,20 @@
  */
 import { IncidentImportRequestData } from "./IncidentImportRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Import request for an incident. Used to import historical incidents from external systems.
- */
+*/
 export class IncidentImportRequest {
   /**
    * Incident data for an import request.
-   */
+  */
   "data": IncidentImportRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class IncidentImportRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class IncidentImportRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "IncidentImportRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "IncidentImportRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class IncidentImportRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentImportRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

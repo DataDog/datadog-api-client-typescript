@@ -5,31 +5,36 @@
  */
 import { CreateConnectionRequestDataAttributesFieldsItems } from "./CreateConnectionRequestDataAttributesFieldsItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes defining the data source connection, including join configuration and custom fields.
- */
+*/
 export class CreateConnectionRequestDataAttributes {
   /**
    * List of custom attribute fields to import from the data source.
-   */
+  */
   "fields"?: Array<CreateConnectionRequestDataAttributesFieldsItems>;
   /**
    * The attribute in the data source used to join records with the entity.
-   */
+  */
   "joinAttribute": string;
   /**
    * The type of join key used to link the data source to the entity (for example, email or user_id).
-   */
+  */
   "joinType": string;
   /**
    * Additional key-value metadata associated with the connection.
-   */
-  "metadata"?: { [key: string]: string };
+  */
+  "metadata"?: { [key: string]: string; };
   /**
    * The type of data source connection (for example, ref_table).
-   */
+  */
   "type": string;
 
   /**
@@ -37,7 +42,7 @@ export class CreateConnectionRequestDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -48,28 +53,28 @@ export class CreateConnectionRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    fields: {
-      baseName: "fields",
-      type: "Array<CreateConnectionRequestDataAttributesFieldsItems>",
+    "fields": {
+      "baseName": "fields",
+      "type": "Array<CreateConnectionRequestDataAttributesFieldsItems>",
     },
-    joinAttribute: {
-      baseName: "join_attribute",
-      type: "string",
-      required: true,
+    "joinAttribute": {
+      "baseName": "join_attribute",
+      "type": "string",
+      "required": true,
     },
-    joinType: {
-      baseName: "join_type",
-      type: "string",
-      required: true,
+    "joinType": {
+      "baseName": "join_type",
+      "type": "string",
+      "required": true,
     },
-    metadata: {
-      baseName: "metadata",
-      type: "{ [key: string]: string; }",
+    "metadata": {
+      "baseName": "metadata",
+      "type": "{ [key: string]: string; }",
     },
-    type: {
-      baseName: "type",
-      type: "string",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -81,8 +86,34 @@ export class CreateConnectionRequestDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateConnectionRequestDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

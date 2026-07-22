@@ -5,19 +5,24 @@
  */
 import { RumSdkConfigDynamicOption } from "./RumSdkConfigDynamicOption";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A key-value pair where the value is a dynamic configuration option.
- */
+*/
 export class RumSdkConfigDynamicOptionPair {
   /**
    * The key name for this dynamic configuration pair.
-   */
+  */
   "key": string;
   /**
    * A dynamic configuration option that extracts a value at runtime using a specified strategy.
-   */
+  */
   "value": RumSdkConfigDynamicOption;
 
   /**
@@ -25,7 +30,7 @@ export class RumSdkConfigDynamicOptionPair {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class RumSdkConfigDynamicOptionPair {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    key: {
-      baseName: "key",
-      type: "string",
-      required: true,
+    "key": {
+      "baseName": "key",
+      "type": "string",
+      "required": true,
     },
-    value: {
-      baseName: "value",
-      type: "RumSdkConfigDynamicOption",
-      required: true,
+    "value": {
+      "baseName": "value",
+      "type": "RumSdkConfigDynamicOption",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class RumSdkConfigDynamicOptionPair {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RumSdkConfigDynamicOptionPair.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

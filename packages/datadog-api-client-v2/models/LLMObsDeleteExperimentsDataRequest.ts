@@ -6,19 +6,24 @@
 import { LLMObsDeleteExperimentsDataAttributesRequest } from "./LLMObsDeleteExperimentsDataAttributesRequest";
 import { LLMObsExperimentType } from "./LLMObsExperimentType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for deleting LLM Observability experiments.
- */
+*/
 export class LLMObsDeleteExperimentsDataRequest {
   /**
    * Attributes for deleting LLM Observability experiments.
-   */
+  */
   "attributes": LLMObsDeleteExperimentsDataAttributesRequest;
   /**
    * Resource type of an LLM Observability experiment.
-   */
+  */
   "type": LLMObsExperimentType;
 
   /**
@@ -26,7 +31,7 @@ export class LLMObsDeleteExperimentsDataRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class LLMObsDeleteExperimentsDataRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LLMObsDeleteExperimentsDataAttributesRequest",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "LLMObsDeleteExperimentsDataAttributesRequest",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LLMObsExperimentType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LLMObsExperimentType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class LLMObsDeleteExperimentsDataRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDeleteExperimentsDataRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes required to create a maintenance window.
- */
+*/
 export class MaintenanceWindowCreateAttributes {
   /**
    * The end time of the maintenance window.
-   */
+  */
   "endAt": Date;
   /**
    * The name of the maintenance window.
-   */
+  */
   "name": string;
   /**
    * The query to filter event management cases for this maintenance window.
-   */
+  */
   "query": string;
   /**
    * The start time of the maintenance window.
-   */
+  */
   "startAt": Date;
 
   /**
@@ -32,7 +37,7 @@ export class MaintenanceWindowCreateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,27 +48,27 @@ export class MaintenanceWindowCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    endAt: {
-      baseName: "end_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "endAt": {
+      "baseName": "end_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    query: {
-      baseName: "query",
-      type: "string",
-      required: true,
+    "query": {
+      "baseName": "query",
+      "type": "string",
+      "required": true,
     },
-    startAt: {
-      baseName: "start_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "startAt": {
+      "baseName": "start_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -75,8 +80,34 @@ export class MaintenanceWindowCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MaintenanceWindowCreateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

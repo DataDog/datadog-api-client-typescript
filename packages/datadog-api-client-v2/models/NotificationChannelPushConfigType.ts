@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Indicates that the notification channel is a mobile device for push notifications
- */
+*/
 
 export type NotificationChannelPushConfigType = typeof PUSH | UnparsedObject;
-export const PUSH = "push";
+export const PUSH = 'push';

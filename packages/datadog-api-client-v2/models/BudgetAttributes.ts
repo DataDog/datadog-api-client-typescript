@@ -7,71 +7,76 @@ import { BudgetAttributesCosts } from "./BudgetAttributesCosts";
 import { BudgetAttributesCostsUnit } from "./BudgetAttributesCostsUnit";
 import { BudgetWithEntriesDataAttributesEntriesItems } from "./BudgetWithEntriesDataAttributesEntriesItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes of a budget.
- */
+*/
 export class BudgetAttributes {
   /**
    * Aggregated cost data for the budget over the requested period.
-   */
+  */
   "costs"?: BudgetAttributesCosts;
   /**
    * The end of the period used to compute cost data, in milliseconds since epoch.
-   */
+  */
   "costsPeriodEnd"?: number;
   /**
    * The start of the period used to compute cost data, in milliseconds since epoch.
-   */
+  */
   "costsPeriodStart"?: number;
   /**
    * The unit used for all cost values in the response.
-   */
+  */
   "costsUnit"?: BudgetAttributesCostsUnit;
   /**
    * The timestamp when the budget was created.
-   */
+  */
   "createdAt"?: number;
   /**
    * The id of the user that created the budget.
-   */
+  */
   "createdBy"?: string;
   /**
    * The month when the budget ends.
-   */
+  */
   "endMonth"?: number;
   /**
    * The list of monthly budget entries.
-   */
+  */
   "entries"?: Array<BudgetWithEntriesDataAttributesEntriesItems>;
   /**
    * The cost query used to track against the budget.
-   */
+  */
   "metricsQuery"?: string;
   /**
    * The name of the budget.
-   */
+  */
   "name"?: string;
   /**
    * The id of the org the budget belongs to.
-   */
+  */
   "orgId"?: number;
   /**
    * The month when the budget starts.
-   */
+  */
   "startMonth"?: number;
   /**
    * The sum of all budget entries' amounts.
-   */
+  */
   "totalAmount"?: number;
   /**
    * The timestamp when the budget was last updated.
-   */
+  */
   "updatedAt"?: number;
   /**
    * The id of the user that created the budget.
-   */
+  */
   "updatedBy"?: string;
 
   /**
@@ -79,7 +84,7 @@ export class BudgetAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -90,73 +95,73 @@ export class BudgetAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    costs: {
-      baseName: "costs",
-      type: "BudgetAttributesCosts",
+    "costs": {
+      "baseName": "costs",
+      "type": "BudgetAttributesCosts",
     },
-    costsPeriodEnd: {
-      baseName: "costs_period_end",
-      type: "number",
-      format: "int64",
+    "costsPeriodEnd": {
+      "baseName": "costs_period_end",
+      "type": "number",
+      "format": "int64",
     },
-    costsPeriodStart: {
-      baseName: "costs_period_start",
-      type: "number",
-      format: "int64",
+    "costsPeriodStart": {
+      "baseName": "costs_period_start",
+      "type": "number",
+      "format": "int64",
     },
-    costsUnit: {
-      baseName: "costs_unit",
-      type: "BudgetAttributesCostsUnit",
+    "costsUnit": {
+      "baseName": "costs_unit",
+      "type": "BudgetAttributesCostsUnit",
     },
-    createdAt: {
-      baseName: "created_at",
-      type: "number",
-      format: "int64",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "number",
+      "format": "int64",
     },
-    createdBy: {
-      baseName: "created_by",
-      type: "string",
+    "createdBy": {
+      "baseName": "created_by",
+      "type": "string",
     },
-    endMonth: {
-      baseName: "end_month",
-      type: "number",
-      format: "int64",
+    "endMonth": {
+      "baseName": "end_month",
+      "type": "number",
+      "format": "int64",
     },
-    entries: {
-      baseName: "entries",
-      type: "Array<BudgetWithEntriesDataAttributesEntriesItems>",
+    "entries": {
+      "baseName": "entries",
+      "type": "Array<BudgetWithEntriesDataAttributesEntriesItems>",
     },
-    metricsQuery: {
-      baseName: "metrics_query",
-      type: "string",
+    "metricsQuery": {
+      "baseName": "metrics_query",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    orgId: {
-      baseName: "org_id",
-      type: "number",
-      format: "int64",
+    "orgId": {
+      "baseName": "org_id",
+      "type": "number",
+      "format": "int64",
     },
-    startMonth: {
-      baseName: "start_month",
-      type: "number",
-      format: "int64",
+    "startMonth": {
+      "baseName": "start_month",
+      "type": "number",
+      "format": "int64",
     },
-    totalAmount: {
-      baseName: "total_amount",
-      type: "number",
-      format: "double",
+    "totalAmount": {
+      "baseName": "total_amount",
+      "type": "number",
+      "format": "double",
     },
-    updatedAt: {
-      baseName: "updated_at",
-      type: "number",
-      format: "int64",
+    "updatedAt": {
+      "baseName": "updated_at",
+      "type": "number",
+      "format": "int64",
     },
-    updatedBy: {
-      baseName: "updated_by",
-      type: "string",
+    "updatedBy": {
+      "baseName": "updated_by",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -168,8 +173,34 @@ export class BudgetAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return BudgetAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

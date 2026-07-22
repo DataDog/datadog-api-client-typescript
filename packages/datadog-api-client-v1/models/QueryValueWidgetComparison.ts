@@ -7,23 +7,28 @@ import { ComparisonDuration } from "./ComparisonDuration";
 import { QueryValueWidgetComparisonDirectionality } from "./QueryValueWidgetComparisonDirectionality";
 import { QueryValueWidgetComparisonType } from "./QueryValueWidgetComparisonType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A change indicator that compares the current value to a historical period.
- */
+*/
 export class QueryValueWidgetComparison {
   /**
    * Color-coding direction: `increase_better` (green on rise), `decrease_better` (green on drop), or `neutral` (no color).
-   */
+  */
   "directionality"?: QueryValueWidgetComparisonDirectionality;
   /**
    * The comparison period. Use a preset `type` value or set `type` to `custom_timeframe` and provide `custom_timeframe` with explicit millisecond epoch bounds.
-   */
+  */
   "duration": ComparisonDuration;
   /**
    * How the delta is expressed: `absolute` (raw difference), `relative` (percentage), or `both`.
-   */
+  */
   "type"?: QueryValueWidgetComparisonType;
 
   /**
@@ -31,7 +36,7 @@ export class QueryValueWidgetComparison {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,18 +47,18 @@ export class QueryValueWidgetComparison {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    directionality: {
-      baseName: "directionality",
-      type: "QueryValueWidgetComparisonDirectionality",
+    "directionality": {
+      "baseName": "directionality",
+      "type": "QueryValueWidgetComparisonDirectionality",
     },
-    duration: {
-      baseName: "duration",
-      type: "ComparisonDuration",
-      required: true,
+    "duration": {
+      "baseName": "duration",
+      "type": "ComparisonDuration",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "QueryValueWidgetComparisonType",
+    "type": {
+      "baseName": "type",
+      "type": "QueryValueWidgetComparisonType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class QueryValueWidgetComparison {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return QueryValueWidgetComparison.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

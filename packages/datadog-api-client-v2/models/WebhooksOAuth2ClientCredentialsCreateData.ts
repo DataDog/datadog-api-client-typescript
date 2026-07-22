@@ -6,19 +6,24 @@
 import { WebhooksOAuth2ClientCredentialsCreateAttributes } from "./WebhooksOAuth2ClientCredentialsCreateAttributes";
 import { WebhooksOAuth2ClientCredentialsType } from "./WebhooksOAuth2ClientCredentialsType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * OAuth2 client credentials data for a create request.
- */
+*/
 export class WebhooksOAuth2ClientCredentialsCreateData {
   /**
    * OAuth2 client credentials attributes for a create request.
-   */
+  */
   "attributes": WebhooksOAuth2ClientCredentialsCreateAttributes;
   /**
    * OAuth2 client credentials resource type.
-   */
+  */
   "type": WebhooksOAuth2ClientCredentialsType;
 
   /**
@@ -26,7 +31,7 @@ export class WebhooksOAuth2ClientCredentialsCreateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class WebhooksOAuth2ClientCredentialsCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "WebhooksOAuth2ClientCredentialsCreateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "WebhooksOAuth2ClientCredentialsCreateAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "WebhooksOAuth2ClientCredentialsType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "WebhooksOAuth2ClientCredentialsType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class WebhooksOAuth2ClientCredentialsCreateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return WebhooksOAuth2ClientCredentialsCreateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

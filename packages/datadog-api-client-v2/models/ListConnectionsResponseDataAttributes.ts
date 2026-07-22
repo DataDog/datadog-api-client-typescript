@@ -5,15 +5,20 @@
  */
 import { ListConnectionsResponseDataAttributesConnectionsItems } from "./ListConnectionsResponseDataAttributesConnectionsItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of the list connections response, containing the collection of data source connections.
- */
+*/
 export class ListConnectionsResponseDataAttributes {
   /**
    * The list of data source connections configured for the entity.
-   */
+  */
   "connections"?: Array<ListConnectionsResponseDataAttributesConnectionsItems>;
 
   /**
@@ -21,7 +26,7 @@ export class ListConnectionsResponseDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class ListConnectionsResponseDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    connections: {
-      baseName: "connections",
-      type: "Array<ListConnectionsResponseDataAttributesConnectionsItems>",
+    "connections": {
+      "baseName": "connections",
+      "type": "Array<ListConnectionsResponseDataAttributesConnectionsItems>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class ListConnectionsResponseDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListConnectionsResponseDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

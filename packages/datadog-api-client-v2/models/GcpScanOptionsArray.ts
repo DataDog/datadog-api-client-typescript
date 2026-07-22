@@ -5,15 +5,20 @@
  */
 import { GcpScanOptionsData } from "./GcpScanOptionsData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object containing a list of GCP scan options.
- */
+*/
 export class GcpScanOptionsArray {
   /**
    * A list of GCP scan options.
-   */
+  */
   "data": Array<GcpScanOptionsData>;
 
   /**
@@ -21,7 +26,7 @@ export class GcpScanOptionsArray {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class GcpScanOptionsArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<GcpScanOptionsData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<GcpScanOptionsData>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class GcpScanOptionsArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GcpScanOptionsArray.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

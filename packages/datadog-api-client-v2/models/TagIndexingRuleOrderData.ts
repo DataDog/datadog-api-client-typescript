@@ -6,19 +6,24 @@
 import { TagIndexingRuleOrderAttributes } from "./TagIndexingRuleOrderAttributes";
 import { TagIndexingRuleType } from "./TagIndexingRuleType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for the reorder operation.
- */
+*/
 export class TagIndexingRuleOrderData {
   /**
    * Attributes for the reorder operation.
-   */
+  */
   "attributes": TagIndexingRuleOrderAttributes;
   /**
    * The tag indexing rule resource type.
-   */
+  */
   "type": TagIndexingRuleType;
 
   /**
@@ -26,7 +31,7 @@ export class TagIndexingRuleOrderData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class TagIndexingRuleOrderData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "TagIndexingRuleOrderAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "TagIndexingRuleOrderAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "TagIndexingRuleType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TagIndexingRuleType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class TagIndexingRuleOrderData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TagIndexingRuleOrderData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

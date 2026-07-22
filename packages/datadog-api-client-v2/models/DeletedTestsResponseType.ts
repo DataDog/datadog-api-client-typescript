@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type for the bulk delete Synthetic tests response, `delete_tests`.
- */
+*/
 
 export type DeletedTestsResponseType = typeof DELETE_TESTS | UnparsedObject;
-export const DELETE_TESTS = "delete_tests";
+export const DELETE_TESTS = 'delete_tests';

@@ -5,15 +5,20 @@
  */
 import { CommitmentsScalarColumn } from "./CommitmentsScalarColumn";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing scalar savings metrics for cloud commitment programs.
- */
+*/
 export class CommitmentsSavingsScalarResponse {
   /**
    * Array of scalar columns in the response.
-   */
+  */
   "columns": Array<CommitmentsScalarColumn>;
 
   /**
@@ -21,7 +26,7 @@ export class CommitmentsSavingsScalarResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CommitmentsSavingsScalarResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    columns: {
-      baseName: "columns",
-      type: "Array<CommitmentsScalarColumn>",
-      required: true,
+    "columns": {
+      "baseName": "columns",
+      "type": "Array<CommitmentsScalarColumn>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CommitmentsSavingsScalarResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CommitmentsSavingsScalarResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * JSON:API resource type for a tag policy.
- */
+*/
 
 export type TagPolicyResourceType = typeof TAG_POLICY | UnparsedObject;
-export const TAG_POLICY = "tag_policy";
+export const TAG_POLICY = 'tag_policy';

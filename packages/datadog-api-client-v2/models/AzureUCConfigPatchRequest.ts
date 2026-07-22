@@ -5,15 +5,20 @@
  */
 import { AzureUCConfigPatchData } from "./AzureUCConfigPatchData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Azure config Patch Request.
- */
+*/
 export class AzureUCConfigPatchRequest {
   /**
    * Azure config Patch data.
-   */
+  */
   "data": AzureUCConfigPatchData;
 
   /**
@@ -21,7 +26,7 @@ export class AzureUCConfigPatchRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class AzureUCConfigPatchRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "AzureUCConfigPatchData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "AzureUCConfigPatchData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class AzureUCConfigPatchRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AzureUCConfigPatchRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

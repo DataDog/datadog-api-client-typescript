@@ -5,15 +5,20 @@
  */
 import { SnapshotUpdateRequestData } from "./SnapshotUpdateRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request body for updating a heatmap snapshot.
- */
+*/
 export class SnapshotUpdateRequest {
   /**
    * Data object for a heatmap snapshot update request, containing the resource identifier, type, and attributes.
-   */
+  */
   "data": SnapshotUpdateRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class SnapshotUpdateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class SnapshotUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SnapshotUpdateRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "SnapshotUpdateRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class SnapshotUpdateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SnapshotUpdateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,14 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of the resource.
- */
+*/
 
-export type SecurityMonitoringRuleConvertBulkDataType =
-  | typeof SECURITY_MONITORING_RULES_CONVERT_BULK
-  | UnparsedObject;
-export const SECURITY_MONITORING_RULES_CONVERT_BULK =
-  "security_monitoring_rules_convert_bulk";
+export type SecurityMonitoringRuleConvertBulkDataType = typeof SECURITY_MONITORING_RULES_CONVERT_BULK | UnparsedObject;
+export const SECURITY_MONITORING_RULES_CONVERT_BULK = 'security_monitoring_rules_convert_bulk';

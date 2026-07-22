@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Pagination settings.
- */
+*/
 export class EventsRequestPage {
   /**
    * The returned paging point to use to get the next results.
-   */
+  */
   "cursor"?: string;
   /**
    * The maximum number of logs in the response.
-   */
+  */
   "limit"?: number;
 
   /**
@@ -24,7 +29,7 @@ export class EventsRequestPage {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,14 +40,14 @@ export class EventsRequestPage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    cursor: {
-      baseName: "cursor",
-      type: "string",
+    "cursor": {
+      "baseName": "cursor",
+      "type": "string",
     },
-    limit: {
-      baseName: "limit",
-      type: "number",
-      format: "int32",
+    "limit": {
+      "baseName": "limit",
+      "type": "number",
+      "format": "int32",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class EventsRequestPage {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EventsRequestPage.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

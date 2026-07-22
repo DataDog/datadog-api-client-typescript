@@ -5,13 +5,15 @@
  */
 import { ActionQueryMockedOutputsObject } from "./ActionQueryMockedOutputsObject";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The mocked outputs of the action query. This is useful for testing the app without actually running the action.
- */
+*/
 
-export type ActionQueryMockedOutputs =
-  | string
-  | ActionQueryMockedOutputsObject
-  | UnparsedObject;
+export type ActionQueryMockedOutputs = string | ActionQueryMockedOutputsObject | UnparsedObject;

@@ -4,35 +4,40 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Options for dynamic tag indexing applied per metric, such as tags filtered by query usage.
- *
+ * 
  * Before a tag key is dropped by this rule, two grace period conditions must be met:
- *
+ * 
  * 1. The metric must be submitted for at least as long as the selected window.
  * 2. A tag key must have been submitted for at least 15 days.
- *
+ * 
  * Any metric or tag key that does not meet these conditions are excluded from this
  * indexing rule. The `exclude_not_*` fields require `exclude_tags_mode` to be set to `true`.
- */
+*/
 export class TagIndexingRuleDynamicTags {
   /**
    * Tags that have not been queried within this window are excluded from indexing. Maximum of `7776000` (90 days).
-   */
+  */
   "excludeNotQueriedWindowSeconds"?: number;
   /**
    * Tags not used in any dashboards,  monitors, notebooks, or SLOs are excluded from indexing.
-   */
+  */
   "excludeNotUsedInAssets"?: boolean;
   /**
    * Window in seconds for evaluating queried tags.
-   */
+  */
   "queriedTagsWindowSeconds"?: number;
   /**
    * When true, tags from related assets are included.
-   */
+  */
   "relatedAssetTags"?: boolean;
 
   /**
@@ -40,7 +45,7 @@ export class TagIndexingRuleDynamicTags {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -51,23 +56,23 @@ export class TagIndexingRuleDynamicTags {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    excludeNotQueriedWindowSeconds: {
-      baseName: "exclude_not_queried_window_seconds",
-      type: "number",
-      format: "int64",
+    "excludeNotQueriedWindowSeconds": {
+      "baseName": "exclude_not_queried_window_seconds",
+      "type": "number",
+      "format": "int64",
     },
-    excludeNotUsedInAssets: {
-      baseName: "exclude_not_used_in_assets",
-      type: "boolean",
+    "excludeNotUsedInAssets": {
+      "baseName": "exclude_not_used_in_assets",
+      "type": "boolean",
     },
-    queriedTagsWindowSeconds: {
-      baseName: "queried_tags_window_seconds",
-      type: "number",
-      format: "int64",
+    "queriedTagsWindowSeconds": {
+      "baseName": "queried_tags_window_seconds",
+      "type": "number",
+      "format": "int64",
     },
-    relatedAssetTags: {
-      baseName: "related_asset_tags",
-      type: "boolean",
+    "relatedAssetTags": {
+      "baseName": "related_asset_tags",
+      "type": "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -79,8 +84,34 @@ export class TagIndexingRuleDynamicTags {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TagIndexingRuleDynamicTags.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

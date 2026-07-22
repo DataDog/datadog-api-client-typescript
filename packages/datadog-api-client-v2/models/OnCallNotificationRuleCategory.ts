@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Specifies the category a notification rule will apply to
- */
+*/
 
-export type OnCallNotificationRuleCategory =
-  | typeof HIGH_URGENCY
-  | typeof LOW_URGENCY
-  | UnparsedObject;
-export const HIGH_URGENCY = "high_urgency";
-export const LOW_URGENCY = "low_urgency";
+export type OnCallNotificationRuleCategory = typeof HIGH_URGENCY| typeof LOW_URGENCY | UnparsedObject;
+export const HIGH_URGENCY = 'high_urgency';
+export const LOW_URGENCY = 'low_urgency';

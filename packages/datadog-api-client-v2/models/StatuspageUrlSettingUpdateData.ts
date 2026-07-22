@@ -6,23 +6,28 @@
 import { StatuspageUrlSettingType } from "./StatuspageUrlSettingType";
 import { StatuspageUrlSettingUpdateAttributes } from "./StatuspageUrlSettingUpdateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Statuspage URL setting data for an update request.
- */
+*/
 export class StatuspageUrlSettingUpdateData {
   /**
    * The Statuspage URL setting attributes for an update request.
-   */
+  */
   "attributes": StatuspageUrlSettingUpdateAttributes;
   /**
    * The ID of the Statuspage URL setting.
-   */
+  */
   "id": string;
   /**
    * Statuspage URL setting resource type.
-   */
+  */
   "type": StatuspageUrlSettingType;
 
   /**
@@ -30,7 +35,7 @@ export class StatuspageUrlSettingUpdateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class StatuspageUrlSettingUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "StatuspageUrlSettingUpdateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "StatuspageUrlSettingUpdateAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "StatuspageUrlSettingType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "StatuspageUrlSettingType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class StatuspageUrlSettingUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return StatuspageUrlSettingUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

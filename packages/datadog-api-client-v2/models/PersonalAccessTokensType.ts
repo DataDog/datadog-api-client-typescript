@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Personal access tokens resource type.
- */
+*/
 
-export type PersonalAccessTokensType =
-  | typeof PERSONAL_ACCESS_TOKENS
-  | UnparsedObject;
-export const PERSONAL_ACCESS_TOKENS = "personal_access_tokens";
+export type PersonalAccessTokensType = typeof PERSONAL_ACCESS_TOKENS | UnparsedObject;
+export const PERSONAL_ACCESS_TOKENS = 'personal_access_tokens';

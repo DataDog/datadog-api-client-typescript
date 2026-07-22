@@ -7,27 +7,32 @@ import { DatasetReportScheduleResponseAttributes } from "./DatasetReportSchedule
 import { ReportScheduleResponseRelationships } from "./ReportScheduleResponseRelationships";
 import { ReportScheduleType } from "./ReportScheduleType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The JSON:API data object representing a dataset report schedule.
- */
+*/
 export class DatasetReportScheduleResponseData {
   /**
    * The configuration and derived state of a report schedule for a published dataset.
-   */
+  */
   "attributes": DatasetReportScheduleResponseAttributes;
   /**
    * The unique identifier of the dataset report schedule.
-   */
+  */
   "id": string;
   /**
    * Relationships for the report schedule.
-   */
+  */
   "relationships": ReportScheduleResponseRelationships;
   /**
    * JSON:API resource type for report schedules.
-   */
+  */
   "type": ReportScheduleType;
 
   /**
@@ -35,7 +40,7 @@ export class DatasetReportScheduleResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,26 +51,26 @@ export class DatasetReportScheduleResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "DatasetReportScheduleResponseAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "DatasetReportScheduleResponseAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "ReportScheduleResponseRelationships",
-      required: true,
+    "relationships": {
+      "baseName": "relationships",
+      "type": "ReportScheduleResponseRelationships",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ReportScheduleType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ReportScheduleType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -77,8 +82,34 @@ export class DatasetReportScheduleResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DatasetReportScheduleResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

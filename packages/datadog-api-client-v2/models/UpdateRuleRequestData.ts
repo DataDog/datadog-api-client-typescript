@@ -6,19 +6,24 @@
 import { RuleAttributesRequest } from "./RuleAttributesRequest";
 import { RuleType } from "./RuleType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for the request to update a scorecard rule.
- */
+*/
 export class UpdateRuleRequestData {
   /**
    * Attributes for creating or updating a rule. Server-managed fields (created_at, modified_at, custom) are excluded.
-   */
+  */
   "attributes"?: RuleAttributesRequest;
   /**
    * The JSON:API type for scorecard rules.
-   */
+  */
   "type"?: RuleType;
 
   /**
@@ -26,7 +31,7 @@ export class UpdateRuleRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class UpdateRuleRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RuleAttributesRequest",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "RuleAttributesRequest",
     },
-    type: {
-      baseName: "type",
-      type: "RuleType",
+    "type": {
+      "baseName": "type",
+      "type": "RuleType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class UpdateRuleRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateRuleRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,19 +5,24 @@
  */
 import { ProjectFavoriteResourceType } from "./ProjectFavoriteResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Represents a case project that the current user has bookmarked for quick access. Favorited projects appear prominently in the Case Management UI.
- */
+*/
 export class ProjectFavorite {
   /**
    * The UUID of the favorited project.
-   */
+  */
   "id": string;
   /**
    * JSON:API resource type for project favorites.
-   */
+  */
   "type": ProjectFavoriteResourceType;
 
   /**
@@ -25,7 +30,7 @@ export class ProjectFavorite {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class ProjectFavorite {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ProjectFavoriteResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ProjectFavoriteResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class ProjectFavorite {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProjectFavorite.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

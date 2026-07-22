@@ -5,15 +5,20 @@
  */
 import { GoogleChatOrganizationRelationshipsDelegatedUser } from "./GoogleChatOrganizationRelationshipsDelegatedUser";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Google Chat organization relationships.
- */
+*/
 export class GoogleChatOrganizationRelationships {
   /**
    * The delegated user relationship.
-   */
+  */
   "delegatedUser"?: GoogleChatOrganizationRelationshipsDelegatedUser;
 
   /**
@@ -21,7 +26,7 @@ export class GoogleChatOrganizationRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class GoogleChatOrganizationRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    delegatedUser: {
-      baseName: "delegated_user",
-      type: "GoogleChatOrganizationRelationshipsDelegatedUser",
+    "delegatedUser": {
+      "baseName": "delegated_user",
+      "type": "GoogleChatOrganizationRelationshipsDelegatedUser",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class GoogleChatOrganizationRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GoogleChatOrganizationRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

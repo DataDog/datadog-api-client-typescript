@@ -6,19 +6,24 @@
 import { RUMEventProcessingScale } from "./RUMEventProcessingScale";
 import { RUMProductAnalyticsRetentionScale } from "./RUMProductAnalyticsRetentionScale";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Product Scales configuration for the RUM application.
- */
+*/
 export class RUMProductScales {
   /**
    * Product Analytics retention scale configuration.
-   */
+  */
   "productAnalyticsRetentionScale"?: RUMProductAnalyticsRetentionScale;
   /**
    * RUM event processing scale configuration.
-   */
+  */
   "rumEventProcessingScale"?: RUMEventProcessingScale;
 
   /**
@@ -26,7 +31,7 @@ export class RUMProductScales {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class RUMProductScales {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    productAnalyticsRetentionScale: {
-      baseName: "product_analytics_retention_scale",
-      type: "RUMProductAnalyticsRetentionScale",
+    "productAnalyticsRetentionScale": {
+      "baseName": "product_analytics_retention_scale",
+      "type": "RUMProductAnalyticsRetentionScale",
     },
-    rumEventProcessingScale: {
-      baseName: "rum_event_processing_scale",
-      type: "RUMEventProcessingScale",
+    "rumEventProcessingScale": {
+      "baseName": "rum_event_processing_scale",
+      "type": "RUMEventProcessingScale",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class RUMProductScales {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RUMProductScales.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

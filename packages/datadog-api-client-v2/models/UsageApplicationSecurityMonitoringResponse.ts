@@ -5,15 +5,20 @@
  */
 import { UsageDataObject } from "./UsageDataObject";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Application Security Monitoring usage response.
- */
+*/
 export class UsageApplicationSecurityMonitoringResponse {
   /**
    * Response containing Application Security Monitoring usage.
-   */
+  */
   "data"?: Array<UsageDataObject>;
 
   /**
@@ -21,7 +26,7 @@ export class UsageApplicationSecurityMonitoringResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class UsageApplicationSecurityMonitoringResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<UsageDataObject>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<UsageDataObject>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class UsageApplicationSecurityMonitoringResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageApplicationSecurityMonitoringResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

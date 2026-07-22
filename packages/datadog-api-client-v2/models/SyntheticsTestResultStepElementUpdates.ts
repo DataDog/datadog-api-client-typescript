@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Element locator updates produced during a step.
- */
+*/
 export class SyntheticsTestResultStepElementUpdates {
   /**
    * Updated multi-locator definition.
-   */
-  "multiLocator"?: { [key: string]: string };
+  */
+  "multiLocator"?: { [key: string]: string; };
   /**
    * Updated outer HTML of the targeted element.
-   */
+  */
   "targetOuterHtml"?: string;
   /**
    * Version of the element locator definition.
-   */
+  */
   "version"?: number;
 
   /**
@@ -28,7 +33,7 @@ export class SyntheticsTestResultStepElementUpdates {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,18 +44,18 @@ export class SyntheticsTestResultStepElementUpdates {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    multiLocator: {
-      baseName: "multi_locator",
-      type: "{ [key: string]: string; }",
+    "multiLocator": {
+      "baseName": "multi_locator",
+      "type": "{ [key: string]: string; }",
     },
-    targetOuterHtml: {
-      baseName: "target_outer_html",
-      type: "string",
+    "targetOuterHtml": {
+      "baseName": "target_outer_html",
+      "type": "string",
     },
-    version: {
-      baseName: "version",
-      type: "number",
-      format: "int64",
+    "version": {
+      "baseName": "version",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class SyntheticsTestResultStepElementUpdates {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultStepElementUpdates.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

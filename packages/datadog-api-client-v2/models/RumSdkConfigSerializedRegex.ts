@@ -5,19 +5,24 @@
  */
 import { RumSdkConfigSerializedRegexType } from "./RumSdkConfigSerializedRegexType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A serialized regex used as an extractor in dynamic options.
- */
+*/
 export class RumSdkConfigSerializedRegex {
   /**
    * The type identifier for a serialized regex. Always `regex`.
-   */
+  */
   "rcSerializedType": RumSdkConfigSerializedRegexType;
   /**
    * The regex pattern used for extraction.
-   */
+  */
   "value": string;
 
   /**
@@ -25,7 +30,7 @@ export class RumSdkConfigSerializedRegex {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class RumSdkConfigSerializedRegex {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    rcSerializedType: {
-      baseName: "rc_serialized_type",
-      type: "RumSdkConfigSerializedRegexType",
-      required: true,
+    "rcSerializedType": {
+      "baseName": "rc_serialized_type",
+      "type": "RumSdkConfigSerializedRegexType",
+      "required": true,
     },
-    value: {
-      baseName: "value",
-      type: "string",
-      required: true,
+    "value": {
+      "baseName": "value",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class RumSdkConfigSerializedRegex {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RumSdkConfigSerializedRegex.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

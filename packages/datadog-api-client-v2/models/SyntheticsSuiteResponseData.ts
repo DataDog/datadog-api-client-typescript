@@ -6,23 +6,28 @@
 import { SyntheticsSuite } from "./SyntheticsSuite";
 import { SyntheticsSuiteTypes } from "./SyntheticsSuiteTypes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Synthetics suite response data
- */
+*/
 export class SyntheticsSuiteResponseData {
   /**
    * Object containing details about a Synthetic suite.
-   */
+  */
   "attributes"?: SyntheticsSuite;
   /**
    * The public ID for the suite.
-   */
+  */
   "id"?: string;
   /**
    * Type for the Synthetics suites responses, `suites`.
-   */
+  */
   "type"?: SyntheticsSuiteTypes;
 
   /**
@@ -30,7 +35,7 @@ export class SyntheticsSuiteResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class SyntheticsSuiteResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SyntheticsSuite",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SyntheticsSuite",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SyntheticsSuiteTypes",
+    "type": {
+      "baseName": "type",
+      "type": "SyntheticsSuiteTypes",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class SyntheticsSuiteResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsSuiteResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { CasePriority } from "./CasePriority";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Case update priority attributes
- */
+*/
 export class CaseUpdatePriorityAttributes {
   /**
    * Case priority
-   */
+  */
   "priority": CasePriority;
 
   /**
@@ -21,7 +26,7 @@ export class CaseUpdatePriorityAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CaseUpdatePriorityAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    priority: {
-      baseName: "priority",
-      type: "CasePriority",
-      required: true,
+    "priority": {
+      "baseName": "priority",
+      "type": "CasePriority",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CaseUpdatePriorityAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseUpdatePriorityAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

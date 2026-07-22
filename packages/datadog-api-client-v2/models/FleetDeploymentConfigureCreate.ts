@@ -6,19 +6,24 @@
 import { FleetDeploymentConfigureAttributes } from "./FleetDeploymentConfigureAttributes";
 import { FleetDeploymentResourceType } from "./FleetDeploymentResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for creating a new configuration deployment.
- */
+*/
 export class FleetDeploymentConfigureCreate {
   /**
    * Attributes for creating a new configuration deployment.
-   */
+  */
   "attributes": FleetDeploymentConfigureAttributes;
   /**
    * The type of deployment resource.
-   */
+  */
   "type": FleetDeploymentResourceType;
 
   /**
@@ -26,7 +31,7 @@ export class FleetDeploymentConfigureCreate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class FleetDeploymentConfigureCreate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "FleetDeploymentConfigureAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "FleetDeploymentConfigureAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "FleetDeploymentResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "FleetDeploymentResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class FleetDeploymentConfigureCreate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FleetDeploymentConfigureCreate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

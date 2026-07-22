@@ -6,20 +6,25 @@
 import { SLODataSourceQueryDefinition } from "./SLODataSourceQueryDefinition";
 import { SLOFormula } from "./SLOFormula";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * SLO count definition using a total events formula alongside a good events formula.
- */
+*/
 export class SLOCountDefinitionWithTotalEventsFormula {
   /**
    * A formula that specifies how to combine the results of multiple queries.
-   */
+  */
   "goodEventsFormula": SLOFormula;
   "queries": Array<SLODataSourceQueryDefinition>;
   /**
    * A formula that specifies how to combine the results of multiple queries.
-   */
+  */
   "totalEventsFormula": SLOFormula;
 
   /**
@@ -31,29 +36,55 @@ export class SLOCountDefinitionWithTotalEventsFormula {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    goodEventsFormula: {
-      baseName: "good_events_formula",
-      type: "SLOFormula",
-      required: true,
+    "goodEventsFormula": {
+      "baseName": "good_events_formula",
+      "type": "SLOFormula",
+      "required": true,
     },
-    queries: {
-      baseName: "queries",
-      type: "Array<SLODataSourceQueryDefinition>",
-      required: true,
+    "queries": {
+      "baseName": "queries",
+      "type": "Array<SLODataSourceQueryDefinition>",
+      "required": true,
     },
-    totalEventsFormula: {
-      baseName: "total_events_formula",
-      type: "SLOFormula",
-      required: true,
-    },
+    "totalEventsFormula": {
+      "baseName": "total_events_formula",
+      "type": "SLOFormula",
+      "required": true,
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SLOCountDefinitionWithTotalEventsFormula.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

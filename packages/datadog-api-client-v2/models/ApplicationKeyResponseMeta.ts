@@ -5,19 +5,24 @@
  */
 import { ApplicationKeyResponseMetaPage } from "./ApplicationKeyResponseMetaPage";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Additional information related to the application key response.
- */
+*/
 export class ApplicationKeyResponseMeta {
   /**
    * Max allowed number of application keys per user.
-   */
+  */
   "maxAllowedPerUser"?: number;
   /**
    * Additional information related to the application key response.
-   */
+  */
   "page"?: ApplicationKeyResponseMetaPage;
 
   /**
@@ -25,7 +30,7 @@ export class ApplicationKeyResponseMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,14 +41,14 @@ export class ApplicationKeyResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    maxAllowedPerUser: {
-      baseName: "max_allowed_per_user",
-      type: "number",
-      format: "int64",
+    "maxAllowedPerUser": {
+      "baseName": "max_allowed_per_user",
+      "type": "number",
+      "format": "int64",
     },
-    page: {
-      baseName: "page",
-      type: "ApplicationKeyResponseMetaPage",
+    "page": {
+      "baseName": "page",
+      "type": "ApplicationKeyResponseMetaPage",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class ApplicationKeyResponseMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ApplicationKeyResponseMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

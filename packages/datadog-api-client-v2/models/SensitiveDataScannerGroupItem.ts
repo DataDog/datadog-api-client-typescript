@@ -5,19 +5,24 @@
  */
 import { SensitiveDataScannerGroupType } from "./SensitiveDataScannerGroupType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data related to a Sensitive Data Scanner Group.
- */
+*/
 export class SensitiveDataScannerGroupItem {
   /**
    * ID of the group.
-   */
+  */
   "id"?: string;
   /**
    * Sensitive Data Scanner group type.
-   */
+  */
   "type"?: SensitiveDataScannerGroupType;
 
   /**
@@ -25,7 +30,7 @@ export class SensitiveDataScannerGroupItem {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class SensitiveDataScannerGroupItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SensitiveDataScannerGroupType",
+    "type": {
+      "baseName": "type",
+      "type": "SensitiveDataScannerGroupType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class SensitiveDataScannerGroupItem {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SensitiveDataScannerGroupItem.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

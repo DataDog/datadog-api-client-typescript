@@ -5,23 +5,28 @@
  */
 import { ServiceDefinitionV2EmailType } from "./ServiceDefinitionV2EmailType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Service owner's email.
- */
+*/
 export class ServiceDefinitionV2Email {
   /**
    * Contact value.
-   */
+  */
   "contact": string;
   /**
    * Contact email.
-   */
+  */
   "name"?: string;
   /**
    * Contact type.
-   */
+  */
   "type": ServiceDefinitionV2EmailType;
 
   /**
@@ -29,7 +34,7 @@ export class ServiceDefinitionV2Email {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,19 +45,19 @@ export class ServiceDefinitionV2Email {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    contact: {
-      baseName: "contact",
-      type: "string",
-      required: true,
+    "contact": {
+      "baseName": "contact",
+      "type": "string",
+      "required": true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "ServiceDefinitionV2EmailType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ServiceDefinitionV2EmailType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class ServiceDefinitionV2Email {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceDefinitionV2Email.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

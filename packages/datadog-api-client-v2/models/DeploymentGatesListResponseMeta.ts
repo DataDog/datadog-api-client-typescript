@@ -5,15 +5,20 @@
  */
 import { DeploymentGatesListResponseMetaPage } from "./DeploymentGatesListResponseMetaPage";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metadata for a list of deployment gates response.
- */
+*/
 export class DeploymentGatesListResponseMeta {
   /**
    * Pagination information for a list of deployment gates.
-   */
+  */
   "page"?: DeploymentGatesListResponseMetaPage;
 
   /**
@@ -21,7 +26,7 @@ export class DeploymentGatesListResponseMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class DeploymentGatesListResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    page: {
-      baseName: "page",
-      type: "DeploymentGatesListResponseMetaPage",
+    "page": {
+      "baseName": "page",
+      "type": "DeploymentGatesListResponseMetaPage",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class DeploymentGatesListResponseMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DeploymentGatesListResponseMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

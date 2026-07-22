@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object describing the creator of the shared element.
- */
+*/
 export class Creator {
   /**
    * Email of the creator.
-   */
+  */
   "email"?: string;
   /**
    * Handle of the creator.
-   */
+  */
   "handle"?: string;
   /**
    * Name of the creator.
-   */
+  */
   "name"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class Creator {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class Creator {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    email: {
-      baseName: "email",
-      type: "string",
+    "email": {
+      "baseName": "email",
+      "type": "string",
     },
-    handle: {
-      baseName: "handle",
-      type: "string",
+    "handle": {
+      "baseName": "handle",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class Creator {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return Creator.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Data source for Product Analytics Extended queries.
- */
+*/
 
-export type FormulaAndFunctionProductAnalyticsExtendedDataSource =
-  | typeof PRODUCT_ANALYTICS_EXTENDED
-  | UnparsedObject;
-export const PRODUCT_ANALYTICS_EXTENDED = "product_analytics_extended";
+export type FormulaAndFunctionProductAnalyticsExtendedDataSource = typeof PRODUCT_ANALYTICS_EXTENDED | UnparsedObject;
+export const PRODUCT_ANALYTICS_EXTENDED = 'product_analytics_extended';

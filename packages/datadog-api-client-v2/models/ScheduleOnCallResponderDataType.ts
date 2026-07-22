@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Represents the resource type for a single position's (previous, current, or next) group of on-call responder shifts.
- */
+*/
 
-export type ScheduleOnCallResponderDataType =
-  | typeof SCHEDULE_ONCALL_RESPONDER
-  | UnparsedObject;
-export const SCHEDULE_ONCALL_RESPONDER = "schedule_oncall_responder";
+export type ScheduleOnCallResponderDataType = typeof SCHEDULE_ONCALL_RESPONDER | UnparsedObject;
+export const SCHEDULE_ONCALL_RESPONDER = 'schedule_oncall_responder';

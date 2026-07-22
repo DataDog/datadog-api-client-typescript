@@ -6,23 +6,28 @@
 import { SeatAssignmentsDataType } from "./SeatAssignmentsDataType";
 import { UnassignSeatsUserRequestDataAttributes } from "./UnassignSeatsUserRequestDataAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The request data object containing attributes for unassigning seats from users.
- */
+*/
 export class UnassignSeatsUserRequestData {
   /**
    * Attributes specifying the product and users from whom seats will be unassigned.
-   */
+  */
   "attributes": UnassignSeatsUserRequestDataAttributes;
   /**
    * The ID of the unassign seats user request.
-   */
+  */
   "id"?: string;
   /**
    * Seat assignments resource type.
-   */
+  */
   "type": SeatAssignmentsDataType;
 
   /**
@@ -30,7 +35,7 @@ export class UnassignSeatsUserRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class UnassignSeatsUserRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "UnassignSeatsUserRequestDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "UnassignSeatsUserRequestDataAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SeatAssignmentsDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SeatAssignmentsDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class UnassignSeatsUserRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UnassignSeatsUserRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

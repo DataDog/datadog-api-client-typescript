@@ -6,23 +6,28 @@
 import { SuiteSearchResponseType } from "./SuiteSearchResponseType";
 import { SyntheticsSuiteSearchResponseDataAttributes } from "./SyntheticsSuiteSearchResponseDataAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Synthetics suite search response data
- */
+*/
 export class SyntheticsSuiteSearchResponseData {
   /**
    * Synthetics suite search response data attributes
-   */
+  */
   "attributes"?: SyntheticsSuiteSearchResponseDataAttributes;
   /**
    * The unique identifier of the suite search response data.
-   */
+  */
   "id"?: string;
   /**
    * Type for the Synthetics suites search response, `suites_search`.
-   */
+  */
   "type"?: SuiteSearchResponseType;
 
   /**
@@ -30,7 +35,7 @@ export class SyntheticsSuiteSearchResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class SyntheticsSuiteSearchResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SyntheticsSuiteSearchResponseDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SyntheticsSuiteSearchResponseDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "format": "uuid",
     },
-    type: {
-      baseName: "type",
-      type: "SuiteSearchResponseType",
+    "type": {
+      "baseName": "type",
+      "type": "SuiteSearchResponseType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class SyntheticsSuiteSearchResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsSuiteSearchResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

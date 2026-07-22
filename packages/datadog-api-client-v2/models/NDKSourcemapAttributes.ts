@@ -4,35 +4,40 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of an Android NDK symbol file.
- */
+*/
 export class NDKSourcemapAttributes {
   /**
    * The target CPU architecture.
-   */
+  */
   "arch"?: string;
   /**
    * The build identifier (UUID format).
-   */
+  */
   "buildId"?: string;
   /**
    * The timestamp when the symbol file was created.
-   */
+  */
   "createdAt": Date;
   /**
    * The NDK library file name.
-   */
+  */
   "fileName"?: string;
   /**
    * The type of source map.
-   */
+  */
   "mapkind": string;
   /**
    * The size of the symbol file in bytes.
-   */
+  */
   "size": number;
 
   /**
@@ -40,7 +45,7 @@ export class NDKSourcemapAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -51,34 +56,34 @@ export class NDKSourcemapAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    arch: {
-      baseName: "arch",
-      type: "string",
+    "arch": {
+      "baseName": "arch",
+      "type": "string",
     },
-    buildId: {
-      baseName: "build_id",
-      type: "string",
+    "buildId": {
+      "baseName": "build_id",
+      "type": "string",
     },
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    fileName: {
-      baseName: "file_name",
-      type: "string",
+    "fileName": {
+      "baseName": "file_name",
+      "type": "string",
     },
-    mapkind: {
-      baseName: "mapkind",
-      type: "string",
-      required: true,
+    "mapkind": {
+      "baseName": "mapkind",
+      "type": "string",
+      "required": true,
     },
-    size: {
-      baseName: "size",
-      type: "number",
-      required: true,
-      format: "int64",
+    "size": {
+      "baseName": "size",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -90,8 +95,34 @@ export class NDKSourcemapAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return NDKSourcemapAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

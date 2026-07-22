@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of Azure config Post Request.
- */
+*/
 
-export type AzureUCConfigPostRequestType =
-  | typeof AZURE_UC_CONFIG_POST_REQUEST
-  | UnparsedObject;
-export const AZURE_UC_CONFIG_POST_REQUEST = "azure_uc_config_post_request";
+export type AzureUCConfigPostRequestType = typeof AZURE_UC_CONFIG_POST_REQUEST | UnparsedObject;
+export const AZURE_UC_CONFIG_POST_REQUEST = 'azure_uc_config_post_request';

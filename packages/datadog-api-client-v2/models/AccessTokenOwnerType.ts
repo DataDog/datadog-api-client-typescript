@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Owner resource type. Either a user or a service account.
- */
+*/
 
-export type AccessTokenOwnerType =
-  | typeof USERS
-  | typeof SERVICE_ACCOUNT
-  | UnparsedObject;
-export const USERS = "users";
-export const SERVICE_ACCOUNT = "service_account";
+export type AccessTokenOwnerType = typeof USERS| typeof SERVICE_ACCOUNT | UnparsedObject;
+export const USERS = 'users';
+export const SERVICE_ACCOUNT = 'service_account';

@@ -5,15 +5,20 @@
  */
 import { EscalationRelationshipsResponders } from "./EscalationRelationshipsResponders";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Contains the relationships of an escalation object, including its responders.
- */
+*/
 export class EscalationRelationships {
   /**
    * Lists the users involved in a specific step of the escalation policy.
-   */
+  */
   "responders"?: EscalationRelationshipsResponders;
 
   /**
@@ -21,7 +26,7 @@ export class EscalationRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class EscalationRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    responders: {
-      baseName: "responders",
-      type: "EscalationRelationshipsResponders",
+    "responders": {
+      "baseName": "responders",
+      "type": "EscalationRelationshipsResponders",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class EscalationRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EscalationRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

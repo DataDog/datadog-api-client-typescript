@@ -6,23 +6,28 @@
 import { FastlyServiceAttributes } from "./FastlyServiceAttributes";
 import { FastlyServiceType } from "./FastlyServiceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for Fastly service requests.
- */
+*/
 export class FastlyServiceData {
   /**
    * Attributes object for Fastly service requests.
-   */
+  */
   "attributes"?: FastlyServiceAttributes;
   /**
    * The ID of the Fastly service.
-   */
+  */
   "id": string;
   /**
    * The JSON:API type for this API. Should always be `fastly-services`.
-   */
+  */
   "type": FastlyServiceType;
 
   /**
@@ -30,7 +35,7 @@ export class FastlyServiceData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class FastlyServiceData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "FastlyServiceAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "FastlyServiceAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "FastlyServiceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "FastlyServiceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class FastlyServiceData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FastlyServiceData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

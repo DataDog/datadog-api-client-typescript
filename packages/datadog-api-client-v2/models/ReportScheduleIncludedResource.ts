@@ -6,13 +6,15 @@
 import { ReportScheduleAuthor } from "./ReportScheduleAuthor";
 import { ReportScheduleResource } from "./ReportScheduleResource";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A related resource included with a report schedule.
- */
+*/
 
-export type ReportScheduleIncludedResource =
-  | ReportScheduleAuthor
-  | ReportScheduleResource
-  | UnparsedObject;
+export type ReportScheduleIncludedResource = ReportScheduleAuthor | ReportScheduleResource | UnparsedObject;

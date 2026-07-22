@@ -5,19 +5,24 @@
  */
 import { CaseCountGroupValue } from "./CaseCountGroupValue";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A facet group containing counts broken down by the distinct values of a case field (for example, status or priority).
- */
+*/
 export class CaseCountGroup {
   /**
    * The name of the field being grouped on (for example, `status` or `priority`).
-   */
+  */
   "group": string;
   /**
    * Values within this group.
-   */
+  */
   "groupValues": Array<CaseCountGroupValue>;
 
   /**
@@ -25,7 +30,7 @@ export class CaseCountGroup {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class CaseCountGroup {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    group: {
-      baseName: "group",
-      type: "string",
-      required: true,
+    "group": {
+      "baseName": "group",
+      "type": "string",
+      "required": true,
     },
-    groupValues: {
-      baseName: "group_values",
-      type: "Array<CaseCountGroupValue>",
-      required: true,
+    "groupValues": {
+      "baseName": "group_values",
+      "type": "Array<CaseCountGroupValue>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class CaseCountGroup {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseCountGroup.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

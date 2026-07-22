@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Error encountered when anonymizing a specific user.
- */
+*/
 export class AnonymizeUserError {
   /**
    * Error message describing why anonymization failed.
-   */
+  */
   "error": string;
   /**
    * UUID of the user that failed to be anonymized.
-   */
+  */
   "userId": string;
 
   /**
@@ -24,7 +29,7 @@ export class AnonymizeUserError {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,15 +40,15 @@ export class AnonymizeUserError {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    error: {
-      baseName: "error",
-      type: "string",
-      required: true,
+    "error": {
+      "baseName": "error",
+      "type": "string",
+      "required": true,
     },
-    userId: {
-      baseName: "user_id",
-      type: "string",
-      required: true,
+    "userId": {
+      "baseName": "user_id",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class AnonymizeUserError {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AnonymizeUserError.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,23 +6,28 @@
 import { GcpScanOptionsInputUpdateDataAttributes } from "./GcpScanOptionsInputUpdateDataAttributes";
 import { GcpScanOptionsInputUpdateDataType } from "./GcpScanOptionsInputUpdateDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for updating the scan options of a single GCP project.
- */
+*/
 export class GcpScanOptionsInputUpdateData {
   /**
    * Attributes for updating GCP scan options configuration.
-   */
+  */
   "attributes"?: GcpScanOptionsInputUpdateDataAttributes;
   /**
    * The GCP project ID.
-   */
+  */
   "id": string;
   /**
    * GCP scan options resource type.
-   */
+  */
   "type": GcpScanOptionsInputUpdateDataType;
 
   /**
@@ -30,7 +35,7 @@ export class GcpScanOptionsInputUpdateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class GcpScanOptionsInputUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "GcpScanOptionsInputUpdateDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "GcpScanOptionsInputUpdateDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "GcpScanOptionsInputUpdateDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "GcpScanOptionsInputUpdateDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class GcpScanOptionsInputUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GcpScanOptionsInputUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

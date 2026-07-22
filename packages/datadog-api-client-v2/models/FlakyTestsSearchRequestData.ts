@@ -6,19 +6,24 @@
 import { FlakyTestsSearchRequestAttributes } from "./FlakyTestsSearchRequestAttributes";
 import { FlakyTestsSearchRequestDataType } from "./FlakyTestsSearchRequestDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The JSON:API data for flaky tests search request.
- */
+*/
 export class FlakyTestsSearchRequestData {
   /**
    * Attributes for the flaky tests search request.
-   */
+  */
   "attributes"?: FlakyTestsSearchRequestAttributes;
   /**
    * The definition of `FlakyTestsSearchRequestDataType` object.
-   */
+  */
   "type"?: FlakyTestsSearchRequestDataType;
 
   /**
@@ -26,7 +31,7 @@ export class FlakyTestsSearchRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class FlakyTestsSearchRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "FlakyTestsSearchRequestAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "FlakyTestsSearchRequestAttributes",
     },
-    type: {
-      baseName: "type",
-      type: "FlakyTestsSearchRequestDataType",
+    "type": {
+      "baseName": "type",
+      "type": "FlakyTestsSearchRequestDataType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class FlakyTestsSearchRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FlakyTestsSearchRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,32 +6,37 @@
 import { UserJourneyJoinKeys } from "./UserJourneyJoinKeys";
 import { UserJourneySearchFilters } from "./UserJourneySearchFilters";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * User journey search configuration.
- */
+*/
 export class UserJourneySearch {
   /**
    * Expression string.
-   */
+  */
   "expression": string;
   /**
    * Filters for user journey search.
-   */
+  */
   "filters"?: UserJourneySearchFilters;
   /**
    * Join keys for user journey queries.
-   */
+  */
   "joinKeys"?: UserJourneyJoinKeys;
   /**
    * Node objects mapping.
-   */
-  "nodeObjects": { [key: string]: any };
+  */
+  "nodeObjects": { [key: string]: any; };
   /**
    * Step aliases mapping.
-   */
-  "stepAliases"?: { [key: string]: string };
+  */
+  "stepAliases"?: { [key: string]: string; };
 
   /**
    * @ignore
@@ -42,36 +47,62 @@ export class UserJourneySearch {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    expression: {
-      baseName: "expression",
-      type: "string",
-      required: true,
+    "expression": {
+      "baseName": "expression",
+      "type": "string",
+      "required": true,
     },
-    filters: {
-      baseName: "filters",
-      type: "UserJourneySearchFilters",
+    "filters": {
+      "baseName": "filters",
+      "type": "UserJourneySearchFilters",
     },
-    joinKeys: {
-      baseName: "join_keys",
-      type: "UserJourneyJoinKeys",
+    "joinKeys": {
+      "baseName": "join_keys",
+      "type": "UserJourneyJoinKeys",
     },
-    nodeObjects: {
-      baseName: "node_objects",
-      type: "{ [key: string]: any; }",
-      required: true,
+    "nodeObjects": {
+      "baseName": "node_objects",
+      "type": "{ [key: string]: any; }",
+      "required": true,
     },
-    stepAliases: {
-      baseName: "step_aliases",
-      type: "{ [key: string]: string; }",
-    },
+    "stepAliases": {
+      "baseName": "step_aliases",
+      "type": "{ [key: string]: string; }",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UserJourneySearch.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

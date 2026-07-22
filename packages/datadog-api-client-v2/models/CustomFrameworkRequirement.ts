@@ -5,19 +5,24 @@
  */
 import { CustomFrameworkControl } from "./CustomFrameworkControl";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Framework Requirement.
- */
+*/
 export class CustomFrameworkRequirement {
   /**
    * Requirement Controls.
-   */
+  */
   "controls": Array<CustomFrameworkControl>;
   /**
    * Requirement Name.
-   */
+  */
   "name": string;
 
   /**
@@ -25,7 +30,7 @@ export class CustomFrameworkRequirement {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class CustomFrameworkRequirement {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    controls: {
-      baseName: "controls",
-      type: "Array<CustomFrameworkControl>",
-      required: true,
+    "controls": {
+      "baseName": "controls",
+      "type": "Array<CustomFrameworkControl>",
+      "required": true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class CustomFrameworkRequirement {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomFrameworkRequirement.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

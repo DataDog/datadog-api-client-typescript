@@ -5,15 +5,20 @@
  */
 import { SessionIdData } from "./SessionIdData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A collection of session identifiers used for bulk add or remove operations on a playlist.
- */
+*/
 export class SessionIdArray {
   /**
    * Array of session identifier data objects.
-   */
+  */
   "data": Array<SessionIdData>;
 
   /**
@@ -21,7 +26,7 @@ export class SessionIdArray {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class SessionIdArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<SessionIdData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<SessionIdData>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class SessionIdArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SessionIdArray.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems` object.
- */
+*/
 export class ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems {
   /**
    * The `items` `condition`.
-   */
+  */
   "condition": string;
   /**
    * The `items` `tag`.
-   */
+  */
   "tag": string;
   /**
    * The `items` `value`.
-   */
+  */
   "value"?: string;
   /**
    * The `items` `values`.
-   */
+  */
   "values"?: Array<string>;
 
   /**
@@ -32,7 +37,7 @@ export class ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,23 +48,23 @@ export class ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    condition: {
-      baseName: "condition",
-      type: "string",
-      required: true,
+    "condition": {
+      "baseName": "condition",
+      "type": "string",
+      "required": true,
     },
-    tag: {
-      baseName: "tag",
-      type: "string",
-      required: true,
+    "tag": {
+      "baseName": "tag",
+      "type": "string",
+      "required": true,
     },
-    value: {
-      baseName: "value",
-      type: "string",
+    "value": {
+      "baseName": "value",
+      "type": "string",
     },
-    values: {
-      baseName: "values",
-      type: "Array<string>",
+    "values": {
+      "baseName": "values",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,8 +76,34 @@ export class ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The resource type for global user organizations.
- */
+*/
 
 export type GlobalOrgType = typeof GLOBAL_USER_ORGS | UnparsedObject;
-export const GLOBAL_USER_ORGS = "global_user_orgs";
+export const GLOBAL_USER_ORGS = 'global_user_orgs';

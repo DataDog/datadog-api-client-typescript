@@ -6,23 +6,28 @@
 import { AggregatedSignalsProblemsRequestType } from "./AggregatedSignalsProblemsRequestType";
 import { AggregatedSignalsProblemsResponseAttributes } from "./AggregatedSignalsProblemsResponseAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data envelope for an aggregated signals and problems response.
- */
+*/
 export class AggregatedSignalsProblemsResponseData {
   /**
    * Attributes of an aggregated signals and problems response.
-   */
+  */
   "attributes": AggregatedSignalsProblemsResponseAttributes;
   /**
    * Hash-based unique identifier for this aggregation.
-   */
+  */
   "id": string;
   /**
    * The JSON:API type for aggregated signals and problems requests.
-   */
+  */
   "type": AggregatedSignalsProblemsRequestType;
 
   /**
@@ -30,7 +35,7 @@ export class AggregatedSignalsProblemsResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class AggregatedSignalsProblemsResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AggregatedSignalsProblemsResponseAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AggregatedSignalsProblemsResponseAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "AggregatedSignalsProblemsRequestType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AggregatedSignalsProblemsRequestType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class AggregatedSignalsProblemsResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AggregatedSignalsProblemsResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

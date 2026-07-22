@@ -7,14 +7,15 @@ import { JiraIntegrationMetadata } from "./JiraIntegrationMetadata";
 import { MSTeamsIntegrationMetadata } from "./MSTeamsIntegrationMetadata";
 import { SlackIntegrationMetadata } from "./SlackIntegrationMetadata";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Incident integration metadata's metadata attribute.
- */
+*/
 
-export type IncidentIntegrationMetadataMetadata =
-  | SlackIntegrationMetadata
-  | JiraIntegrationMetadata
-  | MSTeamsIntegrationMetadata
-  | UnparsedObject;
+export type IncidentIntegrationMetadataMetadata = SlackIntegrationMetadata | JiraIntegrationMetadata | MSTeamsIntegrationMetadata | UnparsedObject;

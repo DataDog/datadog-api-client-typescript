@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Resource type of an LLM Observability patterns clustered points response.
- */
+*/
 
-export type LLMObsPatternsClusteredPointsType =
-  | typeof CLUSTERED_POINTS_RESPONSE
-  | UnparsedObject;
-export const CLUSTERED_POINTS_RESPONSE = "clustered_points_response";
+export type LLMObsPatternsClusteredPointsType = typeof CLUSTERED_POINTS_RESPONSE | UnparsedObject;
+export const CLUSTERED_POINTS_RESPONSE = 'clustered_points_response';

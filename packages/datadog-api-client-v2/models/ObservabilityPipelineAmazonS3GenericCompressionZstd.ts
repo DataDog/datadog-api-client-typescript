@@ -5,19 +5,24 @@
  */
 import { ObservabilityPipelineAmazonS3GenericCompressionZstdType } from "./ObservabilityPipelineAmazonS3GenericCompressionZstdType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Zstd compression.
- */
+*/
 export class ObservabilityPipelineAmazonS3GenericCompressionZstd {
   /**
    * The compression type. Always `zstd`.
-   */
+  */
   "algorithm": ObservabilityPipelineAmazonS3GenericCompressionZstdType;
   /**
    * Zstd compression level.
-   */
+  */
   "level": number;
 
   /**
@@ -25,7 +30,7 @@ export class ObservabilityPipelineAmazonS3GenericCompressionZstd {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,16 +41,16 @@ export class ObservabilityPipelineAmazonS3GenericCompressionZstd {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    algorithm: {
-      baseName: "algorithm",
-      type: "ObservabilityPipelineAmazonS3GenericCompressionZstdType",
-      required: true,
+    "algorithm": {
+      "baseName": "algorithm",
+      "type": "ObservabilityPipelineAmazonS3GenericCompressionZstdType",
+      "required": true,
     },
-    level: {
-      baseName: "level",
-      type: "number",
-      required: true,
-      format: "int64",
+    "level": {
+      "baseName": "level",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class ObservabilityPipelineAmazonS3GenericCompressionZstd {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineAmazonS3GenericCompressionZstd.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

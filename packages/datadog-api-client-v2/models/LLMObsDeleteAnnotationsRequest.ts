@@ -5,15 +5,20 @@
  */
 import { LLMObsDeleteAnnotationsDataRequest } from "./LLMObsDeleteAnnotationsDataRequest";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request to delete annotations from an annotation queue.
- */
+*/
 export class LLMObsDeleteAnnotationsRequest {
   /**
    * Data object for deleting annotations.
-   */
+  */
   "data": LLMObsDeleteAnnotationsDataRequest;
 
   /**
@@ -21,7 +26,7 @@ export class LLMObsDeleteAnnotationsRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class LLMObsDeleteAnnotationsRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "LLMObsDeleteAnnotationsDataRequest",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "LLMObsDeleteAnnotationsDataRequest",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class LLMObsDeleteAnnotationsRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDeleteAnnotationsRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

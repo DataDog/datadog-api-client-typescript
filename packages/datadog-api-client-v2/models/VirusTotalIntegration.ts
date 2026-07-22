@@ -6,19 +6,24 @@
 import { VirusTotalCredentials } from "./VirusTotalCredentials";
 import { VirusTotalIntegrationType } from "./VirusTotalIntegrationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `VirusTotalIntegration` object.
- */
+*/
 export class VirusTotalIntegration {
   /**
    * The definition of the `VirusTotalCredentials` object.
-   */
+  */
   "credentials": VirusTotalCredentials;
   /**
    * The definition of the `VirusTotalIntegrationType` object.
-   */
+  */
   "type": VirusTotalIntegrationType;
 
   /**
@@ -26,7 +31,7 @@ export class VirusTotalIntegration {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class VirusTotalIntegration {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    credentials: {
-      baseName: "credentials",
-      type: "VirusTotalCredentials",
-      required: true,
+    "credentials": {
+      "baseName": "credentials",
+      "type": "VirusTotalCredentials",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "VirusTotalIntegrationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "VirusTotalIntegrationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class VirusTotalIntegration {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return VirusTotalIntegration.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

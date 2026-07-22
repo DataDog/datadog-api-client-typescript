@@ -6,19 +6,24 @@
 import { CreateUploadRequestDataAttributes } from "./CreateUploadRequestDataAttributes";
 import { CreateUploadRequestDataType } from "./CreateUploadRequestDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request data for creating an upload for a file to be ingested into a reference table.
- */
+*/
 export class CreateUploadRequestData {
   /**
    * Upload configuration specifying how data is uploaded by the user, and properties of the table to associate the upload with.
-   */
+  */
   "attributes"?: CreateUploadRequestDataAttributes;
   /**
    * Upload resource type.
-   */
+  */
   "type": CreateUploadRequestDataType;
 
   /**
@@ -30,23 +35,49 @@ export class CreateUploadRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CreateUploadRequestDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CreateUploadRequestDataAttributes",
     },
-    type: {
-      baseName: "type",
-      type: "CreateUploadRequestDataType",
-      required: true,
-    },
+    "type": {
+      "baseName": "type",
+      "type": "CreateUploadRequestDataType",
+      "required": true,
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateUploadRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

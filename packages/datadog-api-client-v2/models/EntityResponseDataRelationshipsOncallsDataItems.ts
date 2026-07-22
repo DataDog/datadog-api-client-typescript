@@ -5,19 +5,24 @@
  */
 import { EntityResponseDataRelationshipsOncallsDataItemsType } from "./EntityResponseDataRelationshipsOncallsDataItemsType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Oncall relationship data item containing the oncall resource identifier and type.
- */
+*/
 export class EntityResponseDataRelationshipsOncallsDataItems {
   /**
    * Oncall resource unique identifier.
-   */
+  */
   "id": string;
   /**
    * Oncall resource type.
-   */
+  */
   "type": EntityResponseDataRelationshipsOncallsDataItemsType;
 
   /**
@@ -25,7 +30,7 @@ export class EntityResponseDataRelationshipsOncallsDataItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class EntityResponseDataRelationshipsOncallsDataItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "EntityResponseDataRelationshipsOncallsDataItemsType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "EntityResponseDataRelationshipsOncallsDataItemsType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class EntityResponseDataRelationshipsOncallsDataItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EntityResponseDataRelationshipsOncallsDataItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

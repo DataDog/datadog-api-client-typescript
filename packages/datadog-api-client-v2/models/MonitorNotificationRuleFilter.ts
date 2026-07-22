@@ -6,13 +6,15 @@
 import { MonitorNotificationRuleFilterScope } from "./MonitorNotificationRuleFilterScope";
 import { MonitorNotificationRuleFilterTags } from "./MonitorNotificationRuleFilterTags";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Specifies the matching criteria for monitor notifications.
- */
+*/
 
-export type MonitorNotificationRuleFilter =
-  | MonitorNotificationRuleFilterTags
-  | MonitorNotificationRuleFilterScope
-  | UnparsedObject;
+export type MonitorNotificationRuleFilter = MonitorNotificationRuleFilterTags | MonitorNotificationRuleFilterScope | UnparsedObject;

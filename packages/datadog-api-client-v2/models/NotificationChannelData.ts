@@ -6,23 +6,28 @@
 import { NotificationChannelAttributes } from "./NotificationChannelAttributes";
 import { NotificationChannelType } from "./NotificationChannelType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for an on-call notification channel
- */
+*/
 export class NotificationChannelData {
   /**
    * Attributes for an on-call notification channel.
-   */
+  */
   "attributes"?: NotificationChannelAttributes;
   /**
    * Unique identifier for the channel
-   */
+  */
   "id"?: string;
   /**
    * Indicates that the resource is of type 'notification_channels'.
-   */
+  */
   "type": NotificationChannelType;
 
   /**
@@ -30,7 +35,7 @@ export class NotificationChannelData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class NotificationChannelData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "NotificationChannelAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "NotificationChannelAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "NotificationChannelType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "NotificationChannelType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class NotificationChannelData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return NotificationChannelData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,19 +6,24 @@
 import { LLMObsAnnotationError } from "./LLMObsAnnotationError";
 import { LLMObsAnnotationItemResponse } from "./LLMObsAnnotationItemResponse";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of the annotations response.
- */
+*/
 export class LLMObsAnnotationsDataAttributesResponse {
   /**
    * Successfully created or updated annotations.
-   */
+  */
   "annotations": Array<LLMObsAnnotationItemResponse>;
   /**
    * Partial errors for annotations that could not be processed.
-   */
+  */
   "errors"?: Array<LLMObsAnnotationError>;
 
   /**
@@ -26,7 +31,7 @@ export class LLMObsAnnotationsDataAttributesResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class LLMObsAnnotationsDataAttributesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    annotations: {
-      baseName: "annotations",
-      type: "Array<LLMObsAnnotationItemResponse>",
-      required: true,
+    "annotations": {
+      "baseName": "annotations",
+      "type": "Array<LLMObsAnnotationItemResponse>",
+      "required": true,
     },
-    errors: {
-      baseName: "errors",
-      type: "Array<LLMObsAnnotationError>",
+    "errors": {
+      "baseName": "errors",
+      "type": "Array<LLMObsAnnotationError>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class LLMObsAnnotationsDataAttributesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsAnnotationsDataAttributesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of the resource. The value should always be `activate_entra_id_request`.
- */
+*/
 
-export type SecurityMonitoringIntegrationActivateResourceType =
-  | typeof ACTIVATE_ENTRA_ID_REQUEST
-  | UnparsedObject;
-export const ACTIVATE_ENTRA_ID_REQUEST = "activate_entra_id_request";
+export type SecurityMonitoringIntegrationActivateResourceType = typeof ACTIVATE_ENTRA_ID_REQUEST | UnparsedObject;
+export const ACTIVATE_ENTRA_ID_REQUEST = 'activate_entra_id_request';

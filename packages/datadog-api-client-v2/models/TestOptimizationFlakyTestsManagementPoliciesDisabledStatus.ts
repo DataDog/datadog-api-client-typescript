@@ -4,16 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Test status that the disable policy applies to.
  * Must be either `active` or `quarantined`.
- */
+*/
 
-export type TestOptimizationFlakyTestsManagementPoliciesDisabledStatus =
-  | typeof ACTIVE
-  | typeof QUARANTINED
-  | UnparsedObject;
-export const ACTIVE = "active";
-export const QUARANTINED = "quarantined";
+export type TestOptimizationFlakyTestsManagementPoliciesDisabledStatus = typeof ACTIVE| typeof QUARANTINED | UnparsedObject;
+export const ACTIVE = 'active';
+export const QUARANTINED = 'quarantined';

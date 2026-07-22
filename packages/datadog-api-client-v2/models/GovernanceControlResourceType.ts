@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * JSON:API resource type for a governance control.
- */
+*/
 
-export type GovernanceControlResourceType =
-  | typeof GOVERNANCE_CONTROL
-  | UnparsedObject;
-export const GOVERNANCE_CONTROL = "governance_control";
+export type GovernanceControlResourceType = typeof GOVERNANCE_CONTROL | UnparsedObject;
+export const GOVERNANCE_CONTROL = 'governance_control';

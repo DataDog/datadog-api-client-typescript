@@ -6,19 +6,24 @@
 import { ManagedOrgsRelationshipToOrg } from "./ManagedOrgsRelationshipToOrg";
 import { ManagedOrgsRelationshipToOrgs } from "./ManagedOrgsRelationshipToOrgs";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationships of the managed organizations resource.
- */
+*/
 export class ManagedOrgsRelationships {
   /**
    * Relationship to the current organization.
-   */
+  */
   "currentOrg": ManagedOrgsRelationshipToOrg;
   /**
    * Relationship to the managed organizations.
-   */
+  */
   "managedOrgs": ManagedOrgsRelationshipToOrgs;
 
   /**
@@ -26,7 +31,7 @@ export class ManagedOrgsRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class ManagedOrgsRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    currentOrg: {
-      baseName: "current_org",
-      type: "ManagedOrgsRelationshipToOrg",
-      required: true,
+    "currentOrg": {
+      "baseName": "current_org",
+      "type": "ManagedOrgsRelationshipToOrg",
+      "required": true,
     },
-    managedOrgs: {
-      baseName: "managed_orgs",
-      type: "ManagedOrgsRelationshipToOrgs",
-      required: true,
+    "managedOrgs": {
+      "baseName": "managed_orgs",
+      "type": "ManagedOrgsRelationshipToOrgs",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class ManagedOrgsRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ManagedOrgsRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

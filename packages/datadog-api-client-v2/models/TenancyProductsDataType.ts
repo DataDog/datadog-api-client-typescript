@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * OCI tenancy product resource type.
- */
+*/
 
-export type TenancyProductsDataType =
-  | typeof OCI_TENANCY_PRODUCT
-  | UnparsedObject;
-export const OCI_TENANCY_PRODUCT = "oci_tenancy_product";
+export type TenancyProductsDataType = typeof OCI_TENANCY_PRODUCT | UnparsedObject;
+export const OCI_TENANCY_PRODUCT = 'oci_tenancy_product';

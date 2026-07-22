@@ -5,15 +5,20 @@
  */
 import { ObservabilityPipelineAmazonS3GenericCompressionSnappyType } from "./ObservabilityPipelineAmazonS3GenericCompressionSnappyType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Snappy compression.
- */
+*/
 export class ObservabilityPipelineAmazonS3GenericCompressionSnappy {
   /**
    * The compression type. Always `snappy`.
-   */
+  */
   "algorithm": ObservabilityPipelineAmazonS3GenericCompressionSnappyType;
 
   /**
@@ -21,7 +26,7 @@ export class ObservabilityPipelineAmazonS3GenericCompressionSnappy {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class ObservabilityPipelineAmazonS3GenericCompressionSnappy {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    algorithm: {
-      baseName: "algorithm",
-      type: "ObservabilityPipelineAmazonS3GenericCompressionSnappyType",
-      required: true,
+    "algorithm": {
+      "baseName": "algorithm",
+      "type": "ObservabilityPipelineAmazonS3GenericCompressionSnappyType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class ObservabilityPipelineAmazonS3GenericCompressionSnappy {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineAmazonS3GenericCompressionSnappy.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

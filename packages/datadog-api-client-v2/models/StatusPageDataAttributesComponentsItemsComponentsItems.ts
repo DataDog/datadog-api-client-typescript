@@ -6,31 +6,36 @@
 import { StatusPagesComponentGroupAttributesComponentsItemsStatus } from "./StatusPagesComponentGroupAttributesComponentsItemsStatus";
 import { StatusPagesComponentGroupAttributesComponentsItemsType } from "./StatusPagesComponentGroupAttributesComponentsItemsType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A grouped component within a status page component group.
- */
+*/
 export class StatusPageDataAttributesComponentsItemsComponentsItems {
   /**
    * The ID of the component.
-   */
+  */
   "id"?: string;
   /**
    * The name of the component.
-   */
+  */
   "name"?: string;
   /**
    * The zero-indexed position of the component. Relative to the other components in the group.
-   */
+  */
   "position"?: number;
   /**
    * The status of the component.
-   */
+  */
   "status"?: StatusPagesComponentGroupAttributesComponentsItemsStatus;
   /**
    * The type of the component.
-   */
+  */
   "type"?: StatusPagesComponentGroupAttributesComponentsItemsType;
 
   /**
@@ -38,7 +43,7 @@ export class StatusPageDataAttributesComponentsItemsComponentsItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -49,27 +54,27 @@ export class StatusPageDataAttributesComponentsItemsComponentsItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "format": "uuid",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    position: {
-      baseName: "position",
-      type: "number",
-      format: "int64",
+    "position": {
+      "baseName": "position",
+      "type": "number",
+      "format": "int64",
     },
-    status: {
-      baseName: "status",
-      type: "StatusPagesComponentGroupAttributesComponentsItemsStatus",
+    "status": {
+      "baseName": "status",
+      "type": "StatusPagesComponentGroupAttributesComponentsItemsStatus",
     },
-    type: {
-      baseName: "type",
-      type: "StatusPagesComponentGroupAttributesComponentsItemsType",
+    "type": {
+      "baseName": "type",
+      "type": "StatusPagesComponentGroupAttributesComponentsItemsType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -81,8 +86,34 @@ export class StatusPageDataAttributesComponentsItemsComponentsItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return StatusPageDataAttributesComponentsItemsComponentsItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

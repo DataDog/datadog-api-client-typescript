@@ -6,23 +6,28 @@
 import { CustomForecastResponseDataAttributes } from "./CustomForecastResponseDataAttributes";
 import { CustomForecastType } from "./CustomForecastType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Custom forecast resource wrapper in a response.
- */
+*/
 export class CustomForecastResponseData {
   /**
    * Attributes of a custom forecast.
-   */
+  */
   "attributes": CustomForecastResponseDataAttributes;
   /**
    * The unique identifier of the custom forecast.
-   */
+  */
   "id": string;
   /**
    * The type of the custom forecast resource. Must be `custom_forecast`.
-   */
+  */
   "type": CustomForecastType;
 
   /**
@@ -30,7 +35,7 @@ export class CustomForecastResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class CustomForecastResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CustomForecastResponseDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CustomForecastResponseDataAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CustomForecastType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CustomForecastType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class CustomForecastResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomForecastResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

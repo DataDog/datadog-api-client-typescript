@@ -6,19 +6,24 @@
 import { OrgConnection } from "./OrgConnection";
 import { OrgConnectionListResponseMeta } from "./OrgConnectionListResponseMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a list of org connections.
- */
+*/
 export class OrgConnectionListResponse {
   /**
    * List of org connections.
-   */
+  */
   "data": Array<OrgConnection>;
   /**
    * Pagination metadata.
-   */
+  */
   "meta"?: OrgConnectionListResponseMeta;
 
   /**
@@ -26,7 +31,7 @@ export class OrgConnectionListResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class OrgConnectionListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<OrgConnection>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<OrgConnection>",
+      "required": true,
     },
-    meta: {
-      baseName: "meta",
-      type: "OrgConnectionListResponseMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "OrgConnectionListResponseMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class OrgConnectionListResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgConnectionListResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

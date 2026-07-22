@@ -4,31 +4,25 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Subtype of the Synthetic test that produced this result.
- */
+*/
 
-export type SyntheticsTestSubType =
-  | typeof DNS
-  | typeof GRPC
-  | typeof HTTP
-  | typeof ICMP
-  | typeof MCP
-  | typeof MULTI
-  | typeof SSL
-  | typeof TCP
-  | typeof UDP
-  | typeof WEBSOCKET
-  | UnparsedObject;
-export const DNS = "dns";
-export const GRPC = "grpc";
-export const HTTP = "http";
-export const ICMP = "icmp";
-export const MCP = "mcp";
-export const MULTI = "multi";
-export const SSL = "ssl";
-export const TCP = "tcp";
-export const UDP = "udp";
-export const WEBSOCKET = "websocket";
+export type SyntheticsTestSubType = typeof DNS| typeof GRPC| typeof HTTP| typeof ICMP| typeof MCP| typeof MULTI| typeof SSL| typeof TCP| typeof UDP| typeof WEBSOCKET | UnparsedObject;
+export const DNS = 'dns';
+export const GRPC = 'grpc';
+export const HTTP = 'http';
+export const ICMP = 'icmp';
+export const MCP = 'mcp';
+export const MULTI = 'multi';
+export const SSL = 'ssl';
+export const TCP = 'tcp';
+export const UDP = 'udp';
+export const WEBSOCKET = 'websocket';

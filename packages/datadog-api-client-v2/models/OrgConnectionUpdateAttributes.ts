@@ -5,15 +5,20 @@
  */
 import { OrgConnectionTypeEnum } from "./OrgConnectionTypeEnum";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for updating an org connection.
- */
+*/
 export class OrgConnectionUpdateAttributes {
   /**
    * Updated list of connection types.
-   */
+  */
   "connectionTypes": Array<OrgConnectionTypeEnum>;
 
   /**
@@ -21,7 +26,7 @@ export class OrgConnectionUpdateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class OrgConnectionUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    connectionTypes: {
-      baseName: "connection_types",
-      type: "Array<OrgConnectionTypeEnum>",
-      required: true,
+    "connectionTypes": {
+      "baseName": "connection_types",
+      "type": "Array<OrgConnectionTypeEnum>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class OrgConnectionUpdateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgConnectionUpdateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

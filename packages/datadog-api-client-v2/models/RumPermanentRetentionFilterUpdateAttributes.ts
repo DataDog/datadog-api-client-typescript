@@ -5,15 +5,20 @@
  */
 import { RumCrossProductSamplingUpdate } from "./RumCrossProductSamplingUpdate";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The configuration to update on a permanent RUM retention filter.
- */
+*/
 export class RumPermanentRetentionFilterUpdateAttributes {
   /**
    * The configuration for cross-product retention filters. All fields are optional for partial updates.
-   */
+  */
   "crossProductSampling"?: RumCrossProductSamplingUpdate;
 
   /**
@@ -21,7 +26,7 @@ export class RumPermanentRetentionFilterUpdateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class RumPermanentRetentionFilterUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    crossProductSampling: {
-      baseName: "cross_product_sampling",
-      type: "RumCrossProductSamplingUpdate",
+    "crossProductSampling": {
+      "baseName": "cross_product_sampling",
+      "type": "RumCrossProductSamplingUpdate",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class RumPermanentRetentionFilterUpdateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RumPermanentRetentionFilterUpdateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

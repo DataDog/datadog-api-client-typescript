@@ -5,20 +5,25 @@
  */
 import { WidgetType } from "./WidgetType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of a widget, including its type and configuration.
- */
+*/
 export class WidgetDefinition {
   /**
    * The display title of the widget.
-   */
+  */
   "title": string;
   /**
    * Widget types that are allowed to be stored as individual records.
    * This is not a complete list of dashboard and notebook widget types.
-   */
+  */
   "type": WidgetType;
 
   /**
@@ -26,7 +31,7 @@ export class WidgetDefinition {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class WidgetDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    title: {
-      baseName: "title",
-      type: "string",
-      required: true,
+    "title": {
+      "baseName": "title",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "WidgetType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "WidgetType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class WidgetDefinition {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return WidgetDefinition.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

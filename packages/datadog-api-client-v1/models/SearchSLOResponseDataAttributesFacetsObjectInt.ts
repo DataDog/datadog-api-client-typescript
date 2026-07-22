@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Facet
- */
+*/
 export class SearchSLOResponseDataAttributesFacetsObjectInt {
   /**
    * Count
-   */
+  */
   "count"?: number;
   /**
    * Facet
-   */
+  */
   "name"?: number;
 
   /**
@@ -24,7 +29,7 @@ export class SearchSLOResponseDataAttributesFacetsObjectInt {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,15 +40,15 @@ export class SearchSLOResponseDataAttributesFacetsObjectInt {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    count: {
-      baseName: "count",
-      type: "number",
-      format: "int64",
+    "count": {
+      "baseName": "count",
+      "type": "number",
+      "format": "int64",
     },
-    name: {
-      baseName: "name",
-      type: "number",
-      format: "double",
+    "name": {
+      "baseName": "name",
+      "type": "number",
+      "format": "double",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class SearchSLOResponseDataAttributesFacetsObjectInt {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SearchSLOResponseDataAttributesFacetsObjectInt.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

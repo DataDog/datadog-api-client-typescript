@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Due date synchronization configuration for Jira integration.
- */
+*/
 export class IntegrationJiraSyncDueDate {
   /**
    * The Jira field identifier used to store the due date.
-   */
+  */
   "jiraFieldId"?: string;
   /**
    * The type of synchronization to apply for the due date field.
-   */
+  */
   "syncType"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class IntegrationJiraSyncDueDate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class IntegrationJiraSyncDueDate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    jiraFieldId: {
-      baseName: "jira_field_id",
-      type: "string",
+    "jiraFieldId": {
+      "baseName": "jira_field_id",
+      "type": "string",
     },
-    syncType: {
-      baseName: "sync_type",
-      type: "string",
+    "syncType": {
+      "baseName": "sync_type",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class IntegrationJiraSyncDueDate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IntegrationJiraSyncDueDate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

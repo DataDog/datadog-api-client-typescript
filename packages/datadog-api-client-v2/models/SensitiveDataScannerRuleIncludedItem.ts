@@ -7,27 +7,32 @@ import { SensitiveDataScannerRuleAttributes } from "./SensitiveDataScannerRuleAt
 import { SensitiveDataScannerRuleRelationships } from "./SensitiveDataScannerRuleRelationships";
 import { SensitiveDataScannerRuleType } from "./SensitiveDataScannerRuleType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A Scanning Rule included item.
- */
+*/
 export class SensitiveDataScannerRuleIncludedItem {
   /**
    * Attributes of the Sensitive Data Scanner rule.
-   */
+  */
   "attributes"?: SensitiveDataScannerRuleAttributes;
   /**
    * ID of the rule.
-   */
+  */
   "id"?: string;
   /**
    * Relationships of a scanning rule.
-   */
+  */
   "relationships"?: SensitiveDataScannerRuleRelationships;
   /**
    * Sensitive Data Scanner rule type.
-   */
+  */
   "type"?: SensitiveDataScannerRuleType;
 
   /**
@@ -35,7 +40,7 @@ export class SensitiveDataScannerRuleIncludedItem {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,21 +51,21 @@ export class SensitiveDataScannerRuleIncludedItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SensitiveDataScannerRuleAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SensitiveDataScannerRuleAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "SensitiveDataScannerRuleRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "SensitiveDataScannerRuleRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "SensitiveDataScannerRuleType",
+    "type": {
+      "baseName": "type",
+      "type": "SensitiveDataScannerRuleType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -72,8 +77,34 @@ export class SensitiveDataScannerRuleIncludedItem {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SensitiveDataScannerRuleIncludedItem.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

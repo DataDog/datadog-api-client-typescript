@@ -5,15 +5,20 @@
  */
 import { UsageRumSessionsHour } from "./UsageRumSessionsHour";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing the number of RUM sessions for each hour for a given organization.
- */
+*/
 export class UsageRumSessionsResponse {
   /**
    * Get hourly usage for RUM sessions.
-   */
+  */
   "usage"?: Array<UsageRumSessionsHour>;
 
   /**
@@ -21,7 +26,7 @@ export class UsageRumSessionsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class UsageRumSessionsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageRumSessionsHour>",
+    "usage": {
+      "baseName": "usage",
+      "type": "Array<UsageRumSessionsHour>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class UsageRumSessionsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageRumSessionsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

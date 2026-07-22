@@ -6,27 +6,32 @@
 import { AnyValue } from "./AnyValue";
 import { LLMObsExperimentSpanError } from "./LLMObsExperimentSpanError";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metadata associated with an experiment span.
- */
+*/
 export class LLMObsExperimentSpanMeta {
   /**
    * Error details for an experiment span.
-   */
+  */
   "error"?: LLMObsExperimentSpanError;
   /**
    * Expected output for the span, used for evaluation.
-   */
-  "expectedOutput"?: { [key: string]: any };
+  */
+  "expectedOutput"?: { [key: string]: any; };
   /**
    * Represents any valid JSON value.
-   */
+  */
   "input"?: AnyValue;
   /**
    * Represents any valid JSON value.
-   */
+  */
   "output"?: AnyValue;
 
   /**
@@ -34,7 +39,7 @@ export class LLMObsExperimentSpanMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -45,21 +50,21 @@ export class LLMObsExperimentSpanMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    error: {
-      baseName: "error",
-      type: "LLMObsExperimentSpanError",
+    "error": {
+      "baseName": "error",
+      "type": "LLMObsExperimentSpanError",
     },
-    expectedOutput: {
-      baseName: "expected_output",
-      type: "{ [key: string]: any; }",
+    "expectedOutput": {
+      "baseName": "expected_output",
+      "type": "{ [key: string]: any; }",
     },
-    input: {
-      baseName: "input",
-      type: "AnyValue",
+    "input": {
+      "baseName": "input",
+      "type": "AnyValue",
     },
-    output: {
-      baseName: "output",
-      type: "AnyValue",
+    "output": {
+      "baseName": "output",
+      "type": "AnyValue",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,8 +76,34 @@ export class LLMObsExperimentSpanMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsExperimentSpanMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

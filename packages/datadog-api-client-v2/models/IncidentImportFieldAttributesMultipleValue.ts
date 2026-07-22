@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A field with potentially multiple values selected.
- */
+*/
 export class IncidentImportFieldAttributesMultipleValue {
   /**
    * The multiple values selected for this field.
-   */
+  */
   "value"?: Array<string>;
 
   /**
@@ -24,18 +29,44 @@ export class IncidentImportFieldAttributesMultipleValue {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    value: {
-      baseName: "value",
-      type: "Array<string>",
-    },
+    "value": {
+      "baseName": "value",
+      "type": "Array<string>",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentImportFieldAttributesMultipleValue.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

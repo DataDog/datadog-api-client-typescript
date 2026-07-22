@@ -6,23 +6,28 @@
 import { OwnershipFeedbackResultAttributes } from "./OwnershipFeedbackResultAttributes";
 import { OwnershipFeedbackResultType } from "./OwnershipFeedbackResultType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data wrapper for an ownership feedback result response.
- */
+*/
 export class OwnershipFeedbackResultData {
   /**
    * The attributes of an ownership feedback result.
-   */
+  */
   "attributes": OwnershipFeedbackResultAttributes;
   /**
    * The identifier of the resource that the feedback was applied to.
-   */
+  */
   "id": string;
   /**
    * The type of the ownership feedback result resource. The value should always be `ownership_feedback_result`.
-   */
+  */
   "type": OwnershipFeedbackResultType;
 
   /**
@@ -30,7 +35,7 @@ export class OwnershipFeedbackResultData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class OwnershipFeedbackResultData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "OwnershipFeedbackResultAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "OwnershipFeedbackResultAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "OwnershipFeedbackResultType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "OwnershipFeedbackResultType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class OwnershipFeedbackResultData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OwnershipFeedbackResultData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

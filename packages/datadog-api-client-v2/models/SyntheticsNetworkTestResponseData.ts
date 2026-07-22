@@ -6,23 +6,28 @@
 import { SyntheticsNetworkTest } from "./SyntheticsNetworkTest";
 import { SyntheticsNetworkTestResponseType } from "./SyntheticsNetworkTestResponseType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Network Path test response data.
- */
+*/
 export class SyntheticsNetworkTestResponseData {
   /**
    * Object containing details about a Network Path test.
-   */
+  */
   "attributes"?: SyntheticsNetworkTest;
   /**
    * The public ID of the Network Path test.
-   */
+  */
   "id"?: string;
   /**
    * Type of response, `network_test`.
-   */
+  */
   "type"?: SyntheticsNetworkTestResponseType;
 
   /**
@@ -30,7 +35,7 @@ export class SyntheticsNetworkTestResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class SyntheticsNetworkTestResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SyntheticsNetworkTest",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SyntheticsNetworkTest",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SyntheticsNetworkTestResponseType",
+    "type": {
+      "baseName": "type",
+      "type": "SyntheticsNetworkTestResponseType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class SyntheticsNetworkTestResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsNetworkTestResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

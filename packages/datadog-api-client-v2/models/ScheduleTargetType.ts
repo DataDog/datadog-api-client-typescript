@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Indicates that the resource is of type `schedules`.
- */
+*/
 
 export type ScheduleTargetType = typeof SCHEDULES | UnparsedObject;
-export const SCHEDULES = "schedules";
+export const SCHEDULES = 'schedules';

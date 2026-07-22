@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of the component.
- */
+*/
 
-export type CreateComponentRequestDataAttributesType =
-  | typeof COMPONENT
-  | typeof GROUP
-  | UnparsedObject;
-export const COMPONENT = "component";
-export const GROUP = "group";
+export type CreateComponentRequestDataAttributesType = typeof COMPONENT| typeof GROUP | UnparsedObject;
+export const COMPONENT = 'component';
+export const GROUP = 'group';

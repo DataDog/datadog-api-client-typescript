@@ -5,23 +5,28 @@
  */
 import { RecommendationsFilterRequestSortItems } from "./RecommendationsFilterRequestSortItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request body for filtering cost recommendations.
- */
+*/
 export class RecommendationsFilterRequest {
   /**
    * Filter expression applied to the recommendations.
-   */
+  */
   "filter"?: string;
   /**
    * Ordered list of sort clauses applied to the result set.
-   */
+  */
   "sort"?: Array<RecommendationsFilterRequestSortItems>;
   /**
    * Active view name (for example, `active`, `dismissed`, `open`, `in-progress`, or `completed`).
-   */
+  */
   "view"?: string;
 
   /**
@@ -29,7 +34,7 @@ export class RecommendationsFilterRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,17 +45,17 @@ export class RecommendationsFilterRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    filter: {
-      baseName: "filter",
-      type: "string",
+    "filter": {
+      "baseName": "filter",
+      "type": "string",
     },
-    sort: {
-      baseName: "sort",
-      type: "Array<RecommendationsFilterRequestSortItems>",
+    "sort": {
+      "baseName": "sort",
+      "type": "Array<RecommendationsFilterRequestSortItems>",
     },
-    view: {
-      baseName: "view",
-      type: "string",
+    "view": {
+      "baseName": "view",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class RecommendationsFilterRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RecommendationsFilterRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

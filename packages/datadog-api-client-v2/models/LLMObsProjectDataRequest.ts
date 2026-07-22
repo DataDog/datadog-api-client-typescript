@@ -6,19 +6,24 @@
 import { LLMObsProjectDataAttributesRequest } from "./LLMObsProjectDataAttributesRequest";
 import { LLMObsProjectType } from "./LLMObsProjectType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for creating an LLM Observability project.
- */
+*/
 export class LLMObsProjectDataRequest {
   /**
    * Attributes for creating an LLM Observability project.
-   */
+  */
   "attributes": LLMObsProjectDataAttributesRequest;
   /**
    * Resource type of an LLM Observability project.
-   */
+  */
   "type": LLMObsProjectType;
 
   /**
@@ -26,7 +31,7 @@ export class LLMObsProjectDataRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class LLMObsProjectDataRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LLMObsProjectDataAttributesRequest",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "LLMObsProjectDataAttributesRequest",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LLMObsProjectType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LLMObsProjectType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class LLMObsProjectDataRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsProjectDataRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

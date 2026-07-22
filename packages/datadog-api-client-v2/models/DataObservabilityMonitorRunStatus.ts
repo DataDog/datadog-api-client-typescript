@@ -4,21 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The status of a data observability monitor run.
- */
+*/
 
-export type DataObservabilityMonitorRunStatus =
-  | typeof PENDING
-  | typeof OK
-  | typeof WARN
-  | typeof ALERT
-  | typeof ERROR
-  | UnparsedObject;
-export const PENDING = "pending";
-export const OK = "ok";
-export const WARN = "warn";
-export const ALERT = "alert";
-export const ERROR = "error";
+export type DataObservabilityMonitorRunStatus = typeof PENDING| typeof OK| typeof WARN| typeof ALERT| typeof ERROR | UnparsedObject;
+export const PENDING = 'pending';
+export const OK = 'ok';
+export const WARN = 'warn';
+export const ALERT = 'alert';
+export const ERROR = 'error';

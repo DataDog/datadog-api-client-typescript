@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Get AST response resource type.
- */
+*/
 
 export type GetAstResponseDataType = typeof GET_AST_RESPONSE | UnparsedObject;
-export const GET_AST_RESPONSE = "get_ast_response";
+export const GET_AST_RESPONSE = 'get_ast_response';

@@ -5,31 +5,36 @@
  */
 import { SyntheticsTestResultGitUser } from "./SyntheticsTestResultGitUser";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Details of the Git commit associated with the test result.
- */
+*/
 export class SyntheticsTestResultGitCommit {
   /**
    * A Git user (author or committer).
-   */
+  */
   "author"?: SyntheticsTestResultGitUser;
   /**
    * A Git user (author or committer).
-   */
+  */
   "committer"?: SyntheticsTestResultGitUser;
   /**
    * Commit message.
-   */
+  */
   "message"?: string;
   /**
    * Commit SHA.
-   */
+  */
   "sha"?: string;
   /**
    * URL of the commit.
-   */
+  */
   "url"?: string;
 
   /**
@@ -37,7 +42,7 @@ export class SyntheticsTestResultGitCommit {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -48,25 +53,25 @@ export class SyntheticsTestResultGitCommit {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    author: {
-      baseName: "author",
-      type: "SyntheticsTestResultGitUser",
+    "author": {
+      "baseName": "author",
+      "type": "SyntheticsTestResultGitUser",
     },
-    committer: {
-      baseName: "committer",
-      type: "SyntheticsTestResultGitUser",
+    "committer": {
+      "baseName": "committer",
+      "type": "SyntheticsTestResultGitUser",
     },
-    message: {
-      baseName: "message",
-      type: "string",
+    "message": {
+      "baseName": "message",
+      "type": "string",
     },
-    sha: {
-      baseName: "sha",
-      type: "string",
+    "sha": {
+      "baseName": "sha",
+      "type": "string",
     },
-    url: {
-      baseName: "url",
-      type: "string",
+    "url": {
+      "baseName": "url",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -78,8 +83,34 @@ export class SyntheticsTestResultGitCommit {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultGitCommit.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

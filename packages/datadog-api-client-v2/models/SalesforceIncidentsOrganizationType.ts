@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Salesforce organization resource type.
- */
+*/
 
-export type SalesforceIncidentsOrganizationType =
-  | typeof SALESFORCE_INCIDENTS_ORG
-  | UnparsedObject;
-export const SALESFORCE_INCIDENTS_ORG = "salesforce-incidents-org";
+export type SalesforceIncidentsOrganizationType = typeof SALESFORCE_INCIDENTS_ORG | UnparsedObject;
+export const SALESFORCE_INCIDENTS_ORG = 'salesforce-incidents-org';

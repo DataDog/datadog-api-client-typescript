@@ -6,19 +6,24 @@
 import { LLMObsCursorMeta } from "./LLMObsCursorMeta";
 import { LLMObsExperimentDataResponse } from "./LLMObsExperimentDataResponse";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a list of LLM Observability experiments.
- */
+*/
 export class LLMObsExperimentsResponse {
   /**
    * List of experiments.
-   */
+  */
   "data": Array<LLMObsExperimentDataResponse>;
   /**
    * Pagination cursor metadata.
-   */
+  */
   "meta"?: LLMObsCursorMeta;
 
   /**
@@ -26,7 +31,7 @@ export class LLMObsExperimentsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class LLMObsExperimentsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<LLMObsExperimentDataResponse>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<LLMObsExperimentDataResponse>",
+      "required": true,
     },
-    meta: {
-      baseName: "meta",
-      type: "LLMObsCursorMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "LLMObsCursorMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class LLMObsExperimentsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsExperimentsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

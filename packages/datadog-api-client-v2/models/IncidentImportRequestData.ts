@@ -7,23 +7,28 @@ import { IncidentImportRelationships } from "./IncidentImportRelationships";
 import { IncidentImportRequestAttributes } from "./IncidentImportRequestAttributes";
 import { IncidentType } from "./IncidentType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Incident data for an import request.
- */
+*/
 export class IncidentImportRequestData {
   /**
    * The incident's attributes for an import request.
-   */
+  */
   "attributes": IncidentImportRequestAttributes;
   /**
    * The relationships for an incident import request.
-   */
+  */
   "relationships"?: IncidentImportRelationships;
   /**
    * Incident resource type.
-   */
+  */
   "type": IncidentType;
 
   /**
@@ -31,7 +36,7 @@ export class IncidentImportRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,19 +47,19 @@ export class IncidentImportRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "IncidentImportRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "IncidentImportRequestAttributes",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "IncidentImportRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "IncidentImportRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "IncidentType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "IncidentType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class IncidentImportRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentImportRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

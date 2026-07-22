@@ -6,23 +6,28 @@
 import { FleetDeploymentAttributes } from "./FleetDeploymentAttributes";
 import { FleetDeploymentResourceType } from "./FleetDeploymentResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A deployment that defines automated configuration changes for a fleet of hosts.
- */
+*/
 export class FleetDeployment {
   /**
    * Attributes of a deployment in the response.
-   */
+  */
   "attributes": FleetDeploymentAttributes;
   /**
    * Unique identifier for the deployment.
-   */
+  */
   "id": string;
   /**
    * The type of deployment resource.
-   */
+  */
   "type": FleetDeploymentResourceType;
 
   /**
@@ -30,7 +35,7 @@ export class FleetDeployment {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class FleetDeployment {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "FleetDeploymentAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "FleetDeploymentAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "FleetDeploymentResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "FleetDeploymentResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class FleetDeployment {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FleetDeployment.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

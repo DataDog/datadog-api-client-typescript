@@ -6,19 +6,24 @@
 import { ServiceDefinitionMeta } from "./ServiceDefinitionMeta";
 import { ServiceDefinitionSchema } from "./ServiceDefinitionSchema";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Service definition attributes.
- */
+*/
 export class ServiceDefinitionDataAttributes {
   /**
    * Metadata about a service definition.
-   */
+  */
   "meta"?: ServiceDefinitionMeta;
   /**
    * Service definition schema.
-   */
+  */
   "schema"?: ServiceDefinitionSchema;
 
   /**
@@ -26,7 +31,7 @@ export class ServiceDefinitionDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class ServiceDefinitionDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    meta: {
-      baseName: "meta",
-      type: "ServiceDefinitionMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "ServiceDefinitionMeta",
     },
-    schema: {
-      baseName: "schema",
-      type: "ServiceDefinitionSchema",
+    "schema": {
+      "baseName": "schema",
+      "type": "ServiceDefinitionSchema",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class ServiceDefinitionDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceDefinitionDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

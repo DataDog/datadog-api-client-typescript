@@ -4,21 +4,26 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Exclude only these namespaces from metrics collection.
  * Defaults to `["AWS/SQS", "AWS/ElasticMapReduce", "AWS/Usage"]`.
  * `AWS/SQS`, `AWS/ElasticMapReduce`, and `AWS/Usage` are excluded by default
  * to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
- */
+*/
 export class AWSNamespaceFiltersExcludeOnly {
   /**
    * Exclude only these namespaces from metrics collection.
    * Defaults to `["AWS/SQS", "AWS/ElasticMapReduce", "AWS/Usage"]`.
    * `AWS/SQS`, `AWS/ElasticMapReduce`, and `AWS/Usage` are excluded by default
    * to reduce your AWS CloudWatch costs from `GetMetricData` API calls.
-   */
+  */
   "excludeOnly": Array<string>;
 
   /**
@@ -26,7 +31,7 @@ export class AWSNamespaceFiltersExcludeOnly {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,10 +42,10 @@ export class AWSNamespaceFiltersExcludeOnly {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    excludeOnly: {
-      baseName: "exclude_only",
-      type: "Array<string>",
-      required: true,
+    "excludeOnly": {
+      "baseName": "exclude_only",
+      "type": "Array<string>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -52,8 +57,34 @@ export class AWSNamespaceFiltersExcludeOnly {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSNamespaceFiltersExcludeOnly.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

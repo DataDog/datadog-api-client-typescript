@@ -7,23 +7,28 @@ import { SensitiveDataScannerGetConfigIncludedItem } from "./SensitiveDataScanne
 import { SensitiveDataScannerGetConfigResponseData } from "./SensitiveDataScannerGetConfigResponseData";
 import { SensitiveDataScannerMeta } from "./SensitiveDataScannerMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Get all groups response.
- */
+*/
 export class SensitiveDataScannerGetConfigResponse {
   /**
    * Response data related to the scanning groups.
-   */
+  */
   "data"?: SensitiveDataScannerGetConfigResponseData;
   /**
    * Included objects from relationships.
-   */
+  */
   "included"?: Array<SensitiveDataScannerGetConfigIncludedItem>;
   /**
    * Meta response containing information about the API.
-   */
+  */
   "meta"?: SensitiveDataScannerMeta;
 
   /**
@@ -31,7 +36,7 @@ export class SensitiveDataScannerGetConfigResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,17 +47,17 @@ export class SensitiveDataScannerGetConfigResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SensitiveDataScannerGetConfigResponseData",
+    "data": {
+      "baseName": "data",
+      "type": "SensitiveDataScannerGetConfigResponseData",
     },
-    included: {
-      baseName: "included",
-      type: "Array<SensitiveDataScannerGetConfigIncludedItem>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<SensitiveDataScannerGetConfigIncludedItem>",
     },
-    meta: {
-      baseName: "meta",
-      type: "SensitiveDataScannerMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "SensitiveDataScannerMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class SensitiveDataScannerGetConfigResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SensitiveDataScannerGetConfigResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+
