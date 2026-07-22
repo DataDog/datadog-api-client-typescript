@@ -245,16 +245,6 @@ export class CaseManagementAttributeApiRequestFactory extends BaseAPIRequestFact
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CaseManagementAttributeApi.v2.updateCustomAttributeConfig"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateCustomAttributeConfig' is disabled. Enable it by setting `configuration.unstableOperations['CaseManagementAttributeApi.v2.updateCustomAttributeConfig'] = true`",
-      );
-    }
-
     // verify required parameter 'caseTypeId' is not null or undefined
     if (caseTypeId === null || caseTypeId === undefined) {
       throw new RequiredError("caseTypeId", "updateCustomAttributeConfig");
