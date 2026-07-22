@@ -7,23 +7,28 @@ import { CIAppResponseLinks } from "./CIAppResponseLinks";
 import { CIAppResponseMetadataWithPagination } from "./CIAppResponseMetadataWithPagination";
 import { CIAppTestEvent } from "./CIAppTestEvent";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object with all test events matching the request and pagination information.
- */
+*/
 export class CIAppTestEventsResponse {
   /**
    * Array of events matching the request.
-   */
+  */
   "data"?: Array<CIAppTestEvent>;
   /**
    * Links attributes.
-   */
+  */
   "links"?: CIAppResponseLinks;
   /**
    * The metadata associated with a request.
-   */
+  */
   "meta"?: CIAppResponseMetadataWithPagination;
 
   /**
@@ -31,7 +36,7 @@ export class CIAppTestEventsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,17 +47,17 @@ export class CIAppTestEventsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<CIAppTestEvent>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<CIAppTestEvent>",
     },
-    links: {
-      baseName: "links",
-      type: "CIAppResponseLinks",
+    "links": {
+      "baseName": "links",
+      "type": "CIAppResponseLinks",
     },
-    meta: {
-      baseName: "meta",
-      type: "CIAppResponseMetadataWithPagination",
+    "meta": {
+      "baseName": "meta",
+      "type": "CIAppResponseMetadataWithPagination",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class CIAppTestEventsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CIAppTestEventsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

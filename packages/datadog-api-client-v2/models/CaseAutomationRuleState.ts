@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Whether the automation rule is active. Enabled rules trigger on matching case events; disabled rules are inactive but preserve their configuration.
- */
+*/
 
-export type CaseAutomationRuleState =
-  | typeof ENABLED
-  | typeof DISABLED
-  | UnparsedObject;
-export const ENABLED = "ENABLED";
-export const DISABLED = "DISABLED";
+export type CaseAutomationRuleState = typeof ENABLED| typeof DISABLED | UnparsedObject;
+export const ENABLED = 'ENABLED';
+export const DISABLED = 'DISABLED';

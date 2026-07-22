@@ -6,19 +6,24 @@
 import { DdsqlTabularQueryFetchRequestAttributes } from "./DdsqlTabularQueryFetchRequestAttributes";
 import { DdsqlTabularQueryFetchRequestType } from "./DdsqlTabularQueryFetchRequestType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * JSON:API resource object for a DDSQL tabular query fetch request.
- */
+*/
 export class DdsqlTabularQueryFetchRequestData {
   /**
    * Attributes describing which previously submitted DDSQL query to fetch.
-   */
+  */
   "attributes": DdsqlTabularQueryFetchRequestAttributes;
   /**
    * JSON:API resource type for a DDSQL tabular query fetch request.
-   */
+  */
   "type": DdsqlTabularQueryFetchRequestType;
 
   /**
@@ -26,7 +31,7 @@ export class DdsqlTabularQueryFetchRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class DdsqlTabularQueryFetchRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "DdsqlTabularQueryFetchRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "DdsqlTabularQueryFetchRequestAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "DdsqlTabularQueryFetchRequestType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "DdsqlTabularQueryFetchRequestType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class DdsqlTabularQueryFetchRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DdsqlTabularQueryFetchRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

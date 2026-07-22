@@ -5,15 +5,20 @@
  */
 import { PostmortemCellDefinition } from "./PostmortemCellDefinition";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a postmortem cell
- */
+*/
 export class PostmortemCellAttributes {
   /**
    * Definition of a postmortem cell
-   */
+  */
   "definition"?: PostmortemCellDefinition;
 
   /**
@@ -21,7 +26,7 @@ export class PostmortemCellAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class PostmortemCellAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    definition: {
-      baseName: "definition",
-      type: "PostmortemCellDefinition",
+    "definition": {
+      "baseName": "definition",
+      "type": "PostmortemCellDefinition",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class PostmortemCellAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PostmortemCellAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

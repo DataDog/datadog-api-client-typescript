@@ -5,15 +5,20 @@
  */
 import { JsonPatchOperation } from "./JsonPatchOperation";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for a JSON Patch request on a Synthetic test suite.
- */
+*/
 export class SuiteJsonPatchRequestDataAttributes {
   /**
    * JSON Patch operations following RFC 6902.
-   */
+  */
   "jsonPatch"?: Array<JsonPatchOperation>;
 
   /**
@@ -21,7 +26,7 @@ export class SuiteJsonPatchRequestDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class SuiteJsonPatchRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    jsonPatch: {
-      baseName: "json_patch",
-      type: "Array<JsonPatchOperation>",
+    "jsonPatch": {
+      "baseName": "json_patch",
+      "type": "Array<JsonPatchOperation>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class SuiteJsonPatchRequestDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SuiteJsonPatchRequestDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

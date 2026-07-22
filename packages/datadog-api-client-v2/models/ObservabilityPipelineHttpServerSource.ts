@@ -9,55 +9,60 @@ import { ObservabilityPipelineHttpServerSourceType } from "./ObservabilityPipeli
 import { ObservabilityPipelineHttpServerSourceValidToken } from "./ObservabilityPipelineHttpServerSourceValidToken";
 import { ObservabilityPipelineMtlsServerTls } from "./ObservabilityPipelineMtlsServerTls";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The `http_server` source collects logs over HTTP POST from external services.
- *
+ * 
  * **Supported pipeline types:** logs
- */
+*/
 export class ObservabilityPipelineHttpServerSource {
   /**
    * Name of the environment variable or secret that holds the listen address for the HTTP server.
-   */
+  */
   "addressKey"?: string;
   /**
    * HTTP authentication method.
-   */
+  */
   "authStrategy": ObservabilityPipelineHttpServerSourceAuthStrategy;
   /**
    * Name of the environment variable or secret that holds a custom header value (used with custom auth strategies).
-   */
+  */
   "customKey"?: string;
   /**
    * The decoding format used to interpret incoming logs.
-   */
+  */
   "decoding": ObservabilityPipelineDecoding;
   /**
    * Unique ID for the HTTP server source.
-   */
+  */
   "id": string;
   /**
    * Name of the environment variable or secret that holds the password (used when `auth_strategy` is `plain`).
-   */
+  */
   "passwordKey"?: string;
   /**
    * Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
-   */
+  */
   "tls"?: ObservabilityPipelineMtlsServerTls;
   /**
    * The source type. The value should always be `http_server`.
-   */
+  */
   "type": ObservabilityPipelineHttpServerSourceType;
   /**
    * Name of the environment variable or secret that holds the username (used when `auth_strategy` is `plain`).
-   */
+  */
   "usernameKey"?: string;
   /**
    * A list of tokens that are accepted for authenticating incoming HTTP requests. When set,
    * the source rejects any request whose token does not match an enabled entry in this list.
    * Cannot be combined with the `plain` auth strategy.
-   */
+  */
   "validTokens"?: Array<ObservabilityPipelineHttpServerSourceValidToken>;
 
   /**
@@ -65,7 +70,7 @@ export class ObservabilityPipelineHttpServerSource {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -76,49 +81,49 @@ export class ObservabilityPipelineHttpServerSource {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    addressKey: {
-      baseName: "address_key",
-      type: "string",
+    "addressKey": {
+      "baseName": "address_key",
+      "type": "string",
     },
-    authStrategy: {
-      baseName: "auth_strategy",
-      type: "ObservabilityPipelineHttpServerSourceAuthStrategy",
-      required: true,
+    "authStrategy": {
+      "baseName": "auth_strategy",
+      "type": "ObservabilityPipelineHttpServerSourceAuthStrategy",
+      "required": true,
     },
-    customKey: {
-      baseName: "custom_key",
-      type: "string",
+    "customKey": {
+      "baseName": "custom_key",
+      "type": "string",
     },
-    decoding: {
-      baseName: "decoding",
-      type: "ObservabilityPipelineDecoding",
-      required: true,
+    "decoding": {
+      "baseName": "decoding",
+      "type": "ObservabilityPipelineDecoding",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    passwordKey: {
-      baseName: "password_key",
-      type: "string",
+    "passwordKey": {
+      "baseName": "password_key",
+      "type": "string",
     },
-    tls: {
-      baseName: "tls",
-      type: "ObservabilityPipelineMtlsServerTls",
+    "tls": {
+      "baseName": "tls",
+      "type": "ObservabilityPipelineMtlsServerTls",
     },
-    type: {
-      baseName: "type",
-      type: "ObservabilityPipelineHttpServerSourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ObservabilityPipelineHttpServerSourceType",
+      "required": true,
     },
-    usernameKey: {
-      baseName: "username_key",
-      type: "string",
+    "usernameKey": {
+      "baseName": "username_key",
+      "type": "string",
     },
-    validTokens: {
-      baseName: "valid_tokens",
-      type: "Array<ObservabilityPipelineHttpServerSourceValidToken>",
+    "validTokens": {
+      "baseName": "valid_tokens",
+      "type": "Array<ObservabilityPipelineHttpServerSourceValidToken>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -130,8 +135,34 @@ export class ObservabilityPipelineHttpServerSource {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineHttpServerSource.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

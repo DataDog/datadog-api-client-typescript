@@ -6,23 +6,28 @@
 import { ReportScheduleIncludedResourceType } from "./ReportScheduleIncludedResourceType";
 import { ReportScheduleResourceAttributes } from "./ReportScheduleResourceAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A report target resource included as a related JSON:API resource.
- */
+*/
 export class ReportScheduleResource {
   /**
    * Attributes of an included report target resource.
-   */
+  */
   "attributes": ReportScheduleResourceAttributes;
   /**
    * The resource identifier.
-   */
+  */
   "id": string;
   /**
    * JSON:API resource type for an included report resource.
-   */
+  */
   "type": ReportScheduleIncludedResourceType;
 
   /**
@@ -30,7 +35,7 @@ export class ReportScheduleResource {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class ReportScheduleResource {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ReportScheduleResourceAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ReportScheduleResourceAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ReportScheduleIncludedResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ReportScheduleIncludedResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class ReportScheduleResource {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ReportScheduleResource.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

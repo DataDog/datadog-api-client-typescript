@@ -6,23 +6,28 @@
 import { LLMObsDatasetBatchUpdateDataAttributesRequest } from "./LLMObsDatasetBatchUpdateDataAttributesRequest";
 import { LLMObsDatasetType } from "./LLMObsDatasetType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for batch-updating records in an LLM Observability dataset.
- */
+*/
 export class LLMObsDatasetBatchUpdateDataRequest {
   /**
    * Attributes for batch-updating records in an LLM Observability dataset.
-   */
+  */
   "attributes": LLMObsDatasetBatchUpdateDataAttributesRequest;
   /**
    * Unique identifier of the dataset.
-   */
+  */
   "id": string;
   /**
    * Resource type of an LLM Observability dataset.
-   */
+  */
   "type": LLMObsDatasetType;
 
   /**
@@ -30,7 +35,7 @@ export class LLMObsDatasetBatchUpdateDataRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class LLMObsDatasetBatchUpdateDataRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LLMObsDatasetBatchUpdateDataAttributesRequest",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "LLMObsDatasetBatchUpdateDataAttributesRequest",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LLMObsDatasetType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LLMObsDatasetType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class LLMObsDatasetBatchUpdateDataRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDatasetBatchUpdateDataRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

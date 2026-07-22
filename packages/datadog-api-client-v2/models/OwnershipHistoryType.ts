@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of the ownership history resource. The value should always be `ownership_history`.
- */
+*/
 
 export type OwnershipHistoryType = typeof OWNERSHIP_HISTORY | UnparsedObject;
-export const OWNERSHIP_HISTORY = "ownership_history";
+export const OWNERSHIP_HISTORY = 'ownership_history';

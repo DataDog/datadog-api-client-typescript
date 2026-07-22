@@ -4,31 +4,36 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of an org group.
- */
+*/
 export class OrgGroupAttributes {
   /**
    * Timestamp when the org group was created.
-   */
+  */
   "createdAt": Date;
   /**
    * Timestamp when the org group was last modified.
-   */
+  */
   "modifiedAt": Date;
   /**
    * The name of the org group.
-   */
+  */
   "name": string;
   /**
    * The site of the organization that owns this org group.
-   */
+  */
   "ownerOrgSite": string;
   /**
    * The UUID of the organization that owns this org group.
-   */
+  */
   "ownerOrgUuid": string;
 
   /**
@@ -36,7 +41,7 @@ export class OrgGroupAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,33 +52,33 @@ export class OrgGroupAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "modifiedAt": {
+      "baseName": "modified_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    ownerOrgSite: {
-      baseName: "owner_org_site",
-      type: "string",
-      required: true,
+    "ownerOrgSite": {
+      "baseName": "owner_org_site",
+      "type": "string",
+      "required": true,
     },
-    ownerOrgUuid: {
-      baseName: "owner_org_uuid",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "ownerOrgUuid": {
+      "baseName": "owner_org_uuid",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -85,8 +90,34 @@ export class OrgGroupAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgGroupAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { UpdateOnCallNotificationRuleRequestData } from "./UpdateOnCallNotificationRuleRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A top-level wrapper for updating a notification rule for a user
- */
+*/
 export class UpdateOnCallNotificationRuleRequest {
   /**
    * Data for updating an on-call notification rule
-   */
+  */
   "data": UpdateOnCallNotificationRuleRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class UpdateOnCallNotificationRuleRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class UpdateOnCallNotificationRuleRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "UpdateOnCallNotificationRuleRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "UpdateOnCallNotificationRuleRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class UpdateOnCallNotificationRuleRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateOnCallNotificationRuleRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

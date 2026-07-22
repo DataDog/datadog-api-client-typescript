@@ -5,15 +5,20 @@
  */
 import { RelationshipToUser } from "./RelationshipToUser";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationships data for user invitation.
- */
+*/
 export class UserInvitationRelationships {
   /**
    * Relationship to user.
-   */
+  */
   "user": RelationshipToUser;
 
   /**
@@ -21,7 +26,7 @@ export class UserInvitationRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class UserInvitationRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    user: {
-      baseName: "user",
-      type: "RelationshipToUser",
-      required: true,
+    "user": {
+      "baseName": "user",
+      "type": "RelationshipToUser",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class UserInvitationRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UserInvitationRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

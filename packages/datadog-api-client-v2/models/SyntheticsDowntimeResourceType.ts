@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The resource type for a Synthetics downtime.
- */
+*/
 
 export type SyntheticsDowntimeResourceType = typeof DOWNTIME | UnparsedObject;
-export const DOWNTIME = "downtime";
+export const DOWNTIME = 'downtime';

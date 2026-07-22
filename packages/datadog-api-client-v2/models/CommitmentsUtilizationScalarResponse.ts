@@ -6,19 +6,24 @@
 import { CommitmentsScalarColumn } from "./CommitmentsScalarColumn";
 import { CommitmentsUtilizationScalarProductBreakdownEntry } from "./CommitmentsUtilizationScalarProductBreakdownEntry";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing scalar utilization metrics for cloud commitment programs.
- */
+*/
 export class CommitmentsUtilizationScalarResponse {
   /**
    * Array of scalar columns in the response.
-   */
+  */
   "columns": Array<CommitmentsScalarColumn>;
   /**
    * Array of per-product utilization breakdown entries.
-   */
+  */
   "productBreakdown"?: Array<CommitmentsUtilizationScalarProductBreakdownEntry>;
 
   /**
@@ -26,7 +31,7 @@ export class CommitmentsUtilizationScalarResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class CommitmentsUtilizationScalarResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    columns: {
-      baseName: "columns",
-      type: "Array<CommitmentsScalarColumn>",
-      required: true,
+    "columns": {
+      "baseName": "columns",
+      "type": "Array<CommitmentsScalarColumn>",
+      "required": true,
     },
-    productBreakdown: {
-      baseName: "product_breakdown",
-      type: "Array<CommitmentsUtilizationScalarProductBreakdownEntry>",
+    "productBreakdown": {
+      "baseName": "product_breakdown",
+      "type": "Array<CommitmentsUtilizationScalarProductBreakdownEntry>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class CommitmentsUtilizationScalarResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CommitmentsUtilizationScalarResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

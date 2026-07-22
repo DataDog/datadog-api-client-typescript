@@ -5,15 +5,20 @@
  */
 import { ConditionRequest } from "./ConditionRequest";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Targeting rule request payload.
- */
+*/
 export class TargetingRuleRequest {
   /**
    * Conditions that must match for this rule.
-   */
+  */
   "conditions": Array<ConditionRequest>;
 
   /**
@@ -21,7 +26,7 @@ export class TargetingRuleRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class TargetingRuleRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    conditions: {
-      baseName: "conditions",
-      type: "Array<ConditionRequest>",
-      required: true,
+    "conditions": {
+      "baseName": "conditions",
+      "type": "Array<ConditionRequest>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class TargetingRuleRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TargetingRuleRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

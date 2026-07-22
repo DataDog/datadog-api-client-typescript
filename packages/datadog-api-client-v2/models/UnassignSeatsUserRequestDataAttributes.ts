@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes specifying the product and users from whom seats will be unassigned.
- */
+*/
 export class UnassignSeatsUserRequestDataAttributes {
   /**
    * The product code for which to unassign seats.
-   */
+  */
   "productCode": string;
   /**
    * The list of user IDs to unassign seats from.
-   */
+  */
   "userUuids": Array<string>;
 
   /**
@@ -24,7 +29,7 @@ export class UnassignSeatsUserRequestDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,15 +40,15 @@ export class UnassignSeatsUserRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    productCode: {
-      baseName: "product_code",
-      type: "string",
-      required: true,
+    "productCode": {
+      "baseName": "product_code",
+      "type": "string",
+      "required": true,
     },
-    userUuids: {
-      baseName: "user_uuids",
-      type: "Array<string>",
-      required: true,
+    "userUuids": {
+      "baseName": "user_uuids",
+      "type": "Array<string>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class UnassignSeatsUserRequestDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UnassignSeatsUserRequestDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

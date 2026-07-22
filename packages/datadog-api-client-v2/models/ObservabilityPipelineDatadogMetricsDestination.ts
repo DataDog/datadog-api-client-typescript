@@ -5,25 +5,30 @@
  */
 import { ObservabilityPipelineDatadogMetricsDestinationType } from "./ObservabilityPipelineDatadogMetricsDestinationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The `datadog_metrics` destination forwards metrics to Datadog.
- *
+ * 
  * **Supported pipeline types:** metrics
- */
+*/
 export class ObservabilityPipelineDatadogMetricsDestination {
   /**
    * The unique identifier for this component.
-   */
+  */
   "id": string;
   /**
    * A list of component IDs whose output is used as the input for this component.
-   */
+  */
   "inputs": Array<string>;
   /**
    * The destination type. The value should always be `datadog_metrics`.
-   */
+  */
   "type": ObservabilityPipelineDatadogMetricsDestinationType;
 
   /**
@@ -31,7 +36,7 @@ export class ObservabilityPipelineDatadogMetricsDestination {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,20 +47,20 @@ export class ObservabilityPipelineDatadogMetricsDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    inputs: {
-      baseName: "inputs",
-      type: "Array<string>",
-      required: true,
+    "inputs": {
+      "baseName": "inputs",
+      "type": "Array<string>",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ObservabilityPipelineDatadogMetricsDestinationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ObservabilityPipelineDatadogMetricsDestinationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class ObservabilityPipelineDatadogMetricsDestination {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineDatadogMetricsDestination.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

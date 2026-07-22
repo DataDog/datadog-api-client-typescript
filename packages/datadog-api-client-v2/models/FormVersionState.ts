@@ -4,12 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The state of a form version.
- */
+*/
 
-export type FormVersionState = typeof DRAFT | typeof FROZEN | UnparsedObject;
-export const DRAFT = "draft";
-export const FROZEN = "frozen";
+export type FormVersionState = typeof DRAFT| typeof FROZEN | UnparsedObject;
+export const DRAFT = 'draft';
+export const FROZEN = 'frozen';

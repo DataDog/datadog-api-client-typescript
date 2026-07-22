@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type identifier for a dynamic option. Always `dynamic`.
- */
+*/
 
-export type RumSdkConfigDynamicOptionSerializedType =
-  | typeof DYNAMIC
-  | UnparsedObject;
-export const DYNAMIC = "dynamic";
+export type RumSdkConfigDynamicOptionSerializedType = typeof DYNAMIC | UnparsedObject;
+export const DYNAMIC = 'dynamic';

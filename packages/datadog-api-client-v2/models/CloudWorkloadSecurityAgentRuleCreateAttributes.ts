@@ -5,63 +5,68 @@
  */
 import { CloudWorkloadSecurityAgentRuleAction } from "./CloudWorkloadSecurityAgentRuleAction";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Create a new Cloud Workload Security Agent rule.
- */
+*/
 export class CloudWorkloadSecurityAgentRuleCreateAttributes {
   /**
    * The array of actions the rule can perform if triggered
-   */
+  */
   "actions"?: Array<CloudWorkloadSecurityAgentRuleAction>;
   /**
    * Constrain the rule to specific versions of the Datadog Agent.
-   */
+  */
   "agentVersion"?: string;
   /**
    * The blocking policies that the rule belongs to.
-   */
+  */
   "blocking"?: Array<string>;
   /**
    * The description of the Agent rule.
-   */
+  */
   "description"?: string;
   /**
    * The disabled policies that the rule belongs to.
-   */
+  */
   "disabled"?: Array<string>;
   /**
    * Whether the Agent rule is enabled.
-   */
+  */
   "enabled"?: boolean;
   /**
    * The SECL expression of the Agent rule.
-   */
+  */
   "expression": string;
   /**
    * The platforms the Agent rule is supported on.
-   */
+  */
   "filters"?: Array<string>;
   /**
    * The monitoring policies that the rule belongs to.
-   */
+  */
   "monitoring"?: Array<string>;
   /**
    * The name of the Agent rule.
-   */
+  */
   "name": string;
   /**
    * The ID of the policy where the Agent rule is saved.
-   */
+  */
   "policyId"?: string;
   /**
    * The list of product tags associated with the rule.
-   */
+  */
   "productTags"?: Array<string>;
   /**
    * Whether the rule is silent.
-   */
+  */
   "silent"?: boolean;
 
   /**
@@ -69,7 +74,7 @@ export class CloudWorkloadSecurityAgentRuleCreateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -80,59 +85,59 @@ export class CloudWorkloadSecurityAgentRuleCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    actions: {
-      baseName: "actions",
-      type: "Array<CloudWorkloadSecurityAgentRuleAction>",
+    "actions": {
+      "baseName": "actions",
+      "type": "Array<CloudWorkloadSecurityAgentRuleAction>",
     },
-    agentVersion: {
-      baseName: "agent_version",
-      type: "string",
+    "agentVersion": {
+      "baseName": "agent_version",
+      "type": "string",
     },
-    blocking: {
-      baseName: "blocking",
-      type: "Array<string>",
+    "blocking": {
+      "baseName": "blocking",
+      "type": "Array<string>",
     },
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    disabled: {
-      baseName: "disabled",
-      type: "Array<string>",
+    "disabled": {
+      "baseName": "disabled",
+      "type": "Array<string>",
     },
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
+    "enabled": {
+      "baseName": "enabled",
+      "type": "boolean",
     },
-    expression: {
-      baseName: "expression",
-      type: "string",
-      required: true,
+    "expression": {
+      "baseName": "expression",
+      "type": "string",
+      "required": true,
     },
-    filters: {
-      baseName: "filters",
-      type: "Array<string>",
+    "filters": {
+      "baseName": "filters",
+      "type": "Array<string>",
     },
-    monitoring: {
-      baseName: "monitoring",
-      type: "Array<string>",
+    "monitoring": {
+      "baseName": "monitoring",
+      "type": "Array<string>",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    policyId: {
-      baseName: "policy_id",
-      type: "string",
+    "policyId": {
+      "baseName": "policy_id",
+      "type": "string",
     },
-    productTags: {
-      baseName: "product_tags",
-      type: "Array<string>",
+    "productTags": {
+      "baseName": "product_tags",
+      "type": "Array<string>",
     },
-    silent: {
-      baseName: "silent",
-      type: "boolean",
+    "silent": {
+      "baseName": "silent",
+      "type": "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -144,8 +149,34 @@ export class CloudWorkloadSecurityAgentRuleCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CloudWorkloadSecurityAgentRuleCreateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of `AWSIntegrationType` object.
- */
+*/
 
 export type AWSIntegrationType = typeof AWS | UnparsedObject;
-export const AWS = "AWS";
+export const AWS = 'AWS';

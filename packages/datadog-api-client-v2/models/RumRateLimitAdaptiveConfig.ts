@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The configuration used when `mode` is `adaptive`.
- */
+*/
 export class RumRateLimitAdaptiveConfig {
   /**
    * The maximum fraction of sessions to retain, in the range `(0, 1]`.
-   */
+  */
   "maxRetentionRate": number;
 
   /**
@@ -20,7 +25,7 @@ export class RumRateLimitAdaptiveConfig {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,11 +36,11 @@ export class RumRateLimitAdaptiveConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    maxRetentionRate: {
-      baseName: "max_retention_rate",
-      type: "number",
-      required: true,
-      format: "double",
+    "maxRetentionRate": {
+      "baseName": "max_retention_rate",
+      "type": "number",
+      "required": true,
+      "format": "double",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class RumRateLimitAdaptiveConfig {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RumRateLimitAdaptiveConfig.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

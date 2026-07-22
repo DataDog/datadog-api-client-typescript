@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes of a dataset dependencies request.
- */
+*/
 export class SecurityMonitoringDatasetDependenciesRequestAttributes {
   /**
    * The list of dataset UUIDs to query dependencies for. Must contain between 1 and 100 items.
-   */
+  */
   "datasetIds": Array<string>;
 
   /**
@@ -20,7 +25,7 @@ export class SecurityMonitoringDatasetDependenciesRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,10 +36,10 @@ export class SecurityMonitoringDatasetDependenciesRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    datasetIds: {
-      baseName: "datasetIds",
-      type: "Array<string>",
-      required: true,
+    "datasetIds": {
+      "baseName": "datasetIds",
+      "type": "Array<string>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class SecurityMonitoringDatasetDependenciesRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringDatasetDependenciesRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type discriminator for a `display_block` interaction.
- */
+*/
 
-export type LLMObsDisplayBlockInteractionType =
-  | typeof DISPLAY_BLOCK
-  | UnparsedObject;
-export const DISPLAY_BLOCK = "display_block";
+export type LLMObsDisplayBlockInteractionType = typeof DISPLAY_BLOCK | UnparsedObject;
+export const DISPLAY_BLOCK = 'display_block';

@@ -4,12 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of `ObservabilityPipelineSocketDestinationFramingCharacterDelimitedMethod` object.
- */
+*/
 
-export type ObservabilityPipelineSocketDestinationFramingCharacterDelimitedMethod =
-  typeof CHARACTER_DELIMITED | UnparsedObject;
-export const CHARACTER_DELIMITED = "character_delimited";
+export type ObservabilityPipelineSocketDestinationFramingCharacterDelimitedMethod = typeof CHARACTER_DELIMITED | UnparsedObject;
+export const CHARACTER_DELIMITED = 'character_delimited';

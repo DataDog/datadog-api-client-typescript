@@ -8,47 +8,52 @@ import { LLMObsCustomEvalConfigLLMProvider } from "./LLMObsCustomEvalConfigLLMPr
 import { LLMObsCustomEvalConfigTarget } from "./LLMObsCustomEvalConfigTarget";
 import { LLMObsCustomEvalConfigUser } from "./LLMObsCustomEvalConfigUser";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a custom LLM Observability evaluator configuration.
- */
+*/
 export class LLMObsCustomEvalConfigAttributes {
   /**
    * Category of the evaluator.
-   */
+  */
   "category"?: string;
   /**
    * Timestamp when the evaluator configuration was created.
-   */
+  */
   "createdAt": Date;
   /**
    * A Datadog user associated with a custom evaluator configuration.
-   */
+  */
   "createdBy"?: LLMObsCustomEvalConfigUser;
   /**
    * Name of the custom evaluator.
-   */
+  */
   "evalName": string;
   /**
    * A Datadog user associated with a custom evaluator configuration.
-   */
+  */
   "lastUpdatedBy"?: LLMObsCustomEvalConfigUser;
   /**
    * LLM judge configuration for a custom evaluator.
-   */
+  */
   "llmJudgeConfig"?: LLMObsCustomEvalConfigLLMJudgeConfig;
   /**
    * LLM provider configuration for a custom evaluator.
-   */
+  */
   "llmProvider"?: LLMObsCustomEvalConfigLLMProvider;
   /**
    * Target application configuration for a custom evaluator.
-   */
+  */
   "target"?: LLMObsCustomEvalConfigTarget;
   /**
    * Timestamp when the evaluator configuration was last updated.
-   */
+  */
   "updatedAt": Date;
 
   /**
@@ -56,7 +61,7 @@ export class LLMObsCustomEvalConfigAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -67,46 +72,46 @@ export class LLMObsCustomEvalConfigAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    category: {
-      baseName: "category",
-      type: "string",
+    "category": {
+      "baseName": "category",
+      "type": "string",
     },
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    createdBy: {
-      baseName: "created_by",
-      type: "LLMObsCustomEvalConfigUser",
+    "createdBy": {
+      "baseName": "created_by",
+      "type": "LLMObsCustomEvalConfigUser",
     },
-    evalName: {
-      baseName: "eval_name",
-      type: "string",
-      required: true,
+    "evalName": {
+      "baseName": "eval_name",
+      "type": "string",
+      "required": true,
     },
-    lastUpdatedBy: {
-      baseName: "last_updated_by",
-      type: "LLMObsCustomEvalConfigUser",
+    "lastUpdatedBy": {
+      "baseName": "last_updated_by",
+      "type": "LLMObsCustomEvalConfigUser",
     },
-    llmJudgeConfig: {
-      baseName: "llm_judge_config",
-      type: "LLMObsCustomEvalConfigLLMJudgeConfig",
+    "llmJudgeConfig": {
+      "baseName": "llm_judge_config",
+      "type": "LLMObsCustomEvalConfigLLMJudgeConfig",
     },
-    llmProvider: {
-      baseName: "llm_provider",
-      type: "LLMObsCustomEvalConfigLLMProvider",
+    "llmProvider": {
+      "baseName": "llm_provider",
+      "type": "LLMObsCustomEvalConfigLLMProvider",
     },
-    target: {
-      baseName: "target",
-      type: "LLMObsCustomEvalConfigTarget",
+    "target": {
+      "baseName": "target",
+      "type": "LLMObsCustomEvalConfigTarget",
     },
-    updatedAt: {
-      baseName: "updated_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "updatedAt": {
+      "baseName": "updated_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -118,8 +123,34 @@ export class LLMObsCustomEvalConfigAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsCustomEvalConfigAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,27 +5,32 @@
  */
 import { Condition } from "./Condition";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Targeting rule details.
- */
+*/
 export class TargetingRule {
   /**
    * Conditions evaluated by this targeting rule.
-   */
+  */
   "conditions": Array<Condition>;
   /**
    * The timestamp when the targeting rule was created.
-   */
+  */
   "createdAt": Date;
   /**
    * The unique identifier of the targeting rule.
-   */
+  */
   "id": string;
   /**
    * The timestamp when the targeting rule was last updated.
-   */
+  */
   "updatedAt": Date;
 
   /**
@@ -33,7 +38,7 @@ export class TargetingRule {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -44,28 +49,28 @@ export class TargetingRule {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    conditions: {
-      baseName: "conditions",
-      type: "Array<Condition>",
-      required: true,
+    "conditions": {
+      "baseName": "conditions",
+      "type": "Array<Condition>",
+      "required": true,
     },
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    updatedAt: {
-      baseName: "updated_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "updatedAt": {
+      "baseName": "updated_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -77,8 +82,34 @@ export class TargetingRule {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TargetingRule.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

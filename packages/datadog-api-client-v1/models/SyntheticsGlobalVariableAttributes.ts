@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of the global variable.
- */
+*/
 export class SyntheticsGlobalVariableAttributes {
   /**
    * A list of role identifiers that can be pulled from the Roles API, for restricting read and write access. This field is deprecated. Use the restriction policies API to manage permissions.
-   */
+  */
   "restrictedRoles"?: Array<string>;
 
   /**
@@ -20,7 +25,7 @@ export class SyntheticsGlobalVariableAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,9 +36,9 @@ export class SyntheticsGlobalVariableAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    restrictedRoles: {
-      baseName: "restricted_roles",
-      type: "Array<string>",
+    "restrictedRoles": {
+      "baseName": "restricted_roles",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,8 +50,34 @@ export class SyntheticsGlobalVariableAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsGlobalVariableAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

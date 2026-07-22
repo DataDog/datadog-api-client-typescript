@@ -6,23 +6,28 @@
 import { CaseManagementProject } from "./CaseManagementProject";
 import { RelationshipToUser } from "./RelationshipToUser";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationships of the case.
- */
+*/
 export class FindingCaseResponseDataRelationships {
   /**
    * Relationship to user.
-   */
+  */
   "createdBy"?: RelationshipToUser;
   /**
    * Relationship to user.
-   */
+  */
   "modifiedBy"?: RelationshipToUser;
   /**
    * Case management project.
-   */
+  */
   "project"?: CaseManagementProject;
 
   /**
@@ -30,7 +35,7 @@ export class FindingCaseResponseDataRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class FindingCaseResponseDataRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdBy: {
-      baseName: "created_by",
-      type: "RelationshipToUser",
+    "createdBy": {
+      "baseName": "created_by",
+      "type": "RelationshipToUser",
     },
-    modifiedBy: {
-      baseName: "modified_by",
-      type: "RelationshipToUser",
+    "modifiedBy": {
+      "baseName": "modified_by",
+      "type": "RelationshipToUser",
     },
-    project: {
-      baseName: "project",
-      type: "CaseManagementProject",
+    "project": {
+      "baseName": "project",
+      "type": "CaseManagementProject",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class FindingCaseResponseDataRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FindingCaseResponseDataRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

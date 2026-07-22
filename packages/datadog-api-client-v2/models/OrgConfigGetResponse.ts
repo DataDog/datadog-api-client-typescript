@@ -5,15 +5,20 @@
  */
 import { OrgConfigRead } from "./OrgConfigRead";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A response with a single Org Config.
- */
+*/
 export class OrgConfigGetResponse {
   /**
    * A single Org Config.
-   */
+  */
   "data": OrgConfigRead;
 
   /**
@@ -21,7 +26,7 @@ export class OrgConfigGetResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class OrgConfigGetResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "OrgConfigRead",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "OrgConfigRead",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class OrgConfigGetResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgConfigGetResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

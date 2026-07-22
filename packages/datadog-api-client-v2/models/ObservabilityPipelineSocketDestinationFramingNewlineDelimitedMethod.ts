@@ -4,12 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of `ObservabilityPipelineSocketDestinationFramingNewlineDelimitedMethod` object.
- */
+*/
 
-export type ObservabilityPipelineSocketDestinationFramingNewlineDelimitedMethod =
-  typeof NEWLINE_DELIMITED | UnparsedObject;
-export const NEWLINE_DELIMITED = "newline_delimited";
+export type ObservabilityPipelineSocketDestinationFramingNewlineDelimitedMethod = typeof NEWLINE_DELIMITED | UnparsedObject;
+export const NEWLINE_DELIMITED = 'newline_delimited';

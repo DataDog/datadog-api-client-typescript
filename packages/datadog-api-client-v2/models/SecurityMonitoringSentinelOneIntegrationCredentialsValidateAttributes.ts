@@ -6,23 +6,28 @@
 import { SecurityMonitoringIntegrationConfigSentinelOneSecrets } from "./SecurityMonitoringIntegrationConfigSentinelOneSecrets";
 import { SecurityMonitoringIntegrationTypeSentinelOne } from "./SecurityMonitoringIntegrationTypeSentinelOne";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The SentinelOne credentials to validate against the external entity source.
- */
+*/
 export class SecurityMonitoringSentinelOneIntegrationCredentialsValidateAttributes {
   /**
    * The domain associated with the external entity source.
-   */
+  */
   "domain": string;
   /**
    * The source type for a SentinelOne entity context sync.
-   */
+  */
   "integrationType": SecurityMonitoringIntegrationTypeSentinelOne;
   /**
    * Credentials for a SentinelOne entity context sync.
-   */
+  */
   "secrets": SecurityMonitoringIntegrationConfigSentinelOneSecrets;
 
   /**
@@ -30,7 +35,7 @@ export class SecurityMonitoringSentinelOneIntegrationCredentialsValidateAttribut
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class SecurityMonitoringSentinelOneIntegrationCredentialsValidateAttribut
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    domain: {
-      baseName: "domain",
-      type: "string",
-      required: true,
+    "domain": {
+      "baseName": "domain",
+      "type": "string",
+      "required": true,
     },
-    integrationType: {
-      baseName: "integration_type",
-      type: "SecurityMonitoringIntegrationTypeSentinelOne",
-      required: true,
+    "integrationType": {
+      "baseName": "integration_type",
+      "type": "SecurityMonitoringIntegrationTypeSentinelOne",
+      "required": true,
     },
-    secrets: {
-      baseName: "secrets",
-      type: "SecurityMonitoringIntegrationConfigSentinelOneSecrets",
-      required: true,
+    "secrets": {
+      "baseName": "secrets",
+      "type": "SecurityMonitoringIntegrationConfigSentinelOneSecrets",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class SecurityMonitoringSentinelOneIntegrationCredentialsValidateAttribut
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringSentinelOneIntegrationCredentialsValidateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The Statuspage URL setting attributes for an update request.
- */
+*/
 export class StatuspageUrlSettingUpdateAttributes {
   /**
    * Comma-separated list of custom tags to apply to events generated from this Statuspage URL.
-   */
+  */
   "customTags"?: string;
   /**
    * The Statuspage URL to monitor.
-   */
+  */
   "url"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class StatuspageUrlSettingUpdateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class StatuspageUrlSettingUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    customTags: {
-      baseName: "custom_tags",
-      type: "string",
+    "customTags": {
+      "baseName": "custom_tags",
+      "type": "string",
     },
-    url: {
-      baseName: "url",
-      type: "string",
+    "url": {
+      "baseName": "url",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class StatuspageUrlSettingUpdateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return StatuspageUrlSettingUpdateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

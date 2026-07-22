@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Destination endpoint of a network path measurement.
- */
+*/
 export class SyntheticsTestResultNetpathDestination {
   /**
    * Hostname of the destination.
-   */
+  */
   "hostname"?: string;
   /**
    * IP address of the destination.
-   */
+  */
   "ipAddress"?: string;
   /**
    * Port of the destination service.
-   */
+  */
   "port"?: number;
 
   /**
@@ -28,7 +33,7 @@ export class SyntheticsTestResultNetpathDestination {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,18 +44,18 @@ export class SyntheticsTestResultNetpathDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    hostname: {
-      baseName: "hostname",
-      type: "string",
+    "hostname": {
+      "baseName": "hostname",
+      "type": "string",
     },
-    ipAddress: {
-      baseName: "ip_address",
-      type: "string",
+    "ipAddress": {
+      "baseName": "ip_address",
+      "type": "string",
     },
-    port: {
-      baseName: "port",
-      type: "number",
-      format: "int64",
+    "port": {
+      "baseName": "port",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class SyntheticsTestResultNetpathDestination {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultNetpathDestination.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

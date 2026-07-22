@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Assessment result for a label value.
- */
+*/
 
-export type LLMObsAnnotationAssessment =
-  | typeof PASS
-  | typeof FAIL
-  | UnparsedObject;
-export const PASS = "pass";
-export const FAIL = "fail";
+export type LLMObsAnnotationAssessment = typeof PASS| typeof FAIL | UnparsedObject;
+export const PASS = 'pass';
+export const FAIL = 'fail';

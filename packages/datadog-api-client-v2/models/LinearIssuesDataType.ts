@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Linear issues resource type.
- */
+*/
 
 export type LinearIssuesDataType = typeof LINEAR_ISSUES | UnparsedObject;
-export const LINEAR_ISSUES = "linear_issues";
+export const LINEAR_ISSUES = 'linear_issues';

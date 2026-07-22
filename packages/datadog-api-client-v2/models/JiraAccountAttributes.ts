@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a Jira account
- */
+*/
 export class JiraAccountAttributes {
   /**
    * The consumer key for the Jira account
-   */
+  */
   "consumerKey": string;
   /**
    * The URL of the Jira instance
-   */
+  */
   "instanceUrl": string;
   /**
    * Timestamp of the last webhook received
-   */
+  */
   "lastWebhookTimestamp"?: Date;
 
   /**
@@ -28,7 +33,7 @@ export class JiraAccountAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,20 +44,20 @@ export class JiraAccountAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    consumerKey: {
-      baseName: "consumer_key",
-      type: "string",
-      required: true,
+    "consumerKey": {
+      "baseName": "consumer_key",
+      "type": "string",
+      "required": true,
     },
-    instanceUrl: {
-      baseName: "instance_url",
-      type: "string",
-      required: true,
+    "instanceUrl": {
+      "baseName": "instance_url",
+      "type": "string",
+      "required": true,
     },
-    lastWebhookTimestamp: {
-      baseName: "last_webhook_timestamp",
-      type: "Date",
-      format: "date-time",
+    "lastWebhookTimestamp": {
+      "baseName": "last_webhook_timestamp",
+      "type": "Date",
+      "format": "date-time",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class JiraAccountAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return JiraAccountAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

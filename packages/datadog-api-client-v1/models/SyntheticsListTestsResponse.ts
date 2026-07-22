@@ -5,15 +5,20 @@
  */
 import { SyntheticsTestDetailsWithoutSteps } from "./SyntheticsTestDetailsWithoutSteps";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object containing an array of Synthetic tests configuration.
- */
+*/
 export class SyntheticsListTestsResponse {
   /**
    * Array of Synthetic tests configuration.
-   */
+  */
   "tests"?: Array<SyntheticsTestDetailsWithoutSteps>;
 
   /**
@@ -21,7 +26,7 @@ export class SyntheticsListTestsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class SyntheticsListTestsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    tests: {
-      baseName: "tests",
-      type: "Array<SyntheticsTestDetailsWithoutSteps>",
+    "tests": {
+      "baseName": "tests",
+      "type": "Array<SyntheticsTestDetailsWithoutSteps>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class SyntheticsListTestsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsListTestsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

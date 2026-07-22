@@ -5,19 +5,24 @@
  */
 import { AWSMetricNameFilterPreviewDDName } from "./AWSMetricNameFilterPreviewDDName";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A CloudWatch metric and the Datadog metric names it produces.
- */
+*/
 export class AWSMetricNameFilterPreviewMetric {
   /**
    * The CloudWatch metric name.
-   */
+  */
   "cwName": string;
   /**
    * The Datadog metric names produced from this CloudWatch metric.
-   */
+  */
   "ddNames": Array<AWSMetricNameFilterPreviewDDName>;
 
   /**
@@ -25,7 +30,7 @@ export class AWSMetricNameFilterPreviewMetric {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class AWSMetricNameFilterPreviewMetric {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    cwName: {
-      baseName: "cw_name",
-      type: "string",
-      required: true,
+    "cwName": {
+      "baseName": "cw_name",
+      "type": "string",
+      "required": true,
     },
-    ddNames: {
-      baseName: "dd_names",
-      type: "Array<AWSMetricNameFilterPreviewDDName>",
-      required: true,
+    "ddNames": {
+      "baseName": "dd_names",
+      "type": "Array<AWSMetricNameFilterPreviewDDName>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class AWSMetricNameFilterPreviewMetric {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSMetricNameFilterPreviewMetric.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

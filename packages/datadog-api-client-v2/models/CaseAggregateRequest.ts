@@ -5,15 +5,20 @@
  */
 import { CaseAggregateRequestData } from "./CaseAggregateRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request payload for aggregating case counts with grouping. Use this to get faceted breakdowns of cases (for example, count of cases grouped by priority and status).
- */
+*/
 export class CaseAggregateRequest {
   /**
    * Data object wrapping the aggregation query type and attributes.
-   */
+  */
   "data": CaseAggregateRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class CaseAggregateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CaseAggregateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CaseAggregateRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "CaseAggregateRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CaseAggregateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseAggregateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

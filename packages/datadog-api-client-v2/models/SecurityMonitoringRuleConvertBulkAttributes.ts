@@ -4,16 +4,21 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for bulk converting security monitoring rules to Terraform.
- */
+*/
 export class SecurityMonitoringRuleConvertBulkAttributes {
   /**
    * List of rule IDs to convert. Each rule will be included in the resulting ZIP file
    * as a separate Terraform file.
-   */
+  */
   "ruleIds": Array<string>;
 
   /**
@@ -21,7 +26,7 @@ export class SecurityMonitoringRuleConvertBulkAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class SecurityMonitoringRuleConvertBulkAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    ruleIds: {
-      baseName: "ruleIds",
-      type: "Array<string>",
-      required: true,
+    "ruleIds": {
+      "baseName": "ruleIds",
+      "type": "Array<string>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class SecurityMonitoringRuleConvertBulkAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringRuleConvertBulkAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

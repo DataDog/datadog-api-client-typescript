@@ -6,19 +6,24 @@
 import { SecurityMonitoringRuleResponse } from "./SecurityMonitoringRuleResponse";
 import { VersionHistoryUpdate } from "./VersionHistoryUpdate";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A rule version with a list of updates.
- */
+*/
 export class RuleVersions {
   /**
    * A list of changes.
-   */
+  */
   "changes"?: Array<VersionHistoryUpdate>;
   /**
    * Create a new rule.
-   */
+  */
   "rule"?: SecurityMonitoringRuleResponse;
 
   /**
@@ -26,7 +31,7 @@ export class RuleVersions {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class RuleVersions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    changes: {
-      baseName: "changes",
-      type: "Array<VersionHistoryUpdate>",
+    "changes": {
+      "baseName": "changes",
+      "type": "Array<VersionHistoryUpdate>",
     },
-    rule: {
-      baseName: "rule",
-      type: "SecurityMonitoringRuleResponse",
+    "rule": {
+      "baseName": "rule",
+      "type": "SecurityMonitoringRuleResponse",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class RuleVersions {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RuleVersions.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

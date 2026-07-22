@@ -6,19 +6,24 @@
 import { BulkPutAppsDatastoreItemsRequestDataAttributes } from "./BulkPutAppsDatastoreItemsRequestDataAttributes";
 import { DatastoreItemsDataType } from "./DatastoreItemsDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data wrapper containing the items to insert and their configuration for the bulk insert operation.
- */
+*/
 export class BulkPutAppsDatastoreItemsRequestData {
   /**
    * Configuration for bulk inserting multiple items into a datastore.
-   */
+  */
   "attributes"?: BulkPutAppsDatastoreItemsRequestDataAttributes;
   /**
    * The resource type for datastore items.
-   */
+  */
   "type": DatastoreItemsDataType;
 
   /**
@@ -26,7 +31,7 @@ export class BulkPutAppsDatastoreItemsRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class BulkPutAppsDatastoreItemsRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "BulkPutAppsDatastoreItemsRequestDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "BulkPutAppsDatastoreItemsRequestDataAttributes",
     },
-    type: {
-      baseName: "type",
-      type: "DatastoreItemsDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "DatastoreItemsDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class BulkPutAppsDatastoreItemsRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return BulkPutAppsDatastoreItemsRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

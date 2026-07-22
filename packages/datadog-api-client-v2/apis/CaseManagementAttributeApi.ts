@@ -1,16 +1,12 @@
-import {
-  BaseAPIRequestFactory,
-  RequiredError,
-} from "../../datadog-api-client-common/baseapi";
-import {
-  Configuration,
-  applySecurityAuthentication,
-} from "../../datadog-api-client-common/configuration";
+import { BaseAPIRequestFactory, RequiredError } from "../../datadog-api-client-common/baseapi";
+import { Configuration,
+  applySecurityAuthentication,} from "../../datadog-api-client-common/configuration";
 import {
   RequestContext,
   HttpMethod,
   ResponseContext,
-} from "../../datadog-api-client-common/http/http";
+    
+  } from "../../datadog-api-client-common/http/http";
 
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
@@ -23,54 +19,42 @@ import { CustomAttributeConfigsResponse } from "../models/CustomAttributeConfigs
 import { CustomAttributeConfigUpdateRequest } from "../models/CustomAttributeConfigUpdateRequest";
 
 export class CaseManagementAttributeApiRequestFactory extends BaseAPIRequestFactory {
-  public async createCustomAttributeConfig(
-    caseTypeId: string,
-    body: CustomAttributeConfigCreateRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+
+  public async createCustomAttributeConfig(caseTypeId: string,body: CustomAttributeConfigCreateRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseTypeId' is not null or undefined
     if (caseTypeId === null || caseTypeId === undefined) {
-      throw new RequiredError("caseTypeId", "createCustomAttributeConfig");
+      throw new RequiredError('caseTypeId', 'createCustomAttributeConfig');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "createCustomAttributeConfig");
+      throw new RequiredError('body', 'createCustomAttributeConfig');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/types/{case_type_id}/custom_attributes".replace(
-        "{case_type_id}",
-        encodeURIComponent(String(caseTypeId))
-      );
+    const localVarPath = '/api/v2/cases/types/{case_type_id}/custom_attributes'
+      .replace('{case_type_id}', encodeURIComponent(String(caseTypeId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementAttributeApi.createCustomAttributeConfig")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.CaseManagementAttributeApi.createCustomAttributeConfig').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
-        body,
-        "CustomAttributeConfigCreateRequest",
-        ""
-      ),
+      ObjectSerializer.serialize(body, "CustomAttributeConfigCreateRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -78,44 +62,32 @@ export class CaseManagementAttributeApiRequestFactory extends BaseAPIRequestFact
     return requestContext;
   }
 
-  public async deleteCustomAttributeConfig(
-    caseTypeId: string,
-    customAttributeId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async deleteCustomAttributeConfig(caseTypeId: string,customAttributeId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseTypeId' is not null or undefined
     if (caseTypeId === null || caseTypeId === undefined) {
-      throw new RequiredError("caseTypeId", "deleteCustomAttributeConfig");
+      throw new RequiredError('caseTypeId', 'deleteCustomAttributeConfig');
     }
 
     // verify required parameter 'customAttributeId' is not null or undefined
     if (customAttributeId === null || customAttributeId === undefined) {
-      throw new RequiredError(
-        "customAttributeId",
-        "deleteCustomAttributeConfig"
-      );
+      throw new RequiredError('customAttributeId', 'deleteCustomAttributeConfig');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/types/{case_type_id}/custom_attributes/{custom_attribute_id}"
-        .replace("{case_type_id}", encodeURIComponent(String(caseTypeId)))
-        .replace(
-          "{custom_attribute_id}",
-          encodeURIComponent(String(customAttributeId))
-        );
+    const localVarPath = '/api/v2/cases/types/{case_type_id}/custom_attributes/{custom_attribute_id}'
+      .replace('{case_type_id}', encodeURIComponent(String(caseTypeId)))
+      .replace('{custom_attribute_id}', encodeURIComponent(String(customAttributeId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementAttributeApi.deleteCustomAttributeConfig")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config.getServer('v2.CaseManagementAttributeApi.deleteCustomAttributeConfig').makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -123,38 +95,26 @@ export class CaseManagementAttributeApiRequestFactory extends BaseAPIRequestFact
     return requestContext;
   }
 
-  public async getAllCustomAttributeConfigsByCaseType(
-    caseTypeId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async getAllCustomAttributeConfigsByCaseType(caseTypeId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseTypeId' is not null or undefined
     if (caseTypeId === null || caseTypeId === undefined) {
-      throw new RequiredError(
-        "caseTypeId",
-        "getAllCustomAttributeConfigsByCaseType"
-      );
+      throw new RequiredError('caseTypeId', 'getAllCustomAttributeConfigsByCaseType');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/types/{case_type_id}/custom_attributes".replace(
-        "{case_type_id}",
-        encodeURIComponent(String(caseTypeId))
-      );
+    const localVarPath = '/api/v2/cases/types/{case_type_id}/custom_attributes'
+      .replace('{case_type_id}', encodeURIComponent(String(caseTypeId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer(
-        "v2.CaseManagementAttributeApi.getAllCustomAttributeConfigsByCaseType"
-      )
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.CaseManagementAttributeApi.getAllCustomAttributeConfigsByCaseType').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -162,23 +122,20 @@ export class CaseManagementAttributeApiRequestFactory extends BaseAPIRequestFact
     return requestContext;
   }
 
-  public async getAllCustomAttributes(
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async getAllCustomAttributes(_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = "/api/v2/cases/types/custom_attributes";
+    const localVarPath = '/api/v2/cases/types/custom_attributes';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementAttributeApi.getAllCustomAttributes")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.CaseManagementAttributeApi.getAllCustomAttributes').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -186,65 +143,47 @@ export class CaseManagementAttributeApiRequestFactory extends BaseAPIRequestFact
     return requestContext;
   }
 
-  public async updateCustomAttributeConfig(
-    caseTypeId: string,
-    customAttributeId: string,
-    body: CustomAttributeConfigUpdateRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async updateCustomAttributeConfig(caseTypeId: string,customAttributeId: string,body: CustomAttributeConfigUpdateRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'caseTypeId' is not null or undefined
     if (caseTypeId === null || caseTypeId === undefined) {
-      throw new RequiredError("caseTypeId", "updateCustomAttributeConfig");
+      throw new RequiredError('caseTypeId', 'updateCustomAttributeConfig');
     }
 
     // verify required parameter 'customAttributeId' is not null or undefined
     if (customAttributeId === null || customAttributeId === undefined) {
-      throw new RequiredError(
-        "customAttributeId",
-        "updateCustomAttributeConfig"
-      );
+      throw new RequiredError('customAttributeId', 'updateCustomAttributeConfig');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateCustomAttributeConfig");
+      throw new RequiredError('body', 'updateCustomAttributeConfig');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/types/{case_type_id}/custom_attributes/{custom_attribute_id}"
-        .replace("{case_type_id}", encodeURIComponent(String(caseTypeId)))
-        .replace(
-          "{custom_attribute_id}",
-          encodeURIComponent(String(customAttributeId))
-        );
+    const localVarPath = '/api/v2/cases/types/{case_type_id}/custom_attributes/{custom_attribute_id}'
+      .replace('{case_type_id}', encodeURIComponent(String(caseTypeId)))
+      .replace('{custom_attribute_id}', encodeURIComponent(String(customAttributeId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CaseManagementAttributeApi.updateCustomAttributeConfig")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = _config.getServer('v2.CaseManagementAttributeApi.updateCustomAttributeConfig').makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
-        body,
-        "CustomAttributeConfigUpdateRequest",
-        ""
-      ),
+      ObjectSerializer.serialize(body, "CustomAttributeConfigUpdateRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -255,6 +194,8 @@ export class CaseManagementAttributeApiRequestFactory extends BaseAPIRequestFact
 }
 
 export class CaseManagementAttributeApiResponseProcessor {
+
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -262,12 +203,8 @@ export class CaseManagementAttributeApiResponseProcessor {
    * @params response Response returned by the server for a request to createCustomAttributeConfig
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createCustomAttributeConfig(
-    response: ResponseContext
-  ): Promise<CustomAttributeConfigResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async createCustomAttributeConfig(response: ResponseContext): Promise<CustomAttributeConfigResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
       const body: CustomAttributeConfigResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -275,17 +212,8 @@ export class CaseManagementAttributeApiResponseProcessor {
       ) as CustomAttributeConfigResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -294,30 +222,25 @@ export class CaseManagementAttributeApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CustomAttributeConfigResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CustomAttributeConfigResponse",
-        ""
+        "",
       ) as CustomAttributeConfigResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -326,25 +249,13 @@ export class CaseManagementAttributeApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteCustomAttributeConfig
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteCustomAttributeConfig(
-    response: ResponseContext
-  ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async deleteCustomAttributeConfig(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -353,25 +264,20 @@ export class CaseManagementAttributeApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -380,12 +286,8 @@ export class CaseManagementAttributeApiResponseProcessor {
    * @params response Response returned by the server for a request to getAllCustomAttributeConfigsByCaseType
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getAllCustomAttributeConfigsByCaseType(
-    response: ResponseContext
-  ): Promise<CustomAttributeConfigsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getAllCustomAttributeConfigsByCaseType(response: ResponseContext): Promise<CustomAttributeConfigsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: CustomAttributeConfigsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -393,16 +295,8 @@ export class CaseManagementAttributeApiResponseProcessor {
       ) as CustomAttributeConfigsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -411,30 +305,25 @@ export class CaseManagementAttributeApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CustomAttributeConfigsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CustomAttributeConfigsResponse",
-        ""
+        "",
       ) as CustomAttributeConfigsResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -443,12 +332,8 @@ export class CaseManagementAttributeApiResponseProcessor {
    * @params response Response returned by the server for a request to getAllCustomAttributes
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getAllCustomAttributes(
-    response: ResponseContext
-  ): Promise<CustomAttributeConfigsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getAllCustomAttributes(response: ResponseContext): Promise<CustomAttributeConfigsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: CustomAttributeConfigsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -456,15 +341,8 @@ export class CaseManagementAttributeApiResponseProcessor {
       ) as CustomAttributeConfigsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -473,30 +351,25 @@ export class CaseManagementAttributeApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CustomAttributeConfigsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CustomAttributeConfigsResponse",
-        ""
+        "",
       ) as CustomAttributeConfigsResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -505,12 +378,8 @@ export class CaseManagementAttributeApiResponseProcessor {
    * @params response Response returned by the server for a request to updateCustomAttributeConfig
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateCustomAttributeConfig(
-    response: ResponseContext
-  ): Promise<CustomAttributeConfigResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async updateCustomAttributeConfig(response: ResponseContext): Promise<CustomAttributeConfigResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: CustomAttributeConfigResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -518,17 +387,8 @@ export class CaseManagementAttributeApiResponseProcessor {
       ) as CustomAttributeConfigResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -537,29 +397,23 @@ export class CaseManagementAttributeApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CustomAttributeConfigResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CustomAttributeConfigResponse",
-        ""
+        "",
       ) as CustomAttributeConfigResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 }
 
@@ -568,12 +422,12 @@ export interface CaseManagementAttributeApiCreateCustomAttributeConfigRequest {
    * The UUID of the case type.
    * @type string
    */
-  caseTypeId: string;
+  caseTypeId: string
   /**
    * Custom attribute config payload
    * @type CustomAttributeConfigCreateRequest
    */
-  body: CustomAttributeConfigCreateRequest;
+  body: CustomAttributeConfigCreateRequest
 }
 
 export interface CaseManagementAttributeApiDeleteCustomAttributeConfigRequest {
@@ -581,12 +435,12 @@ export interface CaseManagementAttributeApiDeleteCustomAttributeConfigRequest {
    * The UUID of the case type.
    * @type string
    */
-  caseTypeId: string;
+  caseTypeId: string
   /**
    * Case Custom attribute's UUID
    * @type string
    */
-  customAttributeId: string;
+  customAttributeId: string
 }
 
 export interface CaseManagementAttributeApiGetAllCustomAttributeConfigsByCaseTypeRequest {
@@ -594,7 +448,7 @@ export interface CaseManagementAttributeApiGetAllCustomAttributeConfigsByCaseTyp
    * The UUID of the case type.
    * @type string
    */
-  caseTypeId: string;
+  caseTypeId: string
 }
 
 export interface CaseManagementAttributeApiUpdateCustomAttributeConfigRequest {
@@ -602,17 +456,17 @@ export interface CaseManagementAttributeApiUpdateCustomAttributeConfigRequest {
    * The UUID of the case type.
    * @type string
    */
-  caseTypeId: string;
+  caseTypeId: string
   /**
    * Case Custom attribute's UUID
    * @type string
    */
-  customAttributeId: string;
+  customAttributeId: string
   /**
    * Custom attribute config payload.
    * @type CustomAttributeConfigUpdateRequest
    */
-  body: CustomAttributeConfigUpdateRequest;
+  body: CustomAttributeConfigUpdateRequest
 }
 
 export class CaseManagementAttributeApi {
@@ -620,40 +474,21 @@ export class CaseManagementAttributeApi {
   private responseProcessor: CaseManagementAttributeApiResponseProcessor;
   private configuration: Configuration;
 
-  public constructor(
-    configuration: Configuration,
-    requestFactory?: CaseManagementAttributeApiRequestFactory,
-    responseProcessor?: CaseManagementAttributeApiResponseProcessor
-  ) {
+  public constructor(configuration: Configuration, requestFactory?: CaseManagementAttributeApiRequestFactory, responseProcessor?: CaseManagementAttributeApiResponseProcessor) {
     this.configuration = configuration;
-    this.requestFactory =
-      requestFactory ||
-      new CaseManagementAttributeApiRequestFactory(configuration);
-    this.responseProcessor =
-      responseProcessor || new CaseManagementAttributeApiResponseProcessor();
+    this.requestFactory = requestFactory || new CaseManagementAttributeApiRequestFactory(configuration);
+    this.responseProcessor = responseProcessor || new CaseManagementAttributeApiResponseProcessor();
   }
 
   /**
    * Create custom attribute config for a case type
    * @param param The request object
    */
-  public createCustomAttributeConfig(
-    param: CaseManagementAttributeApiCreateCustomAttributeConfigRequest,
-    options?: Configuration
-  ): Promise<CustomAttributeConfigResponse> {
-    const requestContextPromise =
-      this.requestFactory.createCustomAttributeConfig(
-        param.caseTypeId,
-        param.body,
-        options
-      );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.createCustomAttributeConfig(
-            responseContext
-          );
+  public createCustomAttributeConfig(param: CaseManagementAttributeApiCreateCustomAttributeConfigRequest, options?: Configuration): Promise<CustomAttributeConfigResponse> {
+    const requestContextPromise = this.requestFactory.createCustomAttributeConfig(param.caseTypeId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.createCustomAttributeConfig(responseContext);
         });
     });
   }
@@ -662,23 +497,11 @@ export class CaseManagementAttributeApi {
    * Delete custom attribute config
    * @param param The request object
    */
-  public deleteCustomAttributeConfig(
-    param: CaseManagementAttributeApiDeleteCustomAttributeConfigRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteCustomAttributeConfig(
-        param.caseTypeId,
-        param.customAttributeId,
-        options
-      );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.deleteCustomAttributeConfig(
-            responseContext
-          );
+  public deleteCustomAttributeConfig(param: CaseManagementAttributeApiDeleteCustomAttributeConfigRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteCustomAttributeConfig(param.caseTypeId,param.customAttributeId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.deleteCustomAttributeConfig(responseContext);
         });
     });
   }
@@ -687,22 +510,11 @@ export class CaseManagementAttributeApi {
    * Get all custom attribute config of case type
    * @param param The request object
    */
-  public getAllCustomAttributeConfigsByCaseType(
-    param: CaseManagementAttributeApiGetAllCustomAttributeConfigsByCaseTypeRequest,
-    options?: Configuration
-  ): Promise<CustomAttributeConfigsResponse> {
-    const requestContextPromise =
-      this.requestFactory.getAllCustomAttributeConfigsByCaseType(
-        param.caseTypeId,
-        options
-      );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getAllCustomAttributeConfigsByCaseType(
-            responseContext
-          );
+  public getAllCustomAttributeConfigsByCaseType(param: CaseManagementAttributeApiGetAllCustomAttributeConfigsByCaseTypeRequest, options?: Configuration): Promise<CustomAttributeConfigsResponse> {
+    const requestContextPromise = this.requestFactory.getAllCustomAttributeConfigsByCaseType(param.caseTypeId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getAllCustomAttributeConfigsByCaseType(responseContext);
         });
     });
   }
@@ -711,16 +523,11 @@ export class CaseManagementAttributeApi {
    * Get all custom attributes
    * @param param The request object
    */
-  public getAllCustomAttributes(
-    options?: Configuration
-  ): Promise<CustomAttributeConfigsResponse> {
-    const requestContextPromise =
-      this.requestFactory.getAllCustomAttributes(options);
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getAllCustomAttributes(responseContext);
+  public getAllCustomAttributes( options?: Configuration): Promise<CustomAttributeConfigsResponse> {
+    const requestContextPromise = this.requestFactory.getAllCustomAttributes(options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getAllCustomAttributes(responseContext);
         });
     });
   }
@@ -729,24 +536,11 @@ export class CaseManagementAttributeApi {
    * Updates the display name, description, type, or options of an existing custom attribute configuration for a case type.
    * @param param The request object
    */
-  public updateCustomAttributeConfig(
-    param: CaseManagementAttributeApiUpdateCustomAttributeConfigRequest,
-    options?: Configuration
-  ): Promise<CustomAttributeConfigResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateCustomAttributeConfig(
-        param.caseTypeId,
-        param.customAttributeId,
-        param.body,
-        options
-      );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.updateCustomAttributeConfig(
-            responseContext
-          );
+  public updateCustomAttributeConfig(param: CaseManagementAttributeApiUpdateCustomAttributeConfigRequest, options?: Configuration): Promise<CustomAttributeConfigResponse> {
+    const requestContextPromise = this.requestFactory.updateCustomAttributeConfig(param.caseTypeId,param.customAttributeId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.updateCustomAttributeConfig(responseContext);
         });
     });
   }

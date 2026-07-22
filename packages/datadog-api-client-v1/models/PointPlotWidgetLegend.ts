@@ -5,15 +5,20 @@
  */
 import { PointPlotWidgetLegendType } from "./PointPlotWidgetLegendType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Legend configuration for the point plot widget.
- */
+*/
 export class PointPlotWidgetLegend {
   /**
    * Type of legend to show for the point plot widget.
-   */
+  */
   "type": PointPlotWidgetLegendType;
 
   /**
@@ -21,7 +26,7 @@ export class PointPlotWidgetLegend {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class PointPlotWidgetLegend {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    type: {
-      baseName: "type",
-      type: "PointPlotWidgetLegendType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "PointPlotWidgetLegendType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class PointPlotWidgetLegend {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PointPlotWidgetLegend.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

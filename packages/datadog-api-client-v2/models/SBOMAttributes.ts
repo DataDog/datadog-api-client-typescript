@@ -8,39 +8,44 @@ import { SBOMComponentDependency } from "./SBOMComponentDependency";
 import { SBOMMetadata } from "./SBOMMetadata";
 import { SpecVersion } from "./SpecVersion";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The JSON:API attributes of the SBOM.
- */
+*/
 export class SBOMAttributes {
   /**
    * Specifies the format of the BOM. This helps to identify the file as CycloneDX since BOM do not have a filename convention nor does JSON schema support namespaces. This value MUST be `CycloneDX`.
-   */
+  */
   "bomFormat": string;
   /**
    * A list of software and hardware components.
-   */
+  */
   "components": Array<SBOMComponent>;
   /**
    * List of dependencies between components of the SBOM.
-   */
+  */
   "dependencies": Array<SBOMComponentDependency>;
   /**
    * Provides additional information about a BOM.
-   */
+  */
   "metadata": SBOMMetadata;
   /**
    * Every BOM generated has a unique serial number, even if the contents of the BOM have not changed overt time. The serial number follows [RFC-4122](https://datatracker.ietf.org/doc/html/rfc4122)
-   */
+  */
   "serialNumber": string;
   /**
    * The version of the CycloneDX specification a BOM conforms to.
-   */
+  */
   "specVersion": SpecVersion;
   /**
    * It increments when a BOM is modified. The default value is 1.
-   */
+  */
   "version": number;
 
   /**
@@ -48,7 +53,7 @@ export class SBOMAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -59,41 +64,41 @@ export class SBOMAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    bomFormat: {
-      baseName: "bomFormat",
-      type: "string",
-      required: true,
+    "bomFormat": {
+      "baseName": "bomFormat",
+      "type": "string",
+      "required": true,
     },
-    components: {
-      baseName: "components",
-      type: "Array<SBOMComponent>",
-      required: true,
+    "components": {
+      "baseName": "components",
+      "type": "Array<SBOMComponent>",
+      "required": true,
     },
-    dependencies: {
-      baseName: "dependencies",
-      type: "Array<SBOMComponentDependency>",
-      required: true,
+    "dependencies": {
+      "baseName": "dependencies",
+      "type": "Array<SBOMComponentDependency>",
+      "required": true,
     },
-    metadata: {
-      baseName: "metadata",
-      type: "SBOMMetadata",
-      required: true,
+    "metadata": {
+      "baseName": "metadata",
+      "type": "SBOMMetadata",
+      "required": true,
     },
-    serialNumber: {
-      baseName: "serialNumber",
-      type: "string",
-      required: true,
+    "serialNumber": {
+      "baseName": "serialNumber",
+      "type": "string",
+      "required": true,
     },
-    specVersion: {
-      baseName: "specVersion",
-      type: "SpecVersion",
-      required: true,
+    "specVersion": {
+      "baseName": "specVersion",
+      "type": "SpecVersion",
+      "required": true,
     },
-    version: {
-      baseName: "version",
-      type: "number",
-      required: true,
-      format: "int64",
+    "version": {
+      "baseName": "version",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -105,8 +110,34 @@ export class SBOMAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SBOMAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

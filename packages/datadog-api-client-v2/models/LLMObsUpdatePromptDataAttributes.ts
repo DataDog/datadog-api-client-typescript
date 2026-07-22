@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for updating an LLM Observability prompt. At least one of `title` or `description` must be provided; both attributes are optional individually.
- */
+*/
 export class LLMObsUpdatePromptDataAttributes {
   /**
    * Optional new description for the prompt.
-   */
+  */
   "description"?: string;
   /**
    * Optional new title for the prompt.
-   */
+  */
   "title"?: string;
 
   /**
@@ -28,22 +33,48 @@ export class LLMObsUpdatePromptDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    title: {
-      baseName: "title",
-      type: "string",
-    },
+    "title": {
+      "baseName": "title",
+      "type": "string",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsUpdatePromptDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

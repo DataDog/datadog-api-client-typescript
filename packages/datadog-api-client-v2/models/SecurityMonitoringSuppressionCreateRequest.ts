@@ -5,15 +5,20 @@
  */
 import { SecurityMonitoringSuppressionCreateData } from "./SecurityMonitoringSuppressionCreateData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request object that includes the suppression rule that you would like to create.
- */
+*/
 export class SecurityMonitoringSuppressionCreateRequest {
   /**
    * Object for a single suppression rule.
-   */
+  */
   "data": SecurityMonitoringSuppressionCreateData;
 
   /**
@@ -21,7 +26,7 @@ export class SecurityMonitoringSuppressionCreateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class SecurityMonitoringSuppressionCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SecurityMonitoringSuppressionCreateData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "SecurityMonitoringSuppressionCreateData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class SecurityMonitoringSuppressionCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringSuppressionCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

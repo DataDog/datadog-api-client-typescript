@@ -6,13 +6,15 @@
 import { TableWidgetTextFormatReplaceAll } from "./TableWidgetTextFormatReplaceAll";
 import { TableWidgetTextFormatReplaceSubstring } from "./TableWidgetTextFormatReplaceSubstring";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Replace rule for the table widget text format.
- */
+*/
 
-export type TableWidgetTextFormatReplace =
-  | TableWidgetTextFormatReplaceAll
-  | TableWidgetTextFormatReplaceSubstring
-  | UnparsedObject;
+export type TableWidgetTextFormatReplace = TableWidgetTextFormatReplaceAll | TableWidgetTextFormatReplaceSubstring | UnparsedObject;

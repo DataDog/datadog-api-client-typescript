@@ -5,15 +5,20 @@
  */
 import { DowntimeUpdateRequestData } from "./DowntimeUpdateRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request for editing a downtime.
- */
+*/
 export class DowntimeUpdateRequest {
   /**
    * Object to update a downtime.
-   */
+  */
   "data": DowntimeUpdateRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class DowntimeUpdateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class DowntimeUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "DowntimeUpdateRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "DowntimeUpdateRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class DowntimeUpdateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DowntimeUpdateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

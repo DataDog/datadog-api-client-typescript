@@ -6,19 +6,24 @@
 import { LLMObsCursorMeta } from "./LLMObsCursorMeta";
 import { LLMObsExperimentationSearchDataResponse } from "./LLMObsExperimentationSearchDataResponse";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response to a cursor-based experimentation search. Returns `200 OK` when all results fit in one page; `206 Partial Content` when a next-page cursor is available.
- */
+*/
 export class LLMObsExperimentationSearchResponse {
   /**
    * JSON:API data object for an experimentation search response.
-   */
+  */
   "data": LLMObsExperimentationSearchDataResponse;
   /**
    * Pagination cursor metadata.
-   */
+  */
   "meta"?: LLMObsCursorMeta;
 
   /**
@@ -26,7 +31,7 @@ export class LLMObsExperimentationSearchResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class LLMObsExperimentationSearchResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "LLMObsExperimentationSearchDataResponse",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "LLMObsExperimentationSearchDataResponse",
+      "required": true,
     },
-    meta: {
-      baseName: "meta",
-      type: "LLMObsCursorMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "LLMObsCursorMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class LLMObsExperimentationSearchResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsExperimentationSearchResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for creating a tag indexing rule exemption.
- */
+*/
 export class TagIndexingRuleExemptionCreateAttributes {
   /**
    * The reason the metric is exempt from tag indexing rules.
-   */
+  */
   "reason": string;
 
   /**
@@ -20,7 +25,7 @@ export class TagIndexingRuleExemptionCreateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,10 +36,10 @@ export class TagIndexingRuleExemptionCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    reason: {
-      baseName: "reason",
-      type: "string",
-      required: true,
+    "reason": {
+      "baseName": "reason",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class TagIndexingRuleExemptionCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TagIndexingRuleExemptionCreateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

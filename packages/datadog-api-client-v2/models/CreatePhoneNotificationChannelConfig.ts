@@ -5,19 +5,24 @@
  */
 import { NotificationChannelPhoneConfigType } from "./NotificationChannelPhoneConfigType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Configuration to create a phone notification channel
- */
+*/
 export class CreatePhoneNotificationChannelConfig {
   /**
    * The E-164 formatted phone number (e.g. +3371234567)
-   */
+  */
   "number": string;
   /**
    * Indicates that the notification channel is a phone
-   */
+  */
   "type": NotificationChannelPhoneConfigType;
 
   /**
@@ -25,7 +30,7 @@ export class CreatePhoneNotificationChannelConfig {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class CreatePhoneNotificationChannelConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    number: {
-      baseName: "number",
-      type: "string",
-      required: true,
+    "number": {
+      "baseName": "number",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "NotificationChannelPhoneConfigType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "NotificationChannelPhoneConfigType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class CreatePhoneNotificationChannelConfig {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreatePhoneNotificationChannelConfig.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

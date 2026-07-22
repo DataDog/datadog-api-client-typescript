@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * AWS account ID and Lambda ARN.
- */
+*/
 export class AWSAccountAndLambdaRequest {
   /**
    * Your AWS Account ID without dashes.
-   */
+  */
   "accountId": string;
   /**
    * ARN of the Datadog Lambda created during the Datadog-Amazon Web services Log collection setup.
-   */
+  */
   "lambdaArn": string;
 
   /**
@@ -24,7 +29,7 @@ export class AWSAccountAndLambdaRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,15 +40,15 @@ export class AWSAccountAndLambdaRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    accountId: {
-      baseName: "account_id",
-      type: "string",
-      required: true,
+    "accountId": {
+      "baseName": "account_id",
+      "type": "string",
+      "required": true,
     },
-    lambdaArn: {
-      baseName: "lambda_arn",
-      type: "string",
-      required: true,
+    "lambdaArn": {
+      "baseName": "lambda_arn",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class AWSAccountAndLambdaRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSAccountAndLambdaRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of the assertion.
- */
+*/
 
-export type SyntheticsAssertionMCPRespectsSpecificationType =
-  | typeof MCP_RESPECTS_SPECIFICATION
-  | UnparsedObject;
-export const MCP_RESPECTS_SPECIFICATION = "mcpRespectsSpecification";
+export type SyntheticsAssertionMCPRespectsSpecificationType = typeof MCP_RESPECTS_SPECIFICATION | UnparsedObject;
+export const MCP_RESPECTS_SPECIFICATION = 'mcpRespectsSpecification';

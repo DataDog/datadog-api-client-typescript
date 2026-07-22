@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Org group memberships resource type.
- */
+*/
 
-export type OrgGroupMembershipType =
-  | typeof ORG_GROUP_MEMBERSHIPS
-  | UnparsedObject;
-export const ORG_GROUP_MEMBERSHIPS = "org_group_memberships";
+export type OrgGroupMembershipType = typeof ORG_GROUP_MEMBERSHIPS | UnparsedObject;
+export const ORG_GROUP_MEMBERSHIPS = 'org_group_memberships';

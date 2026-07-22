@@ -4,55 +4,60 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Details of a rule.
- */
+*/
 export class RuleAttributes {
   /**
    * The scorecard name to which this rule must belong.
-   */
+  */
   "category"?: string;
   /**
    * Creation time of the rule outcome.
-   */
+  */
   "createdAt"?: Date;
   /**
    * Defines if the rule is a custom rule.
-   */
+  */
   "custom"?: boolean;
   /**
    * Explanation of the rule.
-   */
+  */
   "description"?: string;
   /**
    * If enabled, the rule is calculated as part of the score.
-   */
+  */
   "enabled"?: boolean;
   /**
    * The maturity level of the rule (1, 2, or 3).
-   */
+  */
   "level"?: number;
   /**
    * Time of the last rule outcome modification.
-   */
+  */
   "modifiedAt"?: Date;
   /**
    * Name of the rule.
-   */
+  */
   "name"?: string;
   /**
    * Owner of the rule.
-   */
+  */
   "owner"?: string;
   /**
    * A query to filter which entities this rule applies to.
-   */
+  */
   "scopeQuery"?: string;
   /**
    * The scorecard name to which this rule must belong.
-   */
+  */
   "scorecardName"?: string;
 
   /**
@@ -60,7 +65,7 @@ export class RuleAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -71,51 +76,51 @@ export class RuleAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    category: {
-      baseName: "category",
-      type: "string",
+    "category": {
+      "baseName": "category",
+      "type": "string",
     },
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    custom: {
-      baseName: "custom",
-      type: "boolean",
+    "custom": {
+      "baseName": "custom",
+      "type": "boolean",
     },
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
+    "enabled": {
+      "baseName": "enabled",
+      "type": "boolean",
     },
-    level: {
-      baseName: "level",
-      type: "number",
+    "level": {
+      "baseName": "level",
+      "type": "number",
     },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "Date",
-      format: "date-time",
+    "modifiedAt": {
+      "baseName": "modified_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    owner: {
-      baseName: "owner",
-      type: "string",
+    "owner": {
+      "baseName": "owner",
+      "type": "string",
     },
-    scopeQuery: {
-      baseName: "scope_query",
-      type: "string",
+    "scopeQuery": {
+      "baseName": "scope_query",
+      "type": "string",
     },
-    scorecardName: {
-      baseName: "scorecard_name",
-      type: "string",
+    "scorecardName": {
+      "baseName": "scorecard_name",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -127,8 +132,34 @@ export class RuleAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RuleAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

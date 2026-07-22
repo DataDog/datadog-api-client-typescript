@@ -5,31 +5,36 @@
  */
 import { AnyValue } from "./AnyValue";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A single record to append to an LLM Observability dataset.
- */
+*/
 export class LLMObsDatasetRecordItem {
   /**
    * Represents any valid JSON value.
-   */
+  */
   "expectedOutput"?: AnyValue;
   /**
    * Represents any valid JSON value.
-   */
-  "input": AnyValue | null;
+  */
+  "input": AnyValue|null;
   /**
    * Arbitrary metadata associated with the record.
-   */
-  "metadata"?: { [key: string]: any };
+  */
+  "metadata"?: { [key: string]: any; };
 
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,18 +45,18 @@ export class LLMObsDatasetRecordItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    expectedOutput: {
-      baseName: "expected_output",
-      type: "AnyValue",
+    "expectedOutput": {
+      "baseName": "expected_output",
+      "type": "AnyValue",
     },
-    input: {
-      baseName: "input",
-      type: "AnyValue",
-      required: true,
+    "input": {
+      "baseName": "input",
+      "type": "AnyValue",
+      "required": true,
     },
-    metadata: {
-      baseName: "metadata",
-      type: "{ [key: string]: any; }",
+    "metadata": {
+      "baseName": "metadata",
+      "type": "{ [key: string]: any; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class LLMObsDatasetRecordItem {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDatasetRecordItem.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

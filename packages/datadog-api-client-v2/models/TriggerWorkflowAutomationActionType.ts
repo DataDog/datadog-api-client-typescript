@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Indicates that the action triggers a Workflow Automation.
- */
+*/
 
-export type TriggerWorkflowAutomationActionType =
-  | typeof TRIGGER_WORKFLOW_AUTOMATION
-  | UnparsedObject;
-export const TRIGGER_WORKFLOW_AUTOMATION = "workflow";
+export type TriggerWorkflowAutomationActionType = typeof TRIGGER_WORKFLOW_AUTOMATION | UnparsedObject;
+export const TRIGGER_WORKFLOW_AUTOMATION = 'workflow';

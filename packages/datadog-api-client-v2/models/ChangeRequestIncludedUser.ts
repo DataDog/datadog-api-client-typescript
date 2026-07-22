@@ -5,23 +5,28 @@
  */
 import { ChangeRequestIncludedUserAttributes } from "./ChangeRequestIncludedUserAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An included user resource.
- */
+*/
 export class ChangeRequestIncludedUser {
   /**
    * Attributes of an included user.
-   */
+  */
   "attributes": ChangeRequestIncludedUserAttributes;
   /**
    * The user UUID.
-   */
+  */
   "id": string;
   /**
    * The resource type.
-   */
+  */
   "type": string;
 
   /**
@@ -29,7 +34,7 @@ export class ChangeRequestIncludedUser {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,20 +45,20 @@ export class ChangeRequestIncludedUser {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ChangeRequestIncludedUserAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ChangeRequestIncludedUserAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "string",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class ChangeRequestIncludedUser {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ChangeRequestIncludedUser.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

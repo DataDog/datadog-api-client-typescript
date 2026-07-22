@@ -4,21 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The lifecycle status of an ownership inference.
- */
+*/
 
-export type OwnershipInferenceStatus =
-  | typeof SUGGESTED
-  | typeof PERSISTED
-  | typeof OVERRIDDEN
-  | typeof FAILED
-  | typeof UNKNOWN
-  | UnparsedObject;
-export const SUGGESTED = "suggested";
-export const PERSISTED = "persisted";
-export const OVERRIDDEN = "overridden";
-export const FAILED = "failed";
-export const UNKNOWN = "unknown";
+export type OwnershipInferenceStatus = typeof SUGGESTED| typeof PERSISTED| typeof OVERRIDDEN| typeof FAILED| typeof UNKNOWN | UnparsedObject;
+export const SUGGESTED = 'suggested';
+export const PERSISTED = 'persisted';
+export const OVERRIDDEN = 'overridden';
+export const FAILED = 'failed';
+export const UNKNOWN = 'unknown';

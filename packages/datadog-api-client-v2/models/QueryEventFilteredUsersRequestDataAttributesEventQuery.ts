@@ -5,19 +5,24 @@
  */
 import { QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame } from "./QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Event platform query used to filter users based on their event activity within a specified time window.
- */
+*/
 export class QueryEventFilteredUsersRequestDataAttributesEventQuery {
   /**
    * The event platform query expression for filtering users by their event activity.
-   */
+  */
   "query"?: string;
   /**
    * The time window defining the start and end of the event query period as Unix timestamps.
-   */
+  */
   "timeFrame"?: QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame;
 
   /**
@@ -25,7 +30,7 @@ export class QueryEventFilteredUsersRequestDataAttributesEventQuery {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class QueryEventFilteredUsersRequestDataAttributesEventQuery {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    query: {
-      baseName: "query",
-      type: "string",
+    "query": {
+      "baseName": "query",
+      "type": "string",
     },
-    timeFrame: {
-      baseName: "time_frame",
-      type: "QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame",
+    "timeFrame": {
+      "baseName": "time_frame",
+      "type": "QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class QueryEventFilteredUsersRequestDataAttributesEventQuery {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return QueryEventFilteredUsersRequestDataAttributesEventQuery.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

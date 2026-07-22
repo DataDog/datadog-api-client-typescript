@@ -6,19 +6,24 @@
 import { LLMObsDeleteDatasetRecordsDataAttributesRequest } from "./LLMObsDeleteDatasetRecordsDataAttributesRequest";
 import { LLMObsRecordType } from "./LLMObsRecordType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for deleting records from an LLM Observability dataset.
- */
+*/
 export class LLMObsDeleteDatasetRecordsDataRequest {
   /**
    * Attributes for deleting records from an LLM Observability dataset.
-   */
+  */
   "attributes": LLMObsDeleteDatasetRecordsDataAttributesRequest;
   /**
    * Resource type of LLM Observability dataset records.
-   */
+  */
   "type": LLMObsRecordType;
 
   /**
@@ -26,7 +31,7 @@ export class LLMObsDeleteDatasetRecordsDataRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class LLMObsDeleteDatasetRecordsDataRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LLMObsDeleteDatasetRecordsDataAttributesRequest",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "LLMObsDeleteDatasetRecordsDataAttributesRequest",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LLMObsRecordType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LLMObsRecordType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class LLMObsDeleteDatasetRecordsDataRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDeleteDatasetRecordsDataRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

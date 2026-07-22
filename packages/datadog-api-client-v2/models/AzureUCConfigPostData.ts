@@ -6,19 +6,24 @@
 import { AzureUCConfigPostRequestAttributes } from "./AzureUCConfigPostRequestAttributes";
 import { AzureUCConfigPostRequestType } from "./AzureUCConfigPostRequestType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Azure config Post data.
- */
+*/
 export class AzureUCConfigPostData {
   /**
    * Attributes for Azure config Post Request.
-   */
+  */
   "attributes"?: AzureUCConfigPostRequestAttributes;
   /**
    * Type of Azure config Post Request.
-   */
+  */
   "type": AzureUCConfigPostRequestType;
 
   /**
@@ -26,7 +31,7 @@ export class AzureUCConfigPostData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class AzureUCConfigPostData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AzureUCConfigPostRequestAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AzureUCConfigPostRequestAttributes",
     },
-    type: {
-      baseName: "type",
-      type: "AzureUCConfigPostRequestType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AzureUCConfigPostRequestType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class AzureUCConfigPostData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AzureUCConfigPostData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

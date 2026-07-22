@@ -4,22 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The data type of the field. 1=dropdown, 2=multiselect, 3=textbox, 4=textarray, 5=metrictag, 6=autocomplete, 7=number, 8=datetime.
- */
+*/
 
-export type IncidentUserDefinedFieldFieldType =
-  | typeof DROPDOWN
-  | typeof MULTISELECT
-  | typeof TEXTBOX
-  | typeof TEXTARRAY
-  | typeof METRICTAG
-  | typeof AUTOCOMPLETE
-  | typeof NUMBER
-  | typeof DATETIME
-  | UnparsedObject;
+export type IncidentUserDefinedFieldFieldType = typeof DROPDOWN| typeof MULTISELECT| typeof TEXTBOX| typeof TEXTARRAY| typeof METRICTAG| typeof AUTOCOMPLETE| typeof NUMBER| typeof DATETIME | UnparsedObject;
 export const DROPDOWN = 1;
 export const MULTISELECT = 2;
 export const TEXTBOX = 3;

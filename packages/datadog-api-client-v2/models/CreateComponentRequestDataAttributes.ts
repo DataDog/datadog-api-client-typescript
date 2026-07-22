@@ -6,27 +6,32 @@
 import { CreateComponentRequestDataAttributesComponentsItems } from "./CreateComponentRequestDataAttributesComponentsItems";
 import { CreateComponentRequestDataAttributesType } from "./CreateComponentRequestDataAttributesType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The supported attributes for creating a component.
- */
+*/
 export class CreateComponentRequestDataAttributes {
   /**
    * If creating a component of type `group`, the components to create within the group.
-   */
+  */
   "components"?: Array<CreateComponentRequestDataAttributesComponentsItems>;
   /**
    * The name of the component.
-   */
+  */
   "name": string;
   /**
    * The zero-indexed position of the component.
-   */
+  */
   "position": number;
   /**
    * The type of the component.
-   */
+  */
   "type": CreateComponentRequestDataAttributesType;
 
   /**
@@ -34,7 +39,7 @@ export class CreateComponentRequestDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -45,25 +50,25 @@ export class CreateComponentRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    components: {
-      baseName: "components",
-      type: "Array<CreateComponentRequestDataAttributesComponentsItems>",
+    "components": {
+      "baseName": "components",
+      "type": "Array<CreateComponentRequestDataAttributesComponentsItems>",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    position: {
-      baseName: "position",
-      type: "number",
-      required: true,
-      format: "int64",
+    "position": {
+      "baseName": "position",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    type: {
-      baseName: "type",
-      type: "CreateComponentRequestDataAttributesType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CreateComponentRequestDataAttributesType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -75,8 +80,34 @@ export class CreateComponentRequestDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateComponentRequestDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

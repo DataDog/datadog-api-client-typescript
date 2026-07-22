@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An individual Datadog product with its enablement status for a tenancy.
- */
+*/
 export class TenancyProductsDataAttributesProductsItems {
   /**
    * Indicates whether the product is enabled for the tenancy.
-   */
+  */
   "enabled"?: boolean;
   /**
    * The unique key identifying the Datadog product (for example, CLOUD_SECURITY_POSTURE_MANAGEMENT).
-   */
+  */
   "productKey"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class TenancyProductsDataAttributesProductsItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class TenancyProductsDataAttributesProductsItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
+    "enabled": {
+      "baseName": "enabled",
+      "type": "boolean",
     },
-    productKey: {
-      baseName: "product_key",
-      type: "string",
+    "productKey": {
+      "baseName": "product_key",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class TenancyProductsDataAttributesProductsItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TenancyProductsDataAttributesProductsItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

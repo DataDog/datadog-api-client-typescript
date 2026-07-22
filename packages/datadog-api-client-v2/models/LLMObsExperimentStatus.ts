@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Execution status of an LLM Observability experiment.
- */
+*/
 
-export type LLMObsExperimentStatus =
-  | typeof RUNNING
-  | typeof COMPLETED
-  | typeof FAILED
-  | typeof INTERRUPTED
-  | UnparsedObject;
-export const RUNNING = "running";
-export const COMPLETED = "completed";
-export const FAILED = "failed";
-export const INTERRUPTED = "interrupted";
+export type LLMObsExperimentStatus = typeof RUNNING| typeof COMPLETED| typeof FAILED| typeof INTERRUPTED | UnparsedObject;
+export const RUNNING = 'running';
+export const COMPLETED = 'completed';
+export const FAILED = 'failed';
+export const INTERRUPTED = 'interrupted';

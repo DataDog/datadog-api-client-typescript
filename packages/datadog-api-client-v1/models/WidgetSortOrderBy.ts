@@ -6,13 +6,15 @@
 import { WidgetFormulaSort } from "./WidgetFormulaSort";
 import { WidgetGroupSort } from "./WidgetGroupSort";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The item to sort the widget by.
- */
+*/
 
-export type WidgetSortOrderBy =
-  | WidgetFormulaSort
-  | WidgetGroupSort
-  | UnparsedObject;
+export type WidgetSortOrderBy = WidgetFormulaSort | WidgetGroupSort | UnparsedObject;

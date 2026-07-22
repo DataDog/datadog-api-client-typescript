@@ -6,39 +6,44 @@
 import { IncidentImportFieldAttributes } from "./IncidentImportFieldAttributes";
 import { IncidentImportVisibility } from "./IncidentImportVisibility";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The incident's attributes for an import request.
- */
+*/
 export class IncidentImportRequestAttributes {
   /**
    * Timestamp when the incident was declared.
-   */
+  */
   "declared"?: Date;
   /**
    * Timestamp when the incident was detected.
-   */
+  */
   "detected"?: Date;
   /**
    * A condensed view of the user-defined fields for which to create initial selections.
-   */
-  "fields"?: { [key: string]: IncidentImportFieldAttributes };
+  */
+  "fields"?: { [key: string]: IncidentImportFieldAttributes; };
   /**
    * A unique identifier that represents the incident type. If not provided, the default incident type is used.
-   */
+  */
   "incidentTypeUuid"?: string;
   /**
    * Timestamp when the incident was resolved. Can only be set when the state field is set to 'resolved'.
-   */
+  */
   "resolved"?: Date;
   /**
    * The title of the incident that summarizes what happened.
-   */
+  */
   "title": string;
   /**
    * The visibility of the incident.
-   */
+  */
   "visibility"?: IncidentImportVisibility;
 
   /**
@@ -46,7 +51,7 @@ export class IncidentImportRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -57,37 +62,37 @@ export class IncidentImportRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    declared: {
-      baseName: "declared",
-      type: "Date",
-      format: "date-time",
+    "declared": {
+      "baseName": "declared",
+      "type": "Date",
+      "format": "date-time",
     },
-    detected: {
-      baseName: "detected",
-      type: "Date",
-      format: "date-time",
+    "detected": {
+      "baseName": "detected",
+      "type": "Date",
+      "format": "date-time",
     },
-    fields: {
-      baseName: "fields",
-      type: "{ [key: string]: IncidentImportFieldAttributes; }",
+    "fields": {
+      "baseName": "fields",
+      "type": "{ [key: string]: IncidentImportFieldAttributes; }",
     },
-    incidentTypeUuid: {
-      baseName: "incident_type_uuid",
-      type: "string",
+    "incidentTypeUuid": {
+      "baseName": "incident_type_uuid",
+      "type": "string",
     },
-    resolved: {
-      baseName: "resolved",
-      type: "Date",
-      format: "date-time",
+    "resolved": {
+      "baseName": "resolved",
+      "type": "Date",
+      "format": "date-time",
     },
-    title: {
-      baseName: "title",
-      type: "string",
-      required: true,
+    "title": {
+      "baseName": "title",
+      "type": "string",
+      "required": true,
     },
-    visibility: {
-      baseName: "visibility",
-      type: "IncidentImportVisibility",
+    "visibility": {
+      "baseName": "visibility",
+      "type": "IncidentImportVisibility",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -99,8 +104,34 @@ export class IncidentImportRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentImportRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

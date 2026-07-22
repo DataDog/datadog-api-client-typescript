@@ -6,19 +6,24 @@
 import { AWSEventBridgeDeleteRequestAttributes } from "./AWSEventBridgeDeleteRequestAttributes";
 import { AWSEventBridgeType } from "./AWSEventBridgeType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Amazon EventBridge delete request data.
- */
+*/
 export class AWSEventBridgeDeleteRequestData {
   /**
    * The EventBridge source to be deleted.
-   */
+  */
   "attributes": AWSEventBridgeDeleteRequestAttributes;
   /**
    * Amazon EventBridge resource type.
-   */
+  */
   "type": AWSEventBridgeType;
 
   /**
@@ -26,7 +31,7 @@ export class AWSEventBridgeDeleteRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class AWSEventBridgeDeleteRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AWSEventBridgeDeleteRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AWSEventBridgeDeleteRequestAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "AWSEventBridgeType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AWSEventBridgeType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class AWSEventBridgeDeleteRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSEventBridgeDeleteRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

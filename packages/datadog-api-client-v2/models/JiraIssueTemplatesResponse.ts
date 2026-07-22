@@ -6,19 +6,24 @@
 import { JiraAccountData } from "./JiraAccountData";
 import { JiraIssueTemplateData } from "./JiraIssueTemplateData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing Jira issue templates
- */
+*/
 export class JiraIssueTemplatesResponse {
   /**
    * Array of Jira issue template data objects
-   */
+  */
   "data": Array<JiraIssueTemplateData>;
   /**
    * Array of Jira account data objects
-   */
+  */
   "included"?: Array<JiraAccountData>;
 
   /**
@@ -26,7 +31,7 @@ export class JiraIssueTemplatesResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class JiraIssueTemplatesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<JiraIssueTemplateData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<JiraIssueTemplateData>",
+      "required": true,
     },
-    included: {
-      baseName: "included",
-      type: "Array<JiraAccountData>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<JiraAccountData>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class JiraIssueTemplatesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return JiraIssueTemplatesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

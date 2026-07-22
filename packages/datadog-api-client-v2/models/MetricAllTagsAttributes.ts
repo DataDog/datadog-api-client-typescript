@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object containing the definition of a metric's indexed and ingested tags.
- */
+*/
 export class MetricAllTagsAttributes {
   /**
    * List of ingested tags that are not indexed.
-   */
+  */
   "ingestedTags"?: Array<string>;
   /**
    * List of indexed tags.
-   */
+  */
   "tags"?: Array<string>;
 
   /**
@@ -24,7 +29,7 @@ export class MetricAllTagsAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class MetricAllTagsAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    ingestedTags: {
-      baseName: "ingested_tags",
-      type: "Array<string>",
+    "ingestedTags": {
+      "baseName": "ingested_tags",
+      "type": "Array<string>",
     },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
+    "tags": {
+      "baseName": "tags",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class MetricAllTagsAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricAllTagsAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

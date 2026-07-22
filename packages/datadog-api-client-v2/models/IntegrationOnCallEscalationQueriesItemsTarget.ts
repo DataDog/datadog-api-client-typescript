@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The target recipient for an On-Call escalation query.
- */
+*/
 export class IntegrationOnCallEscalationQueriesItemsTarget {
   /**
    * Whether to use dynamic team paging for escalation.
-   */
+  */
   "dynamicTeamPaging"?: boolean;
   /**
    * The identifier of the team to escalate to.
-   */
+  */
   "teamId"?: string;
   /**
    * The identifier of the user to escalate to.
-   */
+  */
   "userId"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class IntegrationOnCallEscalationQueriesItemsTarget {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class IntegrationOnCallEscalationQueriesItemsTarget {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    dynamicTeamPaging: {
-      baseName: "dynamic_team_paging",
-      type: "boolean",
+    "dynamicTeamPaging": {
+      "baseName": "dynamic_team_paging",
+      "type": "boolean",
     },
-    teamId: {
-      baseName: "team_id",
-      type: "string",
+    "teamId": {
+      "baseName": "team_id",
+      "type": "string",
     },
-    userId: {
-      baseName: "user_id",
-      type: "string",
+    "userId": {
+      "baseName": "user_id",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class IntegrationOnCallEscalationQueriesItemsTarget {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IntegrationOnCallEscalationQueriesItemsTarget.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

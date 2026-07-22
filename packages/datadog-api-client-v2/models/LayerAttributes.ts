@@ -6,39 +6,44 @@
 import { LayerAttributesInterval } from "./LayerAttributesInterval";
 import { TimeRestriction } from "./TimeRestriction";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Describes key properties of a Layer, including rotation details, name, start/end times, and any restrictions.
- */
+*/
 export class LayerAttributes {
   /**
    * When the layer becomes active (ISO 8601).
-   */
+  */
   "effectiveDate"?: Date;
   /**
    * When the layer ceases to be active (ISO 8601).
-   */
+  */
   "endDate"?: Date;
   /**
    * Defines how often the rotation repeats, using a combination of days and optional seconds. Should be at least 1 hour.
-   */
+  */
   "interval"?: LayerAttributesInterval;
   /**
    * The name of this layer.
-   */
+  */
   "name"?: string;
   /**
    * An optional list of time restrictions for when this layer is in effect.
-   */
+  */
   "restrictions"?: Array<TimeRestriction>;
   /**
    * The date/time when the rotation starts (ISO 8601).
-   */
+  */
   "rotationStart"?: Date;
   /**
    * The time zone for this layer.
-   */
+  */
   "timeZone"?: string;
 
   /**
@@ -46,7 +51,7 @@ export class LayerAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -57,36 +62,36 @@ export class LayerAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    effectiveDate: {
-      baseName: "effective_date",
-      type: "Date",
-      format: "date-time",
+    "effectiveDate": {
+      "baseName": "effective_date",
+      "type": "Date",
+      "format": "date-time",
     },
-    endDate: {
-      baseName: "end_date",
-      type: "Date",
-      format: "date-time",
+    "endDate": {
+      "baseName": "end_date",
+      "type": "Date",
+      "format": "date-time",
     },
-    interval: {
-      baseName: "interval",
-      type: "LayerAttributesInterval",
+    "interval": {
+      "baseName": "interval",
+      "type": "LayerAttributesInterval",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    restrictions: {
-      baseName: "restrictions",
-      type: "Array<TimeRestriction>",
+    "restrictions": {
+      "baseName": "restrictions",
+      "type": "Array<TimeRestriction>",
     },
-    rotationStart: {
-      baseName: "rotation_start",
-      type: "Date",
-      format: "date-time",
+    "rotationStart": {
+      "baseName": "rotation_start",
+      "type": "Date",
+      "format": "date-time",
     },
-    timeZone: {
-      baseName: "time_zone",
-      type: "string",
+    "timeZone": {
+      "baseName": "time_zone",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -98,8 +103,34 @@ export class LayerAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LayerAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,23 +5,28 @@
  */
 import { LLMObsPatternsClusteredPoint } from "./LLMObsPatternsClusteredPoint";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of an LLM Observability patterns clustered points response.
- */
+*/
 export class LLMObsPatternsClusteredPointsResponseAttributes {
   /**
    * Pagination token for the next page of points. Null if there are no more pages.
-   */
-  "nextPageToken": string | null;
+  */
+  "nextPageToken": string|null;
   /**
    * List of clustered points.
-   */
+  */
   "points": Array<LLMObsPatternsClusteredPoint>;
   /**
    * Identifier of the topic the points belong to.
-   */
+  */
   "topicId": string;
 
   /**
@@ -29,7 +34,7 @@ export class LLMObsPatternsClusteredPointsResponseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,20 +45,20 @@ export class LLMObsPatternsClusteredPointsResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    nextPageToken: {
-      baseName: "next_page_token",
-      type: "string",
-      required: true,
+    "nextPageToken": {
+      "baseName": "next_page_token",
+      "type": "string",
+      "required": true,
     },
-    points: {
-      baseName: "points",
-      type: "Array<LLMObsPatternsClusteredPoint>",
-      required: true,
+    "points": {
+      "baseName": "points",
+      "type": "Array<LLMObsPatternsClusteredPoint>",
+      "required": true,
     },
-    topicId: {
-      baseName: "topic_id",
-      type: "string",
-      required: true,
+    "topicId": {
+      "baseName": "topic_id",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class LLMObsPatternsClusteredPointsResponseAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsPatternsClusteredPointsResponseAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

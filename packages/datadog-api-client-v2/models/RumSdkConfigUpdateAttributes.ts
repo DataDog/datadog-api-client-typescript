@@ -5,15 +5,20 @@
  */
 import { RumSdkConfigRumUpdateAttributes } from "./RumSdkConfigRumUpdateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of the RUM SDK configuration to update.
- */
+*/
 export class RumSdkConfigUpdateAttributes {
   /**
    * The RUM SDK settings to apply when updating a configuration.
-   */
+  */
   "rum": RumSdkConfigRumUpdateAttributes;
 
   /**
@@ -21,7 +26,7 @@ export class RumSdkConfigUpdateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class RumSdkConfigUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    rum: {
-      baseName: "rum",
-      type: "RumSdkConfigRumUpdateAttributes",
-      required: true,
+    "rum": {
+      "baseName": "rum",
+      "type": "RumSdkConfigRumUpdateAttributes",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class RumSdkConfigUpdateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RumSdkConfigUpdateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

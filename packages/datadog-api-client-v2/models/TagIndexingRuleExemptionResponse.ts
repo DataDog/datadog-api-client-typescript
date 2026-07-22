@@ -5,15 +5,20 @@
  */
 import { TagIndexingRuleExemptionData } from "./TagIndexingRuleExemptionData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a tag indexing rule exemption.
- */
+*/
 export class TagIndexingRuleExemptionResponse {
   /**
    * A tag indexing rule exemption resource object.
-   */
+  */
   "data"?: TagIndexingRuleExemptionData;
 
   /**
@@ -21,7 +26,7 @@ export class TagIndexingRuleExemptionResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class TagIndexingRuleExemptionResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "TagIndexingRuleExemptionData",
+    "data": {
+      "baseName": "data",
+      "type": "TagIndexingRuleExemptionData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class TagIndexingRuleExemptionResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TagIndexingRuleExemptionResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

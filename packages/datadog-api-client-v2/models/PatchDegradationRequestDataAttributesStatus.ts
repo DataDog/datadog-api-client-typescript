@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The status of the degradation.
- */
+*/
 
-export type PatchDegradationRequestDataAttributesStatus =
-  | typeof INVESTIGATING
-  | typeof IDENTIFIED
-  | typeof MONITORING
-  | typeof RESOLVED
-  | UnparsedObject;
-export const INVESTIGATING = "investigating";
-export const IDENTIFIED = "identified";
-export const MONITORING = "monitoring";
-export const RESOLVED = "resolved";
+export type PatchDegradationRequestDataAttributesStatus = typeof INVESTIGATING| typeof IDENTIFIED| typeof MONITORING| typeof RESOLVED | UnparsedObject;
+export const INVESTIGATING = 'investigating';
+export const IDENTIFIED = 'identified';
+export const MONITORING = 'monitoring';
+export const RESOLVED = 'resolved';

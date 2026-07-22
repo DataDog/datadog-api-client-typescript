@@ -6,23 +6,28 @@
 import { MetricRelationships } from "./MetricRelationships";
 import { MetricType } from "./MetricType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object for a single metric.
- */
+*/
 export class Metric {
   /**
    * The metric name for this resource.
-   */
+  */
   "id"?: string;
   /**
    * Relationships for a metric.
-   */
+  */
   "relationships"?: MetricRelationships;
   /**
    * The metric resource type.
-   */
+  */
   "type"?: MetricType;
 
   /**
@@ -30,7 +35,7 @@ export class Metric {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class Metric {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "MetricRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "MetricRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "MetricType",
+    "type": {
+      "baseName": "type",
+      "type": "MetricType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class Metric {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return Metric.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

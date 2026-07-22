@@ -1,16 +1,12 @@
-import {
-  BaseAPIRequestFactory,
-  RequiredError,
-} from "../../datadog-api-client-common/baseapi";
-import {
-  Configuration,
-  applySecurityAuthentication,
-} from "../../datadog-api-client-common/configuration";
+import { BaseAPIRequestFactory, RequiredError } from "../../datadog-api-client-common/baseapi";
+import { Configuration,
+  applySecurityAuthentication,} from "../../datadog-api-client-common/configuration";
 import {
   RequestContext,
   HttpMethod,
   ResponseContext,
-} from "../../datadog-api-client-common/http/http";
+    
+  } from "../../datadog-api-client-common/http/http";
 
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
@@ -34,36 +30,32 @@ import { UpdateDeploymentGateParams } from "../models/UpdateDeploymentGateParams
 import { UpdateDeploymentRuleParams } from "../models/UpdateDeploymentRuleParams";
 
 export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
-  public async createDeploymentGate(
-    body: CreateDeploymentGateParams,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+
+  public async createDeploymentGate(body: CreateDeploymentGateParams,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'createDeploymentGate'");
-    if (!_config.unstableOperations["v2.createDeploymentGate"]) {
+    if (!_config.unstableOperations['v2.createDeploymentGate']) {
       throw new Error("Unstable operation 'createDeploymentGate' is disabled");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "createDeploymentGate");
+      throw new RequiredError('body', 'createDeploymentGate');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/deployment_gates";
+    const localVarPath = '/api/v2/deployment_gates';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.DeploymentGatesApi.createDeploymentGate")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.DeploymentGatesApi.createDeploymentGate').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateDeploymentGateParams", ""),
@@ -72,7 +64,7 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -80,45 +72,37 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async createDeploymentRule(
-    gateId: string,
-    body: CreateDeploymentRuleParams,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async createDeploymentRule(gateId: string,body: CreateDeploymentRuleParams,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'createDeploymentRule'");
-    if (!_config.unstableOperations["v2.createDeploymentRule"]) {
+    if (!_config.unstableOperations['v2.createDeploymentRule']) {
       throw new Error("Unstable operation 'createDeploymentRule' is disabled");
     }
 
     // verify required parameter 'gateId' is not null or undefined
     if (gateId === null || gateId === undefined) {
-      throw new RequiredError("gateId", "createDeploymentRule");
+      throw new RequiredError('gateId', 'createDeploymentRule');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "createDeploymentRule");
+      throw new RequiredError('body', 'createDeploymentRule');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/deployment_gates/{gate_id}/rules".replace(
-      "{gate_id}",
-      encodeURIComponent(String(gateId))
-    );
+    const localVarPath = '/api/v2/deployment_gates/{gate_id}/rules'
+      .replace('{gate_id}', encodeURIComponent(String(gateId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.DeploymentGatesApi.createDeploymentRule")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.DeploymentGatesApi.createDeploymentRule').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateDeploymentRuleParams", ""),
@@ -127,7 +111,7 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -135,37 +119,31 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async deleteDeploymentGate(
-    id: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async deleteDeploymentGate(id: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'deleteDeploymentGate'");
-    if (!_config.unstableOperations["v2.deleteDeploymentGate"]) {
+    if (!_config.unstableOperations['v2.deleteDeploymentGate']) {
       throw new Error("Unstable operation 'deleteDeploymentGate' is disabled");
     }
 
     // verify required parameter 'id' is not null or undefined
     if (id === null || id === undefined) {
-      throw new RequiredError("id", "deleteDeploymentGate");
+      throw new RequiredError('id', 'deleteDeploymentGate');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/deployment_gates/{id}".replace(
-      "{id}",
-      encodeURIComponent(String(id))
-    );
+    const localVarPath = '/api/v2/deployment_gates/{id}'
+      .replace('{id}', encodeURIComponent(String(id)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.DeploymentGatesApi.deleteDeploymentGate")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config.getServer('v2.DeploymentGatesApi.deleteDeploymentGate').makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -173,42 +151,37 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async deleteDeploymentRule(
-    gateId: string,
-    id: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async deleteDeploymentRule(gateId: string,id: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'deleteDeploymentRule'");
-    if (!_config.unstableOperations["v2.deleteDeploymentRule"]) {
+    if (!_config.unstableOperations['v2.deleteDeploymentRule']) {
       throw new Error("Unstable operation 'deleteDeploymentRule' is disabled");
     }
 
     // verify required parameter 'gateId' is not null or undefined
     if (gateId === null || gateId === undefined) {
-      throw new RequiredError("gateId", "deleteDeploymentRule");
+      throw new RequiredError('gateId', 'deleteDeploymentRule');
     }
 
     // verify required parameter 'id' is not null or undefined
     if (id === null || id === undefined) {
-      throw new RequiredError("id", "deleteDeploymentRule");
+      throw new RequiredError('id', 'deleteDeploymentRule');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/deployment_gates/{gate_id}/rules/{id}"
-      .replace("{gate_id}", encodeURIComponent(String(gateId)))
-      .replace("{id}", encodeURIComponent(String(id)));
+    const localVarPath = '/api/v2/deployment_gates/{gate_id}/rules/{id}'
+      .replace('{gate_id}', encodeURIComponent(String(gateId)))
+      .replace('{id}', encodeURIComponent(String(id)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.DeploymentGatesApi.deleteDeploymentRule")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config.getServer('v2.DeploymentGatesApi.deleteDeploymentRule').makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -216,37 +189,31 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getDeploymentGate(
-    id: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async getDeploymentGate(id: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getDeploymentGate'");
-    if (!_config.unstableOperations["v2.getDeploymentGate"]) {
+    if (!_config.unstableOperations['v2.getDeploymentGate']) {
       throw new Error("Unstable operation 'getDeploymentGate' is disabled");
     }
 
     // verify required parameter 'id' is not null or undefined
     if (id === null || id === undefined) {
-      throw new RequiredError("id", "getDeploymentGate");
+      throw new RequiredError('id', 'getDeploymentGate');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/deployment_gates/{id}".replace(
-      "{id}",
-      encodeURIComponent(String(id))
-    );
+    const localVarPath = '/api/v2/deployment_gates/{id}'
+      .replace('{id}', encodeURIComponent(String(id)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.DeploymentGatesApi.getDeploymentGate")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.DeploymentGatesApi.getDeploymentGate').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -254,39 +221,31 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getDeploymentGateRules(
-    gateId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async getDeploymentGateRules(gateId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getDeploymentGateRules'");
-    if (!_config.unstableOperations["v2.getDeploymentGateRules"]) {
-      throw new Error(
-        "Unstable operation 'getDeploymentGateRules' is disabled"
-      );
+    if (!_config.unstableOperations['v2.getDeploymentGateRules']) {
+      throw new Error("Unstable operation 'getDeploymentGateRules' is disabled");
     }
 
     // verify required parameter 'gateId' is not null or undefined
     if (gateId === null || gateId === undefined) {
-      throw new RequiredError("gateId", "getDeploymentGateRules");
+      throw new RequiredError('gateId', 'getDeploymentGateRules');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/deployment_gates/{gate_id}/rules".replace(
-      "{gate_id}",
-      encodeURIComponent(String(gateId))
-    );
+    const localVarPath = '/api/v2/deployment_gates/{gate_id}/rules'
+      .replace('{gate_id}', encodeURIComponent(String(gateId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.DeploymentGatesApi.getDeploymentGateRules")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.DeploymentGatesApi.getDeploymentGateRules').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -294,41 +253,31 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getDeploymentGatesEvaluationResult(
-    id: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async getDeploymentGatesEvaluationResult(id: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn(
-      "Using unstable operation 'getDeploymentGatesEvaluationResult'"
-    );
-    if (!_config.unstableOperations["v2.getDeploymentGatesEvaluationResult"]) {
-      throw new Error(
-        "Unstable operation 'getDeploymentGatesEvaluationResult' is disabled"
-      );
+    logger.warn("Using unstable operation 'getDeploymentGatesEvaluationResult'");
+    if (!_config.unstableOperations['v2.getDeploymentGatesEvaluationResult']) {
+      throw new Error("Unstable operation 'getDeploymentGatesEvaluationResult' is disabled");
     }
 
     // verify required parameter 'id' is not null or undefined
     if (id === null || id === undefined) {
-      throw new RequiredError("id", "getDeploymentGatesEvaluationResult");
+      throw new RequiredError('id', 'getDeploymentGatesEvaluationResult');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/deployments/gates/evaluation/{id}".replace(
-      "{id}",
-      encodeURIComponent(String(id))
-    );
+    const localVarPath = '/api/v2/deployments/gates/evaluation/{id}'
+      .replace('{id}', encodeURIComponent(String(id)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.DeploymentGatesApi.getDeploymentGatesEvaluationResult")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.DeploymentGatesApi.getDeploymentGatesEvaluationResult').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -336,42 +285,37 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getDeploymentRule(
-    gateId: string,
-    id: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async getDeploymentRule(gateId: string,id: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getDeploymentRule'");
-    if (!_config.unstableOperations["v2.getDeploymentRule"]) {
+    if (!_config.unstableOperations['v2.getDeploymentRule']) {
       throw new Error("Unstable operation 'getDeploymentRule' is disabled");
     }
 
     // verify required parameter 'gateId' is not null or undefined
     if (gateId === null || gateId === undefined) {
-      throw new RequiredError("gateId", "getDeploymentRule");
+      throw new RequiredError('gateId', 'getDeploymentRule');
     }
 
     // verify required parameter 'id' is not null or undefined
     if (id === null || id === undefined) {
-      throw new RequiredError("id", "getDeploymentRule");
+      throw new RequiredError('id', 'getDeploymentRule');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/deployment_gates/{gate_id}/rules/{id}"
-      .replace("{gate_id}", encodeURIComponent(String(gateId)))
-      .replace("{id}", encodeURIComponent(String(id)));
+    const localVarPath = '/api/v2/deployment_gates/{gate_id}/rules/{id}'
+      .replace('{gate_id}', encodeURIComponent(String(gateId)))
+      .replace('{id}', encodeURIComponent(String(id)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.DeploymentGatesApi.getDeploymentRule")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.DeploymentGatesApi.getDeploymentRule').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -379,46 +323,35 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async listDeploymentGates(
-    pageCursor?: string,
-    pageSize?: number,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async listDeploymentGates(pageCursor?: string,pageSize?: number,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'listDeploymentGates'");
-    if (!_config.unstableOperations["v2.listDeploymentGates"]) {
+    if (!_config.unstableOperations['v2.listDeploymentGates']) {
       throw new Error("Unstable operation 'listDeploymentGates' is disabled");
     }
 
     // Path Params
-    const localVarPath = "/api/v2/deployment_gates";
+    const localVarPath = '/api/v2/deployment_gates';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.DeploymentGatesApi.listDeploymentGates")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.DeploymentGatesApi.listDeploymentGates').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
-    if (pageCursor !== undefined) {
-      requestContext.setQueryParam(
-        "page[cursor]",
-        ObjectSerializer.serialize(pageCursor, "string", ""),
-        ""
-      );
+  if (pageCursor !== undefined) {
+      requestContext.setQueryParam("page[cursor]", ObjectSerializer.serialize(pageCursor, "string", ""
+), "");
     }
-    if (pageSize !== undefined) {
-      requestContext.setQueryParam(
-        "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64"),
-        ""
-      );
+  if (pageSize !== undefined) {
+      requestContext.setQueryParam("page[size]", ObjectSerializer.serialize(pageSize, "number", "int64"
+), "");
     }
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -426,38 +359,31 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async triggerDeploymentGatesEvaluation(
-    body: DeploymentGatesEvaluationRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async triggerDeploymentGatesEvaluation(body: DeploymentGatesEvaluationRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'triggerDeploymentGatesEvaluation'");
-    if (!_config.unstableOperations["v2.triggerDeploymentGatesEvaluation"]) {
-      throw new Error(
-        "Unstable operation 'triggerDeploymentGatesEvaluation' is disabled"
-      );
+    if (!_config.unstableOperations['v2.triggerDeploymentGatesEvaluation']) {
+      throw new Error("Unstable operation 'triggerDeploymentGatesEvaluation' is disabled");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "triggerDeploymentGatesEvaluation");
+      throw new RequiredError('body', 'triggerDeploymentGatesEvaluation');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/deployments/gates/evaluation";
+    const localVarPath = '/api/v2/deployments/gates/evaluation';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.DeploymentGatesApi.triggerDeploymentGatesEvaluation")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.DeploymentGatesApi.triggerDeploymentGatesEvaluation').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "DeploymentGatesEvaluationRequest", ""),
@@ -466,7 +392,7 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -474,45 +400,37 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async updateDeploymentGate(
-    id: string,
-    body: UpdateDeploymentGateParams,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async updateDeploymentGate(id: string,body: UpdateDeploymentGateParams,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'updateDeploymentGate'");
-    if (!_config.unstableOperations["v2.updateDeploymentGate"]) {
+    if (!_config.unstableOperations['v2.updateDeploymentGate']) {
       throw new Error("Unstable operation 'updateDeploymentGate' is disabled");
     }
 
     // verify required parameter 'id' is not null or undefined
     if (id === null || id === undefined) {
-      throw new RequiredError("id", "updateDeploymentGate");
+      throw new RequiredError('id', 'updateDeploymentGate');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateDeploymentGate");
+      throw new RequiredError('body', 'updateDeploymentGate');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/deployment_gates/{id}".replace(
-      "{id}",
-      encodeURIComponent(String(id))
-    );
+    const localVarPath = '/api/v2/deployment_gates/{id}'
+      .replace('{id}', encodeURIComponent(String(id)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.DeploymentGatesApi.updateDeploymentGate")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = _config.getServer('v2.DeploymentGatesApi.updateDeploymentGate').makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UpdateDeploymentGateParams", ""),
@@ -521,7 +439,7 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -529,50 +447,43 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async updateDeploymentRule(
-    gateId: string,
-    id: string,
-    body: UpdateDeploymentRuleParams,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async updateDeploymentRule(gateId: string,id: string,body: UpdateDeploymentRuleParams,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'updateDeploymentRule'");
-    if (!_config.unstableOperations["v2.updateDeploymentRule"]) {
+    if (!_config.unstableOperations['v2.updateDeploymentRule']) {
       throw new Error("Unstable operation 'updateDeploymentRule' is disabled");
     }
 
     // verify required parameter 'gateId' is not null or undefined
     if (gateId === null || gateId === undefined) {
-      throw new RequiredError("gateId", "updateDeploymentRule");
+      throw new RequiredError('gateId', 'updateDeploymentRule');
     }
 
     // verify required parameter 'id' is not null or undefined
     if (id === null || id === undefined) {
-      throw new RequiredError("id", "updateDeploymentRule");
+      throw new RequiredError('id', 'updateDeploymentRule');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateDeploymentRule");
+      throw new RequiredError('body', 'updateDeploymentRule');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/deployment_gates/{gate_id}/rules/{id}"
-      .replace("{gate_id}", encodeURIComponent(String(gateId)))
-      .replace("{id}", encodeURIComponent(String(id)));
+    const localVarPath = '/api/v2/deployment_gates/{gate_id}/rules/{id}'
+      .replace('{gate_id}', encodeURIComponent(String(gateId)))
+      .replace('{id}', encodeURIComponent(String(id)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.DeploymentGatesApi.updateDeploymentRule")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = _config.getServer('v2.DeploymentGatesApi.updateDeploymentRule').makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UpdateDeploymentRuleParams", ""),
@@ -581,7 +492,7 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -591,6 +502,8 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class DeploymentGatesApiResponseProcessor {
+
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -598,12 +511,8 @@ export class DeploymentGatesApiResponseProcessor {
    * @params response Response returned by the server for a request to createDeploymentGate
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createDeploymentGate(
-    response: ResponseContext
-  ): Promise<DeploymentGateResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async createDeploymentGate(response: ResponseContext): Promise<DeploymentGateResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: DeploymentGateResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -612,10 +521,7 @@ export class DeploymentGatesApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: HTTPCDGatesBadRequestResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -624,25 +530,12 @@ export class DeploymentGatesApiResponseProcessor {
         ) as HTTPCDGatesBadRequestResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCDGatesBadRequestResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<HTTPCDGatesBadRequestResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<HTTPCDGatesBadRequestResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<HTTPCDGatesBadRequestResponse>(response.httpStatusCode, body);
     }
-    if (
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -651,18 +544,12 @@ export class DeploymentGatesApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 500) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: HTTPCIAppErrors;
       try {
         body = ObjectSerializer.deserialize(
@@ -671,30 +558,25 @@ export class DeploymentGatesApiResponseProcessor {
         ) as HTTPCIAppErrors;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCIAppErrors>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<HTTPCIAppErrors>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<HTTPCIAppErrors>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DeploymentGateResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "DeploymentGateResponse",
-        ""
+        "",
       ) as DeploymentGateResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -703,12 +585,8 @@ export class DeploymentGatesApiResponseProcessor {
    * @params response Response returned by the server for a request to createDeploymentRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createDeploymentRule(
-    response: ResponseContext
-  ): Promise<DeploymentRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async createDeploymentRule(response: ResponseContext): Promise<DeploymentRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: DeploymentRuleResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -717,10 +595,7 @@ export class DeploymentGatesApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: HTTPCDGatesBadRequestResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -729,25 +604,12 @@ export class DeploymentGatesApiResponseProcessor {
         ) as HTTPCDGatesBadRequestResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCDGatesBadRequestResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<HTTPCDGatesBadRequestResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<HTTPCDGatesBadRequestResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<HTTPCDGatesBadRequestResponse>(response.httpStatusCode, body);
     }
-    if (
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -756,18 +618,12 @@ export class DeploymentGatesApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 500) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: HTTPCIAppErrors;
       try {
         body = ObjectSerializer.deserialize(
@@ -776,30 +632,25 @@ export class DeploymentGatesApiResponseProcessor {
         ) as HTTPCIAppErrors;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCIAppErrors>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<HTTPCIAppErrors>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<HTTPCIAppErrors>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DeploymentRuleResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "DeploymentRuleResponse",
-        ""
+        "",
       ) as DeploymentRuleResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -808,18 +659,13 @@ export class DeploymentGatesApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteDeploymentGate
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteDeploymentGate(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async deleteDeploymentGate(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: HTTPCDGatesBadRequestResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -828,25 +674,12 @@ export class DeploymentGatesApiResponseProcessor {
         ) as HTTPCDGatesBadRequestResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCDGatesBadRequestResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<HTTPCDGatesBadRequestResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<HTTPCDGatesBadRequestResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<HTTPCDGatesBadRequestResponse>(response.httpStatusCode, body);
     }
-    if (
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -855,18 +688,12 @@ export class DeploymentGatesApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 404) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: HTTPCDGatesNotFoundResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -875,21 +702,12 @@ export class DeploymentGatesApiResponseProcessor {
         ) as HTTPCDGatesNotFoundResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCDGatesNotFoundResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<HTTPCDGatesNotFoundResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<HTTPCDGatesNotFoundResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<HTTPCDGatesNotFoundResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 500) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: HTTPCIAppErrors;
       try {
         body = ObjectSerializer.deserialize(
@@ -898,25 +716,20 @@ export class DeploymentGatesApiResponseProcessor {
         ) as HTTPCIAppErrors;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCIAppErrors>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<HTTPCIAppErrors>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<HTTPCIAppErrors>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -925,18 +738,13 @@ export class DeploymentGatesApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteDeploymentRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteDeploymentRule(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async deleteDeploymentRule(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: HTTPCDGatesBadRequestResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -945,25 +753,12 @@ export class DeploymentGatesApiResponseProcessor {
         ) as HTTPCDGatesBadRequestResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCDGatesBadRequestResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<HTTPCDGatesBadRequestResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<HTTPCDGatesBadRequestResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<HTTPCDGatesBadRequestResponse>(response.httpStatusCode, body);
     }
-    if (
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -972,18 +767,12 @@ export class DeploymentGatesApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 404) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: HTTPCDGatesNotFoundResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -992,21 +781,12 @@ export class DeploymentGatesApiResponseProcessor {
         ) as HTTPCDGatesNotFoundResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCDGatesNotFoundResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<HTTPCDGatesNotFoundResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<HTTPCDGatesNotFoundResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<HTTPCDGatesNotFoundResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 500) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: HTTPCIAppErrors;
       try {
         body = ObjectSerializer.deserialize(
@@ -1015,25 +795,20 @@ export class DeploymentGatesApiResponseProcessor {
         ) as HTTPCIAppErrors;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCIAppErrors>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<HTTPCIAppErrors>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<HTTPCIAppErrors>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -1042,12 +817,8 @@ export class DeploymentGatesApiResponseProcessor {
    * @params response Response returned by the server for a request to getDeploymentGate
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getDeploymentGate(
-    response: ResponseContext
-  ): Promise<DeploymentGateResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getDeploymentGate(response: ResponseContext): Promise<DeploymentGateResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: DeploymentGateResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1056,10 +827,7 @@ export class DeploymentGatesApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: HTTPCDGatesBadRequestResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1068,25 +836,12 @@ export class DeploymentGatesApiResponseProcessor {
         ) as HTTPCDGatesBadRequestResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCDGatesBadRequestResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<HTTPCDGatesBadRequestResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<HTTPCDGatesBadRequestResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<HTTPCDGatesBadRequestResponse>(response.httpStatusCode, body);
     }
-    if (
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1095,18 +850,12 @@ export class DeploymentGatesApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 404) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: HTTPCDGatesNotFoundResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1115,21 +864,12 @@ export class DeploymentGatesApiResponseProcessor {
         ) as HTTPCDGatesNotFoundResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCDGatesNotFoundResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<HTTPCDGatesNotFoundResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<HTTPCDGatesNotFoundResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<HTTPCDGatesNotFoundResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 500) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: HTTPCIAppErrors;
       try {
         body = ObjectSerializer.deserialize(
@@ -1138,30 +878,25 @@ export class DeploymentGatesApiResponseProcessor {
         ) as HTTPCIAppErrors;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCIAppErrors>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<HTTPCIAppErrors>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<HTTPCIAppErrors>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DeploymentGateResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "DeploymentGateResponse",
-        ""
+        "",
       ) as DeploymentGateResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -1170,12 +905,8 @@ export class DeploymentGatesApiResponseProcessor {
    * @params response Response returned by the server for a request to getDeploymentGateRules
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getDeploymentGateRules(
-    response: ResponseContext
-  ): Promise<DeploymentGateRulesResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getDeploymentGateRules(response: ResponseContext): Promise<DeploymentGateRulesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: DeploymentGateRulesResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1184,10 +915,7 @@ export class DeploymentGatesApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: HTTPCDGatesBadRequestResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1196,25 +924,12 @@ export class DeploymentGatesApiResponseProcessor {
         ) as HTTPCDGatesBadRequestResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCDGatesBadRequestResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<HTTPCDGatesBadRequestResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<HTTPCDGatesBadRequestResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<HTTPCDGatesBadRequestResponse>(response.httpStatusCode, body);
     }
-    if (
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1223,18 +938,12 @@ export class DeploymentGatesApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 500) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: HTTPCIAppErrors;
       try {
         body = ObjectSerializer.deserialize(
@@ -1243,30 +952,25 @@ export class DeploymentGatesApiResponseProcessor {
         ) as HTTPCIAppErrors;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCIAppErrors>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<HTTPCIAppErrors>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<HTTPCIAppErrors>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DeploymentGateRulesResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "DeploymentGateRulesResponse",
-        ""
+        "",
       ) as DeploymentGateRulesResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -1275,25 +979,17 @@ export class DeploymentGatesApiResponseProcessor {
    * @params response Response returned by the server for a request to getDeploymentGatesEvaluationResult
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getDeploymentGatesEvaluationResult(
-    response: ResponseContext
-  ): Promise<DeploymentGatesEvaluationResultResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getDeploymentGatesEvaluationResult(response: ResponseContext): Promise<DeploymentGatesEvaluationResultResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: DeploymentGatesEvaluationResultResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "DeploymentGatesEvaluationResultResponse"
-        ) as DeploymentGatesEvaluationResultResponse;
+      const body: DeploymentGatesEvaluationResultResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DeploymentGatesEvaluationResultResponse"
+      ) as DeploymentGatesEvaluationResultResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: HTTPCDGatesBadRequestResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1302,25 +998,12 @@ export class DeploymentGatesApiResponseProcessor {
         ) as HTTPCDGatesBadRequestResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCDGatesBadRequestResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<HTTPCDGatesBadRequestResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<HTTPCDGatesBadRequestResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<HTTPCDGatesBadRequestResponse>(response.httpStatusCode, body);
     }
-    if (
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1329,18 +1012,12 @@ export class DeploymentGatesApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 404) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: HTTPCDGatesNotFoundResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1349,21 +1026,12 @@ export class DeploymentGatesApiResponseProcessor {
         ) as HTTPCDGatesNotFoundResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCDGatesNotFoundResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<HTTPCDGatesNotFoundResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<HTTPCDGatesNotFoundResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<HTTPCDGatesNotFoundResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 500) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: HTTPCIAppErrors;
       try {
         body = ObjectSerializer.deserialize(
@@ -1372,31 +1040,25 @@ export class DeploymentGatesApiResponseProcessor {
         ) as HTTPCIAppErrors;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCIAppErrors>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<HTTPCIAppErrors>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<HTTPCIAppErrors>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: DeploymentGatesEvaluationResultResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "DeploymentGatesEvaluationResultResponse",
-          ""
-        ) as DeploymentGatesEvaluationResultResponse;
+      const body: DeploymentGatesEvaluationResultResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DeploymentGatesEvaluationResultResponse",
+        "",
+      ) as DeploymentGatesEvaluationResultResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -1405,12 +1067,8 @@ export class DeploymentGatesApiResponseProcessor {
    * @params response Response returned by the server for a request to getDeploymentRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getDeploymentRule(
-    response: ResponseContext
-  ): Promise<DeploymentRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getDeploymentRule(response: ResponseContext): Promise<DeploymentRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: DeploymentRuleResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1419,10 +1077,7 @@ export class DeploymentGatesApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: HTTPCDGatesBadRequestResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1431,25 +1086,12 @@ export class DeploymentGatesApiResponseProcessor {
         ) as HTTPCDGatesBadRequestResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCDGatesBadRequestResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<HTTPCDGatesBadRequestResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<HTTPCDGatesBadRequestResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<HTTPCDGatesBadRequestResponse>(response.httpStatusCode, body);
     }
-    if (
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1458,18 +1100,12 @@ export class DeploymentGatesApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 404) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: HTTPCDRulesNotFoundResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1478,21 +1114,12 @@ export class DeploymentGatesApiResponseProcessor {
         ) as HTTPCDRulesNotFoundResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCDRulesNotFoundResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<HTTPCDRulesNotFoundResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<HTTPCDRulesNotFoundResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<HTTPCDRulesNotFoundResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 500) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: HTTPCIAppErrors;
       try {
         body = ObjectSerializer.deserialize(
@@ -1501,30 +1128,25 @@ export class DeploymentGatesApiResponseProcessor {
         ) as HTTPCIAppErrors;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCIAppErrors>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<HTTPCIAppErrors>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<HTTPCIAppErrors>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DeploymentRuleResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "DeploymentRuleResponse",
-        ""
+        "",
       ) as DeploymentRuleResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -1533,12 +1155,8 @@ export class DeploymentGatesApiResponseProcessor {
    * @params response Response returned by the server for a request to listDeploymentGates
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listDeploymentGates(
-    response: ResponseContext
-  ): Promise<DeploymentGatesListResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async listDeploymentGates(response: ResponseContext): Promise<DeploymentGatesListResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: DeploymentGatesListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1547,10 +1165,7 @@ export class DeploymentGatesApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: HTTPCDGatesBadRequestResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1559,25 +1174,12 @@ export class DeploymentGatesApiResponseProcessor {
         ) as HTTPCDGatesBadRequestResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCDGatesBadRequestResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<HTTPCDGatesBadRequestResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<HTTPCDGatesBadRequestResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<HTTPCDGatesBadRequestResponse>(response.httpStatusCode, body);
     }
-    if (
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1586,18 +1188,12 @@ export class DeploymentGatesApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 500) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: HTTPCIAppErrors;
       try {
         body = ObjectSerializer.deserialize(
@@ -1606,30 +1202,25 @@ export class DeploymentGatesApiResponseProcessor {
         ) as HTTPCIAppErrors;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCIAppErrors>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<HTTPCIAppErrors>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<HTTPCIAppErrors>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DeploymentGatesListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "DeploymentGatesListResponse",
-        ""
+        "",
       ) as DeploymentGatesListResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -1638,25 +1229,17 @@ export class DeploymentGatesApiResponseProcessor {
    * @params response Response returned by the server for a request to triggerDeploymentGatesEvaluation
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async triggerDeploymentGatesEvaluation(
-    response: ResponseContext
-  ): Promise<DeploymentGatesEvaluationResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async triggerDeploymentGatesEvaluation(response: ResponseContext): Promise<DeploymentGatesEvaluationResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 202) {
-      const body: DeploymentGatesEvaluationResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "DeploymentGatesEvaluationResponse"
-        ) as DeploymentGatesEvaluationResponse;
+      const body: DeploymentGatesEvaluationResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DeploymentGatesEvaluationResponse"
+      ) as DeploymentGatesEvaluationResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: HTTPCDGatesBadRequestResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1665,25 +1248,12 @@ export class DeploymentGatesApiResponseProcessor {
         ) as HTTPCDGatesBadRequestResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCDGatesBadRequestResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<HTTPCDGatesBadRequestResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<HTTPCDGatesBadRequestResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<HTTPCDGatesBadRequestResponse>(response.httpStatusCode, body);
     }
-    if (
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1692,18 +1262,12 @@ export class DeploymentGatesApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 404) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: HTTPCDGatesNotFoundResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1712,21 +1276,12 @@ export class DeploymentGatesApiResponseProcessor {
         ) as HTTPCDGatesNotFoundResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCDGatesNotFoundResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<HTTPCDGatesNotFoundResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<HTTPCDGatesNotFoundResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<HTTPCDGatesNotFoundResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 500) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: HTTPCIAppErrors;
       try {
         body = ObjectSerializer.deserialize(
@@ -1735,31 +1290,25 @@ export class DeploymentGatesApiResponseProcessor {
         ) as HTTPCIAppErrors;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCIAppErrors>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<HTTPCIAppErrors>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<HTTPCIAppErrors>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: DeploymentGatesEvaluationResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "DeploymentGatesEvaluationResponse",
-          ""
-        ) as DeploymentGatesEvaluationResponse;
+      const body: DeploymentGatesEvaluationResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DeploymentGatesEvaluationResponse",
+        "",
+      ) as DeploymentGatesEvaluationResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -1768,12 +1317,8 @@ export class DeploymentGatesApiResponseProcessor {
    * @params response Response returned by the server for a request to updateDeploymentGate
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateDeploymentGate(
-    response: ResponseContext
-  ): Promise<DeploymentGateResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async updateDeploymentGate(response: ResponseContext): Promise<DeploymentGateResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: DeploymentGateResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1782,10 +1327,7 @@ export class DeploymentGatesApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: HTTPCDGatesBadRequestResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1794,25 +1336,12 @@ export class DeploymentGatesApiResponseProcessor {
         ) as HTTPCDGatesBadRequestResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCDGatesBadRequestResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<HTTPCDGatesBadRequestResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<HTTPCDGatesBadRequestResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<HTTPCDGatesBadRequestResponse>(response.httpStatusCode, body);
     }
-    if (
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1821,18 +1350,12 @@ export class DeploymentGatesApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 404) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: HTTPCDGatesNotFoundResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1841,21 +1364,12 @@ export class DeploymentGatesApiResponseProcessor {
         ) as HTTPCDGatesNotFoundResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCDGatesNotFoundResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<HTTPCDGatesNotFoundResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<HTTPCDGatesNotFoundResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<HTTPCDGatesNotFoundResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 500) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: HTTPCIAppErrors;
       try {
         body = ObjectSerializer.deserialize(
@@ -1864,30 +1378,25 @@ export class DeploymentGatesApiResponseProcessor {
         ) as HTTPCIAppErrors;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCIAppErrors>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<HTTPCIAppErrors>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<HTTPCIAppErrors>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DeploymentGateResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "DeploymentGateResponse",
-        ""
+        "",
       ) as DeploymentGateResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -1896,12 +1405,8 @@ export class DeploymentGatesApiResponseProcessor {
    * @params response Response returned by the server for a request to updateDeploymentRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateDeploymentRule(
-    response: ResponseContext
-  ): Promise<DeploymentRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async updateDeploymentRule(response: ResponseContext): Promise<DeploymentRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: DeploymentRuleResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1910,10 +1415,7 @@ export class DeploymentGatesApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: HTTPCDGatesBadRequestResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1922,25 +1424,12 @@ export class DeploymentGatesApiResponseProcessor {
         ) as HTTPCDGatesBadRequestResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCDGatesBadRequestResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<HTTPCDGatesBadRequestResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<HTTPCDGatesBadRequestResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<HTTPCDGatesBadRequestResponse>(response.httpStatusCode, body);
     }
-    if (
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 401||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1949,18 +1438,12 @@ export class DeploymentGatesApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 404) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: HTTPCDRulesNotFoundResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1969,21 +1452,12 @@ export class DeploymentGatesApiResponseProcessor {
         ) as HTTPCDRulesNotFoundResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCDRulesNotFoundResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<HTTPCDRulesNotFoundResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<HTTPCDRulesNotFoundResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<HTTPCDRulesNotFoundResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 500) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: HTTPCIAppErrors;
       try {
         body = ObjectSerializer.deserialize(
@@ -1992,29 +1466,23 @@ export class DeploymentGatesApiResponseProcessor {
         ) as HTTPCIAppErrors;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCIAppErrors>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<HTTPCIAppErrors>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<HTTPCIAppErrors>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DeploymentRuleResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "DeploymentRuleResponse",
-        ""
+        "",
       ) as DeploymentRuleResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 }
 
@@ -2022,7 +1490,7 @@ export interface DeploymentGatesApiCreateDeploymentGateRequest {
   /**
    * @type CreateDeploymentGateParams
    */
-  body: CreateDeploymentGateParams;
+  body: CreateDeploymentGateParams
 }
 
 export interface DeploymentGatesApiCreateDeploymentRuleRequest {
@@ -2030,11 +1498,11 @@ export interface DeploymentGatesApiCreateDeploymentRuleRequest {
    * The ID of the deployment gate.
    * @type string
    */
-  gateId: string;
+  gateId: string
   /**
    * @type CreateDeploymentRuleParams
    */
-  body: CreateDeploymentRuleParams;
+  body: CreateDeploymentRuleParams
 }
 
 export interface DeploymentGatesApiDeleteDeploymentGateRequest {
@@ -2042,7 +1510,7 @@ export interface DeploymentGatesApiDeleteDeploymentGateRequest {
    * The ID of the deployment gate.
    * @type string
    */
-  id: string;
+  id: string
 }
 
 export interface DeploymentGatesApiDeleteDeploymentRuleRequest {
@@ -2050,12 +1518,12 @@ export interface DeploymentGatesApiDeleteDeploymentRuleRequest {
    * The ID of the deployment gate.
    * @type string
    */
-  gateId: string;
+  gateId: string
   /**
    * The ID of the deployment rule.
    * @type string
    */
-  id: string;
+  id: string
 }
 
 export interface DeploymentGatesApiGetDeploymentGateRequest {
@@ -2063,7 +1531,7 @@ export interface DeploymentGatesApiGetDeploymentGateRequest {
    * The ID of the deployment gate.
    * @type string
    */
-  id: string;
+  id: string
 }
 
 export interface DeploymentGatesApiGetDeploymentGateRulesRequest {
@@ -2071,7 +1539,7 @@ export interface DeploymentGatesApiGetDeploymentGateRulesRequest {
    * The ID of the deployment gate.
    * @type string
    */
-  gateId: string;
+  gateId: string
 }
 
 export interface DeploymentGatesApiGetDeploymentGatesEvaluationResultRequest {
@@ -2079,7 +1547,7 @@ export interface DeploymentGatesApiGetDeploymentGatesEvaluationResultRequest {
    * The evaluation ID returned by the trigger endpoint.
    * @type string
    */
-  id: string;
+  id: string
 }
 
 export interface DeploymentGatesApiGetDeploymentRuleRequest {
@@ -2087,12 +1555,12 @@ export interface DeploymentGatesApiGetDeploymentRuleRequest {
    * The ID of the deployment gate.
    * @type string
    */
-  gateId: string;
+  gateId: string
   /**
    * The ID of the deployment rule.
    * @type string
    */
-  id: string;
+  id: string
 }
 
 export interface DeploymentGatesApiListDeploymentGatesRequest {
@@ -2100,19 +1568,19 @@ export interface DeploymentGatesApiListDeploymentGatesRequest {
    * Cursor for pagination. Use the `meta.page.next_cursor` value from the previous response.
    * @type string
    */
-  pageCursor?: string;
+  pageCursor?: string
   /**
    * Number of results per page. Defaults to 50. Must be between 1 and 1000.
    * @type number
    */
-  pageSize?: number;
+  pageSize?: number
 }
 
 export interface DeploymentGatesApiTriggerDeploymentGatesEvaluationRequest {
   /**
    * @type DeploymentGatesEvaluationRequest
    */
-  body: DeploymentGatesEvaluationRequest;
+  body: DeploymentGatesEvaluationRequest
 }
 
 export interface DeploymentGatesApiUpdateDeploymentGateRequest {
@@ -2120,11 +1588,11 @@ export interface DeploymentGatesApiUpdateDeploymentGateRequest {
    * The ID of the deployment gate.
    * @type string
    */
-  id: string;
+  id: string
   /**
    * @type UpdateDeploymentGateParams
    */
-  body: UpdateDeploymentGateParams;
+  body: UpdateDeploymentGateParams
 }
 
 export interface DeploymentGatesApiUpdateDeploymentRuleRequest {
@@ -2132,16 +1600,16 @@ export interface DeploymentGatesApiUpdateDeploymentRuleRequest {
    * The ID of the deployment gate.
    * @type string
    */
-  gateId: string;
+  gateId: string
   /**
    * The ID of the deployment rule.
    * @type string
    */
-  id: string;
+  id: string
   /**
    * @type UpdateDeploymentRuleParams
    */
-  body: UpdateDeploymentRuleParams;
+  body: UpdateDeploymentRuleParams
 }
 
 export class DeploymentGatesApi {
@@ -2149,35 +1617,21 @@ export class DeploymentGatesApi {
   private responseProcessor: DeploymentGatesApiResponseProcessor;
   private configuration: Configuration;
 
-  public constructor(
-    configuration: Configuration,
-    requestFactory?: DeploymentGatesApiRequestFactory,
-    responseProcessor?: DeploymentGatesApiResponseProcessor
-  ) {
+  public constructor(configuration: Configuration, requestFactory?: DeploymentGatesApiRequestFactory, responseProcessor?: DeploymentGatesApiResponseProcessor) {
     this.configuration = configuration;
-    this.requestFactory =
-      requestFactory || new DeploymentGatesApiRequestFactory(configuration);
-    this.responseProcessor =
-      responseProcessor || new DeploymentGatesApiResponseProcessor();
+    this.requestFactory = requestFactory || new DeploymentGatesApiRequestFactory(configuration);
+    this.responseProcessor = responseProcessor || new DeploymentGatesApiResponseProcessor();
   }
 
   /**
    * Endpoint to create a deployment gate.
    * @param param The request object
    */
-  public createDeploymentGate(
-    param: DeploymentGatesApiCreateDeploymentGateRequest,
-    options?: Configuration
-  ): Promise<DeploymentGateResponse> {
-    const requestContextPromise = this.requestFactory.createDeploymentGate(
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.createDeploymentGate(responseContext);
+  public createDeploymentGate(param: DeploymentGatesApiCreateDeploymentGateRequest, options?: Configuration): Promise<DeploymentGateResponse> {
+    const requestContextPromise = this.requestFactory.createDeploymentGate(param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.createDeploymentGate(responseContext);
         });
     });
   }
@@ -2186,20 +1640,11 @@ export class DeploymentGatesApi {
    * Endpoint to create a deployment rule. A gate for the rule must already exist.
    * @param param The request object
    */
-  public createDeploymentRule(
-    param: DeploymentGatesApiCreateDeploymentRuleRequest,
-    options?: Configuration
-  ): Promise<DeploymentRuleResponse> {
-    const requestContextPromise = this.requestFactory.createDeploymentRule(
-      param.gateId,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.createDeploymentRule(responseContext);
+  public createDeploymentRule(param: DeploymentGatesApiCreateDeploymentRuleRequest, options?: Configuration): Promise<DeploymentRuleResponse> {
+    const requestContextPromise = this.requestFactory.createDeploymentRule(param.gateId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.createDeploymentRule(responseContext);
         });
     });
   }
@@ -2208,19 +1653,11 @@ export class DeploymentGatesApi {
    * Endpoint to delete a deployment gate. Rules associated with the gate are also deleted.
    * @param param The request object
    */
-  public deleteDeploymentGate(
-    param: DeploymentGatesApiDeleteDeploymentGateRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteDeploymentGate(
-      param.id,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.deleteDeploymentGate(responseContext);
+  public deleteDeploymentGate(param: DeploymentGatesApiDeleteDeploymentGateRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteDeploymentGate(param.id,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.deleteDeploymentGate(responseContext);
         });
     });
   }
@@ -2229,20 +1666,11 @@ export class DeploymentGatesApi {
    * Endpoint to delete a deployment rule.
    * @param param The request object
    */
-  public deleteDeploymentRule(
-    param: DeploymentGatesApiDeleteDeploymentRuleRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteDeploymentRule(
-      param.gateId,
-      param.id,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.deleteDeploymentRule(responseContext);
+  public deleteDeploymentRule(param: DeploymentGatesApiDeleteDeploymentRuleRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteDeploymentRule(param.gateId,param.id,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.deleteDeploymentRule(responseContext);
         });
     });
   }
@@ -2251,19 +1679,11 @@ export class DeploymentGatesApi {
    * Endpoint to get a deployment gate.
    * @param param The request object
    */
-  public getDeploymentGate(
-    param: DeploymentGatesApiGetDeploymentGateRequest,
-    options?: Configuration
-  ): Promise<DeploymentGateResponse> {
-    const requestContextPromise = this.requestFactory.getDeploymentGate(
-      param.id,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getDeploymentGate(responseContext);
+  public getDeploymentGate(param: DeploymentGatesApiGetDeploymentGateRequest, options?: Configuration): Promise<DeploymentGateResponse> {
+    const requestContextPromise = this.requestFactory.getDeploymentGate(param.id,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getDeploymentGate(responseContext);
         });
     });
   }
@@ -2272,19 +1692,11 @@ export class DeploymentGatesApi {
    * Endpoint to get rules for a deployment gate.
    * @param param The request object
    */
-  public getDeploymentGateRules(
-    param: DeploymentGatesApiGetDeploymentGateRulesRequest,
-    options?: Configuration
-  ): Promise<DeploymentGateRulesResponse> {
-    const requestContextPromise = this.requestFactory.getDeploymentGateRules(
-      param.gateId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getDeploymentGateRules(responseContext);
+  public getDeploymentGateRules(param: DeploymentGatesApiGetDeploymentGateRulesRequest, options?: Configuration): Promise<DeploymentGateRulesResponse> {
+    const requestContextPromise = this.requestFactory.getDeploymentGateRules(param.gateId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getDeploymentGateRules(responseContext);
         });
     });
   }
@@ -2297,19 +1709,11 @@ export class DeploymentGatesApi {
    * The endpoint may return a 404 if called too soon after triggering; retry after a few seconds.
    * @param param The request object
    */
-  public getDeploymentGatesEvaluationResult(
-    param: DeploymentGatesApiGetDeploymentGatesEvaluationResultRequest,
-    options?: Configuration
-  ): Promise<DeploymentGatesEvaluationResultResponse> {
-    const requestContextPromise =
-      this.requestFactory.getDeploymentGatesEvaluationResult(param.id, options);
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getDeploymentGatesEvaluationResult(
-            responseContext
-          );
+  public getDeploymentGatesEvaluationResult(param: DeploymentGatesApiGetDeploymentGatesEvaluationResultRequest, options?: Configuration): Promise<DeploymentGatesEvaluationResultResponse> {
+    const requestContextPromise = this.requestFactory.getDeploymentGatesEvaluationResult(param.id,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getDeploymentGatesEvaluationResult(responseContext);
         });
     });
   }
@@ -2318,20 +1722,11 @@ export class DeploymentGatesApi {
    * Endpoint to get a deployment rule.
    * @param param The request object
    */
-  public getDeploymentRule(
-    param: DeploymentGatesApiGetDeploymentRuleRequest,
-    options?: Configuration
-  ): Promise<DeploymentRuleResponse> {
-    const requestContextPromise = this.requestFactory.getDeploymentRule(
-      param.gateId,
-      param.id,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getDeploymentRule(responseContext);
+  public getDeploymentRule(param: DeploymentGatesApiGetDeploymentRuleRequest, options?: Configuration): Promise<DeploymentRuleResponse> {
+    const requestContextPromise = this.requestFactory.getDeploymentRule(param.gateId,param.id,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getDeploymentRule(responseContext);
         });
     });
   }
@@ -2341,20 +1736,11 @@ export class DeploymentGatesApi {
    * Use `page[cursor]` and `page[size]` query parameters to paginate through results.
    * @param param The request object
    */
-  public listDeploymentGates(
-    param: DeploymentGatesApiListDeploymentGatesRequest = {},
-    options?: Configuration
-  ): Promise<DeploymentGatesListResponse> {
-    const requestContextPromise = this.requestFactory.listDeploymentGates(
-      param.pageCursor,
-      param.pageSize,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.listDeploymentGates(responseContext);
+  public listDeploymentGates(param: DeploymentGatesApiListDeploymentGatesRequest = {}, options?: Configuration): Promise<DeploymentGatesListResponse> {
+    const requestContextPromise = this.requestFactory.listDeploymentGates(param.pageCursor,param.pageSize,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.listDeploymentGates(responseContext);
         });
     });
   }
@@ -2363,25 +1749,17 @@ export class DeploymentGatesApi {
    * Triggers an asynchronous deployment gate evaluation for the given service and environment.
    * Returns an evaluation ID that can be used to poll for the result via the
    * `GET /api/v2/deployments/gates/evaluation/{id}` endpoint.
-   *
+   * 
    * When the `configuration` attribute is provided, rules are evaluated inline from that configuration
    * and no pre-configured gate is required. When `configuration` is omitted, rules are resolved from the
    * gate pre-configured for the given service and environment through the Datadog UI, API, or Terraform.
    * @param param The request object
    */
-  public triggerDeploymentGatesEvaluation(
-    param: DeploymentGatesApiTriggerDeploymentGatesEvaluationRequest,
-    options?: Configuration
-  ): Promise<DeploymentGatesEvaluationResponse> {
-    const requestContextPromise =
-      this.requestFactory.triggerDeploymentGatesEvaluation(param.body, options);
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.triggerDeploymentGatesEvaluation(
-            responseContext
-          );
+  public triggerDeploymentGatesEvaluation(param: DeploymentGatesApiTriggerDeploymentGatesEvaluationRequest, options?: Configuration): Promise<DeploymentGatesEvaluationResponse> {
+    const requestContextPromise = this.requestFactory.triggerDeploymentGatesEvaluation(param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.triggerDeploymentGatesEvaluation(responseContext);
         });
     });
   }
@@ -2390,20 +1768,11 @@ export class DeploymentGatesApi {
    * Endpoint to update a deployment gate.
    * @param param The request object
    */
-  public updateDeploymentGate(
-    param: DeploymentGatesApiUpdateDeploymentGateRequest,
-    options?: Configuration
-  ): Promise<DeploymentGateResponse> {
-    const requestContextPromise = this.requestFactory.updateDeploymentGate(
-      param.id,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.updateDeploymentGate(responseContext);
+  public updateDeploymentGate(param: DeploymentGatesApiUpdateDeploymentGateRequest, options?: Configuration): Promise<DeploymentGateResponse> {
+    const requestContextPromise = this.requestFactory.updateDeploymentGate(param.id,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.updateDeploymentGate(responseContext);
         });
     });
   }
@@ -2412,21 +1781,11 @@ export class DeploymentGatesApi {
    * Endpoint to update a deployment rule.
    * @param param The request object
    */
-  public updateDeploymentRule(
-    param: DeploymentGatesApiUpdateDeploymentRuleRequest,
-    options?: Configuration
-  ): Promise<DeploymentRuleResponse> {
-    const requestContextPromise = this.requestFactory.updateDeploymentRule(
-      param.gateId,
-      param.id,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.updateDeploymentRule(responseContext);
+  public updateDeploymentRule(param: DeploymentGatesApiUpdateDeploymentRuleRequest, options?: Configuration): Promise<DeploymentRuleResponse> {
+    const requestContextPromise = this.requestFactory.updateDeploymentRule(param.gateId,param.id,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.updateDeploymentRule(responseContext);
         });
     });
   }

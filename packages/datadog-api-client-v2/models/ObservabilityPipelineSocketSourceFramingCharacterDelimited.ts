@@ -5,19 +5,24 @@
  */
 import { ObservabilityPipelineSocketSourceFramingCharacterDelimitedMethod } from "./ObservabilityPipelineSocketSourceFramingCharacterDelimitedMethod";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Byte frames which are delimited by a chosen character.
- */
+*/
 export class ObservabilityPipelineSocketSourceFramingCharacterDelimited {
   /**
    * A single ASCII character used to delimit events.
-   */
+  */
   "delimiter": string;
   /**
    * Byte frames which are delimited by a chosen character.
-   */
+  */
   "method": ObservabilityPipelineSocketSourceFramingCharacterDelimitedMethod;
 
   /**
@@ -25,7 +30,7 @@ export class ObservabilityPipelineSocketSourceFramingCharacterDelimited {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class ObservabilityPipelineSocketSourceFramingCharacterDelimited {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    delimiter: {
-      baseName: "delimiter",
-      type: "string",
-      required: true,
+    "delimiter": {
+      "baseName": "delimiter",
+      "type": "string",
+      "required": true,
     },
-    method: {
-      baseName: "method",
-      type: "ObservabilityPipelineSocketSourceFramingCharacterDelimitedMethod",
-      required: true,
+    "method": {
+      "baseName": "method",
+      "type": "ObservabilityPipelineSocketSourceFramingCharacterDelimitedMethod",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class ObservabilityPipelineSocketSourceFramingCharacterDelimited {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineSocketSourceFramingCharacterDelimited.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

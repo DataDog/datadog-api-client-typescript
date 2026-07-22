@@ -7,27 +7,32 @@ import { FullServiceAccessTokenAttributes } from "./FullServiceAccessTokenAttrib
 import { ServiceAccessTokenRelationships } from "./ServiceAccessTokenRelationships";
 import { ServiceAccessTokensType } from "./ServiceAccessTokensType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Datadog access token, including the token key.
- */
+*/
 export class FullServiceAccessToken {
   /**
    * Attributes of a full access token, including the token key.
-   */
+  */
   "attributes"?: FullServiceAccessTokenAttributes;
   /**
    * ID of the access token.
-   */
+  */
   "id"?: string;
   /**
    * Resources related to the access token.
-   */
+  */
   "relationships"?: ServiceAccessTokenRelationships;
   /**
    * Service access tokens resource type.
-   */
+  */
   "type"?: ServiceAccessTokensType;
 
   /**
@@ -35,7 +40,7 @@ export class FullServiceAccessToken {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,21 +51,21 @@ export class FullServiceAccessToken {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "FullServiceAccessTokenAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "FullServiceAccessTokenAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "ServiceAccessTokenRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "ServiceAccessTokenRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "ServiceAccessTokensType",
+    "type": {
+      "baseName": "type",
+      "type": "ServiceAccessTokensType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -72,8 +77,34 @@ export class FullServiceAccessToken {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FullServiceAccessToken.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

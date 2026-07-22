@@ -8,36 +8,41 @@ import { CIAppGroupByHistogram } from "./CIAppGroupByHistogram";
 import { CIAppGroupByMissing } from "./CIAppGroupByMissing";
 import { CIAppGroupByTotal } from "./CIAppGroupByTotal";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A group-by rule.
- */
+*/
 export class CIAppTestsGroupBy {
   /**
    * The name of the facet to use (required).
-   */
+  */
   "facet": string;
   /**
    * Used to perform a histogram computation (only for measure facets).
    * At most, 100 buckets are allowed, the number of buckets is `(max - min)/interval`.
-   */
+  */
   "histogram"?: CIAppGroupByHistogram;
   /**
    * The maximum buckets to return for this group-by.
-   */
+  */
   "limit"?: number;
   /**
    * The value to use for logs that don't have the facet used to group-by.
-   */
+  */
   "missing"?: CIAppGroupByMissing;
   /**
    * A sort rule. The `aggregation` field is required when `type` is `measure`.
-   */
+  */
   "sort"?: CIAppAggregateSort;
   /**
    * A resulting object to put the given computes in over all the matching records.
-   */
+  */
   "total"?: CIAppGroupByTotal;
 
   /**
@@ -45,7 +50,7 @@ export class CIAppTestsGroupBy {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -56,31 +61,31 @@ export class CIAppTestsGroupBy {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    facet: {
-      baseName: "facet",
-      type: "string",
-      required: true,
+    "facet": {
+      "baseName": "facet",
+      "type": "string",
+      "required": true,
     },
-    histogram: {
-      baseName: "histogram",
-      type: "CIAppGroupByHistogram",
+    "histogram": {
+      "baseName": "histogram",
+      "type": "CIAppGroupByHistogram",
     },
-    limit: {
-      baseName: "limit",
-      type: "number",
-      format: "int64",
+    "limit": {
+      "baseName": "limit",
+      "type": "number",
+      "format": "int64",
     },
-    missing: {
-      baseName: "missing",
-      type: "CIAppGroupByMissing",
+    "missing": {
+      "baseName": "missing",
+      "type": "CIAppGroupByMissing",
     },
-    sort: {
-      baseName: "sort",
-      type: "CIAppAggregateSort",
+    "sort": {
+      "baseName": "sort",
+      "type": "CIAppAggregateSort",
     },
-    total: {
-      baseName: "total",
-      type: "CIAppGroupByTotal",
+    "total": {
+      "baseName": "total",
+      "type": "CIAppGroupByTotal",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -92,8 +97,34 @@ export class CIAppTestsGroupBy {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CIAppTestsGroupBy.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

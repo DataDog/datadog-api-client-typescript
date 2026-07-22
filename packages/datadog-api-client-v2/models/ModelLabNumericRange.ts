@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The numeric range of values for a facet.
- */
+*/
 export class ModelLabNumericRange {
   /**
    * The maximum value.
-   */
+  */
   "max": number;
   /**
    * The minimum value.
-   */
+  */
   "min": number;
 
   /**
@@ -24,7 +29,7 @@ export class ModelLabNumericRange {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,17 +40,17 @@ export class ModelLabNumericRange {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    max: {
-      baseName: "max",
-      type: "number",
-      required: true,
-      format: "double",
+    "max": {
+      "baseName": "max",
+      "type": "number",
+      "required": true,
+      "format": "double",
     },
-    min: {
-      baseName: "min",
-      type: "number",
-      required: true,
-      format: "double",
+    "min": {
+      "baseName": "min",
+      "type": "number",
+      "required": true,
+      "format": "double",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class ModelLabNumericRange {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ModelLabNumericRange.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

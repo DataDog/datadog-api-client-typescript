@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for requesting Flaky Tests Management policies.
- */
+*/
 export class TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes {
   /**
    * The repository identifier.
-   */
+  */
   "repositoryId": string;
 
   /**
@@ -20,7 +25,7 @@ export class TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,10 +36,10 @@ export class TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    repositoryId: {
-      baseName: "repository_id",
-      type: "string",
-      required: true,
+    "repositoryId": {
+      "baseName": "repository_id",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

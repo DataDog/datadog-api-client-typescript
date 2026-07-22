@@ -6,23 +6,28 @@
 import { ServiceRepositoryInfoDataType } from "./ServiceRepositoryInfoDataType";
 import { ServiceRepositoryInfoResponseAttributes } from "./ServiceRepositoryInfoResponseAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for the service repository info response.
- */
+*/
 export class ServiceRepositoryInfoResponseData {
   /**
    * Attributes of the service repository information.
-   */
+  */
   "attributes": ServiceRepositoryInfoResponseAttributes;
   /**
    * The identifier composed of the service name and version.
-   */
+  */
   "id": string;
   /**
    * The resource type for service repository info objects.
-   */
+  */
   "type": ServiceRepositoryInfoDataType;
 
   /**
@@ -30,7 +35,7 @@ export class ServiceRepositoryInfoResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class ServiceRepositoryInfoResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ServiceRepositoryInfoResponseAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ServiceRepositoryInfoResponseAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ServiceRepositoryInfoDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ServiceRepositoryInfoDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class ServiceRepositoryInfoResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceRepositoryInfoResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

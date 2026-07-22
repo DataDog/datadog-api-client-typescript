@@ -5,12 +5,15 @@
  */
 import { OnCallPhoneNotificationRuleSettings } from "./OnCallPhoneNotificationRuleSettings";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Defines the configuration for a channel associated with a notification rule
- */
+*/
 
-export type OnCallNotificationRuleChannelSettings =
-  | OnCallPhoneNotificationRuleSettings
-  | UnparsedObject;
+export type OnCallNotificationRuleChannelSettings = OnCallPhoneNotificationRuleSettings | UnparsedObject;

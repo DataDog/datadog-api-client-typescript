@@ -5,15 +5,20 @@
  */
 import { AllocationDataRequest } from "./AllocationDataRequest";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request to create targeting rules (allocations) for a feature flag in an environment.
- */
+*/
 export class CreateAllocationsRequest {
   /**
    * Data wrapper for allocation request payloads.
-   */
+  */
   "data": AllocationDataRequest;
 
   /**
@@ -21,7 +26,7 @@ export class CreateAllocationsRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CreateAllocationsRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "AllocationDataRequest",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "AllocationDataRequest",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CreateAllocationsRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateAllocationsRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

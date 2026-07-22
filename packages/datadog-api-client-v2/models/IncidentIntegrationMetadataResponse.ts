@@ -6,19 +6,24 @@
 import { IncidentIntegrationMetadataResponseData } from "./IncidentIntegrationMetadataResponseData";
 import { IncidentIntegrationMetadataResponseIncludedItem } from "./IncidentIntegrationMetadataResponseIncludedItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response with an incident integration metadata.
- */
+*/
 export class IncidentIntegrationMetadataResponse {
   /**
    * Incident integration metadata from a response.
-   */
+  */
   "data": IncidentIntegrationMetadataResponseData;
   /**
    * Included related resources that the user requested.
-   */
+  */
   "included"?: Array<IncidentIntegrationMetadataResponseIncludedItem>;
 
   /**
@@ -26,7 +31,7 @@ export class IncidentIntegrationMetadataResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class IncidentIntegrationMetadataResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "IncidentIntegrationMetadataResponseData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "IncidentIntegrationMetadataResponseData",
+      "required": true,
     },
-    included: {
-      baseName: "included",
-      type: "Array<IncidentIntegrationMetadataResponseIncludedItem>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<IncidentIntegrationMetadataResponseIncludedItem>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class IncidentIntegrationMetadataResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentIntegrationMetadataResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

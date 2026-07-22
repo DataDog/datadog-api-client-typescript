@@ -6,19 +6,24 @@
 import { SecurityMonitoringDatasetAttributesRequest } from "./SecurityMonitoringDatasetAttributesRequest";
 import { SecurityMonitoringDatasetUpdateType } from "./SecurityMonitoringDatasetUpdateType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data wrapper of a dataset update request.
- */
+*/
 export class SecurityMonitoringDatasetUpdateData {
   /**
    * The attributes of a dataset create or update request.
-   */
+  */
   "attributes": SecurityMonitoringDatasetAttributesRequest;
   /**
    * The type of resource for a dataset update request.
-   */
+  */
   "type": SecurityMonitoringDatasetUpdateType;
 
   /**
@@ -26,7 +31,7 @@ export class SecurityMonitoringDatasetUpdateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class SecurityMonitoringDatasetUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SecurityMonitoringDatasetAttributesRequest",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SecurityMonitoringDatasetAttributesRequest",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "SecurityMonitoringDatasetUpdateType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SecurityMonitoringDatasetUpdateType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class SecurityMonitoringDatasetUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringDatasetUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

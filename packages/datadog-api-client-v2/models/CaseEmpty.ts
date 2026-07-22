@@ -5,15 +5,20 @@
  */
 import { CaseResourceType } from "./CaseResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Case empty request data
- */
+*/
 export class CaseEmpty {
   /**
    * JSON:API resource type for cases.
-   */
+  */
   "type": CaseResourceType;
 
   /**
@@ -21,7 +26,7 @@ export class CaseEmpty {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CaseEmpty {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    type: {
-      baseName: "type",
-      type: "CaseResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CaseResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CaseEmpty {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseEmpty.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

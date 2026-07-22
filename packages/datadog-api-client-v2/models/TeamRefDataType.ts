@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Datadog team resource type.
- */
+*/
 
 export type TeamRefDataType = typeof TEAM | UnparsedObject;
-export const TEAM = "team";
+export const TEAM = 'team';

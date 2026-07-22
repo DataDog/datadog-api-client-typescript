@@ -6,19 +6,24 @@
 import { OrgAuthorizedClientRelationshipUserAuthorizedClientsData } from "./OrgAuthorizedClientRelationshipUserAuthorizedClientsData";
 import { OrgAuthorizedClientRelationshipUserAuthorizedClientsLinks } from "./OrgAuthorizedClientRelationshipUserAuthorizedClientsLinks";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationship to the user authorized clients for this org authorized client.
- */
+*/
 export class OrgAuthorizedClientRelationshipUserAuthorizedClients {
   /**
    * List of user authorized client relationship data objects.
-   */
+  */
   "data": Array<OrgAuthorizedClientRelationshipUserAuthorizedClientsData>;
   /**
    * Links for the user authorized clients relationship.
-   */
+  */
   "links": OrgAuthorizedClientRelationshipUserAuthorizedClientsLinks;
 
   /**
@@ -26,7 +31,7 @@ export class OrgAuthorizedClientRelationshipUserAuthorizedClients {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class OrgAuthorizedClientRelationshipUserAuthorizedClients {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<OrgAuthorizedClientRelationshipUserAuthorizedClientsData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<OrgAuthorizedClientRelationshipUserAuthorizedClientsData>",
+      "required": true,
     },
-    links: {
-      baseName: "links",
-      type: "OrgAuthorizedClientRelationshipUserAuthorizedClientsLinks",
-      required: true,
+    "links": {
+      "baseName": "links",
+      "type": "OrgAuthorizedClientRelationshipUserAuthorizedClientsLinks",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class OrgAuthorizedClientRelationshipUserAuthorizedClients {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgAuthorizedClientRelationshipUserAuthorizedClients.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

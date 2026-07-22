@@ -5,23 +5,28 @@
  */
 import { GCPServiceAccountCredentialType } from "./GCPServiceAccountCredentialType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `GCPServiceAccount` object.
- */
+*/
 export class GCPServiceAccount {
   /**
    * The `GCPServiceAccount` `private_key`.
-   */
+  */
   "privateKey": string;
   /**
    * The `GCPServiceAccount` `service_account_email`.
-   */
+  */
   "serviceAccountEmail": string;
   /**
    * The definition of the `GCPServiceAccount` object.
-   */
+  */
   "type": GCPServiceAccountCredentialType;
 
   /**
@@ -29,7 +34,7 @@ export class GCPServiceAccount {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,20 +45,20 @@ export class GCPServiceAccount {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    privateKey: {
-      baseName: "private_key",
-      type: "string",
-      required: true,
+    "privateKey": {
+      "baseName": "private_key",
+      "type": "string",
+      "required": true,
     },
-    serviceAccountEmail: {
-      baseName: "service_account_email",
-      type: "string",
-      required: true,
+    "serviceAccountEmail": {
+      "baseName": "service_account_email",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "GCPServiceAccountCredentialType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "GCPServiceAccountCredentialType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class GCPServiceAccount {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GCPServiceAccount.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

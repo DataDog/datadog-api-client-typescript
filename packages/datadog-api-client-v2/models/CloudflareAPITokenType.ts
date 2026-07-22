@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of the `CloudflareAPIToken` object.
- */
+*/
 
 export type CloudflareAPITokenType = typeof CLOUDFLAREAPITOKEN | UnparsedObject;
-export const CLOUDFLAREAPITOKEN = "CloudflareAPIToken";
+export const CLOUDFLAREAPITOKEN = 'CloudflareAPIToken';

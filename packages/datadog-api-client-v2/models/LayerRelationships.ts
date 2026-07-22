@@ -5,15 +5,20 @@
  */
 import { LayerRelationshipsMembers } from "./LayerRelationshipsMembers";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Holds references to objects related to the Layer entity, such as its members.
- */
+*/
 export class LayerRelationships {
   /**
    * Holds an array of references to the members of a Layer, each containing member IDs.
-   */
+  */
   "members"?: LayerRelationshipsMembers;
 
   /**
@@ -21,7 +26,7 @@ export class LayerRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class LayerRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    members: {
-      baseName: "members",
-      type: "LayerRelationshipsMembers",
+    "members": {
+      "baseName": "members",
+      "type": "LayerRelationshipsMembers",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class LayerRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LayerRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

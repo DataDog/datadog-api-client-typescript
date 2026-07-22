@@ -5,15 +5,20 @@
  */
 import { StatusPagesComponentDataRelationshipsLastModifiedByUserData } from "./StatusPagesComponentDataRelationshipsLastModifiedByUserData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The Datadog user who last modified the component.
- */
+*/
 export class StatusPagesComponentDataRelationshipsLastModifiedByUser {
   /**
    * The data object identifying the Datadog user who last modified the component.
-   */
+  */
   "data": StatusPagesComponentDataRelationshipsLastModifiedByUserData;
 
   /**
@@ -21,7 +26,7 @@ export class StatusPagesComponentDataRelationshipsLastModifiedByUser {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class StatusPagesComponentDataRelationshipsLastModifiedByUser {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "StatusPagesComponentDataRelationshipsLastModifiedByUserData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "StatusPagesComponentDataRelationshipsLastModifiedByUserData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class StatusPagesComponentDataRelationshipsLastModifiedByUser {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return StatusPagesComponentDataRelationshipsLastModifiedByUser.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

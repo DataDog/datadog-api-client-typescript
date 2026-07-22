@@ -5,19 +5,24 @@
  */
 import { SecurityMonitoringSKU } from "./SecurityMonitoringSKU";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metadata for content pack states
- */
+*/
 export class SecurityMonitoringContentPackStateMeta {
   /**
    * Whether the cloud SIEM index configuration is incorrect at the organization level
-   */
+  */
   "cloudSiemIndexIncorrect": boolean;
   /**
    * The Cloud SIEM pricing model (SKU) for the organization.
-   */
+  */
   "sku": SecurityMonitoringSKU;
 
   /**
@@ -25,7 +30,7 @@ export class SecurityMonitoringContentPackStateMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class SecurityMonitoringContentPackStateMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    cloudSiemIndexIncorrect: {
-      baseName: "cloud_siem_index_incorrect",
-      type: "boolean",
-      required: true,
+    "cloudSiemIndexIncorrect": {
+      "baseName": "cloud_siem_index_incorrect",
+      "type": "boolean",
+      "required": true,
     },
-    sku: {
-      baseName: "sku",
-      type: "SecurityMonitoringSKU",
-      required: true,
+    "sku": {
+      "baseName": "sku",
+      "type": "SecurityMonitoringSKU",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class SecurityMonitoringContentPackStateMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringContentPackStateMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

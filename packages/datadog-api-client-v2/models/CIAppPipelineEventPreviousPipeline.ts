@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * If the pipeline is a retry, this should contain the details of the previous attempt.
- */
+*/
 export class CIAppPipelineEventPreviousPipeline {
   /**
    * UUID of a pipeline.
-   */
+  */
   "id": string;
   /**
    * The URL to look at the pipeline in the CI provider UI.
-   */
+  */
   "url"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class CIAppPipelineEventPreviousPipeline {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,14 +40,14 @@ export class CIAppPipelineEventPreviousPipeline {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    url: {
-      baseName: "url",
-      type: "string",
+    "url": {
+      "baseName": "url",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class CIAppPipelineEventPreviousPipeline {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CIAppPipelineEventPreviousPipeline.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

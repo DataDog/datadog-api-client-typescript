@@ -5,15 +5,20 @@
  */
 import { AllocationExposureScheduleData } from "./AllocationExposureScheduleData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a progressive rollout schedule.
- */
+*/
 export class AllocationExposureScheduleResponse {
   /**
    * Data wrapper for progressive rollout schedule responses.
-   */
+  */
   "data": AllocationExposureScheduleData;
 
   /**
@@ -21,7 +26,7 @@ export class AllocationExposureScheduleResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class AllocationExposureScheduleResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "AllocationExposureScheduleData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "AllocationExposureScheduleData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class AllocationExposureScheduleResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AllocationExposureScheduleResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

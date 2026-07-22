@@ -5,27 +5,32 @@
  */
 import { CasePriority } from "./CasePriority";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of the ServiceNow ticket to create.
- */
+*/
 export class CreateServiceNowTicketRequestDataAttributes {
   /**
    * Unique identifier of the Datadog user assigned to the case backing the ServiceNow ticket.
-   */
+  */
   "assigneeId"?: string;
   /**
    * Description of the ServiceNow ticket. If not provided, the description will be automatically generated.
-   */
+  */
   "description"?: string;
   /**
    * Case priority
-   */
+  */
   "priority"?: CasePriority;
   /**
    * Title of the ServiceNow ticket. If not provided, the title will be automatically generated.
-   */
+  */
   "title"?: string;
 
   /**
@@ -33,7 +38,7 @@ export class CreateServiceNowTicketRequestDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -44,21 +49,21 @@ export class CreateServiceNowTicketRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    assigneeId: {
-      baseName: "assignee_id",
-      type: "string",
+    "assigneeId": {
+      "baseName": "assignee_id",
+      "type": "string",
     },
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    priority: {
-      baseName: "priority",
-      type: "CasePriority",
+    "priority": {
+      "baseName": "priority",
+      "type": "CasePriority",
     },
-    title: {
-      baseName: "title",
-      type: "string",
+    "title": {
+      "baseName": "title",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -70,8 +75,34 @@ export class CreateServiceNowTicketRequestDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateServiceNowTicketRequestDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

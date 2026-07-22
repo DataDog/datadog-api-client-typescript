@@ -6,23 +6,28 @@
 import { OwnershipInferenceListAttributes } from "./OwnershipInferenceListAttributes";
 import { OwnershipInferencesType } from "./OwnershipInferencesType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data wrapper for the ownership inferences collection response.
- */
+*/
 export class OwnershipInferenceListData {
   /**
    * The attributes of the ownership inferences collection response.
-   */
+  */
   "attributes": OwnershipInferenceListAttributes;
   /**
    * The resource identifier associated with the returned inferences.
-   */
+  */
   "id": string;
   /**
    * The type of the ownership inferences collection resource. The value should always be `ownership_inferences`.
-   */
+  */
   "type": OwnershipInferencesType;
 
   /**
@@ -30,7 +35,7 @@ export class OwnershipInferenceListData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class OwnershipInferenceListData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "OwnershipInferenceListAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "OwnershipInferenceListAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "OwnershipInferencesType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "OwnershipInferencesType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class OwnershipInferenceListData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OwnershipInferenceListData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

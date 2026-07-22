@@ -5,15 +5,20 @@
  */
 import { AWSAccountUpdateRequestData } from "./AWSAccountUpdateRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * AWS Account Update Request body.
- */
+*/
 export class AWSAccountUpdateRequest {
   /**
    * AWS Account Update Request data.
-   */
+  */
   "data": AWSAccountUpdateRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class AWSAccountUpdateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class AWSAccountUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "AWSAccountUpdateRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "AWSAccountUpdateRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class AWSAccountUpdateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSAccountUpdateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

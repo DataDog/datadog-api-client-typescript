@@ -5,31 +5,36 @@
  */
 import { LLMObsPatternsConfigSnapshot } from "./LLMObsPatternsConfigSnapshot";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Summary of an LLM Observability patterns run.
- */
+*/
 export class LLMObsPatternsRunSummary {
   /**
    * Timestamp when the run completed. Null if the run has not completed.
-   */
+  */
   "completedAt"?: Date;
   /**
    * Snapshot of the configuration used for a patterns run.
-   */
+  */
   "configSnapshot"?: LLMObsPatternsConfigSnapshot;
   /**
    * Timestamp when the run was created.
-   */
+  */
   "createdAt": Date;
   /**
    * Unique identifier of the run.
-   */
+  */
   "id": string;
   /**
    * Status of the run.
-   */
+  */
   "status": string;
 
   /**
@@ -37,7 +42,7 @@ export class LLMObsPatternsRunSummary {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -48,30 +53,30 @@ export class LLMObsPatternsRunSummary {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    completedAt: {
-      baseName: "completed_at",
-      type: "Date",
-      format: "date-time",
+    "completedAt": {
+      "baseName": "completed_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    configSnapshot: {
-      baseName: "config_snapshot",
-      type: "LLMObsPatternsConfigSnapshot",
+    "configSnapshot": {
+      "baseName": "config_snapshot",
+      "type": "LLMObsPatternsConfigSnapshot",
     },
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    status: {
-      baseName: "status",
-      type: "string",
-      required: true,
+    "status": {
+      "baseName": "status",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -83,8 +88,34 @@ export class LLMObsPatternsRunSummary {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsPatternsRunSummary.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

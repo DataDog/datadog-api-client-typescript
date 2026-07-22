@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * How the override is applied. `limit_override` enforces a custom limit; `excluded` omits the metric or tag from cardinality tracking.
- */
+*/
 
-export type ObservabilityPipelineTagCardinalityLimitProcessorOverrideType =
-  | typeof LIMIT_OVERRIDE
-  | typeof EXCLUDED
-  | UnparsedObject;
-export const LIMIT_OVERRIDE = "limit_override";
-export const EXCLUDED = "excluded";
+export type ObservabilityPipelineTagCardinalityLimitProcessorOverrideType = typeof LIMIT_OVERRIDE| typeof EXCLUDED | UnparsedObject;
+export const LIMIT_OVERRIDE = 'limit_override';
+export const EXCLUDED = 'excluded';

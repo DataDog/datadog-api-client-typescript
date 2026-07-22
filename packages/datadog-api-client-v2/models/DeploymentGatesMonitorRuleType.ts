@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type identifier for a monitor rule.
- */
+*/
 
 export type DeploymentGatesMonitorRuleType = typeof MONITOR | UnparsedObject;
-export const MONITOR = "monitor";
+export const MONITOR = 'monitor';

@@ -5,15 +5,20 @@
  */
 import { LogsArchiveCreateRequestDefinition } from "./LogsArchiveCreateRequestDefinition";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The logs archive.
- */
+*/
 export class LogsArchiveCreateRequest {
   /**
    * The definition of an archive.
-   */
+  */
   "data"?: LogsArchiveCreateRequestDefinition;
 
   /**
@@ -21,7 +26,7 @@ export class LogsArchiveCreateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class LogsArchiveCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "LogsArchiveCreateRequestDefinition",
+    "data": {
+      "baseName": "data",
+      "type": "LogsArchiveCreateRequestDefinition",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class LogsArchiveCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogsArchiveCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

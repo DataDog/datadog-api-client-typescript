@@ -6,31 +6,36 @@
 import { ProductAnalyticsAnalyticsQuery } from "./ProductAnalyticsAnalyticsQuery";
 import { ProductAnalyticsExecutionType } from "./ProductAnalyticsExecutionType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for an analytics request.
- */
+*/
 export class ProductAnalyticsAnalyticsRequestAttributes {
   /**
    * Override the query execution strategy.
-   */
+  */
   "enforcedExecutionType"?: ProductAnalyticsExecutionType;
   /**
    * Start time in epoch milliseconds. Must be less than `to`.
-   */
+  */
   "from": number;
   /**
    * The analytics query definition containing a base query, compute rule, and optional grouping.
-   */
+  */
   "query": ProductAnalyticsAnalyticsQuery;
   /**
    * Optional request ID for multi-step query continuation.
-   */
+  */
   "requestId"?: string;
   /**
    * End time in epoch milliseconds.
-   */
+  */
   "to": number;
 
   /**
@@ -38,7 +43,7 @@ export class ProductAnalyticsAnalyticsRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -49,30 +54,30 @@ export class ProductAnalyticsAnalyticsRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enforcedExecutionType: {
-      baseName: "enforced_execution_type",
-      type: "ProductAnalyticsExecutionType",
+    "enforcedExecutionType": {
+      "baseName": "enforced_execution_type",
+      "type": "ProductAnalyticsExecutionType",
     },
-    from: {
-      baseName: "from",
-      type: "number",
-      required: true,
-      format: "int64",
+    "from": {
+      "baseName": "from",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    query: {
-      baseName: "query",
-      type: "ProductAnalyticsAnalyticsQuery",
-      required: true,
+    "query": {
+      "baseName": "query",
+      "type": "ProductAnalyticsAnalyticsQuery",
+      "required": true,
     },
-    requestId: {
-      baseName: "request_id",
-      type: "string",
+    "requestId": {
+      "baseName": "request_id",
+      "type": "string",
     },
-    to: {
-      baseName: "to",
-      type: "number",
-      required: true,
-      format: "int64",
+    "to": {
+      "baseName": "to",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -84,8 +89,34 @@ export class ProductAnalyticsAnalyticsRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProductAnalyticsAnalyticsRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

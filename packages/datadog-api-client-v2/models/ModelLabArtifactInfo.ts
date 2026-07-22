@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Information about a project-level artifact file.
- */
+*/
 export class ModelLabArtifactInfo {
   /**
    * The full artifact path relative to the project's artifact root.
-   */
+  */
   "artifactPath": string;
   /**
    * The date and time the artifact was created.
-   */
+  */
   "createdAt": Date;
   /**
    * The size of the file in bytes.
-   */
+  */
   "fileSize"?: number;
   /**
    * The filename of the artifact.
-   */
+  */
   "filename": string;
 
   /**
@@ -32,7 +37,7 @@ export class ModelLabArtifactInfo {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,26 +48,26 @@ export class ModelLabArtifactInfo {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    artifactPath: {
-      baseName: "artifact_path",
-      type: "string",
-      required: true,
+    "artifactPath": {
+      "baseName": "artifact_path",
+      "type": "string",
+      "required": true,
     },
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    fileSize: {
-      baseName: "file_size",
-      type: "number",
-      format: "int64",
+    "fileSize": {
+      "baseName": "file_size",
+      "type": "number",
+      "format": "int64",
     },
-    filename: {
-      baseName: "filename",
-      type: "string",
-      required: true,
+    "filename": {
+      "baseName": "filename",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,8 +79,34 @@ export class ModelLabArtifactInfo {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ModelLabArtifactInfo.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

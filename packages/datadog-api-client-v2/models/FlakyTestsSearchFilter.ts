@@ -4,17 +4,22 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Search filter settings.
- */
+*/
 export class FlakyTestsSearchFilter {
   /**
    * Whether to include the status change history for each flaky test in the response.
    * When set to true, each test will include a `history` array with chronological status changes.
    * Defaults to false.
-   */
+  */
   "includeHistory"?: boolean;
   /**
    * Search query following log syntax used to filter flaky tests, same as on Flaky Tests Management UI. The supported search keys are:
@@ -29,9 +34,9 @@ export class FlakyTestsSearchFilter {
    * - `@test.codeowners`
    * - `env`
    * - `fingerprint_fqn`
-   *
+   * 
    * Use `fingerprint_fqn` to filter by a test's stable Fingerprint FQN (the same value as the test's `id`).
-   */
+  */
   "query"?: string;
 
   /**
@@ -39,7 +44,7 @@ export class FlakyTestsSearchFilter {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -50,13 +55,13 @@ export class FlakyTestsSearchFilter {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    includeHistory: {
-      baseName: "include_history",
-      type: "boolean",
+    "includeHistory": {
+      "baseName": "include_history",
+      "type": "boolean",
     },
-    query: {
-      baseName: "query",
-      type: "string",
+    "query": {
+      "baseName": "query",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -68,8 +73,34 @@ export class FlakyTestsSearchFilter {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FlakyTestsSearchFilter.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

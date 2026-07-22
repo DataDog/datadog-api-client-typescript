@@ -31,38 +31,15 @@ import { ObservabilityPipelineSplitArrayProcessor } from "./ObservabilityPipelin
 import { ObservabilityPipelineTagCardinalityLimitProcessor } from "./ObservabilityPipelineTagCardinalityLimitProcessor";
 import { ObservabilityPipelineThrottleProcessor } from "./ObservabilityPipelineThrottleProcessor";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A processor for the pipeline.
- */
+*/
 
-export type ObservabilityPipelineConfigProcessorItem =
-  | ObservabilityPipelineFilterProcessor
-  | ObservabilityPipelineAddEnvVarsProcessor
-  | ObservabilityPipelineAddFieldsProcessor
-  | ObservabilityPipelineAddHostnameProcessor
-  | ObservabilityPipelineCustomProcessor
-  | ObservabilityPipelineDatadogTagsProcessor
-  | ObservabilityPipelineDedupeProcessor
-  | ObservabilityPipelineEnrichmentTableProcessor
-  | ObservabilityPipelineGenerateMetricsProcessor
-  | ObservabilityPipelineGenerateMetricsV2Processor
-  | ObservabilityPipelineOcsfMapperProcessor
-  | ObservabilityPipelineParseGrokProcessor
-  | ObservabilityPipelineParseJSONProcessor
-  | ObservabilityPipelineParseXMLProcessor
-  | ObservabilityPipelineQuotaProcessor
-  | ObservabilityPipelineReduceProcessor
-  | ObservabilityPipelineRemoveFieldsProcessor
-  | ObservabilityPipelineRenameFieldsProcessor
-  | ObservabilityPipelineSampleProcessor
-  | ObservabilityPipelineSensitiveDataScannerProcessor
-  | ObservabilityPipelineSplitArrayProcessor
-  | ObservabilityPipelineThrottleProcessor
-  | ObservabilityPipelineAddMetricTagsProcessor
-  | ObservabilityPipelineAggregateProcessor
-  | ObservabilityPipelineMetricTagsProcessor
-  | ObservabilityPipelineRenameMetricTagsProcessor
-  | ObservabilityPipelineTagCardinalityLimitProcessor
-  | UnparsedObject;
+export type ObservabilityPipelineConfigProcessorItem = ObservabilityPipelineFilterProcessor | ObservabilityPipelineAddEnvVarsProcessor | ObservabilityPipelineAddFieldsProcessor | ObservabilityPipelineAddHostnameProcessor | ObservabilityPipelineCustomProcessor | ObservabilityPipelineDatadogTagsProcessor | ObservabilityPipelineDedupeProcessor | ObservabilityPipelineEnrichmentTableProcessor | ObservabilityPipelineGenerateMetricsProcessor | ObservabilityPipelineGenerateMetricsV2Processor | ObservabilityPipelineOcsfMapperProcessor | ObservabilityPipelineParseGrokProcessor | ObservabilityPipelineParseJSONProcessor | ObservabilityPipelineParseXMLProcessor | ObservabilityPipelineQuotaProcessor | ObservabilityPipelineReduceProcessor | ObservabilityPipelineRemoveFieldsProcessor | ObservabilityPipelineRenameFieldsProcessor | ObservabilityPipelineSampleProcessor | ObservabilityPipelineSensitiveDataScannerProcessor | ObservabilityPipelineSplitArrayProcessor | ObservabilityPipelineThrottleProcessor | ObservabilityPipelineAddMetricTagsProcessor | ObservabilityPipelineAggregateProcessor | ObservabilityPipelineMetricTagsProcessor | ObservabilityPipelineRenameMetricTagsProcessor | ObservabilityPipelineTagCardinalityLimitProcessor | UnparsedObject;

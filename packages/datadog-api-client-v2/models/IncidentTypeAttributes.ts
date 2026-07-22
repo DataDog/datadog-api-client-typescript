@@ -5,47 +5,52 @@
  */
 import { IncidentTypeConfiguration } from "./IncidentTypeConfiguration";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Incident type's attributes.
- */
+*/
 export class IncidentTypeAttributes {
   /**
    * The incident-type-scoped behavior settings. All fields are optional on update. Any field omitted from a PATCH request keeps its current value. This object is read-only on the incident type resource itself and is only mutated through the update (PATCH) endpoint.
-   */
+  */
   "configuration"?: IncidentTypeConfiguration;
   /**
    * Timestamp when the incident type was created.
-   */
+  */
   "createdAt"?: Date;
   /**
    * A unique identifier that represents the user that created the incident type.
-   */
+  */
   "createdBy"?: string;
   /**
    * Text that describes the incident type.
-   */
+  */
   "description"?: string;
   /**
    * If true, this incident type will be used as the default incident type if a type is not specified during the creation of incident resources.
-   */
+  */
   "isDefault"?: boolean;
   /**
    * A unique identifier that represents the user that last modified the incident type.
-   */
+  */
   "lastModifiedBy"?: string;
   /**
    * Timestamp when the incident type was last modified.
-   */
+  */
   "modifiedAt"?: Date;
   /**
    * The name of the incident type.
-   */
+  */
   "name": string;
   /**
    * The string that will be prepended to the incident title across the Datadog app.
-   */
+  */
   "prefix"?: string;
 
   /**
@@ -53,7 +58,7 @@ export class IncidentTypeAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -64,44 +69,44 @@ export class IncidentTypeAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    configuration: {
-      baseName: "configuration",
-      type: "IncidentTypeConfiguration",
+    "configuration": {
+      "baseName": "configuration",
+      "type": "IncidentTypeConfiguration",
     },
-    createdAt: {
-      baseName: "createdAt",
-      type: "Date",
-      format: "date-time",
+    "createdAt": {
+      "baseName": "createdAt",
+      "type": "Date",
+      "format": "date-time",
     },
-    createdBy: {
-      baseName: "createdBy",
-      type: "string",
+    "createdBy": {
+      "baseName": "createdBy",
+      "type": "string",
     },
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    isDefault: {
-      baseName: "is_default",
-      type: "boolean",
+    "isDefault": {
+      "baseName": "is_default",
+      "type": "boolean",
     },
-    lastModifiedBy: {
-      baseName: "lastModifiedBy",
-      type: "string",
+    "lastModifiedBy": {
+      "baseName": "lastModifiedBy",
+      "type": "string",
     },
-    modifiedAt: {
-      baseName: "modifiedAt",
-      type: "Date",
-      format: "date-time",
+    "modifiedAt": {
+      "baseName": "modifiedAt",
+      "type": "Date",
+      "format": "date-time",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    prefix: {
-      baseName: "prefix",
-      type: "string",
+    "prefix": {
+      "baseName": "prefix",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -113,8 +118,34 @@ export class IncidentTypeAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentTypeAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

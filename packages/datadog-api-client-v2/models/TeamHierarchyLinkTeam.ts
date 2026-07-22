@@ -6,23 +6,28 @@
 import { TeamHierarchyLinkTeamAttributes } from "./TeamHierarchyLinkTeamAttributes";
 import { TeamType } from "./TeamType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Team hierarchy links connect different teams. This represents team objects that are connected by the team hierarchy link.
- */
+*/
 export class TeamHierarchyLinkTeam {
   /**
    * Team hierarchy links connect different teams. This represents attributes from teams that are connected by the team hierarchy link.
-   */
+  */
   "attributes"?: TeamHierarchyLinkTeamAttributes;
   /**
    * The team's identifier
-   */
+  */
   "id": string;
   /**
    * Team type
-   */
+  */
   "type": TeamType;
 
   /**
@@ -30,7 +35,7 @@ export class TeamHierarchyLinkTeam {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class TeamHierarchyLinkTeam {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "TeamHierarchyLinkTeamAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "TeamHierarchyLinkTeamAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "TeamType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TeamType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class TeamHierarchyLinkTeam {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamHierarchyLinkTeam.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

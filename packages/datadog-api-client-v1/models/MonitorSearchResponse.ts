@@ -7,23 +7,28 @@ import { MonitorSearchResponseCounts } from "./MonitorSearchResponseCounts";
 import { MonitorSearchResponseMetadata } from "./MonitorSearchResponseMetadata";
 import { MonitorSearchResult } from "./MonitorSearchResult";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The response from a monitor search.
- */
+*/
 export class MonitorSearchResponse {
   /**
    * The counts of monitors per different criteria.
-   */
+  */
   "counts"?: MonitorSearchResponseCounts;
   /**
    * Metadata about the response.
-   */
+  */
   "metadata"?: MonitorSearchResponseMetadata;
   /**
    * The list of found monitors.
-   */
+  */
   "monitors"?: Array<MonitorSearchResult>;
 
   /**
@@ -31,7 +36,7 @@ export class MonitorSearchResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,17 +47,17 @@ export class MonitorSearchResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    counts: {
-      baseName: "counts",
-      type: "MonitorSearchResponseCounts",
+    "counts": {
+      "baseName": "counts",
+      "type": "MonitorSearchResponseCounts",
     },
-    metadata: {
-      baseName: "metadata",
-      type: "MonitorSearchResponseMetadata",
+    "metadata": {
+      "baseName": "metadata",
+      "type": "MonitorSearchResponseMetadata",
     },
-    monitors: {
-      baseName: "monitors",
-      type: "Array<MonitorSearchResult>",
+    "monitors": {
+      "baseName": "monitors",
+      "type": "Array<MonitorSearchResult>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class MonitorSearchResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorSearchResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

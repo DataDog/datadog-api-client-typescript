@@ -5,15 +5,20 @@
  */
 import { RelationshipToRoleData } from "./RelationshipToRoleData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationship to role.
- */
+*/
 export class RelationshipToRole {
   /**
    * Relationship to role object.
-   */
+  */
   "data"?: RelationshipToRoleData;
 
   /**
@@ -21,7 +26,7 @@ export class RelationshipToRole {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class RelationshipToRole {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "RelationshipToRoleData",
+    "data": {
+      "baseName": "data",
+      "type": "RelationshipToRoleData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class RelationshipToRole {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RelationshipToRole.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

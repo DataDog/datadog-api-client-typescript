@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of an org authorized client.
- */
+*/
 export class OrgAuthorizedClientAttributes {
   /**
    * Whether the organization has disabled this client.
-   */
+  */
   "disabled": boolean;
   /**
    * The date and time this client was last exercised.
-   */
-  "lastExercised": Date | null;
+  */
+  "lastExercised": Date|null;
   /**
    * The number of users in the organization who have authorized this client.
-   */
+  */
   "userCount": number;
 
   /**
@@ -28,7 +33,7 @@ export class OrgAuthorizedClientAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,22 +44,22 @@ export class OrgAuthorizedClientAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    disabled: {
-      baseName: "disabled",
-      type: "boolean",
-      required: true,
+    "disabled": {
+      "baseName": "disabled",
+      "type": "boolean",
+      "required": true,
     },
-    lastExercised: {
-      baseName: "last_exercised",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "lastExercised": {
+      "baseName": "last_exercised",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    userCount: {
-      baseName: "user_count",
-      type: "number",
-      required: true,
-      format: "int64",
+    "userCount": {
+      "baseName": "user_count",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class OrgAuthorizedClientAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgAuthorizedClientAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

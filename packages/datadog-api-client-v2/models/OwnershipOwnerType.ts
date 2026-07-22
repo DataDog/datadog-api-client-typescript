@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The owner type for an ownership inference.
- */
+*/
 
-export type OwnershipOwnerType =
-  | typeof USER
-  | typeof TEAM
-  | typeof SERVICE
-  | typeof UNKNOWN
-  | UnparsedObject;
-export const USER = "user";
-export const TEAM = "team";
-export const SERVICE = "service";
-export const UNKNOWN = "unknown";
+export type OwnershipOwnerType = typeof USER| typeof TEAM| typeof SERVICE| typeof UNKNOWN | UnparsedObject;
+export const USER = 'user';
+export const TEAM = 'team';
+export const SERVICE = 'service';
+export const UNKNOWN = 'unknown';

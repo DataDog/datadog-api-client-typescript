@@ -5,19 +5,24 @@
  */
 import { OrgGroupPolicyEnforcementTier } from "./OrgGroupPolicyEnforcementTier";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for updating an org group policy.
- */
+*/
 export class OrgGroupPolicyUpdateAttributes {
   /**
    * The policy content as key-value pairs.
-   */
-  "content"?: { [key: string]: any };
+  */
+  "content"?: { [key: string]: any; };
   /**
    * The enforcement tier of the policy. `OVERRIDE_ALLOWED` means the policy is set but member orgs may mutate it. `GROUP_MANAGED` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value.
-   */
+  */
   "enforcementTier"?: OrgGroupPolicyEnforcementTier;
 
   /**
@@ -25,7 +30,7 @@ export class OrgGroupPolicyUpdateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class OrgGroupPolicyUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    content: {
-      baseName: "content",
-      type: "{ [key: string]: any; }",
+    "content": {
+      "baseName": "content",
+      "type": "{ [key: string]: any; }",
     },
-    enforcementTier: {
-      baseName: "enforcement_tier",
-      type: "OrgGroupPolicyEnforcementTier",
+    "enforcementTier": {
+      "baseName": "enforcement_tier",
+      "type": "OrgGroupPolicyEnforcementTier",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class OrgGroupPolicyUpdateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgGroupPolicyUpdateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

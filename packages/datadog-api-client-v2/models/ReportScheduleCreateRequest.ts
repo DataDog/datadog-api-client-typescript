@@ -5,15 +5,20 @@
  */
 import { ReportScheduleCreateRequestData } from "./ReportScheduleCreateRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request body for creating a report schedule.
- */
+*/
 export class ReportScheduleCreateRequest {
   /**
    * The JSON:API data object for a report schedule creation request.
-   */
+  */
   "data": ReportScheduleCreateRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class ReportScheduleCreateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class ReportScheduleCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ReportScheduleCreateRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "ReportScheduleCreateRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class ReportScheduleCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ReportScheduleCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

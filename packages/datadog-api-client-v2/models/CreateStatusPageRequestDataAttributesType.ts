@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of the status page controlling how the status page is accessed.
- */
+*/
 
-export type CreateStatusPageRequestDataAttributesType =
-  | typeof PUBLIC
-  | typeof INTERNAL
-  | UnparsedObject;
-export const PUBLIC = "public";
-export const INTERNAL = "internal";
+export type CreateStatusPageRequestDataAttributesType = typeof PUBLIC| typeof INTERNAL | UnparsedObject;
+export const PUBLIC = 'public';
+export const INTERNAL = 'internal';

@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Maintenances resource type.
- */
+*/
 
-export type PatchMaintenanceRequestDataType =
-  | typeof MAINTENANCES
-  | UnparsedObject;
-export const MAINTENANCES = "maintenances";
+export type PatchMaintenanceRequestDataType = typeof MAINTENANCES | UnparsedObject;
+export const MAINTENANCES = 'maintenances';

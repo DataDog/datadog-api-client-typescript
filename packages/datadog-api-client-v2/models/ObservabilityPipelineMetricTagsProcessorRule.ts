@@ -6,27 +6,32 @@
 import { ObservabilityPipelineMetricTagsProcessorRuleAction } from "./ObservabilityPipelineMetricTagsProcessorRuleAction";
 import { ObservabilityPipelineMetricTagsProcessorRuleMode } from "./ObservabilityPipelineMetricTagsProcessorRuleMode";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Defines a rule for filtering metric tags based on key patterns.
- */
+*/
 export class ObservabilityPipelineMetricTagsProcessorRule {
   /**
    * The action to take on tags with matching keys.
-   */
+  */
   "action": ObservabilityPipelineMetricTagsProcessorRuleAction;
   /**
    * A Datadog search query used to determine which metrics this rule targets.
-   */
+  */
   "include": string;
   /**
    * A list of tag keys to include or exclude.
-   */
+  */
   "keys": Array<string>;
   /**
    * The processing mode for tag filtering.
-   */
+  */
   "mode": ObservabilityPipelineMetricTagsProcessorRuleMode;
 
   /**
@@ -34,7 +39,7 @@ export class ObservabilityPipelineMetricTagsProcessorRule {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -45,25 +50,25 @@ export class ObservabilityPipelineMetricTagsProcessorRule {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    action: {
-      baseName: "action",
-      type: "ObservabilityPipelineMetricTagsProcessorRuleAction",
-      required: true,
+    "action": {
+      "baseName": "action",
+      "type": "ObservabilityPipelineMetricTagsProcessorRuleAction",
+      "required": true,
     },
-    include: {
-      baseName: "include",
-      type: "string",
-      required: true,
+    "include": {
+      "baseName": "include",
+      "type": "string",
+      "required": true,
     },
-    keys: {
-      baseName: "keys",
-      type: "Array<string>",
-      required: true,
+    "keys": {
+      "baseName": "keys",
+      "type": "Array<string>",
+      "required": true,
     },
-    mode: {
-      baseName: "mode",
-      type: "ObservabilityPipelineMetricTagsProcessorRuleMode",
-      required: true,
+    "mode": {
+      "baseName": "mode",
+      "type": "ObservabilityPipelineMetricTagsProcessorRuleMode",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -75,8 +80,34 @@ export class ObservabilityPipelineMetricTagsProcessorRule {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineMetricTagsProcessorRule.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

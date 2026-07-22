@@ -6,23 +6,28 @@
 import { FormType } from "./FormType";
 import { UpdateFormDataAttributes } from "./UpdateFormDataAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data for updating a form.
- */
+*/
 export class UpdateFormData {
   /**
    * The attributes for updating a form.
-   */
+  */
   "attributes": UpdateFormDataAttributes;
   /**
    * The ID of the form.
-   */
+  */
   "id"?: string;
   /**
    * The resource type for a form.
-   */
+  */
   "type": FormType;
 
   /**
@@ -30,7 +35,7 @@ export class UpdateFormData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class UpdateFormData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "UpdateFormDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "UpdateFormDataAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "format": "uuid",
     },
-    type: {
-      baseName: "type",
-      type: "FormType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "FormType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class UpdateFormData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateFormData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

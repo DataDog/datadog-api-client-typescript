@@ -6,23 +6,28 @@
 import { GetSuppressionVersionHistoryDataType } from "./GetSuppressionVersionHistoryDataType";
 import { SuppressionVersionHistory } from "./SuppressionVersionHistory";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for the suppression version history.
- */
+*/
 export class GetSuppressionVersionHistoryData {
   /**
    * Response object containing the version history of a suppression.
-   */
+  */
   "attributes"?: SuppressionVersionHistory;
   /**
    * ID of the suppression.
-   */
+  */
   "id"?: string;
   /**
    * Type of data.
-   */
+  */
   "type"?: GetSuppressionVersionHistoryDataType;
 
   /**
@@ -30,7 +35,7 @@ export class GetSuppressionVersionHistoryData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class GetSuppressionVersionHistoryData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SuppressionVersionHistory",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SuppressionVersionHistory",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "GetSuppressionVersionHistoryDataType",
+    "type": {
+      "baseName": "type",
+      "type": "GetSuppressionVersionHistoryDataType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class GetSuppressionVersionHistoryData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GetSuppressionVersionHistoryData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

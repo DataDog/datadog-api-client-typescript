@@ -6,19 +6,24 @@
 import { LLMObsAnthropicEffort } from "./LLMObsAnthropicEffort";
 import { LLMObsAnthropicThinkingConfig } from "./LLMObsAnthropicThinkingConfig";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Anthropic-specific metadata for an inference request.
- */
+*/
 export class LLMObsAnthropicMetadata {
   /**
    * The effort level for Anthropic inference.
-   */
+  */
   "effort"?: LLMObsAnthropicEffort;
   /**
    * Configuration for Anthropic extended thinking feature.
-   */
+  */
   "thinking"?: LLMObsAnthropicThinkingConfig;
 
   /**
@@ -26,7 +31,7 @@ export class LLMObsAnthropicMetadata {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class LLMObsAnthropicMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    effort: {
-      baseName: "effort",
-      type: "LLMObsAnthropicEffort",
+    "effort": {
+      "baseName": "effort",
+      "type": "LLMObsAnthropicEffort",
     },
-    thinking: {
-      baseName: "thinking",
-      type: "LLMObsAnthropicThinkingConfig",
+    "thinking": {
+      "baseName": "thinking",
+      "type": "LLMObsAnthropicThinkingConfig",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class LLMObsAnthropicMetadata {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsAnthropicMetadata.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

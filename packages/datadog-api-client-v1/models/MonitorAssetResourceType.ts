@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of internal Datadog resource associated with a monitor asset.
- */
+*/
 
 export type MonitorAssetResourceType = typeof NOTEBOOK | UnparsedObject;
-export const NOTEBOOK = "notebook";
+export const NOTEBOOK = 'notebook';

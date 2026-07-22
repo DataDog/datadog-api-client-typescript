@@ -6,13 +6,15 @@
 import { DashboardFixedTimeframe } from "./DashboardFixedTimeframe";
 import { DashboardLiveTimeframe } from "./DashboardLiveTimeframe";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The default timeframe applied when opening the dashboard. Set to `null` to clear the dashboard's default timeframe.
- */
+*/
 
-export type DashboardDefaultTimeframeSetting =
-  | DashboardLiveTimeframe
-  | DashboardFixedTimeframe
-  | UnparsedObject;
+export type DashboardDefaultTimeframeSetting = DashboardLiveTimeframe | DashboardFixedTimeframe | UnparsedObject;

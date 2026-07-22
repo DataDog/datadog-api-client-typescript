@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `Connection` object.
- */
+*/
 export class Connection {
   /**
    * The `Connection` `connectionId`.
-   */
+  */
   "connectionId": string;
   /**
    * The `Connection` `label`.
-   */
+  */
   "label": string;
 
   /**
@@ -24,7 +29,7 @@ export class Connection {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,15 +40,15 @@ export class Connection {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    connectionId: {
-      baseName: "connectionId",
-      type: "string",
-      required: true,
+    "connectionId": {
+      "baseName": "connectionId",
+      "type": "string",
+      "required": true,
     },
-    label: {
-      baseName: "label",
-      type: "string",
-      required: true,
+    "label": {
+      "baseName": "label",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class Connection {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return Connection.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

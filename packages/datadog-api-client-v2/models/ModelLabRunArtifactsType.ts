@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The JSON:API type for a run artifacts resource.
- */
+*/
 
 export type ModelLabRunArtifactsType = typeof ARTIFACTS | UnparsedObject;
-export const ARTIFACTS = "artifacts";
+export const ARTIFACTS = 'artifacts';

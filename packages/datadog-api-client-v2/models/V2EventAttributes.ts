@@ -5,27 +5,32 @@
  */
 import { V2EventAttributesAttributes } from "./V2EventAttributesAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Event attributes.
- */
+*/
 export class V2EventAttributes {
   /**
    * JSON object for category-specific attributes.
-   */
+  */
   "attributes"?: V2EventAttributesAttributes;
   /**
    * Free-form text associated with the event.
-   */
+  */
   "message"?: string;
   /**
    * A list of tags associated with the event.
-   */
+  */
   "tags"?: Array<string>;
   /**
    * Timestamp when the event occurred.
-   */
+  */
   "timestamp"?: string;
 
   /**
@@ -33,7 +38,7 @@ export class V2EventAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -44,21 +49,21 @@ export class V2EventAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "V2EventAttributesAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "V2EventAttributesAttributes",
     },
-    message: {
-      baseName: "message",
-      type: "string",
+    "message": {
+      "baseName": "message",
+      "type": "string",
     },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
+    "tags": {
+      "baseName": "tags",
+      "type": "Array<string>",
     },
-    timestamp: {
-      baseName: "timestamp",
-      type: "string",
+    "timestamp": {
+      "baseName": "timestamp",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -70,8 +75,34 @@ export class V2EventAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return V2EventAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

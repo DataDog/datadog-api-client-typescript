@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A single group within the aggregation results, containing the group key and its associated count values.
- */
+*/
 export class CaseAggregateGroup {
   /**
    * The value of the field being grouped on (for example, `OPEN` when grouping by status).
-   */
+  */
   "group": string;
   /**
    * The count of cases in this group.
-   */
+  */
   "value": Array<number>;
 
   /**
@@ -24,7 +29,7 @@ export class CaseAggregateGroup {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,15 +40,15 @@ export class CaseAggregateGroup {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    group: {
-      baseName: "group",
-      type: "string",
-      required: true,
+    "group": {
+      "baseName": "group",
+      "type": "string",
+      "required": true,
     },
-    value: {
-      baseName: "value",
-      type: "Array<number>",
-      required: true,
+    "value": {
+      "baseName": "value",
+      "type": "Array<number>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class CaseAggregateGroup {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseAggregateGroup.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

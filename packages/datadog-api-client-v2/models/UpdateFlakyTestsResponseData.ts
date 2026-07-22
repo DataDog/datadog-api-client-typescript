@@ -6,23 +6,28 @@
 import { UpdateFlakyTestsResponseAttributes } from "./UpdateFlakyTestsResponseAttributes";
 import { UpdateFlakyTestsResponseDataType } from "./UpdateFlakyTestsResponseDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Summary of the update operations. Tells whether a test succeeded or failed to be updated.
- */
+*/
 export class UpdateFlakyTestsResponseData {
   /**
    * Attributes for the update flaky test state response.
-   */
+  */
   "attributes"?: UpdateFlakyTestsResponseAttributes;
   /**
    * The ID of the response.
-   */
+  */
   "id"?: string;
   /**
    * The definition of `UpdateFlakyTestsResponseDataType` object.
-   */
+  */
   "type"?: UpdateFlakyTestsResponseDataType;
 
   /**
@@ -30,7 +35,7 @@ export class UpdateFlakyTestsResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class UpdateFlakyTestsResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "UpdateFlakyTestsResponseAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "UpdateFlakyTestsResponseAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "UpdateFlakyTestsResponseDataType",
+    "type": {
+      "baseName": "type",
+      "type": "UpdateFlakyTestsResponseDataType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class UpdateFlakyTestsResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateFlakyTestsResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

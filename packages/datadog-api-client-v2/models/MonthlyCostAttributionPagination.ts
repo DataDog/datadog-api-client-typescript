@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The metadata for the current pagination.
- */
+*/
 export class MonthlyCostAttributionPagination {
   /**
    * The cursor to use to get the next results, if any. To make the next request, use the same parameters with the addition of the `next_record_id`.
-   */
+  */
   "nextRecordId"?: string;
 
   /**
@@ -20,7 +25,7 @@ export class MonthlyCostAttributionPagination {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,9 +36,9 @@ export class MonthlyCostAttributionPagination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    nextRecordId: {
-      baseName: "next_record_id",
-      type: "string",
+    "nextRecordId": {
+      "baseName": "next_record_id",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,8 +50,34 @@ export class MonthlyCostAttributionPagination {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonthlyCostAttributionPagination.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

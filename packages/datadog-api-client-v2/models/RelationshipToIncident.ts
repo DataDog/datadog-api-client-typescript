@@ -5,15 +5,20 @@
  */
 import { RelationshipToIncidentData } from "./RelationshipToIncidentData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationship to incident.
- */
+*/
 export class RelationshipToIncident {
   /**
    * Relationship to incident object.
-   */
+  */
   "data": RelationshipToIncidentData;
 
   /**
@@ -21,7 +26,7 @@ export class RelationshipToIncident {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class RelationshipToIncident {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "RelationshipToIncidentData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "RelationshipToIncidentData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class RelationshipToIncident {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RelationshipToIncident.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

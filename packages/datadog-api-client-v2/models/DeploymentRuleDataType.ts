@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Deployment rule resource type.
- */
+*/
 
 export type DeploymentRuleDataType = typeof DEPLOYMENT_RULE | UnparsedObject;
-export const DEPLOYMENT_RULE = "deployment_rule";
+export const DEPLOYMENT_RULE = 'deployment_rule';

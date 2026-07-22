@@ -5,23 +5,28 @@
  */
 import { GoogleMeetConfigurationReferenceData } from "./GoogleMeetConfigurationReferenceData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A reference to a Google Meet Configuration resource.
- */
+*/
 export class GoogleMeetConfigurationReference {
   /**
    * The Google Meet configuration relationship data object.
-   */
-  "data": GoogleMeetConfigurationReferenceData | null;
+  */
+  "data": GoogleMeetConfigurationReferenceData|null;
 
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class GoogleMeetConfigurationReference {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "GoogleMeetConfigurationReferenceData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "GoogleMeetConfigurationReferenceData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class GoogleMeetConfigurationReference {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GoogleMeetConfigurationReference.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

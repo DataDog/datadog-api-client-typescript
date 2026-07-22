@@ -6,23 +6,28 @@
 import { PatchMaintenanceRequestDataAttributes } from "./PatchMaintenanceRequestDataAttributes";
 import { PatchMaintenanceRequestDataType } from "./PatchMaintenanceRequestDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data object for updating a maintenance.
- */
+*/
 export class PatchMaintenanceRequestData {
   /**
    * The supported attributes for updating a maintenance.
-   */
+  */
   "attributes": PatchMaintenanceRequestDataAttributes;
   /**
    * The ID of the maintenance.
-   */
+  */
   "id": string;
   /**
    * Maintenances resource type.
-   */
+  */
   "type": PatchMaintenanceRequestDataType;
 
   /**
@@ -30,7 +35,7 @@ export class PatchMaintenanceRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,21 +46,21 @@ export class PatchMaintenanceRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "PatchMaintenanceRequestDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "PatchMaintenanceRequestDataAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    type: {
-      baseName: "type",
-      type: "PatchMaintenanceRequestDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "PatchMaintenanceRequestDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class PatchMaintenanceRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PatchMaintenanceRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

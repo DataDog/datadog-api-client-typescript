@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes required to create a case view.
- */
+*/
 export class CaseViewCreateAttributes {
   /**
    * The name of the view.
-   */
+  */
   "name": string;
   /**
    * The identifier of a notification rule linked to this view. When set, users subscribed to the view receive alerts for matching cases.
-   */
+  */
   "npRuleId"?: string;
   /**
    * The UUID of the project this view belongs to. Views are scoped to a single project.
-   */
+  */
   "projectId": string;
   /**
    * The query used to filter cases in this view.
-   */
+  */
   "query": string;
 
   /**
@@ -32,7 +37,7 @@ export class CaseViewCreateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,24 +48,24 @@ export class CaseViewCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    npRuleId: {
-      baseName: "np_rule_id",
-      type: "string",
+    "npRuleId": {
+      "baseName": "np_rule_id",
+      "type": "string",
     },
-    projectId: {
-      baseName: "project_id",
-      type: "string",
-      required: true,
+    "projectId": {
+      "baseName": "project_id",
+      "type": "string",
+      "required": true,
     },
-    query: {
-      baseName: "query",
-      type: "string",
-      required: true,
+    "query": {
+      "baseName": "query",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -72,8 +77,34 @@ export class CaseViewCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseViewCreateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

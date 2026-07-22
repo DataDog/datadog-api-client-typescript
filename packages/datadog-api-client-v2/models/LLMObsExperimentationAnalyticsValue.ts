@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A single analytics result bucket.
- */
+*/
 export class LLMObsExperimentationAnalyticsValue {
   /**
    * The group-by field values for this bucket.
-   */
-  "by"?: { [key: string]: any };
+  */
+  "by"?: { [key: string]: any; };
   /**
    * Computed metric values for this bucket.
-   */
-  "metrics": { [key: string]: any };
+  */
+  "metrics": { [key: string]: any; };
 
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,14 +40,14 @@ export class LLMObsExperimentationAnalyticsValue {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    by: {
-      baseName: "by",
-      type: "{ [key: string]: any; }",
+    "by": {
+      "baseName": "by",
+      "type": "{ [key: string]: any; }",
     },
-    metrics: {
-      baseName: "metrics",
-      type: "{ [key: string]: any; }",
-      required: true,
+    "metrics": {
+      "baseName": "metrics",
+      "type": "{ [key: string]: any; }",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class LLMObsExperimentationAnalyticsValue {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsExperimentationAnalyticsValue.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,7 +4,12 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * AWS log source tag filter list. Defaults to `[]`.
@@ -15,15 +20,15 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * For more information on resource tag filter syntax,
  * [see AWS resource exclusion](https://docs.datadoghq.com/account_management/billing/aws/#aws-resource-exclusion)
  * in the AWS integration billing page.
- */
+*/
 export class AWSLogSourceTagFilter {
   /**
    * The AWS log source to which the tag filters defined in `tags` are applied.
-   */
+  */
   "source"?: string;
   /**
    * The AWS resource tags to filter on for the log source specified by `source`.
-   */
+  */
   "tags"?: Array<string>;
 
   /**
@@ -31,7 +36,7 @@ export class AWSLogSourceTagFilter {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,13 +47,13 @@ export class AWSLogSourceTagFilter {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    source: {
-      baseName: "source",
-      type: "string",
+    "source": {
+      "baseName": "source",
+      "type": "string",
     },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
+    "tags": {
+      "baseName": "tags",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -60,8 +65,34 @@ export class AWSLogSourceTagFilter {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSLogSourceTagFilter.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

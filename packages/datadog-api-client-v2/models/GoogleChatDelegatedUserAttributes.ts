@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Google Chat delegated user attributes.
- */
+*/
 export class GoogleChatDelegatedUserAttributes {
   /**
    * The delegated user's display name.
-   */
+  */
   "displayName"?: string;
   /**
    * The delegated user's email address.
-   */
+  */
   "email"?: string;
   /**
    * The list of features enabled for the delegated user.
-   */
+  */
   "features"?: Array<string>;
 
   /**
@@ -28,7 +33,7 @@ export class GoogleChatDelegatedUserAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class GoogleChatDelegatedUserAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    displayName: {
-      baseName: "display_name",
-      type: "string",
+    "displayName": {
+      "baseName": "display_name",
+      "type": "string",
     },
-    email: {
-      baseName: "email",
-      type: "string",
+    "email": {
+      "baseName": "email",
+      "type": "string",
     },
-    features: {
-      baseName: "features",
-      type: "Array<string>",
+    "features": {
+      "baseName": "features",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class GoogleChatDelegatedUserAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GoogleChatDelegatedUserAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

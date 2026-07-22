@@ -5,23 +5,28 @@
  */
 import { SyntheticsTestFileCompleteMultipartUploadPart } from "./SyntheticsTestFileCompleteMultipartUploadPart";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request body for completing a multipart file upload.
- */
+*/
 export class SyntheticsTestFileCompleteMultipartUploadRequest {
   /**
    * The full storage path for the uploaded file.
-   */
+  */
   "key": string;
   /**
    * Array of completed parts with their ETags.
-   */
+  */
   "parts": Array<SyntheticsTestFileCompleteMultipartUploadPart>;
   /**
    * The upload ID returned when the multipart upload was initiated.
-   */
+  */
   "uploadId": string;
 
   /**
@@ -29,7 +34,7 @@ export class SyntheticsTestFileCompleteMultipartUploadRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,20 +45,20 @@ export class SyntheticsTestFileCompleteMultipartUploadRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    key: {
-      baseName: "key",
-      type: "string",
-      required: true,
+    "key": {
+      "baseName": "key",
+      "type": "string",
+      "required": true,
     },
-    parts: {
-      baseName: "parts",
-      type: "Array<SyntheticsTestFileCompleteMultipartUploadPart>",
-      required: true,
+    "parts": {
+      "baseName": "parts",
+      "type": "Array<SyntheticsTestFileCompleteMultipartUploadPart>",
+      "required": true,
     },
-    uploadId: {
-      baseName: "uploadId",
-      type: "string",
-      required: true,
+    "uploadId": {
+      "baseName": "uploadId",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class SyntheticsTestFileCompleteMultipartUploadRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestFileCompleteMultipartUploadRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

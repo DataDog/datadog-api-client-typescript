@@ -6,24 +6,29 @@
 import { RumRateLimitConfigType } from "./RumRateLimitConfigType";
 import { RumRateLimitConfigUpdateAttributes } from "./RumRateLimitConfigUpdateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The RUM rate limit configuration to create or update.
- */
+*/
 export class RumRateLimitConfigUpdateData {
   /**
    * The RUM rate limit configuration properties to create or update.
-   */
+  */
   "attributes": RumRateLimitConfigUpdateAttributes;
   /**
    * The identifier of the scope the rate limit configuration applies to.
    * Must match `scope_id` in the path.
-   */
+  */
   "id": string;
   /**
    * The type of the resource, always `rum_rate_limit_config`.
-   */
+  */
   "type": RumRateLimitConfigType;
 
   /**
@@ -31,7 +36,7 @@ export class RumRateLimitConfigUpdateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,20 +47,20 @@ export class RumRateLimitConfigUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RumRateLimitConfigUpdateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "RumRateLimitConfigUpdateAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "RumRateLimitConfigType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "RumRateLimitConfigType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class RumRateLimitConfigUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RumRateLimitConfigUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

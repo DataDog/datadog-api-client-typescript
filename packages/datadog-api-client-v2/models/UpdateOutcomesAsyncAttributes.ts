@@ -5,15 +5,20 @@
  */
 import { UpdateOutcomesAsyncRequestItem } from "./UpdateOutcomesAsyncRequestItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The JSON:API attributes for a batched set of scorecard outcomes.
- */
+*/
 export class UpdateOutcomesAsyncAttributes {
   /**
    * Set of scorecard outcomes to update asynchronously.
-   */
+  */
   "results"?: Array<UpdateOutcomesAsyncRequestItem>;
 
   /**
@@ -21,7 +26,7 @@ export class UpdateOutcomesAsyncAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class UpdateOutcomesAsyncAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    results: {
-      baseName: "results",
-      type: "Array<UpdateOutcomesAsyncRequestItem>",
+    "results": {
+      "baseName": "results",
+      "type": "Array<UpdateOutcomesAsyncRequestItem>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class UpdateOutcomesAsyncAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateOutcomesAsyncAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

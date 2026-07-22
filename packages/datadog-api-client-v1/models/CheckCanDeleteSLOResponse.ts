@@ -5,27 +5,32 @@
  */
 import { CheckCanDeleteSLOResponseData } from "./CheckCanDeleteSLOResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A service level objective response containing the requested object.
- */
+*/
 export class CheckCanDeleteSLOResponse {
   /**
    * An array of service level objective objects.
-   */
+  */
   "data"?: CheckCanDeleteSLOResponseData;
   /**
    * A mapping of SLO id to it's current usages.
-   */
-  "errors"?: { [key: string]: string };
+  */
+  "errors"?: { [key: string]: string; };
 
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class CheckCanDeleteSLOResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CheckCanDeleteSLOResponseData",
+    "data": {
+      "baseName": "data",
+      "type": "CheckCanDeleteSLOResponseData",
     },
-    errors: {
-      baseName: "errors",
-      type: "{ [key: string]: string; }",
+    "errors": {
+      "baseName": "errors",
+      "type": "{ [key: string]: string; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class CheckCanDeleteSLOResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CheckCanDeleteSLOResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

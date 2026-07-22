@@ -5,23 +5,28 @@
  */
 import { PatchMaintenanceRequestDataAttributesComponentsAffectedItemsStatus } from "./PatchMaintenanceRequestDataAttributesComponentsAffectedItemsStatus";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A component affected by a maintenance.
- */
+*/
 export class PatchMaintenanceRequestDataAttributesComponentsAffectedItems {
   /**
    * The ID of the component. Must be a component of type `component`.
-   */
+  */
   "id": string;
   /**
    * The name of the component.
-   */
+  */
   "name"?: string;
   /**
    * The status of the component.
-   */
+  */
   "status": PatchMaintenanceRequestDataAttributesComponentsAffectedItemsStatus;
 
   /**
@@ -29,7 +34,7 @@ export class PatchMaintenanceRequestDataAttributesComponentsAffectedItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,20 +45,20 @@ export class PatchMaintenanceRequestDataAttributesComponentsAffectedItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    status: {
-      baseName: "status",
-      type: "PatchMaintenanceRequestDataAttributesComponentsAffectedItemsStatus",
-      required: true,
+    "status": {
+      "baseName": "status",
+      "type": "PatchMaintenanceRequestDataAttributesComponentsAffectedItemsStatus",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class PatchMaintenanceRequestDataAttributesComponentsAffectedItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PatchMaintenanceRequestDataAttributesComponentsAffectedItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

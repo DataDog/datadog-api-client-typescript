@@ -8,107 +8,112 @@ import { IoCScoreEffect } from "./IoCScoreEffect";
 import { IoCSource } from "./IoCSource";
 import { IoCTriageState } from "./IoCTriageState";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An indicator of compromise with threat intelligence data.
- */
+*/
 export class IoCIndicator {
   /**
    * Geographic location information for an IP indicator.
-   */
+  */
   "asGeo"?: IoCGeoLocation;
   /**
    * Autonomous system type.
-   */
+  */
   "asType"?: string;
   /**
    * Threat intelligence sources that flagged this indicator as benign.
-   */
+  */
   "benignSources"?: Array<IoCSource>;
   /**
    * Threat categories associated with the indicator.
-   */
+  */
   "categories"?: Array<string>;
   /**
    * Timestamp when the indicator was first seen.
-   */
+  */
   "firstSeen"?: Date;
   /**
    * Unique identifier for the indicator.
-   */
+  */
   "id"?: string;
   /**
    * The indicator value (for example, an IP address or domain).
-   */
+  */
   "indicator"?: string;
   /**
    * Type of indicator (for example, IP address or domain).
-   */
+  */
   "indicatorType"?: string;
   /**
    * Timestamp when the indicator was last seen.
-   */
+  */
   "lastSeen"?: Date;
   /**
    * Number of logs that matched this indicator.
-   */
+  */
   "logMatches"?: number;
   /**
    * Effect of a scoring factor on the indicator's threat score.
-   */
+  */
   "mAsType"?: IoCScoreEffect;
   /**
    * Effect of a scoring factor on the indicator's threat score.
-   */
+  */
   "mPersistence"?: IoCScoreEffect;
   /**
    * Effect of a scoring factor on the indicator's threat score.
-   */
+  */
   "mSignal"?: IoCScoreEffect;
   /**
    * Effect of a scoring factor on the indicator's threat score.
-   */
+  */
   "mSources"?: IoCScoreEffect;
   /**
    * Threat intelligence sources that flagged this indicator as malicious.
-   */
+  */
   "maliciousSources"?: Array<IoCSource>;
   /**
    * Effect of a scoring factor on the indicator's threat score.
-   */
+  */
   "maxTrustScore"?: IoCScoreEffect;
   /**
    * Threat score for the indicator (0-100).
-   */
+  */
   "score"?: number;
   /**
    * Number of security signals that matched this indicator.
-   */
+  */
   "signalMatches"?: number;
   /**
    * Signal tier level.
-   */
+  */
   "signalTier"?: number;
   /**
    * Threat intelligence sources that flagged this indicator as suspicious.
-   */
+  */
   "suspiciousSources"?: Array<IoCSource>;
   /**
    * Tags associated with the indicator.
-   */
+  */
   "tags"?: Array<string>;
   /**
    * Current triage state of the indicator.
-   */
+  */
   "triageState"?: IoCTriageState;
   /**
    * Timestamp when the indicator was last triaged.
-   */
+  */
   "triagedAt"?: Date;
   /**
    * UUID of the user who last triaged the indicator.
-   */
+  */
   "triagedBy"?: string;
 
   /**
@@ -116,7 +121,7 @@ export class IoCIndicator {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -127,108 +132,108 @@ export class IoCIndicator {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    asGeo: {
-      baseName: "as_geo",
-      type: "IoCGeoLocation",
+    "asGeo": {
+      "baseName": "as_geo",
+      "type": "IoCGeoLocation",
     },
-    asType: {
-      baseName: "as_type",
-      type: "string",
+    "asType": {
+      "baseName": "as_type",
+      "type": "string",
     },
-    benignSources: {
-      baseName: "benign_sources",
-      type: "Array<IoCSource>",
+    "benignSources": {
+      "baseName": "benign_sources",
+      "type": "Array<IoCSource>",
     },
-    categories: {
-      baseName: "categories",
-      type: "Array<string>",
+    "categories": {
+      "baseName": "categories",
+      "type": "Array<string>",
     },
-    firstSeen: {
-      baseName: "first_seen",
-      type: "Date",
-      format: "date-time",
+    "firstSeen": {
+      "baseName": "first_seen",
+      "type": "Date",
+      "format": "date-time",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    indicator: {
-      baseName: "indicator",
-      type: "string",
+    "indicator": {
+      "baseName": "indicator",
+      "type": "string",
     },
-    indicatorType: {
-      baseName: "indicator_type",
-      type: "string",
+    "indicatorType": {
+      "baseName": "indicator_type",
+      "type": "string",
     },
-    lastSeen: {
-      baseName: "last_seen",
-      type: "Date",
-      format: "date-time",
+    "lastSeen": {
+      "baseName": "last_seen",
+      "type": "Date",
+      "format": "date-time",
     },
-    logMatches: {
-      baseName: "log_matches",
-      type: "number",
-      format: "int64",
+    "logMatches": {
+      "baseName": "log_matches",
+      "type": "number",
+      "format": "int64",
     },
-    mAsType: {
-      baseName: "m_as_type",
-      type: "IoCScoreEffect",
+    "mAsType": {
+      "baseName": "m_as_type",
+      "type": "IoCScoreEffect",
     },
-    mPersistence: {
-      baseName: "m_persistence",
-      type: "IoCScoreEffect",
+    "mPersistence": {
+      "baseName": "m_persistence",
+      "type": "IoCScoreEffect",
     },
-    mSignal: {
-      baseName: "m_signal",
-      type: "IoCScoreEffect",
+    "mSignal": {
+      "baseName": "m_signal",
+      "type": "IoCScoreEffect",
     },
-    mSources: {
-      baseName: "m_sources",
-      type: "IoCScoreEffect",
+    "mSources": {
+      "baseName": "m_sources",
+      "type": "IoCScoreEffect",
     },
-    maliciousSources: {
-      baseName: "malicious_sources",
-      type: "Array<IoCSource>",
+    "maliciousSources": {
+      "baseName": "malicious_sources",
+      "type": "Array<IoCSource>",
     },
-    maxTrustScore: {
-      baseName: "max_trust_score",
-      type: "IoCScoreEffect",
+    "maxTrustScore": {
+      "baseName": "max_trust_score",
+      "type": "IoCScoreEffect",
     },
-    score: {
-      baseName: "score",
-      type: "number",
-      format: "double",
+    "score": {
+      "baseName": "score",
+      "type": "number",
+      "format": "double",
     },
-    signalMatches: {
-      baseName: "signal_matches",
-      type: "number",
-      format: "int64",
+    "signalMatches": {
+      "baseName": "signal_matches",
+      "type": "number",
+      "format": "int64",
     },
-    signalTier: {
-      baseName: "signal_tier",
-      type: "number",
-      format: "int64",
+    "signalTier": {
+      "baseName": "signal_tier",
+      "type": "number",
+      "format": "int64",
     },
-    suspiciousSources: {
-      baseName: "suspicious_sources",
-      type: "Array<IoCSource>",
+    "suspiciousSources": {
+      "baseName": "suspicious_sources",
+      "type": "Array<IoCSource>",
     },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
+    "tags": {
+      "baseName": "tags",
+      "type": "Array<string>",
     },
-    triageState: {
-      baseName: "triage_state",
-      type: "IoCTriageState",
+    "triageState": {
+      "baseName": "triage_state",
+      "type": "IoCTriageState",
     },
-    triagedAt: {
-      baseName: "triaged_at",
-      type: "Date",
-      format: "date-time",
+    "triagedAt": {
+      "baseName": "triaged_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    triagedBy: {
-      baseName: "triaged_by",
-      type: "string",
+    "triagedBy": {
+      "baseName": "triaged_by",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -240,8 +245,34 @@ export class IoCIndicator {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IoCIndicator.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

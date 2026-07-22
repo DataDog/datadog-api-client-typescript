@@ -5,15 +5,20 @@
  */
 import { RelationshipToTeam } from "./RelationshipToTeam";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationship of AuthN Mapping to a Team.
- */
+*/
 export class AuthNMappingRelationshipToTeam {
   /**
    * Relationship to team.
-   */
+  */
   "team": RelationshipToTeam;
 
   /**
@@ -21,7 +26,7 @@ export class AuthNMappingRelationshipToTeam {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class AuthNMappingRelationshipToTeam {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    team: {
-      baseName: "team",
-      type: "RelationshipToTeam",
-      required: true,
+    "team": {
+      "baseName": "team",
+      "type": "RelationshipToTeam",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class AuthNMappingRelationshipToTeam {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AuthNMappingRelationshipToTeam.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

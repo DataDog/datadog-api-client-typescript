@@ -6,23 +6,28 @@
 import { SyntheticsNetworkAssertionJitterType } from "./SyntheticsNetworkAssertionJitterType";
 import { SyntheticsNetworkAssertionOperator } from "./SyntheticsNetworkAssertionOperator";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Jitter assertion for a Network Path test.
- */
+*/
 export class SyntheticsNetworkAssertionJitter {
   /**
    * Assertion operator to apply.
-   */
+  */
   "operator": SyntheticsNetworkAssertionOperator;
   /**
    * Target value in milliseconds.
-   */
+  */
   "target": number;
   /**
    * Type of the jitter assertion.
-   */
+  */
   "type": SyntheticsNetworkAssertionJitterType;
 
   /**
@@ -30,7 +35,7 @@ export class SyntheticsNetworkAssertionJitter {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,21 +46,21 @@ export class SyntheticsNetworkAssertionJitter {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    operator: {
-      baseName: "operator",
-      type: "SyntheticsNetworkAssertionOperator",
-      required: true,
+    "operator": {
+      "baseName": "operator",
+      "type": "SyntheticsNetworkAssertionOperator",
+      "required": true,
     },
-    target: {
-      baseName: "target",
-      type: "number",
-      required: true,
-      format: "double",
+    "target": {
+      "baseName": "target",
+      "type": "number",
+      "required": true,
+      "format": "double",
     },
-    type: {
-      baseName: "type",
-      type: "SyntheticsNetworkAssertionJitterType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SyntheticsNetworkAssertionJitterType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class SyntheticsNetworkAssertionJitter {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsNetworkAssertionJitter.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,19 +5,24 @@
  */
 import { GuardrailTriggerAction } from "./GuardrailTriggerAction";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Guardrail metric request payload.
- */
+*/
 export class GuardrailMetricRequest {
   /**
    * The metric ID to monitor.
-   */
+  */
   "metricId": string;
   /**
    * Action to perform when a guardrail threshold is triggered.
-   */
+  */
   "triggerAction": GuardrailTriggerAction;
 
   /**
@@ -25,7 +30,7 @@ export class GuardrailMetricRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class GuardrailMetricRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    metricId: {
-      baseName: "metric_id",
-      type: "string",
-      required: true,
+    "metricId": {
+      "baseName": "metric_id",
+      "type": "string",
+      "required": true,
     },
-    triggerAction: {
-      baseName: "trigger_action",
-      type: "GuardrailTriggerAction",
-      required: true,
+    "triggerAction": {
+      "baseName": "trigger_action",
+      "type": "GuardrailTriggerAction",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class GuardrailMetricRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GuardrailMetricRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

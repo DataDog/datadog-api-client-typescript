@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of the parent test resource.
- */
+*/
 
-export type SyntheticsApiMultistepParentTestType =
-  | typeof PARENT_TEST
-  | UnparsedObject;
-export const PARENT_TEST = "parent_test";
+export type SyntheticsApiMultistepParentTestType = typeof PARENT_TEST | UnparsedObject;
+export const PARENT_TEST = 'parent_test';

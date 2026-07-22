@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The resource type for progressive rollout schedules.
- */
+*/
 
-export type AllocationExposureScheduleDataType =
-  | typeof ALLOCATION_EXPOSURE_SCHEDULES
-  | UnparsedObject;
-export const ALLOCATION_EXPOSURE_SCHEDULES = "allocation_exposure_schedules";
+export type AllocationExposureScheduleDataType = typeof ALLOCATION_EXPOSURE_SCHEDULES | UnparsedObject;
+export const ALLOCATION_EXPOSURE_SCHEDULES = 'allocation_exposure_schedules';

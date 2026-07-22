@@ -5,15 +5,20 @@
  */
 import { UpsertCloudInventorySyncConfigRequestData } from "./UpsertCloudInventorySyncConfigRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request body for creating or updating a cloud inventory sync configuration.
- */
+*/
 export class UpsertCloudInventorySyncConfigRequest {
   /**
    * Storage Management configuration data for the create or update request.
-   */
+  */
   "data": UpsertCloudInventorySyncConfigRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class UpsertCloudInventorySyncConfigRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class UpsertCloudInventorySyncConfigRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "UpsertCloudInventorySyncConfigRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "UpsertCloudInventorySyncConfigRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class UpsertCloudInventorySyncConfigRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpsertCloudInventorySyncConfigRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

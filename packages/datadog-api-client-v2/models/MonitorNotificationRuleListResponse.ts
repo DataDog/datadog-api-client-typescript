@@ -6,19 +6,24 @@
 import { MonitorNotificationRuleData } from "./MonitorNotificationRuleData";
 import { MonitorNotificationRuleResponseIncludedItem } from "./MonitorNotificationRuleResponseIncludedItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response for retrieving all monitor notification rules.
- */
+*/
 export class MonitorNotificationRuleListResponse {
   /**
    * A list of monitor notification rules.
-   */
+  */
   "data"?: Array<MonitorNotificationRuleData>;
   /**
    * Array of objects related to the monitor notification rules.
-   */
+  */
   "included"?: Array<MonitorNotificationRuleResponseIncludedItem>;
 
   /**
@@ -26,7 +31,7 @@ export class MonitorNotificationRuleListResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class MonitorNotificationRuleListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<MonitorNotificationRuleData>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<MonitorNotificationRuleData>",
     },
-    included: {
-      baseName: "included",
-      type: "Array<MonitorNotificationRuleResponseIncludedItem>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<MonitorNotificationRuleResponseIncludedItem>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class MonitorNotificationRuleListResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorNotificationRuleListResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

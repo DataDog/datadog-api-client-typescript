@@ -6,23 +6,28 @@
 import { GoogleChatDelegatedUserAttributes } from "./GoogleChatDelegatedUserAttributes";
 import { GoogleChatDelegatedUserType } from "./GoogleChatDelegatedUserType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Google Chat delegated user data from a response.
- */
+*/
 export class GoogleChatDelegatedUserData {
   /**
    * Google Chat delegated user attributes.
-   */
+  */
   "attributes"?: GoogleChatDelegatedUserAttributes;
   /**
    * The ID of the delegated user.
-   */
+  */
   "id"?: string;
   /**
    * Google Chat delegated user resource type.
-   */
+  */
   "type"?: GoogleChatDelegatedUserType;
 
   /**
@@ -30,7 +35,7 @@ export class GoogleChatDelegatedUserData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class GoogleChatDelegatedUserData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "GoogleChatDelegatedUserAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "GoogleChatDelegatedUserAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "GoogleChatDelegatedUserType",
+    "type": {
+      "baseName": "type",
+      "type": "GoogleChatDelegatedUserType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class GoogleChatDelegatedUserData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GoogleChatDelegatedUserData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

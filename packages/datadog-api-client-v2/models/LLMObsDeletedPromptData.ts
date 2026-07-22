@@ -6,23 +6,28 @@
 import { LLMObsDeletedPromptDataAttributes } from "./LLMObsDeletedPromptDataAttributes";
 import { LLMObsPromptType } from "./LLMObsPromptType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object confirming that an LLM Observability prompt was deleted.
- */
+*/
 export class LLMObsDeletedPromptData {
   /**
    * Attributes confirming that an LLM Observability prompt was deleted.
-   */
+  */
   "attributes": LLMObsDeletedPromptDataAttributes;
   /**
    * Unique identifier of the deleted prompt.
-   */
+  */
   "id": string;
   /**
    * Resource type of an LLM Observability prompt.
-   */
+  */
   "type": LLMObsPromptType;
 
   /**
@@ -30,7 +35,7 @@ export class LLMObsDeletedPromptData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class LLMObsDeletedPromptData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LLMObsDeletedPromptDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "LLMObsDeletedPromptDataAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LLMObsPromptType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LLMObsPromptType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class LLMObsDeletedPromptData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDeletedPromptData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

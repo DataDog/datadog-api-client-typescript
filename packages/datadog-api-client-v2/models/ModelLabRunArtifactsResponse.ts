@@ -5,15 +5,20 @@
  */
 import { ModelLabRunArtifactsData } from "./ModelLabRunArtifactsData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing the artifact listing for a Model Lab run.
- */
+*/
 export class ModelLabRunArtifactsResponse {
   /**
    * A run artifacts JSON:API resource object.
-   */
+  */
   "data": ModelLabRunArtifactsData;
 
   /**
@@ -21,7 +26,7 @@ export class ModelLabRunArtifactsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class ModelLabRunArtifactsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ModelLabRunArtifactsData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "ModelLabRunArtifactsData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class ModelLabRunArtifactsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ModelLabRunArtifactsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

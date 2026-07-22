@@ -6,23 +6,28 @@
 import { SyntheticsNetworkAssertionOperator } from "./SyntheticsNetworkAssertionOperator";
 import { SyntheticsNetworkAssertionPacketLossPercentageType } from "./SyntheticsNetworkAssertionPacketLossPercentageType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Packet loss percentage assertion for a Network Path test.
- */
+*/
 export class SyntheticsNetworkAssertionPacketLossPercentage {
   /**
    * Assertion operator to apply.
-   */
+  */
   "operator": SyntheticsNetworkAssertionOperator;
   /**
    * Target value as a percentage (0 to 1).
-   */
+  */
   "target": number;
   /**
    * Type of the packet loss percentage assertion.
-   */
+  */
   "type": SyntheticsNetworkAssertionPacketLossPercentageType;
 
   /**
@@ -30,7 +35,7 @@ export class SyntheticsNetworkAssertionPacketLossPercentage {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,21 +46,21 @@ export class SyntheticsNetworkAssertionPacketLossPercentage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    operator: {
-      baseName: "operator",
-      type: "SyntheticsNetworkAssertionOperator",
-      required: true,
+    "operator": {
+      "baseName": "operator",
+      "type": "SyntheticsNetworkAssertionOperator",
+      "required": true,
     },
-    target: {
-      baseName: "target",
-      type: "number",
-      required: true,
-      format: "double",
+    "target": {
+      "baseName": "target",
+      "type": "number",
+      "required": true,
+      "format": "double",
     },
-    type: {
-      baseName: "type",
-      type: "SyntheticsNetworkAssertionPacketLossPercentageType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SyntheticsNetworkAssertionPacketLossPercentageType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class SyntheticsNetworkAssertionPacketLossPercentage {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsNetworkAssertionPacketLossPercentage.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

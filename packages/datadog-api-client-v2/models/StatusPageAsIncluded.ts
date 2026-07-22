@@ -7,27 +7,32 @@ import { StatusPageAsIncludedAttributes } from "./StatusPageAsIncludedAttributes
 import { StatusPageAsIncludedRelationships } from "./StatusPageAsIncludedRelationships";
 import { StatusPageDataType } from "./StatusPageDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The included status page resource.
- */
+*/
 export class StatusPageAsIncluded {
   /**
    * The attributes of a status page.
-   */
+  */
   "attributes"?: StatusPageAsIncludedAttributes;
   /**
    * The ID of the status page.
-   */
+  */
   "id"?: string;
   /**
    * The relationships of a status page.
-   */
+  */
   "relationships"?: StatusPageAsIncludedRelationships;
   /**
    * Status pages resource type.
-   */
+  */
   "type": StatusPageDataType;
 
   /**
@@ -35,7 +40,7 @@ export class StatusPageAsIncluded {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,23 +51,23 @@ export class StatusPageAsIncluded {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "StatusPageAsIncludedAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "StatusPageAsIncludedAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "format": "uuid",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "StatusPageAsIncludedRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "StatusPageAsIncludedRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "StatusPageDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "StatusPageDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,8 +79,34 @@ export class StatusPageAsIncluded {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return StatusPageAsIncluded.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

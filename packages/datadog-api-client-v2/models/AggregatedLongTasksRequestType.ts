@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The JSON:API type for aggregated long tasks requests.
- */
+*/
 
-export type AggregatedLongTasksRequestType =
-  | typeof AGGREGATED_LONG_TASKS
-  | UnparsedObject;
-export const AGGREGATED_LONG_TASKS = "aggregated_long_tasks";
+export type AggregatedLongTasksRequestType = typeof AGGREGATED_LONG_TASKS | UnparsedObject;
+export const AGGREGATED_LONG_TASKS = 'aggregated_long_tasks';

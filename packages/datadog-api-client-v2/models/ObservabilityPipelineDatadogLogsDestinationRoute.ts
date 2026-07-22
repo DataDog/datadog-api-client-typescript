@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Defines how the `datadog_logs` destination routes matching logs to a Datadog site using a specific API key.
- */
+*/
 export class ObservabilityPipelineDatadogLogsDestinationRoute {
   /**
    * Name of the environment variable or secret that stores the Datadog API key used by this route.
-   */
+  */
   "apiKeyKey"?: string;
   /**
    * A Datadog search query that determines which logs are forwarded using this route.
-   */
+  */
   "include"?: string;
   /**
    * Unique identifier for this route within the destination.
-   */
+  */
   "routeId"?: string;
   /**
    * Datadog site where matching logs are sent (for example, `us1`).
-   */
+  */
   "site"?: string;
 
   /**
@@ -32,7 +37,7 @@ export class ObservabilityPipelineDatadogLogsDestinationRoute {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,21 +48,21 @@ export class ObservabilityPipelineDatadogLogsDestinationRoute {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    apiKeyKey: {
-      baseName: "api_key_key",
-      type: "string",
+    "apiKeyKey": {
+      "baseName": "api_key_key",
+      "type": "string",
     },
-    include: {
-      baseName: "include",
-      type: "string",
+    "include": {
+      "baseName": "include",
+      "type": "string",
     },
-    routeId: {
-      baseName: "route_id",
-      type: "string",
+    "routeId": {
+      "baseName": "route_id",
+      "type": "string",
     },
-    site: {
-      baseName: "site",
-      type: "string",
+    "site": {
+      "baseName": "site",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -69,8 +74,34 @@ export class ObservabilityPipelineDatadogLogsDestinationRoute {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineDatadogLogsDestinationRoute.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The time window defining the start and end of the event query period as Unix timestamps.
- */
+*/
 export class QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame {
   /**
    * End of the time frame as a Unix timestamp in seconds.
-   */
+  */
   "end"?: number;
   /**
    * Start of the time frame as a Unix timestamp in seconds.
-   */
+  */
   "start"?: number;
 
   /**
@@ -24,7 +29,7 @@ export class QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,15 +40,15 @@ export class QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    end: {
-      baseName: "end",
-      type: "number",
-      format: "int64",
+    "end": {
+      "baseName": "end",
+      "type": "number",
+      "format": "int64",
     },
-    start: {
-      baseName: "start",
-      type: "number",
-      format: "int64",
+    "start": {
+      "baseName": "start",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

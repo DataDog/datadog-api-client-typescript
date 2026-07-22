@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of the `StatsigAPIKey` object.
- */
+*/
 
 export type StatsigAPIKeyType = typeof STATSIGAPIKEY | UnparsedObject;
-export const STATSIGAPIKEY = "StatsigAPIKey";
+export const STATSIGAPIKEY = 'StatsigAPIKey';

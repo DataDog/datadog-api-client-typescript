@@ -8,47 +8,52 @@ import { IssuesSearchRequestDataAttributesPersona } from "./IssuesSearchRequestD
 import { IssuesSearchRequestDataAttributesTrack } from "./IssuesSearchRequestDataAttributesTrack";
 import { IssueState } from "./IssueState";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object describing a search issue request.
- */
+*/
 export class IssuesSearchRequestDataAttributes {
   /**
    * Filter issues by assignee IDs. Multiple values are combined with OR logic.
-   */
+  */
   "assigneeIds"?: Array<string>;
   /**
    * Start date (inclusive) of the query in milliseconds since the Unix epoch.
-   */
+  */
   "from": number;
   /**
    * The attribute to sort the search results by.
-   */
+  */
   "orderBy"?: IssuesSearchRequestDataAttributesOrderBy;
   /**
    * Persona for the search. Either track(s) or persona(s) must be specified.
-   */
+  */
   "persona"?: IssuesSearchRequestDataAttributesPersona;
   /**
    * Search query following the event search syntax.
-   */
+  */
   "query": string;
   /**
    * Filter issues by state. Multiple values are combined with OR logic.
-   */
+  */
   "states"?: Array<IssueState>;
   /**
    * Filter issues by team IDs. Multiple values are combined with OR logic.
-   */
+  */
   "teamIds"?: Array<string>;
   /**
    * End date (exclusive) of the query in milliseconds since the Unix epoch.
-   */
+  */
   "to": number;
   /**
    * Track of the events to query. Either track(s) or persona(s) must be specified.
-   */
+  */
   "track"?: IssuesSearchRequestDataAttributesTrack;
 
   /**
@@ -56,7 +61,7 @@ export class IssuesSearchRequestDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -67,46 +72,46 @@ export class IssuesSearchRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    assigneeIds: {
-      baseName: "assignee_ids",
-      type: "Array<string>",
+    "assigneeIds": {
+      "baseName": "assignee_ids",
+      "type": "Array<string>",
     },
-    from: {
-      baseName: "from",
-      type: "number",
-      required: true,
-      format: "int64",
+    "from": {
+      "baseName": "from",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    orderBy: {
-      baseName: "order_by",
-      type: "IssuesSearchRequestDataAttributesOrderBy",
+    "orderBy": {
+      "baseName": "order_by",
+      "type": "IssuesSearchRequestDataAttributesOrderBy",
     },
-    persona: {
-      baseName: "persona",
-      type: "IssuesSearchRequestDataAttributesPersona",
+    "persona": {
+      "baseName": "persona",
+      "type": "IssuesSearchRequestDataAttributesPersona",
     },
-    query: {
-      baseName: "query",
-      type: "string",
-      required: true,
+    "query": {
+      "baseName": "query",
+      "type": "string",
+      "required": true,
     },
-    states: {
-      baseName: "states",
-      type: "Array<IssueState>",
+    "states": {
+      "baseName": "states",
+      "type": "Array<IssueState>",
     },
-    teamIds: {
-      baseName: "team_ids",
-      type: "Array<string>",
+    "teamIds": {
+      "baseName": "team_ids",
+      "type": "Array<string>",
     },
-    to: {
-      baseName: "to",
-      type: "number",
-      required: true,
-      format: "int64",
+    "to": {
+      "baseName": "to",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    track: {
-      baseName: "track",
-      type: "IssuesSearchRequestDataAttributesTrack",
+    "track": {
+      "baseName": "track",
+      "type": "IssuesSearchRequestDataAttributesTrack",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -118,8 +123,34 @@ export class IssuesSearchRequestDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IssuesSearchRequestDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,29 +4,34 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An object used to create an EventBridge source.
- */
+*/
 export class AWSEventBridgeCreateRequest {
   /**
    * Your AWS Account ID without dashes.
-   */
+  */
   "accountId"?: string;
   /**
    * True if Datadog should create the event bus in addition to the event
    * source. Requires the `events:CreateEventBus` permission.
-   */
+  */
   "createEventBus"?: boolean;
   /**
    * The given part of the event source name, which is then combined with an
    * assigned suffix to form the full name.
-   */
+  */
   "eventGeneratorName"?: string;
   /**
    * The event source's [AWS region](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints).
-   */
+  */
   "region"?: string;
 
   /**
@@ -34,7 +39,7 @@ export class AWSEventBridgeCreateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -45,21 +50,21 @@ export class AWSEventBridgeCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    accountId: {
-      baseName: "account_id",
-      type: "string",
+    "accountId": {
+      "baseName": "account_id",
+      "type": "string",
     },
-    createEventBus: {
-      baseName: "create_event_bus",
-      type: "boolean",
+    "createEventBus": {
+      "baseName": "create_event_bus",
+      "type": "boolean",
     },
-    eventGeneratorName: {
-      baseName: "event_generator_name",
-      type: "string",
+    "eventGeneratorName": {
+      "baseName": "event_generator_name",
+      "type": "string",
     },
-    region: {
-      baseName: "region",
-      type: "string",
+    "region": {
+      "baseName": "region",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,8 +76,34 @@ export class AWSEventBridgeCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSEventBridgeCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

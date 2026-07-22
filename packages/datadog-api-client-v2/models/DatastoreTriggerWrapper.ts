@@ -5,19 +5,24 @@
  */
 import { DatastoreTrigger } from "./DatastoreTrigger";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Schema for a Datastore-based trigger.
- */
+*/
 export class DatastoreTriggerWrapper {
   /**
    * Trigger a workflow from a Datastore. For automatic triggering a handle must be configured and the workflow must be published.
-   */
+  */
   "datastoreTrigger": DatastoreTrigger;
   /**
    * A list of steps that run first after a trigger fires.
-   */
+  */
   "startStepNames"?: Array<string>;
 
   /**
@@ -25,7 +30,7 @@ export class DatastoreTriggerWrapper {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,14 +41,14 @@ export class DatastoreTriggerWrapper {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    datastoreTrigger: {
-      baseName: "datastoreTrigger",
-      type: "DatastoreTrigger",
-      required: true,
+    "datastoreTrigger": {
+      "baseName": "datastoreTrigger",
+      "type": "DatastoreTrigger",
+      "required": true,
     },
-    startStepNames: {
-      baseName: "startStepNames",
-      type: "Array<string>",
+    "startStepNames": {
+      "baseName": "startStepNames",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class DatastoreTriggerWrapper {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DatastoreTriggerWrapper.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

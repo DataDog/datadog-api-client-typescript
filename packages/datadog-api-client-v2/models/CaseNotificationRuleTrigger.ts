@@ -5,19 +5,24 @@
  */
 import { CaseNotificationRuleTriggerData } from "./CaseNotificationRuleTriggerData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Notification rule trigger
- */
+*/
 export class CaseNotificationRuleTrigger {
   /**
    * Trigger data
-   */
+  */
   "data"?: CaseNotificationRuleTriggerData;
   /**
    * Type of trigger (CASE_CREATED, STATUS_TRANSITIONED, ATTRIBUTE_VALUE_CHANGED, EVENT_CORRELATION_SIGNAL_CORRELATED)
-   */
+  */
   "type"?: string;
 
   /**
@@ -25,7 +30,7 @@ export class CaseNotificationRuleTrigger {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class CaseNotificationRuleTrigger {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CaseNotificationRuleTriggerData",
+    "data": {
+      "baseName": "data",
+      "type": "CaseNotificationRuleTriggerData",
     },
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class CaseNotificationRuleTrigger {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseNotificationRuleTrigger.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

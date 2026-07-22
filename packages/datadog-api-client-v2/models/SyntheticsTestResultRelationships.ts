@@ -5,15 +5,20 @@
  */
 import { SyntheticsTestResultRelationshipTest } from "./SyntheticsTestResultRelationshipTest";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationships for a Synthetic test result.
- */
+*/
 export class SyntheticsTestResultRelationships {
   /**
    * Relationship to the Synthetic test.
-   */
+  */
   "test"?: SyntheticsTestResultRelationshipTest;
 
   /**
@@ -21,7 +26,7 @@ export class SyntheticsTestResultRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class SyntheticsTestResultRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    test: {
-      baseName: "test",
-      type: "SyntheticsTestResultRelationshipTest",
+    "test": {
+      "baseName": "test",
+      "type": "SyntheticsTestResultRelationshipTest",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class SyntheticsTestResultRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

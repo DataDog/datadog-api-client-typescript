@@ -5,19 +5,24 @@
  */
 import { ModelLabArtifactObjectInfo } from "./ModelLabArtifactObjectInfo";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Artifact listing for a Model Lab run.
- */
+*/
 export class ModelLabRunArtifactsAttributes {
   /**
    * The list of artifact files and directories.
-   */
+  */
   "files": Array<ModelLabArtifactObjectInfo>;
   /**
    * The path of the run's artifacts relative to the project's artifact root.
-   */
+  */
   "pathInProject": string;
 
   /**
@@ -25,7 +30,7 @@ export class ModelLabRunArtifactsAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class ModelLabRunArtifactsAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    files: {
-      baseName: "files",
-      type: "Array<ModelLabArtifactObjectInfo>",
-      required: true,
+    "files": {
+      "baseName": "files",
+      "type": "Array<ModelLabArtifactObjectInfo>",
+      "required": true,
     },
-    pathInProject: {
-      baseName: "path_in_project",
-      type: "string",
-      required: true,
+    "pathInProject": {
+      "baseName": "path_in_project",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class ModelLabRunArtifactsAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ModelLabRunArtifactsAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

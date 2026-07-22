@@ -5,19 +5,24 @@
  */
 import { CostTagMetadataMonthType } from "./CostTagMetadataMonthType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A month that has Cloud Cost Management tag metadata available for a given provider.
- */
+*/
 export class CostTagMetadataMonth {
   /**
    * The month, in `YYYY-MM` format.
-   */
+  */
   "id": string;
   /**
    * Type of the Cloud Cost Management tag metadata month resource.
-   */
+  */
   "type": CostTagMetadataMonthType;
 
   /**
@@ -25,7 +30,7 @@ export class CostTagMetadataMonth {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class CostTagMetadataMonth {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CostTagMetadataMonthType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CostTagMetadataMonthType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class CostTagMetadataMonth {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CostTagMetadataMonth.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

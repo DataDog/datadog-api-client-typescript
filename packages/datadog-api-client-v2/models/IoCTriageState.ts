@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Current triage state of the indicator.
- */
+*/
 
-export type IoCTriageState =
-  | typeof NOT_REVIEWED
-  | typeof REVIEWED
-  | UnparsedObject;
-export const NOT_REVIEWED = "not_reviewed";
-export const REVIEWED = "reviewed";
+export type IoCTriageState = typeof NOT_REVIEWED| typeof REVIEWED | UnparsedObject;
+export const NOT_REVIEWED = 'not_reviewed';
+export const REVIEWED = 'reviewed';

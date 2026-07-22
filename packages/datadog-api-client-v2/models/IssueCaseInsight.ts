@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Insight of the case.
- */
+*/
 export class IssueCaseInsight {
   /**
    * Reference of the insight.
-   */
+  */
   "ref"?: string;
   /**
    * Insight identifier.
-   */
+  */
   "resourceId"?: string;
   /**
    * Type of the insight.
-   */
+  */
   "type"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class IssueCaseInsight {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class IssueCaseInsight {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    ref: {
-      baseName: "ref",
-      type: "string",
+    "ref": {
+      "baseName": "ref",
+      "type": "string",
     },
-    resourceId: {
-      baseName: "resource_id",
-      type: "string",
+    "resourceId": {
+      "baseName": "resource_id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class IssueCaseInsight {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IssueCaseInsight.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

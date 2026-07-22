@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Top list widget scaling definition.
- */
+*/
 
-export type ToplistWidgetScaling =
-  | typeof ABSOLUTE
-  | typeof RELATIVE
-  | UnparsedObject;
-export const ABSOLUTE = "absolute";
-export const RELATIVE = "relative";
+export type ToplistWidgetScaling = typeof ABSOLUTE| typeof RELATIVE | UnparsedObject;
+export const ABSOLUTE = 'absolute';
+export const RELATIVE = 'relative';

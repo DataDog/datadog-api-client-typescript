@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * User information for a global organization association.
- */
+*/
 export class GlobalOrgUser {
   /**
    * The handle of the user.
-   */
+  */
   "handle": string;
   /**
    * The UUID of the user.
-   */
+  */
   "uuid": string;
 
   /**
@@ -24,7 +29,7 @@ export class GlobalOrgUser {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,16 +40,16 @@ export class GlobalOrgUser {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    handle: {
-      baseName: "handle",
-      type: "string",
-      required: true,
+    "handle": {
+      "baseName": "handle",
+      "type": "string",
+      "required": true,
     },
-    uuid: {
-      baseName: "uuid",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "uuid": {
+      "baseName": "uuid",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class GlobalOrgUser {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GlobalOrgUser.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

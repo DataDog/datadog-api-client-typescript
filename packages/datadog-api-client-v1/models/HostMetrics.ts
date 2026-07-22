@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Host Metrics collected.
- */
+*/
 export class HostMetrics {
   /**
    * The percent of CPU used (everything but idle).
-   */
+  */
   "cpu"?: number;
   /**
    * The percent of CPU spent waiting on the IO (not reported for all platforms).
-   */
+  */
   "iowait"?: number;
   /**
    * The system load over the last 15 minutes.
-   */
+  */
   "load"?: number;
 
   /**
@@ -28,7 +33,7 @@ export class HostMetrics {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,20 +44,20 @@ export class HostMetrics {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    cpu: {
-      baseName: "cpu",
-      type: "number",
-      format: "double",
+    "cpu": {
+      "baseName": "cpu",
+      "type": "number",
+      "format": "double",
     },
-    iowait: {
-      baseName: "iowait",
-      type: "number",
-      format: "double",
+    "iowait": {
+      "baseName": "iowait",
+      "type": "number",
+      "format": "double",
     },
-    load: {
-      baseName: "load",
-      type: "number",
-      format: "double",
+    "load": {
+      "baseName": "load",
+      "type": "number",
+      "format": "double",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class HostMetrics {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return HostMetrics.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

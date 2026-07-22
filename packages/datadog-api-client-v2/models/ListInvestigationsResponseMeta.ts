@@ -5,15 +5,20 @@
  */
 import { ListInvestigationsResponseMetaPage } from "./ListInvestigationsResponseMetaPage";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metadata for the list investigations response.
- */
+*/
 export class ListInvestigationsResponseMeta {
   /**
    * Pagination metadata.
-   */
+  */
   "page": ListInvestigationsResponseMetaPage;
 
   /**
@@ -21,7 +26,7 @@ export class ListInvestigationsResponseMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class ListInvestigationsResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    page: {
-      baseName: "page",
-      type: "ListInvestigationsResponseMetaPage",
-      required: true,
+    "page": {
+      "baseName": "page",
+      "type": "ListInvestigationsResponseMetaPage",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class ListInvestigationsResponseMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListInvestigationsResponseMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

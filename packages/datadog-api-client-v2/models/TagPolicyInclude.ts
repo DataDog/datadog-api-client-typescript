@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A related resource to include alongside a tag policy in the response. Currently the only supported value is `score`.
- */
+*/
 
 export type TagPolicyInclude = typeof SCORE | UnparsedObject;
-export const SCORE = "score";
+export const SCORE = 'score';

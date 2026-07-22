@@ -5,11 +5,16 @@
  */
 import { NotificationRule } from "./NotificationRule";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The list of notification rules.
- */
+*/
 export class NotificationRulesListResponse {
   "data"?: Array<NotificationRule>;
 
@@ -18,7 +23,7 @@ export class NotificationRulesListResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -29,9 +34,9 @@ export class NotificationRulesListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<NotificationRule>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<NotificationRule>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -43,8 +48,34 @@ export class NotificationRulesListResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return NotificationRulesListResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

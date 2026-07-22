@@ -7,23 +7,28 @@ import { MaintenanceDataRelationshipsCreatedByUser } from "./MaintenanceDataRela
 import { MaintenanceDataRelationshipsLastModifiedByUser } from "./MaintenanceDataRelationshipsLastModifiedByUser";
 import { MaintenanceDataRelationshipsStatusPage } from "./MaintenanceDataRelationshipsStatusPage";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The relationships of a maintenance.
- */
+*/
 export class MaintenanceDataRelationships {
   /**
    * The Datadog user who created the maintenance.
-   */
+  */
   "createdByUser"?: MaintenanceDataRelationshipsCreatedByUser;
   /**
    * The Datadog user who last modified the maintenance.
-   */
+  */
   "lastModifiedByUser"?: MaintenanceDataRelationshipsLastModifiedByUser;
   /**
    * The status page the maintenance belongs to.
-   */
+  */
   "statusPage"?: MaintenanceDataRelationshipsStatusPage;
 
   /**
@@ -31,7 +36,7 @@ export class MaintenanceDataRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,17 +47,17 @@ export class MaintenanceDataRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdByUser: {
-      baseName: "created_by_user",
-      type: "MaintenanceDataRelationshipsCreatedByUser",
+    "createdByUser": {
+      "baseName": "created_by_user",
+      "type": "MaintenanceDataRelationshipsCreatedByUser",
     },
-    lastModifiedByUser: {
-      baseName: "last_modified_by_user",
-      type: "MaintenanceDataRelationshipsLastModifiedByUser",
+    "lastModifiedByUser": {
+      "baseName": "last_modified_by_user",
+      "type": "MaintenanceDataRelationshipsLastModifiedByUser",
     },
-    statusPage: {
-      baseName: "status_page",
-      type: "MaintenanceDataRelationshipsStatusPage",
+    "statusPage": {
+      "baseName": "status_page",
+      "type": "MaintenanceDataRelationshipsStatusPage",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class MaintenanceDataRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MaintenanceDataRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

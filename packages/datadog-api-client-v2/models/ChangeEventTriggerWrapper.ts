@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Schema for a Change Event-based trigger.
- */
+*/
 export class ChangeEventTriggerWrapper {
   /**
    * Trigger a workflow from a Change Event.
-   */
+  */
   "changeEventTrigger": any;
   /**
    * A list of steps that run first after a trigger fires.
-   */
+  */
   "startStepNames"?: Array<string>;
 
   /**
@@ -24,7 +29,7 @@ export class ChangeEventTriggerWrapper {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,14 +40,14 @@ export class ChangeEventTriggerWrapper {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    changeEventTrigger: {
-      baseName: "changeEventTrigger",
-      type: "any",
-      required: true,
+    "changeEventTrigger": {
+      "baseName": "changeEventTrigger",
+      "type": "any",
+      "required": true,
     },
-    startStepNames: {
-      baseName: "startStepNames",
-      type: "Array<string>",
+    "startStepNames": {
+      "baseName": "startStepNames",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class ChangeEventTriggerWrapper {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ChangeEventTriggerWrapper.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

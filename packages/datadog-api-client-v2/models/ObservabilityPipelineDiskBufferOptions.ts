@@ -6,23 +6,28 @@
 import { ObservabilityPipelineBufferOptionsDiskType } from "./ObservabilityPipelineBufferOptionsDiskType";
 import { ObservabilityPipelineBufferOptionsWhenFull } from "./ObservabilityPipelineBufferOptionsWhenFull";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Options for configuring a disk buffer.
- */
+*/
 export class ObservabilityPipelineDiskBufferOptions {
   /**
    * Maximum size of the disk buffer.
-   */
+  */
   "maxSize": number;
   /**
    * The type of the buffer that will be configured, a disk buffer.
-   */
+  */
   "type"?: ObservabilityPipelineBufferOptionsDiskType;
   /**
    * Behavior when the buffer is full (block and stop accepting new events, or drop new events)
-   */
+  */
   "whenFull"?: ObservabilityPipelineBufferOptionsWhenFull;
 
   /**
@@ -30,7 +35,7 @@ export class ObservabilityPipelineDiskBufferOptions {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class ObservabilityPipelineDiskBufferOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    maxSize: {
-      baseName: "max_size",
-      type: "number",
-      required: true,
-      format: "int64",
+    "maxSize": {
+      "baseName": "max_size",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    type: {
-      baseName: "type",
-      type: "ObservabilityPipelineBufferOptionsDiskType",
+    "type": {
+      "baseName": "type",
+      "type": "ObservabilityPipelineBufferOptionsDiskType",
     },
-    whenFull: {
-      baseName: "when_full",
-      type: "ObservabilityPipelineBufferOptionsWhenFull",
+    "whenFull": {
+      "baseName": "when_full",
+      "type": "ObservabilityPipelineBufferOptionsWhenFull",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class ObservabilityPipelineDiskBufferOptions {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineDiskBufferOptions.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

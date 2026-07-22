@@ -6,19 +6,24 @@
 import { FastlyAccountType } from "./FastlyAccountType";
 import { FastlyAccountUpdateRequestAttributes } from "./FastlyAccountUpdateRequestAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for updating a Fastly account.
- */
+*/
 export class FastlyAccountUpdateRequestData {
   /**
    * Attributes object for updating a Fastly account.
-   */
+  */
   "attributes"?: FastlyAccountUpdateRequestAttributes;
   /**
    * The JSON:API type for this API. Should always be `fastly-accounts`.
-   */
+  */
   "type"?: FastlyAccountType;
 
   /**
@@ -26,7 +31,7 @@ export class FastlyAccountUpdateRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class FastlyAccountUpdateRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "FastlyAccountUpdateRequestAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "FastlyAccountUpdateRequestAttributes",
     },
-    type: {
-      baseName: "type",
-      type: "FastlyAccountType",
+    "type": {
+      "baseName": "type",
+      "type": "FastlyAccountType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class FastlyAccountUpdateRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FastlyAccountUpdateRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

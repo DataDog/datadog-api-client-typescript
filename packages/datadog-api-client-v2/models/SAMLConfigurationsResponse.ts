@@ -6,19 +6,24 @@
 import { Role } from "./Role";
 import { SAMLConfiguration } from "./SAMLConfiguration";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a list of SAML configurations.
- */
+*/
 export class SAMLConfigurationsResponse {
   /**
    * Array of SAML configurations. An organization has at most one SAML configuration.
-   */
+  */
   "data"?: Array<SAMLConfiguration>;
   /**
    * Resources related to the SAML configurations, such as the default roles.
-   */
+  */
   "included"?: Array<Role>;
 
   /**
@@ -26,7 +31,7 @@ export class SAMLConfigurationsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class SAMLConfigurationsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<SAMLConfiguration>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<SAMLConfiguration>",
     },
-    included: {
-      baseName: "included",
-      type: "Array<Role>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<Role>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class SAMLConfigurationsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SAMLConfigurationsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

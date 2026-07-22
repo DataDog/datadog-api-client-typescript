@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The resource type for trigger investigation requests.
- */
+*/
 
-export type TriggerInvestigationRequestType =
-  | typeof TRIGGER_INVESTIGATION_REQUEST
-  | UnparsedObject;
-export const TRIGGER_INVESTIGATION_REQUEST = "trigger_investigation_request";
+export type TriggerInvestigationRequestType = typeof TRIGGER_INVESTIGATION_REQUEST | UnparsedObject;
+export const TRIGGER_INVESTIGATION_REQUEST = 'trigger_investigation_request';

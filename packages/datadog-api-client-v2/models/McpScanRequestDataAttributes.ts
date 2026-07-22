@@ -5,23 +5,28 @@
  */
 import { McpScanRequestDataAttributesLibrariesItems } from "./McpScanRequestDataAttributesLibrariesItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes of an MCP SCA scan request, describing the libraries to scan and their context.
- */
+*/
 export class McpScanRequestDataAttributes {
   /**
    * The commit hash of the source code being scanned.
-   */
+  */
   "commitHash": string;
   /**
    * The list of libraries to scan for vulnerabilities.
-   */
+  */
   "libraries": Array<McpScanRequestDataAttributesLibrariesItems>;
   /**
    * The name of the resource (typically the repository or project name) being scanned.
-   */
+  */
   "resourceName": string;
 
   /**
@@ -29,7 +34,7 @@ export class McpScanRequestDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,20 +45,20 @@ export class McpScanRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    commitHash: {
-      baseName: "commit_hash",
-      type: "string",
-      required: true,
+    "commitHash": {
+      "baseName": "commit_hash",
+      "type": "string",
+      "required": true,
     },
-    libraries: {
-      baseName: "libraries",
-      type: "Array<McpScanRequestDataAttributesLibrariesItems>",
-      required: true,
+    "libraries": {
+      "baseName": "libraries",
+      "type": "Array<McpScanRequestDataAttributesLibrariesItems>",
+      "required": true,
     },
-    resourceName: {
-      baseName: "resource_name",
-      type: "string",
-      required: true,
+    "resourceName": {
+      "baseName": "resource_name",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class McpScanRequestDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return McpScanRequestDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

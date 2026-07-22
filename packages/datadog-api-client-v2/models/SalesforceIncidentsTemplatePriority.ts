@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Priority of the Salesforce incident created from this template.
- */
+*/
 
-export type SalesforceIncidentsTemplatePriority =
-  | typeof CRITICAL
-  | typeof HIGH
-  | typeof MODERATE
-  | typeof LOW
-  | UnparsedObject;
-export const CRITICAL = "Critical";
-export const HIGH = "High";
-export const MODERATE = "Moderate";
-export const LOW = "Low";
+export type SalesforceIncidentsTemplatePriority = typeof CRITICAL| typeof HIGH| typeof MODERATE| typeof LOW | UnparsedObject;
+export const CRITICAL = 'Critical';
+export const HIGH = 'High';
+export const MODERATE = 'Moderate';
+export const LOW = 'Low';

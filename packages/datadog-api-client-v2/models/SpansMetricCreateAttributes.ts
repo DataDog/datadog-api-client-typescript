@@ -7,23 +7,28 @@ import { SpansMetricCompute } from "./SpansMetricCompute";
 import { SpansMetricFilter } from "./SpansMetricFilter";
 import { SpansMetricGroupBy } from "./SpansMetricGroupBy";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The object describing the Datadog span-based metric to create.
- */
+*/
 export class SpansMetricCreateAttributes {
   /**
    * The compute rule to compute the span-based metric.
-   */
+  */
   "compute": SpansMetricCompute;
   /**
    * The span-based metric filter. Spans matching this filter will be aggregated in this metric.
-   */
+  */
   "filter"?: SpansMetricFilter;
   /**
    * The rules for the group by.
-   */
+  */
   "groupBy"?: Array<SpansMetricGroupBy>;
 
   /**
@@ -31,7 +36,7 @@ export class SpansMetricCreateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,18 +47,18 @@ export class SpansMetricCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    compute: {
-      baseName: "compute",
-      type: "SpansMetricCompute",
-      required: true,
+    "compute": {
+      "baseName": "compute",
+      "type": "SpansMetricCompute",
+      "required": true,
     },
-    filter: {
-      baseName: "filter",
-      type: "SpansMetricFilter",
+    "filter": {
+      "baseName": "filter",
+      "type": "SpansMetricFilter",
     },
-    groupBy: {
-      baseName: "group_by",
-      type: "Array<SpansMetricGroupBy>",
+    "groupBy": {
+      "baseName": "group_by",
+      "type": "Array<SpansMetricGroupBy>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class SpansMetricCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SpansMetricCreateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

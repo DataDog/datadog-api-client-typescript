@@ -5,31 +5,36 @@
  */
 import { SyntheticsBasicAuthNTLMType } from "./SyntheticsBasicAuthNTLMType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object to handle `NTLM` authentication when performing the test.
- */
+*/
 export class SyntheticsBasicAuthNTLM {
   /**
    * Domain for the authentication to use when performing the test.
-   */
+  */
   "domain"?: string;
   /**
    * Password for the authentication to use when performing the test.
-   */
+  */
   "password"?: string;
   /**
    * The type of authentication to use when performing the test.
-   */
+  */
   "type": SyntheticsBasicAuthNTLMType;
   /**
    * Username for the authentication to use when performing the test.
-   */
+  */
   "username"?: string;
   /**
    * Workstation for the authentication to use when performing the test.
-   */
+  */
   "workstation"?: string;
 
   /**
@@ -37,7 +42,7 @@ export class SyntheticsBasicAuthNTLM {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -48,26 +53,26 @@ export class SyntheticsBasicAuthNTLM {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    domain: {
-      baseName: "domain",
-      type: "string",
+    "domain": {
+      "baseName": "domain",
+      "type": "string",
     },
-    password: {
-      baseName: "password",
-      type: "string",
+    "password": {
+      "baseName": "password",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SyntheticsBasicAuthNTLMType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SyntheticsBasicAuthNTLMType",
+      "required": true,
     },
-    username: {
-      baseName: "username",
-      type: "string",
+    "username": {
+      "baseName": "username",
+      "type": "string",
     },
-    workstation: {
-      baseName: "workstation",
-      type: "string",
+    "workstation": {
+      "baseName": "workstation",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -79,8 +84,34 @@ export class SyntheticsBasicAuthNTLM {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsBasicAuthNTLM.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

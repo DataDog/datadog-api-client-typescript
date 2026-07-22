@@ -6,23 +6,28 @@
 import { WebhooksOAuth2ClientCredentialsResponseAttributes } from "./WebhooksOAuth2ClientCredentialsResponseAttributes";
 import { WebhooksOAuth2ClientCredentialsType } from "./WebhooksOAuth2ClientCredentialsType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * OAuth2 client credentials data from a response.
- */
+*/
 export class WebhooksOAuth2ClientCredentialsResponseData {
   /**
    * OAuth2 client credentials attributes returned by the API. The `client_secret` is never echoed.
-   */
+  */
   "attributes": WebhooksOAuth2ClientCredentialsResponseAttributes;
   /**
    * The ID of the OAuth2 client credentials auth method.
-   */
+  */
   "id": string;
   /**
    * OAuth2 client credentials resource type.
-   */
+  */
   "type": WebhooksOAuth2ClientCredentialsType;
 
   /**
@@ -30,7 +35,7 @@ export class WebhooksOAuth2ClientCredentialsResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class WebhooksOAuth2ClientCredentialsResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "WebhooksOAuth2ClientCredentialsResponseAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "WebhooksOAuth2ClientCredentialsResponseAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "WebhooksOAuth2ClientCredentialsType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "WebhooksOAuth2ClientCredentialsType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class WebhooksOAuth2ClientCredentialsResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return WebhooksOAuth2ClientCredentialsResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

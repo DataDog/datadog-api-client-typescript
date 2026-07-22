@@ -5,15 +5,20 @@
  */
 import { GCPUsageCostConfigPatchData } from "./GCPUsageCostConfigPatchData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Google Cloud Usage Cost config patch request.
- */
+*/
 export class GCPUsageCostConfigPatchRequest {
   /**
    * Google Cloud Usage Cost config patch data.
-   */
+  */
   "data": GCPUsageCostConfigPatchData;
 
   /**
@@ -21,7 +26,7 @@ export class GCPUsageCostConfigPatchRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class GCPUsageCostConfigPatchRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "GCPUsageCostConfigPatchData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "GCPUsageCostConfigPatchData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class GCPUsageCostConfigPatchRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GCPUsageCostConfigPatchRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

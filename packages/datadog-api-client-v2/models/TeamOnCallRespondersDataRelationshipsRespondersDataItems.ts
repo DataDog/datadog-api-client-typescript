@@ -5,19 +5,24 @@
  */
 import { TeamOnCallRespondersDataRelationshipsRespondersDataItemsType } from "./TeamOnCallRespondersDataRelationshipsRespondersDataItemsType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Represents a user responder associated with the on-call team.
- */
+*/
 export class TeamOnCallRespondersDataRelationshipsRespondersDataItems {
   /**
    * Unique identifier of the responder.
-   */
+  */
   "id": string;
   /**
    * Identifies the resource type for individual user entities associated with on-call response.
-   */
+  */
   "type": TeamOnCallRespondersDataRelationshipsRespondersDataItemsType;
 
   /**
@@ -25,7 +30,7 @@ export class TeamOnCallRespondersDataRelationshipsRespondersDataItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class TeamOnCallRespondersDataRelationshipsRespondersDataItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "TeamOnCallRespondersDataRelationshipsRespondersDataItemsType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TeamOnCallRespondersDataRelationshipsRespondersDataItemsType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class TeamOnCallRespondersDataRelationshipsRespondersDataItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamOnCallRespondersDataRelationshipsRespondersDataItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

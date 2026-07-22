@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Links related to the investigation.
- */
+*/
 export class GetInvestigationResponseLinks {
   /**
    * The URL to the investigation in the Datadog app.
-   */
+  */
   "self": string;
 
   /**
@@ -20,7 +25,7 @@ export class GetInvestigationResponseLinks {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,10 +36,10 @@ export class GetInvestigationResponseLinks {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    self: {
-      baseName: "self",
-      type: "string",
-      required: true,
+    "self": {
+      "baseName": "self",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class GetInvestigationResponseLinks {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GetInvestigationResponseLinks.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { OwnershipInferenceItem } from "./OwnershipInferenceItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes of the ownership inferences collection response.
- */
+*/
 export class OwnershipInferenceListAttributes {
   /**
    * The list of inferences for a resource, with one inference per owner type.
-   */
+  */
   "items": Array<OwnershipInferenceItem>;
 
   /**
@@ -21,7 +26,7 @@ export class OwnershipInferenceListAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class OwnershipInferenceListAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    items: {
-      baseName: "items",
-      type: "Array<OwnershipInferenceItem>",
-      required: true,
+    "items": {
+      "baseName": "items",
+      "type": "Array<OwnershipInferenceItem>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class OwnershipInferenceListAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OwnershipInferenceListAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

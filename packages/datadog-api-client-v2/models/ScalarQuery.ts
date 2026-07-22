@@ -12,19 +12,15 @@ import { MetricsScalarQuery } from "./MetricsScalarQuery";
 import { ProcessScalarQuery } from "./ProcessScalarQuery";
 import { SloQuery } from "./SloQuery";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * An individual scalar query to one of the basic Datadog data sources.
- */
+*/
 
-export type ScalarQuery =
-  | MetricsScalarQuery
-  | EventsScalarQuery
-  | ApmResourceStatsQuery
-  | ApmMetricsQuery
-  | ApmDependencyStatsQuery
-  | SloQuery
-  | ProcessScalarQuery
-  | ContainerScalarQuery
-  | UnparsedObject;
+export type ScalarQuery = MetricsScalarQuery | EventsScalarQuery | ApmResourceStatsQuery | ApmMetricsQuery | ApmDependencyStatsQuery | SloQuery | ProcessScalarQuery | ContainerScalarQuery | UnparsedObject;

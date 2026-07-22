@@ -4,12 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of AI memory violation result indicating whether it is a true positive or false positive.
- */
+*/
 
-export type AiMemoryViolationType = typeof TP | typeof FP | UnparsedObject;
-export const TP = "TP";
-export const FP = "FP";
+export type AiMemoryViolationType = typeof TP| typeof FP | UnparsedObject;
+export const TP = 'TP';
+export const FP = 'FP';

@@ -5,15 +5,20 @@
  */
 import { ConfluentAccountCreateRequestData } from "./ConfluentAccountCreateRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Payload schema when adding a Confluent account.
- */
+*/
 export class ConfluentAccountCreateRequest {
   /**
    * The data body for adding a Confluent account.
-   */
+  */
   "data": ConfluentAccountCreateRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class ConfluentAccountCreateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class ConfluentAccountCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ConfluentAccountCreateRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "ConfluentAccountCreateRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class ConfluentAccountCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ConfluentAccountCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

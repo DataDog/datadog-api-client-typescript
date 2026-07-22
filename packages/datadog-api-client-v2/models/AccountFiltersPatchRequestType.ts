@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of account filters patch request.
- */
+*/
 
-export type AccountFiltersPatchRequestType =
-  | typeof ACCOUNT_FILTERS_PATCH_REQUEST
-  | UnparsedObject;
-export const ACCOUNT_FILTERS_PATCH_REQUEST = "account_filters_patch_request";
+export type AccountFiltersPatchRequestType = typeof ACCOUNT_FILTERS_PATCH_REQUEST | UnparsedObject;
+export const ACCOUNT_FILTERS_PATCH_REQUEST = 'account_filters_patch_request';

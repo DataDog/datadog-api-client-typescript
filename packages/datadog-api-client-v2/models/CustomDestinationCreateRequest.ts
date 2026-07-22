@@ -5,15 +5,20 @@
  */
 import { CustomDestinationCreateRequestDefinition } from "./CustomDestinationCreateRequestDefinition";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The custom destination.
- */
+*/
 export class CustomDestinationCreateRequest {
   /**
    * The definition of a custom destination.
-   */
+  */
   "data"?: CustomDestinationCreateRequestDefinition;
 
   /**
@@ -21,7 +26,7 @@ export class CustomDestinationCreateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class CustomDestinationCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CustomDestinationCreateRequestDefinition",
+    "data": {
+      "baseName": "data",
+      "type": "CustomDestinationCreateRequestDefinition",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class CustomDestinationCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomDestinationCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

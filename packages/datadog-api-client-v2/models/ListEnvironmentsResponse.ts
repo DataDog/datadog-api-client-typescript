@@ -6,19 +6,24 @@
 import { Environment } from "./Environment";
 import { EnvironmentsPaginationMeta } from "./EnvironmentsPaginationMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a list of environments.
- */
+*/
 export class ListEnvironmentsResponse {
   /**
    * List of environments.
-   */
+  */
   "data": Array<Environment>;
   /**
    * Pagination metadata for environments.
-   */
+  */
   "meta"?: EnvironmentsPaginationMeta;
 
   /**
@@ -26,7 +31,7 @@ export class ListEnvironmentsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class ListEnvironmentsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<Environment>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<Environment>",
+      "required": true,
     },
-    meta: {
-      baseName: "meta",
-      type: "EnvironmentsPaginationMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "EnvironmentsPaginationMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class ListEnvironmentsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListEnvironmentsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

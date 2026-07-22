@@ -5,15 +5,20 @@
  */
 import { IdentityProviderData } from "./IdentityProviderData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a list of identity providers for an organization.
- */
+*/
 export class IdentityProvidersResponse {
   /**
    * List of organization identity provider data objects.
-   */
+  */
   "data": Array<IdentityProviderData>;
 
   /**
@@ -21,7 +26,7 @@ export class IdentityProvidersResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class IdentityProvidersResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<IdentityProviderData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<IdentityProviderData>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class IdentityProvidersResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IdentityProvidersResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

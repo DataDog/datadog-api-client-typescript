@@ -6,23 +6,28 @@
 import { RumMetricCreateAttributes } from "./RumMetricCreateAttributes";
 import { RumMetricType } from "./RumMetricType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The new RUM-based metric properties.
- */
+*/
 export class RumMetricCreateData {
   /**
    * The object describing the Datadog RUM-based metric to create.
-   */
+  */
   "attributes": RumMetricCreateAttributes;
   /**
    * The name of the RUM-based metric.
-   */
+  */
   "id": string;
   /**
    * The type of the resource. The value should always be rum_metrics.
-   */
+  */
   "type": RumMetricType;
 
   /**
@@ -30,7 +35,7 @@ export class RumMetricCreateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class RumMetricCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RumMetricCreateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "RumMetricCreateAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "RumMetricType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "RumMetricType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class RumMetricCreateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RumMetricCreateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

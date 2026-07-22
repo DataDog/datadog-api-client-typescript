@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A tool call result within a prompt message.
- */
+*/
 export class LLMObsCustomEvalConfigPromptToolResult {
   /**
    * Name of the tool that produced this result.
-   */
+  */
   "name"?: string;
   /**
    * The result returned by the tool.
-   */
+  */
   "result"?: string;
   /**
    * Identifier of the tool call this result corresponds to.
-   */
+  */
   "toolId"?: string;
   /**
    * Type of the tool result.
-   */
+  */
   "type"?: string;
 
   /**
@@ -32,7 +37,7 @@ export class LLMObsCustomEvalConfigPromptToolResult {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,21 +48,21 @@ export class LLMObsCustomEvalConfigPromptToolResult {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    result: {
-      baseName: "result",
-      type: "string",
+    "result": {
+      "baseName": "result",
+      "type": "string",
     },
-    toolId: {
-      baseName: "tool_id",
-      type: "string",
+    "toolId": {
+      "baseName": "tool_id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -69,8 +74,34 @@ export class LLMObsCustomEvalConfigPromptToolResult {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsCustomEvalConfigPromptToolResult.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

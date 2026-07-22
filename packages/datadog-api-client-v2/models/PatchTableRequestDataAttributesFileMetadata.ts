@@ -6,13 +6,15 @@
 import { PatchTableRequestDataAttributesFileMetadataCloudStorage } from "./PatchTableRequestDataAttributesFileMetadataCloudStorage";
 import { PatchTableRequestDataAttributesFileMetadataLocalFile } from "./PatchTableRequestDataAttributesFileMetadataLocalFile";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Metadata specifying where and how to access the reference table's data file.
- */
+*/
 
-export type PatchTableRequestDataAttributesFileMetadata =
-  | PatchTableRequestDataAttributesFileMetadataCloudStorage
-  | PatchTableRequestDataAttributesFileMetadataLocalFile
-  | UnparsedObject;
+export type PatchTableRequestDataAttributesFileMetadata = PatchTableRequestDataAttributesFileMetadataCloudStorage | PatchTableRequestDataAttributesFileMetadataLocalFile | UnparsedObject;

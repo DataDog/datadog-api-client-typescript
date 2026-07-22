@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of account filters.
- */
+*/
 
 export type AccountFiltersType = typeof ACCOUNT_FILTERS | UnparsedObject;
-export const ACCOUNT_FILTERS = "account_filters";
+export const ACCOUNT_FILTERS = 'account_filters';

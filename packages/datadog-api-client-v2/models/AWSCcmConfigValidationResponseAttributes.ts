@@ -5,19 +5,24 @@
  */
 import { AWSCcmConfigValidationIssue } from "./AWSCcmConfigValidationIssue";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for an AWS CCM config validation response.
- */
+*/
 export class AWSCcmConfigValidationResponseAttributes {
   /**
    * Your AWS Account ID without dashes.
-   */
+  */
   "accountId": string;
   /**
    * List of validation issues found for the Cost and Usage Report (CUR) 2.0 configuration. Empty when the configuration is valid.
-   */
+  */
   "issues": Array<AWSCcmConfigValidationIssue>;
 
   /**
@@ -25,7 +30,7 @@ export class AWSCcmConfigValidationResponseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class AWSCcmConfigValidationResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    accountId: {
-      baseName: "account_id",
-      type: "string",
-      required: true,
+    "accountId": {
+      "baseName": "account_id",
+      "type": "string",
+      "required": true,
     },
-    issues: {
-      baseName: "issues",
-      type: "Array<AWSCcmConfigValidationIssue>",
-      required: true,
+    "issues": {
+      "baseName": "issues",
+      "type": "Array<AWSCcmConfigValidationIssue>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class AWSCcmConfigValidationResponseAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSCcmConfigValidationResponseAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

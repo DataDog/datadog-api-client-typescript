@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of the anonymize users response.
- */
+*/
 
-export type AnonymizeUsersResponseType =
-  | typeof ANONYMIZE_USERS_RESPONSE
-  | UnparsedObject;
-export const ANONYMIZE_USERS_RESPONSE = "anonymize_users_response";
+export type AnonymizeUsersResponseType = typeof ANONYMIZE_USERS_RESPONSE | UnparsedObject;
+export const ANONYMIZE_USERS_RESPONSE = 'anonymize_users_response';

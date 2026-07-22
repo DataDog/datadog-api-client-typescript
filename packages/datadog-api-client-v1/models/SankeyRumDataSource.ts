@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Product Analytics or RUM data source type.
- */
+*/
 
-export type SankeyRumDataSource =
-  | typeof RUM
-  | typeof PRODUCT_ANALYTICS
-  | UnparsedObject;
-export const RUM = "rum";
-export const PRODUCT_ANALYTICS = "product_analytics";
+export type SankeyRumDataSource = typeof RUM| typeof PRODUCT_ANALYTICS | UnparsedObject;
+export const RUM = 'rum';
+export const PRODUCT_ANALYTICS = 'product_analytics';

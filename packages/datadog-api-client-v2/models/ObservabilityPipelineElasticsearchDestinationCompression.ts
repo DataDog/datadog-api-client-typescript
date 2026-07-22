@@ -5,19 +5,24 @@
  */
 import { ObservabilityPipelineElasticsearchDestinationCompressionAlgorithm } from "./ObservabilityPipelineElasticsearchDestinationCompressionAlgorithm";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Compression configuration for the Elasticsearch destination.
- */
+*/
 export class ObservabilityPipelineElasticsearchDestinationCompression {
   /**
    * The compression algorithm applied when sending data to Elasticsearch.
-   */
+  */
   "algorithm": ObservabilityPipelineElasticsearchDestinationCompressionAlgorithm;
   /**
    * The compression level. Only applicable for `gzip`, `zlib`, and `zstd` algorithms.
-   */
+  */
   "level"?: number;
 
   /**
@@ -25,7 +30,7 @@ export class ObservabilityPipelineElasticsearchDestinationCompression {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class ObservabilityPipelineElasticsearchDestinationCompression {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    algorithm: {
-      baseName: "algorithm",
-      type: "ObservabilityPipelineElasticsearchDestinationCompressionAlgorithm",
-      required: true,
+    "algorithm": {
+      "baseName": "algorithm",
+      "type": "ObservabilityPipelineElasticsearchDestinationCompressionAlgorithm",
+      "required": true,
     },
-    level: {
-      baseName: "level",
-      type: "number",
-      format: "int64",
+    "level": {
+      "baseName": "level",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class ObservabilityPipelineElasticsearchDestinationCompression {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineElasticsearchDestinationCompression.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

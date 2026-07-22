@@ -5,15 +5,20 @@
  */
 import { ServiceAccessTokenResponseMetaPage } from "./ServiceAccessTokenResponseMetaPage";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Additional information related to the access token response.
- */
+*/
 export class ServiceAccessTokenResponseMeta {
   /**
    * Pagination information.
-   */
+  */
   "page"?: ServiceAccessTokenResponseMetaPage;
 
   /**
@@ -21,7 +26,7 @@ export class ServiceAccessTokenResponseMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class ServiceAccessTokenResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    page: {
-      baseName: "page",
-      type: "ServiceAccessTokenResponseMetaPage",
+    "page": {
+      "baseName": "page",
+      "type": "ServiceAccessTokenResponseMetaPage",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class ServiceAccessTokenResponseMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceAccessTokenResponseMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

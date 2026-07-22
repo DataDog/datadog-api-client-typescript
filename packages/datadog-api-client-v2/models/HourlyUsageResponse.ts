@@ -6,19 +6,24 @@
 import { HourlyUsage } from "./HourlyUsage";
 import { HourlyUsageMetadata } from "./HourlyUsageMetadata";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Hourly usage response.
- */
+*/
 export class HourlyUsageResponse {
   /**
    * Response containing hourly usage.
-   */
+  */
   "data"?: Array<HourlyUsage>;
   /**
    * The object containing document metadata.
-   */
+  */
   "meta"?: HourlyUsageMetadata;
 
   /**
@@ -26,7 +31,7 @@ export class HourlyUsageResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class HourlyUsageResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<HourlyUsage>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<HourlyUsage>",
     },
-    meta: {
-      baseName: "meta",
-      type: "HourlyUsageMetadata",
+    "meta": {
+      "baseName": "meta",
+      "type": "HourlyUsageMetadata",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class HourlyUsageResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return HourlyUsageResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

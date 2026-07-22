@@ -6,19 +6,24 @@
 import { Finding } from "./Finding";
 import { ListFindingsMeta } from "./ListFindingsMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The expected response schema when listing findings.
- */
+*/
 export class ListFindingsResponse {
   /**
    * Array of findings.
-   */
+  */
   "data": Array<Finding>;
   /**
    * Metadata for pagination.
-   */
+  */
   "meta": ListFindingsMeta;
 
   /**
@@ -26,7 +31,7 @@ export class ListFindingsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class ListFindingsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<Finding>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<Finding>",
+      "required": true,
     },
-    meta: {
-      baseName: "meta",
-      type: "ListFindingsMeta",
-      required: true,
+    "meta": {
+      "baseName": "meta",
+      "type": "ListFindingsMeta",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class ListFindingsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListFindingsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

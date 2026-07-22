@@ -5,19 +5,24 @@
  */
 import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The relationships for an incident import request.
- */
+*/
 export class IncidentImportRelationships {
   /**
    * Relationship to user.
-   */
+  */
   "commanderUser"?: NullableRelationshipToUser;
   /**
    * Relationship to user.
-   */
+  */
   "declaredByUser"?: NullableRelationshipToUser;
 
   /**
@@ -25,7 +30,7 @@ export class IncidentImportRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class IncidentImportRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    commanderUser: {
-      baseName: "commander_user",
-      type: "NullableRelationshipToUser",
+    "commanderUser": {
+      "baseName": "commander_user",
+      "type": "NullableRelationshipToUser",
     },
-    declaredByUser: {
-      baseName: "declared_by_user",
-      type: "NullableRelationshipToUser",
+    "declaredByUser": {
+      "baseName": "declared_by_user",
+      "type": "NullableRelationshipToUser",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class IncidentImportRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentImportRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

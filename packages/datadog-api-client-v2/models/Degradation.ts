@@ -6,19 +6,24 @@
 import { DegradationData } from "./DegradationData";
 import { DegradationIncluded } from "./DegradationIncluded";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object for a single degradation.
- */
+*/
 export class Degradation {
   /**
    * The data object for a degradation.
-   */
+  */
   "data"?: DegradationData;
   /**
    * The included related resources of a degradation. Client must explicitly request these resources by name in the `include` query parameter.
-   */
+  */
   "included"?: Array<DegradationIncluded>;
 
   /**
@@ -26,7 +31,7 @@ export class Degradation {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class Degradation {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "DegradationData",
+    "data": {
+      "baseName": "data",
+      "type": "DegradationData",
     },
-    included: {
-      baseName: "included",
-      type: "Array<DegradationIncluded>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<DegradationIncluded>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class Degradation {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return Degradation.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

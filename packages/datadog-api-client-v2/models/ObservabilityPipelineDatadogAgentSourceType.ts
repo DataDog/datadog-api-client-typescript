@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The source type. The value should always be `datadog_agent`.
- */
+*/
 
-export type ObservabilityPipelineDatadogAgentSourceType =
-  | typeof DATADOG_AGENT
-  | UnparsedObject;
-export const DATADOG_AGENT = "datadog_agent";
+export type ObservabilityPipelineDatadogAgentSourceType = typeof DATADOG_AGENT | UnparsedObject;
+export const DATADOG_AGENT = 'datadog_agent';

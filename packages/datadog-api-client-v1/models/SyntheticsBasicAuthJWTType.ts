@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of authentication to use when performing the test.
- */
+*/
 
 export type SyntheticsBasicAuthJWTType = typeof JWT | UnparsedObject;
-export const JWT = "jwt";
+export const JWT = 'jwt';

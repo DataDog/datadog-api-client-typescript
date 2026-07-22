@@ -7,24 +7,29 @@ import { SecurityMonitoringSignal } from "./SecurityMonitoringSignal";
 import { SecurityMonitoringSignalsListResponseLinks } from "./SecurityMonitoringSignalsListResponseLinks";
 import { SecurityMonitoringSignalsListResponseMeta } from "./SecurityMonitoringSignalsListResponseMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The response object with all security signals matching the request
  * and pagination information.
- */
+*/
 export class SecurityMonitoringSignalsListResponse {
   /**
    * An array of security signals matching the request.
-   */
+  */
   "data"?: Array<SecurityMonitoringSignal>;
   /**
    * Links attributes.
-   */
+  */
   "links"?: SecurityMonitoringSignalsListResponseLinks;
   /**
    * Meta attributes.
-   */
+  */
   "meta"?: SecurityMonitoringSignalsListResponseMeta;
 
   /**
@@ -32,7 +37,7 @@ export class SecurityMonitoringSignalsListResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,17 +48,17 @@ export class SecurityMonitoringSignalsListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<SecurityMonitoringSignal>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<SecurityMonitoringSignal>",
     },
-    links: {
-      baseName: "links",
-      type: "SecurityMonitoringSignalsListResponseLinks",
+    "links": {
+      "baseName": "links",
+      "type": "SecurityMonitoringSignalsListResponseLinks",
     },
-    meta: {
-      baseName: "meta",
-      type: "SecurityMonitoringSignalsListResponseMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "SecurityMonitoringSignalsListResponseMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class SecurityMonitoringSignalsListResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringSignalsListResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

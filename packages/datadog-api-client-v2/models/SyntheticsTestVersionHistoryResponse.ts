@@ -6,19 +6,24 @@
 import { SyntheticsTestVersionChangeData } from "./SyntheticsTestVersionChangeData";
 import { SyntheticsTestVersionHistoryMeta } from "./SyntheticsTestVersionHistoryMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing the paginated version history for a Synthetic test.
- */
+*/
 export class SyntheticsTestVersionHistoryResponse {
   /**
    * List of version change records.
-   */
+  */
   "data"?: Array<SyntheticsTestVersionChangeData>;
   /**
    * Pagination metadata for a version history response.
-   */
+  */
   "meta"?: SyntheticsTestVersionHistoryMeta;
 
   /**
@@ -26,7 +31,7 @@ export class SyntheticsTestVersionHistoryResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class SyntheticsTestVersionHistoryResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<SyntheticsTestVersionChangeData>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<SyntheticsTestVersionChangeData>",
     },
-    meta: {
-      baseName: "meta",
-      type: "SyntheticsTestVersionHistoryMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "SyntheticsTestVersionHistoryMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class SyntheticsTestVersionHistoryResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestVersionHistoryResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

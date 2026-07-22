@@ -6,19 +6,24 @@
 import { OpenAICredentials } from "./OpenAICredentials";
 import { OpenAIIntegrationType } from "./OpenAIIntegrationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `OpenAIIntegration` object.
- */
+*/
 export class OpenAIIntegration {
   /**
    * The definition of the `OpenAICredentials` object.
-   */
+  */
   "credentials": OpenAICredentials;
   /**
    * The definition of the `OpenAIIntegrationType` object.
-   */
+  */
   "type": OpenAIIntegrationType;
 
   /**
@@ -26,7 +31,7 @@ export class OpenAIIntegration {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class OpenAIIntegration {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    credentials: {
-      baseName: "credentials",
-      type: "OpenAICredentials",
-      required: true,
+    "credentials": {
+      "baseName": "credentials",
+      "type": "OpenAICredentials",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "OpenAIIntegrationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "OpenAIIntegrationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class OpenAIIntegration {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OpenAIIntegration.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

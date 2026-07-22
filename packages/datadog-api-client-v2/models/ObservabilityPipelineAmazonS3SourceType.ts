@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The source type. Always `amazon_s3`.
- */
+*/
 
-export type ObservabilityPipelineAmazonS3SourceType =
-  | typeof AMAZON_S3
-  | UnparsedObject;
-export const AMAZON_S3 = "amazon_s3";
+export type ObservabilityPipelineAmazonS3SourceType = typeof AMAZON_S3 | UnparsedObject;
+export const AMAZON_S3 = 'amazon_s3';

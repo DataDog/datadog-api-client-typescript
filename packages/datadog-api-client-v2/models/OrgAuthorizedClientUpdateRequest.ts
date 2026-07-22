@@ -5,15 +5,20 @@
  */
 import { OrgAuthorizedClientUpdateData } from "./OrgAuthorizedClientUpdateData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request body for updating an org authorized client.
- */
+*/
 export class OrgAuthorizedClientUpdateRequest {
   /**
    * Data object for updating an org authorized client.
-   */
+  */
   "data": OrgAuthorizedClientUpdateData;
 
   /**
@@ -21,7 +26,7 @@ export class OrgAuthorizedClientUpdateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class OrgAuthorizedClientUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "OrgAuthorizedClientUpdateData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "OrgAuthorizedClientUpdateData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class OrgAuthorizedClientUpdateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgAuthorizedClientUpdateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

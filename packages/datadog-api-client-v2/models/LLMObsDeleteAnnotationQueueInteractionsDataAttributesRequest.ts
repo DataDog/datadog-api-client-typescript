@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for deleting interactions from an annotation queue.
- */
+*/
 export class LLMObsDeleteAnnotationQueueInteractionsDataAttributesRequest {
   /**
    * List of interaction IDs to delete. Must contain at least one item.
-   */
+  */
   "interactionIds": Array<string>;
 
   /**
@@ -20,7 +25,7 @@ export class LLMObsDeleteAnnotationQueueInteractionsDataAttributesRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,10 +36,10 @@ export class LLMObsDeleteAnnotationQueueInteractionsDataAttributesRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    interactionIds: {
-      baseName: "interaction_ids",
-      type: "Array<string>",
-      required: true,
+    "interactionIds": {
+      "baseName": "interaction_ids",
+      "type": "Array<string>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class LLMObsDeleteAnnotationQueueInteractionsDataAttributesRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDeleteAnnotationQueueInteractionsDataAttributesRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

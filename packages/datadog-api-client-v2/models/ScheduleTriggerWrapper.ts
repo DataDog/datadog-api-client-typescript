@@ -5,19 +5,24 @@
  */
 import { ScheduleTrigger } from "./ScheduleTrigger";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Schema for a Schedule-based trigger.
- */
+*/
 export class ScheduleTriggerWrapper {
   /**
    * Trigger a workflow from a Schedule. The workflow must be published.
-   */
+  */
   "scheduleTrigger": ScheduleTrigger;
   /**
    * A list of steps that run first after a trigger fires.
-   */
+  */
   "startStepNames"?: Array<string>;
 
   /**
@@ -25,7 +30,7 @@ export class ScheduleTriggerWrapper {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,14 +41,14 @@ export class ScheduleTriggerWrapper {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    scheduleTrigger: {
-      baseName: "scheduleTrigger",
-      type: "ScheduleTrigger",
-      required: true,
+    "scheduleTrigger": {
+      "baseName": "scheduleTrigger",
+      "type": "ScheduleTrigger",
+      "required": true,
     },
-    startStepNames: {
-      baseName: "startStepNames",
-      type: "Array<string>",
+    "startStepNames": {
+      "baseName": "startStepNames",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class ScheduleTriggerWrapper {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ScheduleTriggerWrapper.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The activation status of a content pack.
- */
+*/
 
-export type SecurityMonitoringContentPackActivation =
-  | typeof NEVER_ACTIVATED
-  | typeof ACTIVATED
-  | typeof DEACTIVATED
-  | UnparsedObject;
-export const NEVER_ACTIVATED = "never_activated";
-export const ACTIVATED = "activated";
-export const DEACTIVATED = "deactivated";
+export type SecurityMonitoringContentPackActivation = typeof NEVER_ACTIVATED| typeof ACTIVATED| typeof DEACTIVATED | UnparsedObject;
+export const NEVER_ACTIVATED = 'never_activated';
+export const ACTIVATED = 'activated';
+export const DEACTIVATED = 'deactivated';

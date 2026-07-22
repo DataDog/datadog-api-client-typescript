@@ -5,35 +5,40 @@
  */
 import { AnyValue } from "./AnyValue";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A record update payload for an LLM Observability dataset.
- */
+*/
 export class LLMObsDatasetRecordUpdateItem {
   /**
    * Represents any valid JSON value.
-   */
+  */
   "expectedOutput"?: AnyValue;
   /**
    * Unique identifier of the record to update.
-   */
+  */
   "id": string;
   /**
    * Represents any valid JSON value.
-   */
+  */
   "input"?: AnyValue;
   /**
    * Updated metadata associated with the record.
-   */
-  "metadata"?: { [key: string]: any };
+  */
+  "metadata"?: { [key: string]: any; };
 
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -44,22 +49,22 @@ export class LLMObsDatasetRecordUpdateItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    expectedOutput: {
-      baseName: "expected_output",
-      type: "AnyValue",
+    "expectedOutput": {
+      "baseName": "expected_output",
+      "type": "AnyValue",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    input: {
-      baseName: "input",
-      type: "AnyValue",
+    "input": {
+      "baseName": "input",
+      "type": "AnyValue",
     },
-    metadata: {
-      baseName: "metadata",
-      type: "{ [key: string]: any; }",
+    "metadata": {
+      "baseName": "metadata",
+      "type": "{ [key: string]: any; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,8 +76,34 @@ export class LLMObsDatasetRecordUpdateItem {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDatasetRecordUpdateItem.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

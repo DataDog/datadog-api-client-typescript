@@ -6,23 +6,28 @@
 import { DeletedSuiteResponseDataAttributes } from "./DeletedSuiteResponseDataAttributes";
 import { SyntheticsSuiteTypes } from "./SyntheticsSuiteTypes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for a deleted Synthetic test suite.
- */
+*/
 export class DeletedSuiteResponseData {
   /**
    * Attributes of a deleted Synthetic test suite, including deletion timestamp and public ID.
-   */
+  */
   "attributes"?: DeletedSuiteResponseDataAttributes;
   /**
    * The public ID of the deleted Synthetic test suite.
-   */
+  */
   "id"?: string;
   /**
    * Type for the Synthetics suites responses, `suites`.
-   */
+  */
   "type"?: SyntheticsSuiteTypes;
 
   /**
@@ -30,7 +35,7 @@ export class DeletedSuiteResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class DeletedSuiteResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "DeletedSuiteResponseDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "DeletedSuiteResponseDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SyntheticsSuiteTypes",
+    "type": {
+      "baseName": "type",
+      "type": "SyntheticsSuiteTypes",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class DeletedSuiteResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DeletedSuiteResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,19 +5,24 @@
  */
 import { APMTraceSpan } from "./APMTraceSpan";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes of a trace returned by the Get trace by ID endpoint.
- */
+*/
 export class TraceAttributes {
   /**
    * Indicates whether the trace was truncated because its size exceeded the maximum response payload.
-   */
+  */
   "isTruncated": boolean;
   /**
    * The list of spans that compose the trace.
-   */
+  */
   "spans": Array<APMTraceSpan>;
 
   /**
@@ -25,7 +30,7 @@ export class TraceAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class TraceAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    isTruncated: {
-      baseName: "is_truncated",
-      type: "boolean",
-      required: true,
+    "isTruncated": {
+      "baseName": "is_truncated",
+      "type": "boolean",
+      "required": true,
     },
-    spans: {
-      baseName: "spans",
-      type: "Array<APMTraceSpan>",
-      required: true,
+    "spans": {
+      "baseName": "spans",
+      "type": "Array<APMTraceSpan>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class TraceAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TraceAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

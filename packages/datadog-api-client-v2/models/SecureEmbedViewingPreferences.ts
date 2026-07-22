@@ -5,19 +5,24 @@
  */
 import { SecureEmbedViewingPreferencesTheme } from "./SecureEmbedViewingPreferencesTheme";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Display settings for the secure embed shared dashboard.
- */
+*/
 export class SecureEmbedViewingPreferences {
   /**
    * Whether widgets are displayed in high density mode.
-   */
+  */
   "highDensity"?: boolean;
   /**
    * The theme of the shared dashboard view. `system` follows the viewer's system default.
-   */
+  */
   "theme"?: SecureEmbedViewingPreferencesTheme;
 
   /**
@@ -25,7 +30,7 @@ export class SecureEmbedViewingPreferences {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class SecureEmbedViewingPreferences {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    highDensity: {
-      baseName: "high_density",
-      type: "boolean",
+    "highDensity": {
+      "baseName": "high_density",
+      "type": "boolean",
     },
-    theme: {
-      baseName: "theme",
-      type: "SecureEmbedViewingPreferencesTheme",
+    "theme": {
+      "baseName": "theme",
+      "type": "SecureEmbedViewingPreferencesTheme",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class SecureEmbedViewingPreferences {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecureEmbedViewingPreferences.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

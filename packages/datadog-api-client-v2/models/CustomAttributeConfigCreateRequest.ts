@@ -5,15 +5,20 @@
  */
 import { CustomAttributeConfigCreate } from "./CustomAttributeConfigCreate";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request payload for creating a custom attribute configuration.
- */
+*/
 export class CustomAttributeConfigCreateRequest {
   /**
    * Data object for creating a custom attribute configuration.
-   */
+  */
   "data": CustomAttributeConfigCreate;
 
   /**
@@ -21,7 +26,7 @@ export class CustomAttributeConfigCreateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CustomAttributeConfigCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CustomAttributeConfigCreate",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "CustomAttributeConfigCreate",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CustomAttributeConfigCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomAttributeConfigCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

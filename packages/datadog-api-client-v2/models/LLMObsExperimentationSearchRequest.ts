@@ -5,15 +5,20 @@
  */
 import { LLMObsExperimentationSearchDataRequest } from "./LLMObsExperimentationSearchDataRequest";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request to search across LLM Observability experimentation entities using cursor-based pagination.
- */
+*/
 export class LLMObsExperimentationSearchRequest {
   /**
    * Data object for an experimentation search request.
-   */
+  */
   "data": LLMObsExperimentationSearchDataRequest;
 
   /**
@@ -21,7 +26,7 @@ export class LLMObsExperimentationSearchRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class LLMObsExperimentationSearchRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "LLMObsExperimentationSearchDataRequest",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "LLMObsExperimentationSearchDataRequest",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class LLMObsExperimentationSearchRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsExperimentationSearchRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Global incident settings attributes
- */
+*/
 export class GlobalIncidentSettingsAttributesRequest {
   /**
    * The analytics dashboard ID
-   */
+  */
   "analyticsDashboardId"?: string;
 
   /**
@@ -20,7 +25,7 @@ export class GlobalIncidentSettingsAttributesRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,9 +36,9 @@ export class GlobalIncidentSettingsAttributesRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    analyticsDashboardId: {
-      baseName: "analytics_dashboard_id",
-      type: "string",
+    "analyticsDashboardId": {
+      "baseName": "analytics_dashboard_id",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,8 +50,34 @@ export class GlobalIncidentSettingsAttributesRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GlobalIncidentSettingsAttributesRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

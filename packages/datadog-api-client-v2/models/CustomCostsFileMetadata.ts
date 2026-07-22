@@ -6,43 +6,48 @@
 import { CustomCostsFileUsageChargePeriod } from "./CustomCostsFileUsageChargePeriod";
 import { CustomCostsUser } from "./CustomCostsUser";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Schema of a Custom Costs metadata.
- */
+*/
 export class CustomCostsFileMetadata {
   /**
    * Total cost in the cost file.
-   */
+  */
   "billedCost"?: number;
   /**
    * Currency used in the Custom Costs file.
-   */
+  */
   "billingCurrency"?: string;
   /**
    * Usage charge period of a Custom Costs file.
-   */
+  */
   "chargePeriod"?: CustomCostsFileUsageChargePeriod;
   /**
    * Name of the Custom Costs file.
-   */
+  */
   "name"?: string;
   /**
    * Providers contained in the Custom Costs file.
-   */
+  */
   "providerNames"?: Array<string>;
   /**
    * Status of the Custom Costs file.
-   */
+  */
   "status"?: string;
   /**
    * Timestamp, in millisecond, of the upload time of the Custom Costs file.
-   */
+  */
   "uploadedAt"?: number;
   /**
    * Metadata of the user that has uploaded the Custom Costs file.
-   */
+  */
   "uploadedBy"?: CustomCostsUser;
 
   /**
@@ -50,7 +55,7 @@ export class CustomCostsFileMetadata {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -61,39 +66,39 @@ export class CustomCostsFileMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    billedCost: {
-      baseName: "billed_cost",
-      type: "number",
-      format: "double",
+    "billedCost": {
+      "baseName": "billed_cost",
+      "type": "number",
+      "format": "double",
     },
-    billingCurrency: {
-      baseName: "billing_currency",
-      type: "string",
+    "billingCurrency": {
+      "baseName": "billing_currency",
+      "type": "string",
     },
-    chargePeriod: {
-      baseName: "charge_period",
-      type: "CustomCostsFileUsageChargePeriod",
+    "chargePeriod": {
+      "baseName": "charge_period",
+      "type": "CustomCostsFileUsageChargePeriod",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    providerNames: {
-      baseName: "provider_names",
-      type: "Array<string>",
+    "providerNames": {
+      "baseName": "provider_names",
+      "type": "Array<string>",
     },
-    status: {
-      baseName: "status",
-      type: "string",
+    "status": {
+      "baseName": "status",
+      "type": "string",
     },
-    uploadedAt: {
-      baseName: "uploaded_at",
-      type: "number",
-      format: "double",
+    "uploadedAt": {
+      "baseName": "uploaded_at",
+      "type": "number",
+      "format": "double",
     },
-    uploadedBy: {
-      baseName: "uploaded_by",
-      type: "CustomCostsUser",
+    "uploadedBy": {
+      "baseName": "uploaded_by",
+      "type": "CustomCostsUser",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -105,8 +110,34 @@ export class CustomCostsFileMetadata {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomCostsFileMetadata.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

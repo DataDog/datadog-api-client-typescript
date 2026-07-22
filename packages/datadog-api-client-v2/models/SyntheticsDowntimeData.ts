@@ -6,23 +6,28 @@
 import { SyntheticsDowntimeDataAttributesResponse } from "./SyntheticsDowntimeDataAttributesResponse";
 import { SyntheticsDowntimeResourceType } from "./SyntheticsDowntimeResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A Synthetics downtime object.
- */
+*/
 export class SyntheticsDowntimeData {
   /**
    * Attributes of a Synthetics downtime response object.
-   */
+  */
   "attributes": SyntheticsDowntimeDataAttributesResponse;
   /**
    * The unique identifier of the downtime.
-   */
+  */
   "id": string;
   /**
    * The resource type for a Synthetics downtime.
-   */
+  */
   "type": SyntheticsDowntimeResourceType;
 
   /**
@@ -30,7 +35,7 @@ export class SyntheticsDowntimeData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class SyntheticsDowntimeData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SyntheticsDowntimeDataAttributesResponse",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SyntheticsDowntimeDataAttributesResponse",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "SyntheticsDowntimeResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SyntheticsDowntimeResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class SyntheticsDowntimeData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsDowntimeData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

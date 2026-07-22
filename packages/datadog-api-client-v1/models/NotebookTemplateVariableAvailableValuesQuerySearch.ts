@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Search parameters for an available values query.
- */
+*/
 export class NotebookTemplateVariableAvailableValuesQuerySearch {
   /**
    * The search query string.
-   */
+  */
   "query": string;
 
   /**
@@ -24,19 +29,45 @@ export class NotebookTemplateVariableAvailableValuesQuerySearch {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    query: {
-      baseName: "query",
-      type: "string",
-      required: true,
-    },
+    "query": {
+      "baseName": "query",
+      "type": "string",
+      "required": true,
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return NotebookTemplateVariableAvailableValuesQuerySearch.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

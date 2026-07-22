@@ -4,32 +4,37 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes object for updating a web integration account.
- */
+*/
 export class WebIntegrationAccountUpdateRequestAttributes {
   /**
    * A human-readable name for the account.
-   */
+  */
   "name"?: string;
   /**
    * Integration-specific secrets. The shape of this object varies by integration. Secrets
    * are write-only and never returned by the API.
-   */
-  "secrets"?: { [key: string]: any };
+  */
+  "secrets"?: { [key: string]: any; };
   /**
    * Integration-specific settings. The shape of this object varies by integration.
-   */
-  "settings"?: { [key: string]: any };
+  */
+  "settings"?: { [key: string]: any; };
 
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,17 +45,17 @@ export class WebIntegrationAccountUpdateRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    secrets: {
-      baseName: "secrets",
-      type: "{ [key: string]: any; }",
+    "secrets": {
+      "baseName": "secrets",
+      "type": "{ [key: string]: any; }",
     },
-    settings: {
-      baseName: "settings",
-      type: "{ [key: string]: any; }",
+    "settings": {
+      "baseName": "settings",
+      "type": "{ [key: string]: any; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class WebIntegrationAccountUpdateRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return WebIntegrationAccountUpdateRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

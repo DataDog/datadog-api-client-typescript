@@ -6,24 +6,29 @@
 import { TestOptimizationServiceSettingsAttributes } from "./TestOptimizationServiceSettingsAttributes";
 import { TestOptimizationServiceSettingsType } from "./TestOptimizationServiceSettingsType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for Test Optimization service settings response.
- */
+*/
 export class TestOptimizationServiceSettingsData {
   /**
    * Attributes for Test Optimization service settings.
-   */
+  */
   "attributes"?: TestOptimizationServiceSettingsAttributes;
   /**
    * Unique identifier for the service settings.
-   */
+  */
   "id"?: string;
   /**
    * JSON:API type for service settings response.
    * The value must always be `test_optimization_service_settings`.
-   */
+  */
   "type"?: TestOptimizationServiceSettingsType;
 
   /**
@@ -31,7 +36,7 @@ export class TestOptimizationServiceSettingsData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,17 +47,17 @@ export class TestOptimizationServiceSettingsData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "TestOptimizationServiceSettingsAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "TestOptimizationServiceSettingsAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "TestOptimizationServiceSettingsType",
+    "type": {
+      "baseName": "type",
+      "type": "TestOptimizationServiceSettingsType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class TestOptimizationServiceSettingsData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TestOptimizationServiceSettingsData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

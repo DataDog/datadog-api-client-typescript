@@ -6,23 +6,28 @@
 import { CustomRuleRevisionAttributes } from "./CustomRuleRevisionAttributes";
 import { CustomRuleRevisionDataType } from "./CustomRuleRevisionDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A specific revision of a custom static analysis rule.
- */
+*/
 export class CustomRuleRevision {
   /**
    * Attributes of a custom rule revision, including code, metadata, and test cases.
-   */
+  */
   "attributes": CustomRuleRevisionAttributes;
   /**
    * Revision identifier
-   */
+  */
   "id": string;
   /**
    * Resource type
-   */
+  */
   "type": CustomRuleRevisionDataType;
 
   /**
@@ -30,7 +35,7 @@ export class CustomRuleRevision {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class CustomRuleRevision {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CustomRuleRevisionAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CustomRuleRevisionAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CustomRuleRevisionDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CustomRuleRevisionDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class CustomRuleRevision {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomRuleRevision.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

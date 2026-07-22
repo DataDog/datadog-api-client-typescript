@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Configuration for the cache used to detect duplicates.
- */
+*/
 export class ObservabilityPipelineDedupeProcessorCache {
   /**
    * The number of events to cache for duplicate detection.
-   */
+  */
   "numEvents": number;
 
   /**
@@ -20,7 +25,7 @@ export class ObservabilityPipelineDedupeProcessorCache {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,11 +36,11 @@ export class ObservabilityPipelineDedupeProcessorCache {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    numEvents: {
-      baseName: "num_events",
-      type: "number",
-      required: true,
-      format: "int64",
+    "numEvents": {
+      "baseName": "num_events",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class ObservabilityPipelineDedupeProcessorCache {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineDedupeProcessorCache.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

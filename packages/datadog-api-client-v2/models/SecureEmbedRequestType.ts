@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Resource type for secure embed create requests.
- */
+*/
 
-export type SecureEmbedRequestType =
-  | typeof SECURE_EMBED_REQUEST
-  | UnparsedObject;
-export const SECURE_EMBED_REQUEST = "secure_embed_request";
+export type SecureEmbedRequestType = typeof SECURE_EMBED_REQUEST | UnparsedObject;
+export const SECURE_EMBED_REQUEST = 'secure_embed_request';

@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The model's internal reasoning or thinking output, if available.
- */
+*/
 export class LLMObsInternalReasoning {
   /**
    * Number of tokens used for internal reasoning.
-   */
+  */
   "reasoningTokens"?: number;
   /**
    * The reasoning text produced by the model.
-   */
+  */
   "text": string;
 
   /**
@@ -24,7 +29,7 @@ export class LLMObsInternalReasoning {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,15 +40,15 @@ export class LLMObsInternalReasoning {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    reasoningTokens: {
-      baseName: "reasoning_tokens",
-      type: "number",
-      format: "int64",
+    "reasoningTokens": {
+      "baseName": "reasoning_tokens",
+      "type": "number",
+      "format": "int64",
     },
-    text: {
-      baseName: "text",
-      type: "string",
-      required: true,
+    "text": {
+      "baseName": "text",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class LLMObsInternalReasoning {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsInternalReasoning.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

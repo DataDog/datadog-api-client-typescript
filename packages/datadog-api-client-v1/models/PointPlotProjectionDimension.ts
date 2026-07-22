@@ -5,23 +5,28 @@
  */
 import { PointPlotDimension } from "./PointPlotDimension";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Dimension mapping for the point plot projection.
- */
+*/
 export class PointPlotProjectionDimension {
   /**
    * Alias for the column.
-   */
+  */
   "alias"?: string;
   /**
    * Source column name from the dataset.
-   */
+  */
   "column": string;
   /**
    * Dimension of the point plot.
-   */
+  */
   "dimension": PointPlotDimension;
 
   /**
@@ -29,7 +34,7 @@ export class PointPlotProjectionDimension {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,19 +45,19 @@ export class PointPlotProjectionDimension {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    alias: {
-      baseName: "alias",
-      type: "string",
+    "alias": {
+      "baseName": "alias",
+      "type": "string",
     },
-    column: {
-      baseName: "column",
-      type: "string",
-      required: true,
+    "column": {
+      "baseName": "column",
+      "type": "string",
+      "required": true,
     },
-    dimension: {
-      baseName: "dimension",
-      type: "PointPlotDimension",
-      required: true,
+    "dimension": {
+      "baseName": "dimension",
+      "type": "PointPlotDimension",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class PointPlotProjectionDimension {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PointPlotProjectionDimension.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

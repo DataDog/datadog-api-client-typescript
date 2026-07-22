@@ -6,23 +6,28 @@
 import { AttachmentDataAttributesAttachment } from "./AttachmentDataAttributesAttachment";
 import { AttachmentDataAttributesAttachmentType } from "./AttachmentDataAttributesAttachmentType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attachment's attributes.
- */
+*/
 export class AttachmentDataAttributes {
   /**
    * The attachment object.
-   */
+  */
   "attachment"?: AttachmentDataAttributesAttachment;
   /**
    * The type of the attachment.
-   */
+  */
   "attachmentType"?: AttachmentDataAttributesAttachmentType;
   /**
    * Timestamp when the attachment was last modified.
-   */
+  */
   "modified"?: Date;
 
   /**
@@ -30,7 +35,7 @@ export class AttachmentDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class AttachmentDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attachment: {
-      baseName: "attachment",
-      type: "AttachmentDataAttributesAttachment",
+    "attachment": {
+      "baseName": "attachment",
+      "type": "AttachmentDataAttributesAttachment",
     },
-    attachmentType: {
-      baseName: "attachment_type",
-      type: "AttachmentDataAttributesAttachmentType",
+    "attachmentType": {
+      "baseName": "attachment_type",
+      "type": "AttachmentDataAttributesAttachmentType",
     },
-    modified: {
-      baseName: "modified",
-      type: "Date",
-      format: "date-time",
+    "modified": {
+      "baseName": "modified",
+      "type": "Date",
+      "format": "date-time",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class AttachmentDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AttachmentDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { CostCurrency } from "./CostCurrency";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The dominant Cloud Cost Management billing currency for the requested period. The `data` array contains at most one entry, and is empty when no currency data is available.
- */
+*/
 export class CostCurrencyResponse {
   /**
    * The dominant billing currency. Empty when no data is available, or a single entry otherwise.
-   */
+  */
   "data": Array<CostCurrency>;
 
   /**
@@ -21,7 +26,7 @@ export class CostCurrencyResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CostCurrencyResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<CostCurrency>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<CostCurrency>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CostCurrencyResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CostCurrencyResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

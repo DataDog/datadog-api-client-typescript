@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Encoding format for log events.
- */
+*/
 
-export type ObservabilityPipelineHttpClientDestinationEncoding =
-  | typeof JSON
-  | UnparsedObject;
-export const JSON = "json";
+export type ObservabilityPipelineHttpClientDestinationEncoding = typeof JSON | UnparsedObject;
+export const JSON = 'json';

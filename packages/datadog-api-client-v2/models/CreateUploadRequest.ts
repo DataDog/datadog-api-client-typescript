@@ -5,15 +5,20 @@
  */
 import { CreateUploadRequestData } from "./CreateUploadRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request to create an upload for a file to be ingested into a reference table.
- */
+*/
 export class CreateUploadRequest {
   /**
    * Request data for creating an upload for a file to be ingested into a reference table.
-   */
+  */
   "data"?: CreateUploadRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class CreateUploadRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class CreateUploadRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CreateUploadRequestData",
+    "data": {
+      "baseName": "data",
+      "type": "CreateUploadRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class CreateUploadRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateUploadRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

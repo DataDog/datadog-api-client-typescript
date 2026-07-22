@@ -7,27 +7,32 @@ import { ApplicationKeyRelationships } from "./ApplicationKeyRelationships";
 import { ApplicationKeysType } from "./ApplicationKeysType";
 import { PartialApplicationKeyAttributes } from "./PartialApplicationKeyAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Partial Datadog application key.
- */
+*/
 export class PartialApplicationKey {
   /**
    * Attributes of a partial application key.
-   */
+  */
   "attributes"?: PartialApplicationKeyAttributes;
   /**
    * ID of the application key.
-   */
+  */
   "id"?: string;
   /**
    * Resources related to the application key.
-   */
+  */
   "relationships"?: ApplicationKeyRelationships;
   /**
    * Application Keys resource type.
-   */
+  */
   "type"?: ApplicationKeysType;
 
   /**
@@ -35,7 +40,7 @@ export class PartialApplicationKey {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,21 +51,21 @@ export class PartialApplicationKey {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "PartialApplicationKeyAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "PartialApplicationKeyAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "ApplicationKeyRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "ApplicationKeyRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "ApplicationKeysType",
+    "type": {
+      "baseName": "type",
+      "type": "ApplicationKeysType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -72,8 +77,34 @@ export class PartialApplicationKey {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PartialApplicationKey.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { UsageLogsHour } from "./UsageLogsHour";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing the number of logs for each hour.
- */
+*/
 export class UsageLogsResponse {
   /**
    * An array of objects regarding hourly usage of logs.
-   */
+  */
   "usage"?: Array<UsageLogsHour>;
 
   /**
@@ -21,7 +26,7 @@ export class UsageLogsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class UsageLogsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageLogsHour>",
+    "usage": {
+      "baseName": "usage",
+      "type": "Array<UsageLogsHour>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class UsageLogsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageLogsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

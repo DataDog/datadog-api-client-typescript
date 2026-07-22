@@ -6,13 +6,15 @@
 import { ObservabilityPipelineParseGrokProcessorIncludeRule } from "./ObservabilityPipelineParseGrokProcessorIncludeRule";
 import { ObservabilityPipelineParseGrokProcessorRule } from "./ObservabilityPipelineParseGrokProcessorRule";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A single Grok parsing rule, selected by either source field or include query.
- */
+*/
 
-export type ObservabilityPipelineParseGrokProcessorRuleItem =
-  | ObservabilityPipelineParseGrokProcessorRule
-  | ObservabilityPipelineParseGrokProcessorIncludeRule
-  | UnparsedObject;
+export type ObservabilityPipelineParseGrokProcessorRuleItem = ObservabilityPipelineParseGrokProcessorRule | ObservabilityPipelineParseGrokProcessorIncludeRule | UnparsedObject;

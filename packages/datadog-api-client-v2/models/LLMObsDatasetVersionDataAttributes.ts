@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of an LLM Observability dataset version.
- */
+*/
 export class LLMObsDatasetVersionDataAttributes {
   /**
    * Unique identifier of the dataset this version belongs to.
-   */
+  */
   "datasetId": string;
   /**
    * Timestamp when this dataset version was last referenced. Null if the version has never been used.
-   */
-  "lastUsed": Date | null;
+  */
+  "lastUsed": Date|null;
   /**
    * Sequential version number for this dataset version.
-   */
+  */
   "versionNumber": number;
 
   /**
@@ -28,7 +33,7 @@ export class LLMObsDatasetVersionDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,22 +44,22 @@ export class LLMObsDatasetVersionDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    datasetId: {
-      baseName: "dataset_id",
-      type: "string",
-      required: true,
+    "datasetId": {
+      "baseName": "dataset_id",
+      "type": "string",
+      "required": true,
     },
-    lastUsed: {
-      baseName: "last_used",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "lastUsed": {
+      "baseName": "last_used",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    versionNumber: {
-      baseName: "version_number",
-      type: "number",
-      required: true,
-      format: "int32",
+    "versionNumber": {
+      "baseName": "version_number",
+      "type": "number",
+      "required": true,
+      "format": "int32",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class LLMObsDatasetVersionDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDatasetVersionDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

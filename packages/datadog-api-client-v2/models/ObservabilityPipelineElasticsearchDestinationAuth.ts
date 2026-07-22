@@ -5,24 +5,29 @@
  */
 import { ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy } from "./ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Authentication settings for the Elasticsearch destination.
  * When `strategy` is `basic`, use `username_key` and `password_key` to reference credentials stored in environment variables or secrets.
- */
+*/
 export class ObservabilityPipelineElasticsearchDestinationAuth {
   /**
    * Name of the environment variable or secret that holds the Elasticsearch password (used when `strategy` is `basic`).
-   */
+  */
   "passwordKey"?: string;
   /**
    * The authentication strategy to use.
-   */
+  */
   "strategy": ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy;
   /**
    * Name of the environment variable or secret that holds the Elasticsearch username (used when `strategy` is `basic`).
-   */
+  */
   "usernameKey"?: string;
 
   /**
@@ -30,7 +35,7 @@ export class ObservabilityPipelineElasticsearchDestinationAuth {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class ObservabilityPipelineElasticsearchDestinationAuth {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    passwordKey: {
-      baseName: "password_key",
-      type: "string",
+    "passwordKey": {
+      "baseName": "password_key",
+      "type": "string",
     },
-    strategy: {
-      baseName: "strategy",
-      type: "ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy",
-      required: true,
+    "strategy": {
+      "baseName": "strategy",
+      "type": "ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy",
+      "required": true,
     },
-    usernameKey: {
-      baseName: "username_key",
-      type: "string",
+    "usernameKey": {
+      "baseName": "username_key",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class ObservabilityPipelineElasticsearchDestinationAuth {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineElasticsearchDestinationAuth.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

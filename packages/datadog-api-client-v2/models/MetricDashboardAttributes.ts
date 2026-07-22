@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes related to the dashboard, including title, popularity, and url.
- */
+*/
 export class MetricDashboardAttributes {
   /**
    * Value from 0 to 5 that ranks popularity of the dashboard.
-   */
+  */
   "popularity"?: number;
   /**
    * List of tag keys used in the asset.
-   */
+  */
   "tags"?: Array<string>;
   /**
    * Title of the asset.
-   */
+  */
   "title"?: string;
   /**
    * URL path of the asset.
-   */
+  */
   "url"?: string;
 
   /**
@@ -32,7 +37,7 @@ export class MetricDashboardAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,22 +48,22 @@ export class MetricDashboardAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    popularity: {
-      baseName: "popularity",
-      type: "number",
-      format: "double",
+    "popularity": {
+      "baseName": "popularity",
+      "type": "number",
+      "format": "double",
     },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
+    "tags": {
+      "baseName": "tags",
+      "type": "Array<string>",
     },
-    title: {
-      baseName: "title",
-      type: "string",
+    "title": {
+      "baseName": "title",
+      "type": "string",
     },
-    url: {
-      baseName: "url",
-      type: "string",
+    "url": {
+      "baseName": "url",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -70,8 +75,34 @@ export class MetricDashboardAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricDashboardAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

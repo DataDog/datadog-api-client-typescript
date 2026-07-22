@@ -5,15 +5,20 @@
  */
 import { FleetDeploymentsPage } from "./FleetDeploymentsPage";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metadata for the list of deployments, including pagination information.
- */
+*/
 export class FleetDeploymentsResponseMeta {
   /**
    * Pagination details for the list of deployments.
-   */
+  */
   "page"?: FleetDeploymentsPage;
 
   /**
@@ -21,7 +26,7 @@ export class FleetDeploymentsResponseMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class FleetDeploymentsResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    page: {
-      baseName: "page",
-      type: "FleetDeploymentsPage",
+    "page": {
+      "baseName": "page",
+      "type": "FleetDeploymentsPage",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class FleetDeploymentsResponseMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FleetDeploymentsResponseMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { RevertCustomRuleRevisionRequestData } from "./RevertCustomRuleRevisionRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request body for reverting a custom rule to a previous revision.
- */
+*/
 export class RevertCustomRuleRevisionRequest {
   /**
    * Data object for a request to revert a custom rule to a previous revision.
-   */
+  */
   "data"?: RevertCustomRuleRevisionRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class RevertCustomRuleRevisionRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class RevertCustomRuleRevisionRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "RevertCustomRuleRevisionRequestData",
+    "data": {
+      "baseName": "data",
+      "type": "RevertCustomRuleRevisionRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class RevertCustomRuleRevisionRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RevertCustomRuleRevisionRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

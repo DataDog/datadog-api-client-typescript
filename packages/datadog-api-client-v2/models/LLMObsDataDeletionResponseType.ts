@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Resource type for an LLM Observability data deletion response.
- */
+*/
 
-export type LLMObsDataDeletionResponseType =
-  | typeof DELETION_REQUEST
-  | UnparsedObject;
-export const DELETION_REQUEST = "deletion_request";
+export type LLMObsDataDeletionResponseType = typeof DELETION_REQUEST | UnparsedObject;
+export const DELETION_REQUEST = 'deletion_request';

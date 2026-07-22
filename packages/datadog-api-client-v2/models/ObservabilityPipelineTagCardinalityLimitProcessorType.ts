@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The processor type. The value must be `tag_cardinality_limit`.
- */
+*/
 
-export type ObservabilityPipelineTagCardinalityLimitProcessorType =
-  | typeof TAG_CARDINALITY_LIMIT
-  | UnparsedObject;
-export const TAG_CARDINALITY_LIMIT = "tag_cardinality_limit";
+export type ObservabilityPipelineTagCardinalityLimitProcessorType = typeof TAG_CARDINALITY_LIMIT | UnparsedObject;
+export const TAG_CARDINALITY_LIMIT = 'tag_cardinality_limit';

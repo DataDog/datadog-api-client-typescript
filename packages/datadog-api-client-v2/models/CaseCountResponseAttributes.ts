@@ -5,15 +5,20 @@
  */
 import { CaseCountGroup } from "./CaseCountGroup";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for the count response, including the total count and optional facet breakdowns.
- */
+*/
 export class CaseCountResponseAttributes {
   /**
    * List of facet groups, one per field specified in `group_bys`.
-   */
+  */
   "groups": Array<CaseCountGroup>;
 
   /**
@@ -21,7 +26,7 @@ export class CaseCountResponseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CaseCountResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    groups: {
-      baseName: "groups",
-      type: "Array<CaseCountGroup>",
-      required: true,
+    "groups": {
+      "baseName": "groups",
+      "type": "Array<CaseCountGroup>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CaseCountResponseAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseCountResponseAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

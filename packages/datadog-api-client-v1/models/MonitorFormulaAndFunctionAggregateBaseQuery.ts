@@ -6,13 +6,15 @@
 import { MonitorFormulaAndFunctionEventQueryDefinition } from "./MonitorFormulaAndFunctionEventQueryDefinition";
 import { MonitorFormulaAndFunctionMetricsQueryDefinition } from "./MonitorFormulaAndFunctionMetricsQueryDefinition";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Base query for aggregate queries. Can be an events query or a metrics query.
- */
+*/
 
-export type MonitorFormulaAndFunctionAggregateBaseQuery =
-  | MonitorFormulaAndFunctionEventQueryDefinition
-  | MonitorFormulaAndFunctionMetricsQueryDefinition
-  | UnparsedObject;
+export type MonitorFormulaAndFunctionAggregateBaseQuery = MonitorFormulaAndFunctionEventQueryDefinition | MonitorFormulaAndFunctionMetricsQueryDefinition | UnparsedObject;

@@ -6,28 +6,33 @@
 import { LogsCategoryProcessorCategory } from "./LogsCategoryProcessorCategory";
 import { LogsCategoryProcessorType } from "./LogsCategoryProcessorType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A category sub-processor for use inside an array-map processor.
  * Unlike the top-level category processor, `is_enabled` is not supported.
- */
+*/
 export class LogsArrayMapCategorySubProcessor {
   /**
    * Array of filters to match against a log and the corresponding value to assign.
-   */
+  */
   "categories": Array<LogsCategoryProcessorCategory>;
   /**
    * Name of the sub-processor.
-   */
+  */
   "name"?: string;
   /**
    * Target attribute path for the category value.
-   */
+  */
   "target": string;
   /**
    * Type of logs category processor.
-   */
+  */
   "type": LogsCategoryProcessorType;
 
   /**
@@ -35,7 +40,7 @@ export class LogsArrayMapCategorySubProcessor {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,24 +51,24 @@ export class LogsArrayMapCategorySubProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    categories: {
-      baseName: "categories",
-      type: "Array<LogsCategoryProcessorCategory>",
-      required: true,
+    "categories": {
+      "baseName": "categories",
+      "type": "Array<LogsCategoryProcessorCategory>",
+      "required": true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    target: {
-      baseName: "target",
-      type: "string",
-      required: true,
+    "target": {
+      "baseName": "target",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LogsCategoryProcessorType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LogsCategoryProcessorType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -75,8 +80,34 @@ export class LogsArrayMapCategorySubProcessor {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogsArrayMapCategorySubProcessor.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

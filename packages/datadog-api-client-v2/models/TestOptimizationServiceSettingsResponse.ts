@@ -5,15 +5,20 @@
  */
 import { TestOptimizationServiceSettingsData } from "./TestOptimizationServiceSettingsData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object containing Test Optimization service settings.
- */
+*/
 export class TestOptimizationServiceSettingsResponse {
   /**
    * Data object for Test Optimization service settings response.
-   */
+  */
   "data"?: TestOptimizationServiceSettingsData;
 
   /**
@@ -21,7 +26,7 @@ export class TestOptimizationServiceSettingsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class TestOptimizationServiceSettingsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "TestOptimizationServiceSettingsData",
+    "data": {
+      "baseName": "data",
+      "type": "TestOptimizationServiceSettingsData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class TestOptimizationServiceSettingsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TestOptimizationServiceSettingsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

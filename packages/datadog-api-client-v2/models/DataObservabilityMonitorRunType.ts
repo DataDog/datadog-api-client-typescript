@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The JSON:API resource type for a data observability monitor run.
- */
+*/
 
-export type DataObservabilityMonitorRunType =
-  | typeof MONITOR_RUN
-  | UnparsedObject;
-export const MONITOR_RUN = "monitor_run";
+export type DataObservabilityMonitorRunType = typeof MONITOR_RUN | UnparsedObject;
+export const MONITOR_RUN = 'monitor_run';

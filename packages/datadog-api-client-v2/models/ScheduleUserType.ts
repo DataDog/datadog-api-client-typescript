@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Users resource type.
- */
+*/
 
 export type ScheduleUserType = typeof USERS | UnparsedObject;
-export const USERS = "users";
+export const USERS = 'users';

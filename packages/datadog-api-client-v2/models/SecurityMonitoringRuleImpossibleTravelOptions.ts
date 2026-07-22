@@ -4,20 +4,25 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Options on impossible travel detection method.
- */
+*/
 export class SecurityMonitoringRuleImpossibleTravelOptions {
   /**
    * If true, signals are suppressed for the first 24 hours. In that time, Datadog learns the user's regular
    * access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access.
-   */
+  */
   "baselineUserLocations"?: boolean;
   /**
    * The duration in days during which Datadog learns the user's regular access locations. After this period, signals are generated for accesses from unknown locations.
-   */
+  */
   "baselineUserLocationsDuration"?: number;
 
   /**
@@ -25,7 +30,7 @@ export class SecurityMonitoringRuleImpossibleTravelOptions {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class SecurityMonitoringRuleImpossibleTravelOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    baselineUserLocations: {
-      baseName: "baselineUserLocations",
-      type: "boolean",
+    "baselineUserLocations": {
+      "baseName": "baselineUserLocations",
+      "type": "boolean",
     },
-    baselineUserLocationsDuration: {
-      baseName: "baselineUserLocationsDuration",
-      type: "number",
+    "baselineUserLocationsDuration": {
+      "baseName": "baselineUserLocationsDuration",
+      "type": "number",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class SecurityMonitoringRuleImpossibleTravelOptions {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringRuleImpossibleTravelOptions.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

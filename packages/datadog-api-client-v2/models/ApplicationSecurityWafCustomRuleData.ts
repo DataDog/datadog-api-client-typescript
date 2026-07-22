@@ -6,23 +6,28 @@
 import { ApplicationSecurityWafCustomRuleAttributes } from "./ApplicationSecurityWafCustomRuleAttributes";
 import { ApplicationSecurityWafCustomRuleType } from "./ApplicationSecurityWafCustomRuleType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object for a single WAF custom rule.
- */
+*/
 export class ApplicationSecurityWafCustomRuleData {
   /**
    * A WAF custom rule.
-   */
+  */
   "attributes"?: ApplicationSecurityWafCustomRuleAttributes;
   /**
    * The ID of the custom rule.
-   */
+  */
   "id"?: string;
   /**
    * The type of the resource. The value should always be `custom_rule`.
-   */
+  */
   "type"?: ApplicationSecurityWafCustomRuleType;
 
   /**
@@ -30,7 +35,7 @@ export class ApplicationSecurityWafCustomRuleData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class ApplicationSecurityWafCustomRuleData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ApplicationSecurityWafCustomRuleAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ApplicationSecurityWafCustomRuleAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "ApplicationSecurityWafCustomRuleType",
+    "type": {
+      "baseName": "type",
+      "type": "ApplicationSecurityWafCustomRuleType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class ApplicationSecurityWafCustomRuleData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ApplicationSecurityWafCustomRuleData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

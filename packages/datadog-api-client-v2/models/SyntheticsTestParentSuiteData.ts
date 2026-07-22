@@ -6,23 +6,28 @@
 import { SyntheticsTestParentSuiteAttributes } from "./SyntheticsTestParentSuiteAttributes";
 import { SyntheticsTestParentSuiteType } from "./SyntheticsTestParentSuiteType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for a parent suite.
- */
+*/
 export class SyntheticsTestParentSuiteData {
   /**
    * Object containing details about a parent suite of a Synthetic test.
-   */
+  */
   "attributes"?: SyntheticsTestParentSuiteAttributes;
   /**
    * The public ID of the parent suite.
-   */
+  */
   "id"?: string;
   /**
    * Type of the parent suite resource.
-   */
+  */
   "type"?: SyntheticsTestParentSuiteType;
 
   /**
@@ -30,7 +35,7 @@ export class SyntheticsTestParentSuiteData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class SyntheticsTestParentSuiteData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SyntheticsTestParentSuiteAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SyntheticsTestParentSuiteAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SyntheticsTestParentSuiteType",
+    "type": {
+      "baseName": "type",
+      "type": "SyntheticsTestParentSuiteType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class SyntheticsTestParentSuiteData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestParentSuiteData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

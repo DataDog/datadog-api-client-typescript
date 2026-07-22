@@ -6,19 +6,24 @@
 import { RelationshipToTeamLinks } from "./RelationshipToTeamLinks";
 import { RelationshipToUserTeamPermission } from "./RelationshipToUserTeamPermission";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Resources related to a team
- */
+*/
 export class TeamRelationships {
   /**
    * Relationship between a team and a team link
-   */
+  */
   "teamLinks"?: RelationshipToTeamLinks;
   /**
    * Relationship between a user team permission and a team
-   */
+  */
   "userTeamPermissions"?: RelationshipToUserTeamPermission;
 
   /**
@@ -26,7 +31,7 @@ export class TeamRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class TeamRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    teamLinks: {
-      baseName: "team_links",
-      type: "RelationshipToTeamLinks",
+    "teamLinks": {
+      "baseName": "team_links",
+      "type": "RelationshipToTeamLinks",
     },
-    userTeamPermissions: {
-      baseName: "user_team_permissions",
-      type: "RelationshipToUserTeamPermission",
+    "userTeamPermissions": {
+      "baseName": "user_team_permissions",
+      "type": "RelationshipToUserTeamPermission",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class TeamRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,19 +5,24 @@
  */
 import { TeamHierarchyLinkCreateTeamRelationship } from "./TeamHierarchyLinkCreateTeamRelationship";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The related teams that will be connected by the team hierarchy link
- */
+*/
 export class TeamHierarchyLinkCreateRelationships {
   /**
    * Data about each team that will be connected by the team hierarchy link
-   */
+  */
   "parentTeam": TeamHierarchyLinkCreateTeamRelationship;
   /**
    * Data about each team that will be connected by the team hierarchy link
-   */
+  */
   "subTeam": TeamHierarchyLinkCreateTeamRelationship;
 
   /**
@@ -25,7 +30,7 @@ export class TeamHierarchyLinkCreateRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class TeamHierarchyLinkCreateRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    parentTeam: {
-      baseName: "parent_team",
-      type: "TeamHierarchyLinkCreateTeamRelationship",
-      required: true,
+    "parentTeam": {
+      "baseName": "parent_team",
+      "type": "TeamHierarchyLinkCreateTeamRelationship",
+      "required": true,
     },
-    subTeam: {
-      baseName: "sub_team",
-      type: "TeamHierarchyLinkCreateTeamRelationship",
-      required: true,
+    "subTeam": {
+      "baseName": "sub_team",
+      "type": "TeamHierarchyLinkCreateTeamRelationship",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class TeamHierarchyLinkCreateRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamHierarchyLinkCreateRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { CommitmentsUnit } from "./CommitmentsUnit";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metadata for a commitments list response.
- */
+*/
 export class CommitmentsListMeta {
   /**
    * Unit metadata for a numeric metric.
-   */
+  */
   "committedSpendUnit"?: CommitmentsUnit;
 
   /**
@@ -21,7 +26,7 @@ export class CommitmentsListMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class CommitmentsListMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    committedSpendUnit: {
-      baseName: "committed_spend_unit",
-      type: "CommitmentsUnit",
+    "committedSpendUnit": {
+      "baseName": "committed_spend_unit",
+      "type": "CommitmentsUnit",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class CommitmentsListMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CommitmentsListMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

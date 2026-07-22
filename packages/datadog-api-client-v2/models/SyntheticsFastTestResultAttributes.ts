@@ -9,36 +9,41 @@ import { SyntheticsFastTestType } from "./SyntheticsFastTestType";
 import { SyntheticsTestResultDevice } from "./SyntheticsTestResultDevice";
 import { SyntheticsTestResultLocation } from "./SyntheticsTestResultLocation";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of the fast test result.
- */
+*/
 export class SyntheticsFastTestResultAttributes {
   /**
    * Device information for the test result (browser and mobile tests).
-   */
+  */
   "device"?: SyntheticsTestResultDevice;
   /**
    * Location information for a Synthetic test result.
-   */
+  */
   "location"?: SyntheticsTestResultLocation;
   /**
    * Detailed result data for the fast test run. The exact shape of nested fields
    * (`request`, `response`, `assertions`, etc.) depends on the test subtype.
-   */
+  */
   "result"?: SyntheticsFastTestResultDetail;
   /**
    * Subtype of the Synthetic test that produced this result.
-   */
+  */
   "testSubType"?: SyntheticsFastTestSubType;
   /**
    * Type of the Synthetic fast test that produced this result.
-   */
+  */
   "testType"?: SyntheticsFastTestType;
   /**
    * Version of the test at the time the fast test was triggered.
-   */
+  */
   "testVersion"?: number;
 
   /**
@@ -46,7 +51,7 @@ export class SyntheticsFastTestResultAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -57,30 +62,30 @@ export class SyntheticsFastTestResultAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    device: {
-      baseName: "device",
-      type: "SyntheticsTestResultDevice",
+    "device": {
+      "baseName": "device",
+      "type": "SyntheticsTestResultDevice",
     },
-    location: {
-      baseName: "location",
-      type: "SyntheticsTestResultLocation",
+    "location": {
+      "baseName": "location",
+      "type": "SyntheticsTestResultLocation",
     },
-    result: {
-      baseName: "result",
-      type: "SyntheticsFastTestResultDetail",
+    "result": {
+      "baseName": "result",
+      "type": "SyntheticsFastTestResultDetail",
     },
-    testSubType: {
-      baseName: "test_sub_type",
-      type: "SyntheticsFastTestSubType",
+    "testSubType": {
+      "baseName": "test_sub_type",
+      "type": "SyntheticsFastTestSubType",
     },
-    testType: {
-      baseName: "test_type",
-      type: "SyntheticsFastTestType",
+    "testType": {
+      "baseName": "test_type",
+      "type": "SyntheticsFastTestType",
     },
-    testVersion: {
-      baseName: "test_version",
-      type: "number",
-      format: "int64",
+    "testVersion": {
+      "baseName": "test_version",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -92,8 +97,34 @@ export class SyntheticsFastTestResultAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsFastTestResultAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

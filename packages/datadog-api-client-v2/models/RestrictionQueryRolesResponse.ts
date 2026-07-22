@@ -5,15 +5,20 @@
  */
 import { RestrictionQueryRole } from "./RestrictionQueryRole";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing information about roles attached to a restriction query.
- */
+*/
 export class RestrictionQueryRolesResponse {
   /**
    * Array of roles.
-   */
+  */
   "data"?: Array<RestrictionQueryRole>;
 
   /**
@@ -21,7 +26,7 @@ export class RestrictionQueryRolesResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class RestrictionQueryRolesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<RestrictionQueryRole>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<RestrictionQueryRole>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class RestrictionQueryRolesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RestrictionQueryRolesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

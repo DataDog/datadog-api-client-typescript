@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Upload resource type.
- */
+*/
 
 export type CreateUploadResponseDataType = typeof UPLOAD | UnparsedObject;
-export const UPLOAD = "upload";
+export const UPLOAD = 'upload';

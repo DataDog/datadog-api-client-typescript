@@ -5,15 +5,20 @@
  */
 import { UsageIngestedSpansHour } from "./UsageIngestedSpansHour";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing the ingested spans usage for each hour for a given organization.
- */
+*/
 export class UsageIngestedSpansResponse {
   /**
    * Get hourly usage for ingested spans.
-   */
+  */
   "usage"?: Array<UsageIngestedSpansHour>;
 
   /**
@@ -21,7 +26,7 @@ export class UsageIngestedSpansResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class UsageIngestedSpansResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageIngestedSpansHour>",
+    "usage": {
+      "baseName": "usage",
+      "type": "Array<UsageIngestedSpansHour>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class UsageIngestedSpansResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageIngestedSpansResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,31 +6,36 @@
 import { CustomAttributeType } from "./CustomAttributeType";
 import { CustomAttributeTypeData } from "./CustomAttributeTypeData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes that can be updated on a custom attribute configuration. All fields are optional; only provided fields are changed.
- */
+*/
 export class CustomAttributeConfigUpdateAttributes {
   /**
    * A description explaining the purpose and expected values for this custom attribute.
-   */
+  */
   "description"?: string;
   /**
    * The human-readable label shown in the Case Management UI for this custom attribute.
-   */
+  */
   "displayName"?: string;
   /**
    * An external field identifier to auto-populate this attribute from (used for integrations with external systems).
-   */
+  */
   "mapFrom"?: string;
   /**
    * The data type of the custom attribute, which determines the allowed values and UI input control.
-   */
+  */
   "type"?: CustomAttributeType;
   /**
    * Type-specific configuration for the custom attribute. For SELECT-type attributes, this contains the list of allowed options.
-   */
+  */
   "typeData"?: CustomAttributeTypeData;
 
   /**
@@ -38,7 +43,7 @@ export class CustomAttributeConfigUpdateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -49,25 +54,25 @@ export class CustomAttributeConfigUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    displayName: {
-      baseName: "display_name",
-      type: "string",
+    "displayName": {
+      "baseName": "display_name",
+      "type": "string",
     },
-    mapFrom: {
-      baseName: "map_from",
-      type: "string",
+    "mapFrom": {
+      "baseName": "map_from",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "CustomAttributeType",
+    "type": {
+      "baseName": "type",
+      "type": "CustomAttributeType",
     },
-    typeData: {
-      baseName: "type_data",
-      type: "CustomAttributeTypeData",
+    "typeData": {
+      "baseName": "type_data",
+      "type": "CustomAttributeTypeData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -79,8 +84,34 @@ export class CustomAttributeConfigUpdateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomAttributeConfigUpdateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

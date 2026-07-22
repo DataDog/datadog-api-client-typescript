@@ -5,10 +5,15 @@
  */
 import { User } from "./User";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * An object related to an incident todo that is included in the response.
- */
+*/
 
 export type IncidentTodoResponseIncludedItem = User | UnparsedObject;

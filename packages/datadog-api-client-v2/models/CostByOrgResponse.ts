@@ -5,15 +5,20 @@
  */
 import { CostByOrg } from "./CostByOrg";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Chargeback Summary response.
- */
+*/
 export class CostByOrgResponse {
   /**
    * Response containing Chargeback Summary.
-   */
+  */
   "data"?: Array<CostByOrg>;
 
   /**
@@ -21,7 +26,7 @@ export class CostByOrgResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class CostByOrgResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<CostByOrg>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<CostByOrg>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class CostByOrgResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CostByOrgResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

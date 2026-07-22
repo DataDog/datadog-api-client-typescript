@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of global orgs pagination.
- */
+*/
 
 export type GlobalOrgsMetaPageType = typeof CURSOR | UnparsedObject;
-export const CURSOR = "cursor";
+export const CURSOR = 'cursor';

@@ -6,19 +6,24 @@
 import { ProductAnalyticsResponseMeta } from "./ProductAnalyticsResponseMeta";
 import { ProductAnalyticsTimeseriesResponseData } from "./ProductAnalyticsTimeseriesResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response for a timeseries analytics query.
- */
+*/
 export class ProductAnalyticsTimeseriesResponse {
   /**
    * Data object for a timeseries analytics response.
-   */
+  */
   "data"?: ProductAnalyticsTimeseriesResponseData;
   /**
    * Metadata for a Product Analytics query response.
-   */
+  */
   "meta"?: ProductAnalyticsResponseMeta;
 
   /**
@@ -26,7 +31,7 @@ export class ProductAnalyticsTimeseriesResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class ProductAnalyticsTimeseriesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ProductAnalyticsTimeseriesResponseData",
+    "data": {
+      "baseName": "data",
+      "type": "ProductAnalyticsTimeseriesResponseData",
     },
-    meta: {
-      baseName: "meta",
-      type: "ProductAnalyticsResponseMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "ProductAnalyticsResponseMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class ProductAnalyticsTimeseriesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProductAnalyticsTimeseriesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

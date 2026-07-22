@@ -6,19 +6,24 @@
 import { EntityIntegrationConfigRequestAttributes } from "./EntityIntegrationConfigRequestAttributes";
 import { EntityIntegrationConfigRequestType } from "./EntityIntegrationConfigRequestType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * JSON:API resource object used in a request to create or update an entity integration configuration.
- */
+*/
 export class EntityIntegrationConfigRequestData {
   /**
    * Attributes used to create or update an entity integration configuration.
-   */
+  */
   "attributes": EntityIntegrationConfigRequestAttributes;
   /**
    * JSON:API resource type for the entity integration configuration create or update request. Always `entity_integration_config_requests`.
-   */
+  */
   "type": EntityIntegrationConfigRequestType;
 
   /**
@@ -26,7 +31,7 @@ export class EntityIntegrationConfigRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class EntityIntegrationConfigRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "EntityIntegrationConfigRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "EntityIntegrationConfigRequestAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "EntityIntegrationConfigRequestType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "EntityIntegrationConfigRequestType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class EntityIntegrationConfigRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EntityIntegrationConfigRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

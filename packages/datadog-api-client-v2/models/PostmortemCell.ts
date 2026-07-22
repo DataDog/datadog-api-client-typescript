@@ -6,23 +6,28 @@
 import { PostmortemCellAttributes } from "./PostmortemCellAttributes";
 import { PostmortemCellType } from "./PostmortemCellType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A cell in the postmortem
- */
+*/
 export class PostmortemCell {
   /**
    * Attributes of a postmortem cell
-   */
+  */
   "attributes"?: PostmortemCellAttributes;
   /**
    * The unique identifier of the cell
-   */
+  */
   "id"?: string;
   /**
    * The postmortem cell resource type.
-   */
+  */
   "type"?: PostmortemCellType;
 
   /**
@@ -30,7 +35,7 @@ export class PostmortemCell {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class PostmortemCell {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "PostmortemCellAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "PostmortemCellAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "PostmortemCellType",
+    "type": {
+      "baseName": "type",
+      "type": "PostmortemCellType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class PostmortemCell {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PostmortemCell.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Join type for aggregate query join conditions.
- */
+*/
 
-export type MonitorFormulaAndFunctionAggregateQueryJoinType =
-  | typeof INNER
-  | typeof LEFT
-  | UnparsedObject;
-export const INNER = "inner";
-export const LEFT = "left";
+export type MonitorFormulaAndFunctionAggregateQueryJoinType = typeof INNER| typeof LEFT | UnparsedObject;
+export const INNER = 'inner';
+export const LEFT = 'left';

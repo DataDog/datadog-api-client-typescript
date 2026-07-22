@@ -6,43 +6,48 @@
 import { ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems } from "./ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems";
 import { ArbitraryCostUpsertRequestDataAttributesStrategy } from "./ArbitraryCostUpsertRequestDataAttributesStrategy";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `ArbitraryCostUpsertRequestDataAttributes` object.
- */
+*/
 export class ArbitraryCostUpsertRequestDataAttributes {
   /**
    * The `attributes` `costs_to_allocate`.
-   */
+  */
   "costsToAllocate": Array<ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems>;
   /**
    * The `attributes` `enabled`.
-   */
+  */
   "enabled"?: boolean;
   /**
    * The `attributes` `order_id`.
-   */
+  */
   "orderId"?: number;
   /**
    * The `attributes` `provider`.
-   */
+  */
   "provider": Array<string>;
   /**
    * The `attributes` `rejected`.
-   */
+  */
   "rejected"?: boolean;
   /**
    * The `attributes` `rule_name`.
-   */
+  */
   "ruleName": string;
   /**
    * The definition of `ArbitraryCostUpsertRequestDataAttributesStrategy` object.
-   */
+  */
   "strategy": ArbitraryCostUpsertRequestDataAttributesStrategy;
   /**
    * The `attributes` `type`.
-   */
+  */
   "type": string;
 
   /**
@@ -50,7 +55,7 @@ export class ArbitraryCostUpsertRequestDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -61,43 +66,43 @@ export class ArbitraryCostUpsertRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    costsToAllocate: {
-      baseName: "costs_to_allocate",
-      type: "Array<ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems>",
-      required: true,
+    "costsToAllocate": {
+      "baseName": "costs_to_allocate",
+      "type": "Array<ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems>",
+      "required": true,
     },
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
+    "enabled": {
+      "baseName": "enabled",
+      "type": "boolean",
     },
-    orderId: {
-      baseName: "order_id",
-      type: "number",
-      format: "int64",
+    "orderId": {
+      "baseName": "order_id",
+      "type": "number",
+      "format": "int64",
     },
-    provider: {
-      baseName: "provider",
-      type: "Array<string>",
-      required: true,
+    "provider": {
+      "baseName": "provider",
+      "type": "Array<string>",
+      "required": true,
     },
-    rejected: {
-      baseName: "rejected",
-      type: "boolean",
+    "rejected": {
+      "baseName": "rejected",
+      "type": "boolean",
     },
-    ruleName: {
-      baseName: "rule_name",
-      type: "string",
-      required: true,
+    "ruleName": {
+      "baseName": "rule_name",
+      "type": "string",
+      "required": true,
     },
-    strategy: {
-      baseName: "strategy",
-      type: "ArbitraryCostUpsertRequestDataAttributesStrategy",
-      required: true,
+    "strategy": {
+      "baseName": "strategy",
+      "type": "ArbitraryCostUpsertRequestDataAttributesStrategy",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "string",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -109,8 +114,34 @@ export class ArbitraryCostUpsertRequestDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ArbitraryCostUpsertRequestDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

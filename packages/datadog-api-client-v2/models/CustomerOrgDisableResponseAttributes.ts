@@ -5,15 +5,20 @@
  */
 import { CustomerOrgDisableStatus } from "./CustomerOrgDisableStatus";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes describing the outcome of the disable action on the customer organization.
- */
+*/
 export class CustomerOrgDisableResponseAttributes {
   /**
    * Resulting lifecycle status of the organization after the disable action.
-   */
+  */
   "status": CustomerOrgDisableStatus;
 
   /**
@@ -21,7 +26,7 @@ export class CustomerOrgDisableResponseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CustomerOrgDisableResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    status: {
-      baseName: "status",
-      type: "CustomerOrgDisableStatus",
-      required: true,
+    "status": {
+      "baseName": "status",
+      "type": "CustomerOrgDisableStatus",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CustomerOrgDisableResponseAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomerOrgDisableResponseAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

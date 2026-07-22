@@ -5,19 +5,24 @@
  */
 import { LLMObsExperimentationAnalyticsResult } from "./LLMObsExperimentationAnalyticsResult";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of an analytics response.
- */
+*/
 export class LLMObsExperimentationAnalyticsDataAttributesResponse {
   /**
    * Total number of events matched by the query before grouping.
-   */
+  */
   "hitCount": number;
   /**
    * Analytics query result containing all buckets.
-   */
+  */
   "result": LLMObsExperimentationAnalyticsResult;
 
   /**
@@ -25,7 +30,7 @@ export class LLMObsExperimentationAnalyticsDataAttributesResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,16 +41,16 @@ export class LLMObsExperimentationAnalyticsDataAttributesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    hitCount: {
-      baseName: "hit_count",
-      type: "number",
-      required: true,
-      format: "int64",
+    "hitCount": {
+      "baseName": "hit_count",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    result: {
-      baseName: "result",
-      type: "LLMObsExperimentationAnalyticsResult",
-      required: true,
+    "result": {
+      "baseName": "result",
+      "type": "LLMObsExperimentationAnalyticsResult",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class LLMObsExperimentationAnalyticsDataAttributesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsExperimentationAnalyticsDataAttributesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

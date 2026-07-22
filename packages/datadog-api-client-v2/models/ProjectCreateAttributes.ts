@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Project creation attributes.
- */
+*/
 export class ProjectCreateAttributes {
   /**
    * List of enabled custom case type IDs.
-   */
+  */
   "enabledCustomCaseTypes"?: Array<string>;
   /**
    * Project's key. Cannot be "CASE".
-   */
+  */
   "key": string;
   /**
    * Project name.
-   */
+  */
   "name": string;
   /**
    * Team UUID to associate with the project.
-   */
+  */
   "teamUuid"?: string;
 
   /**
@@ -32,7 +37,7 @@ export class ProjectCreateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,23 +48,23 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enabledCustomCaseTypes: {
-      baseName: "enabled_custom_case_types",
-      type: "Array<string>",
+    "enabledCustomCaseTypes": {
+      "baseName": "enabled_custom_case_types",
+      "type": "Array<string>",
     },
-    key: {
-      baseName: "key",
-      type: "string",
-      required: true,
+    "key": {
+      "baseName": "key",
+      "type": "string",
+      "required": true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    teamUuid: {
-      baseName: "team_uuid",
-      type: "string",
+    "teamUuid": {
+      "baseName": "team_uuid",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,8 +76,34 @@ export class ProjectCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProjectCreateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

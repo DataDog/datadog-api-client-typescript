@@ -6,19 +6,24 @@
 import { JiraIssueTemplateCreateRequestAttributes } from "./JiraIssueTemplateCreateRequestAttributes";
 import { JiraIssueTemplateType } from "./JiraIssueTemplateType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for creating a Jira issue template
- */
+*/
 export class JiraIssueTemplateCreateRequestData {
   /**
    * Attributes for creating a Jira issue template
-   */
+  */
   "attributes"?: JiraIssueTemplateCreateRequestAttributes;
   /**
    * Type identifier for Jira issue template resources
-   */
+  */
   "type"?: JiraIssueTemplateType;
 
   /**
@@ -26,7 +31,7 @@ export class JiraIssueTemplateCreateRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class JiraIssueTemplateCreateRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "JiraIssueTemplateCreateRequestAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "JiraIssueTemplateCreateRequestAttributes",
     },
-    type: {
-      baseName: "type",
-      type: "JiraIssueTemplateType",
+    "type": {
+      "baseName": "type",
+      "type": "JiraIssueTemplateType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class JiraIssueTemplateCreateRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return JiraIssueTemplateCreateRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

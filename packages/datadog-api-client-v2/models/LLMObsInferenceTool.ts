@@ -5,19 +5,24 @@
  */
 import { LLMObsInferenceFunction } from "./LLMObsInferenceFunction";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A tool definition available to the model during inference.
- */
+*/
 export class LLMObsInferenceTool {
   /**
    * A function definition for a tool available to the model.
-   */
+  */
   "_function": LLMObsInferenceFunction;
   /**
    * The type of tool.
-   */
+  */
   "type": string;
 
   /**
@@ -25,7 +30,7 @@ export class LLMObsInferenceTool {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class LLMObsInferenceTool {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    _function: {
-      baseName: "function",
-      type: "LLMObsInferenceFunction",
-      required: true,
+    "_function": {
+      "baseName": "function",
+      "type": "LLMObsInferenceFunction",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "string",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class LLMObsInferenceTool {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsInferenceTool.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

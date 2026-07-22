@@ -5,19 +5,24 @@
  */
 import { MetricIngestedIndexedVolumeType } from "./MetricIngestedIndexedVolumeType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationship data for a metric volume.
- */
+*/
 export class MetricVolumesRelationshipData {
   /**
    * The metric name for this resource.
-   */
+  */
   "id"?: string;
   /**
    * The metric ingested and indexed volume type.
-   */
+  */
   "type"?: MetricIngestedIndexedVolumeType;
 
   /**
@@ -25,7 +30,7 @@ export class MetricVolumesRelationshipData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class MetricVolumesRelationshipData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "MetricIngestedIndexedVolumeType",
+    "type": {
+      "baseName": "type",
+      "type": "MetricIngestedIndexedVolumeType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class MetricVolumesRelationshipData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricVolumesRelationshipData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

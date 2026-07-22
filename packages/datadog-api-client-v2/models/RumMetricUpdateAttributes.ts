@@ -7,23 +7,28 @@ import { RumMetricFilter } from "./RumMetricFilter";
 import { RumMetricGroupBy } from "./RumMetricGroupBy";
 import { RumMetricUpdateCompute } from "./RumMetricUpdateCompute";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The RUM-based metric properties that will be updated.
- */
+*/
 export class RumMetricUpdateAttributes {
   /**
    * The compute rule to compute the RUM-based metric.
-   */
+  */
   "compute"?: RumMetricUpdateCompute;
   /**
    * The RUM-based metric filter. Events matching this filter will be aggregated in this metric.
-   */
+  */
   "filter"?: RumMetricFilter;
   /**
    * The rules for the group by.
-   */
+  */
   "groupBy"?: Array<RumMetricGroupBy>;
 
   /**
@@ -31,7 +36,7 @@ export class RumMetricUpdateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,17 +47,17 @@ export class RumMetricUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    compute: {
-      baseName: "compute",
-      type: "RumMetricUpdateCompute",
+    "compute": {
+      "baseName": "compute",
+      "type": "RumMetricUpdateCompute",
     },
-    filter: {
-      baseName: "filter",
-      type: "RumMetricFilter",
+    "filter": {
+      "baseName": "filter",
+      "type": "RumMetricFilter",
     },
-    groupBy: {
-      baseName: "group_by",
-      type: "Array<RumMetricGroupBy>",
+    "groupBy": {
+      "baseName": "group_by",
+      "type": "Array<RumMetricGroupBy>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class RumMetricUpdateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RumMetricUpdateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

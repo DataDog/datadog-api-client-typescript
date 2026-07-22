@@ -5,14 +5,15 @@
  */
 import { LogsAggregateBucketValueTimeseriesPoint } from "./LogsAggregateBucketValueTimeseriesPoint";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A bucket value, can be either a timeseries or a single value
- */
+*/
 
-export type LogsAggregateBucketValue =
-  | string
-  | number
-  | Array<LogsAggregateBucketValueTimeseriesPoint>
-  | UnparsedObject;
+export type LogsAggregateBucketValue = string | number | Array<LogsAggregateBucketValueTimeseriesPoint> | UnparsedObject;

@@ -7,14 +7,15 @@ import { ObservabilityPipelineAmazonS3GenericCompressionGzip } from "./Observabi
 import { ObservabilityPipelineAmazonS3GenericCompressionSnappy } from "./ObservabilityPipelineAmazonS3GenericCompressionSnappy";
 import { ObservabilityPipelineAmazonS3GenericCompressionZstd } from "./ObservabilityPipelineAmazonS3GenericCompressionZstd";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Compression algorithm applied to encoded logs.
- */
+*/
 
-export type ObservabilityPipelineAmazonS3GenericCompression =
-  | ObservabilityPipelineAmazonS3GenericCompressionZstd
-  | ObservabilityPipelineAmazonS3GenericCompressionGzip
-  | ObservabilityPipelineAmazonS3GenericCompressionSnappy
-  | UnparsedObject;
+export type ObservabilityPipelineAmazonS3GenericCompression = ObservabilityPipelineAmazonS3GenericCompressionZstd | ObservabilityPipelineAmazonS3GenericCompressionGzip | ObservabilityPipelineAmazonS3GenericCompressionSnappy | UnparsedObject;

@@ -7,23 +7,28 @@ import { ChangeRequestResourceType } from "./ChangeRequestResourceType";
 import { ChangeRequestUpdateAttributes } from "./ChangeRequestUpdateAttributes";
 import { ChangeRequestUpdateRelationships } from "./ChangeRequestUpdateRelationships";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object to update a change request.
- */
+*/
 export class ChangeRequestUpdateData {
   /**
    * Attributes for updating a change request.
-   */
+  */
   "attributes"?: ChangeRequestUpdateAttributes;
   /**
    * Relationships for updating a change request.
-   */
+  */
   "relationships"?: ChangeRequestUpdateRelationships;
   /**
    * Change request resource type.
-   */
+  */
   "type": ChangeRequestResourceType;
 
   /**
@@ -31,7 +36,7 @@ export class ChangeRequestUpdateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,18 +47,18 @@ export class ChangeRequestUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ChangeRequestUpdateAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ChangeRequestUpdateAttributes",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "ChangeRequestUpdateRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "ChangeRequestUpdateRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "ChangeRequestResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ChangeRequestResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class ChangeRequestUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ChangeRequestUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

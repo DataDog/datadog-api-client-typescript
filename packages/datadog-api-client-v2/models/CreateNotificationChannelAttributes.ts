@@ -5,15 +5,20 @@
  */
 import { CreateNotificationChannelConfig } from "./CreateNotificationChannelConfig";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for creating an on-call notification channel.
- */
+*/
 export class CreateNotificationChannelAttributes {
   /**
    * Defines the configuration for creating an On-Call notification channel
-   */
+  */
   "config"?: CreateNotificationChannelConfig;
 
   /**
@@ -21,7 +26,7 @@ export class CreateNotificationChannelAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class CreateNotificationChannelAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    config: {
-      baseName: "config",
-      type: "CreateNotificationChannelConfig",
+    "config": {
+      "baseName": "config",
+      "type": "CreateNotificationChannelConfig",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class CreateNotificationChannelAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateNotificationChannelAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

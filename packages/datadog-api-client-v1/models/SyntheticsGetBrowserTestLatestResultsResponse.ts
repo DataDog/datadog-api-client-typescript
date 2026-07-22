@@ -5,19 +5,24 @@
  */
 import { SyntheticsBrowserTestResultShort } from "./SyntheticsBrowserTestResultShort";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object with the latest Synthetic browser test run.
- */
+*/
 export class SyntheticsGetBrowserTestLatestResultsResponse {
   /**
    * Timestamp of the latest browser test run.
-   */
+  */
   "lastTimestampFetched"?: number;
   /**
    * Result of the latest browser test run.
-   */
+  */
   "results"?: Array<SyntheticsBrowserTestResultShort>;
 
   /**
@@ -25,7 +30,7 @@ export class SyntheticsGetBrowserTestLatestResultsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,14 +41,14 @@ export class SyntheticsGetBrowserTestLatestResultsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    lastTimestampFetched: {
-      baseName: "last_timestamp_fetched",
-      type: "number",
-      format: "int64",
+    "lastTimestampFetched": {
+      "baseName": "last_timestamp_fetched",
+      "type": "number",
+      "format": "int64",
     },
-    results: {
-      baseName: "results",
-      type: "Array<SyntheticsBrowserTestResultShort>",
+    "results": {
+      "baseName": "results",
+      "type": "Array<SyntheticsBrowserTestResultShort>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class SyntheticsGetBrowserTestLatestResultsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsGetBrowserTestLatestResultsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

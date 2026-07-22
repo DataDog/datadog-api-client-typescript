@@ -6,19 +6,24 @@
 import { ProductAnalyticsEventQueryDataSource } from "./ProductAnalyticsEventQueryDataSource";
 import { ProductAnalyticsEventSearch } from "./ProductAnalyticsEventSearch";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A standard Product Analytics event query.
- */
+*/
 export class ProductAnalyticsEventQuery {
   /**
    * The data source identifier.
-   */
+  */
   "dataSource": ProductAnalyticsEventQueryDataSource;
   /**
    * Search parameters for an event query.
-   */
+  */
   "search": ProductAnalyticsEventSearch;
 
   /**
@@ -26,7 +31,7 @@ export class ProductAnalyticsEventQuery {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class ProductAnalyticsEventQuery {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    dataSource: {
-      baseName: "data_source",
-      type: "ProductAnalyticsEventQueryDataSource",
-      required: true,
+    "dataSource": {
+      "baseName": "data_source",
+      "type": "ProductAnalyticsEventQueryDataSource",
+      "required": true,
     },
-    search: {
-      baseName: "search",
-      type: "ProductAnalyticsEventSearch",
-      required: true,
+    "search": {
+      "baseName": "search",
+      "type": "ProductAnalyticsEventSearch",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class ProductAnalyticsEventQuery {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProductAnalyticsEventQuery.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

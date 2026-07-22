@@ -13,75 +13,80 @@ import { WidgetFormula } from "./WidgetFormula";
 import { WidgetHistogramRequestType } from "./WidgetHistogramRequestType";
 import { WidgetStyle } from "./WidgetStyle";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Updated distribution widget.
- */
+*/
 export class DistributionWidgetRequest {
   /**
    * The log query.
-   */
+  */
   "apmQuery"?: LogQueryDefinition;
   /**
    * The APM stats query for table and distributions widgets.
-   */
+  */
   "apmStatsQuery"?: ApmStatsQueryDefinition;
   /**
    * The log query.
-   */
+  */
   "eventQuery"?: LogQueryDefinition;
   /**
    * List of formulas that operate on queries.
-   */
+  */
   "formulas"?: Array<WidgetFormula>;
   /**
    * The log query.
-   */
+  */
   "logQuery"?: LogQueryDefinition;
   /**
    * The log query.
-   */
+  */
   "networkQuery"?: LogQueryDefinition;
   /**
    * The process query to use in the widget.
-   */
+  */
   "processQuery"?: ProcessQueryDefinition;
   /**
    * The log query.
-   */
+  */
   "profileMetricsQuery"?: LogQueryDefinition;
   /**
    * Widget query. Deprecated - Use `queries` and `formulas` instead.
-   */
+  */
   "q"?: string;
   /**
    * List of queries that can be returned directly or used in formulas.
-   */
+  */
   "queries"?: Array<FormulaAndFunctionQueryDefinition>;
   /**
    * Query definition for Distribution Widget Histogram Request
-   */
+  */
   "query"?: DistributionWidgetHistogramRequestQuery;
   /**
    * Request type for distribution of point values for distribution metrics. Query space aggregator must be `histogram:<metric name>` for points distributions.
-   */
+  */
   "requestType"?: WidgetHistogramRequestType;
   /**
    * Timeseries, scalar, or event list response. Event list response formats are supported by Geomap widgets.
-   */
+  */
   "responseFormat"?: FormulaAndFunctionResponseFormat;
   /**
    * The log query.
-   */
+  */
   "rumQuery"?: LogQueryDefinition;
   /**
    * The log query.
-   */
+  */
   "securityQuery"?: LogQueryDefinition;
   /**
    * Widget style definition.
-   */
+  */
   "style"?: WidgetStyle;
 
   /**
@@ -89,7 +94,7 @@ export class DistributionWidgetRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -100,69 +105,69 @@ export class DistributionWidgetRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    apmQuery: {
-      baseName: "apm_query",
-      type: "LogQueryDefinition",
+    "apmQuery": {
+      "baseName": "apm_query",
+      "type": "LogQueryDefinition",
     },
-    apmStatsQuery: {
-      baseName: "apm_stats_query",
-      type: "ApmStatsQueryDefinition",
+    "apmStatsQuery": {
+      "baseName": "apm_stats_query",
+      "type": "ApmStatsQueryDefinition",
     },
-    eventQuery: {
-      baseName: "event_query",
-      type: "LogQueryDefinition",
+    "eventQuery": {
+      "baseName": "event_query",
+      "type": "LogQueryDefinition",
     },
-    formulas: {
-      baseName: "formulas",
-      type: "Array<WidgetFormula>",
+    "formulas": {
+      "baseName": "formulas",
+      "type": "Array<WidgetFormula>",
     },
-    logQuery: {
-      baseName: "log_query",
-      type: "LogQueryDefinition",
+    "logQuery": {
+      "baseName": "log_query",
+      "type": "LogQueryDefinition",
     },
-    networkQuery: {
-      baseName: "network_query",
-      type: "LogQueryDefinition",
+    "networkQuery": {
+      "baseName": "network_query",
+      "type": "LogQueryDefinition",
     },
-    processQuery: {
-      baseName: "process_query",
-      type: "ProcessQueryDefinition",
+    "processQuery": {
+      "baseName": "process_query",
+      "type": "ProcessQueryDefinition",
     },
-    profileMetricsQuery: {
-      baseName: "profile_metrics_query",
-      type: "LogQueryDefinition",
+    "profileMetricsQuery": {
+      "baseName": "profile_metrics_query",
+      "type": "LogQueryDefinition",
     },
-    q: {
-      baseName: "q",
-      type: "string",
+    "q": {
+      "baseName": "q",
+      "type": "string",
     },
-    queries: {
-      baseName: "queries",
-      type: "Array<FormulaAndFunctionQueryDefinition>",
+    "queries": {
+      "baseName": "queries",
+      "type": "Array<FormulaAndFunctionQueryDefinition>",
     },
-    query: {
-      baseName: "query",
-      type: "DistributionWidgetHistogramRequestQuery",
+    "query": {
+      "baseName": "query",
+      "type": "DistributionWidgetHistogramRequestQuery",
     },
-    requestType: {
-      baseName: "request_type",
-      type: "WidgetHistogramRequestType",
+    "requestType": {
+      "baseName": "request_type",
+      "type": "WidgetHistogramRequestType",
     },
-    responseFormat: {
-      baseName: "response_format",
-      type: "FormulaAndFunctionResponseFormat",
+    "responseFormat": {
+      "baseName": "response_format",
+      "type": "FormulaAndFunctionResponseFormat",
     },
-    rumQuery: {
-      baseName: "rum_query",
-      type: "LogQueryDefinition",
+    "rumQuery": {
+      "baseName": "rum_query",
+      "type": "LogQueryDefinition",
     },
-    securityQuery: {
-      baseName: "security_query",
-      type: "LogQueryDefinition",
+    "securityQuery": {
+      "baseName": "security_query",
+      "type": "LogQueryDefinition",
     },
-    style: {
-      baseName: "style",
-      type: "WidgetStyle",
+    "style": {
+      "baseName": "style",
+      "type": "WidgetStyle",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -174,8 +179,34 @@ export class DistributionWidgetRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DistributionWidgetRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

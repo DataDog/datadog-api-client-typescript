@@ -6,23 +6,28 @@
 import { DueDateRuleAttributesResponse } from "./DueDateRuleAttributesResponse";
 import { DueDateRuleType } from "./DueDateRuleType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data object for a due date rule returned by the API.
- */
+*/
 export class DueDateRuleDataResponse {
   /**
    * Attributes of a due date rule returned by the API.
-   */
+  */
   "attributes": DueDateRuleAttributesResponse;
   /**
    * The ID of the due date rule.
-   */
+  */
   "id": string;
   /**
    * The JSON:API type for due date rules.
-   */
+  */
   "type": DueDateRuleType;
 
   /**
@@ -30,7 +35,7 @@ export class DueDateRuleDataResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,21 +46,21 @@ export class DueDateRuleDataResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "DueDateRuleAttributesResponse",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "DueDateRuleAttributesResponse",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    type: {
-      baseName: "type",
-      type: "DueDateRuleType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "DueDateRuleType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class DueDateRuleDataResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DueDateRuleDataResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

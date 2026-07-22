@@ -6,23 +6,28 @@
 import { MetricAssetAttributes } from "./MetricAssetAttributes";
 import { MetricMonitorType } from "./MetricMonitorType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A monitor object with title.
- */
+*/
 export class MetricMonitorAsset {
   /**
    * Assets related to the object, including title, url, and tags.
-   */
+  */
   "attributes"?: MetricAssetAttributes;
   /**
    * The related monitor's ID.
-   */
+  */
   "id": string;
   /**
    * Monitor resource type.
-   */
+  */
   "type": MetricMonitorType;
 
   /**
@@ -30,7 +35,7 @@ export class MetricMonitorAsset {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class MetricMonitorAsset {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "MetricAssetAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "MetricAssetAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "MetricMonitorType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "MetricMonitorType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class MetricMonitorAsset {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricMonitorAsset.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

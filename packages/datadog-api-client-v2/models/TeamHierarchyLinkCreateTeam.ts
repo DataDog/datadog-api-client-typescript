@@ -5,19 +5,24 @@
  */
 import { TeamType } from "./TeamType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * This schema defines the attributes about each team that has to be provided when creating a team hierarchy link
- */
+*/
 export class TeamHierarchyLinkCreateTeam {
   /**
    * The team's identifier
-   */
+  */
   "id": string;
   /**
    * Team type
-   */
+  */
   "type": TeamType;
 
   /**
@@ -25,7 +30,7 @@ export class TeamHierarchyLinkCreateTeam {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class TeamHierarchyLinkCreateTeam {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "TeamType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TeamType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class TeamHierarchyLinkCreateTeam {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamHierarchyLinkCreateTeam.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

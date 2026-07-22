@@ -5,19 +5,24 @@
  */
 import { ItemApiPayloadMetaSchemaField } from "./ItemApiPayloadMetaSchemaField";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Schema information about the datastore, including its primary key and field definitions.
- */
+*/
 export class ItemApiPayloadMetaSchema {
   /**
    * An array describing the columns available in this datastore.
-   */
+  */
   "fields"?: Array<ItemApiPayloadMetaSchemaField>;
   /**
    * The name of the primary key column for this datastore.
-   */
+  */
   "primaryKey"?: string;
 
   /**
@@ -25,7 +30,7 @@ export class ItemApiPayloadMetaSchema {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class ItemApiPayloadMetaSchema {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    fields: {
-      baseName: "fields",
-      type: "Array<ItemApiPayloadMetaSchemaField>",
+    "fields": {
+      "baseName": "fields",
+      "type": "Array<ItemApiPayloadMetaSchemaField>",
     },
-    primaryKey: {
-      baseName: "primary_key",
-      type: "string",
+    "primaryKey": {
+      "baseName": "primary_key",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class ItemApiPayloadMetaSchema {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ItemApiPayloadMetaSchema.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,23 +6,28 @@
 import { GoogleChatAppNamedSpaceResponseAttributes } from "./GoogleChatAppNamedSpaceResponseAttributes";
 import { GoogleChatAppNamedSpaceType } from "./GoogleChatAppNamedSpaceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Google Chat space data from a response.
- */
+*/
 export class GoogleChatAppNamedSpaceResponseData {
   /**
    * Google Chat space attributes.
-   */
+  */
   "attributes"?: GoogleChatAppNamedSpaceResponseAttributes;
   /**
    * The ID of the Google Chat space.
-   */
+  */
   "id"?: string;
   /**
    * Google Chat space resource type.
-   */
+  */
   "type"?: GoogleChatAppNamedSpaceType;
 
   /**
@@ -30,7 +35,7 @@ export class GoogleChatAppNamedSpaceResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class GoogleChatAppNamedSpaceResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "GoogleChatAppNamedSpaceResponseAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "GoogleChatAppNamedSpaceResponseAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "GoogleChatAppNamedSpaceType",
+    "type": {
+      "baseName": "type",
+      "type": "GoogleChatAppNamedSpaceType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class GoogleChatAppNamedSpaceResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GoogleChatAppNamedSpaceResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

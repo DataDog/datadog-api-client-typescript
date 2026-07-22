@@ -6,19 +6,24 @@
 import { SensitiveDataScannerMetaVersionOnly } from "./SensitiveDataScannerMetaVersionOnly";
 import { SensitiveDataScannerRuleResponse } from "./SensitiveDataScannerRuleResponse";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Create rule response.
- */
+*/
 export class SensitiveDataScannerCreateRuleResponse {
   /**
    * Response data related to the creation of a rule.
-   */
+  */
   "data"?: SensitiveDataScannerRuleResponse;
   /**
    * Meta payload containing information about the API.
-   */
+  */
   "meta"?: SensitiveDataScannerMetaVersionOnly;
 
   /**
@@ -26,7 +31,7 @@ export class SensitiveDataScannerCreateRuleResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class SensitiveDataScannerCreateRuleResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SensitiveDataScannerRuleResponse",
+    "data": {
+      "baseName": "data",
+      "type": "SensitiveDataScannerRuleResponse",
     },
-    meta: {
-      baseName: "meta",
-      type: "SensitiveDataScannerMetaVersionOnly",
+    "meta": {
+      "baseName": "meta",
+      "type": "SensitiveDataScannerMetaVersionOnly",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class SensitiveDataScannerCreateRuleResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SensitiveDataScannerCreateRuleResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Looks up a value stored as a pipeline secret.
- */
+*/
 export class ObservabilityPipelineEnrichmentTableFieldSecretLookup {
   /**
    * The name of the secret containing the lookup key value.
-   */
+  */
   "secret": string;
 
   /**
@@ -20,7 +25,7 @@ export class ObservabilityPipelineEnrichmentTableFieldSecretLookup {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,10 +36,10 @@ export class ObservabilityPipelineEnrichmentTableFieldSecretLookup {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    secret: {
-      baseName: "secret",
-      type: "string",
-      required: true,
+    "secret": {
+      "baseName": "secret",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class ObservabilityPipelineEnrichmentTableFieldSecretLookup {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineEnrichmentTableFieldSecretLookup.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

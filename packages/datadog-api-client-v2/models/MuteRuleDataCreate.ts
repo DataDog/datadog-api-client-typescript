@@ -6,19 +6,24 @@
 import { MuteRuleAttributesCreate } from "./MuteRuleAttributesCreate";
 import { MuteRuleType } from "./MuteRuleType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data object for a mute rule create or update request.
- */
+*/
 export class MuteRuleDataCreate {
   /**
    * Attributes for creating or updating a mute rule.
-   */
+  */
   "attributes": MuteRuleAttributesCreate;
   /**
    * The JSON:API type for mute rules.
-   */
+  */
   "type": MuteRuleType;
 
   /**
@@ -26,7 +31,7 @@ export class MuteRuleDataCreate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class MuteRuleDataCreate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "MuteRuleAttributesCreate",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "MuteRuleAttributesCreate",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "MuteRuleType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "MuteRuleType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class MuteRuleDataCreate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MuteRuleDataCreate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

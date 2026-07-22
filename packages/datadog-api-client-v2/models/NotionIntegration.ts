@@ -6,19 +6,24 @@
 import { NotionCredentials } from "./NotionCredentials";
 import { NotionIntegrationType } from "./NotionIntegrationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `NotionIntegration` object.
- */
+*/
 export class NotionIntegration {
   /**
    * The definition of the `NotionCredentials` object.
-   */
+  */
   "credentials": NotionCredentials;
   /**
    * The definition of the `NotionIntegrationType` object.
-   */
+  */
   "type": NotionIntegrationType;
 
   /**
@@ -26,7 +31,7 @@ export class NotionIntegration {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class NotionIntegration {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    credentials: {
-      baseName: "credentials",
-      type: "NotionCredentials",
-      required: true,
+    "credentials": {
+      "baseName": "credentials",
+      "type": "NotionCredentials",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "NotionIntegrationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "NotionIntegrationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class NotionIntegration {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return NotionIntegration.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

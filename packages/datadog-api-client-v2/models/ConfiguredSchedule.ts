@@ -7,27 +7,32 @@ import { ConfiguredScheduleTargetAttributes } from "./ConfiguredScheduleTargetAt
 import { ConfiguredScheduleTargetRelationships } from "./ConfiguredScheduleTargetRelationships";
 import { ConfiguredScheduleTargetType } from "./ConfiguredScheduleTargetType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Full resource representation of a configured schedule target with position (previous, current, or next).
- */
+*/
 export class ConfiguredSchedule {
   /**
    * Attributes for a configured schedule target, including position.
-   */
+  */
   "attributes": ConfiguredScheduleTargetAttributes;
   /**
    * Specifies the unique identifier of the configured schedule target.
-   */
+  */
   "id": string;
   /**
    * Represents the relationships of a configured schedule target.
-   */
+  */
   "relationships": ConfiguredScheduleTargetRelationships;
   /**
    * Indicates that the resource is of type `schedule_target`.
-   */
+  */
   "type": ConfiguredScheduleTargetType;
 
   /**
@@ -35,7 +40,7 @@ export class ConfiguredSchedule {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,25 +51,25 @@ export class ConfiguredSchedule {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ConfiguredScheduleTargetAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ConfiguredScheduleTargetAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "ConfiguredScheduleTargetRelationships",
-      required: true,
+    "relationships": {
+      "baseName": "relationships",
+      "type": "ConfiguredScheduleTargetRelationships",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ConfiguredScheduleTargetType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ConfiguredScheduleTargetType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -76,8 +81,34 @@ export class ConfiguredSchedule {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ConfiguredSchedule.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

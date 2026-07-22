@@ -4,21 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Learning duration in hours. Anomaly detection waits for at least this amount of historical data before it starts evaluating.
- */
+*/
 
-export type SecurityMonitoringRuleAnomalyDetectionOptionsLearningDuration =
-  | typeof ONE_HOUR
-  | typeof SIX_HOURS
-  | typeof TWELVE_HOURS
-  | typeof ONE_DAY
-  | typeof TWO_DAYS
-  | typeof ONE_WEEK
-  | typeof TWO_WEEKS
-  | UnparsedObject;
+export type SecurityMonitoringRuleAnomalyDetectionOptionsLearningDuration = typeof ONE_HOUR| typeof SIX_HOURS| typeof TWELVE_HOURS| typeof ONE_DAY| typeof TWO_DAYS| typeof ONE_WEEK| typeof TWO_WEEKS | UnparsedObject;
 export const ONE_HOUR = 1;
 export const SIX_HOURS = 6;
 export const TWELVE_HOURS = 12;

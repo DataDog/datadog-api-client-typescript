@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Per-item status returned for a bulk subscription request.
- */
+*/
 export class SampleLogGenerationBulkSubscriptionItemMeta {
   /**
    * A description of the error encountered for this content pack, if the subscription could not be created.
-   */
+  */
   "error"?: string;
   /**
    * The HTTP status code that resulted from creating the subscription for this content pack.
-   */
+  */
   "status": number;
 
   /**
@@ -24,7 +29,7 @@ export class SampleLogGenerationBulkSubscriptionItemMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,15 +40,15 @@ export class SampleLogGenerationBulkSubscriptionItemMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    error: {
-      baseName: "error",
-      type: "string",
+    "error": {
+      "baseName": "error",
+      "type": "string",
     },
-    status: {
-      baseName: "status",
-      type: "number",
-      required: true,
-      format: "int32",
+    "status": {
+      "baseName": "status",
+      "type": "number",
+      "required": true,
+      "format": "int32",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class SampleLogGenerationBulkSubscriptionItemMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SampleLogGenerationBulkSubscriptionItemMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

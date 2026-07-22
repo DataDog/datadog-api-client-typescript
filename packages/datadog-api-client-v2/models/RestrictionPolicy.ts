@@ -6,23 +6,28 @@
 import { RestrictionPolicyAttributes } from "./RestrictionPolicyAttributes";
 import { RestrictionPolicyType } from "./RestrictionPolicyType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Restriction policy object.
- */
+*/
 export class RestrictionPolicy {
   /**
    * Restriction policy attributes.
-   */
+  */
   "attributes": RestrictionPolicyAttributes;
   /**
    * The identifier, always equivalent to the value specified in the `resource_id` path parameter.
-   */
+  */
   "id": string;
   /**
    * Restriction policy type.
-   */
+  */
   "type": RestrictionPolicyType;
 
   /**
@@ -30,7 +35,7 @@ export class RestrictionPolicy {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class RestrictionPolicy {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RestrictionPolicyAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "RestrictionPolicyAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "RestrictionPolicyType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "RestrictionPolicyType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class RestrictionPolicy {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RestrictionPolicy.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

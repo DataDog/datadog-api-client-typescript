@@ -5,23 +5,28 @@
  */
 import { SecurityMonitoringTerraformExportAttributes } from "./SecurityMonitoringTerraformExportAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The Terraform export data object.
- */
+*/
 export class SecurityMonitoringTerraformExportData {
   /**
    * Attributes of the Terraform export response.
-   */
+  */
   "attributes": SecurityMonitoringTerraformExportAttributes;
   /**
    * The resource identifier composed of the Terraform type name and the resource ID separated by `|`.
-   */
+  */
   "id": string;
   /**
    * The JSON:API type. Always `format_resource`.
-   */
+  */
   "type": string;
 
   /**
@@ -29,7 +34,7 @@ export class SecurityMonitoringTerraformExportData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,20 +45,20 @@ export class SecurityMonitoringTerraformExportData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SecurityMonitoringTerraformExportAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SecurityMonitoringTerraformExportAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "string",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class SecurityMonitoringTerraformExportData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringTerraformExportData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

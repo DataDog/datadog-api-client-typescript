@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Mapping between an incident user-defined field and a case field.
- */
+*/
 export class IntegrationIncidentFieldMappingsItems {
   /**
    * The case field to map the incident field value to.
-   */
+  */
   "caseField"?: string;
   /**
    * The identifier of the incident user-defined field to map from.
-   */
+  */
   "incidentUserDefinedFieldId"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class IntegrationIncidentFieldMappingsItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class IntegrationIncidentFieldMappingsItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    caseField: {
-      baseName: "case_field",
-      type: "string",
+    "caseField": {
+      "baseName": "case_field",
+      "type": "string",
     },
-    incidentUserDefinedFieldId: {
-      baseName: "incident_user_defined_field_id",
-      type: "string",
+    "incidentUserDefinedFieldId": {
+      "baseName": "incident_user_defined_field_id",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class IntegrationIncidentFieldMappingsItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IntegrationIncidentFieldMappingsItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

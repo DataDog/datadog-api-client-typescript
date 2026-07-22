@@ -5,15 +5,20 @@
  */
 import { TeamsResponseMetaPagination } from "./TeamsResponseMetaPagination";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Teams response metadata.
- */
+*/
 export class TeamsResponseMeta {
   /**
    * Teams response metadata.
-   */
+  */
   "pagination"?: TeamsResponseMetaPagination;
 
   /**
@@ -21,7 +26,7 @@ export class TeamsResponseMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class TeamsResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    pagination: {
-      baseName: "pagination",
-      type: "TeamsResponseMetaPagination",
+    "pagination": {
+      "baseName": "pagination",
+      "type": "TeamsResponseMetaPagination",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class TeamsResponseMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamsResponseMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

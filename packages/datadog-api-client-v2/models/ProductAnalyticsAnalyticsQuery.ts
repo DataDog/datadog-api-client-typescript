@@ -8,33 +8,38 @@ import { ProductAnalyticsBaseQuery } from "./ProductAnalyticsBaseQuery";
 import { ProductAnalyticsCompute } from "./ProductAnalyticsCompute";
 import { ProductAnalyticsGroupBy } from "./ProductAnalyticsGroupBy";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The analytics query definition containing a base query, compute rule, and optional grouping.
- */
+*/
 export class ProductAnalyticsAnalyticsQuery {
   /**
    * Audience filter definitions for targeting specific user segments.
-   */
+  */
   "audienceFilters"?: ProductAnalyticsAudienceFilters;
   /**
    * A compute rule for aggregating data.
-   */
+  */
   "compute": ProductAnalyticsCompute;
   /**
    * Group-by rules for segmenting results.
-   */
+  */
   "groupBy"?: Array<ProductAnalyticsGroupBy>;
   /**
    * Restrict the query to specific indexes. Max 1 entry.
-   */
+  */
   "indexes"?: Array<string>;
   /**
    * A query definition discriminated by the `data_source` field.
    * Use `product_analytics` for standard event queries, or
    * `product_analytics_occurrence` for occurrence-filtered queries.
-   */
+  */
   "query": ProductAnalyticsBaseQuery;
 
   /**
@@ -42,7 +47,7 @@ export class ProductAnalyticsAnalyticsQuery {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -53,27 +58,27 @@ export class ProductAnalyticsAnalyticsQuery {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    audienceFilters: {
-      baseName: "audience_filters",
-      type: "ProductAnalyticsAudienceFilters",
+    "audienceFilters": {
+      "baseName": "audience_filters",
+      "type": "ProductAnalyticsAudienceFilters",
     },
-    compute: {
-      baseName: "compute",
-      type: "ProductAnalyticsCompute",
-      required: true,
+    "compute": {
+      "baseName": "compute",
+      "type": "ProductAnalyticsCompute",
+      "required": true,
     },
-    groupBy: {
-      baseName: "group_by",
-      type: "Array<ProductAnalyticsGroupBy>",
+    "groupBy": {
+      "baseName": "group_by",
+      "type": "Array<ProductAnalyticsGroupBy>",
     },
-    indexes: {
-      baseName: "indexes",
-      type: "Array<string>",
+    "indexes": {
+      "baseName": "indexes",
+      "type": "Array<string>",
     },
-    query: {
-      baseName: "query",
-      type: "ProductAnalyticsBaseQuery",
-      required: true,
+    "query": {
+      "baseName": "query",
+      "type": "ProductAnalyticsBaseQuery",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -85,8 +90,34 @@ export class ProductAnalyticsAnalyticsQuery {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProductAnalyticsAnalyticsQuery.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

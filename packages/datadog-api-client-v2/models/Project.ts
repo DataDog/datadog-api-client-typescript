@@ -7,27 +7,32 @@ import { ProjectAttributes } from "./ProjectAttributes";
 import { ProjectRelationships } from "./ProjectRelationships";
 import { ProjectResourceType } from "./ProjectResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A Project.
- */
+*/
 export class Project {
   /**
    * Project attributes.
-   */
+  */
   "attributes": ProjectAttributes;
   /**
    * The Project's identifier.
-   */
+  */
   "id": string;
   /**
    * Project relationships.
-   */
+  */
   "relationships"?: ProjectRelationships;
   /**
    * Project resource type.
-   */
+  */
   "type": ProjectResourceType;
 
   /**
@@ -35,7 +40,7 @@ export class Project {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,24 +51,24 @@ export class Project {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ProjectAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ProjectAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "ProjectRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "ProjectRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "ProjectResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ProjectResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -75,8 +80,34 @@ export class Project {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return Project.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

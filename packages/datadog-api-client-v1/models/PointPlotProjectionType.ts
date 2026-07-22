@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of the projection.
- */
+*/
 
 export type PointPlotProjectionType = typeof POINT_PLOT | UnparsedObject;
-export const POINT_PLOT = "point_plot";
+export const POINT_PLOT = 'point_plot';

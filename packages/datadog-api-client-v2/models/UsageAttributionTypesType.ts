@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of usage attribution types data.
- */
+*/
 
-export type UsageAttributionTypesType =
-  | typeof USAGE_ATTRIBUTION_TYPES
-  | UnparsedObject;
-export const USAGE_ATTRIBUTION_TYPES = "usage_attribution_types";
+export type UsageAttributionTypesType = typeof USAGE_ATTRIBUTION_TYPES | UnparsedObject;
+export const USAGE_ATTRIBUTION_TYPES = 'usage_attribution_types';

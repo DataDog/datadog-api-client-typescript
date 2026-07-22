@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Custom allocation rule status resource type.
- */
+*/
 
-export type ArbitraryRuleStatusResponseDataType =
-  | typeof ARBITRARY_RULE_STATUS
-  | UnparsedObject;
-export const ARBITRARY_RULE_STATUS = "arbitrary_rule_status";
+export type ArbitraryRuleStatusResponseDataType = typeof ARBITRARY_RULE_STATUS | UnparsedObject;
+export const ARBITRARY_RULE_STATUS = 'arbitrary_rule_status';

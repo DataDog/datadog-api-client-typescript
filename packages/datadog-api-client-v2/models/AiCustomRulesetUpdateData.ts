@@ -6,23 +6,28 @@
 import { AiCustomRulesetDataType } from "./AiCustomRulesetDataType";
 import { AiCustomRulesetUpdateAttributes } from "./AiCustomRulesetUpdateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request data for updating an AI custom ruleset.
- */
+*/
 export class AiCustomRulesetUpdateData {
   /**
    * Attributes for updating an AI custom ruleset.
-   */
+  */
   "attributes"?: AiCustomRulesetUpdateAttributes;
   /**
    * The ruleset identifier.
-   */
+  */
   "id"?: string;
   /**
    * AI custom ruleset resource type.
-   */
+  */
   "type"?: AiCustomRulesetDataType;
 
   /**
@@ -30,7 +35,7 @@ export class AiCustomRulesetUpdateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class AiCustomRulesetUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AiCustomRulesetUpdateAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AiCustomRulesetUpdateAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "AiCustomRulesetDataType",
+    "type": {
+      "baseName": "type",
+      "type": "AiCustomRulesetDataType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class AiCustomRulesetUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AiCustomRulesetUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,19 +6,24 @@
 import { LLMObsPatternsConfigType } from "./LLMObsPatternsConfigType";
 import { LLMObsPatternsConfigUpsertRequestAttributes } from "./LLMObsPatternsConfigUpsertRequestAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for creating or updating an LLM Observability patterns configuration.
- */
+*/
 export class LLMObsPatternsConfigUpsertRequestData {
   /**
    * Attributes for creating or updating an LLM Observability patterns configuration.
-   */
+  */
   "attributes": LLMObsPatternsConfigUpsertRequestAttributes;
   /**
    * Resource type of an LLM Observability patterns configuration.
-   */
+  */
   "type": LLMObsPatternsConfigType;
 
   /**
@@ -26,7 +31,7 @@ export class LLMObsPatternsConfigUpsertRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class LLMObsPatternsConfigUpsertRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LLMObsPatternsConfigUpsertRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "LLMObsPatternsConfigUpsertRequestAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LLMObsPatternsConfigType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LLMObsPatternsConfigType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class LLMObsPatternsConfigUpsertRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsPatternsConfigUpsertRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

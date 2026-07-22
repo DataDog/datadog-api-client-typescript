@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The source type for creating reference table data. Only these source types can be created through this API.
- */
+*/
 
-export type ReferenceTableCreateSourceType =
-  | typeof LOCAL_FILE
-  | typeof S3
-  | typeof GCS
-  | typeof AZURE
-  | UnparsedObject;
-export const LOCAL_FILE = "LOCAL_FILE";
-export const S3 = "S3";
-export const GCS = "GCS";
-export const AZURE = "AZURE";
+export type ReferenceTableCreateSourceType = typeof LOCAL_FILE| typeof S3| typeof GCS| typeof AZURE | UnparsedObject;
+export const LOCAL_FILE = 'LOCAL_FILE';
+export const S3 = 'S3';
+export const GCS = 'GCS';
+export const AZURE = 'AZURE';

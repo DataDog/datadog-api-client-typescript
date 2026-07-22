@@ -7,27 +7,32 @@ import { SyntheticsTestResultCIPipeline } from "./SyntheticsTestResultCIPipeline
 import { SyntheticsTestResultCIProvider } from "./SyntheticsTestResultCIProvider";
 import { SyntheticsTestResultCIStage } from "./SyntheticsTestResultCIStage";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * CI information associated with the test result.
- */
+*/
 export class SyntheticsTestResultCI {
   /**
    * Details of the CI pipeline.
-   */
+  */
   "pipeline"?: SyntheticsTestResultCIPipeline;
   /**
    * Details of the CI provider.
-   */
+  */
   "provider"?: SyntheticsTestResultCIProvider;
   /**
    * Details of the CI stage.
-   */
+  */
   "stage"?: SyntheticsTestResultCIStage;
   /**
    * Path of the workspace that ran the CI job.
-   */
+  */
   "workspacePath"?: string;
 
   /**
@@ -35,7 +40,7 @@ export class SyntheticsTestResultCI {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,21 +51,21 @@ export class SyntheticsTestResultCI {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    pipeline: {
-      baseName: "pipeline",
-      type: "SyntheticsTestResultCIPipeline",
+    "pipeline": {
+      "baseName": "pipeline",
+      "type": "SyntheticsTestResultCIPipeline",
     },
-    provider: {
-      baseName: "provider",
-      type: "SyntheticsTestResultCIProvider",
+    "provider": {
+      "baseName": "provider",
+      "type": "SyntheticsTestResultCIProvider",
     },
-    stage: {
-      baseName: "stage",
-      type: "SyntheticsTestResultCIStage",
+    "stage": {
+      "baseName": "stage",
+      "type": "SyntheticsTestResultCIStage",
     },
-    workspacePath: {
-      baseName: "workspace_path",
-      type: "string",
+    "workspacePath": {
+      "baseName": "workspace_path",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -72,8 +77,34 @@ export class SyntheticsTestResultCI {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultCI.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

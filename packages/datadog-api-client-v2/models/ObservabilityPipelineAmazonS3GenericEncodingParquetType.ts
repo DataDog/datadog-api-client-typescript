@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The encoding type. Always `parquet`.
- */
+*/
 
-export type ObservabilityPipelineAmazonS3GenericEncodingParquetType =
-  | typeof PARQUET
-  | UnparsedObject;
-export const PARQUET = "parquet";
+export type ObservabilityPipelineAmazonS3GenericEncodingParquetType = typeof PARQUET | UnparsedObject;
+export const PARQUET = 'parquet';

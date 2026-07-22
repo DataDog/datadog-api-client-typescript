@@ -5,15 +5,20 @@
  */
 import { CsmHostFacetInfoData } from "./CsmHostFacetInfoData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The response returned when requesting value distribution for a specific facet.
- */
+*/
 export class CsmHostFacetInfoResponse {
   /**
    * The data wrapper for a facet info response.
-   */
+  */
   "data": CsmHostFacetInfoData;
 
   /**
@@ -21,7 +26,7 @@ export class CsmHostFacetInfoResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CsmHostFacetInfoResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CsmHostFacetInfoData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "CsmHostFacetInfoData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CsmHostFacetInfoResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CsmHostFacetInfoResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

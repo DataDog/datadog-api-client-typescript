@@ -4,14 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * How to order series in timeseries visualizations.
  * - `tags`: Order series alphabetically by tag name (default behavior)
  * - `values`: Order series by their current metric values (typically descending)
- */
+*/
 
-export type WidgetStyleOrderBy = typeof TAGS | typeof VALUES | UnparsedObject;
-export const TAGS = "tags";
-export const VALUES = "values";
+export type WidgetStyleOrderBy = typeof TAGS| typeof VALUES | UnparsedObject;
+export const TAGS = 'tags';
+export const VALUES = 'values';

@@ -6,19 +6,24 @@
 import { RelationshipToIncidentNotificationTemplate } from "./RelationshipToIncidentNotificationTemplate";
 import { RelationshipToIncidentType } from "./RelationshipToIncidentType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `NotificationRuleCreateDataRelationships` object.
- */
+*/
 export class IncidentNotificationRuleCreateDataRelationships {
   /**
    * Relationship to an incident type.
-   */
+  */
   "incidentType"?: RelationshipToIncidentType;
   /**
    * A relationship reference to a notification template.
-   */
+  */
   "notificationTemplate"?: RelationshipToIncidentNotificationTemplate;
 
   /**
@@ -26,7 +31,7 @@ export class IncidentNotificationRuleCreateDataRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class IncidentNotificationRuleCreateDataRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    incidentType: {
-      baseName: "incident_type",
-      type: "RelationshipToIncidentType",
+    "incidentType": {
+      "baseName": "incident_type",
+      "type": "RelationshipToIncidentType",
     },
-    notificationTemplate: {
-      baseName: "notification_template",
-      type: "RelationshipToIncidentNotificationTemplate",
+    "notificationTemplate": {
+      "baseName": "notification_template",
+      "type": "RelationshipToIncidentNotificationTemplate",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class IncidentNotificationRuleCreateDataRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentNotificationRuleCreateDataRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

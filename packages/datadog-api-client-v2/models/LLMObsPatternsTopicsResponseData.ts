@@ -6,23 +6,28 @@
 import { LLMObsPatternsTopicsResponseAttributes } from "./LLMObsPatternsTopicsResponseAttributes";
 import { LLMObsPatternsTopicsType } from "./LLMObsPatternsTopicsType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object of an LLM Observability patterns topics response.
- */
+*/
 export class LLMObsPatternsTopicsResponseData {
   /**
    * Attributes of an LLM Observability patterns topics response.
-   */
+  */
   "attributes": LLMObsPatternsTopicsResponseAttributes;
   /**
    * Identifier of the run the topics belong to.
-   */
+  */
   "id": string;
   /**
    * Resource type of an LLM Observability patterns topics response.
-   */
+  */
   "type": LLMObsPatternsTopicsType;
 
   /**
@@ -30,7 +35,7 @@ export class LLMObsPatternsTopicsResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class LLMObsPatternsTopicsResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LLMObsPatternsTopicsResponseAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "LLMObsPatternsTopicsResponseAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LLMObsPatternsTopicsType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LLMObsPatternsTopicsType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class LLMObsPatternsTopicsResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsPatternsTopicsResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

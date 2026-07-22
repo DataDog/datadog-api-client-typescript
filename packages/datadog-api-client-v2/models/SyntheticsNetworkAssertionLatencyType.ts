@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of the latency assertion.
- */
+*/
 
-export type SyntheticsNetworkAssertionLatencyType =
-  | typeof LATENCY
-  | UnparsedObject;
-export const LATENCY = "latency";
+export type SyntheticsNetworkAssertionLatencyType = typeof LATENCY | UnparsedObject;
+export const LATENCY = 'latency';

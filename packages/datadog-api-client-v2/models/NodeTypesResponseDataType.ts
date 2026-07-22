@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Get node types response resource type.
- */
+*/
 
-export type NodeTypesResponseDataType =
-  | typeof GET_NODE_TYPES_RESPONSE
-  | UnparsedObject;
-export const GET_NODE_TYPES_RESPONSE = "get_node_types_response";
+export type NodeTypesResponseDataType = typeof GET_NODE_TYPES_RESPONSE | UnparsedObject;
+export const GET_NODE_TYPES_RESPONSE = 'get_node_types_response';

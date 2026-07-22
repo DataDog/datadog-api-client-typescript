@@ -6,19 +6,24 @@
 import { UpdateFlakyTestsRequestAttributes } from "./UpdateFlakyTestsRequestAttributes";
 import { UpdateFlakyTestsRequestDataType } from "./UpdateFlakyTestsRequestDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The JSON:API data for updating flaky test states.
- */
+*/
 export class UpdateFlakyTestsRequestData {
   /**
    * Attributes for updating flaky test states.
-   */
+  */
   "attributes": UpdateFlakyTestsRequestAttributes;
   /**
    * The definition of `UpdateFlakyTestsRequestDataType` object.
-   */
+  */
   "type": UpdateFlakyTestsRequestDataType;
 
   /**
@@ -26,7 +31,7 @@ export class UpdateFlakyTestsRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class UpdateFlakyTestsRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "UpdateFlakyTestsRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "UpdateFlakyTestsRequestAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "UpdateFlakyTestsRequestDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "UpdateFlakyTestsRequestDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class UpdateFlakyTestsRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateFlakyTestsRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

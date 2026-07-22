@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * JSON:API resource type for project favorites.
- */
+*/
 
-export type ProjectFavoriteResourceType =
-  | typeof PROJECT_FAVORITE
-  | UnparsedObject;
-export const PROJECT_FAVORITE = "project_favorite";
+export type ProjectFavoriteResourceType = typeof PROJECT_FAVORITE | UnparsedObject;
+export const PROJECT_FAVORITE = 'project_favorite';

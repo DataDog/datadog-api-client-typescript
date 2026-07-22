@@ -5,17 +5,22 @@
  */
 import { UsageSummaryAvailableFieldsBody } from "./UsageSummaryAvailableFieldsBody";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response listing every field name returned by `GET /api/v1/usage/summary`
  * at each of its three response levels. Includes both typed fields and untyped
  * `additionalProperties` keys.
- */
+*/
 export class UsageSummaryAvailableFieldsResponse {
   /**
    * Available-fields data.
-   */
+  */
   "data"?: UsageSummaryAvailableFieldsBody;
 
   /**
@@ -23,7 +28,7 @@ export class UsageSummaryAvailableFieldsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -34,9 +39,9 @@ export class UsageSummaryAvailableFieldsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "UsageSummaryAvailableFieldsBody",
+    "data": {
+      "baseName": "data",
+      "type": "UsageSummaryAvailableFieldsBody",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -48,8 +53,34 @@ export class UsageSummaryAvailableFieldsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageSummaryAvailableFieldsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

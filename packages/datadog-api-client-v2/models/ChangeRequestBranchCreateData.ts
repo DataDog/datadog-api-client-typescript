@@ -6,19 +6,24 @@
 import { ChangeRequestBranchCreateAttributes } from "./ChangeRequestBranchCreateAttributes";
 import { ChangeRequestBranchResourceType } from "./ChangeRequestBranchResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object to create a change request branch.
- */
+*/
 export class ChangeRequestBranchCreateData {
   /**
    * Attributes for creating a change request branch.
-   */
+  */
   "attributes": ChangeRequestBranchCreateAttributes;
   /**
    * Change request branch resource type.
-   */
+  */
   "type": ChangeRequestBranchResourceType;
 
   /**
@@ -26,7 +31,7 @@ export class ChangeRequestBranchCreateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class ChangeRequestBranchCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ChangeRequestBranchCreateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ChangeRequestBranchCreateAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ChangeRequestBranchResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ChangeRequestBranchResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class ChangeRequestBranchCreateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ChangeRequestBranchCreateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

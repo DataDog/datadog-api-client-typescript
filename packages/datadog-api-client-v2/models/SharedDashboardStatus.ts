@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Status of the shared dashboard.
- */
+*/
 
-export type SharedDashboardStatus =
-  | typeof ACTIVE
-  | typeof PAUSED
-  | UnparsedObject;
-export const ACTIVE = "active";
-export const PAUSED = "paused";
+export type SharedDashboardStatus = typeof ACTIVE| typeof PAUSED | UnparsedObject;
+export const ACTIVE = 'active';
+export const PAUSED = 'paused';

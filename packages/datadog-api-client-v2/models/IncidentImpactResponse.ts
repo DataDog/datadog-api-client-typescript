@@ -6,19 +6,24 @@
 import { IncidentImpactResponseData } from "./IncidentImpactResponseData";
 import { IncidentUserData } from "./IncidentUserData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response with an incident impact.
- */
+*/
 export class IncidentImpactResponse {
   /**
    * Incident impact data from a response.
-   */
+  */
   "data": IncidentImpactResponseData;
   /**
    * Included related resources that the user requested.
-   */
+  */
   "included"?: Array<IncidentUserData>;
 
   /**
@@ -26,7 +31,7 @@ export class IncidentImpactResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class IncidentImpactResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "IncidentImpactResponseData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "IncidentImpactResponseData",
+      "required": true,
     },
-    included: {
-      baseName: "included",
-      type: "Array<IncidentUserData>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<IncidentUserData>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class IncidentImpactResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentImpactResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

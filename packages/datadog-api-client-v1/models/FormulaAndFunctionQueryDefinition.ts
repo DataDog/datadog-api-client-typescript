@@ -15,22 +15,15 @@ import { FormulaAndFunctionRetentionQueryDefinition } from "./FormulaAndFunction
 import { FormulaAndFunctionSLOQueryDefinition } from "./FormulaAndFunctionSLOQueryDefinition";
 import { FormulaAndFunctionUserJourneyQueryDefinition } from "./FormulaAndFunctionUserJourneyQueryDefinition";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A formula and function query.
- */
+*/
 
-export type FormulaAndFunctionQueryDefinition =
-  | FormulaAndFunctionMetricQueryDefinition
-  | FormulaAndFunctionEventQueryDefinition
-  | FormulaAndFunctionProcessQueryDefinition
-  | FormulaAndFunctionApmDependencyStatsQueryDefinition
-  | FormulaAndFunctionApmResourceStatsQueryDefinition
-  | FormulaAndFunctionApmMetricsQueryDefinition
-  | FormulaAndFunctionSLOQueryDefinition
-  | FormulaAndFunctionCloudCostQueryDefinition
-  | FormulaAndFunctionProductAnalyticsExtendedQueryDefinition
-  | FormulaAndFunctionUserJourneyQueryDefinition
-  | FormulaAndFunctionRetentionQueryDefinition
-  | UnparsedObject;
+export type FormulaAndFunctionQueryDefinition = FormulaAndFunctionMetricQueryDefinition | FormulaAndFunctionEventQueryDefinition | FormulaAndFunctionProcessQueryDefinition | FormulaAndFunctionApmDependencyStatsQueryDefinition | FormulaAndFunctionApmResourceStatsQueryDefinition | FormulaAndFunctionApmMetricsQueryDefinition | FormulaAndFunctionSLOQueryDefinition | FormulaAndFunctionCloudCostQueryDefinition | FormulaAndFunctionProductAnalyticsExtendedQueryDefinition | FormulaAndFunctionUserJourneyQueryDefinition | FormulaAndFunctionRetentionQueryDefinition | UnparsedObject;

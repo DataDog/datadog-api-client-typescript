@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type for content pack state object
- */
+*/
 
-export type SecurityMonitoringContentPackStateType =
-  | typeof CONTENT_PACK_STATE
-  | UnparsedObject;
-export const CONTENT_PACK_STATE = "content_pack_state";
+export type SecurityMonitoringContentPackStateType = typeof CONTENT_PACK_STATE | UnparsedObject;
+export const CONTENT_PACK_STATE = 'content_pack_state';

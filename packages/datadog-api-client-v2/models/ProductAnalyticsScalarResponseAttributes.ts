@@ -5,15 +5,20 @@
  */
 import { ProductAnalyticsScalarColumn } from "./ProductAnalyticsScalarColumn";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a scalar analytics response, containing the result columns.
- */
+*/
 export class ProductAnalyticsScalarResponseAttributes {
   /**
    * The list of result columns, each containing values and metadata.
-   */
+  */
   "columns"?: Array<ProductAnalyticsScalarColumn>;
 
   /**
@@ -21,7 +26,7 @@ export class ProductAnalyticsScalarResponseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class ProductAnalyticsScalarResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    columns: {
-      baseName: "columns",
-      type: "Array<ProductAnalyticsScalarColumn>",
+    "columns": {
+      "baseName": "columns",
+      "type": "Array<ProductAnalyticsScalarColumn>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class ProductAnalyticsScalarResponseAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProductAnalyticsScalarResponseAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

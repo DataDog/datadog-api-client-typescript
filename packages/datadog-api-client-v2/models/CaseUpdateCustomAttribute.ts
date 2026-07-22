@@ -6,19 +6,24 @@
 import { CaseResourceType } from "./CaseResourceType";
 import { CustomAttributeValue } from "./CustomAttributeValue";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Case update custom attribute
- */
+*/
 export class CaseUpdateCustomAttribute {
   /**
    * A typed value for a custom attribute on a specific case.
-   */
+  */
   "attributes": CustomAttributeValue;
   /**
    * JSON:API resource type for cases.
-   */
+  */
   "type": CaseResourceType;
 
   /**
@@ -26,7 +31,7 @@ export class CaseUpdateCustomAttribute {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class CaseUpdateCustomAttribute {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CustomAttributeValue",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CustomAttributeValue",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CaseResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CaseResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class CaseUpdateCustomAttribute {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseUpdateCustomAttribute.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

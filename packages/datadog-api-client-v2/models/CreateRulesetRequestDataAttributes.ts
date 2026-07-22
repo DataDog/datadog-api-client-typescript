@@ -5,19 +5,24 @@
  */
 import { CreateRulesetRequestDataAttributesRulesItems } from "./CreateRulesetRequestDataAttributesRulesItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `CreateRulesetRequestDataAttributes` object.
- */
+*/
 export class CreateRulesetRequestDataAttributes {
   /**
    * The `attributes` `enabled`.
-   */
+  */
   "enabled"?: boolean;
   /**
    * The `attributes` `rules`.
-   */
+  */
   "rules": Array<CreateRulesetRequestDataAttributesRulesItems>;
 
   /**
@@ -25,7 +30,7 @@ export class CreateRulesetRequestDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,14 +41,14 @@ export class CreateRulesetRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
+    "enabled": {
+      "baseName": "enabled",
+      "type": "boolean",
     },
-    rules: {
-      baseName: "rules",
-      type: "Array<CreateRulesetRequestDataAttributesRulesItems>",
-      required: true,
+    "rules": {
+      "baseName": "rules",
+      "type": "Array<CreateRulesetRequestDataAttributesRulesItems>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class CreateRulesetRequestDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateRulesetRequestDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

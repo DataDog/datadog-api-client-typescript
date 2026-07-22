@@ -6,23 +6,28 @@
 import { CreateAppsDatastoreRequestDataAttributes } from "./CreateAppsDatastoreRequestDataAttributes";
 import { DatastoreDataType } from "./DatastoreDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data wrapper containing the configuration needed to create a new datastore.
- */
+*/
 export class CreateAppsDatastoreRequestData {
   /**
    * Configuration and metadata to create a new datastore.
-   */
+  */
   "attributes"?: CreateAppsDatastoreRequestDataAttributes;
   /**
    * Optional ID for the new datastore. If not provided, one will be generated automatically.
-   */
+  */
   "id"?: string;
   /**
    * The resource type for datastores.
-   */
+  */
   "type": DatastoreDataType;
 
   /**
@@ -30,7 +35,7 @@ export class CreateAppsDatastoreRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class CreateAppsDatastoreRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CreateAppsDatastoreRequestDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CreateAppsDatastoreRequestDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "DatastoreDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "DatastoreDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class CreateAppsDatastoreRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateAppsDatastoreRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,19 +5,24 @@
  */
 import { ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItemsAllocatedTagsItems } from "./ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItemsAllocatedTagsItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems` object.
- */
+*/
 export class ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems {
   /**
    * The `items` `allocated_tags`.
-   */
+  */
   "allocatedTags": Array<ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItemsAllocatedTagsItems>;
   /**
    * The `items` `percentage`. The numeric value format should be a 32bit float value.
-   */
+  */
   "percentage": number;
 
   /**
@@ -25,7 +30,7 @@ export class ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,16 +41,16 @@ export class ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    allocatedTags: {
-      baseName: "allocated_tags",
-      type: "Array<ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItemsAllocatedTagsItems>",
-      required: true,
+    "allocatedTags": {
+      "baseName": "allocated_tags",
+      "type": "Array<ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItemsAllocatedTagsItems>",
+      "required": true,
     },
-    percentage: {
-      baseName: "percentage",
-      type: "number",
-      required: true,
-      format: "double",
+    "percentage": {
+      "baseName": "percentage",
+      "type": "number",
+      "required": true,
+      "format": "double",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,19 +5,24 @@
  */
 import { SyntheticsGlobalVariableParserType } from "./SyntheticsGlobalVariableParserType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Details of the parser to use for the global variable.
- */
+*/
 export class SyntheticsVariableParser {
   /**
    * Type of parser for a Synthetic global variable from a synthetics test.
-   */
+  */
   "type": SyntheticsGlobalVariableParserType;
   /**
    * Regex or JSON path used for the parser. Not used with type `raw`.
-   */
+  */
   "value"?: string;
 
   /**
@@ -25,7 +30,7 @@ export class SyntheticsVariableParser {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,14 +41,14 @@ export class SyntheticsVariableParser {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    type: {
-      baseName: "type",
-      type: "SyntheticsGlobalVariableParserType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SyntheticsGlobalVariableParserType",
+      "required": true,
     },
-    value: {
-      baseName: "value",
-      type: "string",
+    "value": {
+      "baseName": "value",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class SyntheticsVariableParser {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsVariableParser.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

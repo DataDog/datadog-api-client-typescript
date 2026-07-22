@@ -5,19 +5,24 @@
  */
 import { TeamConnectionType } from "./TeamConnectionType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A collection of connection ids to delete.
- */
+*/
 export class TeamConnectionDeleteRequestDataItem {
   /**
    * The unique identifier of the team connection to delete.
-   */
+  */
   "id": string;
   /**
    * Team connection resource type.
-   */
+  */
   "type": TeamConnectionType;
 
   /**
@@ -25,7 +30,7 @@ export class TeamConnectionDeleteRequestDataItem {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class TeamConnectionDeleteRequestDataItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "TeamConnectionType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TeamConnectionType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class TeamConnectionDeleteRequestDataItem {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamConnectionDeleteRequestDataItem.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

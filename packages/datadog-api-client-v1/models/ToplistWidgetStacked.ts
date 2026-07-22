@@ -6,19 +6,24 @@
 import { ToplistWidgetLegend } from "./ToplistWidgetLegend";
 import { ToplistWidgetStackedType } from "./ToplistWidgetStackedType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Top list widget stacked display options.
- */
+*/
 export class ToplistWidgetStacked {
   /**
    * Top list widget stacked legend behavior.
-   */
+  */
   "legend"?: ToplistWidgetLegend;
   /**
    * Top list widget stacked display type.
-   */
+  */
   "type": ToplistWidgetStackedType;
 
   /**
@@ -26,7 +31,7 @@ export class ToplistWidgetStacked {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class ToplistWidgetStacked {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    legend: {
-      baseName: "legend",
-      type: "ToplistWidgetLegend",
+    "legend": {
+      "baseName": "legend",
+      "type": "ToplistWidgetLegend",
     },
-    type: {
-      baseName: "type",
-      type: "ToplistWidgetStackedType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ToplistWidgetStackedType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class ToplistWidgetStacked {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ToplistWidgetStacked.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

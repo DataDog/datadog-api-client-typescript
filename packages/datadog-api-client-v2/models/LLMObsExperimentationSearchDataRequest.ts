@@ -6,19 +6,24 @@
 import { LLMObsExperimentationSearchDataAttributesRequest } from "./LLMObsExperimentationSearchDataAttributesRequest";
 import { LLMObsExperimentationType } from "./LLMObsExperimentationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for an experimentation search request.
- */
+*/
 export class LLMObsExperimentationSearchDataRequest {
   /**
    * Attributes for an experimentation search request.
-   */
+  */
   "attributes": LLMObsExperimentationSearchDataAttributesRequest;
   /**
    * Resource type for experimentation search and analytics operations.
-   */
+  */
   "type": LLMObsExperimentationType;
 
   /**
@@ -26,7 +31,7 @@ export class LLMObsExperimentationSearchDataRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class LLMObsExperimentationSearchDataRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LLMObsExperimentationSearchDataAttributesRequest",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "LLMObsExperimentationSearchDataAttributesRequest",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LLMObsExperimentationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LLMObsExperimentationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class LLMObsExperimentationSearchDataRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsExperimentationSearchDataRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

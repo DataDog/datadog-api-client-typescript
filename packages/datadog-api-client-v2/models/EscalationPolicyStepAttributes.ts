@@ -5,19 +5,24 @@
  */
 import { EscalationPolicyStepAttributesAssignment } from "./EscalationPolicyStepAttributesAssignment";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Defines attributes for an escalation policy step, such as assignment strategy and escalation timeout.
- */
+*/
 export class EscalationPolicyStepAttributes {
   /**
    * Specifies how this escalation step will assign targets (example `default` or `round-robin`).
-   */
+  */
   "assignment"?: EscalationPolicyStepAttributesAssignment;
   /**
    * Specifies how many seconds to wait before escalating to the next step.
-   */
+  */
   "escalateAfterSeconds"?: number;
 
   /**
@@ -25,7 +30,7 @@ export class EscalationPolicyStepAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,14 +41,14 @@ export class EscalationPolicyStepAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    assignment: {
-      baseName: "assignment",
-      type: "EscalationPolicyStepAttributesAssignment",
+    "assignment": {
+      "baseName": "assignment",
+      "type": "EscalationPolicyStepAttributesAssignment",
     },
-    escalateAfterSeconds: {
-      baseName: "escalate_after_seconds",
-      type: "number",
-      format: "int64",
+    "escalateAfterSeconds": {
+      "baseName": "escalate_after_seconds",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class EscalationPolicyStepAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EscalationPolicyStepAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

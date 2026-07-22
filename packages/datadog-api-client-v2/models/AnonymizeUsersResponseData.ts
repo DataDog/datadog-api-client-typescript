@@ -6,23 +6,28 @@
 import { AnonymizeUsersResponseAttributes } from "./AnonymizeUsersResponseAttributes";
 import { AnonymizeUsersResponseType } from "./AnonymizeUsersResponseType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response data for anonymizing users.
- */
+*/
 export class AnonymizeUsersResponseData {
   /**
    * Attributes of an anonymize users response.
-   */
+  */
   "attributes"?: AnonymizeUsersResponseAttributes;
   /**
    * Unique identifier of the response.
-   */
+  */
   "id"?: string;
   /**
    * Type of the anonymize users response.
-   */
+  */
   "type"?: AnonymizeUsersResponseType;
 
   /**
@@ -30,7 +35,7 @@ export class AnonymizeUsersResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class AnonymizeUsersResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AnonymizeUsersResponseAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AnonymizeUsersResponseAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "AnonymizeUsersResponseType",
+    "type": {
+      "baseName": "type",
+      "type": "AnonymizeUsersResponseType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class AnonymizeUsersResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AnonymizeUsersResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

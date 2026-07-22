@@ -6,27 +6,32 @@
 import { ActionQuerySpecConnectionGroup } from "./ActionQuerySpecConnectionGroup";
 import { ActionQuerySpecInputs } from "./ActionQuerySpecInputs";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The action query spec object.
- */
+*/
 export class ActionQuerySpecObject {
   /**
    * The connection group to use for an action query.
-   */
+  */
   "connectionGroup"?: ActionQuerySpecConnectionGroup;
   /**
    * The ID of the custom connection to use for this action query.
-   */
+  */
   "connectionId"?: string;
   /**
    * The fully qualified name of the action type.
-   */
+  */
   "fqn": string;
   /**
    * The inputs to the action query. These are the values that are passed to the action when it is triggered.
-   */
+  */
   "inputs"?: ActionQuerySpecInputs;
 
   /**
@@ -34,7 +39,7 @@ export class ActionQuerySpecObject {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -45,22 +50,22 @@ export class ActionQuerySpecObject {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    connectionGroup: {
-      baseName: "connectionGroup",
-      type: "ActionQuerySpecConnectionGroup",
+    "connectionGroup": {
+      "baseName": "connectionGroup",
+      "type": "ActionQuerySpecConnectionGroup",
     },
-    connectionId: {
-      baseName: "connectionId",
-      type: "string",
+    "connectionId": {
+      "baseName": "connectionId",
+      "type": "string",
     },
-    fqn: {
-      baseName: "fqn",
-      type: "string",
-      required: true,
+    "fqn": {
+      "baseName": "fqn",
+      "type": "string",
+      "required": true,
     },
-    inputs: {
-      baseName: "inputs",
-      type: "ActionQuerySpecInputs",
+    "inputs": {
+      "baseName": "inputs",
+      "type": "ActionQuerySpecInputs",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -72,8 +77,34 @@ export class ActionQuerySpecObject {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ActionQuerySpecObject.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

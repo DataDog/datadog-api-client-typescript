@@ -6,13 +6,15 @@
 import { ObservabilityPipelineWebsocketSourceTlsEnabled } from "./ObservabilityPipelineWebsocketSourceTlsEnabled";
 import { ObservabilityPipelineWebsocketSourceTlsWithClientCert } from "./ObservabilityPipelineWebsocketSourceTlsWithClientCert";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * TLS configuration for the WebSocket source. Use `enabled` for standard `wss://` connections, or `with_client_cert` to present a client certificate for mutual TLS.
- */
+*/
 
-export type ObservabilityPipelineWebsocketSourceTls =
-  | ObservabilityPipelineWebsocketSourceTlsEnabled
-  | ObservabilityPipelineWebsocketSourceTlsWithClientCert
-  | UnparsedObject;
+export type ObservabilityPipelineWebsocketSourceTls = ObservabilityPipelineWebsocketSourceTlsEnabled | ObservabilityPipelineWebsocketSourceTlsWithClientCert | UnparsedObject;

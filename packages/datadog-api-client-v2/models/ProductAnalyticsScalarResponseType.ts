@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The resource type identifier for a scalar analytics response.
- */
+*/
 
-export type ProductAnalyticsScalarResponseType =
-  | typeof SCALAR_RESPONSE
-  | UnparsedObject;
-export const SCALAR_RESPONSE = "scalar_response";
+export type ProductAnalyticsScalarResponseType = typeof SCALAR_RESPONSE | UnparsedObject;
+export const SCALAR_RESPONSE = 'scalar_response';

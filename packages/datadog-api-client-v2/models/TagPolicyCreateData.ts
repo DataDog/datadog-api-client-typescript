@@ -6,19 +6,24 @@
 import { TagPolicyCreateAttributes } from "./TagPolicyCreateAttributes";
 import { TagPolicyResourceType } from "./TagPolicyResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for creating a tag policy.
- */
+*/
 export class TagPolicyCreateData {
   /**
    * Attributes that can be supplied when creating a tag policy.
-   */
+  */
   "attributes": TagPolicyCreateAttributes;
   /**
    * JSON:API resource type for a tag policy.
-   */
+  */
   "type": TagPolicyResourceType;
 
   /**
@@ -26,7 +31,7 @@ export class TagPolicyCreateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class TagPolicyCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "TagPolicyCreateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "TagPolicyCreateAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "TagPolicyResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TagPolicyResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class TagPolicyCreateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TagPolicyCreateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

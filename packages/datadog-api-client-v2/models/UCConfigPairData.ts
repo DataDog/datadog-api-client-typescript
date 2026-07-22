@@ -6,23 +6,28 @@
 import { UCConfigPairDataAttributes } from "./UCConfigPairDataAttributes";
 import { UCConfigPairDataType } from "./UCConfigPairDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `UCConfigPairData` object.
- */
+*/
 export class UCConfigPairData {
   /**
    * The definition of `UCConfigPairDataAttributes` object.
-   */
+  */
   "attributes"?: UCConfigPairDataAttributes;
   /**
    * The `UCConfigPairData` `id`.
-   */
+  */
   "id"?: string;
   /**
    * Azure UC configs resource type.
-   */
+  */
   "type": UCConfigPairDataType;
 
   /**
@@ -30,7 +35,7 @@ export class UCConfigPairData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class UCConfigPairData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "UCConfigPairDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "UCConfigPairDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "UCConfigPairDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "UCConfigPairDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class UCConfigPairData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UCConfigPairData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { ListDeploymentRuleResponseData } from "./ListDeploymentRuleResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response for a deployment gate rules.
- */
+*/
 export class DeploymentGateRulesResponse {
   /**
    * Data for a list of deployment rules.
-   */
+  */
   "data"?: ListDeploymentRuleResponseData;
 
   /**
@@ -21,7 +26,7 @@ export class DeploymentGateRulesResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class DeploymentGateRulesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ListDeploymentRuleResponseData",
+    "data": {
+      "baseName": "data",
+      "type": "ListDeploymentRuleResponseData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class DeploymentGateRulesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DeploymentGateRulesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

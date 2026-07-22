@@ -5,15 +5,20 @@
  */
 import { LLMObsPatternsRunSummary } from "./LLMObsPatternsRunSummary";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of an LLM Observability patterns runs response.
- */
+*/
 export class LLMObsPatternsRunsResponseAttributes {
   /**
    * List of patterns runs.
-   */
+  */
   "runs": Array<LLMObsPatternsRunSummary>;
 
   /**
@@ -21,7 +26,7 @@ export class LLMObsPatternsRunsResponseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class LLMObsPatternsRunsResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    runs: {
-      baseName: "runs",
-      type: "Array<LLMObsPatternsRunSummary>",
-      required: true,
+    "runs": {
+      "baseName": "runs",
+      "type": "Array<LLMObsPatternsRunSummary>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class LLMObsPatternsRunsResponseAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsPatternsRunsResponseAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

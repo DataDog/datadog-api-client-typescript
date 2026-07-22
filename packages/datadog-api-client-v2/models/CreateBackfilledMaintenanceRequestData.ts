@@ -6,19 +6,24 @@
 import { CreateBackfilledMaintenanceRequestDataAttributes } from "./CreateBackfilledMaintenanceRequestDataAttributes";
 import { PatchMaintenanceRequestDataType } from "./PatchMaintenanceRequestDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data object for creating a backfilled maintenance.
- */
+*/
 export class CreateBackfilledMaintenanceRequestData {
   /**
    * The supported attributes for creating a backfilled maintenance.
-   */
+  */
   "attributes"?: CreateBackfilledMaintenanceRequestDataAttributes;
   /**
    * Maintenances resource type.
-   */
+  */
   "type": PatchMaintenanceRequestDataType;
 
   /**
@@ -26,7 +31,7 @@ export class CreateBackfilledMaintenanceRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class CreateBackfilledMaintenanceRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CreateBackfilledMaintenanceRequestDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CreateBackfilledMaintenanceRequestDataAttributes",
     },
-    type: {
-      baseName: "type",
-      type: "PatchMaintenanceRequestDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "PatchMaintenanceRequestDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class CreateBackfilledMaintenanceRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateBackfilledMaintenanceRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

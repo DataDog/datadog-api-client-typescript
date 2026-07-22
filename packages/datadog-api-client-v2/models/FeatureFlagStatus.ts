@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The status of a feature flag in an environment.
- */
+*/
 
-export type FeatureFlagStatus =
-  | typeof ENABLED
-  | typeof DISABLED
-  | UnparsedObject;
-export const ENABLED = "ENABLED";
-export const DISABLED = "DISABLED";
+export type FeatureFlagStatus = typeof ENABLED| typeof DISABLED | UnparsedObject;
+export const ENABLED = 'ENABLED';
+export const DISABLED = 'DISABLED';

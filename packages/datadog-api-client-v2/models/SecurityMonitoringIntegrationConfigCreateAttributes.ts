@@ -9,16 +9,15 @@ import { SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes } fr
 import { SecurityMonitoringOktaIntegrationConfigCreateAttributes } from "./SecurityMonitoringOktaIntegrationConfigCreateAttributes";
 import { SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes } from "./SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The attributes of the entity context sync configuration to create.
- */
+*/
 
-export type SecurityMonitoringIntegrationConfigCreateAttributes =
-  | SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes
-  | SecurityMonitoringOktaIntegrationConfigCreateAttributes
-  | SecurityMonitoringEntraIdIntegrationConfigCreateAttributes
-  | SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes
-  | SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes
-  | UnparsedObject;
+export type SecurityMonitoringIntegrationConfigCreateAttributes = SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes | SecurityMonitoringOktaIntegrationConfigCreateAttributes | SecurityMonitoringEntraIdIntegrationConfigCreateAttributes | SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes | SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes | UnparsedObject;

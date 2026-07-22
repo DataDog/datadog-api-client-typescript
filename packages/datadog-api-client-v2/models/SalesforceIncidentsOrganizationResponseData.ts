@@ -6,23 +6,28 @@
 import { SalesforceIncidentsOrganizationResponseAttributes } from "./SalesforceIncidentsOrganizationResponseAttributes";
 import { SalesforceIncidentsOrganizationType } from "./SalesforceIncidentsOrganizationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Salesforce organization data from a response.
- */
+*/
 export class SalesforceIncidentsOrganizationResponseData {
   /**
    * Attributes of a Salesforce organization connected to the Datadog Salesforce integration.
-   */
+  */
   "attributes": SalesforceIncidentsOrganizationResponseAttributes;
   /**
    * The Datadog-assigned ID of the connected Salesforce organization.
-   */
+  */
   "id": string;
   /**
    * Salesforce organization resource type.
-   */
+  */
   "type": SalesforceIncidentsOrganizationType;
 
   /**
@@ -30,7 +35,7 @@ export class SalesforceIncidentsOrganizationResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class SalesforceIncidentsOrganizationResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SalesforceIncidentsOrganizationResponseAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SalesforceIncidentsOrganizationResponseAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "SalesforceIncidentsOrganizationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SalesforceIncidentsOrganizationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class SalesforceIncidentsOrganizationResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SalesforceIncidentsOrganizationResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

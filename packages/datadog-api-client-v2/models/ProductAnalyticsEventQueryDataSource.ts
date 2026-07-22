@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The data source identifier.
- */
+*/
 
-export type ProductAnalyticsEventQueryDataSource =
-  | typeof PRODUCT_ANALYTICS
-  | UnparsedObject;
-export const PRODUCT_ANALYTICS = "product_analytics";
+export type ProductAnalyticsEventQueryDataSource = typeof PRODUCT_ANALYTICS | UnparsedObject;
+export const PRODUCT_ANALYTICS = 'product_analytics';

@@ -6,23 +6,28 @@
 import { LLMObsDatasetDataAttributesResponse } from "./LLMObsDatasetDataAttributesResponse";
 import { LLMObsDatasetType } from "./LLMObsDatasetType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for an LLM Observability dataset.
- */
+*/
 export class LLMObsDatasetDataResponse {
   /**
    * Attributes of an LLM Observability dataset.
-   */
+  */
   "attributes": LLMObsDatasetDataAttributesResponse;
   /**
    * Unique identifier of the dataset.
-   */
+  */
   "id": string;
   /**
    * Resource type of an LLM Observability dataset.
-   */
+  */
   "type": LLMObsDatasetType;
 
   /**
@@ -30,7 +35,7 @@ export class LLMObsDatasetDataResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class LLMObsDatasetDataResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LLMObsDatasetDataAttributesResponse",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "LLMObsDatasetDataAttributesResponse",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LLMObsDatasetType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LLMObsDatasetType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class LLMObsDatasetDataResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDatasetDataResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

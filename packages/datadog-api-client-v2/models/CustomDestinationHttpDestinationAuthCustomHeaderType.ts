@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of the custom header access authentication.
- */
+*/
 
-export type CustomDestinationHttpDestinationAuthCustomHeaderType =
-  | typeof CUSTOM_HEADER
-  | UnparsedObject;
-export const CUSTOM_HEADER = "custom_header";
+export type CustomDestinationHttpDestinationAuthCustomHeaderType = typeof CUSTOM_HEADER | UnparsedObject;
+export const CUSTOM_HEADER = 'custom_header';

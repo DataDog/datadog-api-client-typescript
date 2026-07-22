@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes describing the new assignees for a bulk signal update.
- */
+*/
 export class SecurityMonitoringSignalsBulkAssigneeUpdateAttributes {
   /**
    * UUID of the user to assign to the signal. Use an empty string to unassign.
-   */
+  */
   "assignee": string;
   /**
    * Version of the updated signal. If server side version is higher, update will be rejected.
-   */
+  */
   "version"?: number;
 
   /**
@@ -24,7 +29,7 @@ export class SecurityMonitoringSignalsBulkAssigneeUpdateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,14 +40,14 @@ export class SecurityMonitoringSignalsBulkAssigneeUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    assignee: {
-      baseName: "assignee",
-      type: "string",
-      required: true,
+    "assignee": {
+      "baseName": "assignee",
+      "type": "string",
+      "required": true,
     },
-    version: {
-      baseName: "version",
-      type: "number",
+    "version": {
+      "baseName": "version",
+      "type": "number",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class SecurityMonitoringSignalsBulkAssigneeUpdateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringSignalsBulkAssigneeUpdateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

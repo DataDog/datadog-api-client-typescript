@@ -6,23 +6,28 @@
 import { IssueTeamAttributes } from "./IssueTeamAttributes";
 import { IssueTeamType } from "./IssueTeamType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A team that owns an issue.
- */
+*/
 export class IssueTeam {
   /**
    * Object containing the information of a team.
-   */
+  */
   "attributes": IssueTeamAttributes;
   /**
    * Team identifier.
-   */
+  */
   "id": string;
   /**
    * Type of the object.
-   */
+  */
   "type": IssueTeamType;
 
   /**
@@ -30,7 +35,7 @@ export class IssueTeam {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class IssueTeam {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "IssueTeamAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "IssueTeamAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "IssueTeamType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "IssueTeamType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class IssueTeam {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IssueTeam.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -7,42 +7,47 @@ import { FleetDeploymentHost } from "./FleetDeploymentHost";
 import { FleetDeploymentOperation } from "./FleetDeploymentOperation";
 import { FleetDeploymentPackage } from "./FleetDeploymentPackage";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a deployment in the response.
- */
+*/
 export class FleetDeploymentAttributes {
   /**
    * Ordered list of configuration file operations to perform on the target hosts.
-   */
+  */
   "configOperations"?: Array<FleetDeploymentOperation>;
   /**
    * Estimated completion time of the deployment as a Unix timestamp (seconds since epoch).
-   */
+  */
   "estimatedEndTimeUnix"?: number;
   /**
    * Query used to filter and select target hosts for the deployment. Uses the Datadog query syntax.
-   */
+  */
   "filterQuery"?: string;
   /**
    * Current high-level status of the deployment (for example, "pending", "running",
    * "completed", "failed").
-   */
+  */
   "highLevelStatus"?: string;
   /**
    * Paginated list of hosts in this deployment with their individual statuses. Only included
    * when fetching a single deployment by ID. Use the `limit` and `page` query parameters to
    * navigate through pages. Pagination metadata is included in the response `meta.hosts` field.
-   */
+  */
   "hosts"?: Array<FleetDeploymentHost>;
   /**
    * List of packages to deploy to target hosts. Present only for package upgrade deployments.
-   */
+  */
   "packages"?: Array<FleetDeploymentPackage>;
   /**
    * Total number of hosts targeted by this deployment.
-   */
+  */
   "totalHosts"?: number;
 
   /**
@@ -50,7 +55,7 @@ export class FleetDeploymentAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -61,35 +66,35 @@ export class FleetDeploymentAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    configOperations: {
-      baseName: "config_operations",
-      type: "Array<FleetDeploymentOperation>",
+    "configOperations": {
+      "baseName": "config_operations",
+      "type": "Array<FleetDeploymentOperation>",
     },
-    estimatedEndTimeUnix: {
-      baseName: "estimated_end_time_unix",
-      type: "number",
-      format: "int64",
+    "estimatedEndTimeUnix": {
+      "baseName": "estimated_end_time_unix",
+      "type": "number",
+      "format": "int64",
     },
-    filterQuery: {
-      baseName: "filter_query",
-      type: "string",
+    "filterQuery": {
+      "baseName": "filter_query",
+      "type": "string",
     },
-    highLevelStatus: {
-      baseName: "high_level_status",
-      type: "string",
+    "highLevelStatus": {
+      "baseName": "high_level_status",
+      "type": "string",
     },
-    hosts: {
-      baseName: "hosts",
-      type: "Array<FleetDeploymentHost>",
+    "hosts": {
+      "baseName": "hosts",
+      "type": "Array<FleetDeploymentHost>",
     },
-    packages: {
-      baseName: "packages",
-      type: "Array<FleetDeploymentPackage>",
+    "packages": {
+      "baseName": "packages",
+      "type": "Array<FleetDeploymentPackage>",
     },
-    totalHosts: {
-      baseName: "total_hosts",
-      type: "number",
-      format: "int64",
+    "totalHosts": {
+      "baseName": "total_hosts",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -101,8 +106,34 @@ export class FleetDeploymentAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FleetDeploymentAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

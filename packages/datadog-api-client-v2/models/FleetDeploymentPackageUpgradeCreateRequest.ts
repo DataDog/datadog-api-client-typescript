@@ -5,15 +5,20 @@
  */
 import { FleetDeploymentPackageUpgradeCreate } from "./FleetDeploymentPackageUpgradeCreate";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request payload for creating a new package upgrade deployment.
- */
+*/
 export class FleetDeploymentPackageUpgradeCreateRequest {
   /**
    * Data for creating a new package upgrade deployment.
-   */
+  */
   "data": FleetDeploymentPackageUpgradeCreate;
 
   /**
@@ -21,7 +26,7 @@ export class FleetDeploymentPackageUpgradeCreateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class FleetDeploymentPackageUpgradeCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "FleetDeploymentPackageUpgradeCreate",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "FleetDeploymentPackageUpgradeCreate",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class FleetDeploymentPackageUpgradeCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FleetDeploymentPackageUpgradeCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

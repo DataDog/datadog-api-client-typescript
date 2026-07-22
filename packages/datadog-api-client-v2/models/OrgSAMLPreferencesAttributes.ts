@@ -4,21 +4,26 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for updating an organization's SAML preferences.
- */
+*/
 export class OrgSAMLPreferencesAttributes {
   /**
    * The UUID of the default role assigned to just-in-time provisioned users.
    * Exactly one role UUID must be provided.
-   */
+  */
   "defaultRoleUuids": [string];
   /**
    * Email domains for which users are automatically provisioned on first SAML login
    * (just-in-time provisioning).
-   */
+  */
   "jitDomains": Array<string>;
 
   /**
@@ -26,7 +31,7 @@ export class OrgSAMLPreferencesAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class OrgSAMLPreferencesAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    defaultRoleUuids: {
-      baseName: "default_role_uuids",
-      type: "[string]",
-      required: true,
+    "defaultRoleUuids": {
+      "baseName": "default_role_uuids",
+      "type": "[string]",
+      "required": true,
     },
-    jitDomains: {
-      baseName: "jit_domains",
-      type: "Array<string>",
-      required: true,
+    "jitDomains": {
+      "baseName": "jit_domains",
+      "type": "Array<string>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class OrgSAMLPreferencesAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgSAMLPreferencesAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

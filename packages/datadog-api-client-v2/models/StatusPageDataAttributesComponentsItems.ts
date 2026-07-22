@@ -7,35 +7,40 @@ import { CreateComponentRequestDataAttributesType } from "./CreateComponentReque
 import { StatusPageDataAttributesComponentsItemsComponentsItems } from "./StatusPageDataAttributesComponentsItemsComponentsItems";
 import { StatusPagesComponentGroupAttributesComponentsItemsStatus } from "./StatusPagesComponentGroupAttributesComponentsItemsStatus";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A component displayed on a status page.
- */
+*/
 export class StatusPageDataAttributesComponentsItems {
   /**
    * If the component is of type `group`, the components within the group.
-   */
+  */
   "components"?: Array<StatusPageDataAttributesComponentsItemsComponentsItems>;
   /**
    * The ID of the component.
-   */
+  */
   "id"?: string;
   /**
    * The name of the component.
-   */
+  */
   "name"?: string;
   /**
    * The zero-indexed position of the component.
-   */
+  */
   "position"?: number;
   /**
    * The status of the component.
-   */
+  */
   "status"?: StatusPagesComponentGroupAttributesComponentsItemsStatus;
   /**
    * The type of the component.
-   */
+  */
   "type"?: CreateComponentRequestDataAttributesType;
 
   /**
@@ -43,7 +48,7 @@ export class StatusPageDataAttributesComponentsItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -54,31 +59,31 @@ export class StatusPageDataAttributesComponentsItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    components: {
-      baseName: "components",
-      type: "Array<StatusPageDataAttributesComponentsItemsComponentsItems>",
+    "components": {
+      "baseName": "components",
+      "type": "Array<StatusPageDataAttributesComponentsItemsComponentsItems>",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "format": "uuid",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    position: {
-      baseName: "position",
-      type: "number",
-      format: "int64",
+    "position": {
+      "baseName": "position",
+      "type": "number",
+      "format": "int64",
     },
-    status: {
-      baseName: "status",
-      type: "StatusPagesComponentGroupAttributesComponentsItemsStatus",
+    "status": {
+      "baseName": "status",
+      "type": "StatusPagesComponentGroupAttributesComponentsItemsStatus",
     },
-    type: {
-      baseName: "type",
-      type: "CreateComponentRequestDataAttributesType",
+    "type": {
+      "baseName": "type",
+      "type": "CreateComponentRequestDataAttributesType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -90,8 +95,34 @@ export class StatusPageDataAttributesComponentsItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return StatusPageDataAttributesComponentsItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,19 +5,24 @@
  */
 import { LLMObsAnthropicThinkingType } from "./LLMObsAnthropicThinkingType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Configuration for Anthropic extended thinking feature.
- */
+*/
 export class LLMObsAnthropicThinkingConfig {
   /**
    * Maximum token budget for extended thinking. Required when type is `enabled`.
-   */
+  */
   "budgetTokens"?: number;
   /**
    * The thinking mode for Anthropic extended thinking.
-   */
+  */
   "type": LLMObsAnthropicThinkingType;
 
   /**
@@ -25,7 +30,7 @@ export class LLMObsAnthropicThinkingConfig {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class LLMObsAnthropicThinkingConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    budgetTokens: {
-      baseName: "budget_tokens",
-      type: "number",
-      format: "int64",
+    "budgetTokens": {
+      "baseName": "budget_tokens",
+      "type": "number",
+      "format": "int64",
     },
-    type: {
-      baseName: "type",
-      type: "LLMObsAnthropicThinkingType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LLMObsAnthropicThinkingType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class LLMObsAnthropicThinkingConfig {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsAnthropicThinkingConfig.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { UpdateAppSelfServiceRequestData } from "./UpdateAppSelfServiceRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A request to enable or disable self-service for an app.
- */
+*/
 export class UpdateAppSelfServiceRequest {
   /**
    * Data for updating an app's self-service status.
-   */
+  */
   "data"?: UpdateAppSelfServiceRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class UpdateAppSelfServiceRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class UpdateAppSelfServiceRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "UpdateAppSelfServiceRequestData",
+    "data": {
+      "baseName": "data",
+      "type": "UpdateAppSelfServiceRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class UpdateAppSelfServiceRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateAppSelfServiceRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

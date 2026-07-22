@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * AWS CCM Config resource type.
- */
+*/
 
 export type AWSCcmConfigType = typeof CCM_CONFIG | UnparsedObject;
-export const CCM_CONFIG = "ccm_config";
+export const CCM_CONFIG = 'ccm_config';

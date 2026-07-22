@@ -6,23 +6,28 @@
 import { McpScanRequestDataAttributes } from "./McpScanRequestDataAttributes";
 import { McpScanRequestDataType } from "./McpScanRequestDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data object in an MCP SCA scan request, containing the scan attributes and request type.
- */
+*/
 export class McpScanRequestData {
   /**
    * The attributes of an MCP SCA scan request, describing the libraries to scan and their context.
-   */
+  */
   "attributes": McpScanRequestDataAttributes;
   /**
    * An optional identifier for this scan request.
-   */
+  */
   "id"?: string;
   /**
    * The type identifier for MCP SCA scan requests.
-   */
+  */
   "type": McpScanRequestDataType;
 
   /**
@@ -30,7 +35,7 @@ export class McpScanRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class McpScanRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "McpScanRequestDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "McpScanRequestDataAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "McpScanRequestDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "McpScanRequestDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class McpScanRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return McpScanRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

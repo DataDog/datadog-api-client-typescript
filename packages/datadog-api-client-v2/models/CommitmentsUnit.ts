@@ -4,35 +4,40 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Unit metadata for a numeric metric.
- */
+*/
 export class CommitmentsUnit {
   /**
    * The unit family (for example, percentage or money).
-   */
+  */
   "family": string;
   /**
    * The unit identifier.
-   */
+  */
   "id": number;
   /**
    * The unit name (for example, percent or dollar).
-   */
+  */
   "name": string;
   /**
    * The plural form of the unit name.
-   */
+  */
   "plural": string;
   /**
    * The scale factor for the unit.
-   */
+  */
   "scaleFactor": number;
   /**
    * The abbreviated unit name (for example, % or $).
-   */
+  */
   "shortName": string;
 
   /**
@@ -40,7 +45,7 @@ export class CommitmentsUnit {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -51,37 +56,37 @@ export class CommitmentsUnit {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    family: {
-      baseName: "family",
-      type: "string",
-      required: true,
+    "family": {
+      "baseName": "family",
+      "type": "string",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "number",
-      required: true,
-      format: "int64",
+    "id": {
+      "baseName": "id",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    plural: {
-      baseName: "plural",
-      type: "string",
-      required: true,
+    "plural": {
+      "baseName": "plural",
+      "type": "string",
+      "required": true,
     },
-    scaleFactor: {
-      baseName: "scale_factor",
-      type: "number",
-      required: true,
-      format: "double",
+    "scaleFactor": {
+      "baseName": "scale_factor",
+      "type": "number",
+      "required": true,
+      "format": "double",
     },
-    shortName: {
-      baseName: "short_name",
-      type: "string",
-      required: true,
+    "shortName": {
+      "baseName": "short_name",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -93,8 +98,34 @@ export class CommitmentsUnit {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CommitmentsUnit.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

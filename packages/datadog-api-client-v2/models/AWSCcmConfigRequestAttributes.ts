@@ -5,15 +5,20 @@
  */
 import { AWSCcmConfig } from "./AWSCcmConfig";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * AWS CCM Config attributes for Create/Update requests.
- */
+*/
 export class AWSCcmConfigRequestAttributes {
   /**
    * AWS Cloud Cost Management config.
-   */
+  */
   "ccmConfig": AWSCcmConfig;
 
   /**
@@ -21,7 +26,7 @@ export class AWSCcmConfigRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class AWSCcmConfigRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    ccmConfig: {
-      baseName: "ccm_config",
-      type: "AWSCcmConfig",
-      required: true,
+    "ccmConfig": {
+      "baseName": "ccm_config",
+      "type": "AWSCcmConfig",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class AWSCcmConfigRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSCcmConfigRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

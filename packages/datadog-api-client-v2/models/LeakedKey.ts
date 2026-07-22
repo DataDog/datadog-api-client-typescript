@@ -6,23 +6,28 @@
 import { LeakedKeyAttributes } from "./LeakedKeyAttributes";
 import { LeakedKeyType } from "./LeakedKeyType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of LeakedKey object.
- */
+*/
 export class LeakedKey {
   /**
    * The definition of LeakedKeyAttributes object.
-   */
+  */
   "attributes": LeakedKeyAttributes;
   /**
    * The LeakedKey id.
-   */
+  */
   "id": string;
   /**
    * The definition of LeakedKeyType object.
-   */
+  */
   "type": LeakedKeyType;
 
   /**
@@ -30,7 +35,7 @@ export class LeakedKey {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class LeakedKey {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LeakedKeyAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "LeakedKeyAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LeakedKeyType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LeakedKeyType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class LeakedKey {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LeakedKey.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

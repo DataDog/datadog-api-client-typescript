@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The JSON:API type for unified host resources. The value should always be `unified_host`.
- */
+*/
 
 export type CsmUnifiedHostType = typeof UNIFIED_HOST | UnparsedObject;
-export const UNIFIED_HOST = "unified_host";
+export const UNIFIED_HOST = 'unified_host';

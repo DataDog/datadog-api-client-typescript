@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The status of the maintenance.
- */
+*/
 
-export type MaintenanceDataAttributesStatus =
-  | typeof SCHEDULED
-  | typeof IN_PROGRESS
-  | typeof COMPLETED
-  | UnparsedObject;
-export const SCHEDULED = "scheduled";
-export const IN_PROGRESS = "in_progress";
-export const COMPLETED = "completed";
+export type MaintenanceDataAttributesStatus = typeof SCHEDULED| typeof IN_PROGRESS| typeof COMPLETED | UnparsedObject;
+export const SCHEDULED = 'scheduled';
+export const IN_PROGRESS = 'in_progress';
+export const COMPLETED = 'completed';

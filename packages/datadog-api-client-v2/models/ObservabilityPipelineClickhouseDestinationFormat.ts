@@ -4,7 +4,12 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Insert format for events sent to ClickHouse.
@@ -12,15 +17,10 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  * - `json_as_object`: Inserts each event into a single `Object('json')` / `JSON` column (ClickHouse `JSONAsObject`).
  * - `json_as_string`: Inserts each event into a single `String`-typed column as raw JSON (ClickHouse `JSONAsString`).
  * - `arrow_stream`: Batches events using Apache Arrow IPC streaming format. Requires `batch_encoding`.
- */
+*/
 
-export type ObservabilityPipelineClickhouseDestinationFormat =
-  | typeof JSON_EACH_ROW
-  | typeof JSON_AS_OBJECT
-  | typeof JSON_AS_STRING
-  | typeof ARROW_STREAM
-  | UnparsedObject;
-export const JSON_EACH_ROW = "json_each_row";
-export const JSON_AS_OBJECT = "json_as_object";
-export const JSON_AS_STRING = "json_as_string";
-export const ARROW_STREAM = "arrow_stream";
+export type ObservabilityPipelineClickhouseDestinationFormat = typeof JSON_EACH_ROW| typeof JSON_AS_OBJECT| typeof JSON_AS_STRING| typeof ARROW_STREAM | UnparsedObject;
+export const JSON_EACH_ROW = 'json_each_row';
+export const JSON_AS_OBJECT = 'json_as_object';
+export const JSON_AS_STRING = 'json_as_string';
+export const ARROW_STREAM = 'arrow_stream';

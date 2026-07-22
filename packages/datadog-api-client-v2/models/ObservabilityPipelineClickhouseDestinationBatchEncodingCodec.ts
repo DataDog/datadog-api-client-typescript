@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The codec used for batch encoding. Only `arrow_stream` is supported.
- */
+*/
 
-export type ObservabilityPipelineClickhouseDestinationBatchEncodingCodec =
-  | typeof ARROW_STREAM
-  | UnparsedObject;
-export const ARROW_STREAM = "arrow_stream";
+export type ObservabilityPipelineClickhouseDestinationBatchEncodingCodec = typeof ARROW_STREAM | UnparsedObject;
+export const ARROW_STREAM = 'arrow_stream';

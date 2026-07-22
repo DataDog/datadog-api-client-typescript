@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The JSON:API type for aggregated signals and problems requests.
- */
+*/
 
-export type AggregatedSignalsProblemsRequestType =
-  | typeof AGGREGATED_SIGNALS_PROBLEMS
-  | UnparsedObject;
-export const AGGREGATED_SIGNALS_PROBLEMS = "aggregated_signals_problems";
+export type AggregatedSignalsProblemsRequestType = typeof AGGREGATED_SIGNALS_PROBLEMS | UnparsedObject;
+export const AGGREGATED_SIGNALS_PROBLEMS = 'aggregated_signals_problems';

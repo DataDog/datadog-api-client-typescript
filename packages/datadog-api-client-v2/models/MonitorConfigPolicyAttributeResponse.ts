@@ -6,19 +6,24 @@
 import { MonitorConfigPolicyPolicy } from "./MonitorConfigPolicyPolicy";
 import { MonitorConfigPolicyType } from "./MonitorConfigPolicyType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Policy and policy type for a monitor configuration policy.
- */
+*/
 export class MonitorConfigPolicyAttributeResponse {
   /**
    * Configuration for the policy.
-   */
+  */
   "policy"?: MonitorConfigPolicyPolicy;
   /**
    * The monitor configuration policy type.
-   */
+  */
   "policyType"?: MonitorConfigPolicyType;
 
   /**
@@ -26,7 +31,7 @@ export class MonitorConfigPolicyAttributeResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class MonitorConfigPolicyAttributeResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    policy: {
-      baseName: "policy",
-      type: "MonitorConfigPolicyPolicy",
+    "policy": {
+      "baseName": "policy",
+      "type": "MonitorConfigPolicyPolicy",
     },
-    policyType: {
-      baseName: "policy_type",
-      type: "MonitorConfigPolicyType",
+    "policyType": {
+      "baseName": "policy_type",
+      "type": "MonitorConfigPolicyType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class MonitorConfigPolicyAttributeResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorConfigPolicyAttributeResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

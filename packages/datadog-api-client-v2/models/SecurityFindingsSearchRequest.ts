@@ -5,15 +5,20 @@
  */
 import { SecurityFindingsSearchRequestData } from "./SecurityFindingsSearchRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The request body for searching security findings.
- */
+*/
 export class SecurityFindingsSearchRequest {
   /**
    * Request data for searching security findings.
-   */
+  */
   "data"?: SecurityFindingsSearchRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class SecurityFindingsSearchRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class SecurityFindingsSearchRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SecurityFindingsSearchRequestData",
+    "data": {
+      "baseName": "data",
+      "type": "SecurityFindingsSearchRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class SecurityFindingsSearchRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityFindingsSearchRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

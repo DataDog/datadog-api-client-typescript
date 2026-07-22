@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The publish-request resource type.
- */
+*/
 
 export type PublishRequestType = typeof PUBLISHREQUEST | UnparsedObject;
-export const PUBLISHREQUEST = "publishRequest";
+export const PUBLISHREQUEST = 'publishRequest';

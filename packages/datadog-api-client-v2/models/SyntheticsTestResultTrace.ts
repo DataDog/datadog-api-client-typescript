@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Trace identifiers associated with a Synthetic test result.
- */
+*/
 export class SyntheticsTestResultTrace {
   /**
    * Datadog APM trace identifier.
-   */
+  */
   "id"?: string;
   /**
    * OpenTelemetry trace identifier.
-   */
+  */
   "otelId"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class SyntheticsTestResultTrace {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class SyntheticsTestResultTrace {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    otelId: {
-      baseName: "otel_id",
-      type: "string",
+    "otelId": {
+      "baseName": "otel_id",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class SyntheticsTestResultTrace {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultTrace.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

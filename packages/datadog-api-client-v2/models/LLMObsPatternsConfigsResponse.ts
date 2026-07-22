@@ -5,15 +5,20 @@
  */
 import { LLMObsPatternsConfigsResponseData } from "./LLMObsPatternsConfigsResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a list of LLM Observability patterns configurations.
- */
+*/
 export class LLMObsPatternsConfigsResponse {
   /**
    * Data object of a list of LLM Observability patterns configurations.
-   */
+  */
   "data": LLMObsPatternsConfigsResponseData;
 
   /**
@@ -21,7 +26,7 @@ export class LLMObsPatternsConfigsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class LLMObsPatternsConfigsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "LLMObsPatternsConfigsResponseData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "LLMObsPatternsConfigsResponseData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class LLMObsPatternsConfigsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsPatternsConfigsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

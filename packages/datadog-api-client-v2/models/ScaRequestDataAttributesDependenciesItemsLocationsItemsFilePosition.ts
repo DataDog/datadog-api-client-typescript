@@ -5,23 +5,28 @@
  */
 import { ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition } from "./ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A range within a file defined by a start and end position, along with the file name.
- */
+*/
 export class ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition {
   /**
    * A specific position (line and column) within a source file.
-   */
+  */
   "end"?: ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition;
   /**
    * The name or path of the file containing this location.
-   */
+  */
   "fileName"?: string;
   /**
    * A specific position (line and column) within a source file.
-   */
+  */
   "start"?: ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition;
 
   /**
@@ -29,7 +34,7 @@ export class ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,17 +45,17 @@ export class ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    end: {
-      baseName: "end",
-      type: "ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition",
+    "end": {
+      "baseName": "end",
+      "type": "ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition",
     },
-    fileName: {
-      baseName: "file_name",
-      type: "string",
+    "fileName": {
+      "baseName": "file_name",
+      "type": "string",
     },
-    start: {
-      baseName: "start",
-      type: "ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition",
+    "start": {
+      "baseName": "start",
+      "type": "ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

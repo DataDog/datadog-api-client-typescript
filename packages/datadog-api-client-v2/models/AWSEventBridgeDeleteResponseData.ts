@@ -6,23 +6,28 @@
 import { AWSEventBridgeDeleteResponseAttributes } from "./AWSEventBridgeDeleteResponseAttributes";
 import { AWSEventBridgeType } from "./AWSEventBridgeType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Amazon EventBridge delete response data.
- */
+*/
 export class AWSEventBridgeDeleteResponseData {
   /**
    * The EventBridge source delete response attributes.
-   */
+  */
   "attributes": AWSEventBridgeDeleteResponseAttributes;
   /**
    * The ID of the Amazon EventBridge list response data.
-   */
+  */
   "id"?: string;
   /**
    * Amazon EventBridge resource type.
-   */
+  */
   "type": AWSEventBridgeType;
 
   /**
@@ -30,7 +35,7 @@ export class AWSEventBridgeDeleteResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class AWSEventBridgeDeleteResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AWSEventBridgeDeleteResponseAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AWSEventBridgeDeleteResponseAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "AWSEventBridgeType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AWSEventBridgeType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class AWSEventBridgeDeleteResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSEventBridgeDeleteResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

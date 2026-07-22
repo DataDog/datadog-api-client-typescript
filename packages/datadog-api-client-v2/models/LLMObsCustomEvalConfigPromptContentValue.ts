@@ -6,23 +6,28 @@
 import { LLMObsCustomEvalConfigPromptToolCall } from "./LLMObsCustomEvalConfigPromptToolCall";
 import { LLMObsCustomEvalConfigPromptToolResult } from "./LLMObsCustomEvalConfigPromptToolResult";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Value of a prompt message content block.
- */
+*/
 export class LLMObsCustomEvalConfigPromptContentValue {
   /**
    * Text content of the message block.
-   */
+  */
   "text"?: string;
   /**
    * A tool call within a prompt message.
-   */
+  */
   "toolCall"?: LLMObsCustomEvalConfigPromptToolCall;
   /**
    * A tool call result within a prompt message.
-   */
+  */
   "toolCallResult"?: LLMObsCustomEvalConfigPromptToolResult;
 
   /**
@@ -30,7 +35,7 @@ export class LLMObsCustomEvalConfigPromptContentValue {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class LLMObsCustomEvalConfigPromptContentValue {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    text: {
-      baseName: "text",
-      type: "string",
+    "text": {
+      "baseName": "text",
+      "type": "string",
     },
-    toolCall: {
-      baseName: "tool_call",
-      type: "LLMObsCustomEvalConfigPromptToolCall",
+    "toolCall": {
+      "baseName": "tool_call",
+      "type": "LLMObsCustomEvalConfigPromptToolCall",
     },
-    toolCallResult: {
-      baseName: "tool_call_result",
-      type: "LLMObsCustomEvalConfigPromptToolResult",
+    "toolCallResult": {
+      "baseName": "tool_call_result",
+      "type": "LLMObsCustomEvalConfigPromptToolResult",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class LLMObsCustomEvalConfigPromptContentValue {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsCustomEvalConfigPromptContentValue.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

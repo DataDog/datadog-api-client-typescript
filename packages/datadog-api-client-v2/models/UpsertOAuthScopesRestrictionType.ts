@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * JSON:API resource type for an upsert OAuth2 client scopes restriction request.
- */
+*/
 
-export type UpsertOAuthScopesRestrictionType =
-  | typeof UPSERT_SCOPES_RESTRICTION
-  | UnparsedObject;
-export const UPSERT_SCOPES_RESTRICTION = "upsert_scopes_restriction";
+export type UpsertOAuthScopesRestrictionType = typeof UPSERT_SCOPES_RESTRICTION | UnparsedObject;
+export const UPSERT_SCOPES_RESTRICTION = 'upsert_scopes_restriction';

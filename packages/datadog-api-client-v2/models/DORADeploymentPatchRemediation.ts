@@ -5,19 +5,24 @@
  */
 import { DORADeploymentPatchRemediationType } from "./DORADeploymentPatchRemediationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Remediation details for the deployment. Optional, but required to calculate failed deployment recovery time.
- */
+*/
 export class DORADeploymentPatchRemediation {
   /**
    * The ID of the remediation deployment. Required when the failed deployment must be linked to a remediation deployment.
-   */
+  */
   "id"?: string;
   /**
    * The type of remediation action taken. Required when the failed deployment must be linked to a remediation deployment.
-   */
+  */
   "type"?: DORADeploymentPatchRemediationType;
 
   /**
@@ -25,7 +30,7 @@ export class DORADeploymentPatchRemediation {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class DORADeploymentPatchRemediation {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "DORADeploymentPatchRemediationType",
+    "type": {
+      "baseName": "type",
+      "type": "DORADeploymentPatchRemediationType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class DORADeploymentPatchRemediation {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DORADeploymentPatchRemediation.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

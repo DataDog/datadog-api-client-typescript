@@ -5,15 +5,20 @@
  */
 import { ApplicationSecurityWafCustomRuleData } from "./ApplicationSecurityWafCustomRuleData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object that includes a list of WAF custom rules.
- */
+*/
 export class ApplicationSecurityWafCustomRuleListResponse {
   /**
    * The WAF custom rule data.
-   */
+  */
   "data"?: Array<ApplicationSecurityWafCustomRuleData>;
 
   /**
@@ -21,7 +26,7 @@ export class ApplicationSecurityWafCustomRuleListResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class ApplicationSecurityWafCustomRuleListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<ApplicationSecurityWafCustomRuleData>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<ApplicationSecurityWafCustomRuleData>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class ApplicationSecurityWafCustomRuleListResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ApplicationSecurityWafCustomRuleListResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The verbosity of the reasoning summary.
- */
+*/
 
-export type LLMObsOpenAIReasoningSummary =
-  | typeof AUTO
-  | typeof CONCISE
-  | typeof DETAILED
-  | UnparsedObject;
-export const AUTO = "auto";
-export const CONCISE = "concise";
-export const DETAILED = "detailed";
+export type LLMObsOpenAIReasoningSummary = typeof AUTO| typeof CONCISE| typeof DETAILED | UnparsedObject;
+export const AUTO = 'auto';
+export const CONCISE = 'concise';
+export const DETAILED = 'detailed';

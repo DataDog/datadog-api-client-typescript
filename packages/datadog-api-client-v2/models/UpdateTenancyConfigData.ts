@@ -6,23 +6,28 @@
 import { UpdateTenancyConfigDataAttributes } from "./UpdateTenancyConfigDataAttributes";
 import { UpdateTenancyConfigDataType } from "./UpdateTenancyConfigDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data object for updating an existing OCI tenancy integration configuration, including the tenancy ID, type, and updated attributes.
- */
+*/
 export class UpdateTenancyConfigData {
   /**
    * Attributes for updating an existing OCI tenancy integration configuration, including optional credentials, region settings, and collection options.
-   */
+  */
   "attributes"?: UpdateTenancyConfigDataAttributes;
   /**
    * The OCID of the OCI tenancy to update.
-   */
+  */
   "id": string;
   /**
    * OCI tenancy resource type.
-   */
+  */
   "type": UpdateTenancyConfigDataType;
 
   /**
@@ -30,7 +35,7 @@ export class UpdateTenancyConfigData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class UpdateTenancyConfigData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "UpdateTenancyConfigDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "UpdateTenancyConfigDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "UpdateTenancyConfigDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "UpdateTenancyConfigDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class UpdateTenancyConfigData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateTenancyConfigData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

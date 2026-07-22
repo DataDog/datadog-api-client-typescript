@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Profile information for the user who authored the timeline cell.
- */
+*/
 export class TimelineCellAuthorUserContent {
   /**
    * The email address of the user.
-   */
+  */
   "email"?: string;
   /**
    * The Datadog handle of the user.
-   */
+  */
   "handle"?: string;
   /**
    * The UUID of the user.
-   */
+  */
   "id"?: string;
   /**
    * The display name of the user.
-   */
+  */
   "name"?: string;
 
   /**
@@ -32,7 +37,7 @@ export class TimelineCellAuthorUserContent {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,21 +48,21 @@ export class TimelineCellAuthorUserContent {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    email: {
-      baseName: "email",
-      type: "string",
+    "email": {
+      "baseName": "email",
+      "type": "string",
     },
-    handle: {
-      baseName: "handle",
-      type: "string",
+    "handle": {
+      "baseName": "handle",
+      "type": "string",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -69,8 +74,34 @@ export class TimelineCellAuthorUserContent {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TimelineCellAuthorUserContent.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

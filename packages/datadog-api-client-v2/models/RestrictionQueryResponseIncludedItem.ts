@@ -5,12 +5,15 @@
  */
 import { RestrictionQueryRole } from "./RestrictionQueryRole";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * An object related to a restriction query.
- */
+*/
 
-export type RestrictionQueryResponseIncludedItem =
-  | RestrictionQueryRole
-  | UnparsedObject;
+export type RestrictionQueryResponseIncludedItem = RestrictionQueryRole | UnparsedObject;

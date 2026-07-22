@@ -4,31 +4,36 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
- */
+*/
 export class ObservabilityPipelineMtlsServerTls {
   /**
    * Path to the Certificate Authority (CA) file used to validate connecting clients' TLS certificates.
-   */
+  */
   "caFile"?: string;
   /**
    * Path to the TLS server certificate file used to used to identify the pipeline component to connecting clients.
-   */
+  */
   "crtFile": string;
   /**
    * Path to the private key file associated with the TLS server certificate.
-   */
+  */
   "keyFile"?: string;
   /**
    * Name of the environment variable or secret that holds the passphrase for the private key file.
-   */
+  */
   "keyPassKey"?: string;
   /**
    * When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
-   */
+  */
   "verifyCertificate"?: boolean;
 
   /**
@@ -36,7 +41,7 @@ export class ObservabilityPipelineMtlsServerTls {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,26 +52,26 @@ export class ObservabilityPipelineMtlsServerTls {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    caFile: {
-      baseName: "ca_file",
-      type: "string",
+    "caFile": {
+      "baseName": "ca_file",
+      "type": "string",
     },
-    crtFile: {
-      baseName: "crt_file",
-      type: "string",
-      required: true,
+    "crtFile": {
+      "baseName": "crt_file",
+      "type": "string",
+      "required": true,
     },
-    keyFile: {
-      baseName: "key_file",
-      type: "string",
+    "keyFile": {
+      "baseName": "key_file",
+      "type": "string",
     },
-    keyPassKey: {
-      baseName: "key_pass_key",
-      type: "string",
+    "keyPassKey": {
+      "baseName": "key_pass_key",
+      "type": "string",
     },
-    verifyCertificate: {
-      baseName: "verify_certificate",
-      type: "boolean",
+    "verifyCertificate": {
+      "baseName": "verify_certificate",
+      "type": "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -78,8 +83,34 @@ export class ObservabilityPipelineMtlsServerTls {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineMtlsServerTls.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

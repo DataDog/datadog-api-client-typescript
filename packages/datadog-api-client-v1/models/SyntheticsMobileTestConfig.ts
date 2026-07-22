@@ -5,19 +5,24 @@
  */
 import { SyntheticsConfigVariable } from "./SyntheticsConfigVariable";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Configuration object for a Synthetic mobile test.
- */
+*/
 export class SyntheticsMobileTestConfig {
   /**
    * Initial application arguments for a mobile test.
-   */
-  "initialApplicationArguments"?: { [key: string]: string };
+  */
+  "initialApplicationArguments"?: { [key: string]: string; };
   /**
    * Array of variables used for the test steps.
-   */
+  */
   "variables"?: Array<SyntheticsConfigVariable>;
 
   /**
@@ -25,7 +30,7 @@ export class SyntheticsMobileTestConfig {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class SyntheticsMobileTestConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    initialApplicationArguments: {
-      baseName: "initialApplicationArguments",
-      type: "{ [key: string]: string; }",
+    "initialApplicationArguments": {
+      "baseName": "initialApplicationArguments",
+      "type": "{ [key: string]: string; }",
     },
-    variables: {
-      baseName: "variables",
-      type: "Array<SyntheticsConfigVariable>",
+    "variables": {
+      "baseName": "variables",
+      "type": "Array<SyntheticsConfigVariable>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class SyntheticsMobileTestConfig {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsMobileTestConfig.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

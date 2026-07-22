@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A data source for APM dependency statistics queries.
- */
+*/
 
-export type ApmDependencyStatsDataSource =
-  | typeof APM_DEPENDENCY_STATS
-  | UnparsedObject;
-export const APM_DEPENDENCY_STATS = "apm_dependency_stats";
+export type ApmDependencyStatsDataSource = typeof APM_DEPENDENCY_STATS | UnparsedObject;
+export const APM_DEPENDENCY_STATS = 'apm_dependency_stats';

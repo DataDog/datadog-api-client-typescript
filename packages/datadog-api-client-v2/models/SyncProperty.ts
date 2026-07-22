@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Sync property configuration.
- */
+*/
 export class SyncProperty {
   /**
    * The direction and type of synchronization for this property.
-   */
+  */
   "syncType"?: string;
 
   /**
@@ -20,7 +25,7 @@ export class SyncProperty {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,9 +36,9 @@ export class SyncProperty {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    syncType: {
-      baseName: "sync_type",
-      type: "string",
+    "syncType": {
+      "baseName": "sync_type",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,8 +50,34 @@ export class SyncProperty {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyncProperty.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

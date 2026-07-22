@@ -8,15 +8,15 @@ import { SendSlackMessageAction } from "./SendSlackMessageAction";
 import { SendTeamsMessageAction } from "./SendTeamsMessageAction";
 import { TriggerWorkflowAutomationAction } from "./TriggerWorkflowAutomationAction";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Defines an action that is executed when a routing rule matches certain criteria.
- */
+*/
 
-export type RoutingRuleAction =
-  | SendSlackMessageAction
-  | SendTeamsMessageAction
-  | TriggerWorkflowAutomationAction
-  | RoutingRuleEscalationPolicyAction
-  | UnparsedObject;
+export type RoutingRuleAction = SendSlackMessageAction | SendTeamsMessageAction | TriggerWorkflowAutomationAction | RoutingRuleEscalationPolicyAction | UnparsedObject;

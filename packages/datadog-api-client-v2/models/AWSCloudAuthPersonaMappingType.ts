@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type identifier for AWS cloud authentication persona mapping
- */
+*/
 
-export type AWSCloudAuthPersonaMappingType =
-  | typeof AWS_CLOUD_AUTH_CONFIG
-  | UnparsedObject;
-export const AWS_CLOUD_AUTH_CONFIG = "aws_cloud_auth_config";
+export type AWSCloudAuthPersonaMappingType = typeof AWS_CLOUD_AUTH_CONFIG | UnparsedObject;
+export const AWS_CLOUD_AUTH_CONFIG = 'aws_cloud_auth_config';

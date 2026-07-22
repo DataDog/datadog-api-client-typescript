@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of the scanned component.
- */
+*/
 
-export type CycloneDXComponentType =
-  | typeof LIBRARY
-  | typeof APPLICATION
-  | typeof OPERATING_SYSTEM
-  | UnparsedObject;
-export const LIBRARY = "library";
-export const APPLICATION = "application";
-export const OPERATING_SYSTEM = "operating-system";
+export type CycloneDXComponentType = typeof LIBRARY| typeof APPLICATION| typeof OPERATING_SYSTEM | UnparsedObject;
+export const LIBRARY = 'library';
+export const APPLICATION = 'application';
+export const OPERATING_SYSTEM = 'operating-system';

@@ -6,13 +6,15 @@
 import { LLMObsDisplayBlockInteractionResponseItem } from "./LLMObsDisplayBlockInteractionResponseItem";
 import { LLMObsTraceInteractionResponseItem } from "./LLMObsTraceInteractionResponseItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A single interaction result.
- */
+*/
 
-export type LLMObsAnnotationQueueInteractionResponseItem =
-  | LLMObsTraceInteractionResponseItem
-  | LLMObsDisplayBlockInteractionResponseItem
-  | UnparsedObject;
+export type LLMObsAnnotationQueueInteractionResponseItem = LLMObsTraceInteractionResponseItem | LLMObsDisplayBlockInteractionResponseItem | UnparsedObject;

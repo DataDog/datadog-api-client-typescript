@@ -6,26 +6,31 @@
 import { UsageSummaryAvailableFieldsAttributes } from "./UsageSummaryAvailableFieldsAttributes";
 import { UsageSummaryAvailableFieldsType } from "./UsageSummaryAvailableFieldsType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Available-fields data.
- */
+*/
 export class UsageSummaryAvailableFieldsBody {
   /**
    * The lists of field names returned by `GET /api/v1/usage/summary` at each
    * of its three response levels. Each list contains every key the data endpoint
    * emits—both typed fields declared in the OpenAPI spec and untyped keys
    * exposed through `additionalProperties`.
-   */
+  */
   "attributes"?: UsageSummaryAvailableFieldsAttributes;
   /**
    * The identifier for the discovery scope. Always `"all"`.
-   */
+  */
   "id"?: string;
   /**
    * Type of available-fields data.
-   */
+  */
   "type"?: UsageSummaryAvailableFieldsType;
 
   /**
@@ -33,7 +38,7 @@ export class UsageSummaryAvailableFieldsBody {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -44,17 +49,17 @@ export class UsageSummaryAvailableFieldsBody {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "UsageSummaryAvailableFieldsAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "UsageSummaryAvailableFieldsAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "UsageSummaryAvailableFieldsType",
+    "type": {
+      "baseName": "type",
+      "type": "UsageSummaryAvailableFieldsType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class UsageSummaryAvailableFieldsBody {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageSummaryAvailableFieldsBody.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

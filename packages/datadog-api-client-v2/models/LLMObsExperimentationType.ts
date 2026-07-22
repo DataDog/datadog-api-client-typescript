@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Resource type for experimentation search and analytics operations.
- */
+*/
 
 export type LLMObsExperimentationType = typeof EXPERIMENTATION | UnparsedObject;
-export const EXPERIMENTATION = "experimentation";
+export const EXPERIMENTATION = 'experimentation';

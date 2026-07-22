@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of logs schema category mapper.
- */
+*/
 
-export type LogsSchemaCategoryMapperType =
-  | typeof SCHEMA_CATEGORY_MAPPER
-  | UnparsedObject;
-export const SCHEMA_CATEGORY_MAPPER = "schema-category-mapper";
+export type LogsSchemaCategoryMapperType = typeof SCHEMA_CATEGORY_MAPPER | UnparsedObject;
+export const SCHEMA_CATEGORY_MAPPER = 'schema-category-mapper';

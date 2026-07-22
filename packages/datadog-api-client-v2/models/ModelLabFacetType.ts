@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of facet for filtering Model Lab runs.
- */
+*/
 
-export type ModelLabFacetType =
-  | typeof PARAMETER
-  | typeof ATTRIBUTE
-  | typeof TAG
-  | typeof METRIC
-  | UnparsedObject;
-export const PARAMETER = "parameter";
-export const ATTRIBUTE = "attribute";
-export const TAG = "tag";
-export const METRIC = "metric";
+export type ModelLabFacetType = typeof PARAMETER| typeof ATTRIBUTE| typeof TAG| typeof METRIC | UnparsedObject;
+export const PARAMETER = 'parameter';
+export const ATTRIBUTE = 'attribute';
+export const TAG = 'tag';
+export const METRIC = 'metric';

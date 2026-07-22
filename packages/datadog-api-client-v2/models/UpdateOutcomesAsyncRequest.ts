@@ -5,15 +5,20 @@
  */
 import { UpdateOutcomesAsyncRequestData } from "./UpdateOutcomesAsyncRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Scorecard outcomes batch request.
- */
+*/
 export class UpdateOutcomesAsyncRequest {
   /**
    * Scorecard outcomes batch request data.
-   */
+  */
   "data"?: UpdateOutcomesAsyncRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class UpdateOutcomesAsyncRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class UpdateOutcomesAsyncRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "UpdateOutcomesAsyncRequestData",
+    "data": {
+      "baseName": "data",
+      "type": "UpdateOutcomesAsyncRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class UpdateOutcomesAsyncRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateOutcomesAsyncRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

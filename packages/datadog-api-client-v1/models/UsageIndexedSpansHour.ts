@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The hours of indexed spans usage.
- */
+*/
 export class UsageIndexedSpansHour {
   /**
    * The hour for the usage.
-   */
+  */
   "hour"?: Date;
   /**
    * Contains the number of spans indexed.
-   */
+  */
   "indexedEventsCount"?: number;
   /**
    * The organization name.
-   */
+  */
   "orgName"?: string;
   /**
    * The organization public ID.
-   */
+  */
   "publicId"?: string;
 
   /**
@@ -32,7 +37,7 @@ export class UsageIndexedSpansHour {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,23 +48,23 @@ export class UsageIndexedSpansHour {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    hour: {
-      baseName: "hour",
-      type: "Date",
-      format: "date-time",
+    "hour": {
+      "baseName": "hour",
+      "type": "Date",
+      "format": "date-time",
     },
-    indexedEventsCount: {
-      baseName: "indexed_events_count",
-      type: "number",
-      format: "int64",
+    "indexedEventsCount": {
+      "baseName": "indexed_events_count",
+      "type": "number",
+      "format": "int64",
     },
-    orgName: {
-      baseName: "org_name",
-      type: "string",
+    "orgName": {
+      "baseName": "org_name",
+      "type": "string",
     },
-    publicId: {
-      baseName: "public_id",
-      type: "string",
+    "publicId": {
+      "baseName": "public_id",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,8 +76,34 @@ export class UsageIndexedSpansHour {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageIndexedSpansHour.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

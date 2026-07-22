@@ -5,24 +5,29 @@
  */
 import { LogsMetricComputeAggregationType } from "./LogsMetricComputeAggregationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The compute rule to compute the log-based metric.
- */
+*/
 export class LogsMetricCompute {
   /**
    * The type of aggregation to use.
-   */
+  */
   "aggregationType": LogsMetricComputeAggregationType;
   /**
    * Toggle to include or exclude percentile aggregations for distribution metrics.
    * Only present when the `aggregation_type` is `distribution`.
-   */
+  */
   "includePercentiles"?: boolean;
   /**
    * The path to the value the log-based metric will aggregate on (only used if the aggregation type is a "distribution").
-   */
+  */
   "path"?: string;
 
   /**
@@ -30,7 +35,7 @@ export class LogsMetricCompute {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class LogsMetricCompute {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregationType: {
-      baseName: "aggregation_type",
-      type: "LogsMetricComputeAggregationType",
-      required: true,
+    "aggregationType": {
+      "baseName": "aggregation_type",
+      "type": "LogsMetricComputeAggregationType",
+      "required": true,
     },
-    includePercentiles: {
-      baseName: "include_percentiles",
-      type: "boolean",
+    "includePercentiles": {
+      "baseName": "include_percentiles",
+      "type": "boolean",
     },
-    path: {
-      baseName: "path",
-      type: "string",
+    "path": {
+      "baseName": "path",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class LogsMetricCompute {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogsMetricCompute.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

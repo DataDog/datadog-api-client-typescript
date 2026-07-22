@@ -6,22 +6,27 @@
 import { LLMObsContentBlock } from "./LLMObsContentBlock";
 import { LLMObsDisplayBlockInteractionType } from "./LLMObsDisplayBlockInteractionType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An interaction whose rendered content is supplied directly as a list
  * of display blocks. The server generates `content_id` deterministically
  * from the block list.
- */
+*/
 export class LLMObsDisplayBlockInteractionItem {
   /**
    * List of content blocks that make up a `display_block` interaction.
    * Must contain at least one block.
-   */
+  */
   "displayBlock": Array<LLMObsContentBlock>;
   /**
    * Type discriminator for a `display_block` interaction.
-   */
+  */
   "type": LLMObsDisplayBlockInteractionType;
 
   /**
@@ -29,7 +34,7 @@ export class LLMObsDisplayBlockInteractionItem {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,15 +45,15 @@ export class LLMObsDisplayBlockInteractionItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    displayBlock: {
-      baseName: "display_block",
-      type: "Array<LLMObsContentBlock>",
-      required: true,
+    "displayBlock": {
+      "baseName": "display_block",
+      "type": "Array<LLMObsContentBlock>",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LLMObsDisplayBlockInteractionType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LLMObsDisplayBlockInteractionType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -60,8 +65,34 @@ export class LLMObsDisplayBlockInteractionItem {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDisplayBlockInteractionItem.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

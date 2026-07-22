@@ -5,39 +5,44 @@
  */
 import { OwnershipFeedbackAction } from "./OwnershipFeedbackAction";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes of an ownership feedback request.
- */
+*/
 export class OwnershipFeedbackRequestAttributes {
   /**
    * The feedback action to apply to an inference.
-   */
+  */
   "action": OwnershipFeedbackAction;
   /**
    * The handle of the actor submitting the feedback.
-   */
+  */
   "actorHandle": string;
   /**
    * The type of actor submitting the feedback, for example `user` or `service`.
-   */
+  */
   "actorType": string;
   /**
    * The corrected owner handle. Required when `action` is `correct`.
-   */
+  */
   "correctedOwnerHandle"?: string;
   /**
    * The corrected owner type. Required when `action` is `correct`.
-   */
+  */
   "correctedOwnerType"?: string;
   /**
    * The checksum of the inference being acted upon. Must match the current inference checksum or the request returns a conflict.
-   */
+  */
   "inferenceChecksum": string;
   /**
    * An optional free-form reason explaining the feedback.
-   */
+  */
   "reason"?: string;
 
   /**
@@ -45,7 +50,7 @@ export class OwnershipFeedbackRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -56,37 +61,37 @@ export class OwnershipFeedbackRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    action: {
-      baseName: "action",
-      type: "OwnershipFeedbackAction",
-      required: true,
+    "action": {
+      "baseName": "action",
+      "type": "OwnershipFeedbackAction",
+      "required": true,
     },
-    actorHandle: {
-      baseName: "actor_handle",
-      type: "string",
-      required: true,
+    "actorHandle": {
+      "baseName": "actor_handle",
+      "type": "string",
+      "required": true,
     },
-    actorType: {
-      baseName: "actor_type",
-      type: "string",
-      required: true,
+    "actorType": {
+      "baseName": "actor_type",
+      "type": "string",
+      "required": true,
     },
-    correctedOwnerHandle: {
-      baseName: "corrected_owner_handle",
-      type: "string",
+    "correctedOwnerHandle": {
+      "baseName": "corrected_owner_handle",
+      "type": "string",
     },
-    correctedOwnerType: {
-      baseName: "corrected_owner_type",
-      type: "string",
+    "correctedOwnerType": {
+      "baseName": "corrected_owner_type",
+      "type": "string",
     },
-    inferenceChecksum: {
-      baseName: "inference_checksum",
-      type: "string",
-      required: true,
+    "inferenceChecksum": {
+      "baseName": "inference_checksum",
+      "type": "string",
+      "required": true,
     },
-    reason: {
-      baseName: "reason",
-      type: "string",
+    "reason": {
+      "baseName": "reason",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -98,8 +103,34 @@ export class OwnershipFeedbackRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OwnershipFeedbackRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

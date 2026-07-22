@@ -6,23 +6,28 @@
 import { PointPlotProjectionDimension } from "./PointPlotProjectionDimension";
 import { PointPlotProjectionType } from "./PointPlotProjectionType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Projection configuration for the point plot widget.
- */
+*/
 export class PointPlotProjection {
   /**
    * List of dimension mappings for the projection.
-   */
+  */
   "dimensions": Array<PointPlotProjectionDimension>;
   /**
    * Additional columns to include in the projection.
-   */
+  */
   "extraColumns"?: Array<string>;
   /**
    * Type of the projection.
-   */
+  */
   "type": PointPlotProjectionType;
 
   /**
@@ -30,7 +35,7 @@ export class PointPlotProjection {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class PointPlotProjection {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    dimensions: {
-      baseName: "dimensions",
-      type: "Array<PointPlotProjectionDimension>",
-      required: true,
+    "dimensions": {
+      "baseName": "dimensions",
+      "type": "Array<PointPlotProjectionDimension>",
+      "required": true,
     },
-    extraColumns: {
-      baseName: "extra_columns",
-      type: "Array<string>",
+    "extraColumns": {
+      "baseName": "extra_columns",
+      "type": "Array<string>",
     },
-    type: {
-      baseName: "type",
-      type: "PointPlotProjectionType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "PointPlotProjectionType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class PointPlotProjection {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PointPlotProjection.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a ServiceNow assignment group
- */
+*/
 export class ServiceNowAssignmentGroupAttributes {
   /**
    * The name of the assignment group
-   */
+  */
   "assignmentGroupName": string;
   /**
    * The system ID of the assignment group in ServiceNow
-   */
+  */
   "assignmentGroupSysId": string;
   /**
    * The ID of the ServiceNow instance
-   */
+  */
   "instanceId": string;
 
   /**
@@ -28,7 +33,7 @@ export class ServiceNowAssignmentGroupAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,21 +44,21 @@ export class ServiceNowAssignmentGroupAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    assignmentGroupName: {
-      baseName: "assignment_group_name",
-      type: "string",
-      required: true,
+    "assignmentGroupName": {
+      "baseName": "assignment_group_name",
+      "type": "string",
+      "required": true,
     },
-    assignmentGroupSysId: {
-      baseName: "assignment_group_sys_id",
-      type: "string",
-      required: true,
+    "assignmentGroupSysId": {
+      "baseName": "assignment_group_sys_id",
+      "type": "string",
+      "required": true,
     },
-    instanceId: {
-      baseName: "instance_id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "instanceId": {
+      "baseName": "instance_id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class ServiceNowAssignmentGroupAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceNowAssignmentGroupAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

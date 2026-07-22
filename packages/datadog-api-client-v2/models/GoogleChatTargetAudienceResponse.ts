@@ -5,15 +5,20 @@
  */
 import { GoogleChatTargetAudienceData } from "./GoogleChatTargetAudienceData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a Google Chat target audience.
- */
+*/
 export class GoogleChatTargetAudienceResponse {
   /**
    * Google Chat target audience data from a response.
-   */
+  */
   "data": GoogleChatTargetAudienceData;
 
   /**
@@ -21,7 +26,7 @@ export class GoogleChatTargetAudienceResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class GoogleChatTargetAudienceResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "GoogleChatTargetAudienceData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "GoogleChatTargetAudienceData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class GoogleChatTargetAudienceResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GoogleChatTargetAudienceResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

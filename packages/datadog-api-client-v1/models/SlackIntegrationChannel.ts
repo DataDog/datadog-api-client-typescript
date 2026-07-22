@@ -5,19 +5,24 @@
  */
 import { SlackIntegrationChannelDisplay } from "./SlackIntegrationChannelDisplay";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The Slack channel configuration.
- */
+*/
 export class SlackIntegrationChannel {
   /**
    * Configuration options for what is shown in an alert event message.
-   */
+  */
   "display"?: SlackIntegrationChannelDisplay;
   /**
    * Your channel name.
-   */
+  */
   "name"?: string;
 
   /**
@@ -25,7 +30,7 @@ export class SlackIntegrationChannel {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class SlackIntegrationChannel {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    display: {
-      baseName: "display",
-      type: "SlackIntegrationChannelDisplay",
+    "display": {
+      "baseName": "display",
+      "type": "SlackIntegrationChannelDisplay",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class SlackIntegrationChannel {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SlackIntegrationChannel.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { DeletedSuitesRequestDelete } from "./DeletedSuitesRequestDelete";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request body for bulk deleting Synthetic test suites.
- */
+*/
 export class DeletedSuitesRequestDeleteRequest {
   /**
    * Data object for a bulk delete Synthetic test suites request.
-   */
+  */
   "data": DeletedSuitesRequestDelete;
 
   /**
@@ -21,7 +26,7 @@ export class DeletedSuitesRequestDeleteRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class DeletedSuitesRequestDeleteRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "DeletedSuitesRequestDelete",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "DeletedSuitesRequestDelete",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class DeletedSuitesRequestDeleteRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DeletedSuitesRequestDeleteRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

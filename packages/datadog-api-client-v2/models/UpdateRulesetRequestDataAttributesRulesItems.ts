@@ -7,35 +7,40 @@ import { DataAttributesRulesItemsMapping } from "./DataAttributesRulesItemsMappi
 import { UpdateRulesetRequestDataAttributesRulesItemsQuery } from "./UpdateRulesetRequestDataAttributesRulesItemsQuery";
 import { UpdateRulesetRequestDataAttributesRulesItemsReferenceTable } from "./UpdateRulesetRequestDataAttributesRulesItemsReferenceTable";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `UpdateRulesetRequestDataAttributesRulesItems` object.
- */
+*/
 export class UpdateRulesetRequestDataAttributesRulesItems {
   /**
    * The `items` `enabled`.
-   */
+  */
   "enabled": boolean;
   /**
    * The definition of `DataAttributesRulesItemsMapping` object.
-   */
+  */
   "mapping"?: DataAttributesRulesItemsMapping;
   /**
    * The `items` `metadata`.
-   */
-  "metadata"?: { [key: string]: string };
+  */
+  "metadata"?: { [key: string]: string; };
   /**
    * The `items` `name`.
-   */
+  */
   "name": string;
   /**
    * The definition of `UpdateRulesetRequestDataAttributesRulesItemsQuery` object.
-   */
+  */
   "query"?: UpdateRulesetRequestDataAttributesRulesItemsQuery;
   /**
    * The definition of `UpdateRulesetRequestDataAttributesRulesItemsReferenceTable` object.
-   */
+  */
   "referenceTable"?: UpdateRulesetRequestDataAttributesRulesItemsReferenceTable;
 
   /**
@@ -43,7 +48,7 @@ export class UpdateRulesetRequestDataAttributesRulesItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -54,31 +59,31 @@ export class UpdateRulesetRequestDataAttributesRulesItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
-      required: true,
+    "enabled": {
+      "baseName": "enabled",
+      "type": "boolean",
+      "required": true,
     },
-    mapping: {
-      baseName: "mapping",
-      type: "DataAttributesRulesItemsMapping",
+    "mapping": {
+      "baseName": "mapping",
+      "type": "DataAttributesRulesItemsMapping",
     },
-    metadata: {
-      baseName: "metadata",
-      type: "{ [key: string]: string; }",
+    "metadata": {
+      "baseName": "metadata",
+      "type": "{ [key: string]: string; }",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    query: {
-      baseName: "query",
-      type: "UpdateRulesetRequestDataAttributesRulesItemsQuery",
+    "query": {
+      "baseName": "query",
+      "type": "UpdateRulesetRequestDataAttributesRulesItemsQuery",
     },
-    referenceTable: {
-      baseName: "reference_table",
-      type: "UpdateRulesetRequestDataAttributesRulesItemsReferenceTable",
+    "referenceTable": {
+      "baseName": "reference_table",
+      "type": "UpdateRulesetRequestDataAttributesRulesItemsReferenceTable",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -90,8 +95,34 @@ export class UpdateRulesetRequestDataAttributesRulesItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateRulesetRequestDataAttributesRulesItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { AWSAccountCreateRequestData } from "./AWSAccountCreateRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * AWS Account Create Request body.
- */
+*/
 export class AWSAccountCreateRequest {
   /**
    * AWS Account Create Request data.
-   */
+  */
   "data": AWSAccountCreateRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class AWSAccountCreateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class AWSAccountCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "AWSAccountCreateRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "AWSAccountCreateRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class AWSAccountCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSAccountCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

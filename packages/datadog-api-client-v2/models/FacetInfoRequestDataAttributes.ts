@@ -6,27 +6,32 @@
 import { FacetInfoRequestDataAttributesSearch } from "./FacetInfoRequestDataAttributesSearch";
 import { FacetInfoRequestDataAttributesTermSearch } from "./FacetInfoRequestDataAttributesTermSearch";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for the facet info request, specifying which facet to query and optional filters to apply.
- */
+*/
 export class FacetInfoRequestDataAttributes {
   /**
    * The identifier of the facet attribute to retrieve value information for.
-   */
+  */
   "facetId": string;
   /**
    * Maximum number of facet values to return in the response.
-   */
+  */
   "limit": number;
   /**
    * Query-based search configuration for filtering the audience context when retrieving facet values.
-   */
+  */
   "search"?: FacetInfoRequestDataAttributesSearch;
   /**
    * Term-level search configuration for filtering facet values by an exact or partial term match.
-   */
+  */
   "termSearch"?: FacetInfoRequestDataAttributesTermSearch;
 
   /**
@@ -34,7 +39,7 @@ export class FacetInfoRequestDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -45,24 +50,24 @@ export class FacetInfoRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    facetId: {
-      baseName: "facet_id",
-      type: "string",
-      required: true,
+    "facetId": {
+      "baseName": "facet_id",
+      "type": "string",
+      "required": true,
     },
-    limit: {
-      baseName: "limit",
-      type: "number",
-      required: true,
-      format: "int64",
+    "limit": {
+      "baseName": "limit",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    search: {
-      baseName: "search",
-      type: "FacetInfoRequestDataAttributesSearch",
+    "search": {
+      "baseName": "search",
+      "type": "FacetInfoRequestDataAttributesSearch",
     },
-    termSearch: {
-      baseName: "term_search",
-      type: "FacetInfoRequestDataAttributesTermSearch",
+    "termSearch": {
+      "baseName": "term_search",
+      "type": "FacetInfoRequestDataAttributesTermSearch",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,8 +79,34 @@ export class FacetInfoRequestDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FacetInfoRequestDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

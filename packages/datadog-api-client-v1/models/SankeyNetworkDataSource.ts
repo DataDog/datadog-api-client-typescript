@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Network data source type.
- */
+*/
 
-export type SankeyNetworkDataSource =
-  | typeof NETWORK_DEVICE_FLOWS
-  | typeof NETWORK
-  | UnparsedObject;
-export const NETWORK_DEVICE_FLOWS = "network_device_flows";
-export const NETWORK = "network";
+export type SankeyNetworkDataSource = typeof NETWORK_DEVICE_FLOWS| typeof NETWORK | UnparsedObject;
+export const NETWORK_DEVICE_FLOWS = 'network_device_flows';
+export const NETWORK = 'network';

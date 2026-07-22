@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Arbitrary rule resource type.
- */
+*/
 
-export type ArbitraryRuleResponseDataType =
-  | typeof ARBITRARY_RULE
-  | UnparsedObject;
-export const ARBITRARY_RULE = "arbitrary_rule";
+export type ArbitraryRuleResponseDataType = typeof ARBITRARY_RULE | UnparsedObject;
+export const ARBITRARY_RULE = 'arbitrary_rule';

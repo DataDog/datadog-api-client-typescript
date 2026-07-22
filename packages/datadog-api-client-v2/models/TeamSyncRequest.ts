@@ -5,15 +5,20 @@
  */
 import { TeamSyncData } from "./TeamSyncData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Team sync request.
- */
+*/
 export class TeamSyncRequest {
   /**
    * A configuration governing syncing between Datadog teams and teams from an external system.
-   */
+  */
   "data": TeamSyncData;
 
   /**
@@ -21,7 +26,7 @@ export class TeamSyncRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class TeamSyncRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "TeamSyncData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "TeamSyncData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class TeamSyncRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamSyncRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

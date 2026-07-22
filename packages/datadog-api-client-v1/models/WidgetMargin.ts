@@ -4,22 +4,21 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Size of the margins around the image.
  * **Note**: `small` and `large` values are deprecated.
- */
+*/
 
-export type WidgetMargin =
-  | typeof SM
-  | typeof MD
-  | typeof LG
-  | typeof SMALL
-  | typeof LARGE
-  | UnparsedObject;
-export const SM = "sm";
-export const MD = "md";
-export const LG = "lg";
-export const SMALL = "small";
-export const LARGE = "large";
+export type WidgetMargin = typeof SM| typeof MD| typeof LG| typeof SMALL| typeof LARGE | UnparsedObject;
+export const SM = 'sm';
+export const MD = 'md';
+export const LG = 'lg';
+export const SMALL = 'small';
+export const LARGE = 'large';

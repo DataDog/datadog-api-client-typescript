@@ -7,23 +7,28 @@ import { TeamType } from "./TeamType";
 import { TeamUpdateAttributes } from "./TeamUpdateAttributes";
 import { TeamUpdateRelationships } from "./TeamUpdateRelationships";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Team update request
- */
+*/
 export class TeamUpdate {
   /**
    * Team update attributes
-   */
+  */
   "attributes": TeamUpdateAttributes;
   /**
    * Team update relationships
-   */
+  */
   "relationships"?: TeamUpdateRelationships;
   /**
    * Team type
-   */
+  */
   "type": TeamType;
 
   /**
@@ -31,7 +36,7 @@ export class TeamUpdate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,19 +47,19 @@ export class TeamUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "TeamUpdateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "TeamUpdateAttributes",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "TeamUpdateRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "TeamUpdateRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "TeamType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TeamType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class TeamUpdate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamUpdate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,20 +5,25 @@
  */
 import { GCPMonitoredResourceConfigType } from "./GCPMonitoredResourceConfigType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Configuration for a GCP monitored resource.
- */
+*/
 export class GCPMonitoredResourceConfig {
   /**
    * List of filters to limit the monitored resources that are pulled into Datadog by using tags.
    * Only monitored resources that apply to specified filters are imported into Datadog.
-   */
+  */
   "filters"?: Array<string>;
   /**
    * The GCP monitored resource type. Only a subset of resource types are supported.
-   */
+  */
   "type"?: GCPMonitoredResourceConfigType;
 
   /**
@@ -26,7 +31,7 @@ export class GCPMonitoredResourceConfig {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class GCPMonitoredResourceConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    filters: {
-      baseName: "filters",
-      type: "Array<string>",
+    "filters": {
+      "baseName": "filters",
+      "type": "Array<string>",
     },
-    type: {
-      baseName: "type",
-      type: "GCPMonitoredResourceConfigType",
+    "type": {
+      "baseName": "type",
+      "type": "GCPMonitoredResourceConfigType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class GCPMonitoredResourceConfig {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GCPMonitoredResourceConfig.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,35 +5,40 @@
  */
 import { SecurityMonitoringCriticalAssetSeverity } from "./SecurityMonitoringCriticalAssetSeverity";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object containing the attributes of the critical asset to be created.
- */
+*/
 export class SecurityMonitoringCriticalAssetCreateAttributes {
   /**
    * A description of the critical asset.
-   */
+  */
   "description"?: string;
   /**
    * Whether the critical asset is enabled. Defaults to `true` if not specified.
-   */
+  */
   "enabled"?: boolean;
   /**
    * The query for the critical asset. It uses the same syntax as the queries to search signals in the Signals Explorer.
-   */
+  */
   "query": string;
   /**
    * The rule query of the critical asset, with the same syntax as the search bar for detection rules. This determines which rules this critical asset will apply to.
-   */
+  */
   "ruleQuery": string;
   /**
    * Severity associated with this critical asset. Either an explicit severity can be set, or the severity can be increased or decreased, or the severity can be left unchanged (no-op).
-   */
+  */
   "severity": SecurityMonitoringCriticalAssetSeverity;
   /**
    * List of tags associated with the critical asset.
-   */
+  */
   "tags"?: Array<string>;
 
   /**
@@ -41,7 +46,7 @@ export class SecurityMonitoringCriticalAssetCreateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -52,32 +57,32 @@ export class SecurityMonitoringCriticalAssetCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
+    "enabled": {
+      "baseName": "enabled",
+      "type": "boolean",
     },
-    query: {
-      baseName: "query",
-      type: "string",
-      required: true,
+    "query": {
+      "baseName": "query",
+      "type": "string",
+      "required": true,
     },
-    ruleQuery: {
-      baseName: "rule_query",
-      type: "string",
-      required: true,
+    "ruleQuery": {
+      "baseName": "rule_query",
+      "type": "string",
+      "required": true,
     },
-    severity: {
-      baseName: "severity",
-      type: "SecurityMonitoringCriticalAssetSeverity",
-      required: true,
+    "severity": {
+      "baseName": "severity",
+      "type": "SecurityMonitoringCriticalAssetSeverity",
+      "required": true,
     },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
+    "tags": {
+      "baseName": "tags",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -89,8 +94,34 @@ export class SecurityMonitoringCriticalAssetCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringCriticalAssetCreateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

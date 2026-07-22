@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Google Chat space resource type.
- */
+*/
 
-export type GoogleChatAppNamedSpaceType =
-  | typeof GOOGLE_CHAT_APP_NAMED_SPACE_TYPE
-  | UnparsedObject;
-export const GOOGLE_CHAT_APP_NAMED_SPACE_TYPE = "google-chat-app-named-space";
+export type GoogleChatAppNamedSpaceType = typeof GOOGLE_CHAT_APP_NAMED_SPACE_TYPE | UnparsedObject;
+export const GOOGLE_CHAT_APP_NAMED_SPACE_TYPE = 'google-chat-app-named-space';

@@ -5,19 +5,24 @@
  */
 import { ProductAnalyticsResponseMetaStatus } from "./ProductAnalyticsResponseMetaStatus";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metadata for a Product Analytics query response.
- */
+*/
 export class ProductAnalyticsResponseMeta {
   /**
    * Unique identifier for the request, used for multi-step query continuation.
-   */
+  */
   "requestId"?: string;
   /**
    * The execution status of a Product Analytics query.
-   */
+  */
   "status"?: ProductAnalyticsResponseMetaStatus;
 
   /**
@@ -25,7 +30,7 @@ export class ProductAnalyticsResponseMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class ProductAnalyticsResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    requestId: {
-      baseName: "request_id",
-      type: "string",
+    "requestId": {
+      "baseName": "request_id",
+      "type": "string",
     },
-    status: {
-      baseName: "status",
-      type: "ProductAnalyticsResponseMetaStatus",
+    "status": {
+      "baseName": "status",
+      "type": "ProductAnalyticsResponseMetaStatus",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class ProductAnalyticsResponseMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProductAnalyticsResponseMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

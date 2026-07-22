@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Scope resource type.
- */
+*/
 
-export type UserAuthorizedClientRelationshipScopeDataType =
-  | typeof SCOPES
-  | UnparsedObject;
-export const SCOPES = "scopes";
+export type UserAuthorizedClientRelationshipScopeDataType = typeof SCOPES | UnparsedObject;
+export const SCOPES = 'scopes';

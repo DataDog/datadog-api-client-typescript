@@ -6,23 +6,28 @@
 import { MicrosoftTeamsChannelInfoResponseAttributes } from "./MicrosoftTeamsChannelInfoResponseAttributes";
 import { MicrosoftTeamsChannelInfoType } from "./MicrosoftTeamsChannelInfoType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Channel data from a response.
- */
+*/
 export class MicrosoftTeamsChannelInfoResponseData {
   /**
    * Channel attributes.
-   */
+  */
   "attributes"?: MicrosoftTeamsChannelInfoResponseAttributes;
   /**
    * The ID of the channel.
-   */
+  */
   "id"?: string;
   /**
    * Channel info resource type.
-   */
+  */
   "type"?: MicrosoftTeamsChannelInfoType;
 
   /**
@@ -30,7 +35,7 @@ export class MicrosoftTeamsChannelInfoResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class MicrosoftTeamsChannelInfoResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "MicrosoftTeamsChannelInfoResponseAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "MicrosoftTeamsChannelInfoResponseAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "MicrosoftTeamsChannelInfoType",
+    "type": {
+      "baseName": "type",
+      "type": "MicrosoftTeamsChannelInfoType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class MicrosoftTeamsChannelInfoResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MicrosoftTeamsChannelInfoResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

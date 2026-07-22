@@ -6,19 +6,24 @@
 import { ScheduleOnCallRespondersDataRelationshipsResponders } from "./ScheduleOnCallRespondersDataRelationshipsResponders";
 import { ScheduleOnCallRespondersDataRelationshipsSchedule } from "./ScheduleOnCallRespondersDataRelationshipsSchedule";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationships for a schedule's on-call responders lookup, including the schedule and its responder groups.
- */
+*/
 export class ScheduleOnCallRespondersDataRelationships {
   /**
    * Defines the list of per-position (previous, current, next) responder groups for the schedule.
-   */
+  */
   "responders"?: ScheduleOnCallRespondersDataRelationshipsResponders;
   /**
    * Defines the relationship to the schedule this on-call responders lookup was performed for.
-   */
+  */
   "schedule"?: ScheduleOnCallRespondersDataRelationshipsSchedule;
 
   /**
@@ -26,7 +31,7 @@ export class ScheduleOnCallRespondersDataRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class ScheduleOnCallRespondersDataRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    responders: {
-      baseName: "responders",
-      type: "ScheduleOnCallRespondersDataRelationshipsResponders",
+    "responders": {
+      "baseName": "responders",
+      "type": "ScheduleOnCallRespondersDataRelationshipsResponders",
     },
-    schedule: {
-      baseName: "schedule",
-      type: "ScheduleOnCallRespondersDataRelationshipsSchedule",
+    "schedule": {
+      "baseName": "schedule",
+      "type": "ScheduleOnCallRespondersDataRelationshipsSchedule",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class ScheduleOnCallRespondersDataRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ScheduleOnCallRespondersDataRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

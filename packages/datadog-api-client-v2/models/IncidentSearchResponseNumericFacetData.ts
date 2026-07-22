@@ -5,19 +5,24 @@
  */
 import { IncidentSearchResponseNumericFacetDataAggregates } from "./IncidentSearchResponseNumericFacetDataAggregates";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Facet data numeric attributes of an incident.
- */
+*/
 export class IncidentSearchResponseNumericFacetData {
   /**
    * Aggregate information for numeric incident data.
-   */
+  */
   "aggregates": IncidentSearchResponseNumericFacetDataAggregates;
   /**
    * Name of the incident property field.
-   */
+  */
   "name": string;
 
   /**
@@ -25,7 +30,7 @@ export class IncidentSearchResponseNumericFacetData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class IncidentSearchResponseNumericFacetData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregates: {
-      baseName: "aggregates",
-      type: "IncidentSearchResponseNumericFacetDataAggregates",
-      required: true,
+    "aggregates": {
+      "baseName": "aggregates",
+      "type": "IncidentSearchResponseNumericFacetDataAggregates",
+      "required": true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class IncidentSearchResponseNumericFacetData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentSearchResponseNumericFacetData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

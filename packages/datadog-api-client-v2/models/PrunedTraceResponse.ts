@@ -5,15 +5,20 @@
  */
 import { PrunedTraceData } from "./PrunedTraceData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a single pruned trace.
- */
+*/
 export class PrunedTraceResponse {
   /**
    * A pruned trace resource document.
-   */
+  */
   "data": PrunedTraceData;
 
   /**
@@ -21,7 +26,7 @@ export class PrunedTraceResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class PrunedTraceResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "PrunedTraceData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "PrunedTraceData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class PrunedTraceResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PrunedTraceResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,23 +6,28 @@
 import { RelationshipToIncidentType } from "./RelationshipToIncidentType";
 import { RelationshipToUser } from "./RelationshipToUser";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The notification template's resource relationships.
- */
+*/
 export class IncidentNotificationTemplateRelationships {
   /**
    * Relationship to user.
-   */
+  */
   "createdByUser"?: RelationshipToUser;
   /**
    * Relationship to an incident type.
-   */
+  */
   "incidentType"?: RelationshipToIncidentType;
   /**
    * Relationship to user.
-   */
+  */
   "lastModifiedByUser"?: RelationshipToUser;
 
   /**
@@ -30,7 +35,7 @@ export class IncidentNotificationTemplateRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class IncidentNotificationTemplateRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdByUser: {
-      baseName: "created_by_user",
-      type: "RelationshipToUser",
+    "createdByUser": {
+      "baseName": "created_by_user",
+      "type": "RelationshipToUser",
     },
-    incidentType: {
-      baseName: "incident_type",
-      type: "RelationshipToIncidentType",
+    "incidentType": {
+      "baseName": "incident_type",
+      "type": "RelationshipToIncidentType",
     },
-    lastModifiedByUser: {
-      baseName: "last_modified_by_user",
-      type: "RelationshipToUser",
+    "lastModifiedByUser": {
+      "baseName": "last_modified_by_user",
+      "type": "RelationshipToUser",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class IncidentNotificationTemplateRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentNotificationTemplateRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

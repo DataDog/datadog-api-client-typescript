@@ -5,27 +5,32 @@
  */
 import { LLMObsAnnotationSchema } from "./LLMObsAnnotationSchema";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for creating an LLM Observability annotation queue.
- */
+*/
 export class LLMObsAnnotationQueueDataAttributesRequest {
   /**
    * Schema defining the labels for an annotation queue.
-   */
+  */
   "annotationSchema"?: LLMObsAnnotationSchema;
   /**
    * Description of the annotation queue.
-   */
+  */
   "description"?: string;
   /**
    * Name of the annotation queue.
-   */
+  */
   "name": string;
   /**
    * Identifier of the project this queue belongs to.
-   */
+  */
   "projectId": string;
 
   /**
@@ -33,7 +38,7 @@ export class LLMObsAnnotationQueueDataAttributesRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -44,23 +49,23 @@ export class LLMObsAnnotationQueueDataAttributesRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    annotationSchema: {
-      baseName: "annotation_schema",
-      type: "LLMObsAnnotationSchema",
+    "annotationSchema": {
+      "baseName": "annotation_schema",
+      "type": "LLMObsAnnotationSchema",
     },
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    projectId: {
-      baseName: "project_id",
-      type: "string",
-      required: true,
+    "projectId": {
+      "baseName": "project_id",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -72,8 +77,34 @@ export class LLMObsAnnotationQueueDataAttributesRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsAnnotationQueueDataAttributesRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

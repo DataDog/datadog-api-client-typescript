@@ -5,26 +5,31 @@
  */
 import { SearchServiceLevelObjectiveAttributes } from "./SearchServiceLevelObjectiveAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A service level objective ID and attributes.
- */
+*/
 export class SearchServiceLevelObjectiveData {
   /**
    * A service level objective object includes a service level indicator, thresholds
    * for one or more timeframes, and metadata (`name`, `description`, and `tags`).
-   */
+  */
   "attributes"?: SearchServiceLevelObjectiveAttributes;
   /**
    * A unique identifier for the service level objective object.
-   *
+   * 
    * Always included in service level objective responses.
-   */
+  */
   "id"?: string;
   /**
    * The type of the object, must be `slo`.
-   */
+  */
   "type"?: string;
 
   /**
@@ -32,7 +37,7 @@ export class SearchServiceLevelObjectiveData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,17 +48,17 @@ export class SearchServiceLevelObjectiveData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SearchServiceLevelObjectiveAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SearchServiceLevelObjectiveAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class SearchServiceLevelObjectiveData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SearchServiceLevelObjectiveData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of dashboard resource the report schedule targets.
- */
+*/
 
-export type ReportScheduleResourceType =
-  | typeof DASHBOARD
-  | typeof INTEGRATION_DASHBOARD
-  | UnparsedObject;
-export const DASHBOARD = "dashboard";
-export const INTEGRATION_DASHBOARD = "integration_dashboard";
+export type ReportScheduleResourceType = typeof DASHBOARD| typeof INTEGRATION_DASHBOARD | UnparsedObject;
+export const DASHBOARD = 'dashboard';
+export const INTEGRATION_DASHBOARD = 'integration_dashboard';

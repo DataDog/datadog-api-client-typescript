@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The pagination type.
- */
+*/
 
-export type ReportScheduleListResponsePaginationType =
-  | typeof OFFSET_LIMIT
-  | UnparsedObject;
-export const OFFSET_LIMIT = "offset_limit";
+export type ReportScheduleListResponsePaginationType = typeof OFFSET_LIMIT | UnparsedObject;
+export const OFFSET_LIMIT = 'offset_limit';

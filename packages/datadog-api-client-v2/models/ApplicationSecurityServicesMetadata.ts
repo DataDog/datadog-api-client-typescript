@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metadata returned alongside the list of services.
- */
+*/
 export class ApplicationSecurityServicesMetadata {
   /**
    * The number of services with Application Security Management (Threats) enabled.
-   */
+  */
   "numServicesWithAppsec": number;
 
   /**
@@ -20,7 +25,7 @@ export class ApplicationSecurityServicesMetadata {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,11 +36,11 @@ export class ApplicationSecurityServicesMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    numServicesWithAppsec: {
-      baseName: "num_services_with_appsec",
-      type: "number",
-      required: true,
-      format: "int64",
+    "numServicesWithAppsec": {
+      "baseName": "num_services_with_appsec",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class ApplicationSecurityServicesMetadata {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ApplicationSecurityServicesMetadata.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,19 +6,24 @@
 import { GoogleChatOrganizationHandleType } from "./GoogleChatOrganizationHandleType";
 import { GoogleChatUpdateOrganizationHandleRequestData } from "./GoogleChatUpdateOrganizationHandleRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Update organization handle request.
- */
+*/
 export class GoogleChatUpdateOrganizationHandleRequest {
   /**
    * Organization handle data for an update request.
-   */
+  */
   "data": GoogleChatUpdateOrganizationHandleRequestData;
   /**
    * Organization handle resource type.
-   */
+  */
   "type": GoogleChatOrganizationHandleType;
 
   /**
@@ -26,7 +31,7 @@ export class GoogleChatUpdateOrganizationHandleRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class GoogleChatUpdateOrganizationHandleRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "GoogleChatUpdateOrganizationHandleRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "GoogleChatUpdateOrganizationHandleRequestData",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "GoogleChatOrganizationHandleType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "GoogleChatOrganizationHandleType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class GoogleChatUpdateOrganizationHandleRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GoogleChatUpdateOrganizationHandleRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

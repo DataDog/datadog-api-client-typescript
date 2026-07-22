@@ -6,23 +6,28 @@
 import { SnapshotUpdateRequestDataAttributes } from "./SnapshotUpdateRequestDataAttributes";
 import { SnapshotUpdateRequestDataType } from "./SnapshotUpdateRequestDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for a heatmap snapshot update request, containing the resource identifier, type, and attributes.
- */
+*/
 export class SnapshotUpdateRequestData {
   /**
    * Attributes for updating a heatmap snapshot, including event, session, and view context.
-   */
+  */
   "attributes"?: SnapshotUpdateRequestDataAttributes;
   /**
    * Unique identifier of the heatmap snapshot to update.
-   */
+  */
   "id"?: string;
   /**
    * Snapshots resource type.
-   */
+  */
   "type": SnapshotUpdateRequestDataType;
 
   /**
@@ -30,7 +35,7 @@ export class SnapshotUpdateRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class SnapshotUpdateRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SnapshotUpdateRequestDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SnapshotUpdateRequestDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SnapshotUpdateRequestDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SnapshotUpdateRequestDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class SnapshotUpdateRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SnapshotUpdateRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

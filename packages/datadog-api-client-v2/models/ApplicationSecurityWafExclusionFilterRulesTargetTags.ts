@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Target multiple WAF rules based on their tags.
- */
+*/
 export class ApplicationSecurityWafExclusionFilterRulesTargetTags {
   /**
    * The category of the targeted WAF rules.
-   */
+  */
   "category"?: string;
   /**
    * The type of the targeted WAF rules.
-   */
+  */
   "type"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class ApplicationSecurityWafExclusionFilterRulesTargetTags {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: string };
+  "additionalProperties"?: { [key: string]: string; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class ApplicationSecurityWafExclusionFilterRulesTargetTags {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    category: {
-      baseName: "category",
-      type: "string",
+    "category": {
+      "baseName": "category",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class ApplicationSecurityWafExclusionFilterRulesTargetTags {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ApplicationSecurityWafExclusionFilterRulesTargetTags.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

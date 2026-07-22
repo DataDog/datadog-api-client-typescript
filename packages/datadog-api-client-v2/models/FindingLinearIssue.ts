@@ -5,23 +5,28 @@
  */
 import { FindingLinearIssueResult } from "./FindingLinearIssueResult";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Linear issue associated with the case.
- */
+*/
 export class FindingLinearIssue {
   /**
    * Error message if the Linear issue creation failed.
-   */
+  */
   "errorMessage"?: string;
   /**
    * Result of the Linear issue creation.
-   */
+  */
   "result"?: FindingLinearIssueResult;
   /**
    * Status of the Linear issue creation. Can be "COMPLETED" if the Linear issue was created successfully, or "FAILED" if the Linear issue creation failed.
-   */
+  */
   "status"?: string;
 
   /**
@@ -29,7 +34,7 @@ export class FindingLinearIssue {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,17 +45,17 @@ export class FindingLinearIssue {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    errorMessage: {
-      baseName: "error_message",
-      type: "string",
+    "errorMessage": {
+      "baseName": "error_message",
+      "type": "string",
     },
-    result: {
-      baseName: "result",
-      type: "FindingLinearIssueResult",
+    "result": {
+      "baseName": "result",
+      "type": "FindingLinearIssueResult",
     },
-    status: {
-      baseName: "status",
-      type: "string",
+    "status": {
+      "baseName": "status",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class FindingLinearIssue {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FindingLinearIssue.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

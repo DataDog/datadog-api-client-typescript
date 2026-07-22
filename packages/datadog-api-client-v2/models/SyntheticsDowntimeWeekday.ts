@@ -4,25 +4,22 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A day of the week for a Synthetics downtime recurrence.
- */
+*/
 
-export type SyntheticsDowntimeWeekday =
-  | typeof MONDAY
-  | typeof TUESDAY
-  | typeof WEDNESDAY
-  | typeof THURSDAY
-  | typeof FRIDAY
-  | typeof SATURDAY
-  | typeof SUNDAY
-  | UnparsedObject;
-export const MONDAY = "MO";
-export const TUESDAY = "TU";
-export const WEDNESDAY = "WE";
-export const THURSDAY = "TH";
-export const FRIDAY = "FR";
-export const SATURDAY = "SA";
-export const SUNDAY = "SU";
+export type SyntheticsDowntimeWeekday = typeof MONDAY| typeof TUESDAY| typeof WEDNESDAY| typeof THURSDAY| typeof FRIDAY| typeof SATURDAY| typeof SUNDAY | UnparsedObject;
+export const MONDAY = 'MO';
+export const TUESDAY = 'TU';
+export const WEDNESDAY = 'WE';
+export const THURSDAY = 'TH';
+export const FRIDAY = 'FR';
+export const SATURDAY = 'SA';
+export const SUNDAY = 'SU';

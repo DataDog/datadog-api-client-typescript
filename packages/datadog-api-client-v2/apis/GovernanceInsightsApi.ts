@@ -1,13 +1,12 @@
-import { BaseAPIRequestFactory } from "../../datadog-api-client-common/baseapi";
-import {
-  Configuration,
-  applySecurityAuthentication,
-} from "../../datadog-api-client-common/configuration";
+import { BaseAPIRequestFactory, RequiredError } from "../../datadog-api-client-common/baseapi";
+import { Configuration,
+  applySecurityAuthentication,} from "../../datadog-api-client-common/configuration";
 import {
   RequestContext,
   HttpMethod,
   ResponseContext,
-} from "../../datadog-api-client-common/http/http";
+    
+  } from "../../datadog-api-client-common/http/http";
 
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
@@ -18,56 +17,40 @@ import { GovernanceInsightsResponse } from "../models/GovernanceInsightsResponse
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 
 export class GovernanceInsightsApiRequestFactory extends BaseAPIRequestFactory {
-  public async listGovernanceInsights(
-    withValues?: boolean,
-    orgUuid?: string,
-    filterProduct?: Array<string>,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+
+  public async listGovernanceInsights(withValues?: boolean,orgUuid?: string,filterProduct?: Array<string>,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'listGovernanceInsights'");
-    if (!_config.unstableOperations["v2.listGovernanceInsights"]) {
-      throw new Error(
-        "Unstable operation 'listGovernanceInsights' is disabled"
-      );
+    if (!_config.unstableOperations['v2.listGovernanceInsights']) {
+      throw new Error("Unstable operation 'listGovernanceInsights' is disabled");
     }
 
     // Path Params
-    const localVarPath = "/api/v2/governance/insights";
+    const localVarPath = '/api/v2/governance/insights';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.GovernanceInsightsApi.listGovernanceInsights")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.GovernanceInsightsApi.listGovernanceInsights').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
-    if (withValues !== undefined) {
-      requestContext.setQueryParam(
-        "withValues",
-        ObjectSerializer.serialize(withValues, "boolean", ""),
-        ""
-      );
+  if (withValues !== undefined) {
+      requestContext.setQueryParam("withValues", ObjectSerializer.serialize(withValues, "boolean", ""
+), "");
     }
-    if (orgUuid !== undefined) {
-      requestContext.setQueryParam(
-        "orgUuid",
-        ObjectSerializer.serialize(orgUuid, "string", ""),
-        ""
-      );
+  if (orgUuid !== undefined) {
+      requestContext.setQueryParam("orgUuid", ObjectSerializer.serialize(orgUuid, "string", ""
+), "");
     }
-    if (filterProduct !== undefined) {
-      requestContext.setQueryParam(
-        "filter[product]",
-        ObjectSerializer.serialize(filterProduct, "Array<string>", ""),
-        "multi"
-      );
+  if (filterProduct !== undefined) {
+      requestContext.setQueryParam("filter[product]", ObjectSerializer.serialize(filterProduct, "Array<string>", ""
+), "multi");
     }
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -77,6 +60,8 @@ export class GovernanceInsightsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class GovernanceInsightsApiResponseProcessor {
+
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -84,12 +69,8 @@ export class GovernanceInsightsApiResponseProcessor {
    * @params response Response returned by the server for a request to listGovernanceInsights
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listGovernanceInsights(
-    response: ResponseContext
-  ): Promise<GovernanceInsightsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async listGovernanceInsights(response: ResponseContext): Promise<GovernanceInsightsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: GovernanceInsightsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -97,15 +78,8 @@ export class GovernanceInsightsApiResponseProcessor {
       ) as GovernanceInsightsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 401 ||
-      response.httpStatusCode === 403
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 401||response.httpStatusCode === 403) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -114,21 +88,12 @@ export class GovernanceInsightsApiResponseProcessor {
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -137,29 +102,23 @@ export class GovernanceInsightsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GovernanceInsightsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "GovernanceInsightsResponse",
-        ""
+        "",
       ) as GovernanceInsightsResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 }
 
@@ -169,20 +128,20 @@ export interface GovernanceInsightsApiListGovernanceInsightsRequest {
    * Defaults to `false`, in which case only insight metadata is returned.
    * @type boolean
    */
-  withValues?: boolean;
+  withValues?: boolean
   /**
    * The UUID of the organization to compute insights for. Defaults to the organization of
    * the authenticated user. Used to retrieve insights for a child organization from a
    * parent organization.
    * @type string
    */
-  orgUuid?: string;
+  orgUuid?: string
   /**
    * Restrict the results to insights belonging to the given products. May be repeated to
    * filter by multiple products. Matching is case-insensitive.
    * @type Array<string>
    */
-  filterProduct?: Array<string>;
+  filterProduct?: Array<string>
 }
 
 export class GovernanceInsightsApi {
@@ -190,16 +149,10 @@ export class GovernanceInsightsApi {
   private responseProcessor: GovernanceInsightsApiResponseProcessor;
   private configuration: Configuration;
 
-  public constructor(
-    configuration: Configuration,
-    requestFactory?: GovernanceInsightsApiRequestFactory,
-    responseProcessor?: GovernanceInsightsApiResponseProcessor
-  ) {
+  public constructor(configuration: Configuration, requestFactory?: GovernanceInsightsApiRequestFactory, responseProcessor?: GovernanceInsightsApiResponseProcessor) {
     this.configuration = configuration;
-    this.requestFactory =
-      requestFactory || new GovernanceInsightsApiRequestFactory(configuration);
-    this.responseProcessor =
-      responseProcessor || new GovernanceInsightsApiResponseProcessor();
+    this.requestFactory = requestFactory || new GovernanceInsightsApiRequestFactory(configuration);
+    this.responseProcessor = responseProcessor || new GovernanceInsightsApiResponseProcessor();
   }
 
   /**
@@ -208,21 +161,11 @@ export class GovernanceInsightsApi {
    * insight's current and previous values. Insights can be filtered by product.
    * @param param The request object
    */
-  public listGovernanceInsights(
-    param: GovernanceInsightsApiListGovernanceInsightsRequest = {},
-    options?: Configuration
-  ): Promise<GovernanceInsightsResponse> {
-    const requestContextPromise = this.requestFactory.listGovernanceInsights(
-      param.withValues,
-      param.orgUuid,
-      param.filterProduct,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.listGovernanceInsights(responseContext);
+  public listGovernanceInsights(param: GovernanceInsightsApiListGovernanceInsightsRequest = {}, options?: Configuration): Promise<GovernanceInsightsResponse> {
+    const requestContextPromise = this.requestFactory.listGovernanceInsights(param.withValues,param.orgUuid,param.filterProduct,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.listGovernanceInsights(responseContext);
         });
     });
   }

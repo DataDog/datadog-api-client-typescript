@@ -5,19 +5,24 @@
  */
 import { CommitmentsTimeseriesMetric } from "./CommitmentsTimeseriesMetric";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing timeseries coverage metrics for cloud commitment programs.
- */
+*/
 export class CommitmentsCoverageTimeseriesResponse {
   /**
    * A timeseries metric containing timestamps, series values, and optional unit metadata.
-   */
+  */
   "cost": CommitmentsTimeseriesMetric;
   /**
    * A timeseries metric containing timestamps, series values, and optional unit metadata.
-   */
+  */
   "hours": CommitmentsTimeseriesMetric;
 
   /**
@@ -25,7 +30,7 @@ export class CommitmentsCoverageTimeseriesResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class CommitmentsCoverageTimeseriesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    cost: {
-      baseName: "cost",
-      type: "CommitmentsTimeseriesMetric",
-      required: true,
+    "cost": {
+      "baseName": "cost",
+      "type": "CommitmentsTimeseriesMetric",
+      "required": true,
     },
-    hours: {
-      baseName: "hours",
-      type: "CommitmentsTimeseriesMetric",
-      required: true,
+    "hours": {
+      "baseName": "hours",
+      "type": "CommitmentsTimeseriesMetric",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class CommitmentsCoverageTimeseriesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CommitmentsCoverageTimeseriesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

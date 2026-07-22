@@ -6,27 +6,32 @@
 import { ProductAnalyticsScalarColumnMeta } from "./ProductAnalyticsScalarColumnMeta";
 import { ProductAnalyticsScalarColumnType } from "./ProductAnalyticsScalarColumnType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A column in a scalar response.
- */
+*/
 export class ProductAnalyticsScalarColumn {
   /**
    * Metadata associated with a scalar response column, including optional unit information.
-   */
+  */
   "meta"?: ProductAnalyticsScalarColumnMeta;
   /**
    * Column name (facet name for group-by, or "query").
-   */
+  */
   "name"?: string;
   /**
    * Column type.
-   */
+  */
   "type"?: ProductAnalyticsScalarColumnType;
   /**
    * Column values.
-   */
+  */
   "values"?: Array<any>;
 
   /**
@@ -34,7 +39,7 @@ export class ProductAnalyticsScalarColumn {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -45,21 +50,21 @@ export class ProductAnalyticsScalarColumn {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    meta: {
-      baseName: "meta",
-      type: "ProductAnalyticsScalarColumnMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "ProductAnalyticsScalarColumnMeta",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "ProductAnalyticsScalarColumnType",
+    "type": {
+      "baseName": "type",
+      "type": "ProductAnalyticsScalarColumnType",
     },
-    values: {
-      baseName: "values",
-      type: "Array<any>",
+    "values": {
+      "baseName": "values",
+      "type": "Array<any>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,8 +76,34 @@ export class ProductAnalyticsScalarColumn {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProductAnalyticsScalarColumn.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

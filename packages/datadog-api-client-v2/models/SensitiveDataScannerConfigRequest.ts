@@ -6,19 +6,24 @@
 import { SensitiveDataScannerMetaVersionOnly } from "./SensitiveDataScannerMetaVersionOnly";
 import { SensitiveDataScannerReorderConfig } from "./SensitiveDataScannerReorderConfig";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Group reorder request.
- */
+*/
 export class SensitiveDataScannerConfigRequest {
   /**
    * Data related to the reordering of scanning groups.
-   */
+  */
   "data": SensitiveDataScannerReorderConfig;
   /**
    * Meta payload containing information about the API.
-   */
+  */
   "meta": SensitiveDataScannerMetaVersionOnly;
 
   /**
@@ -26,7 +31,7 @@ export class SensitiveDataScannerConfigRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class SensitiveDataScannerConfigRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SensitiveDataScannerReorderConfig",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "SensitiveDataScannerReorderConfig",
+      "required": true,
     },
-    meta: {
-      baseName: "meta",
-      type: "SensitiveDataScannerMetaVersionOnly",
-      required: true,
+    "meta": {
+      "baseName": "meta",
+      "type": "SensitiveDataScannerMetaVersionOnly",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class SensitiveDataScannerConfigRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SensitiveDataScannerConfigRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

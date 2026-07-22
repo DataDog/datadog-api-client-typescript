@@ -5,23 +5,28 @@
  */
 import { InvestigationConclusion } from "./InvestigationConclusion";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of the investigation.
- */
+*/
 export class GetInvestigationResponseDataAttributes {
   /**
    * The conclusions drawn from the investigation.
-   */
+  */
   "conclusions": Array<InvestigationConclusion>;
   /**
    * The current status of the investigation.
-   */
+  */
   "status": string;
   /**
    * The title of the investigation.
-   */
+  */
   "title": string;
 
   /**
@@ -29,7 +34,7 @@ export class GetInvestigationResponseDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,20 +45,20 @@ export class GetInvestigationResponseDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    conclusions: {
-      baseName: "conclusions",
-      type: "Array<InvestigationConclusion>",
-      required: true,
+    "conclusions": {
+      "baseName": "conclusions",
+      "type": "Array<InvestigationConclusion>",
+      "required": true,
     },
-    status: {
-      baseName: "status",
-      type: "string",
-      required: true,
+    "status": {
+      "baseName": "status",
+      "type": "string",
+      "required": true,
     },
-    title: {
-      baseName: "title",
-      type: "string",
-      required: true,
+    "title": {
+      "baseName": "title",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class GetInvestigationResponseDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GetInvestigationResponseDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

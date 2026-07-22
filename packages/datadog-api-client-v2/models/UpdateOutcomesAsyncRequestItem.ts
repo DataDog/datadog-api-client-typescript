@@ -5,27 +5,32 @@
  */
 import { State } from "./State";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Scorecard outcome for a single entity and rule.
- */
+*/
 export class UpdateOutcomesAsyncRequestItem {
   /**
    * The unique reference for an IDP entity.
-   */
+  */
   "entityReference": string;
   /**
    * Any remarks regarding the scorecard rule's evaluation. Supports HTML hyperlinks.
-   */
+  */
   "remarks"?: string;
   /**
    * The unique ID for a scorecard rule.
-   */
+  */
   "ruleId": string;
   /**
    * The state of the rule evaluation.
-   */
+  */
   "state": State;
 
   /**
@@ -33,7 +38,7 @@ export class UpdateOutcomesAsyncRequestItem {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -44,24 +49,24 @@ export class UpdateOutcomesAsyncRequestItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    entityReference: {
-      baseName: "entity_reference",
-      type: "string",
-      required: true,
+    "entityReference": {
+      "baseName": "entity_reference",
+      "type": "string",
+      "required": true,
     },
-    remarks: {
-      baseName: "remarks",
-      type: "string",
+    "remarks": {
+      "baseName": "remarks",
+      "type": "string",
     },
-    ruleId: {
-      baseName: "rule_id",
-      type: "string",
-      required: true,
+    "ruleId": {
+      "baseName": "rule_id",
+      "type": "string",
+      "required": true,
     },
-    state: {
-      baseName: "state",
-      type: "State",
-      required: true,
+    "state": {
+      "baseName": "state",
+      "type": "State",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -73,8 +78,34 @@ export class UpdateOutcomesAsyncRequestItem {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateOutcomesAsyncRequestItem.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

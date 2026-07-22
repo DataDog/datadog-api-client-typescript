@@ -4,25 +4,30 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Result of updating a single flaky test state.
- */
+*/
 export class UpdateFlakyTestsResponseResult {
   /**
    * Error message if the update failed.
-   */
+  */
   "error"?: string;
   /**
    * The ID of the flaky test from the request. This is the value of the `@test.fingerprint_fqn` facet
    * on test events, the same ID accepted by the update request and returned by the Search flaky tests
    * endpoint.
-   */
+  */
   "id": string;
   /**
    * `True` if the update was successful, `False` if there were any errors.
-   */
+  */
   "success": boolean;
 
   /**
@@ -30,7 +35,7 @@ export class UpdateFlakyTestsResponseResult {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class UpdateFlakyTestsResponseResult {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    error: {
-      baseName: "error",
-      type: "string",
+    "error": {
+      "baseName": "error",
+      "type": "string",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    success: {
-      baseName: "success",
-      type: "boolean",
-      required: true,
+    "success": {
+      "baseName": "success",
+      "type": "boolean",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class UpdateFlakyTestsResponseResult {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateFlakyTestsResponseResult.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

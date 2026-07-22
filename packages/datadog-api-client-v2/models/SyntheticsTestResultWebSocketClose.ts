@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * WebSocket close frame information for WebSocket test responses.
- */
+*/
 export class SyntheticsTestResultWebSocketClose {
   /**
    * Reason string received in the close frame.
-   */
+  */
   "reason"?: string;
   /**
    * Status code received in the close frame.
-   */
+  */
   "statusCode"?: number;
 
   /**
@@ -24,7 +29,7 @@ export class SyntheticsTestResultWebSocketClose {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,14 +40,14 @@ export class SyntheticsTestResultWebSocketClose {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    reason: {
-      baseName: "reason",
-      type: "string",
+    "reason": {
+      "baseName": "reason",
+      "type": "string",
     },
-    statusCode: {
-      baseName: "status_code",
-      type: "number",
-      format: "int64",
+    "statusCode": {
+      "baseName": "status_code",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class SyntheticsTestResultWebSocketClose {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultWebSocketClose.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

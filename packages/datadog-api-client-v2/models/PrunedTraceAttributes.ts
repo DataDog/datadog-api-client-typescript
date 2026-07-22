@@ -5,24 +5,29 @@
  */
 import { SummarizedTrace } from "./SummarizedTrace";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes of a pruned trace returned by the Get pruned trace by ID endpoint.
- */
+*/
 export class PrunedTraceAttributes {
   /**
    * Indicates whether the underlying trace was truncated because its size
    * exceeded the maximum that can be retrieved from storage.
-   */
+  */
   "isTruncated": boolean;
   /**
    * The size, in bytes, of the original (non-pruned) trace before summarization.
-   */
+  */
   "sizeBytes": number;
   /**
    * A summarized, hierarchical view of a trace.
-   */
+  */
   "summarizedTrace": SummarizedTrace;
 
   /**
@@ -30,7 +35,7 @@ export class PrunedTraceAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,21 +46,21 @@ export class PrunedTraceAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    isTruncated: {
-      baseName: "is_truncated",
-      type: "boolean",
-      required: true,
+    "isTruncated": {
+      "baseName": "is_truncated",
+      "type": "boolean",
+      "required": true,
     },
-    sizeBytes: {
-      baseName: "size_bytes",
-      type: "number",
-      required: true,
-      format: "int32",
+    "sizeBytes": {
+      "baseName": "size_bytes",
+      "type": "number",
+      "required": true,
+      "format": "int32",
     },
-    summarizedTrace: {
-      baseName: "summarized_trace",
-      type: "SummarizedTrace",
-      required: true,
+    "summarizedTrace": {
+      "baseName": "summarized_trace",
+      "type": "SummarizedTrace",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class PrunedTraceAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PrunedTraceAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

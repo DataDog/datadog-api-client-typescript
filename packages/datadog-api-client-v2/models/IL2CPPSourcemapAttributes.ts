@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of an IL2CPP mapping file.
- */
+*/
 export class IL2CPPSourcemapAttributes {
   /**
    * The build identifier (UUID format).
-   */
+  */
   "buildId"?: string;
   /**
    * The timestamp when the mapping file was created.
-   */
+  */
   "createdAt": Date;
   /**
    * The type of source map.
-   */
+  */
   "mapkind": string;
   /**
    * The size of the mapping file in bytes.
-   */
+  */
   "size": number;
 
   /**
@@ -32,7 +37,7 @@ export class IL2CPPSourcemapAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,26 +48,26 @@ export class IL2CPPSourcemapAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    buildId: {
-      baseName: "build_id",
-      type: "string",
+    "buildId": {
+      "baseName": "build_id",
+      "type": "string",
     },
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    mapkind: {
-      baseName: "mapkind",
-      type: "string",
-      required: true,
+    "mapkind": {
+      "baseName": "mapkind",
+      "type": "string",
+      "required": true,
     },
-    size: {
-      baseName: "size",
-      type: "number",
-      required: true,
-      format: "int64",
+    "size": {
+      "baseName": "size",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,8 +79,34 @@ export class IL2CPPSourcemapAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IL2CPPSourcemapAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

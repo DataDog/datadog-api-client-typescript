@@ -5,15 +5,20 @@
  */
 import { ObservabilityPipelineSocketSourceFramingOctetCountingMethod } from "./ObservabilityPipelineSocketSourceFramingOctetCountingMethod";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Byte frames according to the octet counting format as per RFC6587.
- */
+*/
 export class ObservabilityPipelineSocketSourceFramingOctetCounting {
   /**
    * Byte frames according to the octet counting format as per RFC6587.
-   */
+  */
   "method": ObservabilityPipelineSocketSourceFramingOctetCountingMethod;
 
   /**
@@ -21,7 +26,7 @@ export class ObservabilityPipelineSocketSourceFramingOctetCounting {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class ObservabilityPipelineSocketSourceFramingOctetCounting {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    method: {
-      baseName: "method",
-      type: "ObservabilityPipelineSocketSourceFramingOctetCountingMethod",
-      required: true,
+    "method": {
+      "baseName": "method",
+      "type": "ObservabilityPipelineSocketSourceFramingOctetCountingMethod",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class ObservabilityPipelineSocketSourceFramingOctetCounting {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineSocketSourceFramingOctetCounting.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

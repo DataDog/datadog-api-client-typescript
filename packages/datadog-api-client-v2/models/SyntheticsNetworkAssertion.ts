@@ -8,15 +8,15 @@ import { SyntheticsNetworkAssertionLatency } from "./SyntheticsNetworkAssertionL
 import { SyntheticsNetworkAssertionMultiNetworkHop } from "./SyntheticsNetworkAssertionMultiNetworkHop";
 import { SyntheticsNetworkAssertionPacketLossPercentage } from "./SyntheticsNetworkAssertionPacketLossPercentage";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Object describing an assertion for a Network Path test.
- */
+*/
 
-export type SyntheticsNetworkAssertion =
-  | SyntheticsNetworkAssertionLatency
-  | SyntheticsNetworkAssertionMultiNetworkHop
-  | SyntheticsNetworkAssertionPacketLossPercentage
-  | SyntheticsNetworkAssertionJitter
-  | UnparsedObject;
+export type SyntheticsNetworkAssertion = SyntheticsNetworkAssertionLatency | SyntheticsNetworkAssertionMultiNetworkHop | SyntheticsNetworkAssertionPacketLossPercentage | SyntheticsNetworkAssertionJitter | UnparsedObject;

@@ -5,15 +5,20 @@
  */
 import { StatusPageAsIncludedRelationshipsCreatedByUserData } from "./StatusPageAsIncludedRelationshipsCreatedByUserData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The Datadog user who created the status page.
- */
+*/
 export class StatusPageAsIncludedRelationshipsCreatedByUser {
   /**
    * The data object identifying the Datadog user who created the status page.
-   */
+  */
   "data": StatusPageAsIncludedRelationshipsCreatedByUserData;
 
   /**
@@ -21,7 +26,7 @@ export class StatusPageAsIncludedRelationshipsCreatedByUser {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class StatusPageAsIncludedRelationshipsCreatedByUser {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "StatusPageAsIncludedRelationshipsCreatedByUserData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "StatusPageAsIncludedRelationshipsCreatedByUserData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class StatusPageAsIncludedRelationshipsCreatedByUser {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return StatusPageAsIncludedRelationshipsCreatedByUser.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

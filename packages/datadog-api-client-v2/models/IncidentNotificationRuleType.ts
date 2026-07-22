@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Notification rules resource type.
- */
+*/
 
-export type IncidentNotificationRuleType =
-  | typeof INCIDENT_NOTIFICATION_RULES
-  | UnparsedObject;
-export const INCIDENT_NOTIFICATION_RULES = "incident_notification_rules";
+export type IncidentNotificationRuleType = typeof INCIDENT_NOTIFICATION_RULES | UnparsedObject;
+export const INCIDENT_NOTIFICATION_RULES = 'incident_notification_rules';

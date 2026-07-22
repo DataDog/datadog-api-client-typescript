@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metadata returned with a list of datasets.
- */
+*/
 export class SecurityMonitoringDatasetsListMeta {
   /**
    * The total number of datasets matching the request, across all pages.
-   */
+  */
   "totalCount": number;
 
   /**
@@ -20,7 +25,7 @@ export class SecurityMonitoringDatasetsListMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,11 +36,11 @@ export class SecurityMonitoringDatasetsListMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    totalCount: {
-      baseName: "totalCount",
-      type: "number",
-      required: true,
-      format: "int64",
+    "totalCount": {
+      "baseName": "totalCount",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class SecurityMonitoringDatasetsListMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringDatasetsListMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

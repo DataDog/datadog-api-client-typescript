@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The `AWSNamespacesResponseData` `type`.
- */
+*/
 
 export type AWSNamespacesResponseDataType = typeof NAMESPACES | UnparsedObject;
-export const NAMESPACES = "namespaces";
+export const NAMESPACES = 'namespaces';

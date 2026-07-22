@@ -5,15 +5,20 @@
  */
 import { DataExportConfig } from "./DataExportConfig";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * AWS Cloud Cost Management config.
- */
+*/
 export class AWSCcmConfig {
   /**
    * List of data export configurations for Cost and Usage Reports.
-   */
+  */
   "dataExportConfigs": Array<DataExportConfig>;
 
   /**
@@ -21,7 +26,7 @@ export class AWSCcmConfig {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class AWSCcmConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    dataExportConfigs: {
-      baseName: "data_export_configs",
-      type: "Array<DataExportConfig>",
-      required: true,
+    "dataExportConfigs": {
+      "baseName": "data_export_configs",
+      "type": "Array<DataExportConfig>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class AWSCcmConfig {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSCcmConfig.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

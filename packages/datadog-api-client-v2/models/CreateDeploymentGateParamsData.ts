@@ -6,19 +6,24 @@
 import { CreateDeploymentGateParamsDataAttributes } from "./CreateDeploymentGateParamsDataAttributes";
 import { DeploymentGateDataType } from "./DeploymentGateDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Parameters for creating a deployment gate.
- */
+*/
 export class CreateDeploymentGateParamsData {
   /**
    * Parameters for creating a deployment gate.
-   */
+  */
   "attributes": CreateDeploymentGateParamsDataAttributes;
   /**
    * Deployment gate resource type.
-   */
+  */
   "type": DeploymentGateDataType;
 
   /**
@@ -26,7 +31,7 @@ export class CreateDeploymentGateParamsData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class CreateDeploymentGateParamsData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CreateDeploymentGateParamsDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CreateDeploymentGateParamsDataAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "DeploymentGateDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "DeploymentGateDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class CreateDeploymentGateParamsData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateDeploymentGateParamsData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

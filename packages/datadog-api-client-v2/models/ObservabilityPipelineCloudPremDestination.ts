@@ -7,37 +7,42 @@ import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBuffe
 import { ObservabilityPipelineCloudPremDestinationType } from "./ObservabilityPipelineCloudPremDestinationType";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The `cloud_prem` destination sends logs to Datadog CloudPrem.
- *
+ * 
  * **Supported pipeline types:** logs
- */
+*/
 export class ObservabilityPipelineCloudPremDestination {
   /**
    * Configuration for buffer settings on destination components.
-   */
+  */
   "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * Name of the environment variable or secret that holds the CloudPrem endpoint URL.
-   */
+  */
   "endpointUrlKey"?: string;
   /**
    * The unique identifier for this component.
-   */
+  */
   "id": string;
   /**
    * A list of component IDs whose output is used as the `input` for this component.
-   */
+  */
   "inputs": Array<string>;
   /**
    * Configuration for enabling TLS encryption between the pipeline component and external services.
-   */
+  */
   "tls"?: ObservabilityPipelineTls;
   /**
    * The destination type. The value should always be `cloud_prem`.
-   */
+  */
   "type": ObservabilityPipelineCloudPremDestinationType;
 
   /**
@@ -45,7 +50,7 @@ export class ObservabilityPipelineCloudPremDestination {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -56,32 +61,32 @@ export class ObservabilityPipelineCloudPremDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    buffer: {
-      baseName: "buffer",
-      type: "ObservabilityPipelineBufferOptions",
+    "buffer": {
+      "baseName": "buffer",
+      "type": "ObservabilityPipelineBufferOptions",
     },
-    endpointUrlKey: {
-      baseName: "endpoint_url_key",
-      type: "string",
+    "endpointUrlKey": {
+      "baseName": "endpoint_url_key",
+      "type": "string",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    inputs: {
-      baseName: "inputs",
-      type: "Array<string>",
-      required: true,
+    "inputs": {
+      "baseName": "inputs",
+      "type": "Array<string>",
+      "required": true,
     },
-    tls: {
-      baseName: "tls",
-      type: "ObservabilityPipelineTls",
+    "tls": {
+      "baseName": "tls",
+      "type": "ObservabilityPipelineTls",
     },
-    type: {
-      baseName: "type",
-      type: "ObservabilityPipelineCloudPremDestinationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ObservabilityPipelineCloudPremDestinationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -93,8 +98,34 @@ export class ObservabilityPipelineCloudPremDestination {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineCloudPremDestination.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,19 +6,24 @@
 import { AnthropicCredentials } from "./AnthropicCredentials";
 import { AnthropicIntegrationType } from "./AnthropicIntegrationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `AnthropicIntegration` object.
- */
+*/
 export class AnthropicIntegration {
   /**
    * The definition of the `AnthropicCredentials` object.
-   */
+  */
   "credentials": AnthropicCredentials;
   /**
    * The definition of the `AnthropicIntegrationType` object.
-   */
+  */
   "type": AnthropicIntegrationType;
 
   /**
@@ -26,7 +31,7 @@ export class AnthropicIntegration {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class AnthropicIntegration {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    credentials: {
-      baseName: "credentials",
-      type: "AnthropicCredentials",
-      required: true,
+    "credentials": {
+      "baseName": "credentials",
+      "type": "AnthropicCredentials",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "AnthropicIntegrationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AnthropicIntegrationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class AnthropicIntegration {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AnthropicIntegration.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,13 +6,15 @@
 import { CloudflareAPIToken } from "./CloudflareAPIToken";
 import { CloudflareGlobalAPIToken } from "./CloudflareGlobalAPIToken";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of the `CloudflareCredentials` object.
- */
+*/
 
-export type CloudflareCredentials =
-  | CloudflareAPIToken
-  | CloudflareGlobalAPIToken
-  | UnparsedObject;
+export type CloudflareCredentials = CloudflareAPIToken | CloudflareGlobalAPIToken | UnparsedObject;

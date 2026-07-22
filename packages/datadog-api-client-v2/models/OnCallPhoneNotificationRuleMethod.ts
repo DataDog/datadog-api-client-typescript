@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Specifies the method in which a phone is used in a notification rule
- */
+*/
 
-export type OnCallPhoneNotificationRuleMethod =
-  | typeof SMS
-  | typeof VOICE
-  | UnparsedObject;
-export const SMS = "sms";
-export const VOICE = "voice";
+export type OnCallPhoneNotificationRuleMethod = typeof SMS| typeof VOICE | UnparsedObject;
+export const SMS = 'sms';
+export const VOICE = 'voice';

@@ -7,23 +7,28 @@ import { EntityData } from "./EntityData";
 import { EntityResponseMeta } from "./EntityResponseMeta";
 import { UpsertCatalogEntityResponseIncludedItem } from "./UpsertCatalogEntityResponseIncludedItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Upsert entity response.
- */
+*/
 export class UpsertCatalogEntityResponse {
   /**
    * List of entity data.
-   */
+  */
   "data"?: Array<EntityData>;
   /**
    * Upsert entity response included.
-   */
+  */
   "included"?: Array<UpsertCatalogEntityResponseIncludedItem>;
   /**
    * Entity metadata.
-   */
+  */
   "meta"?: EntityResponseMeta;
 
   /**
@@ -31,7 +36,7 @@ export class UpsertCatalogEntityResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,17 +47,17 @@ export class UpsertCatalogEntityResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<EntityData>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<EntityData>",
     },
-    included: {
-      baseName: "included",
-      type: "Array<UpsertCatalogEntityResponseIncludedItem>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<UpsertCatalogEntityResponseIncludedItem>",
     },
-    meta: {
-      baseName: "meta",
-      type: "EntityResponseMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "EntityResponseMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class UpsertCatalogEntityResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpsertCatalogEntityResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

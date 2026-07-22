@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `EntityV3APISpecInterfaceFileRef` object.
- */
+*/
 export class EntityV3APISpecInterfaceFileRef {
   /**
    * The reference to the API definition file.
-   */
+  */
   "fileRef"?: string;
 
   /**
@@ -24,18 +29,44 @@ export class EntityV3APISpecInterfaceFileRef {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    fileRef: {
-      baseName: "fileRef",
-      type: "string",
-    },
+    "fileRef": {
+      "baseName": "fileRef",
+      "type": "string",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EntityV3APISpecInterfaceFileRef.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

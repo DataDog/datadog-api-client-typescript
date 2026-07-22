@@ -6,19 +6,24 @@
 import { SyntheticsTestFileMultipartPresignedUrlsPart } from "./SyntheticsTestFileMultipartPresignedUrlsPart";
 import { SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix } from "./SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request body for getting presigned URLs for a multipart file upload.
- */
+*/
 export class SyntheticsTestFileMultipartPresignedUrlsRequest {
   /**
    * The bucket key prefix indicating the type of file upload.
-   */
+  */
   "bucketKeyPrefix": SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix;
   /**
    * Array of part descriptors for the multipart upload.
-   */
+  */
   "parts": Array<SyntheticsTestFileMultipartPresignedUrlsPart>;
 
   /**
@@ -26,7 +31,7 @@ export class SyntheticsTestFileMultipartPresignedUrlsRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class SyntheticsTestFileMultipartPresignedUrlsRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    bucketKeyPrefix: {
-      baseName: "bucketKeyPrefix",
-      type: "SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix",
-      required: true,
+    "bucketKeyPrefix": {
+      "baseName": "bucketKeyPrefix",
+      "type": "SyntheticsTestFileMultipartPresignedUrlsRequestBucketKeyPrefix",
+      "required": true,
     },
-    parts: {
-      baseName: "parts",
-      type: "Array<SyntheticsTestFileMultipartPresignedUrlsPart>",
-      required: true,
+    "parts": {
+      "baseName": "parts",
+      "type": "Array<SyntheticsTestFileMultipartPresignedUrlsPart>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class SyntheticsTestFileMultipartPresignedUrlsRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestFileMultipartPresignedUrlsRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

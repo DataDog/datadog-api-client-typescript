@@ -6,23 +6,28 @@
 import { CustomAttributeConfigResourceAttributes } from "./CustomAttributeConfigResourceAttributes";
 import { CustomAttributeConfigResourceType } from "./CustomAttributeConfigResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A custom attribute configuration that defines an organization-specific metadata field on cases. Custom attributes are scoped to a case type and can hold text, URLs, numbers, or predefined select options.
- */
+*/
 export class CustomAttributeConfig {
   /**
    * Attributes of a custom attribute configuration, defining an organization-specific metadata field that can be added to cases of a given type.
-   */
+  */
   "attributes"?: CustomAttributeConfigResourceAttributes;
   /**
    * Custom attribute configs identifier
-   */
+  */
   "id"?: string;
   /**
    * JSON:API resource type for custom attribute configurations.
-   */
+  */
   "type"?: CustomAttributeConfigResourceType;
 
   /**
@@ -30,7 +35,7 @@ export class CustomAttributeConfig {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class CustomAttributeConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CustomAttributeConfigResourceAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CustomAttributeConfigResourceAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "CustomAttributeConfigResourceType",
+    "type": {
+      "baseName": "type",
+      "type": "CustomAttributeConfigResourceType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class CustomAttributeConfig {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomAttributeConfig.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,19 +6,24 @@
 import { IssuesSearchResult } from "./IssuesSearchResult";
 import { IssuesSearchResultIncluded } from "./IssuesSearchResultIncluded";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Search issues response payload.
- */
+*/
 export class IssuesSearchResponse {
   /**
    * Array of results matching the search query.
-   */
+  */
   "data"?: Array<IssuesSearchResult>;
   /**
    * Array of resources related to the search results.
-   */
+  */
   "included"?: Array<IssuesSearchResultIncluded>;
 
   /**
@@ -26,7 +31,7 @@ export class IssuesSearchResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class IssuesSearchResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<IssuesSearchResult>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<IssuesSearchResult>",
     },
-    included: {
-      baseName: "included",
-      type: "Array<IssuesSearchResultIncluded>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<IssuesSearchResultIncluded>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class IssuesSearchResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IssuesSearchResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,21 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Describes the relationship between the span, its parents, and its children in a trace.
- */
+*/
 
-export type FormulaAndFunctionApmMetricsSpanKind =
-  | typeof CONSUMER
-  | typeof SERVER
-  | typeof CLIENT
-  | typeof PRODUCER
-  | typeof INTERNAL
-  | UnparsedObject;
-export const CONSUMER = "consumer";
-export const SERVER = "server";
-export const CLIENT = "client";
-export const PRODUCER = "producer";
-export const INTERNAL = "internal";
+export type FormulaAndFunctionApmMetricsSpanKind = typeof CONSUMER| typeof SERVER| typeof CLIENT| typeof PRODUCER| typeof INTERNAL | UnparsedObject;
+export const CONSUMER = 'consumer';
+export const SERVER = 'server';
+export const CLIENT = 'client';
+export const PRODUCER = 'producer';
+export const INTERNAL = 'internal';

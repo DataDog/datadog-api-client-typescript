@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type identifier for ServiceNow template resources
- */
+*/
 
-export type ServiceNowTemplateType =
-  | typeof SERVICENOW_TEMPLATES
-  | UnparsedObject;
-export const SERVICENOW_TEMPLATES = "servicenow_templates";
+export type ServiceNowTemplateType = typeof SERVICENOW_TEMPLATES | UnparsedObject;
+export const SERVICENOW_TEMPLATES = 'servicenow_templates';

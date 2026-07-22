@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Pagination metadata.
- */
+*/
 export class IncidentNotificationRuleArrayMetaPage {
   /**
    * The offset for the next page of results.
-   */
+  */
   "nextOffset"?: number;
   /**
    * The current offset in the results.
-   */
+  */
   "offset"?: number;
   /**
    * The number of results returned per page.
-   */
+  */
   "size"?: number;
 
   /**
@@ -28,7 +33,7 @@ export class IncidentNotificationRuleArrayMetaPage {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,20 +44,20 @@ export class IncidentNotificationRuleArrayMetaPage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    nextOffset: {
-      baseName: "next_offset",
-      type: "number",
-      format: "int64",
+    "nextOffset": {
+      "baseName": "next_offset",
+      "type": "number",
+      "format": "int64",
     },
-    offset: {
-      baseName: "offset",
-      type: "number",
-      format: "int64",
+    "offset": {
+      "baseName": "offset",
+      "type": "number",
+      "format": "int64",
     },
-    size: {
-      baseName: "size",
-      type: "number",
-      format: "int64",
+    "size": {
+      "baseName": "size",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class IncidentNotificationRuleArrayMetaPage {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentNotificationRuleArrayMetaPage.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Variant weight request payload.
- */
+*/
 export class VariantWeightRequest {
   /**
    * The percentage weight for this variant.
-   */
+  */
   "value": number;
   /**
    * The variant ID to assign weight to.
-   */
+  */
   "variantId"?: string;
   /**
    * The variant key to assign weight to.
-   */
+  */
   "variantKey"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class VariantWeightRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,20 +44,20 @@ export class VariantWeightRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    value: {
-      baseName: "value",
-      type: "number",
-      required: true,
-      format: "double",
+    "value": {
+      "baseName": "value",
+      "type": "number",
+      "required": true,
+      "format": "double",
     },
-    variantId: {
-      baseName: "variant_id",
-      type: "string",
-      format: "uuid",
+    "variantId": {
+      "baseName": "variant_id",
+      "type": "string",
+      "format": "uuid",
     },
-    variantKey: {
-      baseName: "variant_key",
-      type: "string",
+    "variantKey": {
+      "baseName": "variant_key",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class VariantWeightRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return VariantWeightRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

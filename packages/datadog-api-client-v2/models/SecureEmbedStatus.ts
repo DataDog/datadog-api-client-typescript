@@ -4,12 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The status of the secure embed share. Active means the shared dashboard is available. Paused means it is not.
- */
+*/
 
-export type SecureEmbedStatus = typeof ACTIVE | typeof PAUSED | UnparsedObject;
-export const ACTIVE = "active";
-export const PAUSED = "paused";
+export type SecureEmbedStatus = typeof ACTIVE| typeof PAUSED | UnparsedObject;
+export const ACTIVE = 'active';
+export const PAUSED = 'paused';

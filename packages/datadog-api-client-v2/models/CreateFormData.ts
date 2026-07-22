@@ -6,19 +6,24 @@
 import { CreateFormDataAttributes } from "./CreateFormDataAttributes";
 import { FormType } from "./FormType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data for creating a form.
- */
+*/
 export class CreateFormData {
   /**
    * The attributes for creating a form.
-   */
+  */
   "attributes": CreateFormDataAttributes;
   /**
    * The resource type for a form.
-   */
+  */
   "type": FormType;
 
   /**
@@ -26,7 +31,7 @@ export class CreateFormData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class CreateFormData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CreateFormDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CreateFormDataAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "FormType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "FormType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class CreateFormData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateFormData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

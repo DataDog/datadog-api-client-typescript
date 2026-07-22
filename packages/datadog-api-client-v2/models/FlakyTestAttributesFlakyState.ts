@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The current state of the flaky test.
- */
+*/
 
-export type FlakyTestAttributesFlakyState =
-  | typeof ACTIVE
-  | typeof FIXED
-  | typeof QUARANTINED
-  | typeof DISABLED
-  | UnparsedObject;
-export const ACTIVE = "active";
-export const FIXED = "fixed";
-export const QUARANTINED = "quarantined";
-export const DISABLED = "disabled";
+export type FlakyTestAttributesFlakyState = typeof ACTIVE| typeof FIXED| typeof QUARANTINED| typeof DISABLED | UnparsedObject;
+export const ACTIVE = 'active';
+export const FIXED = 'fixed';
+export const QUARANTINED = 'quarantined';
+export const DISABLED = 'disabled';

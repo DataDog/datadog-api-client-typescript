@@ -7,16 +7,21 @@ import { ProductAnalyticsAudienceAccountSubquery } from "./ProductAnalyticsAudie
 import { ProductAnalyticsAudienceSegmentSubquery } from "./ProductAnalyticsAudienceSegmentSubquery";
 import { ProductAnalyticsAudienceUserSubquery } from "./ProductAnalyticsAudienceUserSubquery";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Product Analytics/RUM audience filters.
- */
+*/
 export class ProductAnalyticsAudienceFilters {
   "accounts"?: Array<ProductAnalyticsAudienceAccountSubquery>;
   /**
    * An optional filter condition applied to the audience subquery.
-   */
+  */
   "filterCondition"?: string;
   "segments"?: Array<ProductAnalyticsAudienceSegmentSubquery>;
   "users"?: Array<ProductAnalyticsAudienceUserSubquery>;
@@ -26,7 +31,7 @@ export class ProductAnalyticsAudienceFilters {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,21 +42,21 @@ export class ProductAnalyticsAudienceFilters {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    accounts: {
-      baseName: "accounts",
-      type: "Array<ProductAnalyticsAudienceAccountSubquery>",
+    "accounts": {
+      "baseName": "accounts",
+      "type": "Array<ProductAnalyticsAudienceAccountSubquery>",
     },
-    filterCondition: {
-      baseName: "filter_condition",
-      type: "string",
+    "filterCondition": {
+      "baseName": "filter_condition",
+      "type": "string",
     },
-    segments: {
-      baseName: "segments",
-      type: "Array<ProductAnalyticsAudienceSegmentSubquery>",
+    "segments": {
+      "baseName": "segments",
+      "type": "Array<ProductAnalyticsAudienceSegmentSubquery>",
     },
-    users: {
-      baseName: "users",
-      type: "Array<ProductAnalyticsAudienceUserSubquery>",
+    "users": {
+      "baseName": "users",
+      "type": "Array<ProductAnalyticsAudienceUserSubquery>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class ProductAnalyticsAudienceFilters {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProductAnalyticsAudienceFilters.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

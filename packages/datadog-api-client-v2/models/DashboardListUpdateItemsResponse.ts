@@ -5,15 +5,20 @@
  */
 import { DashboardListItemResponse } from "./DashboardListItemResponse";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a list of updated dashboards.
- */
+*/
 export class DashboardListUpdateItemsResponse {
   /**
    * List of dashboards in the dashboard list.
-   */
+  */
   "dashboards"?: Array<DashboardListItemResponse>;
 
   /**
@@ -21,7 +26,7 @@ export class DashboardListUpdateItemsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class DashboardListUpdateItemsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    dashboards: {
-      baseName: "dashboards",
-      type: "Array<DashboardListItemResponse>",
+    "dashboards": {
+      "baseName": "dashboards",
+      "type": "Array<DashboardListItemResponse>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class DashboardListUpdateItemsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DashboardListUpdateItemsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

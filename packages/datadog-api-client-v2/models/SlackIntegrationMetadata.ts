@@ -5,15 +5,20 @@
  */
 import { SlackIntegrationMetadataChannelItem } from "./SlackIntegrationMetadataChannelItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Incident integration metadata for the Slack integration.
- */
+*/
 export class SlackIntegrationMetadata {
   /**
    * Array of Slack channels in this integration metadata.
-   */
+  */
   "channels": Array<SlackIntegrationMetadataChannelItem>;
 
   /**
@@ -21,7 +26,7 @@ export class SlackIntegrationMetadata {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class SlackIntegrationMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    channels: {
-      baseName: "channels",
-      type: "Array<SlackIntegrationMetadataChannelItem>",
-      required: true,
+    "channels": {
+      "baseName": "channels",
+      "type": "Array<SlackIntegrationMetadataChannelItem>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class SlackIntegrationMetadata {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SlackIntegrationMetadata.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

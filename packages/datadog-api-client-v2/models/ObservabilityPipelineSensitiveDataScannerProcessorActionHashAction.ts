@@ -4,12 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Action type that replaces the matched sensitive data with a hashed representation, preserving structure while securing content.
- */
+*/
 
-export type ObservabilityPipelineSensitiveDataScannerProcessorActionHashAction =
-  typeof HASH | UnparsedObject;
-export const HASH = "hash";
+export type ObservabilityPipelineSensitiveDataScannerProcessorActionHashAction = typeof HASH | UnparsedObject;
+export const HASH = 'hash';

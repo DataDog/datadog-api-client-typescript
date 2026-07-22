@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of available-fields data.
- */
+*/
 
-export type UsageSummaryAvailableFieldsType =
-  | typeof USAGE_SUMMARY_AVAILABLE_FIELDS
-  | UnparsedObject;
-export const USAGE_SUMMARY_AVAILABLE_FIELDS = "usage_summary_available_fields";
+export type UsageSummaryAvailableFieldsType = typeof USAGE_SUMMARY_AVAILABLE_FIELDS | UnparsedObject;
+export const USAGE_SUMMARY_AVAILABLE_FIELDS = 'usage_summary_available_fields';

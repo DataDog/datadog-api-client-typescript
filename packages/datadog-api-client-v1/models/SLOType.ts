@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of the service level objective.
- */
+*/
 
-export type SLOType =
-  | typeof METRIC
-  | typeof MONITOR
-  | typeof TIME_SLICE
-  | UnparsedObject;
-export const METRIC = "metric";
-export const MONITOR = "monitor";
-export const TIME_SLICE = "time_slice";
+export type SLOType = typeof METRIC| typeof MONITOR| typeof TIME_SLICE | UnparsedObject;
+export const METRIC = 'metric';
+export const MONITOR = 'monitor';
+export const TIME_SLICE = 'time_slice';

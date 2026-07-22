@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The category of the security rule.
- */
+*/
 
-export type RuleBasedViewRuleCategory =
-  | typeof CLOUD_CONFIGURATION
-  | typeof INFRASTRUCTURE_CONFIGURATION
-  | typeof API_SECURITY
-  | UnparsedObject;
-export const CLOUD_CONFIGURATION = "cloud_configuration";
-export const INFRASTRUCTURE_CONFIGURATION = "infrastructure_configuration";
-export const API_SECURITY = "api_security";
+export type RuleBasedViewRuleCategory = typeof CLOUD_CONFIGURATION| typeof INFRASTRUCTURE_CONFIGURATION| typeof API_SECURITY | UnparsedObject;
+export const CLOUD_CONFIGURATION = 'cloud_configuration';
+export const INFRASTRUCTURE_CONFIGURATION = 'infrastructure_configuration';
+export const API_SECURITY = 'api_security';

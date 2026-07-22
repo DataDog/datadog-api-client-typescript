@@ -6,19 +6,24 @@
 import { AWSCcmConfigValidationRequestAttributes } from "./AWSCcmConfigValidationRequestAttributes";
 import { AWSCcmConfigValidationType } from "./AWSCcmConfigValidationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * AWS CCM config validation request data.
- */
+*/
 export class AWSCcmConfigValidationRequestData {
   /**
    * Attributes for an AWS CCM config validation request.
-   */
+  */
   "attributes": AWSCcmConfigValidationRequestAttributes;
   /**
    * AWS CCM config validation resource type.
-   */
+  */
   "type": AWSCcmConfigValidationType;
 
   /**
@@ -26,7 +31,7 @@ export class AWSCcmConfigValidationRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class AWSCcmConfigValidationRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AWSCcmConfigValidationRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AWSCcmConfigValidationRequestAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "AWSCcmConfigValidationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AWSCcmConfigValidationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class AWSCcmConfigValidationRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSCcmConfigValidationRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

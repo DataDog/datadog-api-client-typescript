@@ -4,31 +4,36 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A function definition for a tool available to the model.
- */
+*/
 export class LLMObsInferenceFunction {
   /**
    * A description of what the function does.
-   */
+  */
   "description"?: string;
   /**
    * The name of the function.
-   */
+  */
   "name": string;
   /**
    * JSON schema describing the function parameters.
-   */
-  "parameters": { [key: string]: any };
+  */
+  "parameters": { [key: string]: any; };
 
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,19 +44,19 @@ export class LLMObsInferenceFunction {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    parameters: {
-      baseName: "parameters",
-      type: "{ [key: string]: any; }",
-      required: true,
+    "parameters": {
+      "baseName": "parameters",
+      "type": "{ [key: string]: any; }",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class LLMObsInferenceFunction {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsInferenceFunction.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

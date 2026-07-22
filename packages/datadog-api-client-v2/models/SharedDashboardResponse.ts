@@ -7,27 +7,32 @@ import { SharedDashboardRelationships } from "./SharedDashboardRelationships";
 import { SharedDashboardResponseAttributes } from "./SharedDashboardResponseAttributes";
 import { SharedDashboardType } from "./SharedDashboardType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A shared dashboard response resource.
- */
+*/
 export class SharedDashboardResponse {
   /**
    * Attributes of a shared dashboard response.
-   */
+  */
   "attributes": SharedDashboardResponseAttributes;
   /**
    * ID of the shared dashboard.
-   */
+  */
   "id": string;
   /**
    * Relationships of a shared dashboard.
-   */
+  */
   "relationships": SharedDashboardRelationships;
   /**
    * Shared dashboard resource type.
-   */
+  */
   "type": SharedDashboardType;
 
   /**
@@ -35,7 +40,7 @@ export class SharedDashboardResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,25 +51,25 @@ export class SharedDashboardResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SharedDashboardResponseAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SharedDashboardResponseAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "SharedDashboardRelationships",
-      required: true,
+    "relationships": {
+      "baseName": "relationships",
+      "type": "SharedDashboardRelationships",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "SharedDashboardType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SharedDashboardType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -76,8 +81,34 @@ export class SharedDashboardResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SharedDashboardResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

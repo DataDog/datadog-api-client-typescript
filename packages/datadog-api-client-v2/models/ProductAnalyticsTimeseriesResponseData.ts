@@ -6,23 +6,28 @@
 import { ProductAnalyticsTimeseriesResponseAttributes } from "./ProductAnalyticsTimeseriesResponseAttributes";
 import { ProductAnalyticsTimeseriesResponseType } from "./ProductAnalyticsTimeseriesResponseType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for a timeseries analytics response.
- */
+*/
 export class ProductAnalyticsTimeseriesResponseData {
   /**
    * Attributes of a timeseries analytics response, containing series data, timestamps, and interval definitions.
-   */
+  */
   "attributes"?: ProductAnalyticsTimeseriesResponseAttributes;
   /**
    * Unique identifier for this response data object.
-   */
+  */
   "id"?: string;
   /**
    * The resource type identifier for a timeseries analytics response.
-   */
+  */
   "type"?: ProductAnalyticsTimeseriesResponseType;
 
   /**
@@ -30,7 +35,7 @@ export class ProductAnalyticsTimeseriesResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class ProductAnalyticsTimeseriesResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ProductAnalyticsTimeseriesResponseAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ProductAnalyticsTimeseriesResponseAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "ProductAnalyticsTimeseriesResponseType",
+    "type": {
+      "baseName": "type",
+      "type": "ProductAnalyticsTimeseriesResponseType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class ProductAnalyticsTimeseriesResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProductAnalyticsTimeseriesResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

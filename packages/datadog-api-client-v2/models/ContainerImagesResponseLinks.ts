@@ -4,31 +4,36 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Pagination links.
- */
+*/
 export class ContainerImagesResponseLinks {
   /**
    * Link to the first page.
-   */
+  */
   "first"?: string;
   /**
    * Link to the last page.
-   */
+  */
   "last"?: string;
   /**
    * Link to the next page.
-   */
+  */
   "next"?: string;
   /**
    * Link to previous page.
-   */
+  */
   "prev"?: string;
   /**
    * Link to current page.
-   */
+  */
   "self"?: string;
 
   /**
@@ -36,7 +41,7 @@ export class ContainerImagesResponseLinks {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,25 +52,25 @@ export class ContainerImagesResponseLinks {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    first: {
-      baseName: "first",
-      type: "string",
+    "first": {
+      "baseName": "first",
+      "type": "string",
     },
-    last: {
-      baseName: "last",
-      type: "string",
+    "last": {
+      "baseName": "last",
+      "type": "string",
     },
-    next: {
-      baseName: "next",
-      type: "string",
+    "next": {
+      "baseName": "next",
+      "type": "string",
     },
-    prev: {
-      baseName: "prev",
-      type: "string",
+    "prev": {
+      "baseName": "prev",
+      "type": "string",
     },
-    self: {
-      baseName: "self",
-      type: "string",
+    "self": {
+      "baseName": "self",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -77,8 +82,34 @@ export class ContainerImagesResponseLinks {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ContainerImagesResponseLinks.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

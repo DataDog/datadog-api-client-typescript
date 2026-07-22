@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of cost data.
- */
+*/
 
 export type ProjectedCostType = typeof PROJECt_COST | UnparsedObject;
-export const PROJECt_COST = "projected_cost";
+export const PROJECt_COST = 'projected_cost';

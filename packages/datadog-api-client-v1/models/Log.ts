@@ -5,19 +5,24 @@
  */
 import { LogContent } from "./LogContent";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object describing a log after being processed and stored by Datadog.
- */
+*/
 export class Log {
   /**
    * JSON object containing all log attributes and their associated values.
-   */
+  */
   "content"?: LogContent;
   /**
    * ID of the Log.
-   */
+  */
   "id"?: string;
 
   /**
@@ -25,7 +30,7 @@ export class Log {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class Log {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    content: {
-      baseName: "content",
-      type: "LogContent",
+    "content": {
+      "baseName": "content",
+      "type": "LogContent",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class Log {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return Log.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

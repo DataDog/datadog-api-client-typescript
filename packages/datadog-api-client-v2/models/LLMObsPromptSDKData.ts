@@ -6,23 +6,28 @@
 import { LLMObsPromptSDKDataAttributes } from "./LLMObsPromptSDKDataAttributes";
 import { LLMObsPromptType } from "./LLMObsPromptType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for a flattened LLM Observability prompt version returned for SDK consumption.
- */
+*/
 export class LLMObsPromptSDKData {
   /**
    * Attributes of a flattened prompt version returned for SDK consumption. Exactly one of `template` and `chat_template` is returned.
-   */
+  */
   "attributes": LLMObsPromptSDKDataAttributes;
   /**
    * Unique identifier of the prompt.
-   */
+  */
   "id": string;
   /**
    * Resource type of an LLM Observability prompt.
-   */
+  */
   "type": LLMObsPromptType;
 
   /**
@@ -30,7 +35,7 @@ export class LLMObsPromptSDKData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class LLMObsPromptSDKData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LLMObsPromptSDKDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "LLMObsPromptSDKDataAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LLMObsPromptType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LLMObsPromptType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class LLMObsPromptSDKData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsPromptSDKData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

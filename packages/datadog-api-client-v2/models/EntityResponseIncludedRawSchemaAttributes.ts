@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Included raw schema attributes.
- */
+*/
 export class EntityResponseIncludedRawSchemaAttributes {
   /**
    * Schema from user input in base64 encoding.
-   */
+  */
   "rawSchema"?: string;
 
   /**
@@ -20,7 +25,7 @@ export class EntityResponseIncludedRawSchemaAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,9 +36,9 @@ export class EntityResponseIncludedRawSchemaAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    rawSchema: {
-      baseName: "rawSchema",
-      type: "string",
+    "rawSchema": {
+      "baseName": "rawSchema",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,8 +50,34 @@ export class EntityResponseIncludedRawSchemaAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EntityResponseIncludedRawSchemaAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

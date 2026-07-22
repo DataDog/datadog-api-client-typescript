@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A tool call made during a span.
- */
+*/
 export class LLMObsSpanToolCall {
   /**
    * Arguments passed to the tool.
-   */
-  "arguments"?: { [key: string]: any };
+  */
+  "arguments"?: { [key: string]: any; };
   /**
    * Name of the tool called.
-   */
+  */
   "name"?: string;
   /**
    * Identifier of the tool call.
-   */
+  */
   "toolId"?: string;
   /**
    * Type of the tool call.
-   */
+  */
   "type"?: string;
 
   /**
@@ -32,7 +37,7 @@ export class LLMObsSpanToolCall {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,21 +48,21 @@ export class LLMObsSpanToolCall {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    arguments: {
-      baseName: "arguments",
-      type: "{ [key: string]: any; }",
+    "arguments": {
+      "baseName": "arguments",
+      "type": "{ [key: string]: any; }",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    toolId: {
-      baseName: "tool_id",
-      type: "string",
+    "toolId": {
+      "baseName": "tool_id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -69,8 +74,34 @@ export class LLMObsSpanToolCall {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsSpanToolCall.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

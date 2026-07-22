@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of the object.
- */
+*/
 
-export type IssuesSearchResultType =
-  | typeof ERROR_TRACKING_SEARCH_RESULT
-  | UnparsedObject;
-export const ERROR_TRACKING_SEARCH_RESULT = "error_tracking_search_result";
+export type IssuesSearchResultType = typeof ERROR_TRACKING_SEARCH_RESULT | UnparsedObject;
+export const ERROR_TRACKING_SEARCH_RESULT = 'error_tracking_search_result';

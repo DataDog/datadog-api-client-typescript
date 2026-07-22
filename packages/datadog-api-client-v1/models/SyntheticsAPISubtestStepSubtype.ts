@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The subtype of the Synthetic multi-step API subtest step.
- */
+*/
 
-export type SyntheticsAPISubtestStepSubtype =
-  | typeof PLAY_SUB_TEST
-  | UnparsedObject;
-export const PLAY_SUB_TEST = "playSubTest";
+export type SyntheticsAPISubtestStepSubtype = typeof PLAY_SUB_TEST | UnparsedObject;
+export const PLAY_SUB_TEST = 'playSubTest';

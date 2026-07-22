@@ -4,31 +4,36 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a suggested action for a security signal. The available fields depend on the action type.
- */
+*/
 export class SecurityMonitoringSignalSuggestedActionAttributes {
   /**
    * The name of the investigation log query.
-   */
+  */
   "name"?: string;
   /**
    * The log query filter for the investigation.
-   */
+  */
   "queryFilter"?: string;
   /**
    * Template variables applied to the investigation log query, mapping attribute paths to values extracted from the signal.
-   */
-  "templateVariables"?: { [key: string]: Array<string> };
+  */
+  "templateVariables"?: { [key: string]: Array<string>; };
   /**
    * The title of the recommended blog post.
-   */
+  */
   "title"?: string;
   /**
    * The URL of the suggested action.
-   */
+  */
   "url"?: string;
 
   /**
@@ -36,7 +41,7 @@ export class SecurityMonitoringSignalSuggestedActionAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,25 +52,25 @@ export class SecurityMonitoringSignalSuggestedActionAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    queryFilter: {
-      baseName: "query_filter",
-      type: "string",
+    "queryFilter": {
+      "baseName": "query_filter",
+      "type": "string",
     },
-    templateVariables: {
-      baseName: "template_variables",
-      type: "{ [key: string]: Array<string>; }",
+    "templateVariables": {
+      "baseName": "template_variables",
+      "type": "{ [key: string]: Array<string>; }",
     },
-    title: {
-      baseName: "title",
-      type: "string",
+    "title": {
+      "baseName": "title",
+      "type": "string",
     },
-    url: {
-      baseName: "url",
-      type: "string",
+    "url": {
+      "baseName": "url",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -77,8 +82,34 @@ export class SecurityMonitoringSignalSuggestedActionAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringSignalSuggestedActionAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,19 +5,24 @@
  */
 import { OpsgenieServiceRegionType } from "./OpsgenieServiceRegionType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The Opsgenie account attributes for an update request.
- */
+*/
 export class OpsgenieAccountUpdateAttributes {
   /**
    * The Opsgenie API key for your Opsgenie account.
-   */
+  */
   "apiKey"?: string;
   /**
    * The region for the Opsgenie service.
-   */
+  */
   "region"?: OpsgenieServiceRegionType;
 
   /**
@@ -25,7 +30,7 @@ export class OpsgenieAccountUpdateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class OpsgenieAccountUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    apiKey: {
-      baseName: "api_key",
-      type: "string",
+    "apiKey": {
+      "baseName": "api_key",
+      "type": "string",
     },
-    region: {
-      baseName: "region",
-      type: "OpsgenieServiceRegionType",
+    "region": {
+      "baseName": "region",
+      "type": "OpsgenieServiceRegionType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class OpsgenieAccountUpdateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OpsgenieAccountUpdateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

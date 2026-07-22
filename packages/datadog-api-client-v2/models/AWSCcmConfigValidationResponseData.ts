@@ -6,23 +6,28 @@
 import { AWSCcmConfigValidationResponseAttributes } from "./AWSCcmConfigValidationResponseAttributes";
 import { AWSCcmConfigValidationType } from "./AWSCcmConfigValidationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * AWS CCM config validation response data.
- */
+*/
 export class AWSCcmConfigValidationResponseData {
   /**
    * Attributes for an AWS CCM config validation response.
-   */
+  */
   "attributes": AWSCcmConfigValidationResponseAttributes;
   /**
    * AWS CCM config validation resource identifier.
-   */
+  */
   "id": string;
   /**
    * AWS CCM config validation resource type.
-   */
+  */
   "type": AWSCcmConfigValidationType;
 
   /**
@@ -30,7 +35,7 @@ export class AWSCcmConfigValidationResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class AWSCcmConfigValidationResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AWSCcmConfigValidationResponseAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AWSCcmConfigValidationResponseAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "AWSCcmConfigValidationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AWSCcmConfigValidationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class AWSCcmConfigValidationResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSCcmConfigValidationResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

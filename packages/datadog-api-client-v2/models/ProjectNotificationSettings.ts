@@ -4,47 +4,52 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Project notification settings.
- */
+*/
 export class ProjectNotificationSettings {
   /**
    * Notification destinations (1=email, 2=slack, 3=in-app).
-   */
+  */
   "destinations"?: Array<number>;
   /**
    * Whether notifications are enabled.
-   */
+  */
   "enabled"?: boolean;
   /**
    * Whether to send a notification when a case is assigned.
-   */
+  */
   "notifyOnCaseAssignment"?: boolean;
   /**
    * Whether to send a notification when a case is closed.
-   */
+  */
   "notifyOnCaseClosed"?: boolean;
   /**
    * Whether to send a notification when a comment is added to a case.
-   */
+  */
   "notifyOnCaseComment"?: boolean;
   /**
    * Whether to send a notification when a user is mentioned in a case comment.
-   */
+  */
   "notifyOnCaseCommentMention"?: boolean;
   /**
    * Whether to send a notification when a case's priority changes.
-   */
+  */
   "notifyOnCasePriorityChange"?: boolean;
   /**
    * Whether to send a notification when a case's status changes.
-   */
+  */
   "notifyOnCaseStatusChange"?: boolean;
   /**
    * Whether to send a notification when a case is unassigned.
-   */
+  */
   "notifyOnCaseUnassignment"?: boolean;
 
   /**
@@ -52,7 +57,7 @@ export class ProjectNotificationSettings {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -63,41 +68,41 @@ export class ProjectNotificationSettings {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    destinations: {
-      baseName: "destinations",
-      type: "Array<number>",
+    "destinations": {
+      "baseName": "destinations",
+      "type": "Array<number>",
     },
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
+    "enabled": {
+      "baseName": "enabled",
+      "type": "boolean",
     },
-    notifyOnCaseAssignment: {
-      baseName: "notify_on_case_assignment",
-      type: "boolean",
+    "notifyOnCaseAssignment": {
+      "baseName": "notify_on_case_assignment",
+      "type": "boolean",
     },
-    notifyOnCaseClosed: {
-      baseName: "notify_on_case_closed",
-      type: "boolean",
+    "notifyOnCaseClosed": {
+      "baseName": "notify_on_case_closed",
+      "type": "boolean",
     },
-    notifyOnCaseComment: {
-      baseName: "notify_on_case_comment",
-      type: "boolean",
+    "notifyOnCaseComment": {
+      "baseName": "notify_on_case_comment",
+      "type": "boolean",
     },
-    notifyOnCaseCommentMention: {
-      baseName: "notify_on_case_comment_mention",
-      type: "boolean",
+    "notifyOnCaseCommentMention": {
+      "baseName": "notify_on_case_comment_mention",
+      "type": "boolean",
     },
-    notifyOnCasePriorityChange: {
-      baseName: "notify_on_case_priority_change",
-      type: "boolean",
+    "notifyOnCasePriorityChange": {
+      "baseName": "notify_on_case_priority_change",
+      "type": "boolean",
     },
-    notifyOnCaseStatusChange: {
-      baseName: "notify_on_case_status_change",
-      type: "boolean",
+    "notifyOnCaseStatusChange": {
+      "baseName": "notify_on_case_status_change",
+      "type": "boolean",
     },
-    notifyOnCaseUnassignment: {
-      baseName: "notify_on_case_unassignment",
-      type: "boolean",
+    "notifyOnCaseUnassignment": {
+      "baseName": "notify_on_case_unassignment",
+      "type": "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -109,8 +114,34 @@ export class ProjectNotificationSettings {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProjectNotificationSettings.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

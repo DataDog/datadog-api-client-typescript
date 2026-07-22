@@ -5,15 +5,20 @@
  */
 import { RelationshipToIncidentIntegrationMetadataData } from "./RelationshipToIncidentIntegrationMetadataData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A relationship reference for multiple integration metadata objects.
- */
+*/
 export class RelationshipToIncidentIntegrationMetadatas {
   /**
    * Integration metadata relationship array
-   */
+  */
   "data": Array<RelationshipToIncidentIntegrationMetadataData>;
 
   /**
@@ -21,7 +26,7 @@ export class RelationshipToIncidentIntegrationMetadatas {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class RelationshipToIncidentIntegrationMetadatas {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<RelationshipToIncidentIntegrationMetadataData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<RelationshipToIncidentIntegrationMetadataData>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class RelationshipToIncidentIntegrationMetadatas {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RelationshipToIncidentIntegrationMetadatas.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

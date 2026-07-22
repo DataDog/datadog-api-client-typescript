@@ -5,15 +5,20 @@
  */
 import { UpdateResourceEvaluationFiltersResponseData } from "./UpdateResourceEvaluationFiltersResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `UpdateResourceEvaluationFiltersResponse` object.
- */
+*/
 export class UpdateResourceEvaluationFiltersResponse {
   /**
    * The definition of `UpdateResourceFilterResponseData` object.
-   */
+  */
   "data": UpdateResourceEvaluationFiltersResponseData;
 
   /**
@@ -21,7 +26,7 @@ export class UpdateResourceEvaluationFiltersResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class UpdateResourceEvaluationFiltersResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "UpdateResourceEvaluationFiltersResponseData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "UpdateResourceEvaluationFiltersResponseData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class UpdateResourceEvaluationFiltersResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateResourceEvaluationFiltersResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

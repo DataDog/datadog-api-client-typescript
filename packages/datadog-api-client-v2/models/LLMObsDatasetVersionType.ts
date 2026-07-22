@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Resource type of an LLM Observability dataset version.
- */
+*/
 
 export type LLMObsDatasetVersionType = typeof DATASET_VERSION | UnparsedObject;
-export const DATASET_VERSION = "dataset_version";
+export const DATASET_VERSION = 'dataset_version';

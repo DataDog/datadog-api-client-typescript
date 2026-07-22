@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of the resource. The value should always be `bulk_subscription_requests`.
- */
+*/
 
-export type SampleLogGenerationBulkSubscriptionRequestType =
-  | typeof BULK_SUBSCRIPTION_REQUESTS
-  | UnparsedObject;
-export const BULK_SUBSCRIPTION_REQUESTS = "bulk_subscription_requests";
+export type SampleLogGenerationBulkSubscriptionRequestType = typeof BULK_SUBSCRIPTION_REQUESTS | UnparsedObject;
+export const BULK_SUBSCRIPTION_REQUESTS = 'bulk_subscription_requests';

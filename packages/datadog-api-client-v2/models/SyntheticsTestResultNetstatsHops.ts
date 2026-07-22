@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Statistics about the number of hops for a network test.
- */
+*/
 export class SyntheticsTestResultNetstatsHops {
   /**
    * Average number of hops.
-   */
+  */
   "avg"?: number;
   /**
    * Maximum number of hops.
-   */
+  */
   "max"?: number;
   /**
    * Minimum number of hops.
-   */
+  */
   "min"?: number;
 
   /**
@@ -28,7 +33,7 @@ export class SyntheticsTestResultNetstatsHops {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,20 +44,20 @@ export class SyntheticsTestResultNetstatsHops {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    avg: {
-      baseName: "avg",
-      type: "number",
-      format: "double",
+    "avg": {
+      "baseName": "avg",
+      "type": "number",
+      "format": "double",
     },
-    max: {
-      baseName: "max",
-      type: "number",
-      format: "int64",
+    "max": {
+      "baseName": "max",
+      "type": "number",
+      "format": "int64",
     },
-    min: {
-      baseName: "min",
-      type: "number",
-      format: "int64",
+    "min": {
+      "baseName": "min",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class SyntheticsTestResultNetstatsHops {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultNetstatsHops.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

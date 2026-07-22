@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The object containing the aggregates.
- */
+*/
 export class CostAttributionAggregatesBody {
   /**
    * The aggregate type.
-   */
+  */
   "aggType"?: string;
   /**
    * The field.
-   */
+  */
   "field"?: string;
   /**
    * The value for a given field.
-   */
+  */
   "value"?: number;
 
   /**
@@ -28,7 +33,7 @@ export class CostAttributionAggregatesBody {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,18 +44,18 @@ export class CostAttributionAggregatesBody {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    aggType: {
-      baseName: "agg_type",
-      type: "string",
+    "aggType": {
+      "baseName": "agg_type",
+      "type": "string",
     },
-    field: {
-      baseName: "field",
-      type: "string",
+    "field": {
+      "baseName": "field",
+      "type": "string",
     },
-    value: {
-      baseName: "value",
-      type: "number",
-      format: "double",
+    "value": {
+      "baseName": "value",
+      "type": "number",
+      "format": "double",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class CostAttributionAggregatesBody {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CostAttributionAggregatesBody.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,31 +4,36 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Aggregated low cache hit rate detection at view level.
- */
+*/
 export class AggregatedLowCacheHitRate {
   /**
    * Average cache hit rate across affected views.
-   */
+  */
   "avgCacheHitRate": number;
   /**
    * Average total download size of uncached resources in bytes.
-   */
+  */
   "avgResourceDownloadSizeBytes": number;
   /**
    * Unique fingerprint identifying this detection group.
-   */
+  */
   "fingerprint": string;
   /**
    * Impact score for this detection.
-   */
+  */
   "impactScore": number;
   /**
    * Number of sampled views where this detection occurred.
-   */
+  */
   "viewOccurrences": number;
 
   /**
@@ -36,7 +41,7 @@ export class AggregatedLowCacheHitRate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,34 +52,34 @@ export class AggregatedLowCacheHitRate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    avgCacheHitRate: {
-      baseName: "avg_cache_hit_rate",
-      type: "number",
-      required: true,
-      format: "double",
+    "avgCacheHitRate": {
+      "baseName": "avg_cache_hit_rate",
+      "type": "number",
+      "required": true,
+      "format": "double",
     },
-    avgResourceDownloadSizeBytes: {
-      baseName: "avg_resource_download_size_bytes",
-      type: "number",
-      required: true,
-      format: "int64",
+    "avgResourceDownloadSizeBytes": {
+      "baseName": "avg_resource_download_size_bytes",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    fingerprint: {
-      baseName: "fingerprint",
-      type: "string",
-      required: true,
+    "fingerprint": {
+      "baseName": "fingerprint",
+      "type": "string",
+      "required": true,
     },
-    impactScore: {
-      baseName: "impact_score",
-      type: "number",
-      required: true,
-      format: "double",
+    "impactScore": {
+      "baseName": "impact_score",
+      "type": "number",
+      "required": true,
+      "format": "double",
     },
-    viewOccurrences: {
-      baseName: "view_occurrences",
-      type: "number",
-      required: true,
-      format: "int32",
+    "viewOccurrences": {
+      "baseName": "view_occurrences",
+      "type": "number",
+      "required": true,
+      "format": "int32",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -86,8 +91,34 @@ export class AggregatedLowCacheHitRate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AggregatedLowCacheHitRate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

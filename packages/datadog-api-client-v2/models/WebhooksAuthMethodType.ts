@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Webhooks auth method resource type.
- */
+*/
 
-export type WebhooksAuthMethodType =
-  | typeof WEBHOOKS_AUTH_METHOD
-  | UnparsedObject;
-export const WEBHOOKS_AUTH_METHOD = "webhooks-auth-method";
+export type WebhooksAuthMethodType = typeof WEBHOOKS_AUTH_METHOD | UnparsedObject;
+export const WEBHOOKS_AUTH_METHOD = 'webhooks-auth-method';

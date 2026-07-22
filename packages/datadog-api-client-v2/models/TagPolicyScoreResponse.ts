@@ -5,15 +5,20 @@
  */
 import { TagPolicyScoreData } from "./TagPolicyScoreData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A tag policy compliance score.
- */
+*/
 export class TagPolicyScoreResponse {
   /**
    * A compliance score resource for a tag policy.
-   */
+  */
   "data": TagPolicyScoreData;
 
   /**
@@ -21,7 +26,7 @@ export class TagPolicyScoreResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class TagPolicyScoreResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "TagPolicyScoreData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "TagPolicyScoreData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class TagPolicyScoreResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TagPolicyScoreResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

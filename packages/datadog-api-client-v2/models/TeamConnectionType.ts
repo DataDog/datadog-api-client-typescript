@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Team connection resource type.
- */
+*/
 
 export type TeamConnectionType = typeof TEAM_CONNECTION | UnparsedObject;
-export const TEAM_CONNECTION = "team_connection";
+export const TEAM_CONNECTION = 'team_connection';

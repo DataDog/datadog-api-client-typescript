@@ -6,23 +6,28 @@
 import { GovernanceControlResourceType } from "./GovernanceControlResourceType";
 import { GovernanceControlUpdateAttributes } from "./GovernanceControlUpdateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data of a governance control update request.
- */
+*/
 export class GovernanceControlUpdateData {
   /**
    * The attributes of a governance control that can be updated. Only the attributes present in the request are modified.
-   */
+  */
   "attributes"?: GovernanceControlUpdateAttributes;
   /**
    * The unique identifier of the control.
-   */
+  */
   "id"?: string;
   /**
    * JSON:API resource type for a governance control.
-   */
+  */
   "type": GovernanceControlResourceType;
 
   /**
@@ -30,7 +35,7 @@ export class GovernanceControlUpdateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class GovernanceControlUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "GovernanceControlUpdateAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "GovernanceControlUpdateAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "GovernanceControlResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "GovernanceControlResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class GovernanceControlUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GovernanceControlUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

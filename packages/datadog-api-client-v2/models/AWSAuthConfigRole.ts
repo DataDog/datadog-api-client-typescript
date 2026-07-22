@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * AWS Authentication config to integrate your account using an IAM role.
- */
+*/
 export class AWSAuthConfigRole {
   /**
    * AWS IAM External ID for associated role.
-   */
+  */
   "externalId"?: string;
   /**
    * AWS IAM Role name.
-   */
+  */
   "roleName": string;
 
   /**
@@ -24,7 +29,7 @@ export class AWSAuthConfigRole {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,14 +40,14 @@ export class AWSAuthConfigRole {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    externalId: {
-      baseName: "external_id",
-      type: "string",
+    "externalId": {
+      "baseName": "external_id",
+      "type": "string",
     },
-    roleName: {
-      baseName: "role_name",
-      type: "string",
-      required: true,
+    "roleName": {
+      "baseName": "role_name",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class AWSAuthConfigRole {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSAuthConfigRole.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

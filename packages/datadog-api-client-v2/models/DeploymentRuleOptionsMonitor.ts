@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Monitor options for deployment rules.
- */
+*/
 export class DeploymentRuleOptionsMonitor {
   /**
    * Seconds the monitor needs to stay in OK status for the rule to pass.
-   */
+  */
   "duration"?: number;
   /**
    * Monitors that match this query are evaluated.
-   */
+  */
   "query": string;
 
   /**
@@ -28,24 +33,50 @@ export class DeploymentRuleOptionsMonitor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    duration: {
-      baseName: "duration",
-      type: "number",
-      format: "int64",
+    "duration": {
+      "baseName": "duration",
+      "type": "number",
+      "format": "int64",
     },
-    query: {
-      baseName: "query",
-      type: "string",
-      required: true,
-    },
+    "query": {
+      "baseName": "query",
+      "type": "string",
+      "required": true,
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DeploymentRuleOptionsMonitor.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

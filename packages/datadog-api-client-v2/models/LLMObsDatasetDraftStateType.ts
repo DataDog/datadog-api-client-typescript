@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Resource type of an LLM Observability dataset draft state.
- */
+*/
 
-export type LLMObsDatasetDraftStateType =
-  | typeof DRAFT_STATE_DATA
-  | UnparsedObject;
-export const DRAFT_STATE_DATA = "draft_state_data";
+export type LLMObsDatasetDraftStateType = typeof DRAFT_STATE_DATA | UnparsedObject;
+export const DRAFT_STATE_DATA = 'draft_state_data';

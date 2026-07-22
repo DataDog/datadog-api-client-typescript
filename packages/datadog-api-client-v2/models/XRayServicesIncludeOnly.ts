@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Include only these services. Defaults to `[]`.
- */
+*/
 export class XRayServicesIncludeOnly {
   /**
    * Include only these services.
-   */
+  */
   "includeOnly": Array<string>;
 
   /**
@@ -20,7 +25,7 @@ export class XRayServicesIncludeOnly {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,10 +36,10 @@ export class XRayServicesIncludeOnly {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    includeOnly: {
-      baseName: "include_only",
-      type: "Array<string>",
-      required: true,
+    "includeOnly": {
+      "baseName": "include_only",
+      "type": "Array<string>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class XRayServicesIncludeOnly {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return XRayServicesIncludeOnly.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,23 +6,28 @@
 import { GetMultipleRulesetsRequestDataAttributes } from "./GetMultipleRulesetsRequestDataAttributes";
 import { GetMultipleRulesetsRequestDataType } from "./GetMultipleRulesetsRequestDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The primary data object in the get-multiple-rulesets request, containing request attributes and resource type.
- */
+*/
 export class GetMultipleRulesetsRequestData {
   /**
    * The request attributes for fetching multiple rulesets, specifying which rulesets to retrieve and what data to include.
-   */
+  */
   "attributes"?: GetMultipleRulesetsRequestDataAttributes;
   /**
    * An optional identifier for the get-multiple-rulesets request resource.
-   */
+  */
   "id"?: string;
   /**
    * Get multiple rulesets request resource type.
-   */
+  */
   "type": GetMultipleRulesetsRequestDataType;
 
   /**
@@ -30,7 +35,7 @@ export class GetMultipleRulesetsRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class GetMultipleRulesetsRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "GetMultipleRulesetsRequestDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "GetMultipleRulesetsRequestDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "GetMultipleRulesetsRequestDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "GetMultipleRulesetsRequestDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class GetMultipleRulesetsRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GetMultipleRulesetsRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

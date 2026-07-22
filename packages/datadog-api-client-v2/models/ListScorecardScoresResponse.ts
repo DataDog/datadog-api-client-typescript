@@ -7,23 +7,28 @@ import { ListRulesResponseLinks } from "./ListRulesResponseLinks";
 import { ListScorecardScoresMeta } from "./ListScorecardScoresMeta";
 import { ScorecardScoreData } from "./ScorecardScoreData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A list of scorecard scores for a given aggregation type.
- */
+*/
 export class ListScorecardScoresResponse {
   /**
    * Array of score objects.
-   */
+  */
   "data"?: Array<ScorecardScoreData>;
   /**
    * Links attributes.
-   */
+  */
   "links"?: ListRulesResponseLinks;
   /**
    * Pagination metadata for scores.
-   */
+  */
   "meta"?: ListScorecardScoresMeta;
 
   /**
@@ -31,7 +36,7 @@ export class ListScorecardScoresResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,17 +47,17 @@ export class ListScorecardScoresResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<ScorecardScoreData>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<ScorecardScoreData>",
     },
-    links: {
-      baseName: "links",
-      type: "ListRulesResponseLinks",
+    "links": {
+      "baseName": "links",
+      "type": "ListRulesResponseLinks",
     },
-    meta: {
-      baseName: "meta",
-      type: "ListScorecardScoresMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "ListScorecardScoresMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class ListScorecardScoresResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListScorecardScoresResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

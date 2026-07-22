@@ -6,23 +6,28 @@
 import { AwsCURConfigAttributes } from "./AwsCURConfigAttributes";
 import { AwsCURConfigType } from "./AwsCURConfigType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * AWS CUR config.
- */
+*/
 export class AwsCURConfig {
   /**
    * Attributes for An AWS CUR config.
-   */
+  */
   "attributes": AwsCURConfigAttributes;
   /**
    * The ID of the AWS CUR config.
-   */
+  */
   "id"?: string;
   /**
    * Type of AWS CUR config.
-   */
+  */
   "type": AwsCURConfigType;
 
   /**
@@ -30,7 +35,7 @@ export class AwsCURConfig {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class AwsCURConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AwsCURConfigAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AwsCURConfigAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "AwsCURConfigType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AwsCURConfigType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class AwsCURConfig {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AwsCURConfig.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

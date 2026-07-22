@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `AwsCurConfigResponseDataAttributesAccountFilters` object.
- */
+*/
 export class AwsCurConfigResponseDataAttributesAccountFilters {
   /**
    * The `account_filters` `excluded_accounts`.
-   */
+  */
   "excludedAccounts"?: Array<string>;
   /**
    * The `account_filters` `include_new_accounts`.
-   */
+  */
   "includeNewAccounts"?: boolean;
   /**
    * The `account_filters` `included_accounts`.
-   */
+  */
   "includedAccounts"?: Array<string>;
 
   /**
@@ -28,7 +33,7 @@ export class AwsCurConfigResponseDataAttributesAccountFilters {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class AwsCurConfigResponseDataAttributesAccountFilters {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    excludedAccounts: {
-      baseName: "excluded_accounts",
-      type: "Array<string>",
+    "excludedAccounts": {
+      "baseName": "excluded_accounts",
+      "type": "Array<string>",
     },
-    includeNewAccounts: {
-      baseName: "include_new_accounts",
-      type: "boolean",
+    "includeNewAccounts": {
+      "baseName": "include_new_accounts",
+      "type": "boolean",
     },
-    includedAccounts: {
-      baseName: "included_accounts",
-      type: "Array<string>",
+    "includedAccounts": {
+      "baseName": "included_accounts",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class AwsCurConfigResponseDataAttributesAccountFilters {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AwsCurConfigResponseDataAttributesAccountFilters.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,23 +6,28 @@
 import { EscalationPolicyStepTargetConfig } from "./EscalationPolicyStepTargetConfig";
 import { EscalationPolicyStepTargetType } from "./EscalationPolicyStepTargetType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Defines a single escalation target within a step for an escalation policy creation request. Contains `id`, `type`, and optional `config`.
- */
+*/
 export class EscalationPolicyStepTarget {
   /**
    * Configuration for an escalation target, such as schedule position.
-   */
+  */
   "config"?: EscalationPolicyStepTargetConfig;
   /**
    * Specifies the unique identifier for this target.
-   */
+  */
   "id"?: string;
   /**
    * Specifies the type of escalation target (example `users`, `schedules`, or `teams`).
-   */
+  */
   "type"?: EscalationPolicyStepTargetType;
 
   /**
@@ -30,7 +35,7 @@ export class EscalationPolicyStepTarget {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class EscalationPolicyStepTarget {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    config: {
-      baseName: "config",
-      type: "EscalationPolicyStepTargetConfig",
+    "config": {
+      "baseName": "config",
+      "type": "EscalationPolicyStepTargetConfig",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "EscalationPolicyStepTargetType",
+    "type": {
+      "baseName": "type",
+      "type": "EscalationPolicyStepTargetType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class EscalationPolicyStepTarget {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EscalationPolicyStepTarget.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

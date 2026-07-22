@@ -6,23 +6,28 @@
 import { SingleAggregatedDnsResponseDataAttributes } from "./SingleAggregatedDnsResponseDataAttributes";
 import { SingleAggregatedDnsResponseDataType } from "./SingleAggregatedDnsResponseDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object describing an aggregated DNS flow.
- */
+*/
 export class SingleAggregatedDnsResponseData {
   /**
    * Attributes for an aggregated DNS flow.
-   */
+  */
   "attributes"?: SingleAggregatedDnsResponseDataAttributes;
   /**
    * A unique identifier for the aggregated DNS traffic based on the group by values.
-   */
+  */
   "id"?: string;
   /**
    * Aggregated DNS resource type.
-   */
+  */
   "type"?: SingleAggregatedDnsResponseDataType;
 
   /**
@@ -30,7 +35,7 @@ export class SingleAggregatedDnsResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class SingleAggregatedDnsResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SingleAggregatedDnsResponseDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SingleAggregatedDnsResponseDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SingleAggregatedDnsResponseDataType",
+    "type": {
+      "baseName": "type",
+      "type": "SingleAggregatedDnsResponseDataType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class SingleAggregatedDnsResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SingleAggregatedDnsResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

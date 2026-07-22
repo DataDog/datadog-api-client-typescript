@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The resource type for managed organizations.
- */
+*/
 
 export type ManagedOrgsType = typeof MANAGED_ORGS | UnparsedObject;
-export const MANAGED_ORGS = "managed_orgs";
+export const MANAGED_ORGS = 'managed_orgs';

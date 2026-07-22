@@ -5,15 +5,20 @@
  */
 import { ProjectColumnsConfigColumnsItems } from "./ProjectColumnsConfigColumnsItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Project columns configuration.
- */
+*/
 export class ProjectColumnsConfig {
   /**
    * List of column configurations for the project board view.
-   */
+  */
   "columns"?: Array<ProjectColumnsConfigColumnsItems>;
 
   /**
@@ -21,7 +26,7 @@ export class ProjectColumnsConfig {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class ProjectColumnsConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    columns: {
-      baseName: "columns",
-      type: "Array<ProjectColumnsConfigColumnsItems>",
+    "columns": {
+      "baseName": "columns",
+      "type": "Array<ProjectColumnsConfigColumnsItems>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class ProjectColumnsConfig {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProjectColumnsConfig.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

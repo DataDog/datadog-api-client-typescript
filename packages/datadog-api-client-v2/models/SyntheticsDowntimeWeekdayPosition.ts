@@ -4,19 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The position of a weekday within a month for a monthly Synthetics downtime recurrence. `1` through `4` select the first through fourth occurrence of the weekday in the month, and `-1` selects the last occurrence.
- */
+*/
 
-export type SyntheticsDowntimeWeekdayPosition =
-  | typeof FIRST
-  | typeof SECOND
-  | typeof THIRD
-  | typeof FOURTH
-  | typeof LAST
-  | UnparsedObject;
+export type SyntheticsDowntimeWeekdayPosition = typeof FIRST| typeof SECOND| typeof THIRD| typeof FOURTH| typeof LAST | UnparsedObject;
 export const FIRST = 1;
 export const SECOND = 2;
 export const THIRD = 3;

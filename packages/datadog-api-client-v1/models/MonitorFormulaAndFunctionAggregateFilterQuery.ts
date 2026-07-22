@@ -6,13 +6,15 @@
 import { MonitorFormulaAndFunctionEventQueryDefinition } from "./MonitorFormulaAndFunctionEventQueryDefinition";
 import { MonitorFormulaAndFunctionReferenceTableQueryDefinition } from "./MonitorFormulaAndFunctionReferenceTableQueryDefinition";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Filter query for aggregate filtered queries. Can be an events query or a reference table query.
- */
+*/
 
-export type MonitorFormulaAndFunctionAggregateFilterQuery =
-  | MonitorFormulaAndFunctionEventQueryDefinition
-  | MonitorFormulaAndFunctionReferenceTableQueryDefinition
-  | UnparsedObject;
+export type MonitorFormulaAndFunctionAggregateFilterQuery = MonitorFormulaAndFunctionEventQueryDefinition | MonitorFormulaAndFunctionReferenceTableQueryDefinition | UnparsedObject;

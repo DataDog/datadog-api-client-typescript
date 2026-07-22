@@ -7,23 +7,28 @@ import { IncidentNotificationRuleArrayMeta } from "./IncidentNotificationRuleArr
 import { IncidentNotificationRuleIncludedItems } from "./IncidentNotificationRuleIncludedItems";
 import { IncidentNotificationRuleResponseData } from "./IncidentNotificationRuleResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response with notification rules.
- */
+*/
 export class IncidentNotificationRuleArray {
   /**
    * The `NotificationRuleArray` `data`.
-   */
+  */
   "data": Array<IncidentNotificationRuleResponseData>;
   /**
    * Related objects that are included in the response.
-   */
+  */
   "included"?: Array<IncidentNotificationRuleIncludedItems>;
   /**
    * Response metadata.
-   */
+  */
   "meta"?: IncidentNotificationRuleArrayMeta;
 
   /**
@@ -31,7 +36,7 @@ export class IncidentNotificationRuleArray {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,18 +47,18 @@ export class IncidentNotificationRuleArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<IncidentNotificationRuleResponseData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<IncidentNotificationRuleResponseData>",
+      "required": true,
     },
-    included: {
-      baseName: "included",
-      type: "Array<IncidentNotificationRuleIncludedItems>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<IncidentNotificationRuleIncludedItems>",
     },
-    meta: {
-      baseName: "meta",
-      type: "IncidentNotificationRuleArrayMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "IncidentNotificationRuleArrayMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class IncidentNotificationRuleArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentNotificationRuleArray.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

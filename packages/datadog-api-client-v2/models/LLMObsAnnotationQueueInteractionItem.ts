@@ -6,13 +6,15 @@
 import { LLMObsDisplayBlockInteractionItem } from "./LLMObsDisplayBlockInteractionItem";
 import { LLMObsTraceInteractionItem } from "./LLMObsTraceInteractionItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A single interaction to add to an annotation queue.
- */
+*/
 
-export type LLMObsAnnotationQueueInteractionItem =
-  | LLMObsTraceInteractionItem
-  | LLMObsDisplayBlockInteractionItem
-  | UnparsedObject;
+export type LLMObsAnnotationQueueInteractionItem = LLMObsTraceInteractionItem | LLMObsDisplayBlockInteractionItem | UnparsedObject;

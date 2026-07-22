@@ -4,35 +4,40 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Configuration information organized by layers.
- */
+*/
 export class FleetConfigurationLayer {
   /**
    * The final compiled configuration.
-   */
+  */
   "compiledConfiguration"?: string;
   /**
    * Configuration from environment variables.
-   */
+  */
   "envConfiguration"?: string;
   /**
    * Configuration from files.
-   */
+  */
   "fileConfiguration"?: string;
   /**
    * Parsed configuration output.
-   */
+  */
   "parsedConfiguration"?: string;
   /**
    * Remote configuration settings.
-   */
+  */
   "remoteConfiguration"?: string;
   /**
    * Runtime configuration.
-   */
+  */
   "runtimeConfiguration"?: string;
 
   /**
@@ -40,7 +45,7 @@ export class FleetConfigurationLayer {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -51,29 +56,29 @@ export class FleetConfigurationLayer {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    compiledConfiguration: {
-      baseName: "compiled_configuration",
-      type: "string",
+    "compiledConfiguration": {
+      "baseName": "compiled_configuration",
+      "type": "string",
     },
-    envConfiguration: {
-      baseName: "env_configuration",
-      type: "string",
+    "envConfiguration": {
+      "baseName": "env_configuration",
+      "type": "string",
     },
-    fileConfiguration: {
-      baseName: "file_configuration",
-      type: "string",
+    "fileConfiguration": {
+      "baseName": "file_configuration",
+      "type": "string",
     },
-    parsedConfiguration: {
-      baseName: "parsed_configuration",
-      type: "string",
+    "parsedConfiguration": {
+      "baseName": "parsed_configuration",
+      "type": "string",
     },
-    remoteConfiguration: {
-      baseName: "remote_configuration",
-      type: "string",
+    "remoteConfiguration": {
+      "baseName": "remote_configuration",
+      "type": "string",
     },
-    runtimeConfiguration: {
-      baseName: "runtime_configuration",
-      type: "string",
+    "runtimeConfiguration": {
+      "baseName": "runtime_configuration",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -85,8 +90,34 @@ export class FleetConfigurationLayer {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FleetConfigurationLayer.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

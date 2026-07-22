@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Bar chart widget stacked display type.
- */
+*/
 
 export type BarChartWidgetStackedType = typeof STACKED | UnparsedObject;
-export const STACKED = "stacked";
+export const STACKED = 'stacked';

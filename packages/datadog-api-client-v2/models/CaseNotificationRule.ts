@@ -6,23 +6,28 @@
 import { CaseNotificationRuleAttributes } from "./CaseNotificationRuleAttributes";
 import { CaseNotificationRuleResourceType } from "./CaseNotificationRuleResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A notification rule for case management
- */
+*/
 export class CaseNotificationRule {
   /**
    * Notification rule attributes
-   */
+  */
   "attributes": CaseNotificationRuleAttributes;
   /**
    * The notification rule's identifier
-   */
+  */
   "id": string;
   /**
    * Notification rule resource type
-   */
+  */
   "type": CaseNotificationRuleResourceType;
 
   /**
@@ -30,7 +35,7 @@ export class CaseNotificationRule {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class CaseNotificationRule {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CaseNotificationRuleAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CaseNotificationRuleAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CaseNotificationRuleResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CaseNotificationRuleResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class CaseNotificationRule {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseNotificationRule.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

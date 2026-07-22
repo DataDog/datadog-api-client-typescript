@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A query to be combined with the third party case query.
- */
+*/
 export class SecurityMonitoringThirdPartyRootQuery {
   /**
    * Fields to group by.
-   */
+  */
   "groupByFields"?: Array<string>;
   /**
    * Query to run on logs.
-   */
+  */
   "query"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class SecurityMonitoringThirdPartyRootQuery {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class SecurityMonitoringThirdPartyRootQuery {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    groupByFields: {
-      baseName: "groupByFields",
-      type: "Array<string>",
+    "groupByFields": {
+      "baseName": "groupByFields",
+      "type": "Array<string>",
     },
-    query: {
-      baseName: "query",
-      type: "string",
+    "query": {
+      "baseName": "query",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class SecurityMonitoringThirdPartyRootQuery {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringThirdPartyRootQuery.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

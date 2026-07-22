@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The resource type for a blueprint.
- */
+*/
 
 export type BlueprintDataType = typeof BLUEPRINT | UnparsedObject;
-export const BLUEPRINT = "blueprint";
+export const BLUEPRINT = 'blueprint';

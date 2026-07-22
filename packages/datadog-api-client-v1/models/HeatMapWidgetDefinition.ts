@@ -13,67 +13,72 @@ import { WidgetMarker } from "./WidgetMarker";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The heat map visualization shows metrics aggregated across many tags, such as hosts. The more hosts that have a particular value, the darker that square is.
- */
+*/
 export class HeatMapWidgetDefinition {
   /**
    * List of custom links.
-   */
+  */
   "customLinks"?: Array<WidgetCustomLink>;
   /**
    * The description of the widget.
-   */
+  */
   "description"?: string;
   /**
    * List of widget events. Deprecated - Use `overlay` request type instead.
-   */
+  */
   "events"?: Array<WidgetEvent>;
   /**
    * Available legend sizes for a widget. Should be one of "0", "2", "4", "8", "16", or "auto".
-   */
+  */
   "legendSize"?: string;
   /**
    * List of markers.
-   */
+  */
   "markers"?: Array<WidgetMarker>;
   /**
    * List of widget types.
-   */
+  */
   "requests": [HeatMapWidgetRequest];
   /**
    * Whether or not to display the legend on this widget.
-   */
+  */
   "showLegend"?: boolean;
   /**
    * Time setting for the widget.
-   */
+  */
   "time"?: WidgetTime;
   /**
    * Title of the widget.
-   */
+  */
   "title"?: string;
   /**
    * How to align the text on the widget.
-   */
+  */
   "titleAlign"?: WidgetTextAlign;
   /**
    * Size of the title.
-   */
+  */
   "titleSize"?: string;
   /**
    * Type of the heat map widget.
-   */
+  */
   "type": HeatMapWidgetDefinitionType;
   /**
    * X Axis controls for the heat map widget.
-   */
+  */
   "xaxis"?: HeatMapWidgetXAxis;
   /**
    * Axis controls for the widget.
-   */
+  */
   "yaxis"?: WidgetAxis;
 
   /**
@@ -81,7 +86,7 @@ export class HeatMapWidgetDefinition {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -92,63 +97,63 @@ export class HeatMapWidgetDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    customLinks: {
-      baseName: "custom_links",
-      type: "Array<WidgetCustomLink>",
+    "customLinks": {
+      "baseName": "custom_links",
+      "type": "Array<WidgetCustomLink>",
     },
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    events: {
-      baseName: "events",
-      type: "Array<WidgetEvent>",
+    "events": {
+      "baseName": "events",
+      "type": "Array<WidgetEvent>",
     },
-    legendSize: {
-      baseName: "legend_size",
-      type: "string",
+    "legendSize": {
+      "baseName": "legend_size",
+      "type": "string",
     },
-    markers: {
-      baseName: "markers",
-      type: "Array<WidgetMarker>",
+    "markers": {
+      "baseName": "markers",
+      "type": "Array<WidgetMarker>",
     },
-    requests: {
-      baseName: "requests",
-      type: "[HeatMapWidgetRequest]",
-      required: true,
+    "requests": {
+      "baseName": "requests",
+      "type": "[HeatMapWidgetRequest]",
+      "required": true,
     },
-    showLegend: {
-      baseName: "show_legend",
-      type: "boolean",
+    "showLegend": {
+      "baseName": "show_legend",
+      "type": "boolean",
     },
-    time: {
-      baseName: "time",
-      type: "WidgetTime",
+    "time": {
+      "baseName": "time",
+      "type": "WidgetTime",
     },
-    title: {
-      baseName: "title",
-      type: "string",
+    "title": {
+      "baseName": "title",
+      "type": "string",
     },
-    titleAlign: {
-      baseName: "title_align",
-      type: "WidgetTextAlign",
+    "titleAlign": {
+      "baseName": "title_align",
+      "type": "WidgetTextAlign",
     },
-    titleSize: {
-      baseName: "title_size",
-      type: "string",
+    "titleSize": {
+      "baseName": "title_size",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "HeatMapWidgetDefinitionType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "HeatMapWidgetDefinitionType",
+      "required": true,
     },
-    xaxis: {
-      baseName: "xaxis",
-      type: "HeatMapWidgetXAxis",
+    "xaxis": {
+      "baseName": "xaxis",
+      "type": "HeatMapWidgetXAxis",
     },
-    yaxis: {
-      baseName: "yaxis",
-      type: "WidgetAxis",
+    "yaxis": {
+      "baseName": "yaxis",
+      "type": "WidgetAxis",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -160,8 +165,34 @@ export class HeatMapWidgetDefinition {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return HeatMapWidgetDefinition.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

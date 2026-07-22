@@ -6,19 +6,24 @@
 import { DatasetReportScheduleResponseData } from "./DatasetReportScheduleResponseData";
 import { ReportScheduleIncludedResource } from "./ReportScheduleIncludedResource";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a list of report schedules for a published dataset.
- */
+*/
 export class DatasetReportScheduleListResponse {
   /**
    * A list of report schedules for the dataset.
-   */
+  */
   "data": Array<DatasetReportScheduleResponseData>;
   /**
    * Related resources included with the report schedules, such as authors.
-   */
+  */
   "included"?: Array<ReportScheduleIncludedResource>;
 
   /**
@@ -26,7 +31,7 @@ export class DatasetReportScheduleListResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class DatasetReportScheduleListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<DatasetReportScheduleResponseData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<DatasetReportScheduleResponseData>",
+      "required": true,
     },
-    included: {
-      baseName: "included",
-      type: "Array<ReportScheduleIncludedResource>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<ReportScheduleIncludedResource>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class DatasetReportScheduleListResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DatasetReportScheduleListResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

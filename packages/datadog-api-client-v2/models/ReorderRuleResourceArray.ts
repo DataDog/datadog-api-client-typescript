@@ -5,15 +5,20 @@
  */
 import { ReorderRuleResourceData } from "./ReorderRuleResourceData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `ReorderRuleResourceArray` object.
- */
+*/
 export class ReorderRuleResourceArray {
   /**
    * The `ReorderRuleResourceArray` `data`.
-   */
+  */
   "data": Array<ReorderRuleResourceData>;
 
   /**
@@ -21,7 +26,7 @@ export class ReorderRuleResourceArray {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class ReorderRuleResourceArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<ReorderRuleResourceData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<ReorderRuleResourceData>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class ReorderRuleResourceArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ReorderRuleResourceArray.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

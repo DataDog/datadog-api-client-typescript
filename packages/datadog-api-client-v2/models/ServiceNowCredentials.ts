@@ -5,10 +5,15 @@
  */
 import { ServiceNowBasicAuth } from "./ServiceNowBasicAuth";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of the `ServiceNowCredentials` object.
- */
+*/
 
 export type ServiceNowCredentials = ServiceNowBasicAuth | UnparsedObject;

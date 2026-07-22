@@ -6,19 +6,24 @@
 import { PatchTableRequestDataAttributes } from "./PatchTableRequestDataAttributes";
 import { PatchTableRequestDataType } from "./PatchTableRequestDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data object containing the partial table definition updates.
- */
+*/
 export class PatchTableRequestData {
   /**
    * Attributes that define the updates to the reference table's configuration and properties.
-   */
+  */
   "attributes"?: PatchTableRequestDataAttributes;
   /**
    * Reference table resource type.
-   */
+  */
   "type": PatchTableRequestDataType;
 
   /**
@@ -30,23 +35,49 @@ export class PatchTableRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "PatchTableRequestDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "PatchTableRequestDataAttributes",
     },
-    type: {
-      baseName: "type",
-      type: "PatchTableRequestDataType",
-      required: true,
-    },
+    "type": {
+      "baseName": "type",
+      "type": "PatchTableRequestDataType",
+      "required": true,
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PatchTableRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

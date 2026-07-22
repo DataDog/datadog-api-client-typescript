@@ -5,15 +5,20 @@
  */
 import { AWSTagFilter } from "./AWSTagFilter";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An array of tag filter rules by `namespace` and tag filter string.
- */
+*/
 export class AWSTagFilterListResponse {
   /**
    * An array of tag filters.
-   */
+  */
   "filters"?: Array<AWSTagFilter>;
 
   /**
@@ -21,7 +26,7 @@ export class AWSTagFilterListResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class AWSTagFilterListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    filters: {
-      baseName: "filters",
-      type: "Array<AWSTagFilter>",
+    "filters": {
+      "baseName": "filters",
+      "type": "Array<AWSTagFilter>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class AWSTagFilterListResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSTagFilterListResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

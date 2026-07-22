@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The status of the policy suggestion.
- */
+*/
 
-export type OrgGroupPolicySuggestionStatus =
-  | typeof PENDING
-  | typeof ACCEPTED
-  | typeof DISMISSED
-  | UnparsedObject;
-export const PENDING = "pending";
-export const ACCEPTED = "accepted";
-export const DISMISSED = "dismissed";
+export type OrgGroupPolicySuggestionStatus = typeof PENDING| typeof ACCEPTED| typeof DISMISSED | UnparsedObject;
+export const PENDING = 'pending';
+export const ACCEPTED = 'accepted';
+export const DISMISSED = 'dismissed';

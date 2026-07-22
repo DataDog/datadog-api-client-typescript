@@ -6,19 +6,24 @@
 import { SecurityMonitoringCriticalAssetType } from "./SecurityMonitoringCriticalAssetType";
 import { SecurityMonitoringCriticalAssetUpdateAttributes } from "./SecurityMonitoringCriticalAssetUpdateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The new critical asset properties; partial updates are supported.
- */
+*/
 export class SecurityMonitoringCriticalAssetUpdateData {
   /**
    * The critical asset properties to be updated.
-   */
+  */
   "attributes": SecurityMonitoringCriticalAssetUpdateAttributes;
   /**
    * The type of the resource. The value should always be `critical_assets`.
-   */
+  */
   "type": SecurityMonitoringCriticalAssetType;
 
   /**
@@ -26,7 +31,7 @@ export class SecurityMonitoringCriticalAssetUpdateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class SecurityMonitoringCriticalAssetUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SecurityMonitoringCriticalAssetUpdateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SecurityMonitoringCriticalAssetUpdateAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "SecurityMonitoringCriticalAssetType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SecurityMonitoringCriticalAssetType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class SecurityMonitoringCriticalAssetUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringCriticalAssetUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,19 +6,24 @@
 import { LLMObsExperimentationSimpleSearchDataAttributesRequest } from "./LLMObsExperimentationSimpleSearchDataAttributesRequest";
 import { LLMObsExperimentationType } from "./LLMObsExperimentationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for an experimentation simple search request.
- */
+*/
 export class LLMObsExperimentationSimpleSearchDataRequest {
   /**
    * Attributes for an experimentation simple search request.
-   */
+  */
   "attributes": LLMObsExperimentationSimpleSearchDataAttributesRequest;
   /**
    * Resource type for experimentation search and analytics operations.
-   */
+  */
   "type": LLMObsExperimentationType;
 
   /**
@@ -26,7 +31,7 @@ export class LLMObsExperimentationSimpleSearchDataRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class LLMObsExperimentationSimpleSearchDataRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LLMObsExperimentationSimpleSearchDataAttributesRequest",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "LLMObsExperimentationSimpleSearchDataAttributesRequest",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LLMObsExperimentationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LLMObsExperimentationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class LLMObsExperimentationSimpleSearchDataRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsExperimentationSimpleSearchDataRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

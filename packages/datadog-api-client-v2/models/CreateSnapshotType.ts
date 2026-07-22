@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type identifier for snapshot creation resources.
- */
+*/
 
 export type CreateSnapshotType = typeof CREATE_SNAPSHOT | UnparsedObject;
-export const CREATE_SNAPSHOT = "create_snapshot";
+export const CREATE_SNAPSHOT = 'create_snapshot';

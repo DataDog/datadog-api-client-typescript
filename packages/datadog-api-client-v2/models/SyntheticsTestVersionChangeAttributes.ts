@@ -5,27 +5,32 @@
  */
 import { SyntheticsTestVersionChangeMetadataItem } from "./SyntheticsTestVersionChangeMetadataItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a version change record.
- */
+*/
 export class SyntheticsTestVersionChangeAttributes {
   /**
    * UUID of the user who created this version.
-   */
+  */
   "authorUuid"?: string;
   /**
    * List of metadata describing individual changes in this version.
-   */
+  */
   "changeMetadata"?: Array<SyntheticsTestVersionChangeMetadataItem>;
   /**
    * The sequential version number.
-   */
+  */
   "versionNumber"?: number;
   /**
    * Timestamp of when this version was created.
-   */
+  */
   "versionPayloadCreatedAt"?: Date;
 
   /**
@@ -33,7 +38,7 @@ export class SyntheticsTestVersionChangeAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -44,23 +49,23 @@ export class SyntheticsTestVersionChangeAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    authorUuid: {
-      baseName: "author_uuid",
-      type: "string",
+    "authorUuid": {
+      "baseName": "author_uuid",
+      "type": "string",
     },
-    changeMetadata: {
-      baseName: "change_metadata",
-      type: "Array<SyntheticsTestVersionChangeMetadataItem>",
+    "changeMetadata": {
+      "baseName": "change_metadata",
+      "type": "Array<SyntheticsTestVersionChangeMetadataItem>",
     },
-    versionNumber: {
-      baseName: "version_number",
-      type: "number",
-      format: "int64",
+    "versionNumber": {
+      "baseName": "version_number",
+      "type": "number",
+      "format": "int64",
     },
-    versionPayloadCreatedAt: {
-      baseName: "version_payload_created_at",
-      type: "Date",
-      format: "date-time",
+    "versionPayloadCreatedAt": {
+      "baseName": "version_payload_created_at",
+      "type": "Date",
+      "format": "date-time",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -72,8 +77,34 @@ export class SyntheticsTestVersionChangeAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestVersionChangeAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

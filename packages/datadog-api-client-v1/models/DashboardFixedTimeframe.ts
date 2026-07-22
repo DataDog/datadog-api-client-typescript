@@ -5,23 +5,28 @@
  */
 import { DashboardFixedTimeframeType } from "./DashboardFixedTimeframeType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A fixed dashboard timeframe.
- */
+*/
 export class DashboardFixedTimeframe {
   /**
    * Start time in milliseconds since epoch.
-   */
+  */
   "from": number;
   /**
    * End time in milliseconds since epoch.
-   */
+  */
   "to": number;
   /**
    * Type of fixed timeframe.
-   */
+  */
   "type": DashboardFixedTimeframeType;
 
   /**
@@ -29,7 +34,7 @@ export class DashboardFixedTimeframe {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,22 +45,22 @@ export class DashboardFixedTimeframe {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    from: {
-      baseName: "from",
-      type: "number",
-      required: true,
-      format: "int64",
+    "from": {
+      "baseName": "from",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    to: {
-      baseName: "to",
-      type: "number",
-      required: true,
-      format: "int64",
+    "to": {
+      "baseName": "to",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    type: {
-      baseName: "type",
-      type: "DashboardFixedTimeframeType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "DashboardFixedTimeframeType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class DashboardFixedTimeframe {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DashboardFixedTimeframe.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

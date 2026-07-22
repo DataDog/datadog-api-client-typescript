@@ -6,23 +6,28 @@
 import { AWSNewExternalIDResponseAttributes } from "./AWSNewExternalIDResponseAttributes";
 import { AWSNewExternalIDResponseDataType } from "./AWSNewExternalIDResponseDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * AWS External ID response body.
- */
+*/
 export class AWSNewExternalIDResponseData {
   /**
    * AWS External ID response body.
-   */
+  */
   "attributes"?: AWSNewExternalIDResponseAttributes;
   /**
    * The `AWSNewExternalIDResponseData` `id`.
-   */
+  */
   "id": string;
   /**
    * The `AWSNewExternalIDResponseData` `type`.
-   */
+  */
   "type": AWSNewExternalIDResponseDataType;
 
   /**
@@ -30,7 +35,7 @@ export class AWSNewExternalIDResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class AWSNewExternalIDResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AWSNewExternalIDResponseAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AWSNewExternalIDResponseAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "AWSNewExternalIDResponseDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AWSNewExternalIDResponseDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class AWSNewExternalIDResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSNewExternalIDResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

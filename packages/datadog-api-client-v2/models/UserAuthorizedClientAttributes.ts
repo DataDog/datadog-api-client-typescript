@@ -4,31 +4,36 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a user authorized client.
- */
+*/
 export class UserAuthorizedClientAttributes {
   /**
    * The date and time this authorization was created.
-   */
+  */
   "createdAt": Date;
   /**
    * Whether the user has disabled this authorization.
-   */
+  */
   "disabled": boolean;
   /**
    * The date and time this authorization was last exercised.
-   */
-  "lastExercised": Date | null;
+  */
+  "lastExercised": Date|null;
   /**
    * The date and time this authorization was last modified.
-   */
+  */
   "modifiedAt": Date;
   /**
    * Whether the organization has disabled this authorization.
-   */
+  */
   "orgDisabled": boolean;
 
   /**
@@ -36,7 +41,7 @@ export class UserAuthorizedClientAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,33 +52,33 @@ export class UserAuthorizedClientAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    disabled: {
-      baseName: "disabled",
-      type: "boolean",
-      required: true,
+    "disabled": {
+      "baseName": "disabled",
+      "type": "boolean",
+      "required": true,
     },
-    lastExercised: {
-      baseName: "last_exercised",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "lastExercised": {
+      "baseName": "last_exercised",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "modifiedAt": {
+      "baseName": "modified_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    orgDisabled: {
-      baseName: "org_disabled",
-      type: "boolean",
-      required: true,
+    "orgDisabled": {
+      "baseName": "org_disabled",
+      "type": "boolean",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -85,8 +90,34 @@ export class UserAuthorizedClientAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UserAuthorizedClientAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

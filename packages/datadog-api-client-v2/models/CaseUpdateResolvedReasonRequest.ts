@@ -5,15 +5,20 @@
  */
 import { CaseUpdateResolvedReason } from "./CaseUpdateResolvedReason";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request payload for updating the resolution reason on a closed security case.
- */
+*/
 export class CaseUpdateResolvedReasonRequest {
   /**
    * Data object for updating a case's resolved reason.
-   */
+  */
   "data": CaseUpdateResolvedReason;
 
   /**
@@ -21,7 +26,7 @@ export class CaseUpdateResolvedReasonRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CaseUpdateResolvedReasonRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CaseUpdateResolvedReason",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "CaseUpdateResolvedReason",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CaseUpdateResolvedReasonRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseUpdateResolvedReasonRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

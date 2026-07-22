@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The JSON object containing all attributes of the security finding.
- */
+*/
 export class SecurityFindingsAttributes {
   /**
    * The custom attributes of the security finding.
-   */
-  "attributes"?: { [key: string]: any };
+  */
+  "attributes"?: { [key: string]: any; };
   /**
    * List of tags associated with the security finding.
-   */
+  */
   "tags"?: Array<string>;
   /**
    * The Unix timestamp at which the detection changed for the resource. Same value as @detection_changed_at.
-   */
+  */
   "timestamp"?: number;
 
   /**
@@ -28,7 +33,7 @@ export class SecurityFindingsAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,18 +44,18 @@ export class SecurityFindingsAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "{ [key: string]: any; }",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "{ [key: string]: any; }",
     },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
+    "tags": {
+      "baseName": "tags",
+      "type": "Array<string>",
     },
-    timestamp: {
-      baseName: "timestamp",
-      type: "number",
-      format: "int64",
+    "timestamp": {
+      "baseName": "timestamp",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class SecurityFindingsAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityFindingsAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

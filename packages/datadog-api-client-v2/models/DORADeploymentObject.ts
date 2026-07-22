@@ -6,23 +6,28 @@
 import { DORADeploymentObjectAttributes } from "./DORADeploymentObjectAttributes";
 import { DORADeploymentType } from "./DORADeploymentType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A DORA deployment event.
- */
+*/
 export class DORADeploymentObject {
   /**
    * The attributes of the deployment event.
-   */
+  */
   "attributes"?: DORADeploymentObjectAttributes;
   /**
    * The ID of the deployment event.
-   */
+  */
   "id"?: string;
   /**
    * JSON:API type for DORA deployment events.
-   */
+  */
   "type"?: DORADeploymentType;
 
   /**
@@ -30,7 +35,7 @@ export class DORADeploymentObject {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class DORADeploymentObject {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "DORADeploymentObjectAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "DORADeploymentObjectAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "DORADeploymentType",
+    "type": {
+      "baseName": "type",
+      "type": "DORADeploymentType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class DORADeploymentObject {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DORADeploymentObject.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Rule severity
- */
+*/
 
-export type CustomRuleRevisionAttributesSeverity =
-  | typeof ERROR
-  | typeof WARNING
-  | typeof NOTICE
-  | UnparsedObject;
-export const ERROR = "ERROR";
-export const WARNING = "WARNING";
-export const NOTICE = "NOTICE";
+export type CustomRuleRevisionAttributesSeverity = typeof ERROR| typeof WARNING| typeof NOTICE | UnparsedObject;
+export const ERROR = 'ERROR';
+export const WARNING = 'WARNING';
+export const NOTICE = 'NOTICE';

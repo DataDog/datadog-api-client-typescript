@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Alerting time window options.
- */
+*/
 export class MonitorThresholdWindowOptions {
   /**
    * Describes how long an anomalous metric must be normal before the alert recovers.
-   */
+  */
   "recoveryWindow"?: string;
   /**
    * Describes how long a metric must be anomalous before an alert triggers.
-   */
+  */
   "triggerWindow"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class MonitorThresholdWindowOptions {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class MonitorThresholdWindowOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    recoveryWindow: {
-      baseName: "recovery_window",
-      type: "string",
+    "recoveryWindow": {
+      "baseName": "recovery_window",
+      "type": "string",
     },
-    triggerWindow: {
-      baseName: "trigger_window",
-      type: "string",
+    "triggerWindow": {
+      "baseName": "trigger_window",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class MonitorThresholdWindowOptions {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorThresholdWindowOptions.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

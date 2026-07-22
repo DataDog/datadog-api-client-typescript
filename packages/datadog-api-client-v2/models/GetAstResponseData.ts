@@ -6,23 +6,28 @@
 import { GetAstResponseDataAttributes } from "./GetAstResponseDataAttributes";
 import { GetAstResponseDataType } from "./GetAstResponseDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The primary data object in the get-AST response.
- */
+*/
 export class GetAstResponseData {
   /**
    * The attributes of the get-AST response, containing the parsed abstract syntax tree.
-   */
+  */
   "attributes": GetAstResponseDataAttributes;
   /**
    * The identifier of the get-AST response resource.
-   */
+  */
   "id"?: string;
   /**
    * Get AST response resource type.
-   */
+  */
   "type": GetAstResponseDataType;
 
   /**
@@ -30,7 +35,7 @@ export class GetAstResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class GetAstResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "GetAstResponseDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "GetAstResponseDataAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "GetAstResponseDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "GetAstResponseDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class GetAstResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GetAstResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

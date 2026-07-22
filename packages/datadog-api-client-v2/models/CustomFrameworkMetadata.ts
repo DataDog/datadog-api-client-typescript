@@ -6,23 +6,28 @@
 import { CustomFrameworkType } from "./CustomFrameworkType";
 import { CustomFrameworkWithoutRequirements } from "./CustomFrameworkWithoutRequirements";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metadata for custom frameworks.
- */
+*/
 export class CustomFrameworkMetadata {
   /**
    * Framework without requirements.
-   */
+  */
   "attributes"?: CustomFrameworkWithoutRequirements;
   /**
    * The ID of the custom framework.
-   */
+  */
   "id"?: string;
   /**
    * The type of the resource. The value must be `custom_framework`.
-   */
+  */
   "type"?: CustomFrameworkType;
 
   /**
@@ -30,7 +35,7 @@ export class CustomFrameworkMetadata {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class CustomFrameworkMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CustomFrameworkWithoutRequirements",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CustomFrameworkWithoutRequirements",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "CustomFrameworkType",
+    "type": {
+      "baseName": "type",
+      "type": "CustomFrameworkType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class CustomFrameworkMetadata {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomFrameworkMetadata.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

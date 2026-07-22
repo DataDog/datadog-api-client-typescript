@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Deployment gate resource type.
- */
+*/
 
 export type DeploymentGateDataType = typeof DEPLOYMENT_GATE | UnparsedObject;
-export const DEPLOYMENT_GATE = "deployment_gate";
+export const DEPLOYMENT_GATE = 'deployment_gate';

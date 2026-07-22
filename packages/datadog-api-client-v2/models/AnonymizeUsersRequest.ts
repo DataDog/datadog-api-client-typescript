@@ -5,15 +5,20 @@
  */
 import { AnonymizeUsersRequestData } from "./AnonymizeUsersRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request body for anonymizing users.
- */
+*/
 export class AnonymizeUsersRequest {
   /**
    * Object to anonymize a list of users.
-   */
+  */
   "data": AnonymizeUsersRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class AnonymizeUsersRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class AnonymizeUsersRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "AnonymizeUsersRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "AnonymizeUsersRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class AnonymizeUsersRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AnonymizeUsersRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

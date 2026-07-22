@@ -5,15 +5,20 @@
  */
 import { ValidateAPIKeyStatus } from "./ValidateAPIKeyStatus";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object for the API and application key validation status check.
- */
+*/
 export class ValidateAPIKeyResponse {
   /**
    * Status of the validation. Always `ok` when both the API key and the application key are valid.
-   */
+  */
   "status": ValidateAPIKeyStatus;
 
   /**
@@ -21,7 +26,7 @@ export class ValidateAPIKeyResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class ValidateAPIKeyResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    status: {
-      baseName: "status",
-      type: "ValidateAPIKeyStatus",
-      required: true,
+    "status": {
+      "baseName": "status",
+      "type": "ValidateAPIKeyStatus",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class ValidateAPIKeyResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ValidateAPIKeyResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

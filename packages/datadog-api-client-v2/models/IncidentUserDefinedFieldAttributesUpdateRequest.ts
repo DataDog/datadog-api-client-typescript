@@ -7,39 +7,44 @@ import { IncidentUserDefinedFieldCategory } from "./IncidentUserDefinedFieldCate
 import { IncidentUserDefinedFieldCollected } from "./IncidentUserDefinedFieldCollected";
 import { IncidentUserDefinedFieldValidValue } from "./IncidentUserDefinedFieldValidValue";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for updating an incident user-defined field. All fields are optional.
- */
+*/
 export class IncidentUserDefinedFieldAttributesUpdateRequest {
   /**
    * The section in which the field appears: "what_happened" or "why_it_happened". When null, the field appears in the Attributes section.
-   */
+  */
   "category"?: IncidentUserDefinedFieldCategory;
   /**
    * The lifecycle stage at which the app prompts users to fill out this field. Cannot be set on required fields.
-   */
+  */
   "collected"?: IncidentUserDefinedFieldCollected;
   /**
    * The default value for the field. Must be one of the valid values when valid_values is set.
-   */
+  */
   "defaultValue"?: string;
   /**
    * The human-readable name shown in the UI.
-   */
+  */
   "displayName"?: string;
   /**
    * A decimal string representing the field's display order in the UI.
-   */
+  */
   "ordinal"?: string;
   /**
    * When true, users must fill out this field on incidents.
-   */
+  */
   "required"?: boolean;
   /**
    * The list of allowed values for dropdown and multiselect fields. Limited to 1000 values.
-   */
+  */
   "validValues"?: Array<IncidentUserDefinedFieldValidValue>;
 
   /**
@@ -47,7 +52,7 @@ export class IncidentUserDefinedFieldAttributesUpdateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -58,33 +63,33 @@ export class IncidentUserDefinedFieldAttributesUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    category: {
-      baseName: "category",
-      type: "IncidentUserDefinedFieldCategory",
+    "category": {
+      "baseName": "category",
+      "type": "IncidentUserDefinedFieldCategory",
     },
-    collected: {
-      baseName: "collected",
-      type: "IncidentUserDefinedFieldCollected",
+    "collected": {
+      "baseName": "collected",
+      "type": "IncidentUserDefinedFieldCollected",
     },
-    defaultValue: {
-      baseName: "default_value",
-      type: "string",
+    "defaultValue": {
+      "baseName": "default_value",
+      "type": "string",
     },
-    displayName: {
-      baseName: "display_name",
-      type: "string",
+    "displayName": {
+      "baseName": "display_name",
+      "type": "string",
     },
-    ordinal: {
-      baseName: "ordinal",
-      type: "string",
+    "ordinal": {
+      "baseName": "ordinal",
+      "type": "string",
     },
-    required: {
-      baseName: "required",
-      type: "boolean",
+    "required": {
+      "baseName": "required",
+      "type": "boolean",
     },
-    validValues: {
-      baseName: "valid_values",
-      type: "Array<IncidentUserDefinedFieldValidValue>",
+    "validValues": {
+      "baseName": "valid_values",
+      "type": "Array<IncidentUserDefinedFieldValidValue>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -96,8 +101,34 @@ export class IncidentUserDefinedFieldAttributesUpdateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentUserDefinedFieldAttributesUpdateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

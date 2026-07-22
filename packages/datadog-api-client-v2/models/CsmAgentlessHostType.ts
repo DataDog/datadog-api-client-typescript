@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The JSON:API type for agentless host resources. The value should always be `agentless_host`.
- */
+*/
 
 export type CsmAgentlessHostType = typeof AGENTLESS_HOST | UnparsedObject;
-export const AGENTLESS_HOST = "agentless_host";
+export const AGENTLESS_HOST = 'agentless_host';

@@ -6,19 +6,24 @@
 import { SyntheticsNetworkTest } from "./SyntheticsNetworkTest";
 import { SyntheticsNetworkTestType } from "./SyntheticsNetworkTestType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for creating or editing a Network Path test.
- */
+*/
 export class SyntheticsNetworkTestEdit {
   /**
    * Object containing details about a Network Path test.
-   */
+  */
   "attributes": SyntheticsNetworkTest;
   /**
    * Type of the Synthetic test, `network`.
-   */
+  */
   "type": SyntheticsNetworkTestType;
 
   /**
@@ -26,7 +31,7 @@ export class SyntheticsNetworkTestEdit {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class SyntheticsNetworkTestEdit {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SyntheticsNetworkTest",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SyntheticsNetworkTest",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "SyntheticsNetworkTestType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SyntheticsNetworkTestType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class SyntheticsNetworkTestEdit {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsNetworkTestEdit.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The source type. The value should always be `syslog_ng`.
- */
+*/
 
-export type ObservabilityPipelineSyslogNgSourceType =
-  | typeof SYSLOG_NG
-  | UnparsedObject;
-export const SYSLOG_NG = "syslog_ng";
+export type ObservabilityPipelineSyslogNgSourceType = typeof SYSLOG_NG | UnparsedObject;
+export const SYSLOG_NG = 'syslog_ng';

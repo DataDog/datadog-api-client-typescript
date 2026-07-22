@@ -5,15 +5,20 @@
  */
 import { RumMetricResponseData } from "./RumMetricResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * All the available RUM-based metric objects.
- */
+*/
 export class RumMetricsResponse {
   /**
    * A list of RUM-based metric objects.
-   */
+  */
   "data"?: Array<RumMetricResponseData>;
 
   /**
@@ -21,7 +26,7 @@ export class RumMetricsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class RumMetricsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<RumMetricResponseData>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<RumMetricResponseData>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class RumMetricsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RumMetricsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

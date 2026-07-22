@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for creating a policy override.
- */
+*/
 export class OrgGroupPolicyOverrideCreateAttributes {
   /**
    * The site of the organization.
-   */
+  */
   "orgSite": string;
   /**
    * The UUID of the organization to grant the override.
-   */
+  */
   "orgUuid": string;
 
   /**
@@ -24,7 +29,7 @@ export class OrgGroupPolicyOverrideCreateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,16 +40,16 @@ export class OrgGroupPolicyOverrideCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    orgSite: {
-      baseName: "org_site",
-      type: "string",
-      required: true,
+    "orgSite": {
+      "baseName": "org_site",
+      "type": "string",
+      "required": true,
     },
-    orgUuid: {
-      baseName: "org_uuid",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "orgUuid": {
+      "baseName": "org_uuid",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class OrgGroupPolicyOverrideCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgGroupPolicyOverrideCreateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of data.
- */
+*/
 
-export type GetSuppressionVersionHistoryDataType =
-  | typeof SUPPRESSIONVERSIONHISTORY
-  | UnparsedObject;
-export const SUPPRESSIONVERSIONHISTORY = "suppression_version_history";
+export type GetSuppressionVersionHistoryDataType = typeof SUPPRESSIONVERSIONHISTORY | UnparsedObject;
+export const SUPPRESSIONVERSIONHISTORY = 'suppression_version_history';

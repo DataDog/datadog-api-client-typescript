@@ -4,39 +4,44 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of the restriction query.
- */
+*/
 export class RestrictionQueryAttributes {
   /**
    * Creation time of the restriction query.
-   */
+  */
   "createdAt"?: Date;
   /**
    * Email of the user who last modified this restriction query.
-   */
+  */
   "lastModifierEmail"?: string;
   /**
    * Name of the user who last modified this restriction query.
-   */
+  */
   "lastModifierName"?: string;
   /**
    * Time of last restriction query modification.
-   */
+  */
   "modifiedAt"?: Date;
   /**
    * The query that defines the restriction. Only the content matching the query can be returned.
-   */
+  */
   "restrictionQuery"?: string;
   /**
    * Number of roles associated with this restriction query.
-   */
+  */
   "roleCount"?: number;
   /**
    * Number of users associated with this restriction query.
-   */
+  */
   "userCount"?: number;
 
   /**
@@ -44,7 +49,7 @@ export class RestrictionQueryAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -55,37 +60,37 @@ export class RestrictionQueryAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    lastModifierEmail: {
-      baseName: "last_modifier_email",
-      type: "string",
+    "lastModifierEmail": {
+      "baseName": "last_modifier_email",
+      "type": "string",
     },
-    lastModifierName: {
-      baseName: "last_modifier_name",
-      type: "string",
+    "lastModifierName": {
+      "baseName": "last_modifier_name",
+      "type": "string",
     },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "Date",
-      format: "date-time",
+    "modifiedAt": {
+      "baseName": "modified_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    restrictionQuery: {
-      baseName: "restriction_query",
-      type: "string",
+    "restrictionQuery": {
+      "baseName": "restriction_query",
+      "type": "string",
     },
-    roleCount: {
-      baseName: "role_count",
-      type: "number",
-      format: "int64",
+    "roleCount": {
+      "baseName": "role_count",
+      "type": "number",
+      "format": "int64",
     },
-    userCount: {
-      baseName: "user_count",
-      type: "number",
-      format: "int64",
+    "userCount": {
+      "baseName": "user_count",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -97,8 +102,34 @@ export class RestrictionQueryAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RestrictionQueryAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

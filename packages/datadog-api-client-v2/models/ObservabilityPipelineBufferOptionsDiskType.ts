@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of the buffer that will be configured, a disk buffer.
- */
+*/
 
-export type ObservabilityPipelineBufferOptionsDiskType =
-  | typeof DISK
-  | UnparsedObject;
-export const DISK = "disk";
+export type ObservabilityPipelineBufferOptionsDiskType = typeof DISK | UnparsedObject;
+export const DISK = 'disk';

@@ -6,19 +6,24 @@
 import { MicrosoftTeamsWorkflowsWebhookHandleAttributes } from "./MicrosoftTeamsWorkflowsWebhookHandleAttributes";
 import { MicrosoftTeamsWorkflowsWebhookHandleType } from "./MicrosoftTeamsWorkflowsWebhookHandleType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Workflows Webhook handle data from a response.
- */
+*/
 export class MicrosoftTeamsUpdateWorkflowsWebhookHandleRequestData {
   /**
    * Workflows Webhook handle attributes.
-   */
+  */
   "attributes": MicrosoftTeamsWorkflowsWebhookHandleAttributes;
   /**
    * Specifies the Workflows webhook handle resource type.
-   */
+  */
   "type": MicrosoftTeamsWorkflowsWebhookHandleType;
 
   /**
@@ -26,7 +31,7 @@ export class MicrosoftTeamsUpdateWorkflowsWebhookHandleRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class MicrosoftTeamsUpdateWorkflowsWebhookHandleRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "MicrosoftTeamsWorkflowsWebhookHandleAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "MicrosoftTeamsWorkflowsWebhookHandleAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "MicrosoftTeamsWorkflowsWebhookHandleType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "MicrosoftTeamsWorkflowsWebhookHandleType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class MicrosoftTeamsUpdateWorkflowsWebhookHandleRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MicrosoftTeamsUpdateWorkflowsWebhookHandleRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

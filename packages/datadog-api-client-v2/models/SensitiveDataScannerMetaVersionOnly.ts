@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Meta payload containing information about the API.
- */
+*/
 export class SensitiveDataScannerMetaVersionOnly {
   /**
    * Version of the API (optional).
-   */
+  */
   "version"?: number;
 
   /**
@@ -20,7 +25,7 @@ export class SensitiveDataScannerMetaVersionOnly {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,10 +36,10 @@ export class SensitiveDataScannerMetaVersionOnly {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    version: {
-      baseName: "version",
-      type: "number",
-      format: "int64",
+    "version": {
+      "baseName": "version",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class SensitiveDataScannerMetaVersionOnly {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SensitiveDataScannerMetaVersionOnly.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,16 +4,21 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes describing which previously submitted DDSQL query to fetch.
- */
+*/
 export class DdsqlTabularQueryFetchRequestAttributes {
   /**
    * Opaque token returned by an earlier execute or fetch response that carried
    * `state: running`. Identifies the query to poll for results.
-   */
+  */
   "queryId": string;
 
   /**
@@ -21,7 +26,7 @@ export class DdsqlTabularQueryFetchRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class DdsqlTabularQueryFetchRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    queryId: {
-      baseName: "query_id",
-      type: "string",
-      required: true,
+    "queryId": {
+      "baseName": "query_id",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class DdsqlTabularQueryFetchRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DdsqlTabularQueryFetchRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

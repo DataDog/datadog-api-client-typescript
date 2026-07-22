@@ -5,19 +5,24 @@
  */
 import { WidgetSort } from "./WidgetSort";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Sort configuration for network queries.
- */
+*/
 export class SankeyNetworkQuerySort {
   /**
    * Field to sort by.
-   */
+  */
   "field"?: string;
   /**
    * Widget sorting methods.
-   */
+  */
   "order"?: WidgetSort;
 
   /**
@@ -25,7 +30,7 @@ export class SankeyNetworkQuerySort {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class SankeyNetworkQuerySort {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    field: {
-      baseName: "field",
-      type: "string",
+    "field": {
+      "baseName": "field",
+      "type": "string",
     },
-    order: {
-      baseName: "order",
-      type: "WidgetSort",
+    "order": {
+      "baseName": "order",
+      "type": "WidgetSort",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class SankeyNetworkQuerySort {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SankeyNetworkQuerySort.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

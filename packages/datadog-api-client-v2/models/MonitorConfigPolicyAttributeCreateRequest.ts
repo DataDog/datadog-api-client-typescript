@@ -6,19 +6,24 @@
 import { MonitorConfigPolicyPolicyCreateRequest } from "./MonitorConfigPolicyPolicyCreateRequest";
 import { MonitorConfigPolicyType } from "./MonitorConfigPolicyType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Policy and policy type for a monitor configuration policy.
- */
+*/
 export class MonitorConfigPolicyAttributeCreateRequest {
   /**
    * Configuration for the policy.
-   */
+  */
   "policy": MonitorConfigPolicyPolicyCreateRequest;
   /**
    * The monitor configuration policy type.
-   */
+  */
   "policyType": MonitorConfigPolicyType;
 
   /**
@@ -26,7 +31,7 @@ export class MonitorConfigPolicyAttributeCreateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class MonitorConfigPolicyAttributeCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    policy: {
-      baseName: "policy",
-      type: "MonitorConfigPolicyPolicyCreateRequest",
-      required: true,
+    "policy": {
+      "baseName": "policy",
+      "type": "MonitorConfigPolicyPolicyCreateRequest",
+      "required": true,
     },
-    policyType: {
-      baseName: "policy_type",
-      type: "MonitorConfigPolicyType",
-      required: true,
+    "policyType": {
+      "baseName": "policy_type",
+      "type": "MonitorConfigPolicyType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class MonitorConfigPolicyAttributeCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorConfigPolicyAttributeCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

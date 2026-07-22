@@ -6,19 +6,24 @@
 import { StatusPagesComponentArrayIncluded } from "./StatusPagesComponentArrayIncluded";
 import { StatusPagesComponentData } from "./StatusPagesComponentData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object for a list of components.
- */
+*/
 export class StatusPagesComponentArray {
   /**
    * A list of component data objects.
-   */
+  */
   "data": Array<StatusPagesComponentData>;
   /**
    * The included related resources of a component. Client must explicitly request these resources by name in the `include` query parameter.
-   */
+  */
   "included"?: Array<StatusPagesComponentArrayIncluded>;
 
   /**
@@ -26,7 +31,7 @@ export class StatusPagesComponentArray {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class StatusPagesComponentArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<StatusPagesComponentData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<StatusPagesComponentData>",
+      "required": true,
     },
-    included: {
-      baseName: "included",
-      type: "Array<StatusPagesComponentArrayIncluded>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<StatusPagesComponentArrayIncluded>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class StatusPagesComponentArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return StatusPagesComponentArray.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

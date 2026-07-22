@@ -5,15 +5,20 @@
  */
 import { CreateFeatureFlagData } from "./CreateFeatureFlagData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request to create a new feature flag.
- */
+*/
 export class CreateFeatureFlagRequest {
   /**
    * Data for creating a new feature flag.
-   */
+  */
   "data": CreateFeatureFlagData;
 
   /**
@@ -21,7 +26,7 @@ export class CreateFeatureFlagRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CreateFeatureFlagRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CreateFeatureFlagData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "CreateFeatureFlagData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CreateFeatureFlagRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateFeatureFlagRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

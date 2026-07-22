@@ -4,12 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Rules resource type.
- */
+*/
 
-export type GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsDataType =
-  typeof RULES | UnparsedObject;
-export const RULES = "rules";
+export type GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsDataType = typeof RULES | UnparsedObject;
+export const RULES = 'rules';

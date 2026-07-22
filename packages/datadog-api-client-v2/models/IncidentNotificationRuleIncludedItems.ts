@@ -7,14 +7,15 @@ import { IncidentNotificationTemplateObject } from "./IncidentNotificationTempla
 import { IncidentTypeObject } from "./IncidentTypeObject";
 import { User } from "./User";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Objects related to a notification rule.
- */
+*/
 
-export type IncidentNotificationRuleIncludedItems =
-  | User
-  | IncidentTypeObject
-  | IncidentNotificationTemplateObject
-  | UnparsedObject;
+export type IncidentNotificationRuleIncludedItems = User | IncidentTypeObject | IncidentNotificationTemplateObject | UnparsedObject;

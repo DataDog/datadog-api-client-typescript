@@ -6,19 +6,24 @@
 import { GeminiCredentialsUpdate } from "./GeminiCredentialsUpdate";
 import { GeminiIntegrationType } from "./GeminiIntegrationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `GeminiIntegrationUpdate` object.
- */
+*/
 export class GeminiIntegrationUpdate {
   /**
    * The definition of the `GeminiCredentialsUpdate` object.
-   */
+  */
   "credentials"?: GeminiCredentialsUpdate;
   /**
    * The definition of the `GeminiIntegrationType` object.
-   */
+  */
   "type": GeminiIntegrationType;
 
   /**
@@ -26,7 +31,7 @@ export class GeminiIntegrationUpdate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class GeminiIntegrationUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    credentials: {
-      baseName: "credentials",
-      type: "GeminiCredentialsUpdate",
+    "credentials": {
+      "baseName": "credentials",
+      "type": "GeminiCredentialsUpdate",
     },
-    type: {
-      baseName: "type",
-      type: "GeminiIntegrationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "GeminiIntegrationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class GeminiIntegrationUpdate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GeminiIntegrationUpdate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

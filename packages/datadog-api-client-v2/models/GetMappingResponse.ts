@@ -5,15 +5,20 @@
  */
 import { GetMappingResponseData } from "./GetMappingResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing the entity attribute mapping configuration including all available attributes and their properties.
- */
+*/
 export class GetMappingResponse {
   /**
    * The data object containing the resource type and attributes for the get mapping response.
-   */
+  */
   "data"?: GetMappingResponseData;
 
   /**
@@ -21,7 +26,7 @@ export class GetMappingResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class GetMappingResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "GetMappingResponseData",
+    "data": {
+      "baseName": "data",
+      "type": "GetMappingResponseData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class GetMappingResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GetMappingResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

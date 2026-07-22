@@ -7,23 +7,28 @@ import { FormDataDefinition } from "./FormDataDefinition";
 import { FormUiDefinition } from "./FormUiDefinition";
 import { UpsertAndPublishFormVersionUpsertParams } from "./UpsertAndPublishFormVersionUpsertParams";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes for upserting and publishing a form version.
- */
+*/
 export class UpsertAndPublishFormVersionDataAttributes {
   /**
    * A JSON Schema definition that describes the form's data fields.
-   */
+  */
   "dataDefinition": FormDataDefinition;
   /**
    * UI configuration for rendering form fields, including widget overrides, field ordering, and themes.
-   */
+  */
   "uiDefinition": FormUiDefinition;
   /**
    * Concurrency control parameters for the upsert and publish operation.
-   */
+  */
   "upsertParams": UpsertAndPublishFormVersionUpsertParams;
 
   /**
@@ -31,7 +36,7 @@ export class UpsertAndPublishFormVersionDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,20 +47,20 @@ export class UpsertAndPublishFormVersionDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    dataDefinition: {
-      baseName: "data_definition",
-      type: "FormDataDefinition",
-      required: true,
+    "dataDefinition": {
+      "baseName": "data_definition",
+      "type": "FormDataDefinition",
+      "required": true,
     },
-    uiDefinition: {
-      baseName: "ui_definition",
-      type: "FormUiDefinition",
-      required: true,
+    "uiDefinition": {
+      "baseName": "ui_definition",
+      "type": "FormUiDefinition",
+      "required": true,
     },
-    upsertParams: {
-      baseName: "upsert_params",
-      type: "UpsertAndPublishFormVersionUpsertParams",
-      required: true,
+    "upsertParams": {
+      "baseName": "upsert_params",
+      "type": "UpsertAndPublishFormVersionUpsertParams",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class UpsertAndPublishFormVersionDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpsertAndPublishFormVersionDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

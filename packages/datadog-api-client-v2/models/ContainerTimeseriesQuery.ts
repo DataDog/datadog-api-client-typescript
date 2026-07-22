@@ -6,47 +6,52 @@
 import { ContainerDataSource } from "./ContainerDataSource";
 import { QuerySortOrder } from "./QuerySortOrder";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A query for container-level metrics such as CPU and memory usage.
- */
+*/
 export class ContainerTimeseriesQuery {
   /**
    * Organization UUIDs to query when using [cross-organization visibility](/account_management/org_settings/cross_org_visibility/). Limited to one organization UUID.
-   */
+  */
   "crossOrgUuids"?: Array<string>;
   /**
    * A data source for container-level infrastructure metrics.
-   */
+  */
   "dataSource": ContainerDataSource;
   /**
    * Whether CPU metrics should be normalized by core count.
-   */
+  */
   "isNormalizedCpu"?: boolean;
   /**
    * Maximum number of results to return.
-   */
+  */
   "limit"?: number;
   /**
    * The container metric to query.
-   */
+  */
   "metric": string;
   /**
    * The variable name for use in formulas.
-   */
+  */
   "name": string;
   /**
    * Direction of sort.
-   */
+  */
   "sort"?: QuerySortOrder;
   /**
    * Tag filters to narrow down containers.
-   */
+  */
   "tagFilters"?: Array<string>;
   /**
    * A full-text search filter to match container names.
-   */
+  */
   "textFilter"?: string;
 
   /**
@@ -54,7 +59,7 @@ export class ContainerTimeseriesQuery {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -65,45 +70,45 @@ export class ContainerTimeseriesQuery {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    crossOrgUuids: {
-      baseName: "cross_org_uuids",
-      type: "Array<string>",
+    "crossOrgUuids": {
+      "baseName": "cross_org_uuids",
+      "type": "Array<string>",
     },
-    dataSource: {
-      baseName: "data_source",
-      type: "ContainerDataSource",
-      required: true,
+    "dataSource": {
+      "baseName": "data_source",
+      "type": "ContainerDataSource",
+      "required": true,
     },
-    isNormalizedCpu: {
-      baseName: "is_normalized_cpu",
-      type: "boolean",
+    "isNormalizedCpu": {
+      "baseName": "is_normalized_cpu",
+      "type": "boolean",
     },
-    limit: {
-      baseName: "limit",
-      type: "number",
-      format: "int64",
+    "limit": {
+      "baseName": "limit",
+      "type": "number",
+      "format": "int64",
     },
-    metric: {
-      baseName: "metric",
-      type: "string",
-      required: true,
+    "metric": {
+      "baseName": "metric",
+      "type": "string",
+      "required": true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    sort: {
-      baseName: "sort",
-      type: "QuerySortOrder",
+    "sort": {
+      "baseName": "sort",
+      "type": "QuerySortOrder",
     },
-    tagFilters: {
-      baseName: "tag_filters",
-      type: "Array<string>",
+    "tagFilters": {
+      "baseName": "tag_filters",
+      "type": "Array<string>",
     },
-    textFilter: {
-      baseName: "text_filter",
-      type: "string",
+    "textFilter": {
+      "baseName": "text_filter",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -115,8 +120,34 @@ export class ContainerTimeseriesQuery {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ContainerTimeseriesQuery.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

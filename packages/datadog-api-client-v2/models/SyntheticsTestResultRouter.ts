@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A router along the traceroute path.
- */
+*/
 export class SyntheticsTestResultRouter {
   /**
    * IP address of the router.
-   */
+  */
   "ip"?: string;
   /**
    * Resolved hostname of the router.
-   */
+  */
   "resolvedHost"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class SyntheticsTestResultRouter {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class SyntheticsTestResultRouter {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    ip: {
-      baseName: "ip",
-      type: "string",
+    "ip": {
+      "baseName": "ip",
+      "type": "string",
     },
-    resolvedHost: {
-      baseName: "resolved_host",
-      type: "string",
+    "resolvedHost": {
+      "baseName": "resolved_host",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class SyntheticsTestResultRouter {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultRouter.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

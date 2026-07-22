@@ -6,48 +6,53 @@
 import { LogsArchiveAttributesCompressionMethod } from "./LogsArchiveAttributesCompressionMethod";
 import { LogsArchiveCreateRequestDestination } from "./LogsArchiveCreateRequestDestination";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes associated with the archive.
- */
+*/
 export class LogsArchiveCreateRequestAttributes {
   /**
    * The type of compression for the archive.
-   */
+  */
   "compressionMethod"?: LogsArchiveAttributesCompressionMethod;
   /**
    * An archive's destination.
-   */
+  */
   "destination": LogsArchiveCreateRequestDestination;
   /**
    * To store the tags in the archive, set the value "true".
    * If it is set to "false", the tags will be deleted when the logs are sent to the archive.
-   */
+  */
   "includeTags"?: boolean;
   /**
    * An array of attributes to use as lookup keys for the archive.
-   */
+  */
   "lookupAttributes"?: Array<string>;
   /**
    * The archive name.
-   */
+  */
   "name": string;
   /**
    * An array of attributes to use as partition keys for the archive. The attribute used most frequently for querying should be first.
-   */
+  */
   "partitioningAttributes"?: Array<string>;
   /**
    * The archive query/filter. Logs matching this query are included in the archive.
-   */
+  */
   "query": string;
   /**
    * Maximum scan size for rehydration from this archive.
-   */
+  */
   "rehydrationMaxScanSizeInGb"?: number;
   /**
    * An array of tags to add to rehydrated logs from an archive.
-   */
+  */
   "rehydrationTags"?: Array<string>;
 
   /**
@@ -55,7 +60,7 @@ export class LogsArchiveCreateRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -66,45 +71,45 @@ export class LogsArchiveCreateRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    compressionMethod: {
-      baseName: "compression_method",
-      type: "LogsArchiveAttributesCompressionMethod",
+    "compressionMethod": {
+      "baseName": "compression_method",
+      "type": "LogsArchiveAttributesCompressionMethod",
     },
-    destination: {
-      baseName: "destination",
-      type: "LogsArchiveCreateRequestDestination",
-      required: true,
+    "destination": {
+      "baseName": "destination",
+      "type": "LogsArchiveCreateRequestDestination",
+      "required": true,
     },
-    includeTags: {
-      baseName: "include_tags",
-      type: "boolean",
+    "includeTags": {
+      "baseName": "include_tags",
+      "type": "boolean",
     },
-    lookupAttributes: {
-      baseName: "lookup_attributes",
-      type: "Array<string>",
+    "lookupAttributes": {
+      "baseName": "lookup_attributes",
+      "type": "Array<string>",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    partitioningAttributes: {
-      baseName: "partitioning_attributes",
-      type: "Array<string>",
+    "partitioningAttributes": {
+      "baseName": "partitioning_attributes",
+      "type": "Array<string>",
     },
-    query: {
-      baseName: "query",
-      type: "string",
-      required: true,
+    "query": {
+      "baseName": "query",
+      "type": "string",
+      "required": true,
     },
-    rehydrationMaxScanSizeInGb: {
-      baseName: "rehydration_max_scan_size_in_gb",
-      type: "number",
-      format: "int64",
+    "rehydrationMaxScanSizeInGb": {
+      "baseName": "rehydration_max_scan_size_in_gb",
+      "type": "number",
+      "format": "int64",
     },
-    rehydrationTags: {
-      baseName: "rehydration_tags",
-      type: "Array<string>",
+    "rehydrationTags": {
+      "baseName": "rehydration_tags",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -116,8 +121,34 @@ export class LogsArchiveCreateRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogsArchiveCreateRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

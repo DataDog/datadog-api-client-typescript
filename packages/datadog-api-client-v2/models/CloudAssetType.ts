@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The cloud asset type
- */
+*/
 
-export type CloudAssetType =
-  | typeof HOST
-  | typeof HOST_IMAGE
-  | typeof IMAGE
-  | UnparsedObject;
-export const HOST = "Host";
-export const HOST_IMAGE = "HostImage";
-export const IMAGE = "Image";
+export type CloudAssetType = typeof HOST| typeof HOST_IMAGE| typeof IMAGE | UnparsedObject;
+export const HOST = 'Host';
+export const HOST_IMAGE = 'HostImage';
+export const IMAGE = 'Image';

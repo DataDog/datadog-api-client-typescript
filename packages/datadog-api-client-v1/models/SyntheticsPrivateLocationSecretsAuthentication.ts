@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Authentication part of the secrets.
- */
+*/
 export class SyntheticsPrivateLocationSecretsAuthentication {
   /**
    * Access key for the private location.
-   */
+  */
   "id"?: string;
   /**
    * Secret access key for the private location.
-   */
+  */
   "key"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class SyntheticsPrivateLocationSecretsAuthentication {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class SyntheticsPrivateLocationSecretsAuthentication {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    key: {
-      baseName: "key",
-      type: "string",
+    "key": {
+      "baseName": "key",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class SyntheticsPrivateLocationSecretsAuthentication {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsPrivateLocationSecretsAuthentication.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

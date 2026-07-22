@@ -4,31 +4,36 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a ServiceNow user
- */
+*/
 export class ServiceNowUserAttributes {
   /**
    * The email address of the user
-   */
+  */
   "email": string;
   /**
    * The full name of the user
-   */
+  */
   "fullName"?: string;
   /**
    * The ID of the ServiceNow instance
-   */
+  */
   "instanceId": string;
   /**
    * The username of the ServiceNow user
-   */
+  */
   "userName": string;
   /**
    * The system ID of the user in ServiceNow
-   */
+  */
   "userSysId": string;
 
   /**
@@ -36,7 +41,7 @@ export class ServiceNowUserAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,30 +52,30 @@ export class ServiceNowUserAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    email: {
-      baseName: "email",
-      type: "string",
-      required: true,
+    "email": {
+      "baseName": "email",
+      "type": "string",
+      "required": true,
     },
-    fullName: {
-      baseName: "full_name",
-      type: "string",
+    "fullName": {
+      "baseName": "full_name",
+      "type": "string",
     },
-    instanceId: {
-      baseName: "instance_id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "instanceId": {
+      "baseName": "instance_id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    userName: {
-      baseName: "user_name",
-      type: "string",
-      required: true,
+    "userName": {
+      "baseName": "user_name",
+      "type": "string",
+      "required": true,
     },
-    userSysId: {
-      baseName: "user_sys_id",
-      type: "string",
-      required: true,
+    "userSysId": {
+      "baseName": "user_sys_id",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -82,8 +87,34 @@ export class ServiceNowUserAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceNowUserAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

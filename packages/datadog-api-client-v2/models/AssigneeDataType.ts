@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Assignee resource type.
- */
+*/
 
 export type AssigneeDataType = typeof ASSIGNEE | UnparsedObject;
-export const ASSIGNEE = "assignee";
+export const ASSIGNEE = 'assignee';

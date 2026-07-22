@@ -5,15 +5,20 @@
  */
 import { LLMObsAnnotationQueueLabelSchemaData } from "./LLMObsAnnotationQueueLabelSchemaData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing the label schema of an annotation queue.
- */
+*/
 export class LLMObsAnnotationQueueLabelSchemaResponse {
   /**
    * Data object for an annotation queue label schema.
-   */
+  */
   "data": LLMObsAnnotationQueueLabelSchemaData;
 
   /**
@@ -21,7 +26,7 @@ export class LLMObsAnnotationQueueLabelSchemaResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class LLMObsAnnotationQueueLabelSchemaResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "LLMObsAnnotationQueueLabelSchemaData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "LLMObsAnnotationQueueLabelSchemaData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class LLMObsAnnotationQueueLabelSchemaResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsAnnotationQueueLabelSchemaResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

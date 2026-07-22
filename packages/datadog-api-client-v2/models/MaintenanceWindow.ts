@@ -6,23 +6,28 @@
 import { MaintenanceWindowAttributes } from "./MaintenanceWindowAttributes";
 import { MaintenanceWindowResourceType } from "./MaintenanceWindowResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A maintenance window that defines a scheduled time period during which case-related notifications and automation rules are suppressed. Each maintenance window applies to cases matching a specified query.
- */
+*/
 export class MaintenanceWindow {
   /**
    * Attributes of a maintenance window, including its schedule and the query that determines which cases are affected.
-   */
+  */
   "attributes": MaintenanceWindowAttributes;
   /**
    * The maintenance window's identifier.
-   */
+  */
   "id": string;
   /**
    * JSON:API resource type for maintenance windows.
-   */
+  */
   "type": MaintenanceWindowResourceType;
 
   /**
@@ -30,7 +35,7 @@ export class MaintenanceWindow {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class MaintenanceWindow {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "MaintenanceWindowAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "MaintenanceWindowAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "MaintenanceWindowResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "MaintenanceWindowResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class MaintenanceWindow {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MaintenanceWindow.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

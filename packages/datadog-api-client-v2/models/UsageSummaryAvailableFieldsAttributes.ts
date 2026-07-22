@@ -4,32 +4,37 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The lists of field names returned by `GET /api/v1/usage/summary` at each
  * of its three response levels. Each list contains every key the data endpoint
  * emits—both typed fields declared in the OpenAPI spec and untyped keys
  * exposed through `additionalProperties`.
- */
+*/
 export class UsageSummaryAvailableFieldsAttributes {
   /**
    * Sorted list of every key returned inside each `UsageSummaryDate`
    * entry of `usage[]` (typed fields and `additionalProperties` keys
    * combined).
-   */
+  */
   "dateFields"?: Array<string>;
   /**
    * Sorted list of every key returned inside each `UsageSummaryDateOrg`
    * entry of `usage[].orgs[]` (typed fields and `additionalProperties`
    * keys combined).
-   */
+  */
   "dateOrgFields"?: Array<string>;
   /**
    * Sorted list of every key returned as a direct property of
    * `UsageSummaryResponse` (typed fields and `additionalProperties`
    * keys combined).
-   */
+  */
   "responseFields"?: Array<string>;
 
   /**
@@ -37,7 +42,7 @@ export class UsageSummaryAvailableFieldsAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -48,17 +53,17 @@ export class UsageSummaryAvailableFieldsAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    dateFields: {
-      baseName: "date_fields",
-      type: "Array<string>",
+    "dateFields": {
+      "baseName": "date_fields",
+      "type": "Array<string>",
     },
-    dateOrgFields: {
-      baseName: "date_org_fields",
-      type: "Array<string>",
+    "dateOrgFields": {
+      "baseName": "date_org_fields",
+      "type": "Array<string>",
     },
-    responseFields: {
-      baseName: "response_fields",
-      type: "Array<string>",
+    "responseFields": {
+      "baseName": "response_fields",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -70,8 +75,34 @@ export class UsageSummaryAvailableFieldsAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageSummaryAvailableFieldsAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A trace propagator type.
- */
+*/
 
-export type RumSdkConfigTracingUrlPropagatorType =
-  | typeof DATADOG
-  | typeof B3
-  | typeof B3MULTI
-  | typeof TRACECONTEXT
-  | UnparsedObject;
-export const DATADOG = "datadog";
-export const B3 = "b3";
-export const B3MULTI = "b3multi";
-export const TRACECONTEXT = "tracecontext";
+export type RumSdkConfigTracingUrlPropagatorType = typeof DATADOG| typeof B3| typeof B3MULTI| typeof TRACECONTEXT | UnparsedObject;
+export const DATADOG = 'datadog';
+export const B3 = 'b3';
+export const B3MULTI = 'b3multi';
+export const TRACECONTEXT = 'tracecontext';

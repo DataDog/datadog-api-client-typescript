@@ -5,28 +5,33 @@
  */
 import { OAuthScopesRestriction } from "./OAuthScopesRestriction";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of an OAuth2 client scopes restriction.
- */
+*/
 export class OAuthScopesRestrictionResponseAttributes {
   /**
    * Permission scopes automatically required for this client (for example, mobile-app permission scopes).
    * Returns `null` when no scopes are required.
-   */
-  "requiredPermissionScopes": Array<string> | null;
+  */
+  "requiredPermissionScopes": Array<string>|null;
   /**
    * Allowlist of OIDC and permission scopes enforced for the OAuth2 client.
-   */
-  "scopesRestriction": OAuthScopesRestriction | null;
+  */
+  "scopesRestriction": OAuthScopesRestriction|null;
 
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class OAuthScopesRestrictionResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    requiredPermissionScopes: {
-      baseName: "required_permission_scopes",
-      type: "Array<string>",
-      required: true,
+    "requiredPermissionScopes": {
+      "baseName": "required_permission_scopes",
+      "type": "Array<string>",
+      "required": true,
     },
-    scopesRestriction: {
-      baseName: "scopes_restriction",
-      type: "OAuthScopesRestriction",
-      required: true,
+    "scopesRestriction": {
+      "baseName": "scopes_restriction",
+      "type": "OAuthScopesRestriction",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class OAuthScopesRestrictionResponseAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OAuthScopesRestrictionResponseAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

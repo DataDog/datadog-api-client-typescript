@@ -6,23 +6,28 @@
 import { CustomRulesetAttributes } from "./CustomRulesetAttributes";
 import { CustomRulesetDataType } from "./CustomRulesetDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A custom static analysis ruleset containing a set of user-defined rules.
- */
+*/
 export class CustomRuleset {
   /**
    * Attributes of a custom ruleset, including its name, description, and rules.
-   */
+  */
   "attributes": CustomRulesetAttributes;
   /**
    * Ruleset identifier
-   */
+  */
   "id": string;
   /**
    * Resource type
-   */
+  */
   "type": CustomRulesetDataType;
 
   /**
@@ -30,7 +35,7 @@ export class CustomRuleset {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class CustomRuleset {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CustomRulesetAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CustomRulesetAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CustomRulesetDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CustomRulesetDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class CustomRuleset {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomRuleset.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

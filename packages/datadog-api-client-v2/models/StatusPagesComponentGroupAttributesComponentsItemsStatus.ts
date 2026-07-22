@@ -4,21 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The status of the component.
- */
+*/
 
-export type StatusPagesComponentGroupAttributesComponentsItemsStatus =
-  | typeof OPERATIONAL
-  | typeof DEGRADED
-  | typeof PARTIAL_OUTAGE
-  | typeof MAJOR_OUTAGE
-  | typeof MAINTENANCE
-  | UnparsedObject;
-export const OPERATIONAL = "operational";
-export const DEGRADED = "degraded";
-export const PARTIAL_OUTAGE = "partial_outage";
-export const MAJOR_OUTAGE = "major_outage";
-export const MAINTENANCE = "maintenance";
+export type StatusPagesComponentGroupAttributesComponentsItemsStatus = typeof OPERATIONAL| typeof DEGRADED| typeof PARTIAL_OUTAGE| typeof MAJOR_OUTAGE| typeof MAINTENANCE | UnparsedObject;
+export const OPERATIONAL = 'operational';
+export const DEGRADED = 'degraded';
+export const PARTIAL_OUTAGE = 'partial_outage';
+export const MAJOR_OUTAGE = 'major_outage';
+export const MAINTENANCE = 'maintenance';

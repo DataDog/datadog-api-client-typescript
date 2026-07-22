@@ -5,19 +5,24 @@
  */
 import { SecurityMonitoringSignalsBulkTriageEvent } from "./SecurityMonitoringSignalsBulkTriageEvent";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The result payload of a bulk signal triage update.
- */
+*/
 export class SecurityMonitoringSignalsBulkTriageUpdateResult {
   /**
    * The number of signals updated.
-   */
+  */
   "count": number;
   /**
    * The list of updated signals.
-   */
+  */
   "events": Array<SecurityMonitoringSignalsBulkTriageEvent>;
 
   /**
@@ -25,7 +30,7 @@ export class SecurityMonitoringSignalsBulkTriageUpdateResult {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,16 +41,16 @@ export class SecurityMonitoringSignalsBulkTriageUpdateResult {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    count: {
-      baseName: "count",
-      type: "number",
-      required: true,
-      format: "int64",
+    "count": {
+      "baseName": "count",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    events: {
-      baseName: "events",
-      type: "Array<SecurityMonitoringSignalsBulkTriageEvent>",
-      required: true,
+    "events": {
+      "baseName": "events",
+      "type": "Array<SecurityMonitoringSignalsBulkTriageEvent>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class SecurityMonitoringSignalsBulkTriageUpdateResult {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringSignalsBulkTriageUpdateResult.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,19 +6,24 @@
 import { CsmAgentlessHostData } from "./CsmAgentlessHostData";
 import { CsmSettingsMeta } from "./CsmSettingsMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The response returned when listing agentless hosts.
- */
+*/
 export class CsmAgentlessHostsResponse {
   /**
    * The list of agentless hosts for the current page.
-   */
+  */
   "data": Array<CsmAgentlessHostData>;
   /**
    * Pagination metadata for a CSM settings list response.
-   */
+  */
   "meta": CsmSettingsMeta;
 
   /**
@@ -26,7 +31,7 @@ export class CsmAgentlessHostsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class CsmAgentlessHostsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<CsmAgentlessHostData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<CsmAgentlessHostData>",
+      "required": true,
     },
-    meta: {
-      baseName: "meta",
-      type: "CsmSettingsMeta",
-      required: true,
+    "meta": {
+      "baseName": "meta",
+      "type": "CsmSettingsMeta",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class CsmAgentlessHostsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CsmAgentlessHostsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

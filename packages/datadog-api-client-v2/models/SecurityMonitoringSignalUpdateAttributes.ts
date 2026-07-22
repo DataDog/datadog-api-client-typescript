@@ -7,31 +7,36 @@ import { SecurityMonitoringSignalArchiveReason } from "./SecurityMonitoringSigna
 import { SecurityMonitoringSignalState } from "./SecurityMonitoringSignalState";
 import { SecurityMonitoringTriageUser } from "./SecurityMonitoringTriageUser";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for updating the triage state or assignee of a security signal.
- */
+*/
 export class SecurityMonitoringSignalUpdateAttributes {
   /**
    * Optional comment to display on archived signals.
-   */
+  */
   "archiveComment"?: string;
   /**
    * Reason a signal is archived.
-   */
+  */
   "archiveReason"?: SecurityMonitoringSignalArchiveReason;
   /**
    * Object representing a given user entity.
-   */
+  */
   "assignee"?: SecurityMonitoringTriageUser;
   /**
    * The new triage state of the signal.
-   */
+  */
   "state"?: SecurityMonitoringSignalState;
   /**
    * Version of the updated signal. If server side version is higher, update will be rejected.
-   */
+  */
   "version"?: number;
 
   /**
@@ -39,7 +44,7 @@ export class SecurityMonitoringSignalUpdateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -50,25 +55,25 @@ export class SecurityMonitoringSignalUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    archiveComment: {
-      baseName: "archive_comment",
-      type: "string",
+    "archiveComment": {
+      "baseName": "archive_comment",
+      "type": "string",
     },
-    archiveReason: {
-      baseName: "archive_reason",
-      type: "SecurityMonitoringSignalArchiveReason",
+    "archiveReason": {
+      "baseName": "archive_reason",
+      "type": "SecurityMonitoringSignalArchiveReason",
     },
-    assignee: {
-      baseName: "assignee",
-      type: "SecurityMonitoringTriageUser",
+    "assignee": {
+      "baseName": "assignee",
+      "type": "SecurityMonitoringTriageUser",
     },
-    state: {
-      baseName: "state",
-      type: "SecurityMonitoringSignalState",
+    "state": {
+      "baseName": "state",
+      "type": "SecurityMonitoringSignalState",
     },
-    version: {
-      baseName: "version",
-      type: "number",
+    "version": {
+      "baseName": "version",
+      "type": "number",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -80,8 +85,34 @@ export class SecurityMonitoringSignalUpdateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringSignalUpdateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

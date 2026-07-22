@@ -1,16 +1,12 @@
-import {
-  BaseAPIRequestFactory,
-  RequiredError,
-} from "../../datadog-api-client-common/baseapi";
-import {
-  Configuration,
-  applySecurityAuthentication,
-} from "../../datadog-api-client-common/configuration";
+import { BaseAPIRequestFactory, RequiredError } from "../../datadog-api-client-common/baseapi";
+import { Configuration,
+  applySecurityAuthentication,} from "../../datadog-api-client-common/configuration";
 import {
   RequestContext,
   HttpMethod,
   ResponseContext,
-} from "../../datadog-api-client-common/http/http";
+    
+  } from "../../datadog-api-client-common/http/http";
 
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
@@ -23,38 +19,32 @@ import { DdsqlTabularQueryResponse } from "../models/DdsqlTabularQueryResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 
 export class DDSQLApiRequestFactory extends BaseAPIRequestFactory {
-  public async executeDdsqlTabularQuery(
-    body: DdsqlTabularQueryRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+
+  public async executeDdsqlTabularQuery(body: DdsqlTabularQueryRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'executeDdsqlTabularQuery'");
-    if (!_config.unstableOperations["v2.executeDdsqlTabularQuery"]) {
-      throw new Error(
-        "Unstable operation 'executeDdsqlTabularQuery' is disabled"
-      );
+    if (!_config.unstableOperations['v2.executeDdsqlTabularQuery']) {
+      throw new Error("Unstable operation 'executeDdsqlTabularQuery' is disabled");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "executeDdsqlTabularQuery");
+      throw new RequiredError('body', 'executeDdsqlTabularQuery');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/ddsql/query/tabular";
+    const localVarPath = '/api/v2/ddsql/query/tabular';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.DDSQLApi.executeDdsqlTabularQuery")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.DDSQLApi.executeDdsqlTabularQuery').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "DdsqlTabularQueryRequest", ""),
@@ -63,7 +53,7 @@ export class DDSQLApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -71,38 +61,31 @@ export class DDSQLApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async fetchDdsqlTabularQuery(
-    body: DdsqlTabularQueryFetchRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async fetchDdsqlTabularQuery(body: DdsqlTabularQueryFetchRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'fetchDdsqlTabularQuery'");
-    if (!_config.unstableOperations["v2.fetchDdsqlTabularQuery"]) {
-      throw new Error(
-        "Unstable operation 'fetchDdsqlTabularQuery' is disabled"
-      );
+    if (!_config.unstableOperations['v2.fetchDdsqlTabularQuery']) {
+      throw new Error("Unstable operation 'fetchDdsqlTabularQuery' is disabled");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "fetchDdsqlTabularQuery");
+      throw new RequiredError('body', 'fetchDdsqlTabularQuery');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/ddsql/query/tabular/fetch";
+    const localVarPath = '/api/v2/ddsql/query/tabular/fetch';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.DDSQLApi.fetchDdsqlTabularQuery")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.DDSQLApi.fetchDdsqlTabularQuery').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "DdsqlTabularQueryFetchRequest", ""),
@@ -111,7 +94,7 @@ export class DDSQLApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -121,6 +104,8 @@ export class DDSQLApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class DDSQLApiResponseProcessor {
+
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -128,12 +113,8 @@ export class DDSQLApiResponseProcessor {
    * @params response Response returned by the server for a request to executeDdsqlTabularQuery
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async executeDdsqlTabularQuery(
-    response: ResponseContext
-  ): Promise<DdsqlTabularQueryResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async executeDdsqlTabularQuery(response: ResponseContext): Promise<DdsqlTabularQueryResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: DdsqlTabularQueryResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -141,15 +122,8 @@ export class DDSQLApiResponseProcessor {
       ) as DdsqlTabularQueryResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 500
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 500) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -158,21 +132,12 @@ export class DDSQLApiResponseProcessor {
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -181,30 +146,25 @@ export class DDSQLApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DdsqlTabularQueryResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "DdsqlTabularQueryResponse",
-        ""
+        "",
       ) as DdsqlTabularQueryResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -213,12 +173,8 @@ export class DDSQLApiResponseProcessor {
    * @params response Response returned by the server for a request to fetchDdsqlTabularQuery
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async fetchDdsqlTabularQuery(
-    response: ResponseContext
-  ): Promise<DdsqlTabularQueryResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async fetchDdsqlTabularQuery(response: ResponseContext): Promise<DdsqlTabularQueryResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: DdsqlTabularQueryResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -226,15 +182,8 @@ export class DDSQLApiResponseProcessor {
       ) as DdsqlTabularQueryResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 500
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 500) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -243,21 +192,12 @@ export class DDSQLApiResponseProcessor {
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -266,29 +206,23 @@ export class DDSQLApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DdsqlTabularQueryResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "DdsqlTabularQueryResponse",
-        ""
+        "",
       ) as DdsqlTabularQueryResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 }
 
@@ -296,14 +230,14 @@ export interface DDSQLApiExecuteDdsqlTabularQueryRequest {
   /**
    * @type DdsqlTabularQueryRequest
    */
-  body: DdsqlTabularQueryRequest;
+  body: DdsqlTabularQueryRequest
 }
 
 export interface DDSQLApiFetchDdsqlTabularQueryRequest {
   /**
    * @type DdsqlTabularQueryFetchRequest
    */
-  body: DdsqlTabularQueryFetchRequest;
+  body: DdsqlTabularQueryFetchRequest
 }
 
 export class DDSQLApi {
@@ -311,16 +245,10 @@ export class DDSQLApi {
   private responseProcessor: DDSQLApiResponseProcessor;
   private configuration: Configuration;
 
-  public constructor(
-    configuration: Configuration,
-    requestFactory?: DDSQLApiRequestFactory,
-    responseProcessor?: DDSQLApiResponseProcessor
-  ) {
+  public constructor(configuration: Configuration, requestFactory?: DDSQLApiRequestFactory, responseProcessor?: DDSQLApiResponseProcessor) {
     this.configuration = configuration;
-    this.requestFactory =
-      requestFactory || new DDSQLApiRequestFactory(configuration);
-    this.responseProcessor =
-      responseProcessor || new DDSQLApiResponseProcessor();
+    this.requestFactory = requestFactory || new DDSQLApiRequestFactory(configuration);
+    this.responseProcessor = responseProcessor || new DDSQLApiResponseProcessor();
   }
 
   /**
@@ -329,21 +257,11 @@ export class DDSQLApi {
    * when the query finishes quickly enough to be served synchronously.
    * @param param The request object
    */
-  public executeDdsqlTabularQuery(
-    param: DDSQLApiExecuteDdsqlTabularQueryRequest,
-    options?: Configuration
-  ): Promise<DdsqlTabularQueryResponse> {
-    const requestContextPromise = this.requestFactory.executeDdsqlTabularQuery(
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.executeDdsqlTabularQuery(
-            responseContext
-          );
+  public executeDdsqlTabularQuery(param: DDSQLApiExecuteDdsqlTabularQueryRequest, options?: Configuration): Promise<DdsqlTabularQueryResponse> {
+    const requestContextPromise = this.requestFactory.executeDdsqlTabularQuery(param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.executeDdsqlTabularQuery(responseContext);
         });
     });
   }
@@ -355,19 +273,11 @@ export class DDSQLApi {
    * or a `completed` state with the column-major result set inlined.
    * @param param The request object
    */
-  public fetchDdsqlTabularQuery(
-    param: DDSQLApiFetchDdsqlTabularQueryRequest,
-    options?: Configuration
-  ): Promise<DdsqlTabularQueryResponse> {
-    const requestContextPromise = this.requestFactory.fetchDdsqlTabularQuery(
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.fetchDdsqlTabularQuery(responseContext);
+  public fetchDdsqlTabularQuery(param: DDSQLApiFetchDdsqlTabularQueryRequest, options?: Configuration): Promise<DdsqlTabularQueryResponse> {
+    const requestContextPromise = this.requestFactory.fetchDdsqlTabularQuery(param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.fetchDdsqlTabularQuery(responseContext);
         });
     });
   }

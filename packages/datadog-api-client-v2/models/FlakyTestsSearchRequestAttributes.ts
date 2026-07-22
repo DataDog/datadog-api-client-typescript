@@ -7,23 +7,28 @@ import { FlakyTestsSearchFilter } from "./FlakyTestsSearchFilter";
 import { FlakyTestsSearchPageOptions } from "./FlakyTestsSearchPageOptions";
 import { FlakyTestsSearchSort } from "./FlakyTestsSearchSort";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for the flaky tests search request.
- */
+*/
 export class FlakyTestsSearchRequestAttributes {
   /**
    * Search filter settings.
-   */
+  */
   "filter"?: FlakyTestsSearchFilter;
   /**
    * Pagination attributes for listing flaky tests.
-   */
+  */
   "page"?: FlakyTestsSearchPageOptions;
   /**
    * Parameter for sorting flaky test results. The default sort is by ascending Fully Qualified Name (FQN). The FQN is the concatenation of the test module, suite, and name.
-   */
+  */
   "sort"?: FlakyTestsSearchSort;
 
   /**
@@ -31,7 +36,7 @@ export class FlakyTestsSearchRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,17 +47,17 @@ export class FlakyTestsSearchRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    filter: {
-      baseName: "filter",
-      type: "FlakyTestsSearchFilter",
+    "filter": {
+      "baseName": "filter",
+      "type": "FlakyTestsSearchFilter",
     },
-    page: {
-      baseName: "page",
-      type: "FlakyTestsSearchPageOptions",
+    "page": {
+      "baseName": "page",
+      "type": "FlakyTestsSearchPageOptions",
     },
-    sort: {
-      baseName: "sort",
-      type: "FlakyTestsSearchSort",
+    "sort": {
+      "baseName": "sort",
+      "type": "FlakyTestsSearchSort",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class FlakyTestsSearchRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FlakyTestsSearchRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

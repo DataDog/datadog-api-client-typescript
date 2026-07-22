@@ -7,27 +7,32 @@ import { SyntheticsNetworkAssertionMultiNetworkHopType } from "./SyntheticsNetwo
 import { SyntheticsNetworkAssertionOperator } from "./SyntheticsNetworkAssertionOperator";
 import { SyntheticsNetworkAssertionProperty } from "./SyntheticsNetworkAssertionProperty";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Multi-network hop assertion for a Network Path test.
- */
+*/
 export class SyntheticsNetworkAssertionMultiNetworkHop {
   /**
    * Assertion operator to apply.
-   */
+  */
   "operator": SyntheticsNetworkAssertionOperator;
   /**
    * The associated assertion property.
-   */
+  */
   "property": SyntheticsNetworkAssertionProperty;
   /**
    * Target value in number of hops.
-   */
+  */
   "target": number;
   /**
    * Type of the multi-network hop assertion.
-   */
+  */
   "type": SyntheticsNetworkAssertionMultiNetworkHopType;
 
   /**
@@ -35,7 +40,7 @@ export class SyntheticsNetworkAssertionMultiNetworkHop {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,26 +51,26 @@ export class SyntheticsNetworkAssertionMultiNetworkHop {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    operator: {
-      baseName: "operator",
-      type: "SyntheticsNetworkAssertionOperator",
-      required: true,
+    "operator": {
+      "baseName": "operator",
+      "type": "SyntheticsNetworkAssertionOperator",
+      "required": true,
     },
-    property: {
-      baseName: "property",
-      type: "SyntheticsNetworkAssertionProperty",
-      required: true,
+    "property": {
+      "baseName": "property",
+      "type": "SyntheticsNetworkAssertionProperty",
+      "required": true,
     },
-    target: {
-      baseName: "target",
-      type: "number",
-      required: true,
-      format: "double",
+    "target": {
+      "baseName": "target",
+      "type": "number",
+      "required": true,
+      "format": "double",
     },
-    type: {
-      baseName: "type",
-      type: "SyntheticsNetworkAssertionMultiNetworkHopType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SyntheticsNetworkAssertionMultiNetworkHopType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -77,8 +82,34 @@ export class SyntheticsNetworkAssertionMultiNetworkHop {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsNetworkAssertionMultiNetworkHop.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

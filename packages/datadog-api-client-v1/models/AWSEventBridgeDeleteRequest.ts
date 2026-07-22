@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An object used to delete an EventBridge source.
- */
+*/
 export class AWSEventBridgeDeleteRequest {
   /**
    * Your AWS Account ID without dashes.
-   */
+  */
   "accountId"?: string;
   /**
    * The event source name.
-   */
+  */
   "eventGeneratorName"?: string;
   /**
    * The event source's [AWS region](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints).
-   */
+  */
   "region"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class AWSEventBridgeDeleteRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class AWSEventBridgeDeleteRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    accountId: {
-      baseName: "account_id",
-      type: "string",
+    "accountId": {
+      "baseName": "account_id",
+      "type": "string",
     },
-    eventGeneratorName: {
-      baseName: "event_generator_name",
-      type: "string",
+    "eventGeneratorName": {
+      "baseName": "event_generator_name",
+      "type": "string",
     },
-    region: {
-      baseName: "region",
-      type: "string",
+    "region": {
+      "baseName": "region",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class AWSEventBridgeDeleteRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSEventBridgeDeleteRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

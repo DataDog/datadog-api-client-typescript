@@ -8,31 +8,36 @@ import { SyntheticsDowntimeTimeSlotDate } from "./SyntheticsDowntimeTimeSlotDate
 import { SyntheticsDowntimeWeekday } from "./SyntheticsDowntimeWeekday";
 import { SyntheticsDowntimeWeekdayPosition } from "./SyntheticsDowntimeWeekdayPosition";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Recurrence settings for a Synthetics downtime time slot.
- */
+*/
 export class SyntheticsDowntimeTimeSlotRecurrenceRequest {
   /**
    * A specific date and time used to define the start or end of a Synthetics downtime time slot.
-   */
+  */
   "end"?: SyntheticsDowntimeTimeSlotDate;
   /**
    * The recurrence frequency of a Synthetics downtime time slot.
-   */
+  */
   "frequency": SyntheticsDowntimeFrequency;
   /**
    * The interval between recurrences, relative to the frequency.
-   */
+  */
   "interval"?: number;
   /**
    * Positions of the weekdays within a month for a monthly Synthetics downtime recurrence. Used in combination with `weekdays` to schedule occurrences such as "the first Monday of the month".
-   */
+  */
   "weekdayPositions"?: Array<SyntheticsDowntimeWeekdayPosition>;
   /**
    * Days of the week for a Synthetics downtime recurrence schedule.
-   */
+  */
   "weekdays"?: Array<SyntheticsDowntimeWeekday>;
 
   /**
@@ -40,7 +45,7 @@ export class SyntheticsDowntimeTimeSlotRecurrenceRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -51,27 +56,27 @@ export class SyntheticsDowntimeTimeSlotRecurrenceRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    end: {
-      baseName: "end",
-      type: "SyntheticsDowntimeTimeSlotDate",
+    "end": {
+      "baseName": "end",
+      "type": "SyntheticsDowntimeTimeSlotDate",
     },
-    frequency: {
-      baseName: "frequency",
-      type: "SyntheticsDowntimeFrequency",
-      required: true,
+    "frequency": {
+      "baseName": "frequency",
+      "type": "SyntheticsDowntimeFrequency",
+      "required": true,
     },
-    interval: {
-      baseName: "interval",
-      type: "number",
-      format: "int64",
+    "interval": {
+      "baseName": "interval",
+      "type": "number",
+      "format": "int64",
     },
-    weekdayPositions: {
-      baseName: "weekdayPositions",
-      type: "Array<SyntheticsDowntimeWeekdayPosition>",
+    "weekdayPositions": {
+      "baseName": "weekdayPositions",
+      "type": "Array<SyntheticsDowntimeWeekdayPosition>",
     },
-    weekdays: {
-      baseName: "weekdays",
-      type: "Array<SyntheticsDowntimeWeekday>",
+    "weekdays": {
+      "baseName": "weekdays",
+      "type": "Array<SyntheticsDowntimeWeekday>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -83,8 +88,34 @@ export class SyntheticsDowntimeTimeSlotRecurrenceRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsDowntimeTimeSlotRecurrenceRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

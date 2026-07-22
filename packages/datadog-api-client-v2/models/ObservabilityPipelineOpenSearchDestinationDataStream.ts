@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Configuration options for writing to OpenSearch Data Streams instead of a fixed index.
- */
+*/
 export class ObservabilityPipelineOpenSearchDestinationDataStream {
   /**
    * The data stream dataset for your logs. This groups logs by their source or application.
-   */
+  */
   "dataset"?: string;
   /**
    * The data stream type for your logs. This determines how logs are categorized within the data stream.
-   */
+  */
   "dtype"?: string;
   /**
    * The data stream namespace for your logs. This separates logs into different environments or domains.
-   */
+  */
   "namespace"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class ObservabilityPipelineOpenSearchDestinationDataStream {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class ObservabilityPipelineOpenSearchDestinationDataStream {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    dataset: {
-      baseName: "dataset",
-      type: "string",
+    "dataset": {
+      "baseName": "dataset",
+      "type": "string",
     },
-    dtype: {
-      baseName: "dtype",
-      type: "string",
+    "dtype": {
+      "baseName": "dtype",
+      "type": "string",
     },
-    namespace: {
-      baseName: "namespace",
-      type: "string",
+    "namespace": {
+      "baseName": "namespace",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class ObservabilityPipelineOpenSearchDestinationDataStream {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineOpenSearchDestinationDataStream.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

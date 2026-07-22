@@ -4,35 +4,40 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Average timing breakdown per network phase for a resource.
- */
+*/
 export class AggregatedResourceTimingBreakdown {
   /**
    * Average TCP connect duration in milliseconds.
-   */
+  */
   "avgConnectMs": number;
   /**
    * Average DNS resolution duration in milliseconds.
-   */
+  */
   "avgDnsMs": number;
   /**
    * Average download phase duration in milliseconds.
-   */
+  */
   "avgDownloadMs": number;
   /**
    * Average time to first byte in milliseconds.
-   */
+  */
   "avgFirstByteMs": number;
   /**
    * Average redirect phase duration in milliseconds.
-   */
+  */
   "avgRedirectMs": number;
   /**
    * Average SSL handshake duration in milliseconds.
-   */
+  */
   "avgSslMs": number;
 
   /**
@@ -40,7 +45,7 @@ export class AggregatedResourceTimingBreakdown {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -51,41 +56,41 @@ export class AggregatedResourceTimingBreakdown {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    avgConnectMs: {
-      baseName: "avg_connect_ms",
-      type: "number",
-      required: true,
-      format: "double",
+    "avgConnectMs": {
+      "baseName": "avg_connect_ms",
+      "type": "number",
+      "required": true,
+      "format": "double",
     },
-    avgDnsMs: {
-      baseName: "avg_dns_ms",
-      type: "number",
-      required: true,
-      format: "double",
+    "avgDnsMs": {
+      "baseName": "avg_dns_ms",
+      "type": "number",
+      "required": true,
+      "format": "double",
     },
-    avgDownloadMs: {
-      baseName: "avg_download_ms",
-      type: "number",
-      required: true,
-      format: "double",
+    "avgDownloadMs": {
+      "baseName": "avg_download_ms",
+      "type": "number",
+      "required": true,
+      "format": "double",
     },
-    avgFirstByteMs: {
-      baseName: "avg_first_byte_ms",
-      type: "number",
-      required: true,
-      format: "double",
+    "avgFirstByteMs": {
+      "baseName": "avg_first_byte_ms",
+      "type": "number",
+      "required": true,
+      "format": "double",
     },
-    avgRedirectMs: {
-      baseName: "avg_redirect_ms",
-      type: "number",
-      required: true,
-      format: "double",
+    "avgRedirectMs": {
+      "baseName": "avg_redirect_ms",
+      "type": "number",
+      "required": true,
+      "format": "double",
     },
-    avgSslMs: {
-      baseName: "avg_ssl_ms",
-      type: "number",
-      required: true,
-      format: "double",
+    "avgSslMs": {
+      "baseName": "avg_ssl_ms",
+      "type": "number",
+      "required": true,
+      "format": "double",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -97,8 +102,34 @@ export class AggregatedResourceTimingBreakdown {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AggregatedResourceTimingBreakdown.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

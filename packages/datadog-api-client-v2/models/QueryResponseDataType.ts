@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Query response resource type.
- */
+*/
 
 export type QueryResponseDataType = typeof QUERY_RESPONSE | UnparsedObject;
-export const QUERY_RESPONSE = "query_response";
+export const QUERY_RESPONSE = 'query_response';

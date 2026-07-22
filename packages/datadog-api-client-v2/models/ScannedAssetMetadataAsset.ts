@@ -5,19 +5,24 @@
  */
 import { CloudAssetType } from "./CloudAssetType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The asset of a scanned asset metadata.
- */
+*/
 export class ScannedAssetMetadataAsset {
   /**
    * The name of the asset.
-   */
+  */
   "name": string;
   /**
    * The cloud asset type
-   */
+  */
   "type": CloudAssetType;
 
   /**
@@ -25,7 +30,7 @@ export class ScannedAssetMetadataAsset {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class ScannedAssetMetadataAsset {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CloudAssetType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CloudAssetType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class ScannedAssetMetadataAsset {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ScannedAssetMetadataAsset.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

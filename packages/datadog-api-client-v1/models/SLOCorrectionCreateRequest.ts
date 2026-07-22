@@ -5,15 +5,20 @@
  */
 import { SLOCorrectionCreateData } from "./SLOCorrectionCreateData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An object that defines a correction to be applied to one or more SLOs.
- */
+*/
 export class SLOCorrectionCreateRequest {
   /**
    * The data object associated with the SLO correction to be created.
-   */
+  */
   "data"?: SLOCorrectionCreateData;
 
   /**
@@ -21,7 +26,7 @@ export class SLOCorrectionCreateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class SLOCorrectionCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SLOCorrectionCreateData",
+    "data": {
+      "baseName": "data",
+      "type": "SLOCorrectionCreateData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class SLOCorrectionCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SLOCorrectionCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

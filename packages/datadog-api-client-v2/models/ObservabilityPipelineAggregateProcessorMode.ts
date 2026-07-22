@@ -4,25 +4,22 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The aggregation mode applied to metrics that share the same name and tags within the interval.
- */
+*/
 
-export type ObservabilityPipelineAggregateProcessorMode =
-  | typeof AUTO
-  | typeof SUM
-  | typeof LATEST
-  | typeof COUNT
-  | typeof MAX
-  | typeof MIN
-  | typeof MEAN
-  | UnparsedObject;
-export const AUTO = "auto";
-export const SUM = "sum";
-export const LATEST = "latest";
-export const COUNT = "count";
-export const MAX = "max";
-export const MIN = "min";
-export const MEAN = "mean";
+export type ObservabilityPipelineAggregateProcessorMode = typeof AUTO| typeof SUM| typeof LATEST| typeof COUNT| typeof MAX| typeof MIN| typeof MEAN | UnparsedObject;
+export const AUTO = 'auto';
+export const SUM = 'sum';
+export const LATEST = 'latest';
+export const COUNT = 'count';
+export const MAX = 'max';
+export const MIN = 'min';
+export const MEAN = 'mean';

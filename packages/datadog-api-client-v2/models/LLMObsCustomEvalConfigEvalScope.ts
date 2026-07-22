@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Scope at which to evaluate spans.
- */
+*/
 
-export type LLMObsCustomEvalConfigEvalScope =
-  | typeof SPAN
-  | typeof TRACE
-  | typeof SESSION
-  | UnparsedObject;
-export const SPAN = "span";
-export const TRACE = "trace";
-export const SESSION = "session";
+export type LLMObsCustomEvalConfigEvalScope = typeof SPAN| typeof TRACE| typeof SESSION | UnparsedObject;
+export const SPAN = 'span';
+export const TRACE = 'trace';
+export const SESSION = 'session';

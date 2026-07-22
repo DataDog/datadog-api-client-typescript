@@ -5,15 +5,20 @@
  */
 import { PersonalAccessTokenCreateData } from "./PersonalAccessTokenCreateData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request used to create an access token.
- */
+*/
 export class PersonalAccessTokenCreateRequest {
   /**
    * Object used to create an access token.
-   */
+  */
   "data": PersonalAccessTokenCreateData;
 
   /**
@@ -21,7 +26,7 @@ export class PersonalAccessTokenCreateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class PersonalAccessTokenCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "PersonalAccessTokenCreateData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "PersonalAccessTokenCreateData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class PersonalAccessTokenCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PersonalAccessTokenCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

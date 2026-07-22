@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The versions of the policy
- */
+*/
 export class CloudWorkloadSecurityAgentPolicyVersion {
   /**
    * The date and time the version was created
-   */
+  */
   "date"?: string;
   /**
    * The version of the policy
-   */
+  */
   "name"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class CloudWorkloadSecurityAgentPolicyVersion {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class CloudWorkloadSecurityAgentPolicyVersion {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    date: {
-      baseName: "date",
-      type: "string",
+    "date": {
+      "baseName": "date",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class CloudWorkloadSecurityAgentPolicyVersion {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CloudWorkloadSecurityAgentPolicyVersion.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

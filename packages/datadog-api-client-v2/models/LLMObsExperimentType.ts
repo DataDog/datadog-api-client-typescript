@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Resource type of an LLM Observability experiment.
- */
+*/
 
 export type LLMObsExperimentType = typeof EXPERIMENTS | UnparsedObject;
-export const EXPERIMENTS = "experiments";
+export const EXPERIMENTS = 'experiments';

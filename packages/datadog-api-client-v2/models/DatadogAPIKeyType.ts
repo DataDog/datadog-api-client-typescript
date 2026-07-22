@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of the `DatadogAPIKey` object.
- */
+*/
 
 export type DatadogAPIKeyType = typeof DATADOGAPIKEY | UnparsedObject;
-export const DATADOGAPIKEY = "DatadogAPIKey";
+export const DATADOGAPIKEY = 'DatadogAPIKey';

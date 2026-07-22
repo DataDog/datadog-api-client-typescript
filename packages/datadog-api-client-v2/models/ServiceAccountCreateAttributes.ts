@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of the created user.
- */
+*/
 export class ServiceAccountCreateAttributes {
   /**
    * The email of the user.
-   */
+  */
   "email": string;
   /**
    * The name of the user.
-   */
+  */
   "name"?: string;
   /**
    * Whether the user is a service account. Must be true.
-   */
+  */
   "serviceAccount": boolean;
   /**
    * The title of the user.
-   */
+  */
   "title"?: string;
 
   /**
@@ -32,7 +37,7 @@ export class ServiceAccountCreateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,23 +48,23 @@ export class ServiceAccountCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    email: {
-      baseName: "email",
-      type: "string",
-      required: true,
+    "email": {
+      "baseName": "email",
+      "type": "string",
+      "required": true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    serviceAccount: {
-      baseName: "service_account",
-      type: "boolean",
-      required: true,
+    "serviceAccount": {
+      "baseName": "service_account",
+      "type": "boolean",
+      "required": true,
     },
-    title: {
-      baseName: "title",
-      type: "string",
+    "title": {
+      "baseName": "title",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,8 +76,34 @@ export class ServiceAccountCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceAccountCreateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

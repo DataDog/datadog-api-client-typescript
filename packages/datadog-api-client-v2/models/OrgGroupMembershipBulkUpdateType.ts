@@ -4,14 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Org group membership bulk update resource type.
- */
+*/
 
-export type OrgGroupMembershipBulkUpdateType =
-  | typeof ORG_GROUP_MEMBERSHIP_BULK_UPDATES
-  | UnparsedObject;
-export const ORG_GROUP_MEMBERSHIP_BULK_UPDATES =
-  "org_group_membership_bulk_updates";
+export type OrgGroupMembershipBulkUpdateType = typeof ORG_GROUP_MEMBERSHIP_BULK_UPDATES | UnparsedObject;
+export const ORG_GROUP_MEMBERSHIP_BULK_UPDATES = 'org_group_membership_bulk_updates';

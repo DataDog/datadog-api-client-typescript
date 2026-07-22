@@ -6,23 +6,28 @@
 import { RumRateLimitConfigAttributes } from "./RumRateLimitConfigAttributes";
 import { RumRateLimitConfigType } from "./RumRateLimitConfigType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The RUM rate limit configuration object.
- */
+*/
 export class RumRateLimitConfigData {
   /**
    * The RUM rate limit configuration properties.
-   */
+  */
   "attributes": RumRateLimitConfigAttributes;
   /**
    * The identifier of the scope the rate limit configuration applies to.
-   */
+  */
   "id": string;
   /**
    * The type of the resource, always `rum_rate_limit_config`.
-   */
+  */
   "type": RumRateLimitConfigType;
 
   /**
@@ -30,7 +35,7 @@ export class RumRateLimitConfigData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class RumRateLimitConfigData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RumRateLimitConfigAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "RumRateLimitConfigAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "RumRateLimitConfigType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "RumRateLimitConfigType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class RumRateLimitConfigData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RumRateLimitConfigData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

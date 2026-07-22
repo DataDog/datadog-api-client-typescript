@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Secret rule resource type.
- */
+*/
 
 export type SecretRuleDataType = typeof SECRET_RULE | UnparsedObject;
-export const SECRET_RULE = "secret_rule";
+export const SECRET_RULE = 'secret_rule';

@@ -5,19 +5,24 @@
  */
 import { SyntheticsTestRestrictionPolicyBindingRelation } from "./SyntheticsTestRestrictionPolicyBindingRelation";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Objects describing the binding used for a mobile test.
- */
+*/
 export class SyntheticsTestRestrictionPolicyBinding {
   /**
    * List of principals for a mobile test binding.
-   */
+  */
   "principals"?: Array<string>;
   /**
    * The type of relation for the binding.
-   */
+  */
   "relation"?: SyntheticsTestRestrictionPolicyBindingRelation;
 
   /**
@@ -25,7 +30,7 @@ export class SyntheticsTestRestrictionPolicyBinding {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class SyntheticsTestRestrictionPolicyBinding {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    principals: {
-      baseName: "principals",
-      type: "Array<string>",
+    "principals": {
+      "baseName": "principals",
+      "type": "Array<string>",
     },
-    relation: {
-      baseName: "relation",
-      type: "SyntheticsTestRestrictionPolicyBindingRelation",
+    "relation": {
+      "baseName": "relation",
+      "type": "SyntheticsTestRestrictionPolicyBindingRelation",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class SyntheticsTestRestrictionPolicyBinding {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestRestrictionPolicyBinding.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

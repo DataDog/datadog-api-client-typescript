@@ -5,15 +5,20 @@
  */
 import { DeleteAppsDatastoreItemRequestData } from "./DeleteAppsDatastoreItemRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request to delete a specific item from a datastore by its primary key.
- */
+*/
 export class DeleteAppsDatastoreItemRequest {
   /**
    * Data wrapper containing the information needed to identify and delete a specific datastore item.
-   */
+  */
   "data"?: DeleteAppsDatastoreItemRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class DeleteAppsDatastoreItemRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class DeleteAppsDatastoreItemRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "DeleteAppsDatastoreItemRequestData",
+    "data": {
+      "baseName": "data",
+      "type": "DeleteAppsDatastoreItemRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class DeleteAppsDatastoreItemRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DeleteAppsDatastoreItemRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

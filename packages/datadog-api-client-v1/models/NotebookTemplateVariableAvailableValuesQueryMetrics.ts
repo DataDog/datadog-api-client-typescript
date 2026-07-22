@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Available values query for the metrics data source.
- */
+*/
 export class NotebookTemplateVariableAvailableValuesQueryMetrics {
   /**
    * The data source for the query. Must be `metrics`.
-   */
+  */
   "dataSource": string;
   /**
    * The metrics query string.
-   */
+  */
   "query": string;
 
   /**
@@ -28,24 +33,50 @@ export class NotebookTemplateVariableAvailableValuesQueryMetrics {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    dataSource: {
-      baseName: "data_source",
-      type: "string",
-      required: true,
+    "dataSource": {
+      "baseName": "data_source",
+      "type": "string",
+      "required": true,
     },
-    query: {
-      baseName: "query",
-      type: "string",
-      required: true,
-    },
+    "query": {
+      "baseName": "query",
+      "type": "string",
+      "required": true,
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return NotebookTemplateVariableAvailableValuesQueryMetrics.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -7,27 +7,32 @@ import { SpansAggregateSortType } from "./SpansAggregateSortType";
 import { SpansAggregationFunction } from "./SpansAggregationFunction";
 import { SpansSortOrder } from "./SpansSortOrder";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A sort rule.
- */
+*/
 export class SpansAggregateSort {
   /**
    * An aggregation function.
-   */
+  */
   "aggregation"?: SpansAggregationFunction;
   /**
    * The metric to sort by (only used for `type=measure`).
-   */
+  */
   "metric"?: string;
   /**
    * The order to use, ascending or descending.
-   */
+  */
   "order"?: SpansSortOrder;
   /**
    * The type of sorting algorithm.
-   */
+  */
   "type"?: SpansAggregateSortType;
 
   /**
@@ -35,7 +40,7 @@ export class SpansAggregateSort {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,21 +51,21 @@ export class SpansAggregateSort {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregation: {
-      baseName: "aggregation",
-      type: "SpansAggregationFunction",
+    "aggregation": {
+      "baseName": "aggregation",
+      "type": "SpansAggregationFunction",
     },
-    metric: {
-      baseName: "metric",
-      type: "string",
+    "metric": {
+      "baseName": "metric",
+      "type": "string",
     },
-    order: {
-      baseName: "order",
-      type: "SpansSortOrder",
+    "order": {
+      "baseName": "order",
+      "type": "SpansSortOrder",
     },
-    type: {
-      baseName: "type",
-      type: "SpansAggregateSortType",
+    "type": {
+      "baseName": "type",
+      "type": "SpansAggregateSortType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -72,8 +77,34 @@ export class SpansAggregateSort {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SpansAggregateSort.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

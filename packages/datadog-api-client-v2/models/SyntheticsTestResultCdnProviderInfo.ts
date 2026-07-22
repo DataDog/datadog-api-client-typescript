@@ -5,19 +5,24 @@
  */
 import { SyntheticsTestResultCdnCacheStatus } from "./SyntheticsTestResultCdnCacheStatus";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * CDN provider details inferred from response headers.
- */
+*/
 export class SyntheticsTestResultCdnProviderInfo {
   /**
    * Cache status reported by the CDN for the response.
-   */
+  */
   "cache"?: SyntheticsTestResultCdnCacheStatus;
   /**
    * Name of the CDN provider.
-   */
+  */
   "provider"?: string;
 
   /**
@@ -25,7 +30,7 @@ export class SyntheticsTestResultCdnProviderInfo {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class SyntheticsTestResultCdnProviderInfo {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    cache: {
-      baseName: "cache",
-      type: "SyntheticsTestResultCdnCacheStatus",
+    "cache": {
+      "baseName": "cache",
+      "type": "SyntheticsTestResultCdnCacheStatus",
     },
-    provider: {
-      baseName: "provider",
-      type: "string",
+    "provider": {
+      "baseName": "provider",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class SyntheticsTestResultCdnProviderInfo {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultCdnProviderInfo.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

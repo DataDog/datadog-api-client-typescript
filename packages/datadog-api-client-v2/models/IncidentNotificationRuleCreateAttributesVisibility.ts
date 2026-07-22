@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The visibility of the notification rule.
- */
+*/
 
-export type IncidentNotificationRuleCreateAttributesVisibility =
-  | typeof ALL
-  | typeof ORGANIZATION
-  | typeof PRIVATE
-  | UnparsedObject;
-export const ALL = "all";
-export const ORGANIZATION = "organization";
-export const PRIVATE = "private";
+export type IncidentNotificationRuleCreateAttributesVisibility = typeof ALL| typeof ORGANIZATION| typeof PRIVATE | UnparsedObject;
+export const ALL = 'all';
+export const ORGANIZATION = 'organization';
+export const PRIVATE = 'private';

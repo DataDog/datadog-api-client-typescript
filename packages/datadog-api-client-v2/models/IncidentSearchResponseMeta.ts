@@ -5,15 +5,20 @@
  */
 import { IncidentResponseMetaPagination } from "./IncidentResponseMetaPagination";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The metadata object containing pagination metadata.
- */
+*/
 export class IncidentSearchResponseMeta {
   /**
    * Pagination properties.
-   */
+  */
   "pagination"?: IncidentResponseMetaPagination;
 
   /**
@@ -21,7 +26,7 @@ export class IncidentSearchResponseMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class IncidentSearchResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    pagination: {
-      baseName: "pagination",
-      type: "IncidentResponseMetaPagination",
+    "pagination": {
+      "baseName": "pagination",
+      "type": "IncidentResponseMetaPagination",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class IncidentSearchResponseMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentSearchResponseMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

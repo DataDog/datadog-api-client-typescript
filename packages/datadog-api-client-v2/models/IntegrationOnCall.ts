@@ -5,23 +5,28 @@
  */
 import { IntegrationOnCallEscalationQueriesItems } from "./IntegrationOnCallEscalationQueriesItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * On-Call integration settings.
- */
+*/
 export class IntegrationOnCall {
   /**
    * Whether to auto-assign on-call.
-   */
+  */
   "autoAssignOnCall"?: boolean;
   /**
    * Whether On-Call integration is enabled.
-   */
+  */
   "enabled"?: boolean;
   /**
    * List of escalation queries for routing cases to on-call responders.
-   */
+  */
   "escalationQueries"?: Array<IntegrationOnCallEscalationQueriesItems>;
 
   /**
@@ -29,7 +34,7 @@ export class IntegrationOnCall {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,17 +45,17 @@ export class IntegrationOnCall {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    autoAssignOnCall: {
-      baseName: "auto_assign_on_call",
-      type: "boolean",
+    "autoAssignOnCall": {
+      "baseName": "auto_assign_on_call",
+      "type": "boolean",
     },
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
+    "enabled": {
+      "baseName": "enabled",
+      "type": "boolean",
     },
-    escalationQueries: {
-      baseName: "escalation_queries",
-      type: "Array<IntegrationOnCallEscalationQueriesItems>",
+    "escalationQueries": {
+      "baseName": "escalation_queries",
+      "type": "Array<IntegrationOnCallEscalationQueriesItems>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class IntegrationOnCall {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IntegrationOnCall.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

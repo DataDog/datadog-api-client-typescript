@@ -6,23 +6,28 @@
 import { SalesforceIncidentsTemplateResponseAttributes } from "./SalesforceIncidentsTemplateResponseAttributes";
 import { SalesforceIncidentsTemplateType } from "./SalesforceIncidentsTemplateType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Salesforce incident template data from a response.
- */
+*/
 export class SalesforceIncidentsTemplateResponseData {
   /**
    * Salesforce incident template attributes returned by the API.
-   */
+  */
   "attributes": SalesforceIncidentsTemplateResponseAttributes;
   /**
    * The ID of the Salesforce incident template.
-   */
+  */
   "id": string;
   /**
    * Salesforce incident template resource type.
-   */
+  */
   "type": SalesforceIncidentsTemplateType;
 
   /**
@@ -30,7 +35,7 @@ export class SalesforceIncidentsTemplateResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class SalesforceIncidentsTemplateResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SalesforceIncidentsTemplateResponseAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SalesforceIncidentsTemplateResponseAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "SalesforceIncidentsTemplateType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SalesforceIncidentsTemplateType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class SalesforceIncidentsTemplateResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SalesforceIncidentsTemplateResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

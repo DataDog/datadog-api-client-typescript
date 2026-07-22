@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of the IP allowlist entry.
- */
+*/
 export class IPAllowlistEntryAttributes {
   /**
    * The CIDR block describing the IP range of the entry.
-   */
+  */
   "cidrBlock"?: string;
   /**
    * Creation time of the entry.
-   */
+  */
   "createdAt"?: Date;
   /**
    * Time of last entry modification.
-   */
+  */
   "modifiedAt"?: Date;
   /**
    * A note describing the IP allowlist entry.
-   */
+  */
   "note"?: string;
 
   /**
@@ -32,7 +37,7 @@ export class IPAllowlistEntryAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,23 +48,23 @@ export class IPAllowlistEntryAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    cidrBlock: {
-      baseName: "cidr_block",
-      type: "string",
+    "cidrBlock": {
+      "baseName": "cidr_block",
+      "type": "string",
     },
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "Date",
-      format: "date-time",
+    "modifiedAt": {
+      "baseName": "modified_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    note: {
-      baseName: "note",
-      type: "string",
+    "note": {
+      "baseName": "note",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,8 +76,34 @@ export class IPAllowlistEntryAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IPAllowlistEntryAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

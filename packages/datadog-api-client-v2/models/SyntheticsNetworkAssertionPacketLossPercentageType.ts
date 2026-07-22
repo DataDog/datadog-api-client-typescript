@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of the packet loss percentage assertion.
- */
+*/
 
-export type SyntheticsNetworkAssertionPacketLossPercentageType =
-  | typeof PACKET_LOSS_PERCENTAGE
-  | UnparsedObject;
-export const PACKET_LOSS_PERCENTAGE = "packetLossPercentage";
+export type SyntheticsNetworkAssertionPacketLossPercentageType = typeof PACKET_LOSS_PERCENTAGE | UnparsedObject;
+export const PACKET_LOSS_PERCENTAGE = 'packetLossPercentage';

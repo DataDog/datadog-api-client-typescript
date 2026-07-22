@@ -5,15 +5,20 @@
  */
 import { CreateEnvironmentData } from "./CreateEnvironmentData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request to create a new environment.
- */
+*/
 export class CreateEnvironmentRequest {
   /**
    * Data for creating a new environment.
-   */
+  */
   "data": CreateEnvironmentData;
 
   /**
@@ -21,7 +26,7 @@ export class CreateEnvironmentRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CreateEnvironmentRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CreateEnvironmentData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "CreateEnvironmentData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CreateEnvironmentRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateEnvironmentRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

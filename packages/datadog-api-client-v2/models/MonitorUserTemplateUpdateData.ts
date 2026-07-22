@@ -6,23 +6,28 @@
 import { MonitorUserTemplateRequestAttributes } from "./MonitorUserTemplateRequestAttributes";
 import { MonitorUserTemplateResourceType } from "./MonitorUserTemplateResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Monitor user template data.
- */
+*/
 export class MonitorUserTemplateUpdateData {
   /**
    * Attributes for a monitor user template.
-   */
+  */
   "attributes": MonitorUserTemplateRequestAttributes;
   /**
    * The unique identifier.
-   */
+  */
   "id": string;
   /**
    * Monitor user template resource type.
-   */
+  */
   "type": MonitorUserTemplateResourceType;
 
   /**
@@ -30,7 +35,7 @@ export class MonitorUserTemplateUpdateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class MonitorUserTemplateUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "MonitorUserTemplateRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "MonitorUserTemplateRequestAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "MonitorUserTemplateResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "MonitorUserTemplateResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class MonitorUserTemplateUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorUserTemplateUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

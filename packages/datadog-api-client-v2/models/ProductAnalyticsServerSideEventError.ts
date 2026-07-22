@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Error details.
- */
+*/
 export class ProductAnalyticsServerSideEventError {
   /**
    * Error message.
-   */
+  */
   "detail"?: string;
   /**
    * Error code.
-   */
+  */
   "status"?: string;
   /**
    * Error title.
-   */
+  */
   "title"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class ProductAnalyticsServerSideEventError {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class ProductAnalyticsServerSideEventError {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    detail: {
-      baseName: "detail",
-      type: "string",
+    "detail": {
+      "baseName": "detail",
+      "type": "string",
     },
-    status: {
-      baseName: "status",
-      type: "string",
+    "status": {
+      "baseName": "status",
+      "type": "string",
     },
-    title: {
-      baseName: "title",
-      type: "string",
+    "title": {
+      "baseName": "title",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class ProductAnalyticsServerSideEventError {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProductAnalyticsServerSideEventError.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

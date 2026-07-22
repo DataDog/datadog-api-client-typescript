@@ -5,15 +5,20 @@
  */
 import { CoverageSummaryData } from "./CoverageSummaryData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object containing code coverage summary.
- */
+*/
 export class CoverageSummaryResponse {
   /**
    * Data object for coverage summary response.
-   */
+  */
   "data"?: CoverageSummaryData;
 
   /**
@@ -21,7 +26,7 @@ export class CoverageSummaryResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class CoverageSummaryResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CoverageSummaryData",
+    "data": {
+      "baseName": "data",
+      "type": "CoverageSummaryData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class CoverageSummaryResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CoverageSummaryResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

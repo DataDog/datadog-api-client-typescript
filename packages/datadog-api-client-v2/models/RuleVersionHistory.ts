@@ -5,27 +5,32 @@
  */
 import { RuleVersions } from "./RuleVersions";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object containing the version history of a rule.
- */
+*/
 export class RuleVersionHistory {
   /**
    * The number of rule versions.
-   */
+  */
   "count"?: number;
   /**
    * The `RuleVersionHistory` `data`.
-   */
-  "data"?: { [key: string]: RuleVersions };
+  */
+  "data"?: { [key: string]: RuleVersions; };
 
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,14 +41,14 @@ export class RuleVersionHistory {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    count: {
-      baseName: "count",
-      type: "number",
-      format: "int32",
+    "count": {
+      "baseName": "count",
+      "type": "number",
+      "format": "int32",
     },
-    data: {
-      baseName: "data",
-      type: "{ [key: string]: RuleVersions; }",
+    "data": {
+      "baseName": "data",
+      "type": "{ [key: string]: RuleVersions; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class RuleVersionHistory {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RuleVersionHistory.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

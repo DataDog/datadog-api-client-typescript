@@ -5,19 +5,24 @@
  */
 import { CreateTableRequestDataAttributesSchemaFieldsItems } from "./CreateTableRequestDataAttributesSchemaFieldsItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Schema defining the structure and columns of the reference table.
- */
+*/
 export class CreateTableRequestDataAttributesSchema {
   /**
    * The schema fields.
-   */
+  */
   "fields": Array<CreateTableRequestDataAttributesSchemaFieldsItems>;
   /**
    * List of field names that serve as primary keys for the table. Only one primary key is supported, and it is used as an ID to retrieve rows.
-   */
+  */
   "primaryKeys": Array<string>;
 
   /**
@@ -25,7 +30,7 @@ export class CreateTableRequestDataAttributesSchema {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class CreateTableRequestDataAttributesSchema {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    fields: {
-      baseName: "fields",
-      type: "Array<CreateTableRequestDataAttributesSchemaFieldsItems>",
-      required: true,
+    "fields": {
+      "baseName": "fields",
+      "type": "Array<CreateTableRequestDataAttributesSchemaFieldsItems>",
+      "required": true,
     },
-    primaryKeys: {
-      baseName: "primary_keys",
-      type: "Array<string>",
-      required: true,
+    "primaryKeys": {
+      "baseName": "primary_keys",
+      "type": "Array<string>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class CreateTableRequestDataAttributesSchema {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateTableRequestDataAttributesSchema.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

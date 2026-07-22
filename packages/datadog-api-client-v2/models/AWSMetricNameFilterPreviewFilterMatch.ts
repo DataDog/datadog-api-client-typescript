@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A metric name filter pattern and how many metrics it matched.
- */
+*/
 export class AWSMetricNameFilterPreviewFilterMatch {
   /**
    * The number of Datadog metric names matched by this pattern.
-   */
+  */
   "matchCount": number;
   /**
    * The metric name filter pattern.
-   */
+  */
   "pattern": string;
 
   /**
@@ -24,7 +29,7 @@ export class AWSMetricNameFilterPreviewFilterMatch {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,16 +40,16 @@ export class AWSMetricNameFilterPreviewFilterMatch {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    matchCount: {
-      baseName: "match_count",
-      type: "number",
-      required: true,
-      format: "int64",
+    "matchCount": {
+      "baseName": "match_count",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    pattern: {
-      baseName: "pattern",
-      type: "string",
-      required: true,
+    "pattern": {
+      "baseName": "pattern",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class AWSMetricNameFilterPreviewFilterMatch {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSMetricNameFilterPreviewFilterMatch.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

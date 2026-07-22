@@ -8,40 +8,45 @@ import { SecurityMonitoringContentPackIntegrationStatus } from "./SecurityMonito
 import { SecurityMonitoringContentPackStatus } from "./SecurityMonitoringContentPackStatus";
 import { SecurityMonitoringContentPackTimestampBucket } from "./SecurityMonitoringContentPackTimestampBucket";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a content pack state
- */
+*/
 export class SecurityMonitoringContentPackStateAttributes {
   /**
    * Whether the cloud SIEM index configuration is incorrect (only applies to certain pricing models)
-   */
+  */
   "cloudSiemIndexIncorrect": boolean;
   /**
    * The activation status of a content pack.
-   */
+  */
   "cpActivation": SecurityMonitoringContentPackActivation;
   /**
    * Whether filters (Security Filters or Index Query depending on the pricing model) are
    * present and correctly configured to route logs into Cloud SIEM.
-   */
+  */
   "filtersConfiguredForLogs": boolean;
   /**
    * The installation status of the related integration.
-   */
+  */
   "integrationInstalledStatus"?: SecurityMonitoringContentPackIntegrationStatus;
   /**
    * Timestamp bucket indicating when logs were last collected.
-   */
+  */
   "logsLastCollected": SecurityMonitoringContentPackTimestampBucket;
   /**
    * Whether logs for this content pack have been seen in any Datadog index within the last 72 hours.
-   */
+  */
   "logsSeenFromAnyIndex": boolean;
   /**
    * The current operational status of a content pack.
-   */
+  */
   "state": SecurityMonitoringContentPackStatus;
 
   /**
@@ -49,7 +54,7 @@ export class SecurityMonitoringContentPackStateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -60,39 +65,39 @@ export class SecurityMonitoringContentPackStateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    cloudSiemIndexIncorrect: {
-      baseName: "cloud_siem_index_incorrect",
-      type: "boolean",
-      required: true,
+    "cloudSiemIndexIncorrect": {
+      "baseName": "cloud_siem_index_incorrect",
+      "type": "boolean",
+      "required": true,
     },
-    cpActivation: {
-      baseName: "cp_activation",
-      type: "SecurityMonitoringContentPackActivation",
-      required: true,
+    "cpActivation": {
+      "baseName": "cp_activation",
+      "type": "SecurityMonitoringContentPackActivation",
+      "required": true,
     },
-    filtersConfiguredForLogs: {
-      baseName: "filters_configured_for_logs",
-      type: "boolean",
-      required: true,
+    "filtersConfiguredForLogs": {
+      "baseName": "filters_configured_for_logs",
+      "type": "boolean",
+      "required": true,
     },
-    integrationInstalledStatus: {
-      baseName: "integration_installed_status",
-      type: "SecurityMonitoringContentPackIntegrationStatus",
+    "integrationInstalledStatus": {
+      "baseName": "integration_installed_status",
+      "type": "SecurityMonitoringContentPackIntegrationStatus",
     },
-    logsLastCollected: {
-      baseName: "logs_last_collected",
-      type: "SecurityMonitoringContentPackTimestampBucket",
-      required: true,
+    "logsLastCollected": {
+      "baseName": "logs_last_collected",
+      "type": "SecurityMonitoringContentPackTimestampBucket",
+      "required": true,
     },
-    logsSeenFromAnyIndex: {
-      baseName: "logs_seen_from_any_index",
-      type: "boolean",
-      required: true,
+    "logsSeenFromAnyIndex": {
+      "baseName": "logs_seen_from_any_index",
+      "type": "boolean",
+      "required": true,
     },
-    state: {
-      baseName: "state",
-      type: "SecurityMonitoringContentPackStatus",
-      required: true,
+    "state": {
+      "baseName": "state",
+      "type": "SecurityMonitoringContentPackStatus",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -104,8 +109,34 @@ export class SecurityMonitoringContentPackStateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringContentPackStateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

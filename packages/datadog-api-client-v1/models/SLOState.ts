@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * State of the SLO.
- */
+*/
 
-export type SLOState =
-  | typeof BREACHED
-  | typeof WARNING
-  | typeof OK
-  | typeof NO_DATA
-  | UnparsedObject;
-export const BREACHED = "breached";
-export const WARNING = "warning";
-export const OK = "ok";
-export const NO_DATA = "no_data";
+export type SLOState = typeof BREACHED| typeof WARNING| typeof OK| typeof NO_DATA | UnparsedObject;
+export const BREACHED = 'breached';
+export const WARNING = 'warning';
+export const OK = 'ok';
+export const NO_DATA = 'no_data';

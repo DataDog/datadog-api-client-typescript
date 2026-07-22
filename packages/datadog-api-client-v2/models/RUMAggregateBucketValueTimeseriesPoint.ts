@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A timeseries point.
- */
+*/
 export class RUMAggregateBucketValueTimeseriesPoint {
   /**
    * The time value for this point.
-   */
+  */
   "time"?: Date;
   /**
    * The value for this point.
-   */
+  */
   "value"?: number;
 
   /**
@@ -24,7 +29,7 @@ export class RUMAggregateBucketValueTimeseriesPoint {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,15 +40,15 @@ export class RUMAggregateBucketValueTimeseriesPoint {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    time: {
-      baseName: "time",
-      type: "Date",
-      format: "date-time",
+    "time": {
+      "baseName": "time",
+      "type": "Date",
+      "format": "date-time",
     },
-    value: {
-      baseName: "value",
-      type: "number",
-      format: "double",
+    "value": {
+      "baseName": "value",
+      "type": "number",
+      "format": "double",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class RUMAggregateBucketValueTimeseriesPoint {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RUMAggregateBucketValueTimeseriesPoint.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

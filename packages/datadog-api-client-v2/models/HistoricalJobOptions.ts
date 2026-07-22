@@ -13,50 +13,55 @@ import { SecurityMonitoringRuleNewValueOptions } from "./SecurityMonitoringRuleN
 import { SecurityMonitoringRuleSequenceDetectionOptions } from "./SecurityMonitoringRuleSequenceDetectionOptions";
 import { SecurityMonitoringRuleThirdPartyOptions } from "./SecurityMonitoringRuleThirdPartyOptions";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Job options.
- */
+*/
 export class HistoricalJobOptions {
   /**
    * Options on anomaly detection method.
-   */
+  */
   "anomalyDetectionOptions"?: SecurityMonitoringRuleAnomalyDetectionOptions;
   /**
    * The detection method.
-   */
+  */
   "detectionMethod"?: SecurityMonitoringRuleDetectionMethod;
   /**
    * A time window is specified to match when at least one of the cases matches true. This is a sliding window
    * and evaluates in real time. For third party detection method, this field is not used.
-   */
+  */
   "evaluationWindow"?: SecurityMonitoringRuleEvaluationWindow;
   /**
    * Options on impossible travel detection method.
-   */
+  */
   "impossibleTravelOptions"?: SecurityMonitoringRuleImpossibleTravelOptions;
   /**
    * Once a signal is generated, the signal will remain "open" if a case is matched at least once within
    * this keep alive window. For third party detection method, this field is not used.
-   */
+  */
   "keepAlive"?: SecurityMonitoringRuleKeepAlive;
   /**
    * A signal will "close" regardless of the query being matched once the time exceeds the maximum duration.
    * This time is calculated from the first seen timestamp.
-   */
+  */
   "maxSignalDuration"?: SecurityMonitoringRuleMaxSignalDuration;
   /**
    * Options on new value detection method.
-   */
+  */
   "newValueOptions"?: SecurityMonitoringRuleNewValueOptions;
   /**
    * Options on sequence detection method.
-   */
+  */
   "sequenceDetectionOptions"?: SecurityMonitoringRuleSequenceDetectionOptions;
   /**
    * Options on third party detection method.
-   */
+  */
   "thirdPartyRuleOptions"?: SecurityMonitoringRuleThirdPartyOptions;
 
   /**
@@ -64,7 +69,7 @@ export class HistoricalJobOptions {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -75,41 +80,41 @@ export class HistoricalJobOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    anomalyDetectionOptions: {
-      baseName: "anomalyDetectionOptions",
-      type: "SecurityMonitoringRuleAnomalyDetectionOptions",
+    "anomalyDetectionOptions": {
+      "baseName": "anomalyDetectionOptions",
+      "type": "SecurityMonitoringRuleAnomalyDetectionOptions",
     },
-    detectionMethod: {
-      baseName: "detectionMethod",
-      type: "SecurityMonitoringRuleDetectionMethod",
+    "detectionMethod": {
+      "baseName": "detectionMethod",
+      "type": "SecurityMonitoringRuleDetectionMethod",
     },
-    evaluationWindow: {
-      baseName: "evaluationWindow",
-      type: "SecurityMonitoringRuleEvaluationWindow",
+    "evaluationWindow": {
+      "baseName": "evaluationWindow",
+      "type": "SecurityMonitoringRuleEvaluationWindow",
     },
-    impossibleTravelOptions: {
-      baseName: "impossibleTravelOptions",
-      type: "SecurityMonitoringRuleImpossibleTravelOptions",
+    "impossibleTravelOptions": {
+      "baseName": "impossibleTravelOptions",
+      "type": "SecurityMonitoringRuleImpossibleTravelOptions",
     },
-    keepAlive: {
-      baseName: "keepAlive",
-      type: "SecurityMonitoringRuleKeepAlive",
+    "keepAlive": {
+      "baseName": "keepAlive",
+      "type": "SecurityMonitoringRuleKeepAlive",
     },
-    maxSignalDuration: {
-      baseName: "maxSignalDuration",
-      type: "SecurityMonitoringRuleMaxSignalDuration",
+    "maxSignalDuration": {
+      "baseName": "maxSignalDuration",
+      "type": "SecurityMonitoringRuleMaxSignalDuration",
     },
-    newValueOptions: {
-      baseName: "newValueOptions",
-      type: "SecurityMonitoringRuleNewValueOptions",
+    "newValueOptions": {
+      "baseName": "newValueOptions",
+      "type": "SecurityMonitoringRuleNewValueOptions",
     },
-    sequenceDetectionOptions: {
-      baseName: "sequenceDetectionOptions",
-      type: "SecurityMonitoringRuleSequenceDetectionOptions",
+    "sequenceDetectionOptions": {
+      "baseName": "sequenceDetectionOptions",
+      "type": "SecurityMonitoringRuleSequenceDetectionOptions",
     },
-    thirdPartyRuleOptions: {
-      baseName: "thirdPartyRuleOptions",
-      type: "SecurityMonitoringRuleThirdPartyOptions",
+    "thirdPartyRuleOptions": {
+      "baseName": "thirdPartyRuleOptions",
+      "type": "SecurityMonitoringRuleThirdPartyOptions",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -121,8 +126,34 @@ export class HistoricalJobOptions {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return HistoricalJobOptions.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

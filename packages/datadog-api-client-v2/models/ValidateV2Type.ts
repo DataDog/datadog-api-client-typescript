@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Resource type for the API key validation response.
- */
+*/
 
 export type ValidateV2Type = typeof ValidateV2 | UnparsedObject;
-export const ValidateV2 = "validate_v2";
+export const ValidateV2 = 'validate_v2';

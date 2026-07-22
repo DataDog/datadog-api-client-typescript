@@ -8,36 +8,41 @@ import { RUMGroupByHistogram } from "./RUMGroupByHistogram";
 import { RUMGroupByMissing } from "./RUMGroupByMissing";
 import { RUMGroupByTotal } from "./RUMGroupByTotal";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A group-by rule.
- */
+*/
 export class RUMGroupBy {
   /**
    * The name of the facet to use (required).
-   */
+  */
   "facet": string;
   /**
    * Used to perform a histogram computation (only for measure facets).
    * Note: At most 100 buckets are allowed, the number of buckets is (max - min)/interval.
-   */
+  */
   "histogram"?: RUMGroupByHistogram;
   /**
    * The maximum buckets to return for this group-by.
-   */
+  */
   "limit"?: number;
   /**
    * The value to use for logs that don't have the facet used to group by.
-   */
+  */
   "missing"?: RUMGroupByMissing;
   /**
    * A sort rule.
-   */
+  */
   "sort"?: RUMAggregateSort;
   /**
    * A resulting object to put the given computes in over all the matching records.
-   */
+  */
   "total"?: RUMGroupByTotal;
 
   /**
@@ -45,7 +50,7 @@ export class RUMGroupBy {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -56,31 +61,31 @@ export class RUMGroupBy {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    facet: {
-      baseName: "facet",
-      type: "string",
-      required: true,
+    "facet": {
+      "baseName": "facet",
+      "type": "string",
+      "required": true,
     },
-    histogram: {
-      baseName: "histogram",
-      type: "RUMGroupByHistogram",
+    "histogram": {
+      "baseName": "histogram",
+      "type": "RUMGroupByHistogram",
     },
-    limit: {
-      baseName: "limit",
-      type: "number",
-      format: "int64",
+    "limit": {
+      "baseName": "limit",
+      "type": "number",
+      "format": "int64",
     },
-    missing: {
-      baseName: "missing",
-      type: "RUMGroupByMissing",
+    "missing": {
+      "baseName": "missing",
+      "type": "RUMGroupByMissing",
     },
-    sort: {
-      baseName: "sort",
-      type: "RUMAggregateSort",
+    "sort": {
+      "baseName": "sort",
+      "type": "RUMAggregateSort",
     },
-    total: {
-      baseName: "total",
-      type: "RUMGroupByTotal",
+    "total": {
+      "baseName": "total",
+      "type": "RUMGroupByTotal",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -92,8 +97,34 @@ export class RUMGroupBy {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RUMGroupBy.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

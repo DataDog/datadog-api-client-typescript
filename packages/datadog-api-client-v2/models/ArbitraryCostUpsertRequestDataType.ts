@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Upsert arbitrary rule resource type.
- */
+*/
 
-export type ArbitraryCostUpsertRequestDataType =
-  | typeof UPSERT_ARBITRARY_RULE
-  | UnparsedObject;
-export const UPSERT_ARBITRARY_RULE = "upsert_arbitrary_rule";
+export type ArbitraryCostUpsertRequestDataType = typeof UPSERT_ARBITRARY_RULE | UnparsedObject;
+export const UPSERT_ARBITRARY_RULE = 'upsert_arbitrary_rule';

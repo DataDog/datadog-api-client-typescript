@@ -5,15 +5,20 @@
  */
 import { DeletedTestResponseData } from "./DeletedTestResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing the list of deleted Synthetic tests.
- */
+*/
 export class DeletedTestsResponse {
   /**
    * List of deleted Synthetic test data objects.
-   */
+  */
   "data"?: Array<DeletedTestResponseData>;
 
   /**
@@ -21,7 +26,7 @@ export class DeletedTestsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class DeletedTestsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<DeletedTestResponseData>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<DeletedTestResponseData>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class DeletedTestsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DeletedTestsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

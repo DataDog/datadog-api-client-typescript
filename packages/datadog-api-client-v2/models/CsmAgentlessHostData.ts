@@ -6,23 +6,28 @@
 import { CsmAgentlessHostAttributes } from "./CsmAgentlessHostAttributes";
 import { CsmAgentlessHostType } from "./CsmAgentlessHostType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A single agentless host resource.
- */
+*/
 export class CsmAgentlessHostData {
   /**
    * Attributes of an agentless host.
-   */
+  */
   "attributes": CsmAgentlessHostAttributes;
   /**
    * The resource identifier of the agentless host.
-   */
+  */
   "id": string;
   /**
    * The JSON:API type for agentless host resources. The value should always be `agentless_host`.
-   */
+  */
   "type": CsmAgentlessHostType;
 
   /**
@@ -30,7 +35,7 @@ export class CsmAgentlessHostData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class CsmAgentlessHostData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CsmAgentlessHostAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CsmAgentlessHostAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CsmAgentlessHostType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CsmAgentlessHostType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class CsmAgentlessHostData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CsmAgentlessHostData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

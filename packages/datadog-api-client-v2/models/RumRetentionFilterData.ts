@@ -6,23 +6,28 @@
 import { RumRetentionFilterAttributes } from "./RumRetentionFilterAttributes";
 import { RumRetentionFilterType } from "./RumRetentionFilterType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The RUM retention filter.
- */
+*/
 export class RumRetentionFilterData {
   /**
    * The object describing attributes of a RUM retention filter.
-   */
+  */
   "attributes"?: RumRetentionFilterAttributes;
   /**
    * ID of retention filter in UUID.
-   */
+  */
   "id"?: string;
   /**
    * The type of the resource. The value should always be retention_filters.
-   */
+  */
   "type"?: RumRetentionFilterType;
 
   /**
@@ -30,7 +35,7 @@ export class RumRetentionFilterData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class RumRetentionFilterData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RumRetentionFilterAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "RumRetentionFilterAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "RumRetentionFilterType",
+    "type": {
+      "baseName": "type",
+      "type": "RumRetentionFilterType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class RumRetentionFilterData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RumRetentionFilterData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

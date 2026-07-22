@@ -5,23 +5,28 @@
  */
 import { LogQueryDefinitionGroupBySort } from "./LogQueryDefinitionGroupBySort";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Defined items in the group.
- */
+*/
 export class LogQueryDefinitionGroupBy {
   /**
    * Facet name.
-   */
+  */
   "facet": string;
   /**
    * Maximum number of items in the group.
-   */
+  */
   "limit"?: number;
   /**
    * Define a sorting method.
-   */
+  */
   "sort"?: LogQueryDefinitionGroupBySort;
 
   /**
@@ -29,7 +34,7 @@ export class LogQueryDefinitionGroupBy {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,19 +45,19 @@ export class LogQueryDefinitionGroupBy {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    facet: {
-      baseName: "facet",
-      type: "string",
-      required: true,
+    "facet": {
+      "baseName": "facet",
+      "type": "string",
+      "required": true,
     },
-    limit: {
-      baseName: "limit",
-      type: "number",
-      format: "int64",
+    "limit": {
+      "baseName": "limit",
+      "type": "number",
+      "format": "int64",
     },
-    sort: {
-      baseName: "sort",
-      type: "LogQueryDefinitionGroupBySort",
+    "sort": {
+      "baseName": "sort",
+      "type": "LogQueryDefinitionGroupBySort",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class LogQueryDefinitionGroupBy {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogQueryDefinitionGroupBy.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

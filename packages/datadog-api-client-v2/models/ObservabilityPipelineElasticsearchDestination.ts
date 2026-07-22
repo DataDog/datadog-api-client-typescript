@@ -11,70 +11,75 @@ import { ObservabilityPipelineElasticsearchDestinationDataStream } from "./Obser
 import { ObservabilityPipelineElasticsearchDestinationType } from "./ObservabilityPipelineElasticsearchDestinationType";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The `elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
- *
+ * 
  * **Supported pipeline types:** logs, metrics
- */
+*/
 export class ObservabilityPipelineElasticsearchDestination {
   /**
    * The Elasticsearch API version to use. Set to `auto` to auto-detect.
-   */
+  */
   "apiVersion"?: ObservabilityPipelineElasticsearchDestinationApiVersion;
   /**
    * Authentication settings for the Elasticsearch destination.
    * When `strategy` is `basic`, use `username_key` and `password_key` to reference credentials stored in environment variables or secrets.
-   */
+  */
   "auth"?: ObservabilityPipelineElasticsearchDestinationAuth;
   /**
    * Configuration for buffer settings on destination components.
-   */
+  */
   "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * The name of the index to write events to in Elasticsearch.
-   */
+  */
   "bulkIndex"?: string;
   /**
    * Compression configuration for the Elasticsearch destination.
-   */
+  */
   "compression"?: ObservabilityPipelineElasticsearchDestinationCompression;
   /**
    * Configuration options for writing to Elasticsearch Data Streams instead of a fixed index.
-   */
+  */
   "dataStream"?: ObservabilityPipelineElasticsearchDestinationDataStream;
   /**
    * Name of the environment variable or secret that holds the Elasticsearch endpoint URL.
-   */
+  */
   "endpointUrlKey"?: string;
   /**
    * The unique identifier for this component.
-   */
+  */
   "id": string;
   /**
    * The name of the field used as the document ID in Elasticsearch.
-   */
+  */
   "idKey"?: string;
   /**
    * A list of component IDs whose output is used as the `input` for this component.
-   */
+  */
   "inputs": Array<string>;
   /**
    * The name of an Elasticsearch ingest pipeline to apply to events before indexing.
-   */
+  */
   "pipeline"?: string;
   /**
    * When `true`, retries failed partial bulk requests when some events in a batch fail while others succeed.
-   */
+  */
   "requestRetryPartial"?: boolean;
   /**
    * Configuration for enabling TLS encryption between the pipeline component and external services.
-   */
+  */
   "tls"?: ObservabilityPipelineTls;
   /**
    * The destination type. The value should always be `elasticsearch`.
-   */
+  */
   "type": ObservabilityPipelineElasticsearchDestinationType;
 
   /**
@@ -82,7 +87,7 @@ export class ObservabilityPipelineElasticsearchDestination {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -93,64 +98,64 @@ export class ObservabilityPipelineElasticsearchDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    apiVersion: {
-      baseName: "api_version",
-      type: "ObservabilityPipelineElasticsearchDestinationApiVersion",
+    "apiVersion": {
+      "baseName": "api_version",
+      "type": "ObservabilityPipelineElasticsearchDestinationApiVersion",
     },
-    auth: {
-      baseName: "auth",
-      type: "ObservabilityPipelineElasticsearchDestinationAuth",
+    "auth": {
+      "baseName": "auth",
+      "type": "ObservabilityPipelineElasticsearchDestinationAuth",
     },
-    buffer: {
-      baseName: "buffer",
-      type: "ObservabilityPipelineBufferOptions",
+    "buffer": {
+      "baseName": "buffer",
+      "type": "ObservabilityPipelineBufferOptions",
     },
-    bulkIndex: {
-      baseName: "bulk_index",
-      type: "string",
+    "bulkIndex": {
+      "baseName": "bulk_index",
+      "type": "string",
     },
-    compression: {
-      baseName: "compression",
-      type: "ObservabilityPipelineElasticsearchDestinationCompression",
+    "compression": {
+      "baseName": "compression",
+      "type": "ObservabilityPipelineElasticsearchDestinationCompression",
     },
-    dataStream: {
-      baseName: "data_stream",
-      type: "ObservabilityPipelineElasticsearchDestinationDataStream",
+    "dataStream": {
+      "baseName": "data_stream",
+      "type": "ObservabilityPipelineElasticsearchDestinationDataStream",
     },
-    endpointUrlKey: {
-      baseName: "endpoint_url_key",
-      type: "string",
+    "endpointUrlKey": {
+      "baseName": "endpoint_url_key",
+      "type": "string",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    idKey: {
-      baseName: "id_key",
-      type: "string",
+    "idKey": {
+      "baseName": "id_key",
+      "type": "string",
     },
-    inputs: {
-      baseName: "inputs",
-      type: "Array<string>",
-      required: true,
+    "inputs": {
+      "baseName": "inputs",
+      "type": "Array<string>",
+      "required": true,
     },
-    pipeline: {
-      baseName: "pipeline",
-      type: "string",
+    "pipeline": {
+      "baseName": "pipeline",
+      "type": "string",
     },
-    requestRetryPartial: {
-      baseName: "request_retry_partial",
-      type: "boolean",
+    "requestRetryPartial": {
+      "baseName": "request_retry_partial",
+      "type": "boolean",
     },
-    tls: {
-      baseName: "tls",
-      type: "ObservabilityPipelineTls",
+    "tls": {
+      "baseName": "tls",
+      "type": "ObservabilityPipelineTls",
     },
-    type: {
-      baseName: "type",
-      type: "ObservabilityPipelineElasticsearchDestinationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ObservabilityPipelineElasticsearchDestinationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -162,8 +167,34 @@ export class ObservabilityPipelineElasticsearchDestination {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineElasticsearchDestination.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

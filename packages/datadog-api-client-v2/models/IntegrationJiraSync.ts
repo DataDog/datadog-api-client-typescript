@@ -5,19 +5,24 @@
  */
 import { IntegrationJiraSyncProperties } from "./IntegrationJiraSyncProperties";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Synchronization configuration for Jira integration.
- */
+*/
 export class IntegrationJiraSync {
   /**
    * Whether Jira field synchronization is enabled.
-   */
+  */
   "enabled"?: boolean;
   /**
    * Field synchronization properties for Jira integration.
-   */
+  */
   "properties"?: IntegrationJiraSyncProperties;
 
   /**
@@ -25,7 +30,7 @@ export class IntegrationJiraSync {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class IntegrationJiraSync {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
+    "enabled": {
+      "baseName": "enabled",
+      "type": "boolean",
     },
-    properties: {
-      baseName: "properties",
-      type: "IntegrationJiraSyncProperties",
+    "properties": {
+      "baseName": "properties",
+      "type": "IntegrationJiraSyncProperties",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class IntegrationJiraSync {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IntegrationJiraSync.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

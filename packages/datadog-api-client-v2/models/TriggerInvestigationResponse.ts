@@ -5,15 +5,20 @@
  */
 import { TriggerInvestigationResponseData } from "./TriggerInvestigationResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response after triggering an investigation.
- */
+*/
 export class TriggerInvestigationResponse {
   /**
    * Data for the trigger investigation response.
-   */
+  */
   "data": TriggerInvestigationResponseData;
 
   /**
@@ -21,7 +26,7 @@ export class TriggerInvestigationResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class TriggerInvestigationResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "TriggerInvestigationResponseData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "TriggerInvestigationResponseData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class TriggerInvestigationResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TriggerInvestigationResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

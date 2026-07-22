@@ -5,15 +5,20 @@
  */
 import { LLMObsExperimentationSimpleSearchMetaPage } from "./LLMObsExperimentationSimpleSearchMetaPage";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Pagination metadata for a simple search response.
- */
+*/
 export class LLMObsExperimentationSimpleSearchMeta {
   /**
    * Page metadata.
-   */
+  */
   "page"?: LLMObsExperimentationSimpleSearchMetaPage;
 
   /**
@@ -21,7 +26,7 @@ export class LLMObsExperimentationSimpleSearchMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class LLMObsExperimentationSimpleSearchMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    page: {
-      baseName: "page",
-      type: "LLMObsExperimentationSimpleSearchMetaPage",
+    "page": {
+      "baseName": "page",
+      "type": "LLMObsExperimentationSimpleSearchMetaPage",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class LLMObsExperimentationSimpleSearchMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsExperimentationSimpleSearchMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

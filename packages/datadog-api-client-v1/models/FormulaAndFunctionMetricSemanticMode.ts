@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Semantic mode for metrics queries. This determines how metrics from different sources are combined or displayed.
- */
+*/
 
-export type FormulaAndFunctionMetricSemanticMode =
-  | typeof COMBINED
-  | typeof NATIVE
-  | UnparsedObject;
-export const COMBINED = "combined";
-export const NATIVE = "native";
+export type FormulaAndFunctionMetricSemanticMode = typeof COMBINED| typeof NATIVE | UnparsedObject;
+export const COMBINED = 'combined';
+export const NATIVE = 'native';

@@ -6,13 +6,15 @@
 import { ChangeRequestIncludedDecision } from "./ChangeRequestIncludedDecision";
 import { ChangeRequestIncludedUser } from "./ChangeRequestIncludedUser";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * An included resource item in the change request response.
- */
+*/
 
-export type ChangeRequestIncludedItem =
-  | ChangeRequestIncludedUser
-  | ChangeRequestIncludedDecision
-  | UnparsedObject;
+export type ChangeRequestIncludedItem = ChangeRequestIncludedUser | ChangeRequestIncludedDecision | UnparsedObject;

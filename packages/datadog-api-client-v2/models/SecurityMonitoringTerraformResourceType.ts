@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of security monitoring resource to export to Terraform.
- */
+*/
 
-export type SecurityMonitoringTerraformResourceType =
-  | typeof SUPPRESSIONS
-  | typeof CRITICAL_ASSETS
-  | typeof SECURITY_FILTERS
-  | typeof RULES
-  | UnparsedObject;
-export const SUPPRESSIONS = "suppressions";
-export const CRITICAL_ASSETS = "critical_assets";
-export const SECURITY_FILTERS = "security_filters";
-export const RULES = "rules";
+export type SecurityMonitoringTerraformResourceType = typeof SUPPRESSIONS| typeof CRITICAL_ASSETS| typeof SECURITY_FILTERS| typeof RULES | UnparsedObject;
+export const SUPPRESSIONS = 'suppressions';
+export const CRITICAL_ASSETS = 'critical_assets';
+export const SECURITY_FILTERS = 'security_filters';
+export const RULES = 'rules';

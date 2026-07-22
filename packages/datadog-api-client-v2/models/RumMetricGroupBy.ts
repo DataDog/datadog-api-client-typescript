@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A group by rule.
- */
+*/
 export class RumMetricGroupBy {
   /**
    * The path to the value the RUM-based metric will be aggregated over.
-   */
+  */
   "path": string;
   /**
    * Eventual name of the tag that gets created. By default, `path` is used as the tag name.
-   */
+  */
   "tagName"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class RumMetricGroupBy {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,14 +40,14 @@ export class RumMetricGroupBy {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    path: {
-      baseName: "path",
-      type: "string",
-      required: true,
+    "path": {
+      "baseName": "path",
+      "type": "string",
+      "required": true,
     },
-    tagName: {
-      baseName: "tag_name",
-      type: "string",
+    "tagName": {
+      "baseName": "tag_name",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class RumMetricGroupBy {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RumMetricGroupBy.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

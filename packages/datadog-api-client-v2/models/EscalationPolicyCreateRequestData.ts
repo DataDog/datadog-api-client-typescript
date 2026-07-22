@@ -7,23 +7,28 @@ import { EscalationPolicyCreateRequestDataAttributes } from "./EscalationPolicyC
 import { EscalationPolicyCreateRequestDataRelationships } from "./EscalationPolicyCreateRequestDataRelationships";
 import { EscalationPolicyCreateRequestDataType } from "./EscalationPolicyCreateRequestDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Represents the data for creating an escalation policy, including its attributes, relationships, and resource type.
- */
+*/
 export class EscalationPolicyCreateRequestData {
   /**
    * Defines the attributes for creating an escalation policy, including its description, name, resolution behavior, retries, and steps.
-   */
+  */
   "attributes": EscalationPolicyCreateRequestDataAttributes;
   /**
    * Represents relationships in an escalation policy creation request, including references to teams.
-   */
+  */
   "relationships"?: EscalationPolicyCreateRequestDataRelationships;
   /**
    * Indicates that the resource is of type `policies`.
-   */
+  */
   "type": EscalationPolicyCreateRequestDataType;
 
   /**
@@ -31,7 +36,7 @@ export class EscalationPolicyCreateRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,19 +47,19 @@ export class EscalationPolicyCreateRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "EscalationPolicyCreateRequestDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "EscalationPolicyCreateRequestDataAttributes",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "EscalationPolicyCreateRequestDataRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "EscalationPolicyCreateRequestDataRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "EscalationPolicyCreateRequestDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "EscalationPolicyCreateRequestDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class EscalationPolicyCreateRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EscalationPolicyCreateRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

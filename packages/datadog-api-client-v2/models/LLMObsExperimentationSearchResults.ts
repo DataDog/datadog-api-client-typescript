@@ -9,31 +9,36 @@ import { LLMObsExperimentDataAttributesResponse } from "./LLMObsExperimentDataAt
 import { LLMObsExperimentRunDataResponse } from "./LLMObsExperimentRunDataResponse";
 import { LLMObsProjectDataResponse } from "./LLMObsProjectDataResponse";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The matching experimentation entities grouped by type.
- */
+*/
 export class LLMObsExperimentationSearchResults {
   /**
    * Matching dataset records. Present when `dataset_records` is included in `filter.scope`.
-   */
+  */
   "datasetRecords"?: Array<LLMObsDatasetRecordDataResponse>;
   /**
    * Matching datasets. Present when `datasets` is included in `filter.scope`.
-   */
+  */
   "datasets"?: Array<LLMObsDatasetDataResponse>;
   /**
    * Matching experiment runs. Present when `experiment_runs` is included in `filter.scope`.
-   */
+  */
   "experimentRuns"?: Array<LLMObsExperimentRunDataResponse>;
   /**
    * Matching experiments. Present when `experiments` is included in `filter.scope`.
-   */
+  */
   "experiments"?: Array<LLMObsExperimentDataAttributesResponse>;
   /**
    * Matching projects. Present when `projects` is included in `filter.scope`.
-   */
+  */
   "projects"?: Array<LLMObsProjectDataResponse>;
 
   /**
@@ -41,7 +46,7 @@ export class LLMObsExperimentationSearchResults {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -52,25 +57,25 @@ export class LLMObsExperimentationSearchResults {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    datasetRecords: {
-      baseName: "dataset_records",
-      type: "Array<LLMObsDatasetRecordDataResponse>",
+    "datasetRecords": {
+      "baseName": "dataset_records",
+      "type": "Array<LLMObsDatasetRecordDataResponse>",
     },
-    datasets: {
-      baseName: "datasets",
-      type: "Array<LLMObsDatasetDataResponse>",
+    "datasets": {
+      "baseName": "datasets",
+      "type": "Array<LLMObsDatasetDataResponse>",
     },
-    experimentRuns: {
-      baseName: "experiment_runs",
-      type: "Array<LLMObsExperimentRunDataResponse>",
+    "experimentRuns": {
+      "baseName": "experiment_runs",
+      "type": "Array<LLMObsExperimentRunDataResponse>",
     },
-    experiments: {
-      baseName: "experiments",
-      type: "Array<LLMObsExperimentDataAttributesResponse>",
+    "experiments": {
+      "baseName": "experiments",
+      "type": "Array<LLMObsExperimentDataAttributesResponse>",
     },
-    projects: {
-      baseName: "projects",
-      type: "Array<LLMObsProjectDataResponse>",
+    "projects": {
+      "baseName": "projects",
+      "type": "Array<LLMObsProjectDataResponse>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -82,8 +87,34 @@ export class LLMObsExperimentationSearchResults {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsExperimentationSearchResults.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

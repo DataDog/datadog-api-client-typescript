@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Error details for an experiment span.
- */
+*/
 export class LLMObsExperimentSpanError {
   /**
    * Error message.
-   */
+  */
   "message"?: string;
   /**
    * Stack trace of the error.
-   */
+  */
   "stack"?: string;
   /**
    * The error type or exception class name.
-   */
+  */
   "type"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class LLMObsExperimentSpanError {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class LLMObsExperimentSpanError {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    message: {
-      baseName: "message",
-      type: "string",
+    "message": {
+      "baseName": "message",
+      "type": "string",
     },
-    stack: {
-      baseName: "stack",
-      type: "string",
+    "stack": {
+      "baseName": "stack",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class LLMObsExperimentSpanError {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsExperimentSpanError.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

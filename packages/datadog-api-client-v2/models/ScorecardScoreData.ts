@@ -7,27 +7,32 @@ import { ScorecardScoreAttributes } from "./ScorecardScoreAttributes";
 import { ScorecardScoreDataType } from "./ScorecardScoreDataType";
 import { ScorecardScoreRelationships } from "./ScorecardScoreRelationships";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A scorecard score object for a single entity, rule, scorecard, service, or team.
- */
+*/
 export class ScorecardScoreData {
   /**
    * Attributes of a scorecard score.
-   */
+  */
   "attributes"?: ScorecardScoreAttributes;
   /**
    * The ID of the entity or resource being scored.
-   */
+  */
   "id": string;
   /**
    * Relationships for a scorecard score, depending on the aggregation type.
-   */
+  */
   "relationships"?: ScorecardScoreRelationships;
   /**
    * The JSON:API resource type.
-   */
+  */
   "type": ScorecardScoreDataType;
 
   /**
@@ -35,7 +40,7 @@ export class ScorecardScoreData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,23 +51,23 @@ export class ScorecardScoreData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ScorecardScoreAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ScorecardScoreAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "ScorecardScoreRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "ScorecardScoreRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "ScorecardScoreDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ScorecardScoreDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,8 +79,34 @@ export class ScorecardScoreData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ScorecardScoreData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

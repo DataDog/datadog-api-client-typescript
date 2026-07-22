@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Step execution summary for a Synthetic test result.
- */
+*/
 export class SyntheticsTestResultStepsInfo {
   /**
    * Number of completed steps.
-   */
+  */
   "completed"?: number;
   /**
    * Number of steps with errors.
-   */
+  */
   "errors"?: number;
   /**
    * Total number of steps.
-   */
+  */
   "total"?: number;
 
   /**
@@ -28,7 +33,7 @@ export class SyntheticsTestResultStepsInfo {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,20 +44,20 @@ export class SyntheticsTestResultStepsInfo {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    completed: {
-      baseName: "completed",
-      type: "number",
-      format: "int64",
+    "completed": {
+      "baseName": "completed",
+      "type": "number",
+      "format": "int64",
     },
-    errors: {
-      baseName: "errors",
-      type: "number",
-      format: "int64",
+    "errors": {
+      "baseName": "errors",
+      "type": "number",
+      "format": "int64",
     },
-    total: {
-      baseName: "total",
-      type: "number",
-      format: "int64",
+    "total": {
+      "baseName": "total",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class SyntheticsTestResultStepsInfo {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultStepsInfo.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { UserAuthorizedClientRelationshipOAuth2ClientData } from "./UserAuthorizedClientRelationshipOAuth2ClientData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationship to the OAuth2 client that was authorized.
- */
+*/
 export class UserAuthorizedClientRelationshipOAuth2Client {
   /**
    * Data identifying the OAuth2 client that was authorized.
-   */
+  */
   "data": UserAuthorizedClientRelationshipOAuth2ClientData;
 
   /**
@@ -21,7 +26,7 @@ export class UserAuthorizedClientRelationshipOAuth2Client {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class UserAuthorizedClientRelationshipOAuth2Client {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "UserAuthorizedClientRelationshipOAuth2ClientData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "UserAuthorizedClientRelationshipOAuth2ClientData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class UserAuthorizedClientRelationshipOAuth2Client {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UserAuthorizedClientRelationshipOAuth2Client.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

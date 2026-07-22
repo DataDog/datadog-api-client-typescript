@@ -5,15 +5,20 @@
  */
 import { HamrOrgConnectionDataResponse } from "./HamrOrgConnectionDataResponse";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response payload for a HAMR organization connection.
- */
+*/
 export class HamrOrgConnectionResponse {
   /**
    * Data object for a HAMR organization connection response.
-   */
+  */
   "data": HamrOrgConnectionDataResponse;
 
   /**
@@ -21,7 +26,7 @@ export class HamrOrgConnectionResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class HamrOrgConnectionResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "HamrOrgConnectionDataResponse",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "HamrOrgConnectionDataResponse",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class HamrOrgConnectionResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return HamrOrgConnectionResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,23 +5,28 @@
  */
 import { CsmCoverageAnalysis } from "./CsmCoverageAnalysis";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * CSM Serverless Resources Coverage Analysis attributes.
- */
+*/
 export class CsmServerlessCoverageAnalysisAttributes {
   /**
    * CSM Coverage Analysis.
-   */
+  */
   "cwsCoverage"?: CsmCoverageAnalysis;
   /**
    * The ID of your organization.
-   */
+  */
   "orgId"?: number;
   /**
    * CSM Coverage Analysis.
-   */
+  */
   "totalCoverage"?: CsmCoverageAnalysis;
 
   /**
@@ -29,7 +34,7 @@ export class CsmServerlessCoverageAnalysisAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,18 +45,18 @@ export class CsmServerlessCoverageAnalysisAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    cwsCoverage: {
-      baseName: "cws_coverage",
-      type: "CsmCoverageAnalysis",
+    "cwsCoverage": {
+      "baseName": "cws_coverage",
+      "type": "CsmCoverageAnalysis",
     },
-    orgId: {
-      baseName: "org_id",
-      type: "number",
-      format: "int64",
+    "orgId": {
+      "baseName": "org_id",
+      "type": "number",
+      "format": "int64",
     },
-    totalCoverage: {
-      baseName: "total_coverage",
-      type: "CsmCoverageAnalysis",
+    "totalCoverage": {
+      "baseName": "total_coverage",
+      "type": "CsmCoverageAnalysis",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class CsmServerlessCoverageAnalysisAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CsmServerlessCoverageAnalysisAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

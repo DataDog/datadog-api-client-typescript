@@ -5,31 +5,36 @@
  */
 import { CustomAttributeType } from "./CustomAttributeType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes required to create a custom attribute configuration.
- */
+*/
 export class CustomAttributeConfigAttributesCreate {
   /**
    * A description explaining the purpose and expected values for this custom attribute.
-   */
+  */
   "description"?: string;
   /**
    * The human-readable label shown in the Case Management UI for this custom attribute.
-   */
+  */
   "displayName": string;
   /**
    * If `true`, this attribute accepts an array of values. If `false`, only a single value is allowed.
-   */
+  */
   "isMulti": boolean;
   /**
    * The programmatic key used to reference this custom attribute in search queries and API calls.
-   */
+  */
   "key": string;
   /**
    * The data type of the custom attribute, which determines the allowed values and UI input control.
-   */
+  */
   "type": CustomAttributeType;
 
   /**
@@ -37,7 +42,7 @@ export class CustomAttributeConfigAttributesCreate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -48,29 +53,29 @@ export class CustomAttributeConfigAttributesCreate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    displayName: {
-      baseName: "display_name",
-      type: "string",
-      required: true,
+    "displayName": {
+      "baseName": "display_name",
+      "type": "string",
+      "required": true,
     },
-    isMulti: {
-      baseName: "is_multi",
-      type: "boolean",
-      required: true,
+    "isMulti": {
+      "baseName": "is_multi",
+      "type": "boolean",
+      "required": true,
     },
-    key: {
-      baseName: "key",
-      type: "string",
-      required: true,
+    "key": {
+      "baseName": "key",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CustomAttributeType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CustomAttributeType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -82,8 +87,34 @@ export class CustomAttributeConfigAttributesCreate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomAttributeConfigAttributesCreate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

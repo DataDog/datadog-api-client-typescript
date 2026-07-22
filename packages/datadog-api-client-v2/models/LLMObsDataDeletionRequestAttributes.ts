@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for an LLM Observability data deletion request.
- */
+*/
 export class LLMObsDataDeletionRequestAttributes {
   /**
    * Optional delay in seconds before the deletion is executed.
-   */
+  */
   "delay"?: number;
   /**
    * Start of the deletion time range in milliseconds since Unix epoch.
-   */
+  */
   "from": number;
   /**
    * Query filters selecting the data to delete. Must include a `query` key with an `@trace_id` filter.
-   */
-  "query": { [key: string]: string };
+  */
+  "query": { [key: string]: string; };
   /**
    * End of the deletion time range in milliseconds since Unix epoch.
-   */
+  */
   "to": number;
 
   /**
@@ -32,7 +37,7 @@ export class LLMObsDataDeletionRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,27 +48,27 @@ export class LLMObsDataDeletionRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    delay: {
-      baseName: "delay",
-      type: "number",
-      format: "int64",
+    "delay": {
+      "baseName": "delay",
+      "type": "number",
+      "format": "int64",
     },
-    from: {
-      baseName: "from",
-      type: "number",
-      required: true,
-      format: "int64",
+    "from": {
+      "baseName": "from",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    query: {
-      baseName: "query",
-      type: "{ [key: string]: string; }",
-      required: true,
+    "query": {
+      "baseName": "query",
+      "type": "{ [key: string]: string; }",
+      "required": true,
     },
-    to: {
-      baseName: "to",
-      type: "number",
-      required: true,
-      format: "int64",
+    "to": {
+      "baseName": "to",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -75,8 +80,34 @@ export class LLMObsDataDeletionRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDataDeletionRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

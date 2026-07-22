@@ -4,21 +4,26 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Top-level JSON:API meta block accompanying every DDSQL tabular query response.
  * Carries standard observability handles for client-side correlation.
- */
+*/
 export class DdsqlTabularQueryResponseMeta {
   /**
    * Server-side time spent serving this request, in milliseconds.
-   */
+  */
   "elapsed": number;
   /**
    * Echo of the `DD-Request-ID` header assigned by Datadog's edge to this request,
    * for support correlation.
-   */
+  */
   "requestId": string;
 
   /**
@@ -26,7 +31,7 @@ export class DdsqlTabularQueryResponseMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,16 +42,16 @@ export class DdsqlTabularQueryResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    elapsed: {
-      baseName: "elapsed",
-      type: "number",
-      required: true,
-      format: "int64",
+    "elapsed": {
+      "baseName": "elapsed",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    requestId: {
-      baseName: "request_id",
-      type: "string",
-      required: true,
+    "requestId": {
+      "baseName": "request_id",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -58,8 +63,34 @@ export class DdsqlTabularQueryResponseMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DdsqlTabularQueryResponseMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

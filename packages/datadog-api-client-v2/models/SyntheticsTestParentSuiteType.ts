@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of the parent suite resource.
- */
+*/
 
-export type SyntheticsTestParentSuiteType =
-  | typeof PARENT_SUITE
-  | UnparsedObject;
-export const PARENT_SUITE = "parent_suite";
+export type SyntheticsTestParentSuiteType = typeof PARENT_SUITE | UnparsedObject;
+export const PARENT_SUITE = 'parent_suite';

@@ -5,24 +5,29 @@
  */
 import { SecurityMonitoringRuleEvaluationWindow } from "./SecurityMonitoringRuleEvaluationWindow";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Step definition for sequence detection containing the step name, condition, and evaluation window.
- */
+*/
 export class SecurityMonitoringRuleSequenceDetectionStep {
   /**
    * Condition referencing rule queries (e.g., `a > 0`).
-   */
+  */
   "condition"?: string;
   /**
    * A time window is specified to match when at least one of the cases matches true. This is a sliding window
    * and evaluates in real time. For third party detection method, this field is not used.
-   */
+  */
   "evaluationWindow"?: SecurityMonitoringRuleEvaluationWindow;
   /**
    * Unique name identifying the step.
-   */
+  */
   "name"?: string;
 
   /**
@@ -30,7 +35,7 @@ export class SecurityMonitoringRuleSequenceDetectionStep {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class SecurityMonitoringRuleSequenceDetectionStep {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    condition: {
-      baseName: "condition",
-      type: "string",
+    "condition": {
+      "baseName": "condition",
+      "type": "string",
     },
-    evaluationWindow: {
-      baseName: "evaluationWindow",
-      type: "SecurityMonitoringRuleEvaluationWindow",
+    "evaluationWindow": {
+      "baseName": "evaluationWindow",
+      "type": "SecurityMonitoringRuleEvaluationWindow",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class SecurityMonitoringRuleSequenceDetectionStep {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringRuleSequenceDetectionStep.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

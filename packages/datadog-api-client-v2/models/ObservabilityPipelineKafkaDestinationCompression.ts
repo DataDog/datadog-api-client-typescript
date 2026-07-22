@@ -4,21 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Compression codec for Kafka messages.
- */
+*/
 
-export type ObservabilityPipelineKafkaDestinationCompression =
-  | typeof NONE
-  | typeof GZIP
-  | typeof SNAPPY
-  | typeof LZ4
-  | typeof ZSTD
-  | UnparsedObject;
-export const NONE = "none";
-export const GZIP = "gzip";
-export const SNAPPY = "snappy";
-export const LZ4 = "lz4";
-export const ZSTD = "zstd";
+export type ObservabilityPipelineKafkaDestinationCompression = typeof NONE| typeof GZIP| typeof SNAPPY| typeof LZ4| typeof ZSTD | UnparsedObject;
+export const NONE = 'none';
+export const GZIP = 'gzip';
+export const SNAPPY = 'snappy';
+export const LZ4 = 'lz4';
+export const ZSTD = 'zstd';

@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Jira issues resource type.
- */
+*/
 
 export type JiraIssuesDataType = typeof JIRA_ISSUES | UnparsedObject;
-export const JIRA_ISSUES = "jira_issues";
+export const JIRA_ISSUES = 'jira_issues';

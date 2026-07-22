@@ -6,23 +6,28 @@
 import { ModelLabFacetKeysAttributes } from "./ModelLabFacetKeysAttributes";
 import { ModelLabFacetKeysType } from "./ModelLabFacetKeysType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A facet keys JSON:API resource object.
- */
+*/
 export class ModelLabFacetKeysData {
   /**
    * Available facet key names for filtering resources.
-   */
+  */
   "attributes": ModelLabFacetKeysAttributes;
   /**
    * The unique identifier of the facet keys resource.
-   */
+  */
   "id": string;
   /**
    * The JSON:API type for a facet keys resource.
-   */
+  */
   "type": ModelLabFacetKeysType;
 
   /**
@@ -30,7 +35,7 @@ export class ModelLabFacetKeysData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class ModelLabFacetKeysData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ModelLabFacetKeysAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ModelLabFacetKeysAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ModelLabFacetKeysType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ModelLabFacetKeysType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class ModelLabFacetKeysData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ModelLabFacetKeysData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An object containing properties related to the tag key
- */
+*/
 export class MetricTagCardinalityAttributes {
   /**
    * This describes the recent change in the tag keys cardinality
-   */
+  */
   "cardinalityDelta"?: number;
 
   /**
@@ -20,7 +25,7 @@ export class MetricTagCardinalityAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,10 +36,10 @@ export class MetricTagCardinalityAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    cardinalityDelta: {
-      baseName: "cardinality_delta",
-      type: "number",
-      format: "int64",
+    "cardinalityDelta": {
+      "baseName": "cardinality_delta",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class MetricTagCardinalityAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricTagCardinalityAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

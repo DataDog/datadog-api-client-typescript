@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Defines how to compare key fields for enrichment table lookups.
- */
+*/
 
-export type ObservabilityPipelineEnrichmentTableFileKeyItemsComparison =
-  | typeof EQUALS
-  | UnparsedObject;
-export const EQUALS = "equals";
+export type ObservabilityPipelineEnrichmentTableFileKeyItemsComparison = typeof EQUALS | UnparsedObject;
+export const EQUALS = 'equals';

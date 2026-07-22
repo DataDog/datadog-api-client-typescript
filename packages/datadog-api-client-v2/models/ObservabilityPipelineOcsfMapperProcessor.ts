@@ -6,41 +6,46 @@
 import { ObservabilityPipelineOcsfMapperProcessorMapping } from "./ObservabilityPipelineOcsfMapperProcessorMapping";
 import { ObservabilityPipelineOcsfMapperProcessorType } from "./ObservabilityPipelineOcsfMapperProcessorType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The `ocsf_mapper` processor transforms logs into the OCSF schema using a predefined mapping configuration.
- *
+ * 
  * **Supported pipeline types:** logs
- */
+*/
 export class ObservabilityPipelineOcsfMapperProcessor {
   /**
    * The display name for a component.
-   */
+  */
   "displayName"?: string;
   /**
    * Indicates whether the processor is enabled.
-   */
+  */
   "enabled": boolean;
   /**
    * The unique identifier for this component. Used to reference this component in other parts of the pipeline.
-   */
+  */
   "id": string;
   /**
    * A Datadog search query used to determine which logs this processor targets.
-   */
+  */
   "include": string;
   /**
    * Whether to keep an event that does not match any of the mapping filters.
-   */
+  */
   "keepUnmatched"?: boolean;
   /**
    * A list of mapping rules to convert events to the OCSF format.
-   */
+  */
   "mappings": Array<ObservabilityPipelineOcsfMapperProcessorMapping>;
   /**
    * The processor type. The value should always be `ocsf_mapper`.
-   */
+  */
   "type": ObservabilityPipelineOcsfMapperProcessorType;
 
   /**
@@ -48,7 +53,7 @@ export class ObservabilityPipelineOcsfMapperProcessor {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -59,38 +64,38 @@ export class ObservabilityPipelineOcsfMapperProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    displayName: {
-      baseName: "display_name",
-      type: "string",
+    "displayName": {
+      "baseName": "display_name",
+      "type": "string",
     },
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
-      required: true,
+    "enabled": {
+      "baseName": "enabled",
+      "type": "boolean",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    include: {
-      baseName: "include",
-      type: "string",
-      required: true,
+    "include": {
+      "baseName": "include",
+      "type": "string",
+      "required": true,
     },
-    keepUnmatched: {
-      baseName: "keep_unmatched",
-      type: "boolean",
+    "keepUnmatched": {
+      "baseName": "keep_unmatched",
+      "type": "boolean",
     },
-    mappings: {
-      baseName: "mappings",
-      type: "Array<ObservabilityPipelineOcsfMapperProcessorMapping>",
-      required: true,
+    "mappings": {
+      "baseName": "mappings",
+      "type": "Array<ObservabilityPipelineOcsfMapperProcessorMapping>",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ObservabilityPipelineOcsfMapperProcessorType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ObservabilityPipelineOcsfMapperProcessorType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -102,8 +107,34 @@ export class ObservabilityPipelineOcsfMapperProcessor {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineOcsfMapperProcessor.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

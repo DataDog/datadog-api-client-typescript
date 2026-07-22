@@ -5,15 +5,20 @@
  */
 import { MetricMetaPage } from "./MetricMetaPage";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response metadata object.
- */
+*/
 export class MetricPaginationMeta {
   /**
    * Paging attributes. Only present if pagination query parameters were provided.
-   */
+  */
   "pagination"?: MetricMetaPage;
 
   /**
@@ -21,7 +26,7 @@ export class MetricPaginationMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class MetricPaginationMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    pagination: {
-      baseName: "pagination",
-      type: "MetricMetaPage",
+    "pagination": {
+      "baseName": "pagination",
+      "type": "MetricMetaPage",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class MetricPaginationMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricPaginationMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,39 +5,44 @@
  */
 import { AggregatedWaterfallPerformanceCriteria } from "./AggregatedWaterfallPerformanceCriteria";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for an aggregated long tasks query.
- */
+*/
 export class AggregatedLongTasksRequestAttributes {
   /**
    * The RUM application ID to analyze.
-   */
+  */
   "applicationId": string;
   /**
    * Performance criteria to filter view instances by a metric threshold.
-   */
+  */
   "criteria"?: AggregatedWaterfallPerformanceCriteria;
   /**
    * RUM query string to filter events (for example, @session.type:user @geo.country:US).
-   */
+  */
   "filter"?: string;
   /**
    * Start of the time range as a Unix timestamp in seconds.
-   */
+  */
   "from": number;
   /**
    * Number of view instances to sample, between 1 and 500.
-   */
+  */
   "sampleSize": number;
   /**
    * End of the time range as a Unix timestamp in seconds.
-   */
+  */
   "to": number;
   /**
    * The RUM view name to analyze (for example, /account/login).
-   */
+  */
   "viewName": string;
 
   /**
@@ -45,7 +50,7 @@ export class AggregatedLongTasksRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -56,41 +61,41 @@ export class AggregatedLongTasksRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    applicationId: {
-      baseName: "application_id",
-      type: "string",
-      required: true,
+    "applicationId": {
+      "baseName": "application_id",
+      "type": "string",
+      "required": true,
     },
-    criteria: {
-      baseName: "criteria",
-      type: "AggregatedWaterfallPerformanceCriteria",
+    "criteria": {
+      "baseName": "criteria",
+      "type": "AggregatedWaterfallPerformanceCriteria",
     },
-    filter: {
-      baseName: "filter",
-      type: "string",
+    "filter": {
+      "baseName": "filter",
+      "type": "string",
     },
-    from: {
-      baseName: "from",
-      type: "number",
-      required: true,
-      format: "int64",
+    "from": {
+      "baseName": "from",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    sampleSize: {
-      baseName: "sample_size",
-      type: "number",
-      required: true,
-      format: "int32",
+    "sampleSize": {
+      "baseName": "sample_size",
+      "type": "number",
+      "required": true,
+      "format": "int32",
     },
-    to: {
-      baseName: "to",
-      type: "number",
-      required: true,
-      format: "int64",
+    "to": {
+      "baseName": "to",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    viewName: {
-      baseName: "view_name",
-      type: "string",
-      required: true,
+    "viewName": {
+      "baseName": "view_name",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -102,8 +107,34 @@ export class AggregatedLongTasksRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AggregatedLongTasksRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

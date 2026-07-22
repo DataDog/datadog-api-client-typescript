@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type identifier for a serialized regex. Always `regex`.
- */
+*/
 
 export type RumSdkConfigSerializedRegexType = typeof REGEX | UnparsedObject;
-export const REGEX = "regex";
+export const REGEX = 'regex';

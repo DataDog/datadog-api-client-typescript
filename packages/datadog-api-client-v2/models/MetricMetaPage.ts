@@ -5,27 +5,32 @@
  */
 import { MetricMetaPageType } from "./MetricMetaPageType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Paging attributes. Only present if pagination query parameters were provided.
- */
+*/
 export class MetricMetaPage {
   /**
    * The cursor used to get the current results, if any.
-   */
+  */
   "cursor"?: string;
   /**
    * Number of results returned
-   */
+  */
   "limit"?: number;
   /**
    * The cursor used to get the next results, if any.
-   */
+  */
   "nextCursor"?: string;
   /**
    * Type of metric pagination.
-   */
+  */
   "type"?: MetricMetaPageType;
 
   /**
@@ -33,7 +38,7 @@ export class MetricMetaPage {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -44,22 +49,22 @@ export class MetricMetaPage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    cursor: {
-      baseName: "cursor",
-      type: "string",
+    "cursor": {
+      "baseName": "cursor",
+      "type": "string",
     },
-    limit: {
-      baseName: "limit",
-      type: "number",
-      format: "int32",
+    "limit": {
+      "baseName": "limit",
+      "type": "number",
+      "format": "int32",
     },
-    nextCursor: {
-      baseName: "next_cursor",
-      type: "string",
+    "nextCursor": {
+      "baseName": "next_cursor",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "MetricMetaPageType",
+    "type": {
+      "baseName": "type",
+      "type": "MetricMetaPageType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,8 +76,34 @@ export class MetricMetaPage {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricMetaPage.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

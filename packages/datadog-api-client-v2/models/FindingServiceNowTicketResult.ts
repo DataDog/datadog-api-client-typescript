@@ -4,35 +4,40 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Result of the ServiceNow ticket creation or attachment.
- */
+*/
 export class FindingServiceNowTicketResult {
   /**
    * ServiceNow instance name extracted from the ticket URL.
-   */
+  */
   "instanceName"?: string;
   /**
    * Unique identifier of the ServiceNow incident record.
-   */
+  */
   "sysId"?: string;
   /**
    * Direct link to the ServiceNow incident record.
-   */
+  */
   "sysTargetLink"?: string;
   /**
    * Unique identifier of the target ServiceNow record.
-   */
+  */
   "sysTargetSysId"?: string;
   /**
    * ServiceNow table containing the incident record.
-   */
+  */
   "tableName"?: string;
   /**
    * URL of the ServiceNow incident record.
-   */
+  */
   "url"?: string;
 
   /**
@@ -40,7 +45,7 @@ export class FindingServiceNowTicketResult {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -51,29 +56,29 @@ export class FindingServiceNowTicketResult {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    instanceName: {
-      baseName: "instance_name",
-      type: "string",
+    "instanceName": {
+      "baseName": "instance_name",
+      "type": "string",
     },
-    sysId: {
-      baseName: "sys_id",
-      type: "string",
+    "sysId": {
+      "baseName": "sys_id",
+      "type": "string",
     },
-    sysTargetLink: {
-      baseName: "sys_target_link",
-      type: "string",
+    "sysTargetLink": {
+      "baseName": "sys_target_link",
+      "type": "string",
     },
-    sysTargetSysId: {
-      baseName: "sys_target_sys_id",
-      type: "string",
+    "sysTargetSysId": {
+      "baseName": "sys_target_sys_id",
+      "type": "string",
     },
-    tableName: {
-      baseName: "table_name",
-      type: "string",
+    "tableName": {
+      "baseName": "table_name",
+      "type": "string",
     },
-    url: {
-      baseName: "url",
-      type: "string",
+    "url": {
+      "baseName": "url",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -85,8 +90,34 @@ export class FindingServiceNowTicketResult {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FindingServiceNowTicketResult.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

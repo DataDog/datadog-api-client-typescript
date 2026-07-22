@@ -5,15 +5,20 @@
  */
 import { MetricBulkTagConfigCreate } from "./MetricBulkTagConfigCreate";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Wrapper object for a single bulk tag configuration request.
- */
+*/
 export class MetricBulkTagConfigCreateRequest {
   /**
    * Request object to bulk configure tags for metrics matching the given prefix.
-   */
+  */
   "data": MetricBulkTagConfigCreate;
 
   /**
@@ -21,7 +26,7 @@ export class MetricBulkTagConfigCreateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class MetricBulkTagConfigCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "MetricBulkTagConfigCreate",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "MetricBulkTagConfigCreate",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class MetricBulkTagConfigCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricBulkTagConfigCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

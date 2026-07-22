@@ -6,35 +6,40 @@
 import { SyntheticsTestResultNetstatsHops } from "./SyntheticsTestResultNetstatsHops";
 import { SyntheticsTestResultNetworkLatency } from "./SyntheticsTestResultNetworkLatency";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Aggregated network statistics from the test execution.
- */
+*/
 export class SyntheticsTestResultNetstats {
   /**
    * Statistics about the number of hops for a network test.
-   */
+  */
   "hops"?: SyntheticsTestResultNetstatsHops;
   /**
    * Network jitter in milliseconds.
-   */
+  */
   "jitter"?: number;
   /**
    * Latency statistics for a network probe.
-   */
+  */
   "latency"?: SyntheticsTestResultNetworkLatency;
   /**
    * Percentage of probe packets lost.
-   */
+  */
   "packetLossPercentage"?: number;
   /**
    * Number of probe packets received.
-   */
+  */
   "packetsReceived"?: number;
   /**
    * Number of probe packets sent.
-   */
+  */
   "packetsSent"?: number;
 
   /**
@@ -42,7 +47,7 @@ export class SyntheticsTestResultNetstats {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -53,33 +58,33 @@ export class SyntheticsTestResultNetstats {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    hops: {
-      baseName: "hops",
-      type: "SyntheticsTestResultNetstatsHops",
+    "hops": {
+      "baseName": "hops",
+      "type": "SyntheticsTestResultNetstatsHops",
     },
-    jitter: {
-      baseName: "jitter",
-      type: "number",
-      format: "double",
+    "jitter": {
+      "baseName": "jitter",
+      "type": "number",
+      "format": "double",
     },
-    latency: {
-      baseName: "latency",
-      type: "SyntheticsTestResultNetworkLatency",
+    "latency": {
+      "baseName": "latency",
+      "type": "SyntheticsTestResultNetworkLatency",
     },
-    packetLossPercentage: {
-      baseName: "packet_loss_percentage",
-      type: "number",
-      format: "double",
+    "packetLossPercentage": {
+      "baseName": "packet_loss_percentage",
+      "type": "number",
+      "format": "double",
     },
-    packetsReceived: {
-      baseName: "packets_received",
-      type: "number",
-      format: "int64",
+    "packetsReceived": {
+      "baseName": "packets_received",
+      "type": "number",
+      "format": "int64",
     },
-    packetsSent: {
-      baseName: "packets_sent",
-      type: "number",
-      format: "int64",
+    "packetsSent": {
+      "baseName": "packets_sent",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -91,8 +96,34 @@ export class SyntheticsTestResultNetstats {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultNetstats.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

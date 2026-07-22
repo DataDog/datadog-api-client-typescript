@@ -8,15 +8,15 @@ import { ListStreamWidgetRequest } from "./ListStreamWidgetRequest";
 import { TimeseriesWidgetRequest } from "./TimeseriesWidgetRequest";
 import { TreeMapWidgetRequest } from "./TreeMapWidgetRequest";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Request object for the wildcard widget. Each variant represents a distinct data-fetching pattern: scalar formulas, timeseries formulas, list streams, and histograms.
- */
+*/
 
-export type WildcardWidgetRequest =
-  | TreeMapWidgetRequest
-  | TimeseriesWidgetRequest
-  | ListStreamWidgetRequest
-  | DistributionWidgetRequest
-  | UnparsedObject;
+export type WildcardWidgetRequest = TreeMapWidgetRequest | TimeseriesWidgetRequest | ListStreamWidgetRequest | DistributionWidgetRequest | UnparsedObject;

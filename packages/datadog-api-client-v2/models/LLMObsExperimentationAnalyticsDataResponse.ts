@@ -6,23 +6,28 @@
 import { LLMObsExperimentationAnalyticsDataAttributesResponse } from "./LLMObsExperimentationAnalyticsDataAttributesResponse";
 import { LLMObsExperimentationType } from "./LLMObsExperimentationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * JSON:API data object for an analytics response.
- */
+*/
 export class LLMObsExperimentationAnalyticsDataResponse {
   /**
    * Attributes of an analytics response.
-   */
+  */
   "attributes": LLMObsExperimentationAnalyticsDataAttributesResponse;
   /**
    * Server-generated identifier for this analytics result.
-   */
+  */
   "id": string;
   /**
    * Resource type for experimentation search and analytics operations.
-   */
+  */
   "type": LLMObsExperimentationType;
 
   /**
@@ -30,7 +35,7 @@ export class LLMObsExperimentationAnalyticsDataResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class LLMObsExperimentationAnalyticsDataResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LLMObsExperimentationAnalyticsDataAttributesResponse",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "LLMObsExperimentationAnalyticsDataAttributesResponse",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LLMObsExperimentationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LLMObsExperimentationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class LLMObsExperimentationAnalyticsDataResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsExperimentationAnalyticsDataResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

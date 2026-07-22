@@ -5,15 +5,20 @@
  */
 import { EventCreateResponseAttributesAttributesEvt } from "./EventCreateResponseAttributesAttributesEvt";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * JSON object for category-specific attributes.
- */
+*/
 export class EventCreateResponseAttributesAttributes {
   /**
    * JSON object of event system attributes.
-   */
+  */
   "evt"?: EventCreateResponseAttributesAttributesEvt;
 
   /**
@@ -21,7 +26,7 @@ export class EventCreateResponseAttributesAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class EventCreateResponseAttributesAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    evt: {
-      baseName: "evt",
-      type: "EventCreateResponseAttributesAttributesEvt",
+    "evt": {
+      "baseName": "evt",
+      "type": "EventCreateResponseAttributesAttributesEvt",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class EventCreateResponseAttributesAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EventCreateResponseAttributesAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,23 +6,28 @@
 import { CommitmentsOnDemandHotspotsScalarMeta } from "./CommitmentsOnDemandHotspotsScalarMeta";
 import { CommitmentsScalarColumn } from "./CommitmentsScalarColumn";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing scalar on-demand hot-spots data for cloud commitment programs.
- */
+*/
 export class CommitmentsOnDemandHotspotsScalarResponse {
   /**
    * Array of scalar columns in the response.
-   */
+  */
   "columns": Array<CommitmentsScalarColumn>;
   /**
    * Metadata for the on-demand hot-spots scalar response.
-   */
+  */
   "meta"?: CommitmentsOnDemandHotspotsScalarMeta;
   /**
    * Array of scalar columns in the response.
-   */
+  */
   "total": Array<CommitmentsScalarColumn>;
 
   /**
@@ -30,7 +35,7 @@ export class CommitmentsOnDemandHotspotsScalarResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class CommitmentsOnDemandHotspotsScalarResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    columns: {
-      baseName: "columns",
-      type: "Array<CommitmentsScalarColumn>",
-      required: true,
+    "columns": {
+      "baseName": "columns",
+      "type": "Array<CommitmentsScalarColumn>",
+      "required": true,
     },
-    meta: {
-      baseName: "meta",
-      type: "CommitmentsOnDemandHotspotsScalarMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "CommitmentsOnDemandHotspotsScalarMeta",
     },
-    total: {
-      baseName: "total",
-      type: "Array<CommitmentsScalarColumn>",
-      required: true,
+    "total": {
+      "baseName": "total",
+      "type": "Array<CommitmentsScalarColumn>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class CommitmentsOnDemandHotspotsScalarResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CommitmentsOnDemandHotspotsScalarResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

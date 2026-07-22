@@ -6,27 +6,32 @@
 import { PatchDegradationRequestDataAttributesComponentsAffectedItems } from "./PatchDegradationRequestDataAttributesComponentsAffectedItems";
 import { PatchDegradationRequestDataAttributesStatus } from "./PatchDegradationRequestDataAttributesStatus";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The supported attributes for updating a degradation.
- */
+*/
 export class PatchDegradationRequestDataAttributes {
   /**
    * The components affected by the degradation.
-   */
+  */
   "componentsAffected"?: Array<PatchDegradationRequestDataAttributesComponentsAffectedItems>;
   /**
    * The description of the degradation.
-   */
+  */
   "description"?: string;
   /**
    * The status of the degradation.
-   */
+  */
   "status"?: PatchDegradationRequestDataAttributesStatus;
   /**
    * The title of the degradation.
-   */
+  */
   "title"?: string;
 
   /**
@@ -34,7 +39,7 @@ export class PatchDegradationRequestDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -45,21 +50,21 @@ export class PatchDegradationRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    componentsAffected: {
-      baseName: "components_affected",
-      type: "Array<PatchDegradationRequestDataAttributesComponentsAffectedItems>",
+    "componentsAffected": {
+      "baseName": "components_affected",
+      "type": "Array<PatchDegradationRequestDataAttributesComponentsAffectedItems>",
     },
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    status: {
-      baseName: "status",
-      type: "PatchDegradationRequestDataAttributesStatus",
+    "status": {
+      "baseName": "status",
+      "type": "PatchDegradationRequestDataAttributesStatus",
     },
-    title: {
-      baseName: "title",
-      type: "string",
+    "title": {
+      "baseName": "title",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,8 +76,34 @@ export class PatchDegradationRequestDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PatchDegradationRequestDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,20 +5,25 @@
  */
 import { LayerRelationshipsMembersDataItemsType } from "./LayerRelationshipsMembersDataItemsType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Represents a single member object in a layer's `members` array, referencing
  * a unique Datadog user ID.
- */
+*/
 export class LayerRelationshipsMembersDataItems {
   /**
    * The unique user ID of the layer member.
-   */
+  */
   "id": string;
   /**
    * Members resource type.
-   */
+  */
   "type": LayerRelationshipsMembersDataItemsType;
 
   /**
@@ -26,7 +31,7 @@ export class LayerRelationshipsMembersDataItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class LayerRelationshipsMembersDataItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LayerRelationshipsMembersDataItemsType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LayerRelationshipsMembersDataItemsType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class LayerRelationshipsMembersDataItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LayerRelationshipsMembersDataItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

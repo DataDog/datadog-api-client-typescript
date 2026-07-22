@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Term-level search configuration for filtering facet values by an exact or partial term match.
- */
+*/
 export class FacetInfoRequestDataAttributesTermSearch {
   /**
    * The term string to match against facet values.
-   */
+  */
   "value"?: string;
 
   /**
@@ -20,7 +25,7 @@ export class FacetInfoRequestDataAttributesTermSearch {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,9 +36,9 @@ export class FacetInfoRequestDataAttributesTermSearch {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    value: {
-      baseName: "value",
-      type: "string",
+    "value": {
+      "baseName": "value",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,8 +50,34 @@ export class FacetInfoRequestDataAttributesTermSearch {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FacetInfoRequestDataAttributesTermSearch.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

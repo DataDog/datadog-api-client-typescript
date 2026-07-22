@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Event batching settings
- */
+*/
 export class ObservabilityPipelineAmazonS3GenericBatchSettings {
   /**
    * Maximum batch size in bytes.
-   */
+  */
   "batchSize"?: number;
   /**
    * Maximum number of seconds to wait before flushing the batch.
-   */
+  */
   "timeoutSecs"?: number;
 
   /**
@@ -24,7 +29,7 @@ export class ObservabilityPipelineAmazonS3GenericBatchSettings {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,15 +40,15 @@ export class ObservabilityPipelineAmazonS3GenericBatchSettings {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    batchSize: {
-      baseName: "batch_size",
-      type: "number",
-      format: "int64",
+    "batchSize": {
+      "baseName": "batch_size",
+      "type": "number",
+      "format": "int64",
     },
-    timeoutSecs: {
-      baseName: "timeout_secs",
-      type: "number",
-      format: "int64",
+    "timeoutSecs": {
+      "baseName": "timeout_secs",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class ObservabilityPipelineAmazonS3GenericBatchSettings {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineAmazonS3GenericBatchSettings.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

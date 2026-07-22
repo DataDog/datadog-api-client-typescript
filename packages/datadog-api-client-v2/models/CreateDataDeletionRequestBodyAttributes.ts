@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for creating a data deletion request.
- */
+*/
 export class CreateDataDeletionRequestBodyAttributes {
   /**
    * Start of requested time window, milliseconds since Unix epoch.
-   */
+  */
   "from": number;
   /**
    * List of indexes for the search. If not provided, the search is performed in all indexes.
-   */
+  */
   "indexes"?: Array<string>;
   /**
    * Query for creating a data deletion request.
-   */
-  "query": { [key: string]: string };
+  */
+  "query": { [key: string]: string; };
   /**
    * End of requested time window, milliseconds since Unix epoch.
-   */
+  */
   "to": number;
 
   /**
@@ -32,7 +37,7 @@ export class CreateDataDeletionRequestBodyAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,26 +48,26 @@ export class CreateDataDeletionRequestBodyAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    from: {
-      baseName: "from",
-      type: "number",
-      required: true,
-      format: "int64",
+    "from": {
+      "baseName": "from",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    indexes: {
-      baseName: "indexes",
-      type: "Array<string>",
+    "indexes": {
+      "baseName": "indexes",
+      "type": "Array<string>",
     },
-    query: {
-      baseName: "query",
-      type: "{ [key: string]: string; }",
-      required: true,
+    "query": {
+      "baseName": "query",
+      "type": "{ [key: string]: string; }",
+      "required": true,
     },
-    to: {
-      baseName: "to",
-      type: "number",
-      required: true,
-      format: "int64",
+    "to": {
+      "baseName": "to",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,8 +79,34 @@ export class CreateDataDeletionRequestBodyAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateDataDeletionRequestBodyAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Specifies the position of a schedule target (example `previous`, `current`, or `next`).
- */
+*/
 
-export type ScheduleTargetPosition =
-  | typeof PREVIOUS
-  | typeof CURRENT
-  | typeof NEXT
-  | UnparsedObject;
-export const PREVIOUS = "previous";
-export const CURRENT = "current";
-export const NEXT = "next";
+export type ScheduleTargetPosition = typeof PREVIOUS| typeof CURRENT| typeof NEXT | UnparsedObject;
+export const PREVIOUS = 'previous';
+export const CURRENT = 'current';
+export const NEXT = 'next';

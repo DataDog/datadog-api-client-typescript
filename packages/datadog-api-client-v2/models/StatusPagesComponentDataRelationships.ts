@@ -8,27 +8,32 @@ import { StatusPagesComponentDataRelationshipsGroup } from "./StatusPagesCompone
 import { StatusPagesComponentDataRelationshipsLastModifiedByUser } from "./StatusPagesComponentDataRelationshipsLastModifiedByUser";
 import { StatusPagesComponentDataRelationshipsStatusPage } from "./StatusPagesComponentDataRelationshipsStatusPage";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The relationships of a component.
- */
+*/
 export class StatusPagesComponentDataRelationships {
   /**
    * The Datadog user who created the component.
-   */
+  */
   "createdByUser"?: StatusPagesComponentDataRelationshipsCreatedByUser;
   /**
    * The group the component belongs to.
-   */
+  */
   "group"?: StatusPagesComponentDataRelationshipsGroup;
   /**
    * The Datadog user who last modified the component.
-   */
+  */
   "lastModifiedByUser"?: StatusPagesComponentDataRelationshipsLastModifiedByUser;
   /**
    * The status page the component belongs to.
-   */
+  */
   "statusPage"?: StatusPagesComponentDataRelationshipsStatusPage;
 
   /**
@@ -36,7 +41,7 @@ export class StatusPagesComponentDataRelationships {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -47,21 +52,21 @@ export class StatusPagesComponentDataRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdByUser: {
-      baseName: "created_by_user",
-      type: "StatusPagesComponentDataRelationshipsCreatedByUser",
+    "createdByUser": {
+      "baseName": "created_by_user",
+      "type": "StatusPagesComponentDataRelationshipsCreatedByUser",
     },
-    group: {
-      baseName: "group",
-      type: "StatusPagesComponentDataRelationshipsGroup",
+    "group": {
+      "baseName": "group",
+      "type": "StatusPagesComponentDataRelationshipsGroup",
     },
-    lastModifiedByUser: {
-      baseName: "last_modified_by_user",
-      type: "StatusPagesComponentDataRelationshipsLastModifiedByUser",
+    "lastModifiedByUser": {
+      "baseName": "last_modified_by_user",
+      "type": "StatusPagesComponentDataRelationshipsLastModifiedByUser",
     },
-    statusPage: {
-      baseName: "status_page",
-      type: "StatusPagesComponentDataRelationshipsStatusPage",
+    "statusPage": {
+      "baseName": "status_page",
+      "type": "StatusPagesComponentDataRelationshipsStatusPage",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -73,8 +78,34 @@ export class StatusPagesComponentDataRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return StatusPagesComponentDataRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

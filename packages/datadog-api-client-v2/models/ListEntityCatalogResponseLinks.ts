@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * List entity response links.
- */
+*/
 export class ListEntityCatalogResponseLinks {
   /**
    * Next link.
-   */
+  */
   "next"?: string;
   /**
    * Previous link.
-   */
+  */
   "previous"?: string;
   /**
    * Current link.
-   */
+  */
   "self"?: string;
 
   /**
@@ -28,7 +33,7 @@ export class ListEntityCatalogResponseLinks {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,17 +44,17 @@ export class ListEntityCatalogResponseLinks {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    next: {
-      baseName: "next",
-      type: "string",
+    "next": {
+      "baseName": "next",
+      "type": "string",
     },
-    previous: {
-      baseName: "previous",
-      type: "string",
+    "previous": {
+      "baseName": "previous",
+      "type": "string",
     },
-    self: {
-      baseName: "self",
-      type: "string",
+    "self": {
+      "baseName": "self",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -61,8 +66,34 @@ export class ListEntityCatalogResponseLinks {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListEntityCatalogResponseLinks.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

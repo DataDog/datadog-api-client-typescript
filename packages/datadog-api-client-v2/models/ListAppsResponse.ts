@@ -7,23 +7,28 @@ import { Deployment } from "./Deployment";
 import { ListAppsResponseDataItems } from "./ListAppsResponseDataItems";
 import { ListAppsResponseMeta } from "./ListAppsResponseMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A paginated list of apps matching the specified filters and sorting.
- */
+*/
 export class ListAppsResponse {
   /**
    * An array of app definitions.
-   */
+  */
   "data"?: Array<ListAppsResponseDataItems>;
   /**
    * Data on the version of the app that was published.
-   */
+  */
   "included"?: Array<Deployment>;
   /**
    * Pagination metadata.
-   */
+  */
   "meta"?: ListAppsResponseMeta;
 
   /**
@@ -31,7 +36,7 @@ export class ListAppsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,17 +47,17 @@ export class ListAppsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<ListAppsResponseDataItems>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<ListAppsResponseDataItems>",
     },
-    included: {
-      baseName: "included",
-      type: "Array<Deployment>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<Deployment>",
     },
-    meta: {
-      baseName: "meta",
-      type: "ListAppsResponseMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "ListAppsResponseMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class ListAppsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListAppsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,23 +6,28 @@
 import { IncidentTimelineCellMarkdownContentType } from "./IncidentTimelineCellMarkdownContentType";
 import { IncidentTimelineCellMarkdownCreateAttributesContent } from "./IncidentTimelineCellMarkdownCreateAttributesContent";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Timeline cell data for Markdown timeline cells for a create request.
- */
+*/
 export class IncidentTimelineCellMarkdownCreateAttributes {
   /**
    * Type of the Markdown timeline cell.
-   */
+  */
   "cellType": IncidentTimelineCellMarkdownContentType;
   /**
    * The Markdown timeline cell contents.
-   */
+  */
   "content": IncidentTimelineCellMarkdownCreateAttributesContent;
   /**
    * A flag indicating whether the timeline cell is important and should be highlighted.
-   */
+  */
   "important"?: boolean;
 
   /**
@@ -30,7 +35,7 @@ export class IncidentTimelineCellMarkdownCreateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class IncidentTimelineCellMarkdownCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    cellType: {
-      baseName: "cell_type",
-      type: "IncidentTimelineCellMarkdownContentType",
-      required: true,
+    "cellType": {
+      "baseName": "cell_type",
+      "type": "IncidentTimelineCellMarkdownContentType",
+      "required": true,
     },
-    content: {
-      baseName: "content",
-      type: "IncidentTimelineCellMarkdownCreateAttributesContent",
-      required: true,
+    "content": {
+      "baseName": "content",
+      "type": "IncidentTimelineCellMarkdownCreateAttributesContent",
+      "required": true,
     },
-    important: {
-      baseName: "important",
-      type: "boolean",
+    "important": {
+      "baseName": "important",
+      "type": "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class IncidentTimelineCellMarkdownCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentTimelineCellMarkdownCreateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

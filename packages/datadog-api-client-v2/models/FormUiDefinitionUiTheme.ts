@@ -5,15 +5,20 @@
  */
 import { FormUiDefinitionUiThemePrimaryColor } from "./FormUiDefinitionUiThemePrimaryColor";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The visual theme applied to the form.
- */
+*/
 export class FormUiDefinitionUiTheme {
   /**
    * The primary color of the form theme.
-   */
+  */
   "primaryColor"?: FormUiDefinitionUiThemePrimaryColor;
 
   /**
@@ -21,7 +26,7 @@ export class FormUiDefinitionUiTheme {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class FormUiDefinitionUiTheme {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    primaryColor: {
-      baseName: "primaryColor",
-      type: "FormUiDefinitionUiThemePrimaryColor",
+    "primaryColor": {
+      "baseName": "primaryColor",
+      "type": "FormUiDefinitionUiThemePrimaryColor",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class FormUiDefinitionUiTheme {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FormUiDefinitionUiTheme.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

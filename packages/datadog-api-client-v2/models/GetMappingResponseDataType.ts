@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Get mappings response resource type.
- */
+*/
 
-export type GetMappingResponseDataType =
-  | typeof GET_MAPPINGS_RESPONSE
-  | UnparsedObject;
-export const GET_MAPPINGS_RESPONSE = "get_mappings_response";
+export type GetMappingResponseDataType = typeof GET_MAPPINGS_RESPONSE | UnparsedObject;
+export const GET_MAPPINGS_RESPONSE = 'get_mappings_response';

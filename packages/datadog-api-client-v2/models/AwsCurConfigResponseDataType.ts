@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * AWS CUR config resource type.
- */
+*/
 
-export type AwsCurConfigResponseDataType =
-  | typeof AWS_CUR_CONFIG
-  | UnparsedObject;
-export const AWS_CUR_CONFIG = "aws_cur_config";
+export type AwsCurConfigResponseDataType = typeof AWS_CUR_CONFIG | UnparsedObject;
+export const AWS_CUR_CONFIG = 'aws_cur_config';

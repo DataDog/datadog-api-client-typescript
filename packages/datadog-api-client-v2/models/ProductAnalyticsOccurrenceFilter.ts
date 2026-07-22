@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Filter for occurrence-based queries.
- */
+*/
 export class ProductAnalyticsOccurrenceFilter {
   /**
    * Additional metadata.
-   */
-  "meta"?: { [key: string]: string };
+  */
+  "meta"?: { [key: string]: string; };
   /**
    * Comparison operator (=, >=, <=, >, <).
-   */
+  */
   "operator": string;
   /**
    * The occurrence count threshold as a string.
-   */
+  */
   "value": string;
 
   /**
@@ -28,7 +33,7 @@ export class ProductAnalyticsOccurrenceFilter {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,19 +44,19 @@ export class ProductAnalyticsOccurrenceFilter {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    meta: {
-      baseName: "meta",
-      type: "{ [key: string]: string; }",
+    "meta": {
+      "baseName": "meta",
+      "type": "{ [key: string]: string; }",
     },
-    operator: {
-      baseName: "operator",
-      type: "string",
-      required: true,
+    "operator": {
+      "baseName": "operator",
+      "type": "string",
+      "required": true,
     },
-    value: {
-      baseName: "value",
-      type: "string",
-      required: true,
+    "value": {
+      "baseName": "value",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class ProductAnalyticsOccurrenceFilter {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProductAnalyticsOccurrenceFilter.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

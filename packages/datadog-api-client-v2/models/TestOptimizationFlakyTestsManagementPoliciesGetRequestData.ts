@@ -6,20 +6,25 @@
 import { TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes } from "./TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes";
 import { TestOptimizationGetFlakyTestsManagementPoliciesRequestDataType } from "./TestOptimizationGetFlakyTestsManagementPoliciesRequestDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for get Flaky Tests Management policies request.
- */
+*/
 export class TestOptimizationFlakyTestsManagementPoliciesGetRequestData {
   /**
    * Attributes for requesting Flaky Tests Management policies.
-   */
+  */
   "attributes": TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes;
   /**
    * JSON:API type for get Flaky Tests Management policies request.
    * The value must always be `test_optimization_get_flaky_tests_management_policies_request`.
-   */
+  */
   "type": TestOptimizationGetFlakyTestsManagementPoliciesRequestDataType;
 
   /**
@@ -27,7 +32,7 @@ export class TestOptimizationFlakyTestsManagementPoliciesGetRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -38,15 +43,15 @@ export class TestOptimizationFlakyTestsManagementPoliciesGetRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "TestOptimizationGetFlakyTestsManagementPoliciesRequestDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TestOptimizationGetFlakyTestsManagementPoliciesRequestDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -58,8 +63,34 @@ export class TestOptimizationFlakyTestsManagementPoliciesGetRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TestOptimizationFlakyTestsManagementPoliciesGetRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

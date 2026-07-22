@@ -5,23 +5,28 @@
  */
 import { CaseInsightType } from "./CaseInsightType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A reference to an external Datadog resource that provides investigative context for a case, such as a security signal, monitor alert, error tracking issue, or incident.
- */
+*/
 export class CaseInsight {
   /**
    * The URL path or deep link to the insight resource within Datadog (for example, `/monitors/12345?q=total`).
-   */
+  */
   "ref": string;
   /**
    * The unique identifier of the referenced Datadog resource (for example, a monitor ID, incident ID, or signal ID).
-   */
+  */
   "resourceId": string;
   /**
    * The type of Datadog resource linked to the case as contextual evidence. Each type corresponds to a different Datadog product signal (for example, a security finding, a monitor alert, or an incident).
-   */
+  */
   "type": CaseInsightType;
 
   /**
@@ -29,7 +34,7 @@ export class CaseInsight {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,20 +45,20 @@ export class CaseInsight {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    ref: {
-      baseName: "ref",
-      type: "string",
-      required: true,
+    "ref": {
+      "baseName": "ref",
+      "type": "string",
+      "required": true,
     },
-    resourceId: {
-      baseName: "resource_id",
-      type: "string",
-      required: true,
+    "resourceId": {
+      "baseName": "resource_id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CaseInsightType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CaseInsightType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class CaseInsight {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseInsight.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

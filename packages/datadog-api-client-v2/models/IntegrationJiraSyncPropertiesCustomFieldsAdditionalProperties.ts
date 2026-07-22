@@ -5,19 +5,24 @@
  */
 import { AnyValue } from "./AnyValue";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Synchronization configuration for a Jira custom field.
- */
+*/
 export class IntegrationJiraSyncPropertiesCustomFieldsAdditionalProperties {
   /**
    * The type of synchronization to apply for this custom field.
-   */
+  */
   "syncType"?: string;
   /**
    * Represents any valid JSON value.
-   */
+  */
   "value"?: AnyValue;
 
   /**
@@ -25,7 +30,7 @@ export class IntegrationJiraSyncPropertiesCustomFieldsAdditionalProperties {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class IntegrationJiraSyncPropertiesCustomFieldsAdditionalProperties {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    syncType: {
-      baseName: "sync_type",
-      type: "string",
+    "syncType": {
+      "baseName": "sync_type",
+      "type": "string",
     },
-    value: {
-      baseName: "value",
-      type: "AnyValue",
+    "value": {
+      "baseName": "value",
+      "type": "AnyValue",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class IntegrationJiraSyncPropertiesCustomFieldsAdditionalProperties {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IntegrationJiraSyncPropertiesCustomFieldsAdditionalProperties.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

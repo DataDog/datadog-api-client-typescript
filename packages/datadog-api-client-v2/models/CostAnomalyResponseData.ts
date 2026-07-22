@@ -6,23 +6,28 @@
 import { CostAnomaliesResponseDataType } from "./CostAnomaliesResponseDataType";
 import { CostAnomaly } from "./CostAnomaly";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Resource wrapper for a single cost anomaly.
- */
+*/
 export class CostAnomalyResponseData {
   /**
    * A single detected Cloud Cost Management anomaly.
-   */
+  */
   "attributes": CostAnomaly;
   /**
    * The unique identifier of the anomaly.
-   */
+  */
   "id": string;
   /**
    * Type of the cost anomalies collection resource. Must be `anomalies`.
-   */
+  */
   "type": CostAnomaliesResponseDataType;
 
   /**
@@ -30,7 +35,7 @@ export class CostAnomalyResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class CostAnomalyResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CostAnomaly",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CostAnomaly",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CostAnomaliesResponseDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CostAnomaliesResponseDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class CostAnomalyResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CostAnomalyResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

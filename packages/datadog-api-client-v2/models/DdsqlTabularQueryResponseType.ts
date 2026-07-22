@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * JSON:API resource type for a DDSQL tabular query response.
- */
+*/
 
-export type DdsqlTabularQueryResponseType =
-  | typeof DDSQL_QUERY_RESPONSE
-  | UnparsedObject;
-export const DDSQL_QUERY_RESPONSE = "ddsql_query_response";
+export type DdsqlTabularQueryResponseType = typeof DDSQL_QUERY_RESPONSE | UnparsedObject;
+export const DDSQL_QUERY_RESPONSE = 'ddsql_query_response';

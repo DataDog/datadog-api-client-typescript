@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A single facet value with its occurrence count in the dataset.
- */
+*/
 export class FacetInfoResponseDataAttributesResultValuesItems {
   /**
    * The number of records that have this facet value.
-   */
+  */
   "count"?: number;
   /**
    * The facet value (for example, a browser name or country code).
-   */
+  */
   "value"?: string;
 
   /**
@@ -24,7 +29,7 @@ export class FacetInfoResponseDataAttributesResultValuesItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,14 +40,14 @@ export class FacetInfoResponseDataAttributesResultValuesItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    count: {
-      baseName: "count",
-      type: "number",
-      format: "int64",
+    "count": {
+      "baseName": "count",
+      "type": "number",
+      "format": "int64",
     },
-    value: {
-      baseName: "value",
-      type: "string",
+    "value": {
+      "baseName": "value",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class FacetInfoResponseDataAttributesResultValuesItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FacetInfoResponseDataAttributesResultValuesItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

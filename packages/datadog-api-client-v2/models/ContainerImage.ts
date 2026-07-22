@@ -6,23 +6,28 @@
 import { ContainerImageAttributes } from "./ContainerImageAttributes";
 import { ContainerImageType } from "./ContainerImageType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Container Image object.
- */
+*/
 export class ContainerImage {
   /**
    * Attributes for a Container Image.
-   */
+  */
   "attributes"?: ContainerImageAttributes;
   /**
    * Container Image ID.
-   */
+  */
   "id"?: string;
   /**
    * Type of Container Image.
-   */
+  */
   "type"?: ContainerImageType;
 
   /**
@@ -30,7 +35,7 @@ export class ContainerImage {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class ContainerImage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ContainerImageAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ContainerImageAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "ContainerImageType",
+    "type": {
+      "baseName": "type",
+      "type": "ContainerImageType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class ContainerImage {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ContainerImage.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

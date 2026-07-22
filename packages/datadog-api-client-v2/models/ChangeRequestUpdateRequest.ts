@@ -6,19 +6,24 @@
 import { ChangeRequestDecisionCreateItem } from "./ChangeRequestDecisionCreateItem";
 import { ChangeRequestUpdateData } from "./ChangeRequestUpdateData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request object to update a change request.
- */
+*/
 export class ChangeRequestUpdateRequest {
   /**
    * Data object to update a change request.
-   */
+  */
   "data": ChangeRequestUpdateData;
   /**
    * Included resources for the change request update.
-   */
+  */
   "included"?: Array<ChangeRequestDecisionCreateItem>;
 
   /**
@@ -26,7 +31,7 @@ export class ChangeRequestUpdateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,14 +42,14 @@ export class ChangeRequestUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ChangeRequestUpdateData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "ChangeRequestUpdateData",
+      "required": true,
     },
-    included: {
-      baseName: "included",
-      type: "Array<ChangeRequestDecisionCreateItem>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<ChangeRequestDecisionCreateItem>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class ChangeRequestUpdateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ChangeRequestUpdateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

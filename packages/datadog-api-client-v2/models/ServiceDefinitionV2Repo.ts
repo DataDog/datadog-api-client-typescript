@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Service code repositories.
- */
+*/
 export class ServiceDefinitionV2Repo {
   /**
    * Repository name.
-   */
+  */
   "name": string;
   /**
    * Repository provider.
-   */
+  */
   "provider"?: string;
   /**
    * Repository URL.
-   */
+  */
   "url": string;
 
   /**
@@ -28,7 +33,7 @@ export class ServiceDefinitionV2Repo {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,19 +44,19 @@ export class ServiceDefinitionV2Repo {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    provider: {
-      baseName: "provider",
-      type: "string",
+    "provider": {
+      "baseName": "provider",
+      "type": "string",
     },
-    url: {
-      baseName: "url",
-      type: "string",
-      required: true,
+    "url": {
+      "baseName": "url",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class ServiceDefinitionV2Repo {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceDefinitionV2Repo.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

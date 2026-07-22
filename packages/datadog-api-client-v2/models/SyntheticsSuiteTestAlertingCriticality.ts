@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Alerting criticality for each the test.
- */
+*/
 
-export type SyntheticsSuiteTestAlertingCriticality =
-  | typeof IGNORE
-  | typeof CRITICAL
-  | UnparsedObject;
-export const IGNORE = "ignore";
-export const CRITICAL = "critical";
+export type SyntheticsSuiteTestAlertingCriticality = typeof IGNORE| typeof CRITICAL | UnparsedObject;
+export const IGNORE = 'ignore';
+export const CRITICAL = 'critical';

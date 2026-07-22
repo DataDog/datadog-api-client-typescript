@@ -7,27 +7,32 @@ import { RoleResponseRelationships } from "./RoleResponseRelationships";
 import { RolesType } from "./RolesType";
 import { RoleUpdateAttributes } from "./RoleUpdateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Role object returned by the API.
- */
+*/
 export class RoleUpdateResponseData {
   /**
    * Attributes of the role.
-   */
+  */
   "attributes"?: RoleUpdateAttributes;
   /**
    * The unique identifier of the role.
-   */
+  */
   "id"?: string;
   /**
    * Relationships of the role object returned by the API.
-   */
+  */
   "relationships"?: RoleResponseRelationships;
   /**
    * Roles type.
-   */
+  */
   "type": RolesType;
 
   /**
@@ -35,7 +40,7 @@ export class RoleUpdateResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,22 +51,22 @@ export class RoleUpdateResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RoleUpdateAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "RoleUpdateAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "RoleResponseRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "RoleResponseRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "RolesType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "RolesType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -73,8 +78,34 @@ export class RoleUpdateResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RoleUpdateResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

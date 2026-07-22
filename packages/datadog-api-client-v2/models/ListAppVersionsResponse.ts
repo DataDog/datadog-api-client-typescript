@@ -6,19 +6,24 @@
 import { AppVersion } from "./AppVersion";
 import { ListAppsResponseMeta } from "./ListAppsResponseMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A paginated list of versions for an app.
- */
+*/
 export class ListAppVersionsResponse {
   /**
    * The list of app versions.
-   */
+  */
   "data"?: Array<AppVersion>;
   /**
    * Pagination metadata.
-   */
+  */
   "meta"?: ListAppsResponseMeta;
 
   /**
@@ -26,7 +31,7 @@ export class ListAppVersionsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class ListAppVersionsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<AppVersion>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<AppVersion>",
     },
-    meta: {
-      baseName: "meta",
-      type: "ListAppsResponseMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "ListAppsResponseMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class ListAppVersionsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListAppVersionsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

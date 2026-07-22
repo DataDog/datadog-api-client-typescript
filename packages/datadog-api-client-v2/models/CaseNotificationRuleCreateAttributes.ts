@@ -6,27 +6,32 @@
 import { CaseNotificationRuleRecipient } from "./CaseNotificationRuleRecipient";
 import { CaseNotificationRuleTrigger } from "./CaseNotificationRuleTrigger";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Notification rule creation attributes
- */
+*/
 export class CaseNotificationRuleCreateAttributes {
   /**
    * Whether the notification rule is enabled
-   */
+  */
   "isEnabled"?: boolean;
   /**
    * Query to filter cases for this notification rule
-   */
+  */
   "query"?: string;
   /**
    * List of notification recipients
-   */
+  */
   "recipients": Array<CaseNotificationRuleRecipient>;
   /**
    * List of triggers for this notification rule
-   */
+  */
   "triggers": Array<CaseNotificationRuleTrigger>;
 
   /**
@@ -34,7 +39,7 @@ export class CaseNotificationRuleCreateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -45,23 +50,23 @@ export class CaseNotificationRuleCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    isEnabled: {
-      baseName: "is_enabled",
-      type: "boolean",
+    "isEnabled": {
+      "baseName": "is_enabled",
+      "type": "boolean",
     },
-    query: {
-      baseName: "query",
-      type: "string",
+    "query": {
+      "baseName": "query",
+      "type": "string",
     },
-    recipients: {
-      baseName: "recipients",
-      type: "Array<CaseNotificationRuleRecipient>",
-      required: true,
+    "recipients": {
+      "baseName": "recipients",
+      "type": "Array<CaseNotificationRuleRecipient>",
+      "required": true,
     },
-    triggers: {
-      baseName: "triggers",
-      type: "Array<CaseNotificationRuleTrigger>",
-      required: true,
+    "triggers": {
+      "baseName": "triggers",
+      "type": "Array<CaseNotificationRuleTrigger>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -73,8 +78,34 @@ export class CaseNotificationRuleCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseNotificationRuleCreateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

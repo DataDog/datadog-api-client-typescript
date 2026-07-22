@@ -5,23 +5,28 @@
  */
 import { SyntheticsTestResultRumContext } from "./SyntheticsTestResultRumContext";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Information about a sub-test played from a parent browser test.
- */
+*/
 export class SyntheticsTestResultSubTest {
   /**
    * Identifier of the sub-test.
-   */
+  */
   "id"?: string;
   /**
    * Index of the browser tab playing the sub-test.
-   */
+  */
   "playingTab"?: number;
   /**
    * RUM application context associated with a step or sub-test.
-   */
+  */
   "rumContext"?: SyntheticsTestResultRumContext;
 
   /**
@@ -29,7 +34,7 @@ export class SyntheticsTestResultSubTest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,18 +45,18 @@ export class SyntheticsTestResultSubTest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    playingTab: {
-      baseName: "playing_tab",
-      type: "number",
-      format: "int64",
+    "playingTab": {
+      "baseName": "playing_tab",
+      "type": "number",
+      "format": "int64",
     },
-    rumContext: {
-      baseName: "rum_context",
-      type: "SyntheticsTestResultRumContext",
+    "rumContext": {
+      "baseName": "rum_context",
+      "type": "SyntheticsTestResultRumContext",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class SyntheticsTestResultSubTest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultSubTest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

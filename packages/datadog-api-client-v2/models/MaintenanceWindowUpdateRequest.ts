@@ -5,15 +5,20 @@
  */
 import { MaintenanceWindowUpdate } from "./MaintenanceWindowUpdate";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request payload for updating a maintenance window.
- */
+*/
 export class MaintenanceWindowUpdateRequest {
   /**
    * Data object for updating a maintenance window.
-   */
+  */
   "data": MaintenanceWindowUpdate;
 
   /**
@@ -21,7 +26,7 @@ export class MaintenanceWindowUpdateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class MaintenanceWindowUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "MaintenanceWindowUpdate",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "MaintenanceWindowUpdate",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class MaintenanceWindowUpdateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MaintenanceWindowUpdateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

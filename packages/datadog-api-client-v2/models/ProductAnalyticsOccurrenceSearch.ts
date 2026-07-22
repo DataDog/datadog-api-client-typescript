@@ -5,19 +5,24 @@
  */
 import { ProductAnalyticsOccurrenceFilter } from "./ProductAnalyticsOccurrenceFilter";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Search parameters for an occurrence query.
- */
+*/
 export class ProductAnalyticsOccurrenceSearch {
   /**
    * Filter for occurrence-based queries.
-   */
+  */
   "occurrences"?: ProductAnalyticsOccurrenceFilter;
   /**
    * The search query using Datadog search syntax.
-   */
+  */
   "query"?: string;
 
   /**
@@ -25,7 +30,7 @@ export class ProductAnalyticsOccurrenceSearch {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class ProductAnalyticsOccurrenceSearch {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    occurrences: {
-      baseName: "occurrences",
-      type: "ProductAnalyticsOccurrenceFilter",
+    "occurrences": {
+      "baseName": "occurrences",
+      "type": "ProductAnalyticsOccurrenceFilter",
     },
-    query: {
-      baseName: "query",
-      type: "string",
+    "query": {
+      "baseName": "query",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class ProductAnalyticsOccurrenceSearch {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProductAnalyticsOccurrenceSearch.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

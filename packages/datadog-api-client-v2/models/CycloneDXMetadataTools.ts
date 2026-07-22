@@ -5,15 +5,20 @@
  */
 import { CycloneDXToolComponent } from "./CycloneDXToolComponent";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Information about the scanner tool that produced this BOM.
- */
+*/
 export class CycloneDXMetadataTools {
   /**
    * The scanner tool components. Must contain exactly one element.
-   */
+  */
   "components": Array<CycloneDXToolComponent>;
 
   /**
@@ -21,7 +26,7 @@ export class CycloneDXMetadataTools {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class CycloneDXMetadataTools {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    components: {
-      baseName: "components",
-      type: "Array<CycloneDXToolComponent>",
-      required: true,
+    "components": {
+      "baseName": "components",
+      "type": "Array<CycloneDXToolComponent>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class CycloneDXMetadataTools {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CycloneDXMetadataTools.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

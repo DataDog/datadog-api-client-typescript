@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Amazon EventBridge resource type.
- */
+*/
 
 export type AWSEventBridgeType = typeof EVENT_BRIDGE | UnparsedObject;
-export const EVENT_BRIDGE = "event_bridge";
+export const EVENT_BRIDGE = 'event_bridge';

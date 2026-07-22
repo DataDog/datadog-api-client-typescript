@@ -6,19 +6,24 @@
 import { GitlabCredentials } from "./GitlabCredentials";
 import { GitlabIntegrationType } from "./GitlabIntegrationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `GitlabIntegration` object.
- */
+*/
 export class GitlabIntegration {
   /**
    * The definition of the `GitlabCredentials` object.
-   */
+  */
   "credentials": GitlabCredentials;
   /**
    * The definition of the `GitlabIntegrationType` object.
-   */
+  */
   "type": GitlabIntegrationType;
 
   /**
@@ -26,7 +31,7 @@ export class GitlabIntegration {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class GitlabIntegration {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    credentials: {
-      baseName: "credentials",
-      type: "GitlabCredentials",
-      required: true,
+    "credentials": {
+      "baseName": "credentials",
+      "type": "GitlabCredentials",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "GitlabIntegrationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "GitlabIntegrationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class GitlabIntegration {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GitlabIntegration.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

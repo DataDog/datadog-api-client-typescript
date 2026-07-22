@@ -6,23 +6,28 @@
 import { SpansAggregateBucketAttributes } from "./SpansAggregateBucketAttributes";
 import { SpansAggregateBucketType } from "./SpansAggregateBucketType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Spans aggregate.
- */
+*/
 export class SpansAggregateBucket {
   /**
    * A bucket values.
-   */
+  */
   "attributes"?: SpansAggregateBucketAttributes;
   /**
    * ID of the spans aggregate.
-   */
+  */
   "id"?: string;
   /**
    * The spans aggregate bucket type.
-   */
+  */
   "type"?: SpansAggregateBucketType;
 
   /**
@@ -30,7 +35,7 @@ export class SpansAggregateBucket {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class SpansAggregateBucket {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SpansAggregateBucketAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SpansAggregateBucketAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SpansAggregateBucketType",
+    "type": {
+      "baseName": "type",
+      "type": "SpansAggregateBucketType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class SpansAggregateBucket {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SpansAggregateBucket.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

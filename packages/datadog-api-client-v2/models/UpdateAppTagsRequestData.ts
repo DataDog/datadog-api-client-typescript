@@ -6,19 +6,24 @@
 import { AppTagsType } from "./AppTagsType";
 import { UpdateAppTagsRequestDataAttributes } from "./UpdateAppTagsRequestDataAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for replacing an app's tags.
- */
+*/
 export class UpdateAppTagsRequestData {
   /**
    * Attributes for replacing an app's tags.
-   */
+  */
   "attributes"?: UpdateAppTagsRequestDataAttributes;
   /**
    * The tags resource type.
-   */
+  */
   "type"?: AppTagsType;
 
   /**
@@ -26,7 +31,7 @@ export class UpdateAppTagsRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class UpdateAppTagsRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "UpdateAppTagsRequestDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "UpdateAppTagsRequestDataAttributes",
     },
-    type: {
-      baseName: "type",
-      type: "AppTagsType",
+    "type": {
+      "baseName": "type",
+      "type": "AppTagsType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class UpdateAppTagsRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateAppTagsRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

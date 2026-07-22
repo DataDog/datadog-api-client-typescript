@@ -5,15 +5,20 @@
  */
 import { HTTPCIAppError } from "./HTTPCIAppError";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Bad request.
- */
+*/
 export class HTTPCDGatesBadRequestResponse {
   /**
    * Structured errors.
-   */
+  */
   "errors"?: Array<HTTPCIAppError>;
 
   /**
@@ -21,7 +26,7 @@ export class HTTPCDGatesBadRequestResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class HTTPCDGatesBadRequestResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    errors: {
-      baseName: "errors",
-      type: "Array<HTTPCIAppError>",
+    "errors": {
+      "baseName": "errors",
+      "type": "Array<HTTPCIAppError>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class HTTPCDGatesBadRequestResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return HTTPCDGatesBadRequestResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

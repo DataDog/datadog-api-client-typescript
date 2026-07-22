@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for creating a new environment.
- */
+*/
 export class CreateEnvironmentAttributes {
   /**
    * Indicates whether this is a production environment.
-   */
+  */
   "isProduction"?: boolean;
   /**
    * The name of the environment.
-   */
+  */
   "name": string;
   /**
    * List of queries to define the environment scope.
-   */
+  */
   "queries": Array<string>;
   /**
    * Indicates whether feature flag changes require approval in this environment.
-   */
+  */
   "requireFeatureFlagApproval"?: boolean;
 
   /**
@@ -32,7 +37,7 @@ export class CreateEnvironmentAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,23 +48,23 @@ export class CreateEnvironmentAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    isProduction: {
-      baseName: "is_production",
-      type: "boolean",
+    "isProduction": {
+      "baseName": "is_production",
+      "type": "boolean",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    queries: {
-      baseName: "queries",
-      type: "Array<string>",
-      required: true,
+    "queries": {
+      "baseName": "queries",
+      "type": "Array<string>",
+      "required": true,
     },
-    requireFeatureFlagApproval: {
-      baseName: "require_feature_flag_approval",
-      type: "boolean",
+    "requireFeatureFlagApproval": {
+      "baseName": "require_feature_flag_approval",
+      "type": "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,8 +76,34 @@ export class CreateEnvironmentAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateEnvironmentAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Indicates that the related resource is of type 'users'.
- */
+*/
 
 export type ShiftDataRelationshipsUserDataType = typeof USERS | UnparsedObject;
-export const USERS = "users";
+export const USERS = 'users';

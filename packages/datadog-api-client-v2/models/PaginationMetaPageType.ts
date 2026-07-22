@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The pagination type used for offset-based pagination.
- */
+*/
 
 export type PaginationMetaPageType = typeof OFFSET_LIMIT | UnparsedObject;
-export const OFFSET_LIMIT = "offset_limit";
+export const OFFSET_LIMIT = 'offset_limit';

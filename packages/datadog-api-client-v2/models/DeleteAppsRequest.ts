@@ -5,15 +5,20 @@
  */
 import { DeleteAppsRequestDataItems } from "./DeleteAppsRequestDataItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A request object for deleting multiple apps by ID.
- */
+*/
 export class DeleteAppsRequest {
   /**
    * An array of objects containing the IDs of the apps to delete.
-   */
+  */
   "data"?: Array<DeleteAppsRequestDataItems>;
 
   /**
@@ -21,7 +26,7 @@ export class DeleteAppsRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class DeleteAppsRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<DeleteAppsRequestDataItems>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<DeleteAppsRequestDataItems>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class DeleteAppsRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DeleteAppsRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

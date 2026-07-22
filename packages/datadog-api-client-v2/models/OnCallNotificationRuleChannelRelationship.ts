@@ -5,15 +5,20 @@
  */
 import { OnCallNotificationRuleChannelRelationshipData } from "./OnCallNotificationRuleChannelRelationshipData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationship object for creating a notification rule
- */
+*/
 export class OnCallNotificationRuleChannelRelationship {
   /**
    * Channel relationship data for creating a notification rule
-   */
+  */
   "data": OnCallNotificationRuleChannelRelationshipData;
 
   /**
@@ -21,7 +26,7 @@ export class OnCallNotificationRuleChannelRelationship {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class OnCallNotificationRuleChannelRelationship {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "OnCallNotificationRuleChannelRelationshipData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "OnCallNotificationRuleChannelRelationshipData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class OnCallNotificationRuleChannelRelationship {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OnCallNotificationRuleChannelRelationship.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { LLMObsExperimentSpanDataResponse } from "./LLMObsExperimentSpanDataResponse";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response for listing experiment spans (v1). Returns only spans with their evaluation metrics. No summary metrics or pagination are included. Deprecated in favor of `ListLLMObsExperimentEventsV3`.
- */
+*/
 export class LLMObsExperimentSpansResponse {
   /**
    * List of experiment spans with their evaluation metrics.
-   */
+  */
   "data": Array<LLMObsExperimentSpanDataResponse>;
 
   /**
@@ -21,7 +26,7 @@ export class LLMObsExperimentSpansResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class LLMObsExperimentSpansResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<LLMObsExperimentSpanDataResponse>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<LLMObsExperimentSpanDataResponse>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class LLMObsExperimentSpansResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsExperimentSpansResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

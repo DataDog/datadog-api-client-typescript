@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of metric recorded for an LLM Observability experiment.
- */
+*/
 
-export type LLMObsMetricScoreType =
-  | typeof SCORE
-  | typeof CATEGORICAL
-  | typeof BOOLEAN
-  | typeof JSON
-  | UnparsedObject;
-export const SCORE = "score";
-export const CATEGORICAL = "categorical";
-export const BOOLEAN = "boolean";
-export const JSON = "json";
+export type LLMObsMetricScoreType = typeof SCORE| typeof CATEGORICAL| typeof BOOLEAN| typeof JSON | UnparsedObject;
+export const SCORE = 'score';
+export const CATEGORICAL = 'categorical';
+export const BOOLEAN = 'boolean';
+export const JSON = 'json';

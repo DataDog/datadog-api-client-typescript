@@ -5,20 +5,25 @@
  */
 import { OAuthOidcScope } from "./OAuthOidcScope";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of an upsert OAuth2 scopes restriction request.
- */
+*/
 export class UpsertOAuthScopesRestrictionDataAttributes {
   /**
    * OIDC scopes the client is allowed to request.
-   */
+  */
   "oidcScopes"?: Array<OAuthOidcScope>;
   /**
    * Datadog permission scopes the client is allowed to request.
    * Each value must be a valid permission name.
-   */
+  */
   "permissionScopes"?: Array<string>;
 
   /**
@@ -26,7 +31,7 @@ export class UpsertOAuthScopesRestrictionDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class UpsertOAuthScopesRestrictionDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    oidcScopes: {
-      baseName: "oidc_scopes",
-      type: "Array<OAuthOidcScope>",
+    "oidcScopes": {
+      "baseName": "oidc_scopes",
+      "type": "Array<OAuthOidcScope>",
     },
-    permissionScopes: {
-      baseName: "permission_scopes",
-      type: "Array<string>",
+    "permissionScopes": {
+      "baseName": "permission_scopes",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class UpsertOAuthScopesRestrictionDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpsertOAuthScopesRestrictionDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

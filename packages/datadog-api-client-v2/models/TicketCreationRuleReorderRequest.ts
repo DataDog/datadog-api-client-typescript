@@ -5,15 +5,20 @@
  */
 import { TicketCreationRuleReorderItem } from "./TicketCreationRuleReorderItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The body of the ticket creation rule reorder request.
- */
+*/
 export class TicketCreationRuleReorderRequest {
   /**
    * The ordered list of all ticket creation rules; every rule must be included.
-   */
+  */
   "data": Array<TicketCreationRuleReorderItem>;
 
   /**
@@ -21,7 +26,7 @@ export class TicketCreationRuleReorderRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class TicketCreationRuleReorderRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<TicketCreationRuleReorderItem>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<TicketCreationRuleReorderItem>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class TicketCreationRuleReorderRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TicketCreationRuleReorderRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

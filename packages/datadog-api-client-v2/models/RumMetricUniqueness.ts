@@ -5,15 +5,20 @@
  */
 import { RumMetricUniquenessWhen } from "./RumMetricUniquenessWhen";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The rule to count updatable events. Is only set if `event_type` is `sessions` or `views`.
- */
+*/
 export class RumMetricUniqueness {
   /**
    * When to count updatable events. `match` when the event is first seen, or `end` when the event is complete.
-   */
+  */
   "when": RumMetricUniquenessWhen;
 
   /**
@@ -21,7 +26,7 @@ export class RumMetricUniqueness {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class RumMetricUniqueness {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    when: {
-      baseName: "when",
-      type: "RumMetricUniquenessWhen",
-      required: true,
+    "when": {
+      "baseName": "when",
+      "type": "RumMetricUniquenessWhen",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class RumMetricUniqueness {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RumMetricUniqueness.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

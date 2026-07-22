@@ -7,14 +7,15 @@ import { NotificationChannelEmailConfig } from "./NotificationChannelEmailConfig
 import { NotificationChannelPhoneConfig } from "./NotificationChannelPhoneConfig";
 import { NotificationChannelPushConfig } from "./NotificationChannelPushConfig";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Defines the configuration for an On-Call notification channel
- */
+*/
 
-export type NotificationChannelConfig =
-  | NotificationChannelPhoneConfig
-  | NotificationChannelEmailConfig
-  | NotificationChannelPushConfig
-  | UnparsedObject;
+export type NotificationChannelConfig = NotificationChannelPhoneConfig | NotificationChannelEmailConfig | NotificationChannelPushConfig | UnparsedObject;

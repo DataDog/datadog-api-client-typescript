@@ -6,23 +6,28 @@
 import { ServiceNowAssignmentGroupAttributes } from "./ServiceNowAssignmentGroupAttributes";
 import { ServiceNowAssignmentGroupType } from "./ServiceNowAssignmentGroupType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for a ServiceNow assignment group
- */
+*/
 export class ServiceNowAssignmentGroupData {
   /**
    * Attributes of a ServiceNow assignment group
-   */
+  */
   "attributes": ServiceNowAssignmentGroupAttributes;
   /**
    * Unique identifier for the ServiceNow assignment group
-   */
+  */
   "id": string;
   /**
    * Type identifier for ServiceNow assignment group resources
-   */
+  */
   "type": ServiceNowAssignmentGroupType;
 
   /**
@@ -30,7 +35,7 @@ export class ServiceNowAssignmentGroupData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,21 +46,21 @@ export class ServiceNowAssignmentGroupData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ServiceNowAssignmentGroupAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ServiceNowAssignmentGroupAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    type: {
-      baseName: "type",
-      type: "ServiceNowAssignmentGroupType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ServiceNowAssignmentGroupType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class ServiceNowAssignmentGroupData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceNowAssignmentGroupData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

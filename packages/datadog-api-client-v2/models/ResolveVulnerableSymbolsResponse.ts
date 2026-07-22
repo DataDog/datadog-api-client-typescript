@@ -5,15 +5,20 @@
  */
 import { ResolveVulnerableSymbolsResponseData } from "./ResolveVulnerableSymbolsResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The top-level response object returned when resolving vulnerable symbols for a set of packages.
- */
+*/
 export class ResolveVulnerableSymbolsResponse {
   /**
    * The data object in a response for resolving vulnerable symbols, containing the result attributes and response type.
-   */
+  */
   "data"?: ResolveVulnerableSymbolsResponseData;
 
   /**
@@ -21,7 +26,7 @@ export class ResolveVulnerableSymbolsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class ResolveVulnerableSymbolsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ResolveVulnerableSymbolsResponseData",
+    "data": {
+      "baseName": "data",
+      "type": "ResolveVulnerableSymbolsResponseData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class ResolveVulnerableSymbolsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ResolveVulnerableSymbolsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

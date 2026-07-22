@@ -5,15 +5,20 @@
  */
 import { BulkPutAppsDatastoreItemsRequestData } from "./BulkPutAppsDatastoreItemsRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request to insert multiple items into a datastore in a single operation.
- */
+*/
 export class BulkPutAppsDatastoreItemsRequest {
   /**
    * Data wrapper containing the items to insert and their configuration for the bulk insert operation.
-   */
+  */
   "data"?: BulkPutAppsDatastoreItemsRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class BulkPutAppsDatastoreItemsRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class BulkPutAppsDatastoreItemsRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "BulkPutAppsDatastoreItemsRequestData",
+    "data": {
+      "baseName": "data",
+      "type": "BulkPutAppsDatastoreItemsRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class BulkPutAppsDatastoreItemsRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return BulkPutAppsDatastoreItemsRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

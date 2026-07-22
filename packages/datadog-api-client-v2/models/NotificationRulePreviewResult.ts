@@ -6,15 +6,20 @@
 import { NotificationRulePreviewNotificationStatus } from "./NotificationRulePreviewNotificationStatus";
 import { RuleTypesItems } from "./RuleTypesItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The preview result for a single rule type.
- */
+*/
 export class NotificationRulePreviewResult {
   /**
    * The notification status for the given rule type. `SUCCESS` means a matching event was found and the notification was sent successfully. `DEFAULT` means no matching event was found and a default placeholder notification was sent instead. `ERROR` means an error occurred while sending the notification.
-   */
+  */
   "notificationStatus": NotificationRulePreviewNotificationStatus;
   /**
    * Security rule type which can be used in security rules.
@@ -23,7 +28,7 @@ export class NotificationRulePreviewResult {
    * Vulnerability-based notification rules can filter vulnerabilities based on rule types application_code_vulnerability,
    * application_library_vulnerability, attack_path, container_image_vulnerability, identity_risk, misconfiguration,
    * api_security, host_vulnerability, iac_misconfiguration, sast_vulnerability, secret_vulnerability and workload_activity.
-   */
+  */
   "ruleType": RuleTypesItems;
 
   /**
@@ -31,7 +36,7 @@ export class NotificationRulePreviewResult {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,15 +47,15 @@ export class NotificationRulePreviewResult {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    notificationStatus: {
-      baseName: "notification_status",
-      type: "NotificationRulePreviewNotificationStatus",
-      required: true,
+    "notificationStatus": {
+      "baseName": "notification_status",
+      "type": "NotificationRulePreviewNotificationStatus",
+      "required": true,
     },
-    ruleType: {
-      baseName: "rule_type",
-      type: "RuleTypesItems",
-      required: true,
+    "ruleType": {
+      "baseName": "rule_type",
+      "type": "RuleTypesItems",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class NotificationRulePreviewResult {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return NotificationRulePreviewResult.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,13 +6,15 @@
 import { DeploymentGatesFDDRule } from "./DeploymentGatesFDDRule";
 import { DeploymentGatesMonitorRule } from "./DeploymentGatesMonitorRule";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A rule to evaluate as part of a deployment gate evaluation.
- */
+*/
 
-export type DeploymentGatesEvaluationRule =
-  | DeploymentGatesMonitorRule
-  | DeploymentGatesFDDRule
-  | UnparsedObject;
+export type DeploymentGatesEvaluationRule = DeploymentGatesMonitorRule | DeploymentGatesFDDRule | UnparsedObject;

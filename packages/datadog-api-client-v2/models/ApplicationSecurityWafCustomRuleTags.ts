@@ -5,20 +5,25 @@
  */
 import { ApplicationSecurityWafCustomRuleTagsCategory } from "./ApplicationSecurityWafCustomRuleTagsCategory";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Tags associated with the WAF Custom Rule. The concatenation of category and type will form the security
  * activity field associated with the traces.
- */
+*/
 export class ApplicationSecurityWafCustomRuleTags {
   /**
    * The category of the WAF Rule, can be either `business_logic`, `attack_attempt` or `security_response`.
-   */
+  */
   "category": ApplicationSecurityWafCustomRuleTagsCategory;
   /**
    * The type of the WAF rule, associated with the category will form the security activity.
-   */
+  */
   "type": string;
 
   /**
@@ -26,7 +31,7 @@ export class ApplicationSecurityWafCustomRuleTags {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: string };
+  "additionalProperties"?: { [key: string]: string; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class ApplicationSecurityWafCustomRuleTags {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    category: {
-      baseName: "category",
-      type: "ApplicationSecurityWafCustomRuleTagsCategory",
-      required: true,
+    "category": {
+      "baseName": "category",
+      "type": "ApplicationSecurityWafCustomRuleTagsCategory",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "string",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class ApplicationSecurityWafCustomRuleTags {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ApplicationSecurityWafCustomRuleTags.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

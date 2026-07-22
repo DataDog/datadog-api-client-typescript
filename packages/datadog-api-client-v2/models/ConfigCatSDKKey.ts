@@ -5,27 +5,32 @@
  */
 import { ConfigCatSDKKeyType } from "./ConfigCatSDKKeyType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `ConfigCatSDKKey` object.
- */
+*/
 export class ConfigCatSDKKey {
   /**
    * The `ConfigCatSDKKey` `api_password`.
-   */
+  */
   "apiPassword": string;
   /**
    * The `ConfigCatSDKKey` `api_username`.
-   */
+  */
   "apiUsername": string;
   /**
    * The `ConfigCatSDKKey` `sdk_key`.
-   */
+  */
   "sdkKey": string;
   /**
    * The definition of the `ConfigCatSDKKey` object.
-   */
+  */
   "type": ConfigCatSDKKeyType;
 
   /**
@@ -33,7 +38,7 @@ export class ConfigCatSDKKey {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -44,25 +49,25 @@ export class ConfigCatSDKKey {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    apiPassword: {
-      baseName: "api_password",
-      type: "string",
-      required: true,
+    "apiPassword": {
+      "baseName": "api_password",
+      "type": "string",
+      "required": true,
     },
-    apiUsername: {
-      baseName: "api_username",
-      type: "string",
-      required: true,
+    "apiUsername": {
+      "baseName": "api_username",
+      "type": "string",
+      "required": true,
     },
-    sdkKey: {
-      baseName: "sdk_key",
-      type: "string",
-      required: true,
+    "sdkKey": {
+      "baseName": "sdk_key",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ConfigCatSDKKeyType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ConfigCatSDKKeyType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,8 +79,34 @@ export class ConfigCatSDKKey {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ConfigCatSDKKey.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

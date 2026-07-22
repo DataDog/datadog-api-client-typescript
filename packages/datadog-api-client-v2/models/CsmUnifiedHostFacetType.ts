@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The JSON:API type for unified host facet resources. The value should always be `unified_host_facet`.
- */
+*/
 
-export type CsmUnifiedHostFacetType =
-  | typeof UNIFIED_HOST_FACET
-  | UnparsedObject;
-export const UNIFIED_HOST_FACET = "unified_host_facet";
+export type CsmUnifiedHostFacetType = typeof UNIFIED_HOST_FACET | UnparsedObject;
+export const UNIFIED_HOST_FACET = 'unified_host_facet';

@@ -5,15 +5,20 @@
  */
 import { CostAnomalyResponseData } from "./CostAnomalyResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object containing a single Cloud Cost Management anomaly.
- */
+*/
 export class CostAnomalyResponse {
   /**
    * Resource wrapper for a single cost anomaly.
-   */
+  */
   "data"?: CostAnomalyResponseData;
 
   /**
@@ -21,7 +26,7 @@ export class CostAnomalyResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class CostAnomalyResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CostAnomalyResponseData",
+    "data": {
+      "baseName": "data",
+      "type": "CostAnomalyResponseData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class CostAnomalyResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CostAnomalyResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,23 +6,28 @@
 import { StegadographyWidgetAttributes } from "./StegadographyWidgetAttributes";
 import { StegadographyWidgetType } from "./StegadographyWidgetType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A single watermarked widget resource recovered from an image.
- */
+*/
 export class StegadographyWidget {
   /**
    * Attributes of a watermarked widget recovered from an image.
-   */
+  */
   "attributes": StegadographyWidgetAttributes;
   /**
    * Composite identifier formed from the organization ID and watermark, separated by a colon.
-   */
+  */
   "id": string;
   /**
    * Stegadography widget resource type.
-   */
+  */
   "type": StegadographyWidgetType;
 
   /**
@@ -30,7 +35,7 @@ export class StegadographyWidget {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class StegadographyWidget {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "StegadographyWidgetAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "StegadographyWidgetAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "StegadographyWidgetType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "StegadographyWidgetType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class StegadographyWidget {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return StegadographyWidget.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

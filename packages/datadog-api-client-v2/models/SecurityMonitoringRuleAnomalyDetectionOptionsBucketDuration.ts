@@ -4,21 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Duration in seconds of the time buckets used to aggregate events matched by the rule.
  * Must be greater than or equal to 300.
- */
+*/
 
-export type SecurityMonitoringRuleAnomalyDetectionOptionsBucketDuration =
-  | typeof FIVE_MINUTES
-  | typeof TEN_MINUTES
-  | typeof FIFTEEN_MINUTES
-  | typeof THIRTY_MINUTES
-  | typeof ONE_HOUR
-  | typeof THREE_HOURS
-  | UnparsedObject;
+export type SecurityMonitoringRuleAnomalyDetectionOptionsBucketDuration = typeof FIVE_MINUTES| typeof TEN_MINUTES| typeof FIFTEEN_MINUTES| typeof THIRTY_MINUTES| typeof ONE_HOUR| typeof THREE_HOURS | UnparsedObject;
 export const FIVE_MINUTES = 300;
 export const TEN_MINUTES = 600;
 export const FIFTEEN_MINUTES = 900;

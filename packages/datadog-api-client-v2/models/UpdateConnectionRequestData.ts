@@ -6,23 +6,28 @@
 import { UpdateConnectionRequestDataAttributes } from "./UpdateConnectionRequestDataAttributes";
 import { UpdateConnectionRequestDataType } from "./UpdateConnectionRequestDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data object containing the resource identifier and attributes for updating an existing connection.
- */
+*/
 export class UpdateConnectionRequestData {
   /**
    * Attributes specifying the field modifications to apply to an existing connection.
-   */
+  */
   "attributes"?: UpdateConnectionRequestDataAttributes;
   /**
    * The unique identifier of the connection to update.
-   */
+  */
   "id": string;
   /**
    * Connection id resource type.
-   */
+  */
   "type": UpdateConnectionRequestDataType;
 
   /**
@@ -30,7 +35,7 @@ export class UpdateConnectionRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class UpdateConnectionRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "UpdateConnectionRequestDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "UpdateConnectionRequestDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "UpdateConnectionRequestDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "UpdateConnectionRequestDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class UpdateConnectionRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateConnectionRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

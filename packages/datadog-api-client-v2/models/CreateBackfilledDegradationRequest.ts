@@ -5,15 +5,20 @@
  */
 import { CreateBackfilledDegradationRequestData } from "./CreateBackfilledDegradationRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request object for creating a backfilled degradation.
- */
+*/
 export class CreateBackfilledDegradationRequest {
   /**
    * The data object for creating a backfilled degradation.
-   */
+  */
   "data"?: CreateBackfilledDegradationRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class CreateBackfilledDegradationRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class CreateBackfilledDegradationRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CreateBackfilledDegradationRequestData",
+    "data": {
+      "baseName": "data",
+      "type": "CreateBackfilledDegradationRequestData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class CreateBackfilledDegradationRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateBackfilledDegradationRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

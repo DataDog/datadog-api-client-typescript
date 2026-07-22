@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The tag indexing rule resource type.
- */
+*/
 
 export type TagIndexingRuleType = typeof TAG_INDEXING_RULES | UnparsedObject;
-export const TAG_INDEXING_RULES = "tag_indexing_rules";
+export const TAG_INDEXING_RULES = 'tag_indexing_rules';

@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metadata for the last successful scan of an asset.
- */
+*/
 export class ScannedAssetMetadataLastSuccess {
   /**
    * The environment of the last success scan of the asset.
-   */
+  */
   "env"?: string;
   /**
    * The list of origins of the last success scan of the asset.
-   */
+  */
   "origin"?: Array<string>;
   /**
    * The timestamp of the last success scan of the asset.
-   */
+  */
   "timestamp": string;
 
   /**
@@ -28,7 +33,7 @@ export class ScannedAssetMetadataLastSuccess {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,18 +44,18 @@ export class ScannedAssetMetadataLastSuccess {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    env: {
-      baseName: "env",
-      type: "string",
+    "env": {
+      "baseName": "env",
+      "type": "string",
     },
-    origin: {
-      baseName: "origin",
-      type: "Array<string>",
+    "origin": {
+      "baseName": "origin",
+      "type": "Array<string>",
     },
-    timestamp: {
-      baseName: "timestamp",
-      type: "string",
-      required: true,
+    "timestamp": {
+      "baseName": "timestamp",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class ScannedAssetMetadataLastSuccess {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ScannedAssetMetadataLastSuccess.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

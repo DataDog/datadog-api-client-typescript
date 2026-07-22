@@ -6,23 +6,28 @@
 import { SyntheticsTestResultOCSPCertificate } from "./SyntheticsTestResultOCSPCertificate";
 import { SyntheticsTestResultOCSPUpdates } from "./SyntheticsTestResultOCSPUpdates";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * OCSP response received while validating a certificate.
- */
+*/
 export class SyntheticsTestResultOCSPResponse {
   /**
    * Certificate details returned in an OCSP response.
-   */
+  */
   "certificate"?: SyntheticsTestResultOCSPCertificate;
   /**
    * OCSP response status (for example, `good`, `revoked`, `unknown`).
-   */
+  */
   "status"?: string;
   /**
    * OCSP response update timestamps.
-   */
+  */
   "updates"?: SyntheticsTestResultOCSPUpdates;
 
   /**
@@ -30,7 +35,7 @@ export class SyntheticsTestResultOCSPResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class SyntheticsTestResultOCSPResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    certificate: {
-      baseName: "certificate",
-      type: "SyntheticsTestResultOCSPCertificate",
+    "certificate": {
+      "baseName": "certificate",
+      "type": "SyntheticsTestResultOCSPCertificate",
     },
-    status: {
-      baseName: "status",
-      type: "string",
+    "status": {
+      "baseName": "status",
+      "type": "string",
     },
-    updates: {
-      baseName: "updates",
-      type: "SyntheticsTestResultOCSPUpdates",
+    "updates": {
+      "baseName": "updates",
+      "type": "SyntheticsTestResultOCSPUpdates",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class SyntheticsTestResultOCSPResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultOCSPResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Related entity.
- */
+*/
 
-export type EntityResponseIncludedRelatedEntityType =
-  | typeof RELATED_ENTITY
-  | UnparsedObject;
-export const RELATED_ENTITY = "relatedEntity";
+export type EntityResponseIncludedRelatedEntityType = typeof RELATED_ENTITY | UnparsedObject;
+export const RELATED_ENTITY = 'relatedEntity';

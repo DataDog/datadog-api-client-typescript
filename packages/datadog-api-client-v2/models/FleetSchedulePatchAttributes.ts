@@ -6,30 +6,35 @@
 import { FleetScheduleRecurrenceRule } from "./FleetScheduleRecurrenceRule";
 import { FleetScheduleStatus } from "./FleetScheduleStatus";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for partially updating a schedule. All fields are optional.
- */
+*/
 export class FleetSchedulePatchAttributes {
   /**
    * Human-readable name for the schedule.
-   */
+  */
   "name"?: string;
   /**
    * Query used to filter and select target hosts for scheduled deployments. Uses the Datadog query syntax.
-   */
+  */
   "query"?: string;
   /**
    * Defines the recurrence pattern for the schedule. Specifies when deployments should be
    * automatically triggered based on maintenance windows.
-   */
+  */
   "rule"?: FleetScheduleRecurrenceRule;
   /**
    * The status of the schedule.
    * - `active`: The schedule is active and will create deployments according to its recurrence rule.
    * - `inactive`: The schedule is inactive and will not create any deployments.
-   */
+  */
   "status"?: FleetScheduleStatus;
   /**
    * Number of major versions behind the latest to target for upgrades.
@@ -37,7 +42,7 @@ export class FleetSchedulePatchAttributes {
    * - 1: Upgrade to latest minus 1 major version
    * - 2: Upgrade to latest minus 2 major versions
    * Maximum value is 2.
-   */
+  */
   "versionToLatest"?: number;
 
   /**
@@ -45,7 +50,7 @@ export class FleetSchedulePatchAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -56,26 +61,26 @@ export class FleetSchedulePatchAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    query: {
-      baseName: "query",
-      type: "string",
+    "query": {
+      "baseName": "query",
+      "type": "string",
     },
-    rule: {
-      baseName: "rule",
-      type: "FleetScheduleRecurrenceRule",
+    "rule": {
+      "baseName": "rule",
+      "type": "FleetScheduleRecurrenceRule",
     },
-    status: {
-      baseName: "status",
-      type: "FleetScheduleStatus",
+    "status": {
+      "baseName": "status",
+      "type": "FleetScheduleStatus",
     },
-    versionToLatest: {
-      baseName: "version_to_latest",
-      type: "number",
-      format: "int64",
+    "versionToLatest": {
+      "baseName": "version_to_latest",
+      "type": "number",
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -87,8 +92,34 @@ export class FleetSchedulePatchAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FleetSchedulePatchAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

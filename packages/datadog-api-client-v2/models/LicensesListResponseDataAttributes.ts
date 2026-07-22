@@ -5,15 +5,20 @@
  */
 import { LicensesListResponseDataAttributesLicensesItems } from "./LicensesListResponseDataAttributesLicensesItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes of the licenses list response, containing the array of SPDX licenses.
- */
+*/
 export class LicensesListResponseDataAttributes {
   /**
    * The list of SPDX licenses returned by the API.
-   */
+  */
   "licenses": Array<LicensesListResponseDataAttributesLicensesItems>;
 
   /**
@@ -21,7 +26,7 @@ export class LicensesListResponseDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class LicensesListResponseDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    licenses: {
-      baseName: "licenses",
-      type: "Array<LicensesListResponseDataAttributesLicensesItems>",
-      required: true,
+    "licenses": {
+      "baseName": "licenses",
+      "type": "Array<LicensesListResponseDataAttributesLicensesItems>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class LicensesListResponseDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LicensesListResponseDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

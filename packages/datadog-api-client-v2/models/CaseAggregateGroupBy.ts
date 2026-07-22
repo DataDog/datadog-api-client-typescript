@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Configuration for grouping aggregated results by one or more case fields.
- */
+*/
 export class CaseAggregateGroupBy {
   /**
    * Fields to group by.
-   */
+  */
   "groups": Array<string>;
   /**
    * Maximum number of groups to return.
-   */
+  */
   "limit": number;
 
   /**
@@ -24,7 +29,7 @@ export class CaseAggregateGroupBy {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,16 +40,16 @@ export class CaseAggregateGroupBy {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    groups: {
-      baseName: "groups",
-      type: "Array<string>",
-      required: true,
+    "groups": {
+      "baseName": "groups",
+      "type": "Array<string>",
+      "required": true,
     },
-    limit: {
-      baseName: "limit",
-      type: "number",
-      required: true,
-      format: "int32",
+    "limit": {
+      "baseName": "limit",
+      "type": "number",
+      "required": true,
+      "format": "int32",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class CaseAggregateGroupBy {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseAggregateGroupBy.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

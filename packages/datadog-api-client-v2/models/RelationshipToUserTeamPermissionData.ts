@@ -5,19 +5,24 @@
  */
 import { UserTeamPermissionType } from "./UserTeamPermissionType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Related user team permission data
- */
+*/
 export class RelationshipToUserTeamPermissionData {
   /**
    * The ID of the user team permission
-   */
+  */
   "id": string;
   /**
    * User team permission type
-   */
+  */
   "type": UserTeamPermissionType;
 
   /**
@@ -25,7 +30,7 @@ export class RelationshipToUserTeamPermissionData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class RelationshipToUserTeamPermissionData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "UserTeamPermissionType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "UserTeamPermissionType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class RelationshipToUserTeamPermissionData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RelationshipToUserTeamPermissionData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

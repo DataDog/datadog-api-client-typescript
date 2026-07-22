@@ -6,23 +6,28 @@
 import { OAuthScopesRestrictionResponseAttributes } from "./OAuthScopesRestrictionResponseAttributes";
 import { OAuthScopesRestrictionType } from "./OAuthScopesRestrictionType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object of an OAuth2 client scopes restriction response.
- */
+*/
 export class OAuthScopesRestrictionResponseData {
   /**
    * Attributes of an OAuth2 client scopes restriction.
-   */
+  */
   "attributes": OAuthScopesRestrictionResponseAttributes;
   /**
    * UUID of the OAuth2 client this restriction applies to.
-   */
+  */
   "id": string;
   /**
    * JSON:API resource type for an OAuth2 client scopes restriction.
-   */
+  */
   "type": OAuthScopesRestrictionType;
 
   /**
@@ -30,7 +35,7 @@ export class OAuthScopesRestrictionResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,21 +46,21 @@ export class OAuthScopesRestrictionResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "OAuthScopesRestrictionResponseAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "OAuthScopesRestrictionResponseAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    type: {
-      baseName: "type",
-      type: "OAuthScopesRestrictionType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "OAuthScopesRestrictionType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class OAuthScopesRestrictionResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OAuthScopesRestrictionResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { DataRelationshipsTeamsDataItems } from "./DataRelationshipsTeamsDataItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Associates teams with this schedule in a data structure.
- */
+*/
 export class DataRelationshipsTeams {
   /**
    * An array of team references for this schedule.
-   */
+  */
   "data"?: Array<DataRelationshipsTeamsDataItems>;
 
   /**
@@ -21,7 +26,7 @@ export class DataRelationshipsTeams {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class DataRelationshipsTeams {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<DataRelationshipsTeamsDataItems>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<DataRelationshipsTeamsDataItems>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class DataRelationshipsTeams {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DataRelationshipsTeams.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

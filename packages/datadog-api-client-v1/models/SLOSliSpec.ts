@@ -6,10 +6,15 @@
 import { SLOCountSpec } from "./SLOCountSpec";
 import { SLOTimeSliceSpec } from "./SLOTimeSliceSpec";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A generic SLI specification. This is used for time-slice and count-based (metric) SLOs only.
- */
+*/
 
 export type SLOSliSpec = SLOTimeSliceSpec | SLOCountSpec | UnparsedObject;

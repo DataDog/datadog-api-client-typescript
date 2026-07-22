@@ -7,23 +7,28 @@ import { ListInvestigationsResponseData } from "./ListInvestigationsResponseData
 import { ListInvestigationsResponseLinks } from "./ListInvestigationsResponseLinks";
 import { ListInvestigationsResponseMeta } from "./ListInvestigationsResponseMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response for listing investigations.
- */
+*/
 export class ListInvestigationsResponse {
   /**
    * List of investigations.
-   */
+  */
   "data": Array<ListInvestigationsResponseData>;
   /**
    * Pagination links for the list investigations response.
-   */
+  */
   "links": ListInvestigationsResponseLinks;
   /**
    * Metadata for the list investigations response.
-   */
+  */
   "meta": ListInvestigationsResponseMeta;
 
   /**
@@ -31,7 +36,7 @@ export class ListInvestigationsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,20 +47,20 @@ export class ListInvestigationsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<ListInvestigationsResponseData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<ListInvestigationsResponseData>",
+      "required": true,
     },
-    links: {
-      baseName: "links",
-      type: "ListInvestigationsResponseLinks",
-      required: true,
+    "links": {
+      "baseName": "links",
+      "type": "ListInvestigationsResponseLinks",
+      "required": true,
     },
-    meta: {
-      baseName: "meta",
-      type: "ListInvestigationsResponseMeta",
-      required: true,
+    "meta": {
+      "baseName": "meta",
+      "type": "ListInvestigationsResponseMeta",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class ListInvestigationsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListInvestigationsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

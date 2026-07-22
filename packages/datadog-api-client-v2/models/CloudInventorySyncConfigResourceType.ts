@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Always `sync_configs`.
- */
+*/
 
-export type CloudInventorySyncConfigResourceType =
-  | typeof SYNC_CONFIGS
-  | UnparsedObject;
-export const SYNC_CONFIGS = "sync_configs";
+export type CloudInventorySyncConfigResourceType = typeof SYNC_CONFIGS | UnparsedObject;
+export const SYNC_CONFIGS = 'sync_configs';

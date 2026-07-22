@@ -5,15 +5,20 @@
  */
 import { RecommendationData } from "./RecommendationData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * JSON:API document containing a single Recommendation resource. Returned by SPA when the Spark Gateway requests recommendations.
- */
+*/
 export class RecommendationDocument {
   /**
    * JSON:API resource object for SPA Recommendation. Includes type, optional ID, and resource attributes with structured recommendations.
-   */
+  */
   "data": RecommendationData;
 
   /**
@@ -21,7 +26,7 @@ export class RecommendationDocument {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class RecommendationDocument {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "RecommendationData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "RecommendationData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class RecommendationDocument {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RecommendationDocument.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

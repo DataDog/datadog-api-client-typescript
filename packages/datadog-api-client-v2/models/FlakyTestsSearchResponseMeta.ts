@@ -5,15 +5,20 @@
  */
 import { FlakyTestsPagination } from "./FlakyTestsPagination";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metadata for the flaky tests search response.
- */
+*/
 export class FlakyTestsSearchResponseMeta {
   /**
    * Pagination metadata for flaky tests.
-   */
+  */
   "pagination"?: FlakyTestsPagination;
 
   /**
@@ -21,7 +26,7 @@ export class FlakyTestsSearchResponseMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class FlakyTestsSearchResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    pagination: {
-      baseName: "pagination",
-      type: "FlakyTestsPagination",
+    "pagination": {
+      "baseName": "pagination",
+      "type": "FlakyTestsPagination",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class FlakyTestsSearchResponseMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FlakyTestsSearchResponseMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

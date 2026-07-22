@@ -5,15 +5,20 @@
  */
 import { AggregatedLongTasksResponseData } from "./AggregatedLongTasksResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response body for the aggregated long tasks endpoint.
- */
+*/
 export class AggregatedLongTasksResponse {
   /**
    * Data envelope for an aggregated long tasks response.
-   */
+  */
   "data": AggregatedLongTasksResponseData;
 
   /**
@@ -21,7 +26,7 @@ export class AggregatedLongTasksResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class AggregatedLongTasksResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "AggregatedLongTasksResponseData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "AggregatedLongTasksResponseData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class AggregatedLongTasksResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AggregatedLongTasksResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

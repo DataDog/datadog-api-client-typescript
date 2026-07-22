@@ -5,23 +5,28 @@
  */
 import { NotebookMetadataType } from "./NotebookMetadataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metadata associated with the notebook.
- */
+*/
 export class NotebookMetadata {
   /**
    * Whether or not the notebook is a template.
-   */
+  */
   "isTemplate"?: boolean;
   /**
    * Whether or not the notebook takes snapshot image backups of the notebook's fixed-time graphs.
-   */
+  */
   "takeSnapshots"?: boolean;
   /**
    * Metadata type of the notebook.
-   */
+  */
   "type"?: NotebookMetadataType;
 
   /**
@@ -29,7 +34,7 @@ export class NotebookMetadata {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,17 +45,17 @@ export class NotebookMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    isTemplate: {
-      baseName: "is_template",
-      type: "boolean",
+    "isTemplate": {
+      "baseName": "is_template",
+      "type": "boolean",
     },
-    takeSnapshots: {
-      baseName: "take_snapshots",
-      type: "boolean",
+    "takeSnapshots": {
+      "baseName": "take_snapshots",
+      "type": "boolean",
     },
-    type: {
-      baseName: "type",
-      type: "NotebookMetadataType",
+    "type": {
+      "baseName": "type",
+      "type": "NotebookMetadataType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class NotebookMetadata {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return NotebookMetadata.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,16 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Upstream interaction type referenced by an `llmobs_trace` block.
  * Restricted to `trace` or `experiment_trace`.
- */
+*/
 
-export type LLMObsContentBlockLLMObsTraceInteractionType =
-  | typeof TRACE
-  | typeof EXPERIMENT_TRACE
-  | UnparsedObject;
-export const TRACE = "trace";
-export const EXPERIMENT_TRACE = "experiment_trace";
+export type LLMObsContentBlockLLMObsTraceInteractionType = typeof TRACE| typeof EXPERIMENT_TRACE | UnparsedObject;
+export const TRACE = 'trace';
+export const EXPERIMENT_TRACE = 'experiment_trace';

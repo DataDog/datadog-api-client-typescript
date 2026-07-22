@@ -6,23 +6,28 @@
 import { PlaylistDataAttributes } from "./PlaylistDataAttributes";
 import { PlaylistDataType } from "./PlaylistDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object representing a RUM replay playlist, including its identifier, type, and attributes.
- */
+*/
 export class PlaylistData {
   /**
    * Attributes of a RUM replay playlist, including its name, description, session count, and audit timestamps.
-   */
+  */
   "attributes"?: PlaylistDataAttributes;
   /**
    * Unique identifier of the playlist.
-   */
+  */
   "id"?: string;
   /**
    * Rum replay playlist resource type.
-   */
+  */
   "type": PlaylistDataType;
 
   /**
@@ -30,7 +35,7 @@ export class PlaylistData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,18 +46,18 @@ export class PlaylistData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "PlaylistDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "PlaylistDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "PlaylistDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "PlaylistDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class PlaylistData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PlaylistData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

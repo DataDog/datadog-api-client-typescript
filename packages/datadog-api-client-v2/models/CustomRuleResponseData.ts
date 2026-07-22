@@ -6,23 +6,28 @@
 import { CustomRule } from "./CustomRule";
 import { CustomRuleDataType } from "./CustomRuleDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object returned in a custom rule response, including its ID, type, and attributes.
- */
+*/
 export class CustomRuleResponseData {
   /**
    * A custom static analysis rule within a ruleset.
-   */
+  */
   "attributes": CustomRule;
   /**
    * Rule identifier
-   */
+  */
   "id": string;
   /**
    * Resource type
-   */
+  */
   "type": CustomRuleDataType;
 
   /**
@@ -30,7 +35,7 @@ export class CustomRuleResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class CustomRuleResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CustomRule",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CustomRule",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CustomRuleDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CustomRuleDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class CustomRuleResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomRuleResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

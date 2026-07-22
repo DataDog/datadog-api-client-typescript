@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of logs lookup processor.
- */
+*/
 
 export type LogsLookupProcessorType = typeof LOOKUP_PROCESSOR | UnparsedObject;
-export const LOOKUP_PROCESSOR = "lookup-processor";
+export const LOOKUP_PROCESSOR = 'lookup-processor';

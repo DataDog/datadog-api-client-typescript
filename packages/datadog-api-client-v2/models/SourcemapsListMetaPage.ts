@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Page information for the source maps list response.
- */
+*/
 export class SourcemapsListMetaPage {
   /**
    * Whether there are more results available beyond the current page.
-   */
+  */
   "hasMoreResults": boolean;
   /**
    * Total number of source maps matching the filter criteria.
-   */
+  */
   "totalFilteredCount": number;
 
   /**
@@ -24,7 +29,7 @@ export class SourcemapsListMetaPage {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,16 +40,16 @@ export class SourcemapsListMetaPage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    hasMoreResults: {
-      baseName: "has_more_results",
-      type: "boolean",
-      required: true,
+    "hasMoreResults": {
+      "baseName": "has_more_results",
+      "type": "boolean",
+      "required": true,
     },
-    totalFilteredCount: {
-      baseName: "total_filtered_count",
-      type: "number",
-      required: true,
-      format: "int64",
+    "totalFilteredCount": {
+      "baseName": "total_filtered_count",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class SourcemapsListMetaPage {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SourcemapsListMetaPage.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

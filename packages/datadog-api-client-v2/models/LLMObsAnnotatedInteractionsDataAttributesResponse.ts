@@ -5,15 +5,20 @@
  */
 import { LLMObsAnnotatedInteractionItem } from "./LLMObsAnnotatedInteractionItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes containing the list of annotated interactions.
- */
+*/
 export class LLMObsAnnotatedInteractionsDataAttributesResponse {
   /**
    * List of interactions with their annotations.
-   */
+  */
   "annotatedInteractions": Array<LLMObsAnnotatedInteractionItem>;
 
   /**
@@ -21,7 +26,7 @@ export class LLMObsAnnotatedInteractionsDataAttributesResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class LLMObsAnnotatedInteractionsDataAttributesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    annotatedInteractions: {
-      baseName: "annotated_interactions",
-      type: "Array<LLMObsAnnotatedInteractionItem>",
-      required: true,
+    "annotatedInteractions": {
+      "baseName": "annotated_interactions",
+      "type": "Array<LLMObsAnnotatedInteractionItem>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class LLMObsAnnotatedInteractionsDataAttributesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsAnnotatedInteractionsDataAttributesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

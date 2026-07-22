@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for the maximum session duration update request.
- */
+*/
 export class MaxSessionDurationUpdateAttributes {
   /**
    * The maximum session duration, in seconds.
-   */
+  */
   "maxSessionDuration": number;
 
   /**
@@ -20,7 +25,7 @@ export class MaxSessionDurationUpdateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,11 +36,11 @@ export class MaxSessionDurationUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    maxSessionDuration: {
-      baseName: "max_session_duration",
-      type: "number",
-      required: true,
-      format: "int64",
+    "maxSessionDuration": {
+      "baseName": "max_session_duration",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class MaxSessionDurationUpdateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MaxSessionDurationUpdateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

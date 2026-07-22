@@ -6,13 +6,15 @@
 import { FormulaAndFunctionEventQueryGroupBy } from "./FormulaAndFunctionEventQueryGroupBy";
 import { FormulaAndFunctionEventQueryGroupByFields } from "./FormulaAndFunctionEventQueryGroupByFields";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Group by configuration for a formula and functions events query. Accepts either a list of facet objects or a flat object that specifies a list of facet fields.
- */
+*/
 
-export type FormulaAndFunctionEventQueryGroupByConfig =
-  | Array<FormulaAndFunctionEventQueryGroupBy>
-  | FormulaAndFunctionEventQueryGroupByFields
-  | UnparsedObject;
+export type FormulaAndFunctionEventQueryGroupByConfig = Array<FormulaAndFunctionEventQueryGroupBy> | FormulaAndFunctionEventQueryGroupByFields | UnparsedObject;

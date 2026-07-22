@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Invalid query performed.
- */
+*/
 export class HTTPLogError {
   /**
    * Error code.
-   */
+  */
   "code": number;
   /**
    * Error message.
-   */
+  */
   "message": string;
 
   /**
@@ -24,7 +29,7 @@ export class HTTPLogError {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,16 +40,16 @@ export class HTTPLogError {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    code: {
-      baseName: "code",
-      type: "number",
-      required: true,
-      format: "int32",
+    "code": {
+      "baseName": "code",
+      "type": "number",
+      "required": true,
+      "format": "int32",
     },
-    message: {
-      baseName: "message",
-      type: "string",
-      required: true,
+    "message": {
+      "baseName": "message",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class HTTPLogError {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return HTTPLogError.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

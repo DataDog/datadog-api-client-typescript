@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Users facet info resource type.
- */
+*/
 
-export type FacetInfoResponseDataType =
-  | typeof USERS_FACET_INFO
-  | UnparsedObject;
-export const USERS_FACET_INFO = "users_facet_info";
+export type FacetInfoResponseDataType = typeof USERS_FACET_INFO | UnparsedObject;
+export const USERS_FACET_INFO = 'users_facet_info';

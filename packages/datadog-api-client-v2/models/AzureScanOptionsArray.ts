@@ -5,15 +5,20 @@
  */
 import { AzureScanOptionsData } from "./AzureScanOptionsData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object containing a list of Azure scan options.
- */
+*/
 export class AzureScanOptionsArray {
   /**
    * A list of Azure scan options.
-   */
+  */
   "data": Array<AzureScanOptionsData>;
 
   /**
@@ -21,7 +26,7 @@ export class AzureScanOptionsArray {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class AzureScanOptionsArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<AzureScanOptionsData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<AzureScanOptionsData>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class AzureScanOptionsArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AzureScanOptionsArray.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

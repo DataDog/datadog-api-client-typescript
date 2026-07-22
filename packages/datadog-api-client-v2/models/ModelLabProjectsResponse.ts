@@ -7,23 +7,28 @@ import { ModelLabPageMeta } from "./ModelLabPageMeta";
 import { ModelLabPaginationLinks } from "./ModelLabPaginationLinks";
 import { ModelLabProjectData } from "./ModelLabProjectData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a list of Model Lab projects with pagination metadata.
- */
+*/
 export class ModelLabProjectsResponse {
   /**
    * The list of projects.
-   */
+  */
   "data": Array<ModelLabProjectData>;
   /**
    * Pagination links for navigating list responses.
-   */
+  */
   "links"?: ModelLabPaginationLinks;
   /**
    * Pagination metadata for a list response.
-   */
+  */
   "meta": ModelLabPageMeta;
 
   /**
@@ -31,7 +36,7 @@ export class ModelLabProjectsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,19 +47,19 @@ export class ModelLabProjectsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<ModelLabProjectData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<ModelLabProjectData>",
+      "required": true,
     },
-    links: {
-      baseName: "links",
-      type: "ModelLabPaginationLinks",
+    "links": {
+      "baseName": "links",
+      "type": "ModelLabPaginationLinks",
     },
-    meta: {
-      baseName: "meta",
-      type: "ModelLabPageMeta",
-      required: true,
+    "meta": {
+      "baseName": "meta",
+      "type": "ModelLabPageMeta",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class ModelLabProjectsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ModelLabProjectsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

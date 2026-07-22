@@ -7,35 +7,40 @@ import { CycloneDXComponent } from "./CycloneDXComponent";
 import { CycloneDXMetadata } from "./CycloneDXMetadata";
 import { CycloneDXVulnerability } from "./CycloneDXVulnerability";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A CycloneDX 1.5 Bill of Materials (BOM) document containing vulnerability data.
- */
+*/
 export class CycloneDXBom {
   /**
    * The BOM format identifier. Must be `CycloneDX`.
-   */
+  */
   "bomFormat": string;
   /**
    * The list of scanned software components. Cannot be empty.
-   */
+  */
   "components": Array<CycloneDXComponent>;
   /**
    * Metadata about the BOM, including the scanned asset and the scanner tool.
-   */
+  */
   "metadata": CycloneDXMetadata;
   /**
    * The CycloneDX specification version. Must be `1.5`.
-   */
+  */
   "specVersion": string;
   /**
    * The version number of the BOM document.
-   */
+  */
   "version"?: number;
   /**
    * The list of detected vulnerabilities. Cannot be empty.
-   */
+  */
   "vulnerabilities": Array<CycloneDXVulnerability>;
 
   /**
@@ -43,7 +48,7 @@ export class CycloneDXBom {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -54,35 +59,35 @@ export class CycloneDXBom {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    bomFormat: {
-      baseName: "bomFormat",
-      type: "string",
-      required: true,
+    "bomFormat": {
+      "baseName": "bomFormat",
+      "type": "string",
+      "required": true,
     },
-    components: {
-      baseName: "components",
-      type: "Array<CycloneDXComponent>",
-      required: true,
+    "components": {
+      "baseName": "components",
+      "type": "Array<CycloneDXComponent>",
+      "required": true,
     },
-    metadata: {
-      baseName: "metadata",
-      type: "CycloneDXMetadata",
-      required: true,
+    "metadata": {
+      "baseName": "metadata",
+      "type": "CycloneDXMetadata",
+      "required": true,
     },
-    specVersion: {
-      baseName: "specVersion",
-      type: "string",
-      required: true,
+    "specVersion": {
+      "baseName": "specVersion",
+      "type": "string",
+      "required": true,
     },
-    version: {
-      baseName: "version",
-      type: "number",
-      format: "int64",
+    "version": {
+      "baseName": "version",
+      "type": "number",
+      "format": "int64",
     },
-    vulnerabilities: {
-      baseName: "vulnerabilities",
-      type: "Array<CycloneDXVulnerability>",
-      required: true,
+    "vulnerabilities": {
+      "baseName": "vulnerabilities",
+      "type": "Array<CycloneDXVulnerability>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -94,8 +99,34 @@ export class CycloneDXBom {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CycloneDXBom.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

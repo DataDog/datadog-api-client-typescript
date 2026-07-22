@@ -5,23 +5,28 @@
  */
 import { CsmServerlessCoverageAnalysisAttributes } from "./CsmServerlessCoverageAnalysisAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * CSM Serverless Resources Coverage Analysis data.
- */
+*/
 export class CsmServerlessCoverageAnalysisData {
   /**
    * CSM Serverless Resources Coverage Analysis attributes.
-   */
+  */
   "attributes"?: CsmServerlessCoverageAnalysisAttributes;
   /**
    * The ID of your organization.
-   */
+  */
   "id"?: string;
   /**
    * The type of the resource. The value should always be `get_serverless_coverage_analysis_response_public_v0`.
-   */
+  */
   "type"?: string;
 
   /**
@@ -29,7 +34,7 @@ export class CsmServerlessCoverageAnalysisData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,17 +45,17 @@ export class CsmServerlessCoverageAnalysisData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CsmServerlessCoverageAnalysisAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CsmServerlessCoverageAnalysisAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,8 +67,34 @@ export class CsmServerlessCoverageAnalysisData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CsmServerlessCoverageAnalysisData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,19 +6,24 @@
 import { GetInvestigationResponseData } from "./GetInvestigationResponseData";
 import { GetInvestigationResponseLinks } from "./GetInvestigationResponseLinks";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response for a single Bits AI investigation.
- */
+*/
 export class GetInvestigationResponse {
   /**
    * Data for the get investigation response.
-   */
+  */
   "data": GetInvestigationResponseData;
   /**
    * Links related to the investigation.
-   */
+  */
   "links": GetInvestigationResponseLinks;
 
   /**
@@ -26,7 +31,7 @@ export class GetInvestigationResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class GetInvestigationResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "GetInvestigationResponseData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "GetInvestigationResponseData",
+      "required": true,
     },
-    links: {
-      baseName: "links",
-      type: "GetInvestigationResponseLinks",
-      required: true,
+    "links": {
+      "baseName": "links",
+      "type": "GetInvestigationResponseLinks",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class GetInvestigationResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GetInvestigationResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

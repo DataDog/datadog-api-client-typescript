@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Global incident settings attributes
- */
+*/
 export class GlobalIncidentSettingsAttributesResponse {
   /**
    * The analytics dashboard ID
-   */
+  */
   "analyticsDashboardId": string;
   /**
    * Timestamp when the settings were created
-   */
+  */
   "created": Date;
   /**
    * Timestamp when the settings were last modified
-   */
+  */
   "modified": Date;
 
   /**
@@ -28,7 +33,7 @@ export class GlobalIncidentSettingsAttributesResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -39,22 +44,22 @@ export class GlobalIncidentSettingsAttributesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    analyticsDashboardId: {
-      baseName: "analytics_dashboard_id",
-      type: "string",
-      required: true,
+    "analyticsDashboardId": {
+      "baseName": "analytics_dashboard_id",
+      "type": "string",
+      "required": true,
     },
-    created: {
-      baseName: "created",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "created": {
+      "baseName": "created",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    modified: {
-      baseName: "modified",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "modified": {
+      "baseName": "modified",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class GlobalIncidentSettingsAttributesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GlobalIncidentSettingsAttributesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

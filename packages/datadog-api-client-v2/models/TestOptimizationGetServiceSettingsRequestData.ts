@@ -6,20 +6,25 @@
 import { TestOptimizationGetServiceSettingsRequestAttributes } from "./TestOptimizationGetServiceSettingsRequestAttributes";
 import { TestOptimizationGetServiceSettingsRequestDataType } from "./TestOptimizationGetServiceSettingsRequestDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for get service settings request.
- */
+*/
 export class TestOptimizationGetServiceSettingsRequestData {
   /**
    * Attributes for requesting Test Optimization service settings.
-   */
+  */
   "attributes": TestOptimizationGetServiceSettingsRequestAttributes;
   /**
    * JSON:API type for get service settings request.
    * The value must always be `test_optimization_get_service_settings_request`.
-   */
+  */
   "type": TestOptimizationGetServiceSettingsRequestDataType;
 
   /**
@@ -27,7 +32,7 @@ export class TestOptimizationGetServiceSettingsRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -38,15 +43,15 @@ export class TestOptimizationGetServiceSettingsRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "TestOptimizationGetServiceSettingsRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "TestOptimizationGetServiceSettingsRequestAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "TestOptimizationGetServiceSettingsRequestDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TestOptimizationGetServiceSettingsRequestDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -58,8 +63,34 @@ export class TestOptimizationGetServiceSettingsRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TestOptimizationGetServiceSettingsRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

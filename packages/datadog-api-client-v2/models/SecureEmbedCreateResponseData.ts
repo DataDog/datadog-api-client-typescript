@@ -6,23 +6,28 @@
 import { SecureEmbedCreateResponseAttributes } from "./SecureEmbedCreateResponseAttributes";
 import { SecureEmbedCreateResponseType } from "./SecureEmbedCreateResponseType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for a secure embed create response.
- */
+*/
 export class SecureEmbedCreateResponseData {
   /**
    * Attributes of a newly created secure embed shared dashboard.
-   */
+  */
   "attributes": SecureEmbedCreateResponseAttributes;
   /**
    * Internal share ID.
-   */
+  */
   "id": string;
   /**
    * Resource type for secure embed create responses.
-   */
+  */
   "type": SecureEmbedCreateResponseType;
 
   /**
@@ -30,7 +35,7 @@ export class SecureEmbedCreateResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class SecureEmbedCreateResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SecureEmbedCreateResponseAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SecureEmbedCreateResponseAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "SecureEmbedCreateResponseType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SecureEmbedCreateResponseType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class SecureEmbedCreateResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecureEmbedCreateResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

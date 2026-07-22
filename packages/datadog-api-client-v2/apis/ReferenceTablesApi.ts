@@ -1,16 +1,12 @@
-import {
-  BaseAPIRequestFactory,
-  RequiredError,
-} from "../../datadog-api-client-common/baseapi";
-import {
-  Configuration,
-  applySecurityAuthentication,
-} from "../../datadog-api-client-common/configuration";
+import { BaseAPIRequestFactory, RequiredError } from "../../datadog-api-client-common/baseapi";
+import { Configuration,
+  applySecurityAuthentication,} from "../../datadog-api-client-common/configuration";
 import {
   RequestContext,
   HttpMethod,
   ResponseContext,
-} from "../../datadog-api-client-common/http/http";
+    
+  } from "../../datadog-api-client-common/http/http";
 
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
@@ -32,31 +28,27 @@ import { TableResultV2Array } from "../models/TableResultV2Array";
 import { TableRowResourceArray } from "../models/TableRowResourceArray";
 
 export class ReferenceTablesApiRequestFactory extends BaseAPIRequestFactory {
-  public async batchRowsQuery(
-    body: BatchRowsQueryRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+
+  public async batchRowsQuery(body: BatchRowsQueryRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "batchRowsQuery");
+      throw new RequiredError('body', 'batchRowsQuery');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/reference-tables/queries/batch-rows";
+    const localVarPath = '/api/v2/reference-tables/queries/batch-rows';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.ReferenceTablesApi.batchRowsQuery")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.ReferenceTablesApi.batchRowsQuery').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "BatchRowsQueryRequest", ""),
@@ -65,7 +57,7 @@ export class ReferenceTablesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -74,31 +66,26 @@ export class ReferenceTablesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async createReferenceTable(
-    body: CreateTableRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async createReferenceTable(body: CreateTableRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "createReferenceTable");
+      throw new RequiredError('body', 'createReferenceTable');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/reference-tables/tables";
+    const localVarPath = '/api/v2/reference-tables/tables';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.ReferenceTablesApi.createReferenceTable")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.ReferenceTablesApi.createReferenceTable').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateTableRequest", ""),
@@ -107,7 +94,7 @@ export class ReferenceTablesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -116,31 +103,26 @@ export class ReferenceTablesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async createReferenceTableUpload(
-    body: CreateUploadRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async createReferenceTableUpload(body: CreateUploadRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "createReferenceTableUpload");
+      throw new RequiredError('body', 'createReferenceTableUpload');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/reference-tables/uploads";
+    const localVarPath = '/api/v2/reference-tables/uploads';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.ReferenceTablesApi.createReferenceTableUpload")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.ReferenceTablesApi.createReferenceTableUpload').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateUploadRequest", ""),
@@ -149,7 +131,7 @@ export class ReferenceTablesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -158,40 +140,32 @@ export class ReferenceTablesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async deleteRows(
-    id: string,
-    body: BatchDeleteRowsRequestArray,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async deleteRows(id: string,body: BatchDeleteRowsRequestArray,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'id' is not null or undefined
     if (id === null || id === undefined) {
-      throw new RequiredError("id", "deleteRows");
+      throw new RequiredError('id', 'deleteRows');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "deleteRows");
+      throw new RequiredError('body', 'deleteRows');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/reference-tables/tables/{id}/rows".replace(
-      "{id}",
-      encodeURIComponent(String(id))
-    );
+    const localVarPath = '/api/v2/reference-tables/tables/{id}/rows'
+      .replace('{id}', encodeURIComponent(String(id)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.ReferenceTablesApi.deleteRows")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config.getServer('v2.ReferenceTablesApi.deleteRows').makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "BatchDeleteRowsRequestArray", ""),
@@ -200,7 +174,7 @@ export class ReferenceTablesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -209,32 +183,26 @@ export class ReferenceTablesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async deleteTable(
-    id: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async deleteTable(id: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'id' is not null or undefined
     if (id === null || id === undefined) {
-      throw new RequiredError("id", "deleteTable");
+      throw new RequiredError('id', 'deleteTable');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/reference-tables/tables/{id}".replace(
-      "{id}",
-      encodeURIComponent(String(id))
-    );
+    const localVarPath = '/api/v2/reference-tables/tables/{id}'
+      .replace('{id}', encodeURIComponent(String(id)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.ReferenceTablesApi.deleteTable")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config.getServer('v2.ReferenceTablesApi.deleteTable').makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -243,47 +211,37 @@ export class ReferenceTablesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getRowsByID(
-    id: string,
-    rowId: Array<string>,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async getRowsByID(id: string,rowId: Array<string>,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'id' is not null or undefined
     if (id === null || id === undefined) {
-      throw new RequiredError("id", "getRowsByID");
+      throw new RequiredError('id', 'getRowsByID');
     }
 
     // verify required parameter 'rowId' is not null or undefined
     if (rowId === null || rowId === undefined) {
-      throw new RequiredError("rowId", "getRowsByID");
+      throw new RequiredError('rowId', 'getRowsByID');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/reference-tables/tables/{id}/rows".replace(
-      "{id}",
-      encodeURIComponent(String(id))
-    );
+    const localVarPath = '/api/v2/reference-tables/tables/{id}/rows'
+      .replace('{id}', encodeURIComponent(String(id)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.ReferenceTablesApi.getRowsByID")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.ReferenceTablesApi.getRowsByID').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
-    if (rowId !== undefined) {
-      requestContext.setQueryParam(
-        "row_id",
-        ObjectSerializer.serialize(rowId, "Array<string>", ""),
-        "multi"
-      );
+  if (rowId !== undefined) {
+      requestContext.setQueryParam("row_id", ObjectSerializer.serialize(rowId, "Array<string>", ""
+), "multi");
     }
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -292,32 +250,26 @@ export class ReferenceTablesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getTable(
-    id: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async getTable(id: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'id' is not null or undefined
     if (id === null || id === undefined) {
-      throw new RequiredError("id", "getTable");
+      throw new RequiredError('id', 'getTable');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/reference-tables/tables/{id}".replace(
-      "{id}",
-      encodeURIComponent(String(id))
-    );
+    const localVarPath = '/api/v2/reference-tables/tables/{id}'
+      .replace('{id}', encodeURIComponent(String(id)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.ReferenceTablesApi.getTable")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.ReferenceTablesApi.getTable').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -326,51 +278,36 @@ export class ReferenceTablesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async listReferenceTableRows(
-    id: string,
-    pageLimit?: number,
-    pageContinuationToken?: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async listReferenceTableRows(id: string,pageLimit?: number,pageContinuationToken?: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'id' is not null or undefined
     if (id === null || id === undefined) {
-      throw new RequiredError("id", "listReferenceTableRows");
+      throw new RequiredError('id', 'listReferenceTableRows');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/reference-tables/tables/{id}/rows/list".replace(
-        "{id}",
-        encodeURIComponent(String(id))
-      );
+    const localVarPath = '/api/v2/reference-tables/tables/{id}/rows/list'
+      .replace('{id}', encodeURIComponent(String(id)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.ReferenceTablesApi.listReferenceTableRows")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.ReferenceTablesApi.listReferenceTableRows').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
-    if (pageLimit !== undefined) {
-      requestContext.setQueryParam(
-        "page[limit]",
-        ObjectSerializer.serialize(pageLimit, "number", "int64"),
-        ""
-      );
+  if (pageLimit !== undefined) {
+      requestContext.setQueryParam("page[limit]", ObjectSerializer.serialize(pageLimit, "number", "int64"
+), "");
     }
-    if (pageContinuationToken !== undefined) {
-      requestContext.setQueryParam(
-        "page[continuation_token]",
-        ObjectSerializer.serialize(pageContinuationToken, "string", ""),
-        ""
-      );
+  if (pageContinuationToken !== undefined) {
+      requestContext.setQueryParam("page[continuation_token]", ObjectSerializer.serialize(pageContinuationToken, "string", ""
+), "");
     }
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -379,73 +316,46 @@ export class ReferenceTablesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async listTables(
-    pageLimit?: number,
-    pageOffset?: number,
-    sort?: ReferenceTableSortType,
-    filterStatus?: string,
-    filterTableNameExact?: string,
-    filterTableNameContains?: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async listTables(pageLimit?: number,pageOffset?: number,sort?: ReferenceTableSortType,filterStatus?: string,filterTableNameExact?: string,filterTableNameContains?: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = "/api/v2/reference-tables/tables";
+    const localVarPath = '/api/v2/reference-tables/tables';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.ReferenceTablesApi.listTables")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.ReferenceTablesApi.listTables').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
-    if (pageLimit !== undefined) {
-      requestContext.setQueryParam(
-        "page[limit]",
-        ObjectSerializer.serialize(pageLimit, "number", "int64"),
-        ""
-      );
+  if (pageLimit !== undefined) {
+      requestContext.setQueryParam("page[limit]", ObjectSerializer.serialize(pageLimit, "number", "int64"
+), "");
     }
-    if (pageOffset !== undefined) {
-      requestContext.setQueryParam(
-        "page[offset]",
-        ObjectSerializer.serialize(pageOffset, "number", "int64"),
-        ""
-      );
+  if (pageOffset !== undefined) {
+      requestContext.setQueryParam("page[offset]", ObjectSerializer.serialize(pageOffset, "number", "int64"
+), "");
     }
-    if (sort !== undefined) {
-      requestContext.setQueryParam(
-        "sort",
-        ObjectSerializer.serialize(sort, "ReferenceTableSortType", ""),
-        ""
-      );
+  if (sort !== undefined) {
+      requestContext.setQueryParam("sort", ObjectSerializer.serialize(sort, "ReferenceTableSortType", ""
+), "");
     }
-    if (filterStatus !== undefined) {
-      requestContext.setQueryParam(
-        "filter[status]",
-        ObjectSerializer.serialize(filterStatus, "string", ""),
-        ""
-      );
+  if (filterStatus !== undefined) {
+      requestContext.setQueryParam("filter[status]", ObjectSerializer.serialize(filterStatus, "string", ""
+), "");
     }
-    if (filterTableNameExact !== undefined) {
-      requestContext.setQueryParam(
-        "filter[table_name][exact]",
-        ObjectSerializer.serialize(filterTableNameExact, "string", ""),
-        ""
-      );
+  if (filterTableNameExact !== undefined) {
+      requestContext.setQueryParam("filter[table_name][exact]", ObjectSerializer.serialize(filterTableNameExact, "string", ""
+), "");
     }
-    if (filterTableNameContains !== undefined) {
-      requestContext.setQueryParam(
-        "filter[table_name][contains]",
-        ObjectSerializer.serialize(filterTableNameContains, "string", ""),
-        ""
-      );
+  if (filterTableNameContains !== undefined) {
+      requestContext.setQueryParam("filter[table_name][contains]", ObjectSerializer.serialize(filterTableNameContains, "string", ""
+), "");
     }
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -454,40 +364,32 @@ export class ReferenceTablesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async updateReferenceTable(
-    id: string,
-    body: PatchTableRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async updateReferenceTable(id: string,body: PatchTableRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'id' is not null or undefined
     if (id === null || id === undefined) {
-      throw new RequiredError("id", "updateReferenceTable");
+      throw new RequiredError('id', 'updateReferenceTable');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateReferenceTable");
+      throw new RequiredError('body', 'updateReferenceTable');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/reference-tables/tables/{id}".replace(
-      "{id}",
-      encodeURIComponent(String(id))
-    );
+    const localVarPath = '/api/v2/reference-tables/tables/{id}'
+      .replace('{id}', encodeURIComponent(String(id)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.ReferenceTablesApi.updateReferenceTable")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const requestContext = _config.getServer('v2.ReferenceTablesApi.updateReferenceTable').makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "PatchTableRequest", ""),
@@ -496,7 +398,7 @@ export class ReferenceTablesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -505,40 +407,32 @@ export class ReferenceTablesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async upsertRows(
-    id: string,
-    body: BatchUpsertRowsRequestArray,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async upsertRows(id: string,body: BatchUpsertRowsRequestArray,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'id' is not null or undefined
     if (id === null || id === undefined) {
-      throw new RequiredError("id", "upsertRows");
+      throw new RequiredError('id', 'upsertRows');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "upsertRows");
+      throw new RequiredError('body', 'upsertRows');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/reference-tables/tables/{id}/rows".replace(
-      "{id}",
-      encodeURIComponent(String(id))
-    );
+    const localVarPath = '/api/v2/reference-tables/tables/{id}/rows'
+      .replace('{id}', encodeURIComponent(String(id)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.ReferenceTablesApi.upsertRows")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.ReferenceTablesApi.upsertRows').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "BatchUpsertRowsRequestArray", ""),
@@ -547,7 +441,7 @@ export class ReferenceTablesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
@@ -558,6 +452,8 @@ export class ReferenceTablesApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class ReferenceTablesApiResponseProcessor {
+
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -565,12 +461,8 @@ export class ReferenceTablesApiResponseProcessor {
    * @params response Response returned by the server for a request to batchRowsQuery
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async batchRowsQuery(
-    response: ResponseContext
-  ): Promise<BatchRowsQueryResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async batchRowsQuery(response: ResponseContext): Promise<BatchRowsQueryResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: BatchRowsQueryResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -578,17 +470,8 @@ export class ReferenceTablesApiResponseProcessor {
       ) as BatchRowsQueryResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429 ||
-      response.httpStatusCode === 500
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429||response.httpStatusCode === 500) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -597,30 +480,25 @@ export class ReferenceTablesApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: BatchRowsQueryResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "BatchRowsQueryResponse",
-        ""
+        "",
       ) as BatchRowsQueryResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -629,12 +507,8 @@ export class ReferenceTablesApiResponseProcessor {
    * @params response Response returned by the server for a request to createReferenceTable
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createReferenceTable(
-    response: ResponseContext
-  ): Promise<TableResultV2> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async createReferenceTable(response: ResponseContext): Promise<TableResultV2> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
       const body: TableResultV2 = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -642,15 +516,8 @@ export class ReferenceTablesApiResponseProcessor {
       ) as TableResultV2;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -659,30 +526,25 @@ export class ReferenceTablesApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TableResultV2 = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "TableResultV2",
-        ""
+        "",
       ) as TableResultV2;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -691,12 +553,8 @@ export class ReferenceTablesApiResponseProcessor {
    * @params response Response returned by the server for a request to createReferenceTableUpload
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createReferenceTableUpload(
-    response: ResponseContext
-  ): Promise<CreateUploadResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async createReferenceTableUpload(response: ResponseContext): Promise<CreateUploadResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
       const body: CreateUploadResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -704,15 +562,8 @@ export class ReferenceTablesApiResponseProcessor {
       ) as CreateUploadResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -721,30 +572,25 @@ export class ReferenceTablesApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CreateUploadResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CreateUploadResponse",
-        ""
+        "",
       ) as CreateUploadResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -753,26 +599,13 @@ export class ReferenceTablesApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteRows
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteRows(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async deleteRows(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       return;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 409 ||
-      response.httpStatusCode === 412 ||
-      response.httpStatusCode === 429 ||
-      response.httpStatusCode === 500
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 409||response.httpStatusCode === 412||response.httpStatusCode === 429||response.httpStatusCode === 500) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -781,25 +614,20 @@ export class ReferenceTablesApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -808,22 +636,13 @@ export class ReferenceTablesApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteTable
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteTable(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async deleteTable(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       return;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -832,25 +651,20 @@ export class ReferenceTablesApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -859,12 +673,8 @@ export class ReferenceTablesApiResponseProcessor {
    * @params response Response returned by the server for a request to getRowsByID
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getRowsByID(
-    response: ResponseContext
-  ): Promise<TableRowResourceArray> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getRowsByID(response: ResponseContext): Promise<TableRowResourceArray> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: TableRowResourceArray = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -872,15 +682,8 @@ export class ReferenceTablesApiResponseProcessor {
       ) as TableRowResourceArray;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -889,30 +692,25 @@ export class ReferenceTablesApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TableRowResourceArray = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "TableRowResourceArray",
-        ""
+        "",
       ) as TableRowResourceArray;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -921,10 +719,8 @@ export class ReferenceTablesApiResponseProcessor {
    * @params response Response returned by the server for a request to getTable
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getTable(response: ResponseContext): Promise<TableResultV2> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getTable(response: ResponseContext): Promise<TableResultV2> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: TableResultV2 = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -932,15 +728,8 @@ export class ReferenceTablesApiResponseProcessor {
       ) as TableResultV2;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -949,30 +738,25 @@ export class ReferenceTablesApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TableResultV2 = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "TableResultV2",
-        ""
+        "",
       ) as TableResultV2;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -981,12 +765,8 @@ export class ReferenceTablesApiResponseProcessor {
    * @params response Response returned by the server for a request to listReferenceTableRows
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listReferenceTableRows(
-    response: ResponseContext
-  ): Promise<ListRowsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async listReferenceTableRows(response: ResponseContext): Promise<ListRowsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: ListRowsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -994,16 +774,8 @@ export class ReferenceTablesApiResponseProcessor {
       ) as ListRowsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1012,30 +784,25 @@ export class ReferenceTablesApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListRowsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "ListRowsResponse",
-        ""
+        "",
       ) as ListRowsResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -1044,12 +811,8 @@ export class ReferenceTablesApiResponseProcessor {
    * @params response Response returned by the server for a request to listTables
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listTables(
-    response: ResponseContext
-  ): Promise<TableResultV2Array> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async listTables(response: ResponseContext): Promise<TableResultV2Array> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: TableResultV2Array = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1057,11 +820,8 @@ export class ReferenceTablesApiResponseProcessor {
       ) as TableResultV2Array;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1070,30 +830,25 @@ export class ReferenceTablesApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TableResultV2Array = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "TableResultV2Array",
-        ""
+        "",
       ) as TableResultV2Array;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -1102,22 +857,13 @@ export class ReferenceTablesApiResponseProcessor {
    * @params response Response returned by the server for a request to updateReferenceTable
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateReferenceTable(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async updateReferenceTable(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       return;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1126,25 +872,20 @@ export class ReferenceTablesApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -1153,26 +894,13 @@ export class ReferenceTablesApiResponseProcessor {
    * @params response Response returned by the server for a request to upsertRows
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async upsertRows(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async upsertRows(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       return;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 409 ||
-      response.httpStatusCode === 412 ||
-      response.httpStatusCode === 429 ||
-      response.httpStatusCode === 500
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 409||response.httpStatusCode === 412||response.httpStatusCode === 429||response.httpStatusCode === 500) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -1181,24 +909,18 @@ export class ReferenceTablesApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 }
 
@@ -1206,21 +928,21 @@ export interface ReferenceTablesApiBatchRowsQueryRequest {
   /**
    * @type BatchRowsQueryRequest
    */
-  body: BatchRowsQueryRequest;
+  body: BatchRowsQueryRequest
 }
 
 export interface ReferenceTablesApiCreateReferenceTableRequest {
   /**
    * @type CreateTableRequest
    */
-  body: CreateTableRequest;
+  body: CreateTableRequest
 }
 
 export interface ReferenceTablesApiCreateReferenceTableUploadRequest {
   /**
    * @type CreateUploadRequest
    */
-  body: CreateUploadRequest;
+  body: CreateUploadRequest
 }
 
 export interface ReferenceTablesApiDeleteRowsRequest {
@@ -1228,11 +950,11 @@ export interface ReferenceTablesApiDeleteRowsRequest {
    * Unique identifier of the reference table to delete rows from
    * @type string
    */
-  id: string;
+  id: string
   /**
    * @type BatchDeleteRowsRequestArray
    */
-  body: BatchDeleteRowsRequestArray;
+  body: BatchDeleteRowsRequestArray
 }
 
 export interface ReferenceTablesApiDeleteTableRequest {
@@ -1240,7 +962,7 @@ export interface ReferenceTablesApiDeleteTableRequest {
    * Unique identifier of the reference table to delete
    * @type string
    */
-  id: string;
+  id: string
 }
 
 export interface ReferenceTablesApiGetRowsByIDRequest {
@@ -1248,12 +970,12 @@ export interface ReferenceTablesApiGetRowsByIDRequest {
    * Unique identifier of the reference table to get rows from
    * @type string
    */
-  id: string;
+  id: string
   /**
    * List of row IDs (primary key values) to retrieve from the reference table.
    * @type Array<string>
    */
-  rowId: Array<string>;
+  rowId: Array<string>
 }
 
 export interface ReferenceTablesApiGetTableRequest {
@@ -1261,7 +983,7 @@ export interface ReferenceTablesApiGetTableRequest {
    * Unique identifier of the reference table to retrieve
    * @type string
    */
-  id: string;
+  id: string
 }
 
 export interface ReferenceTablesApiListReferenceTableRowsRequest {
@@ -1269,17 +991,17 @@ export interface ReferenceTablesApiListReferenceTableRowsRequest {
    * Unique identifier of the reference table to list rows from.
    * @type string
    */
-  id: string;
+  id: string
   /**
    * Number of rows to return per page. Defaults to 100, maximum is 1000.
    * @type number
    */
-  pageLimit?: number;
+  pageLimit?: number
   /**
    * Opaque cursor from the previous response's next link. Pass this to retrieve the next page on the same consistent snapshot.
    * @type string
    */
-  pageContinuationToken?: string;
+  pageContinuationToken?: string
 }
 
 export interface ReferenceTablesApiListTablesRequest {
@@ -1287,32 +1009,32 @@ export interface ReferenceTablesApiListTablesRequest {
    * Number of tables to return.
    * @type number
    */
-  pageLimit?: number;
+  pageLimit?: number
   /**
    * Number of tables to skip for pagination.
    * @type number
    */
-  pageOffset?: number;
+  pageOffset?: number
   /**
    * Sort field and direction for the list of reference tables. Use field name for ascending, prefix with "-" for descending.
    * @type ReferenceTableSortType
    */
-  sort?: ReferenceTableSortType;
+  sort?: ReferenceTableSortType
   /**
    * Filter by table status.
    * @type string
    */
-  filterStatus?: string;
+  filterStatus?: string
   /**
    * Filter by exact table name match.
    * @type string
    */
-  filterTableNameExact?: string;
+  filterTableNameExact?: string
   /**
    * Filter by table name containing substring.
    * @type string
    */
-  filterTableNameContains?: string;
+  filterTableNameContains?: string
 }
 
 export interface ReferenceTablesApiUpdateReferenceTableRequest {
@@ -1320,11 +1042,11 @@ export interface ReferenceTablesApiUpdateReferenceTableRequest {
    * Unique identifier of the reference table to update
    * @type string
    */
-  id: string;
+  id: string
   /**
    * @type PatchTableRequest
    */
-  body: PatchTableRequest;
+  body: PatchTableRequest
 }
 
 export interface ReferenceTablesApiUpsertRowsRequest {
@@ -1332,11 +1054,11 @@ export interface ReferenceTablesApiUpsertRowsRequest {
    * Unique identifier of the reference table to upsert rows into
    * @type string
    */
-  id: string;
+  id: string
   /**
    * @type BatchUpsertRowsRequestArray
    */
-  body: BatchUpsertRowsRequestArray;
+  body: BatchUpsertRowsRequestArray
 }
 
 export class ReferenceTablesApi {
@@ -1344,35 +1066,21 @@ export class ReferenceTablesApi {
   private responseProcessor: ReferenceTablesApiResponseProcessor;
   private configuration: Configuration;
 
-  public constructor(
-    configuration: Configuration,
-    requestFactory?: ReferenceTablesApiRequestFactory,
-    responseProcessor?: ReferenceTablesApiResponseProcessor
-  ) {
+  public constructor(configuration: Configuration, requestFactory?: ReferenceTablesApiRequestFactory, responseProcessor?: ReferenceTablesApiResponseProcessor) {
     this.configuration = configuration;
-    this.requestFactory =
-      requestFactory || new ReferenceTablesApiRequestFactory(configuration);
-    this.responseProcessor =
-      responseProcessor || new ReferenceTablesApiResponseProcessor();
+    this.requestFactory = requestFactory || new ReferenceTablesApiRequestFactory(configuration);
+    this.responseProcessor = responseProcessor || new ReferenceTablesApiResponseProcessor();
   }
 
   /**
    * Batch query reference table rows by their primary key values.  Returns only found rows in the included array.
    * @param param The request object
    */
-  public batchRowsQuery(
-    param: ReferenceTablesApiBatchRowsQueryRequest,
-    options?: Configuration
-  ): Promise<BatchRowsQueryResponse> {
-    const requestContextPromise = this.requestFactory.batchRowsQuery(
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.batchRowsQuery(responseContext);
+  public batchRowsQuery(param: ReferenceTablesApiBatchRowsQueryRequest, options?: Configuration): Promise<BatchRowsQueryResponse> {
+    const requestContextPromise = this.requestFactory.batchRowsQuery(param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.batchRowsQuery(responseContext);
         });
     });
   }
@@ -1385,19 +1093,11 @@ export class ReferenceTablesApi {
    * 2. Provide `access_details` in `file_metadata` pointing to a CSV file in cloud storage.
    * @param param The request object
    */
-  public createReferenceTable(
-    param: ReferenceTablesApiCreateReferenceTableRequest,
-    options?: Configuration
-  ): Promise<TableResultV2> {
-    const requestContextPromise = this.requestFactory.createReferenceTable(
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.createReferenceTable(responseContext);
+  public createReferenceTable(param: ReferenceTablesApiCreateReferenceTableRequest, options?: Configuration): Promise<TableResultV2> {
+    const requestContextPromise = this.requestFactory.createReferenceTable(param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.createReferenceTable(responseContext);
         });
     });
   }
@@ -1406,19 +1106,11 @@ export class ReferenceTablesApi {
    * Create a reference table upload for bulk data ingestion
    * @param param The request object
    */
-  public createReferenceTableUpload(
-    param: ReferenceTablesApiCreateReferenceTableUploadRequest,
-    options?: Configuration
-  ): Promise<CreateUploadResponse> {
-    const requestContextPromise =
-      this.requestFactory.createReferenceTableUpload(param.body, options);
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.createReferenceTableUpload(
-            responseContext
-          );
+  public createReferenceTableUpload(param: ReferenceTablesApiCreateReferenceTableUploadRequest, options?: Configuration): Promise<CreateUploadResponse> {
+    const requestContextPromise = this.requestFactory.createReferenceTableUpload(param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.createReferenceTableUpload(responseContext);
         });
     });
   }
@@ -1427,20 +1119,11 @@ export class ReferenceTablesApi {
    * Delete multiple rows from a Reference Table by their primary key values.
    * @param param The request object
    */
-  public deleteRows(
-    param: ReferenceTablesApiDeleteRowsRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteRows(
-      param.id,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.deleteRows(responseContext);
+  public deleteRows(param: ReferenceTablesApiDeleteRowsRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteRows(param.id,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.deleteRows(responseContext);
         });
     });
   }
@@ -1449,19 +1132,11 @@ export class ReferenceTablesApi {
    * Delete a reference table by ID
    * @param param The request object
    */
-  public deleteTable(
-    param: ReferenceTablesApiDeleteTableRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteTable(
-      param.id,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.deleteTable(responseContext);
+  public deleteTable(param: ReferenceTablesApiDeleteTableRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteTable(param.id,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.deleteTable(responseContext);
         });
     });
   }
@@ -1470,20 +1145,11 @@ export class ReferenceTablesApi {
    * Get reference table rows by their primary key values.
    * @param param The request object
    */
-  public getRowsByID(
-    param: ReferenceTablesApiGetRowsByIDRequest,
-    options?: Configuration
-  ): Promise<TableRowResourceArray> {
-    const requestContextPromise = this.requestFactory.getRowsByID(
-      param.id,
-      param.rowId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getRowsByID(responseContext);
+  public getRowsByID(param: ReferenceTablesApiGetRowsByIDRequest, options?: Configuration): Promise<TableRowResourceArray> {
+    const requestContextPromise = this.requestFactory.getRowsByID(param.id,param.rowId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getRowsByID(responseContext);
         });
     });
   }
@@ -1492,19 +1158,11 @@ export class ReferenceTablesApi {
    * Get a reference table by ID
    * @param param The request object
    */
-  public getTable(
-    param: ReferenceTablesApiGetTableRequest,
-    options?: Configuration
-  ): Promise<TableResultV2> {
-    const requestContextPromise = this.requestFactory.getTable(
-      param.id,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getTable(responseContext);
+  public getTable(param: ReferenceTablesApiGetTableRequest, options?: Configuration): Promise<TableResultV2> {
+    const requestContextPromise = this.requestFactory.getTable(param.id,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getTable(responseContext);
         });
     });
   }
@@ -1513,21 +1171,11 @@ export class ReferenceTablesApi {
    * List all rows in a reference table using cursor-based pagination. Pass the `page[continuation_token]` from the previous response to fetch the next page on the same consistent snapshot. Returns 400 for tables with more than 10,000,000 rows.
    * @param param The request object
    */
-  public listReferenceTableRows(
-    param: ReferenceTablesApiListReferenceTableRowsRequest,
-    options?: Configuration
-  ): Promise<ListRowsResponse> {
-    const requestContextPromise = this.requestFactory.listReferenceTableRows(
-      param.id,
-      param.pageLimit,
-      param.pageContinuationToken,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.listReferenceTableRows(responseContext);
+  public listReferenceTableRows(param: ReferenceTablesApiListReferenceTableRowsRequest, options?: Configuration): Promise<ListRowsResponse> {
+    const requestContextPromise = this.requestFactory.listReferenceTableRows(param.id,param.pageLimit,param.pageContinuationToken,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.listReferenceTableRows(responseContext);
         });
     });
   }
@@ -1536,24 +1184,11 @@ export class ReferenceTablesApi {
    * List all reference tables in this organization.
    * @param param The request object
    */
-  public listTables(
-    param: ReferenceTablesApiListTablesRequest = {},
-    options?: Configuration
-  ): Promise<TableResultV2Array> {
-    const requestContextPromise = this.requestFactory.listTables(
-      param.pageLimit,
-      param.pageOffset,
-      param.sort,
-      param.filterStatus,
-      param.filterTableNameExact,
-      param.filterTableNameContains,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.listTables(responseContext);
+  public listTables(param: ReferenceTablesApiListTablesRequest = {}, options?: Configuration): Promise<TableResultV2Array> {
+    const requestContextPromise = this.requestFactory.listTables(param.pageLimit,param.pageOffset,param.sort,param.filterStatus,param.filterTableNameExact,param.filterTableNameContains,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.listTables(responseContext);
         });
     });
   }
@@ -1562,20 +1197,11 @@ export class ReferenceTablesApi {
    * Update a reference table by ID. You can update the table's data, description, and tags. Note: The source type cannot be changed after table creation. For data updates: For existing tables of type `source:LOCAL_FILE`, call POST api/v2/reference-tables/uploads first to get an upload ID, then PUT chunks of CSV data to each provided URL, and finally call this PATCH endpoint with the upload_id in file_metadata. For existing tables with `source:` types of `S3`, `GCS`, or `AZURE`, provide updated access_details in file_metadata pointing to a CSV file in the same type of cloud storage.
    * @param param The request object
    */
-  public updateReferenceTable(
-    param: ReferenceTablesApiUpdateReferenceTableRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.updateReferenceTable(
-      param.id,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.updateReferenceTable(responseContext);
+  public updateReferenceTable(param: ReferenceTablesApiUpdateReferenceTableRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.updateReferenceTable(param.id,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.updateReferenceTable(responseContext);
         });
     });
   }
@@ -1584,20 +1210,11 @@ export class ReferenceTablesApi {
    * Create or update rows in a Reference Table by their primary key values. If a row with the specified primary key exists, it is updated; otherwise, a new row is created.
    * @param param The request object
    */
-  public upsertRows(
-    param: ReferenceTablesApiUpsertRowsRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.upsertRows(
-      param.id,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.upsertRows(responseContext);
+  public upsertRows(param: ReferenceTablesApiUpsertRowsRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.upsertRows(param.id,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.upsertRows(responseContext);
         });
     });
   }

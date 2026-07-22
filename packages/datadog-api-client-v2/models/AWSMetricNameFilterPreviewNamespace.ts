@@ -6,24 +6,29 @@
 import { AWSMetricNameFilterPreviewFilterMatch } from "./AWSMetricNameFilterPreviewFilterMatch";
 import { AWSMetricNameFilterPreviewMetric } from "./AWSMetricNameFilterPreviewMetric";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The metric name filter preview for a single namespace.
- */
+*/
 export class AWSMetricNameFilterPreviewNamespace {
   /**
    * The metric name filter patterns evaluated for this namespace and how many metrics they matched.
-   */
+  */
   "filters": Array<AWSMetricNameFilterPreviewFilterMatch>;
   /**
    * The CloudWatch metrics collected for this namespace and whether each resulting
    * Datadog metric is filtered.
-   */
+  */
   "metrics": Array<AWSMetricNameFilterPreviewMetric>;
   /**
    * The AWS CloudWatch namespace.
-   */
+  */
   "namespace": string;
 
   /**
@@ -31,7 +36,7 @@ export class AWSMetricNameFilterPreviewNamespace {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,20 +47,20 @@ export class AWSMetricNameFilterPreviewNamespace {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    filters: {
-      baseName: "filters",
-      type: "Array<AWSMetricNameFilterPreviewFilterMatch>",
-      required: true,
+    "filters": {
+      "baseName": "filters",
+      "type": "Array<AWSMetricNameFilterPreviewFilterMatch>",
+      "required": true,
     },
-    metrics: {
-      baseName: "metrics",
-      type: "Array<AWSMetricNameFilterPreviewMetric>",
-      required: true,
+    "metrics": {
+      "baseName": "metrics",
+      "type": "Array<AWSMetricNameFilterPreviewMetric>",
+      "required": true,
     },
-    namespace: {
-      baseName: "namespace",
-      type: "string",
-      required: true,
+    "namespace": {
+      "baseName": "namespace",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class AWSMetricNameFilterPreviewNamespace {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSMetricNameFilterPreviewNamespace.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

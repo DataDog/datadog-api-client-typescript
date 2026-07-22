@@ -5,15 +5,20 @@
  */
 import { AccountFilteringConfig } from "./AccountFilteringConfig";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for an account filters patch request.
- */
+*/
 export class AccountFiltersPatchRequestAttributes {
   /**
    * The account filtering configuration.
-   */
+  */
   "accountFilters": AccountFilteringConfig;
 
   /**
@@ -21,7 +26,7 @@ export class AccountFiltersPatchRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class AccountFiltersPatchRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    accountFilters: {
-      baseName: "account_filters",
-      type: "AccountFilteringConfig",
-      required: true,
+    "accountFilters": {
+      "baseName": "account_filters",
+      "type": "AccountFilteringConfig",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class AccountFiltersPatchRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AccountFiltersPatchRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -8,47 +8,52 @@ import { ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems } from
 import { ArbitraryCostUpsertRequestDataAttributesStrategyBasedOnCostsItems } from "./ArbitraryCostUpsertRequestDataAttributesStrategyBasedOnCostsItems";
 import { ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems } from "./ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `ArbitraryCostUpsertRequestDataAttributesStrategy` object.
- */
+*/
 export class ArbitraryCostUpsertRequestDataAttributesStrategy {
   /**
    * The `strategy` `allocated_by`.
-   */
+  */
   "allocatedBy"?: Array<ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems>;
   /**
    * The `strategy` `allocated_by_filters`.
-   */
+  */
   "allocatedByFilters"?: Array<ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByFiltersItems>;
   /**
    * The `strategy` `allocated_by_tag_keys`.
-   */
+  */
   "allocatedByTagKeys"?: Array<string>;
   /**
    * The `strategy` `based_on_costs`.
-   */
+  */
   "basedOnCosts"?: Array<ArbitraryCostUpsertRequestDataAttributesStrategyBasedOnCostsItems>;
   /**
    * The `strategy` `based_on_timeseries`.
-   */
-  "basedOnTimeseries"?: { [key: string]: any };
+  */
+  "basedOnTimeseries"?: { [key: string]: any; };
   /**
    * The `strategy` `evaluate_grouped_by_filters`.
-   */
+  */
   "evaluateGroupedByFilters"?: Array<ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems>;
   /**
    * The `strategy` `evaluate_grouped_by_tag_keys`.
-   */
+  */
   "evaluateGroupedByTagKeys"?: Array<string>;
   /**
    * The `strategy` `granularity`.
-   */
+  */
   "granularity"?: string;
   /**
    * The `strategy` `method`.
-   */
+  */
   "method": string;
 
   /**
@@ -56,7 +61,7 @@ export class ArbitraryCostUpsertRequestDataAttributesStrategy {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -67,42 +72,42 @@ export class ArbitraryCostUpsertRequestDataAttributesStrategy {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    allocatedBy: {
-      baseName: "allocated_by",
-      type: "Array<ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems>",
+    "allocatedBy": {
+      "baseName": "allocated_by",
+      "type": "Array<ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems>",
     },
-    allocatedByFilters: {
-      baseName: "allocated_by_filters",
-      type: "Array<ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByFiltersItems>",
+    "allocatedByFilters": {
+      "baseName": "allocated_by_filters",
+      "type": "Array<ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByFiltersItems>",
     },
-    allocatedByTagKeys: {
-      baseName: "allocated_by_tag_keys",
-      type: "Array<string>",
+    "allocatedByTagKeys": {
+      "baseName": "allocated_by_tag_keys",
+      "type": "Array<string>",
     },
-    basedOnCosts: {
-      baseName: "based_on_costs",
-      type: "Array<ArbitraryCostUpsertRequestDataAttributesStrategyBasedOnCostsItems>",
+    "basedOnCosts": {
+      "baseName": "based_on_costs",
+      "type": "Array<ArbitraryCostUpsertRequestDataAttributesStrategyBasedOnCostsItems>",
     },
-    basedOnTimeseries: {
-      baseName: "based_on_timeseries",
-      type: "{ [key: string]: any; }",
+    "basedOnTimeseries": {
+      "baseName": "based_on_timeseries",
+      "type": "{ [key: string]: any; }",
     },
-    evaluateGroupedByFilters: {
-      baseName: "evaluate_grouped_by_filters",
-      type: "Array<ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems>",
+    "evaluateGroupedByFilters": {
+      "baseName": "evaluate_grouped_by_filters",
+      "type": "Array<ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems>",
     },
-    evaluateGroupedByTagKeys: {
-      baseName: "evaluate_grouped_by_tag_keys",
-      type: "Array<string>",
+    "evaluateGroupedByTagKeys": {
+      "baseName": "evaluate_grouped_by_tag_keys",
+      "type": "Array<string>",
     },
-    granularity: {
-      baseName: "granularity",
-      type: "string",
+    "granularity": {
+      "baseName": "granularity",
+      "type": "string",
     },
-    method: {
-      baseName: "method",
-      type: "string",
-      required: true,
+    "method": {
+      "baseName": "method",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -114,8 +119,34 @@ export class ArbitraryCostUpsertRequestDataAttributesStrategy {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ArbitraryCostUpsertRequestDataAttributesStrategy.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

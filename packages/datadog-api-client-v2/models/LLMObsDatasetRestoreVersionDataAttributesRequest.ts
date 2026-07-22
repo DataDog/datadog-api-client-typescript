@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for restoring an LLM Observability dataset to a previous version.
- */
+*/
 export class LLMObsDatasetRestoreVersionDataAttributesRequest {
   /**
    * Version number of the dataset to restore. Must be between 0 and the current version of the dataset, inclusive.
-   */
+  */
   "datasetVersion": number;
 
   /**
@@ -20,7 +25,7 @@ export class LLMObsDatasetRestoreVersionDataAttributesRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,11 +36,11 @@ export class LLMObsDatasetRestoreVersionDataAttributesRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    datasetVersion: {
-      baseName: "dataset_version",
-      type: "number",
-      required: true,
-      format: "int32",
+    "datasetVersion": {
+      "baseName": "dataset_version",
+      "type": "number",
+      "required": true,
+      "format": "int32",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class LLMObsDatasetRestoreVersionDataAttributesRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsDatasetRestoreVersionDataAttributesRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

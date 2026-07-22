@@ -1,13 +1,12 @@
-import { BaseAPIRequestFactory } from "../../datadog-api-client-common/baseapi";
-import {
-  Configuration,
-  applySecurityAuthentication,
-} from "../../datadog-api-client-common/configuration";
+import { BaseAPIRequestFactory, RequiredError } from "../../datadog-api-client-common/baseapi";
+import { Configuration,
+  applySecurityAuthentication,} from "../../datadog-api-client-common/configuration";
 import {
   RequestContext,
   HttpMethod,
   ResponseContext,
-} from "../../datadog-api-client-common/http/http";
+    
+  } from "../../datadog-api-client-common/http/http";
 
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
@@ -18,73 +17,47 @@ import { SingleAggregatedConnectionResponseArray } from "../models/SingleAggrega
 import { SingleAggregatedDnsResponseArray } from "../models/SingleAggregatedDnsResponseArray";
 
 export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFactory {
-  public async getAggregatedConnections(
-    from?: number,
-    to?: number,
-    groupBy?: string,
-    tags?: string,
-    query?: string,
-    limit?: number,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+
+  public async getAggregatedConnections(from?: number,to?: number,groupBy?: string,tags?: string,query?: string,limit?: number,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = "/api/v2/network/connections/aggregate";
+    const localVarPath = '/api/v2/network/connections/aggregate';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CloudNetworkMonitoringApi.getAggregatedConnections")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.CloudNetworkMonitoringApi.getAggregatedConnections').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
-    if (from !== undefined) {
-      requestContext.setQueryParam(
-        "from",
-        ObjectSerializer.serialize(from, "number", "int64"),
-        ""
-      );
+  if (from !== undefined) {
+      requestContext.setQueryParam("from", ObjectSerializer.serialize(from, "number", "int64"
+), "");
     }
-    if (to !== undefined) {
-      requestContext.setQueryParam(
-        "to",
-        ObjectSerializer.serialize(to, "number", "int64"),
-        ""
-      );
+  if (to !== undefined) {
+      requestContext.setQueryParam("to", ObjectSerializer.serialize(to, "number", "int64"
+), "");
     }
-    if (groupBy !== undefined) {
-      requestContext.setQueryParam(
-        "group_by",
-        ObjectSerializer.serialize(groupBy, "string", ""),
-        ""
-      );
+  if (groupBy !== undefined) {
+      requestContext.setQueryParam("group_by", ObjectSerializer.serialize(groupBy, "string", ""
+), "");
     }
-    if (tags !== undefined) {
-      requestContext.setQueryParam(
-        "tags",
-        ObjectSerializer.serialize(tags, "string", ""),
-        ""
-      );
+  if (tags !== undefined) {
+      requestContext.setQueryParam("tags", ObjectSerializer.serialize(tags, "string", ""
+), "");
     }
-    if (query !== undefined) {
-      requestContext.setQueryParam(
-        "query",
-        ObjectSerializer.serialize(query, "string", ""),
-        ""
-      );
+  if (query !== undefined) {
+      requestContext.setQueryParam("query", ObjectSerializer.serialize(query, "string", ""
+), "");
     }
-    if (limit !== undefined) {
-      requestContext.setQueryParam(
-        "limit",
-        ObjectSerializer.serialize(limit, "number", "int32"),
-        ""
-      );
+  if (limit !== undefined) {
+      requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", "int32"
+), "");
     }
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -92,73 +65,46 @@ export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFacto
     return requestContext;
   }
 
-  public async getAggregatedDns(
-    from?: number,
-    to?: number,
-    groupBy?: string,
-    tags?: string,
-    query?: string,
-    limit?: number,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async getAggregatedDns(from?: number,to?: number,groupBy?: string,tags?: string,query?: string,limit?: number,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = "/api/v2/network/dns/aggregate";
+    const localVarPath = '/api/v2/network/dns/aggregate';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CloudNetworkMonitoringApi.getAggregatedDns")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.CloudNetworkMonitoringApi.getAggregatedDns').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
-    if (from !== undefined) {
-      requestContext.setQueryParam(
-        "from",
-        ObjectSerializer.serialize(from, "number", "int64"),
-        ""
-      );
+  if (from !== undefined) {
+      requestContext.setQueryParam("from", ObjectSerializer.serialize(from, "number", "int64"
+), "");
     }
-    if (to !== undefined) {
-      requestContext.setQueryParam(
-        "to",
-        ObjectSerializer.serialize(to, "number", "int64"),
-        ""
-      );
+  if (to !== undefined) {
+      requestContext.setQueryParam("to", ObjectSerializer.serialize(to, "number", "int64"
+), "");
     }
-    if (groupBy !== undefined) {
-      requestContext.setQueryParam(
-        "group_by",
-        ObjectSerializer.serialize(groupBy, "string", ""),
-        ""
-      );
+  if (groupBy !== undefined) {
+      requestContext.setQueryParam("group_by", ObjectSerializer.serialize(groupBy, "string", ""
+), "");
     }
-    if (tags !== undefined) {
-      requestContext.setQueryParam(
-        "tags",
-        ObjectSerializer.serialize(tags, "string", ""),
-        ""
-      );
+  if (tags !== undefined) {
+      requestContext.setQueryParam("tags", ObjectSerializer.serialize(tags, "string", ""
+), "");
     }
-    if (query !== undefined) {
-      requestContext.setQueryParam(
-        "query",
-        ObjectSerializer.serialize(query, "string", ""),
-        ""
-      );
+  if (query !== undefined) {
+      requestContext.setQueryParam("query", ObjectSerializer.serialize(query, "string", ""
+), "");
     }
-    if (limit !== undefined) {
-      requestContext.setQueryParam(
-        "limit",
-        ObjectSerializer.serialize(limit, "number", "int32"),
-        ""
-      );
+  if (limit !== undefined) {
+      requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", "int32"
+), "");
     }
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
+      applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -168,6 +114,8 @@ export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFacto
 }
 
 export class CloudNetworkMonitoringApiResponseProcessor {
+
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -175,25 +123,17 @@ export class CloudNetworkMonitoringApiResponseProcessor {
    * @params response Response returned by the server for a request to getAggregatedConnections
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getAggregatedConnections(
-    response: ResponseContext
-  ): Promise<SingleAggregatedConnectionResponseArray> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getAggregatedConnections(response: ResponseContext): Promise<SingleAggregatedConnectionResponseArray> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SingleAggregatedConnectionResponseArray =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SingleAggregatedConnectionResponseArray"
-        ) as SingleAggregatedConnectionResponseArray;
+      const body: SingleAggregatedConnectionResponseArray = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SingleAggregatedConnectionResponseArray"
+      ) as SingleAggregatedConnectionResponseArray;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -202,31 +142,25 @@ export class CloudNetworkMonitoringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SingleAggregatedConnectionResponseArray =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SingleAggregatedConnectionResponseArray",
-          ""
-        ) as SingleAggregatedConnectionResponseArray;
+      const body: SingleAggregatedConnectionResponseArray = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SingleAggregatedConnectionResponseArray",
+        "",
+      ) as SingleAggregatedConnectionResponseArray;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
+
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
@@ -235,25 +169,17 @@ export class CloudNetworkMonitoringApiResponseProcessor {
    * @params response Response returned by the server for a request to getAggregatedDns
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getAggregatedDns(
-    response: ResponseContext
-  ): Promise<SingleAggregatedDnsResponseArray> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getAggregatedDns(response: ResponseContext): Promise<SingleAggregatedDnsResponseArray> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SingleAggregatedDnsResponseArray =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SingleAggregatedDnsResponseArray"
-        ) as SingleAggregatedDnsResponseArray;
+      const body: SingleAggregatedDnsResponseArray = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SingleAggregatedDnsResponseArray"
+      ) as SingleAggregatedDnsResponseArray;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -262,30 +188,23 @@ export class CloudNetworkMonitoringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
+   // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SingleAggregatedDnsResponseArray =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SingleAggregatedDnsResponseArray",
-          ""
-        ) as SingleAggregatedDnsResponseArray;
+      const body: SingleAggregatedDnsResponseArray = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SingleAggregatedDnsResponseArray",
+        "",
+      ) as SingleAggregatedDnsResponseArray;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 }
 
@@ -294,32 +213,32 @@ export interface CloudNetworkMonitoringApiGetAggregatedConnectionsRequest {
    * Unix timestamp (number of seconds since epoch) of the start of the query window. If not provided, the start of the query window is 15 minutes before the `to` timestamp. If neither `from` nor `to` are provided, the query window is `[now - 15m, now]`.
    * @type number
    */
-  from?: number;
+  from?: number
   /**
    * Unix timestamp (number of seconds since epoch) of the end of the query window. If not provided, the end of the query window is the current time. If neither `from` nor `to` are provided, the query window is `[now - 15m, now]`.
    * @type number
    */
-  to?: number;
+  to?: number
   /**
    * Comma-separated list of fields to group connections by. The maximum number of group_by(s) is 10.
    * @type string
    */
-  groupBy?: string;
+  groupBy?: string
   /**
    * Comma-separated list of tags to filter connections by.
    * @type string
    */
-  tags?: string;
+  tags?: string
   /**
    * Free-form search query using AND/OR/NOT operators, wildcards, and parentheses. When provided, takes precedence over the `tags` parameter.
    * @type string
    */
-  query?: string;
+  query?: string
   /**
    * The number of connections to be returned. The maximum value is 7500. The default is 100.
    * @type number
    */
-  limit?: number;
+  limit?: number
 }
 
 export interface CloudNetworkMonitoringApiGetAggregatedDnsRequest {
@@ -327,32 +246,32 @@ export interface CloudNetworkMonitoringApiGetAggregatedDnsRequest {
    * Unix timestamp (number of seconds since epoch) of the start of the query window. If not provided, the start of the query window is 15 minutes before the `to` timestamp. If neither `from` nor `to` are provided, the query window is `[now - 15m, now]`.
    * @type number
    */
-  from?: number;
+  from?: number
   /**
    * Unix timestamp (number of seconds since epoch) of the end of the query window. If not provided, the end of the query window is the current time. If neither `from` nor `to` are provided, the query window is `[now - 15m, now]`.
    * @type number
    */
-  to?: number;
+  to?: number
   /**
    * Comma-separated list of fields to group DNS traffic by. The server side defaults to `network.dns_query` if unspecified. `server_ungrouped` may be used if groups are not desired. The maximum number of group_by(s) is 10.
    * @type string
    */
-  groupBy?: string;
+  groupBy?: string
   /**
    * Comma-separated list of tags to filter DNS traffic by.
    * @type string
    */
-  tags?: string;
+  tags?: string
   /**
    * Free-form search query using AND/OR/NOT operators, wildcards, and parentheses. When provided, takes precedence over the `tags` parameter.
    * @type string
    */
-  query?: string;
+  query?: string
   /**
    * The number of aggregated DNS entries to be returned. The maximum value is 7500. The default is 100.
    * @type number
    */
-  limit?: number;
+  limit?: number
 }
 
 export class CloudNetworkMonitoringApi {
@@ -360,43 +279,21 @@ export class CloudNetworkMonitoringApi {
   private responseProcessor: CloudNetworkMonitoringApiResponseProcessor;
   private configuration: Configuration;
 
-  public constructor(
-    configuration: Configuration,
-    requestFactory?: CloudNetworkMonitoringApiRequestFactory,
-    responseProcessor?: CloudNetworkMonitoringApiResponseProcessor
-  ) {
+  public constructor(configuration: Configuration, requestFactory?: CloudNetworkMonitoringApiRequestFactory, responseProcessor?: CloudNetworkMonitoringApiResponseProcessor) {
     this.configuration = configuration;
-    this.requestFactory =
-      requestFactory ||
-      new CloudNetworkMonitoringApiRequestFactory(configuration);
-    this.responseProcessor =
-      responseProcessor || new CloudNetworkMonitoringApiResponseProcessor();
+    this.requestFactory = requestFactory || new CloudNetworkMonitoringApiRequestFactory(configuration);
+    this.responseProcessor = responseProcessor || new CloudNetworkMonitoringApiResponseProcessor();
   }
 
   /**
    * Get all aggregated connections.
    * @param param The request object
    */
-  public getAggregatedConnections(
-    param: CloudNetworkMonitoringApiGetAggregatedConnectionsRequest = {},
-    options?: Configuration
-  ): Promise<SingleAggregatedConnectionResponseArray> {
-    const requestContextPromise = this.requestFactory.getAggregatedConnections(
-      param.from,
-      param.to,
-      param.groupBy,
-      param.tags,
-      param.query,
-      param.limit,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getAggregatedConnections(
-            responseContext
-          );
+  public getAggregatedConnections(param: CloudNetworkMonitoringApiGetAggregatedConnectionsRequest = {}, options?: Configuration): Promise<SingleAggregatedConnectionResponseArray> {
+    const requestContextPromise = this.requestFactory.getAggregatedConnections(param.from,param.to,param.groupBy,param.tags,param.query,param.limit,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getAggregatedConnections(responseContext);
         });
     });
   }
@@ -405,24 +302,11 @@ export class CloudNetworkMonitoringApi {
    * Get all aggregated DNS traffic.
    * @param param The request object
    */
-  public getAggregatedDns(
-    param: CloudNetworkMonitoringApiGetAggregatedDnsRequest = {},
-    options?: Configuration
-  ): Promise<SingleAggregatedDnsResponseArray> {
-    const requestContextPromise = this.requestFactory.getAggregatedDns(
-      param.from,
-      param.to,
-      param.groupBy,
-      param.tags,
-      param.query,
-      param.limit,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getAggregatedDns(responseContext);
+  public getAggregatedDns(param: CloudNetworkMonitoringApiGetAggregatedDnsRequest = {}, options?: Configuration): Promise<SingleAggregatedDnsResponseArray> {
+    const requestContextPromise = this.requestFactory.getAggregatedDns(param.from,param.to,param.groupBy,param.tags,param.query,param.limit,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getAggregatedDns(responseContext);
         });
     });
   }

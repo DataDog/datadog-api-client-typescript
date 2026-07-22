@@ -5,23 +5,28 @@
  */
 import { ComponentRecommendation } from "./ComponentRecommendation";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of the SPA Recommendation resource. Contains recommendations for both driver and executor components.
- */
+*/
 export class RecommendationAttributes {
   /**
    * The confidence level of the recommendation, expressed as a value between 0.0 (low confidence) and 1.0 (high confidence).
-   */
+  */
   "confidenceLevel"?: number;
   /**
    * Resource recommendation for a single Spark component (driver or executor). Contains estimation data used to patch Spark job specs.
-   */
+  */
   "driver": ComponentRecommendation;
   /**
    * Resource recommendation for a single Spark component (driver or executor). Contains estimation data used to patch Spark job specs.
-   */
+  */
   "executor": ComponentRecommendation;
 
   /**
@@ -29,7 +34,7 @@ export class RecommendationAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,20 +45,20 @@ export class RecommendationAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    confidenceLevel: {
-      baseName: "confidence_level",
-      type: "number",
-      format: "double",
+    "confidenceLevel": {
+      "baseName": "confidence_level",
+      "type": "number",
+      "format": "double",
     },
-    driver: {
-      baseName: "driver",
-      type: "ComponentRecommendation",
-      required: true,
+    "driver": {
+      "baseName": "driver",
+      "type": "ComponentRecommendation",
+      "required": true,
     },
-    executor: {
-      baseName: "executor",
-      type: "ComponentRecommendation",
-      required: true,
+    "executor": {
+      "baseName": "executor",
+      "type": "ComponentRecommendation",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class RecommendationAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RecommendationAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

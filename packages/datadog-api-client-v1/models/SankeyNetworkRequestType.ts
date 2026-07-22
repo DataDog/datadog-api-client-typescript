@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of request for network Sankey widget.
- */
+*/
 
 export type SankeyNetworkRequestType = typeof NETFLOW_SANKEY | UnparsedObject;
-export const NETFLOW_SANKEY = "netflow_sankey";
+export const NETFLOW_SANKEY = 'netflow_sankey';

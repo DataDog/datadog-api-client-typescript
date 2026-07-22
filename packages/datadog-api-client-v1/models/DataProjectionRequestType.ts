@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of a data projection request.
- */
+*/
 
 export type DataProjectionRequestType = typeof DATA_PROJECTION | UnparsedObject;
-export const DATA_PROJECTION = "data_projection";
+export const DATA_PROJECTION = 'data_projection';

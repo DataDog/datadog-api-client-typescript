@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Connection id resource type.
- */
+*/
 
-export type UpdateConnectionRequestDataType =
-  | typeof CONNECTION_ID
-  | UnparsedObject;
-export const CONNECTION_ID = "connection_id";
+export type UpdateConnectionRequestDataType = typeof CONNECTION_ID | UnparsedObject;
+export const CONNECTION_ID = 'connection_id';

@@ -5,15 +5,20 @@
  */
 import { TestOptimizationDeleteServiceSettingsRequestData } from "./TestOptimizationDeleteServiceSettingsRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request object for deleting Test Optimization service settings.
- */
+*/
 export class TestOptimizationDeleteServiceSettingsRequest {
   /**
    * Data object for delete service settings request.
-   */
+  */
   "data": TestOptimizationDeleteServiceSettingsRequestData;
 
   /**
@@ -21,7 +26,7 @@ export class TestOptimizationDeleteServiceSettingsRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class TestOptimizationDeleteServiceSettingsRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "TestOptimizationDeleteServiceSettingsRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "TestOptimizationDeleteServiceSettingsRequestData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class TestOptimizationDeleteServiceSettingsRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TestOptimizationDeleteServiceSettingsRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

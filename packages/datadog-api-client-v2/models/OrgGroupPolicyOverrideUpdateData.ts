@@ -6,23 +6,28 @@
 import { OrgGroupPolicyOverrideType } from "./OrgGroupPolicyOverrideType";
 import { OrgGroupPolicyOverrideUpdateAttributes } from "./OrgGroupPolicyOverrideUpdateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for updating a policy override.
- */
+*/
 export class OrgGroupPolicyOverrideUpdateData {
   /**
    * Attributes for updating a policy override. The `org_uuid` and `org_site` fields must match the existing override and cannot be changed.
-   */
+  */
   "attributes": OrgGroupPolicyOverrideUpdateAttributes;
   /**
    * The ID of the policy override.
-   */
+  */
   "id": string;
   /**
    * Org group policy overrides resource type.
-   */
+  */
   "type": OrgGroupPolicyOverrideType;
 
   /**
@@ -30,7 +35,7 @@ export class OrgGroupPolicyOverrideUpdateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,21 +46,21 @@ export class OrgGroupPolicyOverrideUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "OrgGroupPolicyOverrideUpdateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "OrgGroupPolicyOverrideUpdateAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    type: {
-      baseName: "type",
-      type: "OrgGroupPolicyOverrideType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "OrgGroupPolicyOverrideType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class OrgGroupPolicyOverrideUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgGroupPolicyOverrideUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -7,14 +7,15 @@ import { ObservabilityPipelineDiskBufferOptions } from "./ObservabilityPipelineD
 import { ObservabilityPipelineMemoryBufferOptions } from "./ObservabilityPipelineMemoryBufferOptions";
 import { ObservabilityPipelineMemoryBufferSizeOptions } from "./ObservabilityPipelineMemoryBufferSizeOptions";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Configuration for buffer settings on destination components.
- */
+*/
 
-export type ObservabilityPipelineBufferOptions =
-  | ObservabilityPipelineDiskBufferOptions
-  | ObservabilityPipelineMemoryBufferOptions
-  | ObservabilityPipelineMemoryBufferSizeOptions
-  | UnparsedObject;
+export type ObservabilityPipelineBufferOptions = ObservabilityPipelineDiskBufferOptions | ObservabilityPipelineMemoryBufferOptions | ObservabilityPipelineMemoryBufferSizeOptions | UnparsedObject;

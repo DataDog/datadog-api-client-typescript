@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * On-demand concurrency cap type.
- */
+*/
 
-export type OnDemandConcurrencyCapType =
-  | typeof ON_DEMAND_CONCURRENCY_CAP
-  | UnparsedObject;
-export const ON_DEMAND_CONCURRENCY_CAP = "on_demand_concurrency_cap";
+export type OnDemandConcurrencyCapType = typeof ON_DEMAND_CONCURRENCY_CAP | UnparsedObject;
+export const ON_DEMAND_CONCURRENCY_CAP = 'on_demand_concurrency_cap';

@@ -7,35 +7,40 @@ import { FleetConfigurationFile } from "./FleetConfigurationFile";
 import { FleetDetectedIntegration } from "./FleetDetectedIntegration";
 import { FleetIntegrationDetails } from "./FleetIntegrationDetails";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Integrations organized by their status.
- */
+*/
 export class FleetIntegrationsByStatus {
   /**
    * Configuration files for integrations.
-   */
+  */
   "configurationFiles"?: Array<FleetConfigurationFile>;
   /**
    * The unique agent key identifier.
-   */
+  */
   "datadogAgentKey"?: string;
   /**
    * Integrations with errors.
-   */
+  */
   "errorIntegrations"?: Array<FleetIntegrationDetails>;
   /**
    * Detected but not configured integrations.
-   */
+  */
   "missingIntegrations"?: Array<FleetDetectedIntegration>;
   /**
    * Integrations with warnings.
-   */
+  */
   "warningIntegrations"?: Array<FleetIntegrationDetails>;
   /**
    * Integrations that are working correctly.
-   */
+  */
   "workingIntegrations"?: Array<FleetIntegrationDetails>;
 
   /**
@@ -43,7 +48,7 @@ export class FleetIntegrationsByStatus {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -54,29 +59,29 @@ export class FleetIntegrationsByStatus {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    configurationFiles: {
-      baseName: "configuration_files",
-      type: "Array<FleetConfigurationFile>",
+    "configurationFiles": {
+      "baseName": "configuration_files",
+      "type": "Array<FleetConfigurationFile>",
     },
-    datadogAgentKey: {
-      baseName: "datadog_agent_key",
-      type: "string",
+    "datadogAgentKey": {
+      "baseName": "datadog_agent_key",
+      "type": "string",
     },
-    errorIntegrations: {
-      baseName: "error_integrations",
-      type: "Array<FleetIntegrationDetails>",
+    "errorIntegrations": {
+      "baseName": "error_integrations",
+      "type": "Array<FleetIntegrationDetails>",
     },
-    missingIntegrations: {
-      baseName: "missing_integrations",
-      type: "Array<FleetDetectedIntegration>",
+    "missingIntegrations": {
+      "baseName": "missing_integrations",
+      "type": "Array<FleetDetectedIntegration>",
     },
-    warningIntegrations: {
-      baseName: "warning_integrations",
-      type: "Array<FleetIntegrationDetails>",
+    "warningIntegrations": {
+      "baseName": "warning_integrations",
+      "type": "Array<FleetIntegrationDetails>",
     },
-    workingIntegrations: {
-      baseName: "working_integrations",
-      type: "Array<FleetIntegrationDetails>",
+    "workingIntegrations": {
+      "baseName": "working_integrations",
+      "type": "Array<FleetIntegrationDetails>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -88,8 +93,34 @@ export class FleetIntegrationsByStatus {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FleetIntegrationsByStatus.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

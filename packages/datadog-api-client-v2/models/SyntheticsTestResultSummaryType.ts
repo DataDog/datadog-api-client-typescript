@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of the Synthetic test result summary resource, `result_summary`.
- */
+*/
 
-export type SyntheticsTestResultSummaryType =
-  | typeof RESULT_SUMMARY
-  | UnparsedObject;
-export const RESULT_SUMMARY = "result_summary";
+export type SyntheticsTestResultSummaryType = typeof RESULT_SUMMARY | UnparsedObject;
+export const RESULT_SUMMARY = 'result_summary';

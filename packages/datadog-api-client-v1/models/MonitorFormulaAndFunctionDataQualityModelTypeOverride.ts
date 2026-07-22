@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Override for the model type used in anomaly detection.
- */
+*/
 
-export type MonitorFormulaAndFunctionDataQualityModelTypeOverride =
-  | typeof FRESHNESS
-  | typeof PERCENTAGE
-  | typeof ANY
-  | UnparsedObject;
-export const FRESHNESS = "freshness";
-export const PERCENTAGE = "percentage";
-export const ANY = "any";
+export type MonitorFormulaAndFunctionDataQualityModelTypeOverride = typeof FRESHNESS| typeof PERCENTAGE| typeof ANY | UnparsedObject;
+export const FRESHNESS = 'freshness';
+export const PERCENTAGE = 'percentage';
+export const ANY = 'any';

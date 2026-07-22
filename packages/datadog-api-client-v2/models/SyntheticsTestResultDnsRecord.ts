@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A DNS record returned in a DNS test response.
- */
+*/
 export class SyntheticsTestResultDnsRecord {
   /**
    * DNS record type (for example, `A`, `AAAA`, `CNAME`).
-   */
+  */
   "type"?: string;
   /**
    * Values associated with the DNS record.
-   */
+  */
   "values"?: Array<string>;
 
   /**
@@ -24,7 +29,7 @@ export class SyntheticsTestResultDnsRecord {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,13 +40,13 @@ export class SyntheticsTestResultDnsRecord {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
-    values: {
-      baseName: "values",
-      type: "Array<string>",
+    "values": {
+      "baseName": "values",
+      "type": "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,8 +58,34 @@ export class SyntheticsTestResultDnsRecord {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultDnsRecord.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

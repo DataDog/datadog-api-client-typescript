@@ -6,23 +6,28 @@
 import { SecurityFindingsAttributes } from "./SecurityFindingsAttributes";
 import { SecurityFindingsDataType } from "./SecurityFindingsDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A single security finding.
- */
+*/
 export class SecurityFindingsData {
   /**
    * The JSON object containing all attributes of the security finding.
-   */
+  */
   "attributes"?: SecurityFindingsAttributes;
   /**
    * The unique ID of the security finding.
-   */
+  */
   "id"?: string;
   /**
    * The type of the security finding resource.
-   */
+  */
   "type"?: SecurityFindingsDataType;
 
   /**
@@ -30,7 +35,7 @@ export class SecurityFindingsData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class SecurityFindingsData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SecurityFindingsAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SecurityFindingsAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SecurityFindingsDataType",
+    "type": {
+      "baseName": "type",
+      "type": "SecurityFindingsDataType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class SecurityFindingsData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityFindingsData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

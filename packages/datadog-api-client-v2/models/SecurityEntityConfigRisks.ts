@@ -4,35 +4,40 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Configuration risks associated with the entity
- */
+*/
 export class SecurityEntityConfigRisks {
   /**
    * Whether the entity has identity risks
-   */
+  */
   "hasIdentityRisk": boolean;
   /**
    * Whether the entity has misconfigurations
-   */
+  */
   "hasMisconfiguration": boolean;
   /**
    * Whether the entity has privileged roles
-   */
+  */
   "hasPrivilegedRole": boolean;
   /**
    * Whether the entity has privileged access
-   */
+  */
   "isPrivileged": boolean;
   /**
    * Whether the entity is in a production environment
-   */
+  */
   "isProduction": boolean;
   /**
    * Whether the entity is publicly accessible
-   */
+  */
   "isPubliclyAccessible": boolean;
 
   /**
@@ -40,7 +45,7 @@ export class SecurityEntityConfigRisks {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -51,35 +56,35 @@ export class SecurityEntityConfigRisks {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    hasIdentityRisk: {
-      baseName: "hasIdentityRisk",
-      type: "boolean",
-      required: true,
+    "hasIdentityRisk": {
+      "baseName": "hasIdentityRisk",
+      "type": "boolean",
+      "required": true,
     },
-    hasMisconfiguration: {
-      baseName: "hasMisconfiguration",
-      type: "boolean",
-      required: true,
+    "hasMisconfiguration": {
+      "baseName": "hasMisconfiguration",
+      "type": "boolean",
+      "required": true,
     },
-    hasPrivilegedRole: {
-      baseName: "hasPrivilegedRole",
-      type: "boolean",
-      required: true,
+    "hasPrivilegedRole": {
+      "baseName": "hasPrivilegedRole",
+      "type": "boolean",
+      "required": true,
     },
-    isPrivileged: {
-      baseName: "isPrivileged",
-      type: "boolean",
-      required: true,
+    "isPrivileged": {
+      "baseName": "isPrivileged",
+      "type": "boolean",
+      "required": true,
     },
-    isProduction: {
-      baseName: "isProduction",
-      type: "boolean",
-      required: true,
+    "isProduction": {
+      "baseName": "isProduction",
+      "type": "boolean",
+      "required": true,
     },
-    isPubliclyAccessible: {
-      baseName: "isPubliclyAccessible",
-      type: "boolean",
-      required: true,
+    "isPubliclyAccessible": {
+      "baseName": "isPubliclyAccessible",
+      "type": "boolean",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -91,8 +96,34 @@ export class SecurityEntityConfigRisks {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityEntityConfigRisks.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

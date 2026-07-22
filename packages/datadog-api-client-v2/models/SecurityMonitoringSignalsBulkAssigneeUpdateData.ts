@@ -6,23 +6,28 @@
 import { SecurityMonitoringSignalsBulkAssigneeUpdateAttributes } from "./SecurityMonitoringSignalsBulkAssigneeUpdateAttributes";
 import { SecurityMonitoringSignalType } from "./SecurityMonitoringSignalType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for updating the assignees for multiple security signals.
- */
+*/
 export class SecurityMonitoringSignalsBulkAssigneeUpdateData {
   /**
    * Attributes describing the new assignees for a bulk signal update.
-   */
+  */
   "attributes": SecurityMonitoringSignalsBulkAssigneeUpdateAttributes;
   /**
    * The unique ID of the security signal.
-   */
+  */
   "id": string;
   /**
    * The type of event.
-   */
+  */
   "type"?: SecurityMonitoringSignalType;
 
   /**
@@ -30,7 +35,7 @@ export class SecurityMonitoringSignalsBulkAssigneeUpdateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class SecurityMonitoringSignalsBulkAssigneeUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SecurityMonitoringSignalsBulkAssigneeUpdateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SecurityMonitoringSignalsBulkAssigneeUpdateAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "SecurityMonitoringSignalType",
+    "type": {
+      "baseName": "type",
+      "type": "SecurityMonitoringSignalType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class SecurityMonitoringSignalsBulkAssigneeUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringSignalsBulkAssigneeUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

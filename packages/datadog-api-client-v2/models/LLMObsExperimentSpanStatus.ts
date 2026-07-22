@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Status of the span.
- */
+*/
 
-export type LLMObsExperimentSpanStatus =
-  | typeof OK
-  | typeof ERROR
-  | UnparsedObject;
-export const OK = "ok";
-export const ERROR = "error";
+export type LLMObsExperimentSpanStatus = typeof OK| typeof ERROR | UnparsedObject;
+export const OK = 'ok';
+export const ERROR = 'error';

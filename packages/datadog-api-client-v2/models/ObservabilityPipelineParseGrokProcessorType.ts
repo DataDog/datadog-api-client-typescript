@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The processor type. The value should always be `parse_grok`.
- */
+*/
 
-export type ObservabilityPipelineParseGrokProcessorType =
-  | typeof PARSE_GROK
-  | UnparsedObject;
-export const PARSE_GROK = "parse_grok";
+export type ObservabilityPipelineParseGrokProcessorType = typeof PARSE_GROK | UnparsedObject;
+export const PARSE_GROK = 'parse_grok';

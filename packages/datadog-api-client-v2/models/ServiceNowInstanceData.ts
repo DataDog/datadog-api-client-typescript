@@ -6,23 +6,28 @@
 import { ServiceNowInstanceAttributes } from "./ServiceNowInstanceAttributes";
 import { ServiceNowInstanceType } from "./ServiceNowInstanceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for a ServiceNow instance
- */
+*/
 export class ServiceNowInstanceData {
   /**
    * Attributes of a ServiceNow instance
-   */
+  */
   "attributes": ServiceNowInstanceAttributes;
   /**
    * Unique identifier for the ServiceNow instance
-   */
+  */
   "id": string;
   /**
    * Type identifier for ServiceNow instance resources
-   */
+  */
   "type": ServiceNowInstanceType;
 
   /**
@@ -30,7 +35,7 @@ export class ServiceNowInstanceData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,21 +46,21 @@ export class ServiceNowInstanceData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ServiceNowInstanceAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ServiceNowInstanceAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    type: {
-      baseName: "type",
-      type: "ServiceNowInstanceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ServiceNowInstanceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class ServiceNowInstanceData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceNowInstanceData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

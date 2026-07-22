@@ -6,13 +6,15 @@
 import { IncidentTypeObject } from "./IncidentTypeObject";
 import { IncidentUserData } from "./IncidentUserData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A single included resource in a user-defined role response.
- */
+*/
 
-export type IncidentUserDefinedRoleIncludedItem =
-  | IncidentUserData
-  | IncidentTypeObject
-  | UnparsedObject;
+export type IncidentUserDefinedRoleIncludedItem = IncidentUserData | IncidentTypeObject | UnparsedObject;

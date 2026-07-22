@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Criteria used to assess the pass/fail result of a custom evaluator.
- */
+*/
 export class LLMObsCustomEvalConfigAssessmentCriteria {
   /**
    * Maximum numeric threshold for a passing result.
-   */
+  */
   "maxThreshold"?: number;
   /**
    * Minimum numeric threshold for a passing result.
-   */
+  */
   "minThreshold"?: number;
   /**
    * Specific output values considered as a passing result.
-   */
+  */
   "passValues"?: Array<string>;
   /**
    * When true, a boolean output of true is treated as passing.
-   */
+  */
   "passWhen"?: boolean;
 
   /**
@@ -32,7 +37,7 @@ export class LLMObsCustomEvalConfigAssessmentCriteria {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,23 +48,23 @@ export class LLMObsCustomEvalConfigAssessmentCriteria {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    maxThreshold: {
-      baseName: "max_threshold",
-      type: "number",
-      format: "double",
+    "maxThreshold": {
+      "baseName": "max_threshold",
+      "type": "number",
+      "format": "double",
     },
-    minThreshold: {
-      baseName: "min_threshold",
-      type: "number",
-      format: "double",
+    "minThreshold": {
+      "baseName": "min_threshold",
+      "type": "number",
+      "format": "double",
     },
-    passValues: {
-      baseName: "pass_values",
-      type: "Array<string>",
+    "passValues": {
+      "baseName": "pass_values",
+      "type": "Array<string>",
     },
-    passWhen: {
-      baseName: "pass_when",
-      type: "boolean",
+    "passWhen": {
+      "baseName": "pass_when",
+      "type": "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -71,8 +76,34 @@ export class LLMObsCustomEvalConfigAssessmentCriteria {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsCustomEvalConfigAssessmentCriteria.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

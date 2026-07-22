@@ -7,23 +7,28 @@ import { TeamConnectionAttributes } from "./TeamConnectionAttributes";
 import { TeamConnectionRelationships } from "./TeamConnectionRelationships";
 import { TeamConnectionType } from "./TeamConnectionType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for creating a team connection.
- */
+*/
 export class TeamConnectionCreateData {
   /**
    * Attributes of the team connection.
-   */
+  */
   "attributes"?: TeamConnectionAttributes;
   /**
    * Relationships of the team connection.
-   */
+  */
   "relationships"?: TeamConnectionRelationships;
   /**
    * Team connection resource type.
-   */
+  */
   "type": TeamConnectionType;
 
   /**
@@ -31,7 +36,7 @@ export class TeamConnectionCreateData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,18 +47,18 @@ export class TeamConnectionCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "TeamConnectionAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "TeamConnectionAttributes",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "TeamConnectionRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "TeamConnectionRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "TeamConnectionType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TeamConnectionType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class TeamConnectionCreateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamConnectionCreateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

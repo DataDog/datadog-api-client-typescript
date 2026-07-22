@@ -4,16 +4,21 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Paging attributes.
- */
+*/
 export class SpansResponseMetadataPage {
   /**
    * The cursor to use to get the next results, if any. To make the next request, use the same
    * parameters with the addition of the `page[cursor]`.
-   */
+  */
   "after"?: string;
 
   /**
@@ -21,7 +26,7 @@ export class SpansResponseMetadataPage {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class SpansResponseMetadataPage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    after: {
-      baseName: "after",
-      type: "string",
+    "after": {
+      "baseName": "after",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class SpansResponseMetadataPage {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SpansResponseMetadataPage.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

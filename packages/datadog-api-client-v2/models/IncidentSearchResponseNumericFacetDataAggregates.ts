@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Aggregate information for numeric incident data.
- */
+*/
 export class IncidentSearchResponseNumericFacetDataAggregates {
   /**
    * Maximum value of the numeric aggregates.
-   */
+  */
   "max"?: number;
   /**
    * Minimum value of the numeric aggregates.
-   */
+  */
   "min"?: number;
 
   /**
@@ -24,7 +29,7 @@ export class IncidentSearchResponseNumericFacetDataAggregates {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,15 +40,15 @@ export class IncidentSearchResponseNumericFacetDataAggregates {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    max: {
-      baseName: "max",
-      type: "number",
-      format: "double",
+    "max": {
+      "baseName": "max",
+      "type": "number",
+      "format": "double",
     },
-    min: {
-      baseName: "min",
-      type: "number",
-      format: "double",
+    "min": {
+      "baseName": "min",
+      "type": "number",
+      "format": "double",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class IncidentSearchResponseNumericFacetDataAggregates {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentSearchResponseNumericFacetDataAggregates.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

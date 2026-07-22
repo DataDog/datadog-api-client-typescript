@@ -5,19 +5,24 @@
  */
 import { ObservabilityPipelineOcsfMapperProcessorMappingMapping } from "./ObservabilityPipelineOcsfMapperProcessorMappingMapping";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Defines how specific events are transformed to OCSF using a mapping configuration.
- */
+*/
 export class ObservabilityPipelineOcsfMapperProcessorMapping {
   /**
    * A Datadog search query used to select the logs that this mapping should apply to.
-   */
+  */
   "include": string;
   /**
    * Defines a single mapping rule for transforming logs into the OCSF schema.
-   */
+  */
   "mapping": ObservabilityPipelineOcsfMapperProcessorMappingMapping;
 
   /**
@@ -25,7 +30,7 @@ export class ObservabilityPipelineOcsfMapperProcessorMapping {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class ObservabilityPipelineOcsfMapperProcessorMapping {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    include: {
-      baseName: "include",
-      type: "string",
-      required: true,
+    "include": {
+      "baseName": "include",
+      "type": "string",
+      "required": true,
     },
-    mapping: {
-      baseName: "mapping",
-      type: "ObservabilityPipelineOcsfMapperProcessorMappingMapping",
-      required: true,
+    "mapping": {
+      "baseName": "mapping",
+      "type": "ObservabilityPipelineOcsfMapperProcessorMappingMapping",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class ObservabilityPipelineOcsfMapperProcessorMapping {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineOcsfMapperProcessorMapping.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

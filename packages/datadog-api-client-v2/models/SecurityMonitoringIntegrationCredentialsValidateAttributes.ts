@@ -9,16 +9,15 @@ import { SecurityMonitoringGoogleWorkspaceIntegrationCredentialsValidateAttribut
 import { SecurityMonitoringOktaIntegrationCredentialsValidateAttributes } from "./SecurityMonitoringOktaIntegrationCredentialsValidateAttributes";
 import { SecurityMonitoringSentinelOneIntegrationCredentialsValidateAttributes } from "./SecurityMonitoringSentinelOneIntegrationCredentialsValidateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The credentials to validate against the external entity source.
- */
+*/
 
-export type SecurityMonitoringIntegrationCredentialsValidateAttributes =
-  | SecurityMonitoringGoogleWorkspaceIntegrationCredentialsValidateAttributes
-  | SecurityMonitoringOktaIntegrationCredentialsValidateAttributes
-  | SecurityMonitoringEntraIdIntegrationCredentialsValidateAttributes
-  | SecurityMonitoringCrowdStrikeIntegrationCredentialsValidateAttributes
-  | SecurityMonitoringSentinelOneIntegrationCredentialsValidateAttributes
-  | UnparsedObject;
+export type SecurityMonitoringIntegrationCredentialsValidateAttributes = SecurityMonitoringGoogleWorkspaceIntegrationCredentialsValidateAttributes | SecurityMonitoringOktaIntegrationCredentialsValidateAttributes | SecurityMonitoringEntraIdIntegrationCredentialsValidateAttributes | SecurityMonitoringCrowdStrikeIntegrationCredentialsValidateAttributes | SecurityMonitoringSentinelOneIntegrationCredentialsValidateAttributes | UnparsedObject;

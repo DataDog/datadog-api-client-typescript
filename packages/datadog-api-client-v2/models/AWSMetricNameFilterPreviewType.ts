@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The `AWSMetricNameFilterPreviewResponseData` `type`.
- */
+*/
 
-export type AWSMetricNameFilterPreviewType =
-  | typeof METRIC_NAME_FILTER_PREVIEW
-  | UnparsedObject;
-export const METRIC_NAME_FILTER_PREVIEW = "metric_name_filter_preview";
+export type AWSMetricNameFilterPreviewType = typeof METRIC_NAME_FILTER_PREVIEW | UnparsedObject;
+export const METRIC_NAME_FILTER_PREVIEW = 'metric_name_filter_preview';

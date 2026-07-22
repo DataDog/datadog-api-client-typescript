@@ -5,27 +5,32 @@
  */
 import { LogsAggregateBucketValue } from "./LogsAggregateBucketValue";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A bucket values
- */
+*/
 export class LogsAggregateBucket {
   /**
    * The key, value pairs for each group by
-   */
-  "by"?: { [key: string]: any };
+  */
+  "by"?: { [key: string]: any; };
   /**
    * A map of the metric name -> value for regular compute or list of values for a timeseries
-   */
-  "computes"?: { [key: string]: LogsAggregateBucketValue };
+  */
+  "computes"?: { [key: string]: LogsAggregateBucketValue; };
 
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class LogsAggregateBucket {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    by: {
-      baseName: "by",
-      type: "{ [key: string]: any; }",
+    "by": {
+      "baseName": "by",
+      "type": "{ [key: string]: any; }",
     },
-    computes: {
-      baseName: "computes",
-      type: "{ [key: string]: LogsAggregateBucketValue; }",
+    "computes": {
+      "baseName": "computes",
+      "type": "{ [key: string]: LogsAggregateBucketValue; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class LogsAggregateBucket {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogsAggregateBucket.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

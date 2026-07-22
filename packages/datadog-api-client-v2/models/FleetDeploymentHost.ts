@@ -5,27 +5,32 @@
  */
 import { FleetDeploymentHostPackage } from "./FleetDeploymentHostPackage";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A host that is part of a deployment with its current status.
- */
+*/
 export class FleetDeploymentHost {
   /**
    * Error message if the deployment failed on this host.
-   */
+  */
   "error"?: string;
   /**
    * The hostname of the agent.
-   */
+  */
   "hostname"?: string;
   /**
    * Current deployment status for this specific host.
-   */
+  */
   "status"?: string;
   /**
    * List of packages and their versions currently installed on this host.
-   */
+  */
   "versions"?: Array<FleetDeploymentHostPackage>;
 
   /**
@@ -33,7 +38,7 @@ export class FleetDeploymentHost {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -44,21 +49,21 @@ export class FleetDeploymentHost {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    error: {
-      baseName: "error",
-      type: "string",
+    "error": {
+      "baseName": "error",
+      "type": "string",
     },
-    hostname: {
-      baseName: "hostname",
-      type: "string",
+    "hostname": {
+      "baseName": "hostname",
+      "type": "string",
     },
-    status: {
-      baseName: "status",
-      type: "string",
+    "status": {
+      "baseName": "status",
+      "type": "string",
     },
-    versions: {
-      baseName: "versions",
-      type: "Array<FleetDeploymentHostPackage>",
+    "versions": {
+      "baseName": "versions",
+      "type": "Array<FleetDeploymentHostPackage>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -70,8 +75,34 @@ export class FleetDeploymentHost {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FleetDeploymentHost.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

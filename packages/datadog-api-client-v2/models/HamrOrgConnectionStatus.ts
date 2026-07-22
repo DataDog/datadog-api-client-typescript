@@ -4,7 +4,12 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Status of the HAMR connection:
@@ -14,16 +19,9 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  * - 3: FAILOVER - Liminal status between PASSIVE and ACTIVE
  * - 4: ACTIVE - Organization is an active failover
  * - 5: RECOVERY - Recovery operation in progress
- */
+*/
 
-export type HamrOrgConnectionStatus =
-  | typeof UNSPECIFIED
-  | typeof ONBOARDING
-  | typeof PASSIVE
-  | typeof FAILOVER
-  | typeof ACTIVE
-  | typeof RECOVERY
-  | UnparsedObject;
+export type HamrOrgConnectionStatus = typeof UNSPECIFIED| typeof ONBOARDING| typeof PASSIVE| typeof FAILOVER| typeof ACTIVE| typeof RECOVERY | UnparsedObject;
 export const UNSPECIFIED = 0;
 export const ONBOARDING = 1;
 export const PASSIVE = 2;

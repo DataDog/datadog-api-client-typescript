@@ -5,19 +5,24 @@
  */
 import { StatusPageDataType } from "./StatusPageDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The status page linked to a degradation update.
- */
+*/
 export class DegradationUpdateDataRelationshipsStatusPageData {
   /**
    * The ID of the status page.
-   */
+  */
   "id": string;
   /**
    * Status pages resource type.
-   */
+  */
   "type": StatusPageDataType;
 
   /**
@@ -25,7 +30,7 @@ export class DegradationUpdateDataRelationshipsStatusPageData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class DegradationUpdateDataRelationshipsStatusPageData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "StatusPageDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "StatusPageDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class DegradationUpdateDataRelationshipsStatusPageData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DegradationUpdateDataRelationshipsStatusPageData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

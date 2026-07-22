@@ -7,27 +7,32 @@ import { ChangeRequestRelationships } from "./ChangeRequestRelationships";
 import { ChangeRequestResourceType } from "./ChangeRequestResourceType";
 import { ChangeRequestResponseAttributes } from "./ChangeRequestResponseAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for a change request response.
- */
+*/
 export class ChangeRequestResponseData {
   /**
    * Attributes of a change request response.
-   */
+  */
   "attributes": ChangeRequestResponseAttributes;
   /**
    * The identifier of the change request.
-   */
+  */
   "id": string;
   /**
    * Relationships of a change request.
-   */
+  */
   "relationships"?: ChangeRequestRelationships;
   /**
    * Change request resource type.
-   */
+  */
   "type": ChangeRequestResourceType;
 
   /**
@@ -35,7 +40,7 @@ export class ChangeRequestResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -46,24 +51,24 @@ export class ChangeRequestResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ChangeRequestResponseAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ChangeRequestResponseAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "ChangeRequestRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "ChangeRequestRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "ChangeRequestResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ChangeRequestResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -75,8 +80,34 @@ export class ChangeRequestResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ChangeRequestResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

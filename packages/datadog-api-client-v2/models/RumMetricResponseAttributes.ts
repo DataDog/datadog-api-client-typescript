@@ -9,31 +9,36 @@ import { RumMetricResponseFilter } from "./RumMetricResponseFilter";
 import { RumMetricResponseGroupBy } from "./RumMetricResponseGroupBy";
 import { RumMetricResponseUniqueness } from "./RumMetricResponseUniqueness";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The object describing a Datadog RUM-based metric.
- */
+*/
 export class RumMetricResponseAttributes {
   /**
    * The compute rule to compute the RUM-based metric.
-   */
+  */
   "compute"?: RumMetricResponseCompute;
   /**
    * The type of RUM events to filter on.
-   */
+  */
   "eventType"?: RumMetricEventType;
   /**
    * The RUM-based metric filter. RUM events matching this filter will be aggregated in this metric.
-   */
+  */
   "filter"?: RumMetricResponseFilter;
   /**
    * The rules for the group by.
-   */
+  */
   "groupBy"?: Array<RumMetricResponseGroupBy>;
   /**
    * The rule to count updatable events. Is only set if `event_type` is `session` or `view`.
-   */
+  */
   "uniqueness"?: RumMetricResponseUniqueness;
 
   /**
@@ -41,7 +46,7 @@ export class RumMetricResponseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -52,25 +57,25 @@ export class RumMetricResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    compute: {
-      baseName: "compute",
-      type: "RumMetricResponseCompute",
+    "compute": {
+      "baseName": "compute",
+      "type": "RumMetricResponseCompute",
     },
-    eventType: {
-      baseName: "event_type",
-      type: "RumMetricEventType",
+    "eventType": {
+      "baseName": "event_type",
+      "type": "RumMetricEventType",
     },
-    filter: {
-      baseName: "filter",
-      type: "RumMetricResponseFilter",
+    "filter": {
+      "baseName": "filter",
+      "type": "RumMetricResponseFilter",
     },
-    groupBy: {
-      baseName: "group_by",
-      type: "Array<RumMetricResponseGroupBy>",
+    "groupBy": {
+      "baseName": "group_by",
+      "type": "Array<RumMetricResponseGroupBy>",
     },
-    uniqueness: {
-      baseName: "uniqueness",
-      type: "RumMetricResponseUniqueness",
+    "uniqueness": {
+      "baseName": "uniqueness",
+      "type": "RumMetricResponseUniqueness",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -82,8 +87,34 @@ export class RumMetricResponseAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RumMetricResponseAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

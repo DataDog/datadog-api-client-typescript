@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The source type for a CrowdStrike entity context sync.
- */
+*/
 
-export type SecurityMonitoringIntegrationTypeCrowdStrike =
-  | typeof CROWDSTRIKE
-  | UnparsedObject;
-export const CROWDSTRIKE = "CROWDSTRIKE";
+export type SecurityMonitoringIntegrationTypeCrowdStrike = typeof CROWDSTRIKE | UnparsedObject;
+export const CROWDSTRIKE = 'CROWDSTRIKE';

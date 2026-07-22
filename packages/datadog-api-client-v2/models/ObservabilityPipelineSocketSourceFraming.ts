@@ -9,16 +9,15 @@ import { ObservabilityPipelineSocketSourceFramingChunkedGelf } from "./Observabi
 import { ObservabilityPipelineSocketSourceFramingNewlineDelimited } from "./ObservabilityPipelineSocketSourceFramingNewlineDelimited";
 import { ObservabilityPipelineSocketSourceFramingOctetCounting } from "./ObservabilityPipelineSocketSourceFramingOctetCounting";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Framing method configuration for the socket source.
- */
+*/
 
-export type ObservabilityPipelineSocketSourceFraming =
-  | ObservabilityPipelineSocketSourceFramingNewlineDelimited
-  | ObservabilityPipelineSocketSourceFramingBytes
-  | ObservabilityPipelineSocketSourceFramingCharacterDelimited
-  | ObservabilityPipelineSocketSourceFramingOctetCounting
-  | ObservabilityPipelineSocketSourceFramingChunkedGelf
-  | UnparsedObject;
+export type ObservabilityPipelineSocketSourceFraming = ObservabilityPipelineSocketSourceFramingNewlineDelimited | ObservabilityPipelineSocketSourceFramingBytes | ObservabilityPipelineSocketSourceFramingCharacterDelimited | ObservabilityPipelineSocketSourceFramingOctetCounting | ObservabilityPipelineSocketSourceFramingChunkedGelf | UnparsedObject;

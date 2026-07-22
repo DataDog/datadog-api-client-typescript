@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Coverage statistics for a specific code owner.
- */
+*/
 export class CoverageSummaryCodeownerStats {
   /**
    * Number of coverage flags evaluated for the code owner.
-   */
+  */
   "evaluatedFlagsCount"?: number;
   /**
    * Number of coverage reports evaluated for the code owner.
-   */
+  */
   "evaluatedReportsCount"?: number;
   /**
    * Patch coverage percentage for the code owner.
-   */
+  */
   "patchCoverage"?: number;
   /**
    * Total coverage percentage for the code owner.
-   */
+  */
   "totalCoverage"?: number;
 
   /**
@@ -32,7 +37,7 @@ export class CoverageSummaryCodeownerStats {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,25 +48,25 @@ export class CoverageSummaryCodeownerStats {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    evaluatedFlagsCount: {
-      baseName: "evaluated_flags_count",
-      type: "number",
-      format: "int64",
+    "evaluatedFlagsCount": {
+      "baseName": "evaluated_flags_count",
+      "type": "number",
+      "format": "int64",
     },
-    evaluatedReportsCount: {
-      baseName: "evaluated_reports_count",
-      type: "number",
-      format: "int64",
+    "evaluatedReportsCount": {
+      "baseName": "evaluated_reports_count",
+      "type": "number",
+      "format": "int64",
     },
-    patchCoverage: {
-      baseName: "patch_coverage",
-      type: "number",
-      format: "double",
+    "patchCoverage": {
+      "baseName": "patch_coverage",
+      "type": "number",
+      "format": "double",
     },
-    totalCoverage: {
-      baseName: "total_coverage",
-      type: "number",
-      format: "double",
+    "totalCoverage": {
+      "baseName": "total_coverage",
+      "type": "number",
+      "format": "double",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -73,8 +78,34 @@ export class CoverageSummaryCodeownerStats {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CoverageSummaryCodeownerStats.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

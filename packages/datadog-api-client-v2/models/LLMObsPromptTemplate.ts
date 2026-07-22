@@ -5,13 +5,15 @@
  */
 import { LLMObsPromptChatMessage } from "./LLMObsPromptChatMessage";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A text template or a list of chat messages.
- */
+*/
 
-export type LLMObsPromptTemplate =
-  | string
-  | Array<LLMObsPromptChatMessage>
-  | UnparsedObject;
+export type LLMObsPromptTemplate = string | Array<LLMObsPromptChatMessage> | UnparsedObject;

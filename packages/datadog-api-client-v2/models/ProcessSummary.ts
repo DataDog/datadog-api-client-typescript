@@ -6,23 +6,28 @@
 import { ProcessSummaryAttributes } from "./ProcessSummaryAttributes";
 import { ProcessSummaryType } from "./ProcessSummaryType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Process summary object.
- */
+*/
 export class ProcessSummary {
   /**
    * Attributes for a process summary.
-   */
+  */
   "attributes"?: ProcessSummaryAttributes;
   /**
    * Process ID.
-   */
+  */
   "id"?: string;
   /**
    * Type of process summary.
-   */
+  */
   "type"?: ProcessSummaryType;
 
   /**
@@ -30,7 +35,7 @@ export class ProcessSummary {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class ProcessSummary {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ProcessSummaryAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ProcessSummaryAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "ProcessSummaryType",
+    "type": {
+      "baseName": "type",
+      "type": "ProcessSummaryType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class ProcessSummary {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProcessSummary.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

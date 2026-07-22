@@ -4,39 +4,44 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for creating or updating a rule. Server-managed fields (created_at, modified_at, custom) are excluded.
- */
+*/
 export class RuleAttributesRequest {
   /**
    * Explanation of the rule.
-   */
+  */
   "description"?: string;
   /**
    * If enabled, the rule is calculated as part of the score.
-   */
+  */
   "enabled"?: boolean;
   /**
    * The maturity level of the rule (1, 2, or 3).
-   */
+  */
   "level"?: number;
   /**
    * Name of the rule.
-   */
+  */
   "name"?: string;
   /**
    * Owner of the rule.
-   */
+  */
   "owner"?: string;
   /**
    * A query to filter which entities this rule applies to.
-   */
+  */
   "scopeQuery"?: string;
   /**
    * The scorecard name to which this rule must belong.
-   */
+  */
   "scorecardName"?: string;
 
   /**
@@ -44,7 +49,7 @@ export class RuleAttributesRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -55,33 +60,33 @@ export class RuleAttributesRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
+    "enabled": {
+      "baseName": "enabled",
+      "type": "boolean",
     },
-    level: {
-      baseName: "level",
-      type: "number",
+    "level": {
+      "baseName": "level",
+      "type": "number",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    owner: {
-      baseName: "owner",
-      type: "string",
+    "owner": {
+      "baseName": "owner",
+      "type": "string",
     },
-    scopeQuery: {
-      baseName: "scope_query",
-      type: "string",
+    "scopeQuery": {
+      "baseName": "scope_query",
+      "type": "string",
     },
-    scorecardName: {
-      baseName: "scorecard_name",
-      type: "string",
+    "scorecardName": {
+      "baseName": "scorecard_name",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -93,8 +98,34 @@ export class RuleAttributesRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RuleAttributesRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

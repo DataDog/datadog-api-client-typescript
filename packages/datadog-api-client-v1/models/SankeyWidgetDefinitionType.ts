@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of the Sankey widget.
- */
+*/
 
 export type SankeyWidgetDefinitionType = typeof SANKEY | UnparsedObject;
-export const SANKEY = "sankey";
+export const SANKEY = 'sankey';

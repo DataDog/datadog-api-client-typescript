@@ -12,43 +12,48 @@ import { SyntheticsTestResultLocation } from "./SyntheticsTestResultLocation";
 import { SyntheticsTestSubType } from "./SyntheticsTestSubType";
 import { SyntheticsTestType } from "./SyntheticsTestType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a Synthetic test result.
- */
+*/
 export class SyntheticsTestResultAttributes {
   /**
    * Batch information for the test result.
-   */
+  */
   "batch"?: SyntheticsTestResultBatch;
   /**
    * CI information associated with the test result.
-   */
+  */
   "ci"?: SyntheticsTestResultCI;
   /**
    * Device information for the test result (browser and mobile tests).
-   */
+  */
   "device"?: SyntheticsTestResultDevice;
   /**
    * Git information associated with the test result.
-   */
+  */
   "git"?: SyntheticsTestResultGit;
   /**
    * Location information for a Synthetic test result.
-   */
+  */
   "location"?: SyntheticsTestResultLocation;
   /**
    * Full result details for a Synthetic test execution.
-   */
+  */
   "result"?: SyntheticsTestResultDetail;
   /**
    * Subtype of the Synthetic test that produced this result.
-   */
+  */
   "testSubType"?: SyntheticsTestSubType;
   /**
    * Type of the Synthetic test that produced this result.
-   */
+  */
   "testType"?: SyntheticsTestType;
 
   /**
@@ -56,7 +61,7 @@ export class SyntheticsTestResultAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -67,37 +72,37 @@ export class SyntheticsTestResultAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    batch: {
-      baseName: "batch",
-      type: "SyntheticsTestResultBatch",
+    "batch": {
+      "baseName": "batch",
+      "type": "SyntheticsTestResultBatch",
     },
-    ci: {
-      baseName: "ci",
-      type: "SyntheticsTestResultCI",
+    "ci": {
+      "baseName": "ci",
+      "type": "SyntheticsTestResultCI",
     },
-    device: {
-      baseName: "device",
-      type: "SyntheticsTestResultDevice",
+    "device": {
+      "baseName": "device",
+      "type": "SyntheticsTestResultDevice",
     },
-    git: {
-      baseName: "git",
-      type: "SyntheticsTestResultGit",
+    "git": {
+      "baseName": "git",
+      "type": "SyntheticsTestResultGit",
     },
-    location: {
-      baseName: "location",
-      type: "SyntheticsTestResultLocation",
+    "location": {
+      "baseName": "location",
+      "type": "SyntheticsTestResultLocation",
     },
-    result: {
-      baseName: "result",
-      type: "SyntheticsTestResultDetail",
+    "result": {
+      "baseName": "result",
+      "type": "SyntheticsTestResultDetail",
     },
-    testSubType: {
-      baseName: "test_sub_type",
-      type: "SyntheticsTestSubType",
+    "testSubType": {
+      "baseName": "test_sub_type",
+      "type": "SyntheticsTestSubType",
     },
-    testType: {
-      baseName: "test_type",
-      type: "SyntheticsTestType",
+    "testType": {
+      "baseName": "test_type",
+      "type": "SyntheticsTestType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -109,8 +114,34 @@ export class SyntheticsTestResultAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestResultAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

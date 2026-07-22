@@ -5,19 +5,24 @@
  */
 import { ObservabilityPipelineOcsfMappingCustomLookupTableEntry } from "./ObservabilityPipelineOcsfMappingCustomLookupTableEntry";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Lookup table configuration for mapping source values to destination values.
- */
+*/
 export class ObservabilityPipelineOcsfMappingCustomLookup {
   /**
    * The default value to use if no lookup match is found.
-   */
+  */
   "_default"?: any;
   /**
    * A list of lookup table entries for value transformation.
-   */
+  */
   "table"?: Array<ObservabilityPipelineOcsfMappingCustomLookupTableEntry>;
 
   /**
@@ -25,7 +30,7 @@ export class ObservabilityPipelineOcsfMappingCustomLookup {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,13 +41,13 @@ export class ObservabilityPipelineOcsfMappingCustomLookup {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    _default: {
-      baseName: "default",
-      type: "any",
+    "_default": {
+      "baseName": "default",
+      "type": "any",
     },
-    table: {
-      baseName: "table",
-      type: "Array<ObservabilityPipelineOcsfMappingCustomLookupTableEntry>",
+    "table": {
+      "baseName": "table",
+      "type": "Array<ObservabilityPipelineOcsfMappingCustomLookupTableEntry>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,8 +59,34 @@ export class ObservabilityPipelineOcsfMappingCustomLookup {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineOcsfMappingCustomLookup.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

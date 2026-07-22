@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The aggregation applied to an event query.
- */
+*/
 export class GovernanceInsightEventCompute {
   /**
    * The aggregation function to apply.
-   */
+  */
   "aggregation": string;
   /**
    * The aggregation time window, in milliseconds.
-   */
+  */
   "interval": number;
 
   /**
@@ -24,7 +29,7 @@ export class GovernanceInsightEventCompute {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,16 +40,16 @@ export class GovernanceInsightEventCompute {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregation: {
-      baseName: "aggregation",
-      type: "string",
-      required: true,
+    "aggregation": {
+      "baseName": "aggregation",
+      "type": "string",
+      "required": true,
     },
-    interval: {
-      baseName: "interval",
-      type: "number",
-      required: true,
-      format: "int64",
+    "interval": {
+      "baseName": "interval",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class GovernanceInsightEventCompute {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GovernanceInsightEventCompute.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

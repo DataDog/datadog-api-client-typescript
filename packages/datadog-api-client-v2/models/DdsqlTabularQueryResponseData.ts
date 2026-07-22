@@ -6,24 +6,29 @@
 import { DdsqlTabularQueryResponseAttributes } from "./DdsqlTabularQueryResponseAttributes";
 import { DdsqlTabularQueryResponseType } from "./DdsqlTabularQueryResponseType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * JSON:API resource object for a DDSQL tabular query response.
- */
+*/
 export class DdsqlTabularQueryResponseData {
   /**
    * Attributes of a DDSQL tabular query response. `query_id` is set when
    * `state` is `running`; `columns` is set when `state` is `completed`.
-   */
+  */
   "attributes": DdsqlTabularQueryResponseAttributes;
   /**
    * Stable identifier for the query response resource.
-   */
+  */
   "id": string;
   /**
    * JSON:API resource type for a DDSQL tabular query response.
-   */
+  */
   "type": DdsqlTabularQueryResponseType;
 
   /**
@@ -31,7 +36,7 @@ export class DdsqlTabularQueryResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,20 +47,20 @@ export class DdsqlTabularQueryResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "DdsqlTabularQueryResponseAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "DdsqlTabularQueryResponseAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "DdsqlTabularQueryResponseType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "DdsqlTabularQueryResponseType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -67,8 +72,34 @@ export class DdsqlTabularQueryResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DdsqlTabularQueryResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

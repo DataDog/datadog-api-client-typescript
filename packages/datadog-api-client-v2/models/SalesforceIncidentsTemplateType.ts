@@ -4,14 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Salesforce incident template resource type.
- */
+*/
 
-export type SalesforceIncidentsTemplateType =
-  | typeof SALESFORCE_INCIDENTS_INCIDENT_TEMPLATE
-  | UnparsedObject;
-export const SALESFORCE_INCIDENTS_INCIDENT_TEMPLATE =
-  "salesforce-incidents-incident-template";
+export type SalesforceIncidentsTemplateType = typeof SALESFORCE_INCIDENTS_INCIDENT_TEMPLATE | UnparsedObject;
+export const SALESFORCE_INCIDENTS_INCIDENT_TEMPLATE = 'salesforce-incidents-incident-template';

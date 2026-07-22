@@ -12,71 +12,76 @@ import { ObservabilityPipelineAmazonS3GenericEncoding } from "./ObservabilityPip
 import { ObservabilityPipelineAwsAuth } from "./ObservabilityPipelineAwsAuth";
 import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The `amazon_s3_generic` destination sends your logs to an Amazon S3 bucket.
- *
+ * 
  * **Supported pipeline types:** logs
- */
+*/
 export class ObservabilityPipelineAmazonS3GenericDestination {
   /**
    * AWS authentication credentials used for accessing AWS services such as S3.
    * If omitted, the system’s default credentials are used (for example, the IAM role and environment variables).
-   */
+  */
   "auth"?: ObservabilityPipelineAwsAuth;
   /**
    * Event batching settings
-   */
+  */
   "batchSettings"?: ObservabilityPipelineAmazonS3GenericBatchSettings;
   /**
    * S3 bucket name.
-   */
+  */
   "bucket": string;
   /**
    * Configuration for buffer settings on destination components.
-   */
+  */
   "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * Compression algorithm applied to encoded logs.
-   */
+  */
   "compression": ObservabilityPipelineAmazonS3GenericCompression;
   /**
    * Encoding format for the destination.
-   */
+  */
   "encoding": ObservabilityPipelineAmazonS3GenericEncoding;
   /**
    * Unique identifier for the destination component.
-   */
+  */
   "id": string;
   /**
    * A list of component IDs whose output is used as the `input` for this component.
-   */
+  */
   "inputs": Array<string>;
   /**
    * Optional prefix for object keys.
-   */
+  */
   "keyPrefix"?: string;
   /**
    * AWS region of the S3 bucket.
-   */
+  */
   "region": string;
   /**
    * Server-side encryption type for Amazon S3.
-   */
+  */
   "serverSideEncryption"?: ObservabilityPipelineAmazonS3DestinationServerSideEncryption;
   /**
    * The AWS KMS key ID used for SSE-KMS encryption.
    * Only applies when `server_side_encryption` is set to `aws:kms`.
-   */
+  */
   "ssekmsKeyId"?: string;
   /**
    * S3 storage class.
-   */
+  */
   "storageClass": ObservabilityPipelineAmazonS3DestinationStorageClass;
   /**
    * The destination type. Always `amazon_s3_generic`.
-   */
+  */
   "type": ObservabilityPipelineAmazonS3GenericDestinationType;
 
   /**
@@ -84,7 +89,7 @@ export class ObservabilityPipelineAmazonS3GenericDestination {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -95,69 +100,69 @@ export class ObservabilityPipelineAmazonS3GenericDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    auth: {
-      baseName: "auth",
-      type: "ObservabilityPipelineAwsAuth",
+    "auth": {
+      "baseName": "auth",
+      "type": "ObservabilityPipelineAwsAuth",
     },
-    batchSettings: {
-      baseName: "batch_settings",
-      type: "ObservabilityPipelineAmazonS3GenericBatchSettings",
+    "batchSettings": {
+      "baseName": "batch_settings",
+      "type": "ObservabilityPipelineAmazonS3GenericBatchSettings",
     },
-    bucket: {
-      baseName: "bucket",
-      type: "string",
-      required: true,
+    "bucket": {
+      "baseName": "bucket",
+      "type": "string",
+      "required": true,
     },
-    buffer: {
-      baseName: "buffer",
-      type: "ObservabilityPipelineBufferOptions",
+    "buffer": {
+      "baseName": "buffer",
+      "type": "ObservabilityPipelineBufferOptions",
     },
-    compression: {
-      baseName: "compression",
-      type: "ObservabilityPipelineAmazonS3GenericCompression",
-      required: true,
+    "compression": {
+      "baseName": "compression",
+      "type": "ObservabilityPipelineAmazonS3GenericCompression",
+      "required": true,
     },
-    encoding: {
-      baseName: "encoding",
-      type: "ObservabilityPipelineAmazonS3GenericEncoding",
-      required: true,
+    "encoding": {
+      "baseName": "encoding",
+      "type": "ObservabilityPipelineAmazonS3GenericEncoding",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    inputs: {
-      baseName: "inputs",
-      type: "Array<string>",
-      required: true,
+    "inputs": {
+      "baseName": "inputs",
+      "type": "Array<string>",
+      "required": true,
     },
-    keyPrefix: {
-      baseName: "key_prefix",
-      type: "string",
+    "keyPrefix": {
+      "baseName": "key_prefix",
+      "type": "string",
     },
-    region: {
-      baseName: "region",
-      type: "string",
-      required: true,
+    "region": {
+      "baseName": "region",
+      "type": "string",
+      "required": true,
     },
-    serverSideEncryption: {
-      baseName: "server_side_encryption",
-      type: "ObservabilityPipelineAmazonS3DestinationServerSideEncryption",
+    "serverSideEncryption": {
+      "baseName": "server_side_encryption",
+      "type": "ObservabilityPipelineAmazonS3DestinationServerSideEncryption",
     },
-    ssekmsKeyId: {
-      baseName: "ssekms_key_id",
-      type: "string",
+    "ssekmsKeyId": {
+      "baseName": "ssekms_key_id",
+      "type": "string",
     },
-    storageClass: {
-      baseName: "storage_class",
-      type: "ObservabilityPipelineAmazonS3DestinationStorageClass",
-      required: true,
+    "storageClass": {
+      "baseName": "storage_class",
+      "type": "ObservabilityPipelineAmazonS3DestinationStorageClass",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ObservabilityPipelineAmazonS3GenericDestinationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ObservabilityPipelineAmazonS3GenericDestinationType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -169,8 +174,34 @@ export class ObservabilityPipelineAmazonS3GenericDestination {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineAmazonS3GenericDestination.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

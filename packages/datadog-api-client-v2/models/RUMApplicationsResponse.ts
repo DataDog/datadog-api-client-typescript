@@ -5,15 +5,20 @@
  */
 import { RUMApplicationList } from "./RUMApplicationList";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * RUM applications response.
- */
+*/
 export class RUMApplicationsResponse {
   /**
    * RUM applications array response.
-   */
+  */
   "data"?: Array<RUMApplicationList>;
 
   /**
@@ -21,7 +26,7 @@ export class RUMApplicationsResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class RUMApplicationsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<RUMApplicationList>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<RUMApplicationList>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class RUMApplicationsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RUMApplicationsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

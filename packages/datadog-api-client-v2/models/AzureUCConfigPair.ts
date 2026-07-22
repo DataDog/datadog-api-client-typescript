@@ -6,23 +6,28 @@
 import { AzureUCConfigPairAttributes } from "./AzureUCConfigPairAttributes";
 import { AzureUCConfigPairType } from "./AzureUCConfigPairType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Azure config pair.
- */
+*/
 export class AzureUCConfigPair {
   /**
    * Attributes for Azure config pair.
-   */
+  */
   "attributes": AzureUCConfigPairAttributes;
   /**
    * The ID of Cloud Cost Management account.
-   */
+  */
   "id"?: string;
   /**
    * Type of Azure config pair.
-   */
+  */
   "type": AzureUCConfigPairType;
 
   /**
@@ -30,7 +35,7 @@ export class AzureUCConfigPair {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,19 +46,19 @@ export class AzureUCConfigPair {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AzureUCConfigPairAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AzureUCConfigPairAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "AzureUCConfigPairType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AzureUCConfigPairType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class AzureUCConfigPair {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AzureUCConfigPair.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

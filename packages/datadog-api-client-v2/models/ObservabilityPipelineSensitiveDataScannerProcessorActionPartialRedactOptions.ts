@@ -5,19 +5,24 @@
  */
 import { ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptionsDirection } from "./ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptionsDirection";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Controls how partial redaction is applied, including character count and direction.
- */
+*/
 export class ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions {
   /**
    * Number of characters to leave visible from the start or end of the matched value; the rest are redacted.
-   */
+  */
   "characters": number;
   /**
    * Indicates whether to redact characters from the first or last part of the matched value.
-   */
+  */
   "direction": ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptionsDirection;
 
   /**
@@ -25,7 +30,7 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorActionPartialReda
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,16 +41,16 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorActionPartialReda
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    characters: {
-      baseName: "characters",
-      type: "number",
-      required: true,
-      format: "int64",
+    "characters": {
+      "baseName": "characters",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    direction: {
-      baseName: "direction",
-      type: "ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptionsDirection",
-      required: true,
+    "direction": {
+      "baseName": "direction",
+      "type": "ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptionsDirection",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorActionPartialReda
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

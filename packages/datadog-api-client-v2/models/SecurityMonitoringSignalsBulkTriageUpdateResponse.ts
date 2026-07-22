@@ -5,23 +5,28 @@
  */
 import { SecurityMonitoringSignalsBulkTriageUpdateResult } from "./SecurityMonitoringSignalsBulkTriageUpdateResult";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response for a bulk triage update of security signals.
- */
+*/
 export class SecurityMonitoringSignalsBulkTriageUpdateResponse {
   /**
    * The result payload of a bulk signal triage update.
-   */
+  */
   "result": SecurityMonitoringSignalsBulkTriageUpdateResult;
   /**
    * The status of the bulk operation.
-   */
+  */
   "status": string;
   /**
    * The type of the response.
-   */
+  */
   "type": string;
 
   /**
@@ -29,7 +34,7 @@ export class SecurityMonitoringSignalsBulkTriageUpdateResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,20 +45,20 @@ export class SecurityMonitoringSignalsBulkTriageUpdateResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    result: {
-      baseName: "result",
-      type: "SecurityMonitoringSignalsBulkTriageUpdateResult",
-      required: true,
+    "result": {
+      "baseName": "result",
+      "type": "SecurityMonitoringSignalsBulkTriageUpdateResult",
+      "required": true,
     },
-    status: {
-      baseName: "status",
-      type: "string",
-      required: true,
+    "status": {
+      "baseName": "status",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "string",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class SecurityMonitoringSignalsBulkTriageUpdateResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringSignalsBulkTriageUpdateResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

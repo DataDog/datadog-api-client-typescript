@@ -5,19 +5,24 @@
  */
 import { IncidentImpactsType } from "./IncidentImpactsType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationship to impact object.
- */
+*/
 export class RelationshipToIncidentImpactData {
   /**
    * A unique identifier that represents the impact.
-   */
+  */
   "id": string;
   /**
    * The incident impacts type.
-   */
+  */
   "type": IncidentImpactsType;
 
   /**
@@ -25,7 +30,7 @@ export class RelationshipToIncidentImpactData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class RelationshipToIncidentImpactData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "IncidentImpactsType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "IncidentImpactsType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class RelationshipToIncidentImpactData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RelationshipToIncidentImpactData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

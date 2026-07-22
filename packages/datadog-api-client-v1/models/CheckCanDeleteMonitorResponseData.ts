@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Wrapper object with the list of monitor IDs.
- */
+*/
 export class CheckCanDeleteMonitorResponseData {
   /**
    * An array of Monitor IDs that can be safely deleted.
-   */
+  */
   "ok"?: Array<number>;
 
   /**
@@ -20,7 +25,7 @@ export class CheckCanDeleteMonitorResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -31,9 +36,9 @@ export class CheckCanDeleteMonitorResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    ok: {
-      baseName: "ok",
-      type: "Array<number>",
+    "ok": {
+      "baseName": "ok",
+      "type": "Array<number>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,8 +50,34 @@ export class CheckCanDeleteMonitorResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CheckCanDeleteMonitorResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

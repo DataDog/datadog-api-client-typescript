@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * ServiceNow tickets resource type.
- */
+*/
 
-export type ServiceNowTicketsDataType =
-  | typeof SERVICENOW_TICKETS
-  | UnparsedObject;
-export const SERVICENOW_TICKETS = "servicenow_tickets";
+export type ServiceNowTicketsDataType = typeof SERVICENOW_TICKETS | UnparsedObject;
+export const SERVICENOW_TICKETS = 'servicenow_tickets';

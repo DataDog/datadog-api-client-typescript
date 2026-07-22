@@ -4,43 +4,48 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of a JVM mapping file.
- */
+*/
 export class JVMSourcemapAttributes {
   /**
    * The build identifier (UUID format).
-   */
+  */
   "buildId"?: string;
   /**
    * The timestamp when the mapping file was created.
-   */
+  */
   "createdAt": Date;
   /**
    * The type of source map.
-   */
+  */
   "mapkind": string;
   /**
    * The service name associated with the mapping file.
-   */
+  */
   "service"?: string;
   /**
    * The size of the mapping file in bytes.
-   */
+  */
   "size": number;
   /**
    * The build variant (e.g., `release`, `debug`).
-   */
+  */
   "variant"?: string;
   /**
    * The version of the service associated with the mapping file.
-   */
+  */
   "version"?: string;
   /**
    * The version code.
-   */
+  */
   "versionCode"?: string;
 
   /**
@@ -48,7 +53,7 @@ export class JVMSourcemapAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -59,42 +64,42 @@ export class JVMSourcemapAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    buildId: {
-      baseName: "build_id",
-      type: "string",
+    "buildId": {
+      "baseName": "build_id",
+      "type": "string",
     },
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    mapkind: {
-      baseName: "mapkind",
-      type: "string",
-      required: true,
+    "mapkind": {
+      "baseName": "mapkind",
+      "type": "string",
+      "required": true,
     },
-    service: {
-      baseName: "service",
-      type: "string",
+    "service": {
+      "baseName": "service",
+      "type": "string",
     },
-    size: {
-      baseName: "size",
-      type: "number",
-      required: true,
-      format: "int64",
+    "size": {
+      "baseName": "size",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    variant: {
-      baseName: "variant",
-      type: "string",
+    "variant": {
+      "baseName": "variant",
+      "type": "string",
     },
-    version: {
-      baseName: "version",
-      type: "string",
+    "version": {
+      "baseName": "version",
+      "type": "string",
     },
-    versionCode: {
-      baseName: "version_code",
-      type: "string",
+    "versionCode": {
+      "baseName": "version_code",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -106,8 +111,34 @@ export class JVMSourcemapAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return JVMSourcemapAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

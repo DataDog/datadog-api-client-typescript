@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The column type. "group" for dimension columns, "number" for metric columns.
- */
+*/
 
-export type CommitmentsScalarColumnType =
-  | typeof GROUP
-  | typeof NUMBER
-  | UnparsedObject;
-export const GROUP = "group";
-export const NUMBER = "number";
+export type CommitmentsScalarColumnType = typeof GROUP| typeof NUMBER | UnparsedObject;
+export const GROUP = 'group';
+export const NUMBER = 'number';

@@ -5,23 +5,28 @@
  */
 import { UpdateRulesetRequestDataAttributesRulesItems } from "./UpdateRulesetRequestDataAttributesRulesItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `UpdateRulesetRequestDataAttributes` object.
- */
+*/
 export class UpdateRulesetRequestDataAttributes {
   /**
    * The `attributes` `enabled`.
-   */
+  */
   "enabled": boolean;
   /**
    * The `attributes` `last_version`.
-   */
+  */
   "lastVersion"?: number;
   /**
    * The `attributes` `rules`.
-   */
+  */
   "rules": Array<UpdateRulesetRequestDataAttributesRulesItems>;
 
   /**
@@ -29,7 +34,7 @@ export class UpdateRulesetRequestDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,20 +45,20 @@ export class UpdateRulesetRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
-      required: true,
+    "enabled": {
+      "baseName": "enabled",
+      "type": "boolean",
+      "required": true,
     },
-    lastVersion: {
-      baseName: "last_version",
-      type: "number",
-      format: "int64",
+    "lastVersion": {
+      "baseName": "last_version",
+      "type": "number",
+      "format": "int64",
     },
-    rules: {
-      baseName: "rules",
-      type: "Array<UpdateRulesetRequestDataAttributesRulesItems>",
-      required: true,
+    "rules": {
+      "baseName": "rules",
+      "type": "Array<UpdateRulesetRequestDataAttributesRulesItems>",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class UpdateRulesetRequestDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateRulesetRequestDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

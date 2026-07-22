@@ -6,19 +6,24 @@
 import { ProjectCreateAttributes } from "./ProjectCreateAttributes";
 import { ProjectResourceType } from "./ProjectResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Project create.
- */
+*/
 export class ProjectCreate {
   /**
    * Project creation attributes.
-   */
+  */
   "attributes": ProjectCreateAttributes;
   /**
    * Project resource type.
-   */
+  */
   "type": ProjectResourceType;
 
   /**
@@ -26,7 +31,7 @@ export class ProjectCreate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,15 +42,15 @@ export class ProjectCreate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ProjectCreateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ProjectCreateAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ProjectResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ProjectResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -57,8 +62,34 @@ export class ProjectCreate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProjectCreate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

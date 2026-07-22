@@ -6,19 +6,24 @@
 import { MonthlyCostAttributionBody } from "./MonthlyCostAttributionBody";
 import { MonthlyCostAttributionMeta } from "./MonthlyCostAttributionMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing the monthly cost attribution by tag(s).
- */
+*/
 export class MonthlyCostAttributionResponse {
   /**
    * Response containing cost attribution.
-   */
+  */
   "data"?: Array<MonthlyCostAttributionBody>;
   /**
    * The object containing document metadata.
-   */
+  */
   "meta"?: MonthlyCostAttributionMeta;
 
   /**
@@ -26,7 +31,7 @@ export class MonthlyCostAttributionResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class MonthlyCostAttributionResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<MonthlyCostAttributionBody>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<MonthlyCostAttributionBody>",
     },
-    meta: {
-      baseName: "meta",
-      type: "MonthlyCostAttributionMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "MonthlyCostAttributionMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class MonthlyCostAttributionResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonthlyCostAttributionResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Jira issue creation attributes
- */
+*/
 export class JiraIssueCreateAttributes {
   /**
    * Additional Jira fields
-   */
-  "fields"?: { [key: string]: any };
+  */
+  "fields"?: { [key: string]: any; };
   /**
    * Jira issue type ID
-   */
+  */
   "issueTypeId": string;
   /**
    * Jira account ID
-   */
+  */
   "jiraAccountId": string;
   /**
    * Jira project ID
-   */
+  */
   "projectId": string;
 
   /**
@@ -32,7 +37,7 @@ export class JiraIssueCreateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,24 +48,24 @@ export class JiraIssueCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    fields: {
-      baseName: "fields",
-      type: "{ [key: string]: any; }",
+    "fields": {
+      "baseName": "fields",
+      "type": "{ [key: string]: any; }",
     },
-    issueTypeId: {
-      baseName: "issue_type_id",
-      type: "string",
-      required: true,
+    "issueTypeId": {
+      "baseName": "issue_type_id",
+      "type": "string",
+      "required": true,
     },
-    jiraAccountId: {
-      baseName: "jira_account_id",
-      type: "string",
-      required: true,
+    "jiraAccountId": {
+      "baseName": "jira_account_id",
+      "type": "string",
+      "required": true,
     },
-    projectId: {
-      baseName: "project_id",
-      type: "string",
-      required: true,
+    "projectId": {
+      "baseName": "project_id",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -72,8 +77,34 @@ export class JiraIssueCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return JiraIssueCreateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

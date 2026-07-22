@@ -5,15 +5,20 @@
  */
 import { McpScanRequestResponseData } from "./McpScanRequestResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The top-level response object returned when an MCP SCA dependency scan request has been accepted.
- */
+*/
 export class McpScanRequestResponse {
   /**
    * The data object returned when a scan request has been accepted.
-   */
+  */
   "data": McpScanRequestResponseData;
 
   /**
@@ -21,7 +26,7 @@ export class McpScanRequestResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class McpScanRequestResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "McpScanRequestResponseData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "McpScanRequestResponseData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class McpScanRequestResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return McpScanRequestResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { User } from "./User";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A Datadog User.
- */
+*/
 export class UserResponse {
   /**
    * Create, edit, and disable users.
-   */
+  */
   "user"?: User;
 
   /**
@@ -21,7 +26,7 @@ export class UserResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class UserResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    user: {
-      baseName: "user",
-      type: "User",
+    "user": {
+      "baseName": "user",
+      "type": "User",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class UserResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UserResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

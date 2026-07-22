@@ -5,15 +5,20 @@
  */
 import { UsageFargateHour } from "./UsageFargateHour";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing the number of Fargate tasks run and hourly usage.
- */
+*/
 export class UsageFargateResponse {
   /**
    * Array with the number of hourly Fargate tasks recorded for a given organization.
-   */
+  */
   "usage"?: Array<UsageFargateHour>;
 
   /**
@@ -21,7 +26,7 @@ export class UsageFargateResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class UsageFargateResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageFargateHour>",
+    "usage": {
+      "baseName": "usage",
+      "type": "Array<UsageFargateHour>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class UsageFargateResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageFargateResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

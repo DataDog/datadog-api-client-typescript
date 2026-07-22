@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A supported value for an enumerated parameter.
- */
+*/
 export class GovernanceControlSupportedValue {
   /**
    * The human-readable label for the value.
-   */
+  */
   "label": string;
   /**
    * The machine-readable value.
-   */
+  */
   "value": string;
 
   /**
@@ -24,7 +29,7 @@ export class GovernanceControlSupportedValue {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -35,15 +40,15 @@ export class GovernanceControlSupportedValue {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    label: {
-      baseName: "label",
-      type: "string",
-      required: true,
+    "label": {
+      "baseName": "label",
+      "type": "string",
+      "required": true,
     },
-    value: {
-      baseName: "value",
-      type: "string",
-      required: true,
+    "value": {
+      "baseName": "value",
+      "type": "string",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class GovernanceControlSupportedValue {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GovernanceControlSupportedValue.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

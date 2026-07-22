@@ -6,19 +6,24 @@
 import { AppFavoriteType } from "./AppFavoriteType";
 import { UpdateAppFavoriteRequestDataAttributes } from "./UpdateAppFavoriteRequestDataAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data for updating an app's favorite status.
- */
+*/
 export class UpdateAppFavoriteRequestData {
   /**
    * Attributes for updating an app's favorite status.
-   */
+  */
   "attributes"?: UpdateAppFavoriteRequestDataAttributes;
   /**
    * The favorite resource type.
-   */
+  */
   "type"?: AppFavoriteType;
 
   /**
@@ -26,7 +31,7 @@ export class UpdateAppFavoriteRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class UpdateAppFavoriteRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "UpdateAppFavoriteRequestDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "UpdateAppFavoriteRequestDataAttributes",
     },
-    type: {
-      baseName: "type",
-      type: "AppFavoriteType",
+    "type": {
+      "baseName": "type",
+      "type": "AppFavoriteType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class UpdateAppFavoriteRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateAppFavoriteRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

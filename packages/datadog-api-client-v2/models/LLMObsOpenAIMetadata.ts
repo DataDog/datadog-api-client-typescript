@@ -6,19 +6,24 @@
 import { LLMObsOpenAIReasoningEffort } from "./LLMObsOpenAIReasoningEffort";
 import { LLMObsOpenAIReasoningSummary } from "./LLMObsOpenAIReasoningSummary";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * OpenAI-specific metadata for an inference request.
- */
+*/
 export class LLMObsOpenAIMetadata {
   /**
    * The reasoning effort level for OpenAI models that support it.
-   */
+  */
   "reasoningEffort"?: LLMObsOpenAIReasoningEffort;
   /**
    * The verbosity of the reasoning summary.
-   */
+  */
   "reasoningSummary"?: LLMObsOpenAIReasoningSummary;
 
   /**
@@ -26,7 +31,7 @@ export class LLMObsOpenAIMetadata {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -37,13 +42,13 @@ export class LLMObsOpenAIMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    reasoningEffort: {
-      baseName: "reasoning_effort",
-      type: "LLMObsOpenAIReasoningEffort",
+    "reasoningEffort": {
+      "baseName": "reasoning_effort",
+      "type": "LLMObsOpenAIReasoningEffort",
     },
-    reasoningSummary: {
-      baseName: "reasoning_summary",
-      type: "LLMObsOpenAIReasoningSummary",
+    "reasoningSummary": {
+      "baseName": "reasoning_summary",
+      "type": "LLMObsOpenAIReasoningSummary",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,8 +60,34 @@ export class LLMObsOpenAIMetadata {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LLMObsOpenAIMetadata.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

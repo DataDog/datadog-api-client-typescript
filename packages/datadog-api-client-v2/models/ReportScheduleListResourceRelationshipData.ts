@@ -5,19 +5,24 @@
  */
 import { ReportScheduleIncludedResourceType } from "./ReportScheduleIncludedResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationship data for the report target resource.
- */
+*/
 export class ReportScheduleListResourceRelationshipData {
   /**
    * The resource identifier.
-   */
+  */
   "id": string;
   /**
    * JSON:API resource type for an included report resource.
-   */
+  */
   "type": ReportScheduleIncludedResourceType;
 
   /**
@@ -25,7 +30,7 @@ export class ReportScheduleListResourceRelationshipData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -36,15 +41,15 @@ export class ReportScheduleListResourceRelationshipData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ReportScheduleIncludedResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ReportScheduleIncludedResourceType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,8 +61,34 @@ export class ReportScheduleListResourceRelationshipData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ReportScheduleListResourceRelationshipData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

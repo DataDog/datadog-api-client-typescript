@@ -6,23 +6,28 @@
 import { RevertCustomRuleRevisionDataType } from "./RevertCustomRuleRevisionDataType";
 import { RevertCustomRuleRevisionRequestDataAttributes } from "./RevertCustomRuleRevisionRequestDataAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for a request to revert a custom rule to a previous revision.
- */
+*/
 export class RevertCustomRuleRevisionRequestData {
   /**
    * Attributes specifying the current and target revision IDs for a revert operation.
-   */
+  */
   "attributes"?: RevertCustomRuleRevisionRequestDataAttributes;
   /**
    * Request identifier
-   */
+  */
   "id"?: string;
   /**
    * Request type
-   */
+  */
   "type"?: RevertCustomRuleRevisionDataType;
 
   /**
@@ -30,7 +35,7 @@ export class RevertCustomRuleRevisionRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class RevertCustomRuleRevisionRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RevertCustomRuleRevisionRequestDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "RevertCustomRuleRevisionRequestDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "RevertCustomRuleRevisionDataType",
+    "type": {
+      "baseName": "type",
+      "type": "RevertCustomRuleRevisionDataType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class RevertCustomRuleRevisionRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RevertCustomRuleRevisionRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

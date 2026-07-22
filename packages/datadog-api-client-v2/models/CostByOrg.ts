@@ -6,23 +6,28 @@
 import { CostByOrgAttributes } from "./CostByOrgAttributes";
 import { CostByOrgType } from "./CostByOrgType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Cost data.
- */
+*/
 export class CostByOrg {
   /**
    * Cost attributes data.
-   */
+  */
   "attributes"?: CostByOrgAttributes;
   /**
    * Unique ID of the response.
-   */
+  */
   "id"?: string;
   /**
    * Type of cost data.
-   */
+  */
   "type"?: CostByOrgType;
 
   /**
@@ -30,7 +35,7 @@ export class CostByOrg {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,17 +46,17 @@ export class CostByOrg {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CostByOrgAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CostByOrgAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "CostByOrgType",
+    "type": {
+      "baseName": "type",
+      "type": "CostByOrgType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class CostByOrg {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CostByOrg.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

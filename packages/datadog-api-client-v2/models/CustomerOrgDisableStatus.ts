@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Resulting lifecycle status of the organization after the disable action.
- */
+*/
 
-export type CustomerOrgDisableStatus =
-  | typeof DISABLED
-  | typeof PENDING_DISABLE
-  | UnparsedObject;
-export const DISABLED = "disabled";
-export const PENDING_DISABLE = "pending_disable";
+export type CustomerOrgDisableStatus = typeof DISABLED| typeof PENDING_DISABLE | UnparsedObject;
+export const DISABLED = 'disabled';
+export const PENDING_DISABLE = 'pending_disable';

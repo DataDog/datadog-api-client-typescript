@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Monitor integration settings.
- */
+*/
 export class IntegrationMonitor {
   /**
    * Whether auto-resolve is enabled.
-   */
+  */
   "autoResolveEnabled"?: boolean;
   /**
    * Case type ID for monitor integration.
-   */
+  */
   "caseTypeId"?: string;
   /**
    * Whether monitor integration is enabled.
-   */
+  */
   "enabled"?: boolean;
   /**
    * Monitor handle.
-   */
+  */
   "handle"?: string;
 
   /**
@@ -32,7 +37,7 @@ export class IntegrationMonitor {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -43,21 +48,21 @@ export class IntegrationMonitor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    autoResolveEnabled: {
-      baseName: "auto_resolve_enabled",
-      type: "boolean",
+    "autoResolveEnabled": {
+      "baseName": "auto_resolve_enabled",
+      "type": "boolean",
     },
-    caseTypeId: {
-      baseName: "case_type_id",
-      type: "string",
+    "caseTypeId": {
+      "baseName": "case_type_id",
+      "type": "string",
     },
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
+    "enabled": {
+      "baseName": "enabled",
+      "type": "boolean",
     },
-    handle: {
-      baseName: "handle",
-      type: "string",
+    "handle": {
+      "baseName": "handle",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -69,8 +74,34 @@ export class IntegrationMonitor {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IntegrationMonitor.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

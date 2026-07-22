@@ -5,15 +5,20 @@
  */
 import { AWSEventBridgeListResponseData } from "./AWSEventBridgeListResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Amazon EventBridge list response body.
- */
+*/
 export class AWSEventBridgeListResponse {
   /**
    * Amazon EventBridge list response data.
-   */
+  */
   "data": AWSEventBridgeListResponseData;
 
   /**
@@ -21,7 +26,7 @@ export class AWSEventBridgeListResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,10 +37,10 @@ export class AWSEventBridgeListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "AWSEventBridgeListResponseData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "AWSEventBridgeListResponseData",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,8 +52,34 @@ export class AWSEventBridgeListResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSEventBridgeListResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

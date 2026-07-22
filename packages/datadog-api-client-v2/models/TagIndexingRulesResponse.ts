@@ -7,23 +7,28 @@ import { MetricsListResponseLinks } from "./MetricsListResponseLinks";
 import { TagIndexingRuleData } from "./TagIndexingRuleData";
 import { TagIndexingRulesResponseMeta } from "./TagIndexingRulesResponseMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing a page of tag indexing rules.
- */
+*/
 export class TagIndexingRulesResponse {
   /**
    * Array of tag indexing rule objects.
-   */
+  */
   "data"?: Array<TagIndexingRuleData>;
   /**
    * Pagination links. Only present if pagination query parameters were provided.
-   */
+  */
   "links"?: MetricsListResponseLinks;
   /**
    * Pagination metadata for a list of tag indexing rules.
-   */
+  */
   "meta"?: TagIndexingRulesResponseMeta;
 
   /**
@@ -31,7 +36,7 @@ export class TagIndexingRulesResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,17 +47,17 @@ export class TagIndexingRulesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<TagIndexingRuleData>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<TagIndexingRuleData>",
     },
-    links: {
-      baseName: "links",
-      type: "MetricsListResponseLinks",
+    "links": {
+      "baseName": "links",
+      "type": "MetricsListResponseLinks",
     },
-    meta: {
-      baseName: "meta",
-      type: "TagIndexingRulesResponseMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "TagIndexingRulesResponseMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,8 +69,34 @@ export class TagIndexingRulesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TagIndexingRulesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,23 +5,28 @@
  */
 import { IoCTriageState } from "./IoCTriageState";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A single entry in an indicator's triage history timeline.
- */
+*/
 export class IoCTriageEvent {
   /**
    * Current triage state of the indicator.
-   */
+  */
   "triageState"?: IoCTriageState;
   /**
    * Timestamp when this triage action occurred.
-   */
+  */
   "triagedAt"?: Date;
   /**
    * UUID of the user who performed this triage action.
-   */
+  */
   "triagedBy"?: string;
 
   /**
@@ -29,7 +34,7 @@ export class IoCTriageEvent {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -40,18 +45,18 @@ export class IoCTriageEvent {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    triageState: {
-      baseName: "triage_state",
-      type: "IoCTriageState",
+    "triageState": {
+      "baseName": "triage_state",
+      "type": "IoCTriageState",
     },
-    triagedAt: {
-      baseName: "triaged_at",
-      type: "Date",
-      format: "date-time",
+    "triagedAt": {
+      "baseName": "triaged_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    triagedBy: {
-      baseName: "triaged_by",
-      type: "string",
+    "triagedBy": {
+      "baseName": "triaged_by",
+      "type": "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,8 +68,34 @@ export class IoCTriageEvent {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IoCTriageEvent.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

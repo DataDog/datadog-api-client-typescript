@@ -6,23 +6,28 @@
 import { NotificationChannelEmailConfigType } from "./NotificationChannelEmailConfigType";
 import { NotificationChannelEmailFormatType } from "./NotificationChannelEmailFormatType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Email notification channel configuration
- */
+*/
 export class NotificationChannelEmailConfig {
   /**
    * The e-mail address to be notified
-   */
+  */
   "address": string;
   /**
    * Preferred content formats for notifications.
-   */
+  */
   "formats": Array<NotificationChannelEmailFormatType>;
   /**
    * Indicates that the notification channel is an e-mail address
-   */
+  */
   "type": NotificationChannelEmailConfigType;
 
   /**
@@ -30,7 +35,7 @@ export class NotificationChannelEmailConfig {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class NotificationChannelEmailConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    address: {
-      baseName: "address",
-      type: "string",
-      required: true,
+    "address": {
+      "baseName": "address",
+      "type": "string",
+      "required": true,
     },
-    formats: {
-      baseName: "formats",
-      type: "Array<NotificationChannelEmailFormatType>",
-      required: true,
+    "formats": {
+      "baseName": "formats",
+      "type": "Array<NotificationChannelEmailFormatType>",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "NotificationChannelEmailConfigType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "NotificationChannelEmailConfigType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class NotificationChannelEmailConfig {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return NotificationChannelEmailConfig.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

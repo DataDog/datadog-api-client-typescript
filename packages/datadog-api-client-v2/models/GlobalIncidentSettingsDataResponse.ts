@@ -6,23 +6,28 @@
 import { GlobalIncidentSettingsAttributesResponse } from "./GlobalIncidentSettingsAttributesResponse";
 import { GlobalIncidentSettingsType } from "./GlobalIncidentSettingsType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object in the global incident settings response.
- */
+*/
 export class GlobalIncidentSettingsDataResponse {
   /**
    * Global incident settings attributes
-   */
+  */
   "attributes": GlobalIncidentSettingsAttributesResponse;
   /**
    * The unique identifier for the global incident settings
-   */
+  */
   "id": string;
   /**
    * Global incident settings resource type
-   */
+  */
   "type": GlobalIncidentSettingsType;
 
   /**
@@ -30,7 +35,7 @@ export class GlobalIncidentSettingsDataResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -41,20 +46,20 @@ export class GlobalIncidentSettingsDataResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "GlobalIncidentSettingsAttributesResponse",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "GlobalIncidentSettingsAttributesResponse",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "GlobalIncidentSettingsType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "GlobalIncidentSettingsType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,8 +71,34 @@ export class GlobalIncidentSettingsDataResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GlobalIncidentSettingsDataResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

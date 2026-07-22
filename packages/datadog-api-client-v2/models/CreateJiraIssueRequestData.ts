@@ -7,23 +7,28 @@ import { CreateJiraIssueRequestDataAttributes } from "./CreateJiraIssueRequestDa
 import { CreateJiraIssueRequestDataRelationships } from "./CreateJiraIssueRequestDataRelationships";
 import { JiraIssuesDataType } from "./JiraIssuesDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data of the Jira issue to create.
- */
+*/
 export class CreateJiraIssueRequestData {
   /**
    * Attributes of the Jira issue to create.
-   */
+  */
   "attributes"?: CreateJiraIssueRequestDataAttributes;
   /**
    * Relationships of the Jira issue to create.
-   */
+  */
   "relationships"?: CreateJiraIssueRequestDataRelationships;
   /**
    * Jira issues resource type.
-   */
+  */
   "type": JiraIssuesDataType;
 
   /**
@@ -31,7 +36,7 @@ export class CreateJiraIssueRequestData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -42,18 +47,18 @@ export class CreateJiraIssueRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CreateJiraIssueRequestDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CreateJiraIssueRequestDataAttributes",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "CreateJiraIssueRequestDataRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "CreateJiraIssueRequestDataRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "JiraIssuesDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "JiraIssuesDataType",
+      "required": true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,8 +70,34 @@ export class CreateJiraIssueRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateJiraIssueRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

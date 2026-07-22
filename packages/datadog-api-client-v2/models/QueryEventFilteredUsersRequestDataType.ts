@@ -4,14 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Query event filtered users request resource type.
- */
+*/
 
-export type QueryEventFilteredUsersRequestDataType =
-  | typeof QUERY_EVENT_FILTERED_USERS_REQUEST
-  | UnparsedObject;
-export const QUERY_EVENT_FILTERED_USERS_REQUEST =
-  "query_event_filtered_users_request";
+export type QueryEventFilteredUsersRequestDataType = typeof QUERY_EVENT_FILTERED_USERS_REQUEST | UnparsedObject;
+export const QUERY_EVENT_FILTERED_USERS_REQUEST = 'query_event_filtered_users_request';

@@ -5,15 +5,20 @@
  */
 import { AnonymizeUsersResponseData } from "./AnonymizeUsersResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing the result of an anonymize users request.
- */
+*/
 export class AnonymizeUsersResponse {
   /**
    * Response data for anonymizing users.
-   */
+  */
   "data"?: AnonymizeUsersResponseData;
 
   /**
@@ -21,7 +26,7 @@ export class AnonymizeUsersResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
 
   /**
    * @ignore
@@ -32,9 +37,9 @@ export class AnonymizeUsersResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "AnonymizeUsersResponseData",
+    "data": {
+      "baseName": "data",
+      "type": "AnonymizeUsersResponseData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,8 +51,34 @@ export class AnonymizeUsersResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AnonymizeUsersResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+
