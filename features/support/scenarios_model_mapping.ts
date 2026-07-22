@@ -9762,6 +9762,25 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SAMLConfigurationResponse",
     },
+    "v2.GetGovernanceConfig": {
+        "operationResponseType": "GovernanceConfigResponse",
+    },
+    "v2.ListGovernanceLimits": {
+        "operationResponseType": "GovernanceLimitsResponse",
+    },
+    "v2.GetGovernanceNotificationSettings": {
+        "operationResponseType": "GovernanceNotificationSettingsResponse",
+    },
+    "v2.UpdateGovernanceNotificationSettings": {
+        "body": {
+            "type": "GovernanceNotificationSettingsUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "GovernanceNotificationSettingsResponse",
+    },
+    "v2.ListGovernanceResourceLimits": {
+        "operationResponseType": "GovernanceResourceLimitsResponse",
+    },
     "v2.ListGovernanceControls": {
         "operationResponseType": "GovernanceControlsResponse",
     },
@@ -9782,6 +9801,84 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "GovernanceControlResponse",
+    },
+    "v2.ListGovernanceControlDetections": {
+        "detectionType": {
+            "type": "string",
+            "format": "",
+            },
+        "filterState": {
+            "type": "string",
+            "format": "",
+            },
+        "filterQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "GovernanceControlDetectionsResponse",
+    },
+    "v2.GetGovernanceControlDetection": {
+        "detectionType": {
+            "type": "string",
+            "format": "",
+            },
+        "detectionId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "GovernanceControlDetectionResponse",
+    },
+    "v2.UpdateGovernanceControlDetection": {
+        "detectionType": {
+            "type": "string",
+            "format": "",
+            },
+        "detectionId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "GovernanceControlDetectionUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "GovernanceControlDetectionResponse",
+    },
+    "v2.GetGovernanceControlNotificationSettings": {
+        "detectionType": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ControlNotificationSettingsResponse",
+    },
+    "v2.UpdateGovernanceControlNotificationSettings": {
+        "detectionType": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ControlNotificationSettingsUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ControlNotificationSettingsResponse",
+    },
+    "v2.CreateGovernanceMitigation": {
+        "body": {
+            "type": "GovernanceMitigationRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.ListGovernanceInsights": {
         "withValues": {
